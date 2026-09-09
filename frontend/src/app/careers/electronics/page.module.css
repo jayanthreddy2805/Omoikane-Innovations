@@ -1,0 +1,546 @@
+/* bespoke Mechanical Careers CSS */
+
+.bespokeContainer {
+  /* Software deep blue-black theme per user request */
+  --surf-hero: #0A0F16; 
+  --surf-index: #0A0F16;
+  --surf-content: #0d1420;
+  --surf-tech: #111827;
+  --surf-apply: #0A0F16;
+  
+  --bg-primary: var(--surf-apply);
+  
+  --accent-cyan: #36CFF6;
+  --text-primary: #F0F2F5;
+  --text-muted: #A1A1AA;
+  --border-subtle: rgba(255, 255, 255, 0.2);
+  
+  background: var(--surf-hero);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-family: var(--font-inter);
+}
+
+/* 0. HERO SECTION */
+.heroSection {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 5% 0;
+  overflow: hidden;
+  background: var(--surf-hero);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.heroVisualFullHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroImageBg {
+  object-fit: cover;
+  object-position: center 30%;
+  mix-blend-mode: luminosity;
+  opacity: 0.6;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 10, 16, 0.2) 0%,
+    rgba(7, 10, 16, 0.8) 70%,
+    var(--surf-hero) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.headline {
+  font-family: var(--font-space-grotesk);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 2rem;
+}
+
+.heroSub {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #D1D5DB;
+  max-width: 650px;
+}
+
+/* 1. COMPACT STICKY SWITCHER */
+.stickyNavContainer {
+  position: fixed;
+  top: 80px; /* Assuming header is around 80px */
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background: var(--surf-index);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 100;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stickyNavContainer.stickyNavVisible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stickyNavInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  height: 100%;
+}
+
+.stickyBtn {
+  background: none;
+  border: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-family: var(--font-space-grotesk);
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.stickyBtn:hover {
+  color: #fff;
+}
+
+.stickyNumber {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.stickyBtnActive {
+  color: #fff;
+}
+
+.stickyBtnActive .stickyNumber {
+  color: var(--accent-cyan);
+}
+
+.stickyBtnActive::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-cyan);
+}
+
+/* 2. FULL HORIZONTAL ROLE INDEX */
+.roleIndexSection {
+  background: var(--surf-index);
+  padding: 4rem 5%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.indexWrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.indexHorizontal {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .indexHorizontal {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
+}
+
+.indexCol {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 0 1.5rem 0;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.colNumber {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+
+.colText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.colTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  transition: color 0.3s;
+}
+
+.colSubtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ACTIVE STATE FOR HORIZONTAL INDEX */
+.indexColActive .colNumber {
+  color: var(--accent-cyan);
+}
+
+.indexColActive .colTitle {
+  color: #fff;
+}
+
+.indexColActive::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-cyan);
+}
+
+
+/* 3. ROLE DISPLAY SECTION */
+.roleDisplaySection {
+  background: var(--surf-content);
+  padding: 6rem 5%;
+}
+
+.roleContentWrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* INTRO */
+.roleIntro {
+  max-width: 800px;
+  margin-bottom: 4rem;
+}
+
+.roleIdentityEyebrow {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.roleIdentityTitle {
+  font-family: var(--font-space-grotesk);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.roleIdentitySubtitle {
+  font-size: 1.25rem;
+  color: var(--accent-cyan);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.roleIdentityDesc {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #D1D5DB;
+}
+
+/* CINEMATIC HERO IMAGE */
+.roleCinematicVisual {
+  position: relative;
+  width: 85%; /* As requested: 70-90% of main content */
+  aspect-ratio: 21/9;
+  background: #111;
+  margin-bottom: 6rem;
+}
+
+.cinematicImage {
+  object-fit: cover;
+  mix-blend-mode: normal; /* Natural lighting as requested, no heavy filters */
+  opacity: 0.95;
+}
+
+@media (max-width: 1024px) {
+  .roleCinematicVisual {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+}
+
+/* EDITORIAL SECTIONS (The Work, Tech, Skills) */
+.editorialSection {
+  background: var(--surf-tech);
+  padding: 4rem;
+  margin-bottom: 2rem;
+  width: 85%;
+}
+
+@media (max-width: 1024px) {
+  .editorialSection {
+    width: 100%;
+    padding: 2rem;
+  }
+}
+
+.editorialHeader {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.editorialDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 3rem;
+}
+
+/* THE WORK LIST */
+.workList {
+  display: flex;
+  flex-direction: column;
+}
+
+.workRow {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease;
+}
+
+.workRow:last-child {
+  border-bottom: none;
+}
+
+.workRow:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.workRowNumber {
+  font-family: var(--font-space-grotesk);
+  font-size: 1rem;
+  color: var(--accent-cyan);
+  min-width: 2rem;
+}
+
+.workRowContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.workRowMain {
+  font-size: 1.15rem;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.workRowSub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* TECHNOLOGIES LIST */
+.techList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.techItem {
+  font-size: 1.05rem;
+  color: #E5E7EB;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.techItem::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
+/* TECHNICAL SPECIFICATIONS GRID */
+.specsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4rem;
+}
+
+@media (min-width: 768px) {
+  .specsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.specColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.specCategoryLabel {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.specThinRule {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.specItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.specItems li {
+  font-size: 0.95rem;
+  color: #D1D5DB;
+}
+
+/* CTA */
+.roleFooterActions {
+  margin-top: 4rem;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .roleFooterActions {
+    width: 100%;
+  }
+}
+
+.applyActionContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .applyActionContainer {
+    justify-content: flex-start;
+  }
+}
+
+.premiumApplyBtn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.25rem 2.5rem;
+  font-family: var(--font-space-grotesk);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.premiumApplyBtn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.premiumApplyBtn:hover .arrow {
+  transform: translateX(5px);
+}

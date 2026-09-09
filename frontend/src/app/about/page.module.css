@@ -1,0 +1,96 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  min-height: 80vh;
+}
+
+.pageHeader {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.divider {
+  height: 2px;
+  width: 60px;
+  background-color: var(--accent);
+  margin: 0 auto;
+}
+
+.missionSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+.contentCard {
+  background-color: var(--bg-secondary);
+  border-left: 4px solid var(--accent);
+  padding: 2.5rem;
+  border-radius: 4px;
+}
+
+.sectionTitle {
+  font-family: var(--font-space-grotesk);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.text {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.statsSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 3rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.statBox {
+  text-align: center;
+}
+
+.statValue {
+  font-family: var(--font-space-grotesk);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px rgba(0, 194, 255, 0.3);
+}
+
+.statLabel {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Media Queries for Desktop */
+@media (min-width: 768px) {
+  .missionSection {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .statsSection {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
