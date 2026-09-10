@@ -2,10 +2,12 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Check } from 'lucide-react';
 import styles from './CustomSelect.module.css';
 
 export default function CustomSelect({ options, value, onChange, placeholder = "Select an option" }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [focusedIndex, setFocusedIndex] = useState(-1);
   const dropdownRef = useRef(null);
 
   const selectedOption = options.find(opt => opt.id === value);
@@ -20,27 +22,73 @@ export default function CustomSelect({ options, value, onChange, placeholder = "
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      if (value) {
+        const idx = options.findIndex(opt => opt.id === value);
+        setFocusedIndex(idx !== -1 ? idx : 0);
+      } else {
+        setFocusedIndex(0);
+      }
+    }
+  }, [isOpen, value, options]);
+
+  const handleKeyDown = (e) => {
+    if (!isOpen) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        setIsOpen(true);
+      }
+      return;
+    }
+
+    switch (e.key) {
+      case 'Escape':
+        setIsOpen(false);
+        break;
+      case 'ArrowDown':
+        e.preventDefault();
+        setFocusedIndex(prev => (prev < options.length - 1 ? prev + 1 : prev));
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setFocusedIndex(prev => (prev > 0 ? prev - 1 : prev));
+        break;
+      case 'Enter':
+      case ' ':
+        e.preventDefault();
+        if (focusedIndex >= 0 && focusedIndex < options.length) {
+          onChange(options[focusedIndex].id);
+          setIsOpen(false);
+        }
+        break;
+    }
+  };
+
   return (
-    <div className={styles.selectContainer} ref={dropdownRef}>
+    <div 
+      className={styles.selectContainer} 
+      ref={dropdownRef}
+      onKeyDown={handleKeyDown}
+    >
       <div 
         className={`${styles.selectTrigger} ${isOpen ? styles.open : ''} ${selectedOption ? styles.hasValue : ''}`}
         onClick={() => setIsOpen(!isOpen)}
+        tabIndex={0}
+        role="combobox"
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
       >
         <span className={styles.selectValue}>
           {selectedOption ? selectedOption.label : placeholder}
         </span>
         <div className={styles.chevron}>
-          <motion.svg 
-            width="14" 
-            height="14" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
+          <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
-            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </motion.svg>
+            <ChevronDown size={16} strokeWidth={2} />
+          </motion.div>
         </div>
       </div>
 
@@ -48,38 +96,32 @@ export default function CustomSelect({ options, value, onChange, placeholder = "
         {isOpen && (
           <motion.div 
             className={styles.optionsDropdown}
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10, transition: { duration: 0.15 } }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.2 }}
+            role="listbox"
           >
-            <motion.div 
-              className={styles.optionsScroll}
-              initial="hidden"
-              animate="visible"
-              variants={{
-                visible: { transition: { staggerChildren: 0.05 } },
-                hidden: {}
-              }}
-            >
-              {options.map((option) => (
-                <motion.div
+            <div className={styles.optionsScroll}>
+              {options.map((option, index) => (
+                <div
                   key={option.id}
-                  variants={{
-                    hidden: { opacity: 0, x: -10 },
-                    visible: { opacity: 1, x: 0 }
-                  }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className={`${styles.optionItem} ${value === option.id ? styles.selected : ''}`}
+                  role="option"
+                  aria-selected={value === option.id}
+                  className={`${styles.optionItem} ${value === option.id ? styles.selected : ''} ${focusedIndex === index ? styles.focused : ''}`}
                   onClick={() => {
                     onChange(option.id);
                     setIsOpen(false);
                   }}
+                  onMouseEnter={() => setFocusedIndex(index)}
                 >
-                  {option.label}
-                </motion.div>
+                  <span className={styles.optionLabel}>{option.label}</span>
+                  {value === option.id && (
+                    <Check size={14} strokeWidth={2.5} className={styles.checkIcon} />
+                  )}
+                </div>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

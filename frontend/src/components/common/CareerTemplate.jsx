@@ -2,9 +2,15 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Upload, Building, MapPin, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import styles from './CareerTemplate.module.css';
 import CustomSelect from '@/components/common/CustomSelect';
+import FileUpload from '@/components/common/FileUpload';
+import SubmitButton from '@/components/common/SubmitButton';
+import FormSuccessState from '@/components/common/FormSuccessState';
+import { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/v-field-21-utils/field';
+import { Input } from '@/components/ui/v-field-21-utils/input';
 
 export default function CareerTemplate({ data }) {
   const {
@@ -21,6 +27,16 @@ export default function CareerTemplate({ data }) {
   const [activeRole, setActiveRole] = useState(roles[0]);
   const [formRole, setFormRole] = useState("");
   const [hoveredCapability, setHoveredCapability] = useState(null);
+  const [submitStatus, setSubmitStatus] = useState("idle");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitStatus("submitting");
+    // Simulate network request
+    setTimeout(() => {
+      setSubmitStatus("success");
+    }, 1500);
+  };
 
   return (
     <div className={styles.pageContainer} data-theme={theme}>
@@ -165,7 +181,11 @@ export default function CareerTemplate({ data }) {
                       className={styles.premiumApplyBtn}
                       onClick={() => {
                         setFormRole(activeRole.id);
-                        document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+                        const el = document.getElementById('apply');
+                        if (el) {
+                          const y = el.getBoundingClientRect().top + window.scrollY - 100;
+                          window.scrollTo({ top: y, behavior: 'smooth' });
+                        }
                       }}
                     >
                       APPLY FOR THIS ROLE →
@@ -240,96 +260,110 @@ export default function CareerTemplate({ data }) {
 
       {/* F. GENERAL APPLICATION CTA / FORM */}
       <section id="apply" className={styles.applicationSection}>
-        <div className={styles.applyLayout}>
-          <div className={styles.applyText}>
-            <h2>WORK WITH US</h2>
-            
-            <div className={styles.contactDivider}></div>
+        <AnimatePresence mode="wait">
+          {submitStatus !== "success" ? (
+            <motion.div 
+              key="form-layout"
+              className={styles.applyLayout}
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+            >
+              <div className={styles.applyText}>
+                <h2>WORK WITH US</h2>
+                
+                <div className={styles.contactDivider}></div>
 
-            <div className={styles.contactIndex}>
-              <div className={styles.contactIndexTitle}>
-                <a href="mailto:careers@omoikaneinnovations.com">CONTACT OUR TEAM <span>&rarr;</span></a>
-              </div>
+                <div className={styles.contactIndex}>
+                  <div className={styles.contactIndexTitle}>
+                    <a href="mailto:careers@omoikaneinnovations.com">CONTACT OUR TEAM <span>&rarr;</span></a>
+                  </div>
 
-              <div className={styles.contactGrid}>
-                <div className={styles.contactGroup}>
-                  <h4>OFFICE</h4>
-                  <p>Monday–Friday<br/>9:00 am – 6:00 pm</p>
-                </div>
+                  <div className={styles.contactGrid}>
+                    <div className={styles.contactGroup}>
+                      <h4><Building size={16} strokeWidth={2} /> OFFICE</h4>
+                      <p>Monday–Friday<br/>9:00 am – 6:00 pm</p>
+                    </div>
 
-                <div className={styles.contactGroup}>
-                  <h4>LOCATION</h4>
-                  <p>Bangalore, India</p>
-                </div>
+                    <div className={styles.contactGroup}>
+                      <h4><MapPin size={16} strokeWidth={2} /> LOCATION</h4>
+                      <p>Bangalore, India</p>
+                    </div>
 
-                <div className={styles.contactGroup}>
-                  <h4>EMAIL</h4>
-                  <a href="mailto:info@omoikaneinnovations.com">info@omoikaneinnovations.com</a>
-                  <a href="mailto:bd@omoikaneinnovations.com">bd@omoikaneinnovations.com</a>
-                </div>
+                    <div className={styles.contactGroup}>
+                      <h4><Mail size={16} strokeWidth={2} /> EMAIL</h4>
+                      <a href="mailto:info@omoikaneinnovations.com">info@omoikaneinnovations.com</a>
+                      <a href="mailto:bd@omoikaneinnovations.com">bd@omoikaneinnovations.com</a>
+                    </div>
 
-                <div className={styles.contactGroup}>
-                  <h4>PHONE</h4>
-                  <a href="tel:+918861035848">+91-8861035848</a>
-                  <a href="tel:+919353627825">+91-9353627825</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className={styles.applyFormContainer}>
-            <form className={styles.formElement}>
-              <div className={styles.formRow}>
-                <div className={styles.inputGroup}>
-                  <label htmlFor="name">Name</label>
-                  <input type="text" id="name" required />
-                </div>
-                <div className={styles.inputGroup}>
-                  <label htmlFor="email">Email</label>
-                  <input type="email" id="email" required />
+                    <div className={styles.contactGroup}>
+                      <h4><Phone size={16} strokeWidth={2} /> PHONE</h4>
+                      <a href="tel:+918861035848">+91-8861035848</a>
+                      <a href="tel:+919353627825">+91-9353627825</a>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              <div className={styles.formRow}>
-                <div className={styles.inputGroup}>
-                  <label htmlFor="phone">Phone</label>
-                  <input type="tel" id="phone" required />
-                </div>
-                <div className={styles.inputGroup}>
-                  <label>Applying For</label>
-                  <CustomSelect 
-                    options={[
-                      ...roles.map(r => ({ id: r.id, label: r.title })),
-                      { id: 'other', label: 'Other' }
-                    ]}
-                    value={formRole}
-                    onChange={(val) => setFormRole(val)}
-                    placeholder="Select Role"
-                  />
-                </div>
-              </div>
+              <div className={styles.applyFormContainer}>
+                <form 
+                  className={styles.formElement} 
+                  onSubmit={handleSubmit}
+                >
+                  <div className={styles.formRow}>
+                    <div className={styles.inputGroup}>
+                      <label htmlFor="name">Name</label>
+                      <input type="text" id="name" required />
+                    </div>
+                    <div className={styles.inputGroup}>
+                      <label htmlFor="email">Email</label>
+                      <input type="email" id="email" required />
+                    </div>
+                  </div>
+                  
+                  <div className={styles.formRow}>
+                    <div className={styles.inputGroup}>
+                      <label htmlFor="phone">Phone</label>
+                      <input type="tel" id="phone" required />
+                    </div>
+                    <div className={styles.inputGroup}>
+                      <label>Applying For</label>
+                      <CustomSelect 
+                        options={[
+                          ...roles.map(r => ({ id: r.id, label: r.title })),
+                          { id: 'other', label: 'Other' }
+                        ]}
+                        value={formRole}
+                        onChange={(val) => setFormRole(val)}
+                        placeholder="Select Role"
+                      />
+                    </div>
+                  </div>
 
-              <div className={styles.inputGroup} style={{ marginTop: '1rem' }}>
-                <label>Upload CV (PDF/DOC)</label>
-                <div className={styles.fileDrop}>
-                  <input type="file" id="cv" required className={styles.hiddenFile} />
-                  <label htmlFor="cv" className={styles.fileDropLabel}>
-                    <span className={styles.fileDropText}>DROP YOUR CV HERE<br/>PDF / DOC / DOCX</span>
-                  </label>
-                </div>
-              </div>
+                  <div className={styles.inputGroup}>
+                    <FileUpload id="cv" required />
+                  </div>
 
-              <div className={styles.inputGroup} style={{ marginTop: '1rem' }}>
-                <label htmlFor="message">Message (Optional)</label>
-                <textarea id="message" rows={4}></textarea>
-              </div>
+                  <div className={styles.inputGroup}>
+                    <label htmlFor="message">Message (Optional)</label>
+                    <textarea id="message" rows={4}></textarea>
+                  </div>
 
-              <button type="submit" className={styles.submitBtn}>
-                SEND APPLICATION →
-              </button>
-            </form>
-          </div>
-        </div>
+                  <SubmitButton status={submitStatus} />
+                </form>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="success-layout"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              <FormSuccessState />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
     </div>

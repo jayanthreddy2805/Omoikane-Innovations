@@ -1,0 +1,154 @@
+/* ─────────────────────────────────────────────
+   SUCCESS STATE (POST-SUBMISSION)
+   Editorial Confirmation & Company Signature
+───────────────────────────────────────────── */
+
+.successContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 2.5rem 1.5rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  outline: none;
+}
+
+/* 1. CONFIRMATION CLUSTER */
+.confirmationCluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 580px;
+  margin-bottom: 5rem; /* Generous intentional whitespace break */
+}
+
+.successHeading {
+  font-family: var(--font-space-grotesk);
+  font-size: clamp(1.65rem, 3.5vw, 2.15rem); /* ~28-34px desktop, ~24-28px mobile */
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #F0F2F5;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 2.25rem;
+  max-width: 520px;
+}
+
+.successText {
+  font-family: var(--font-inter);
+  font-size: 1.05rem; /* ~16-17px */
+  line-height: 1.65;
+  color: var(--text-muted, #A1A1AA);
+  margin: 0;
+}
+
+.statusLine {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-space-grotesk);
+  font-size: 0.75rem; /* ~12px */
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--text-muted, #888888);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.statusArrow {
+  color: var(--accent-cyan, #36CFF6);
+  transition: transform 0.2s ease;
+}
+
+.statusLine:hover .statusArrow {
+  transform: translateX(4px);
+}
+
+/* 2. QUIET EDITORIAL COMPANY SIGNATURE */
+.signatureRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 720px;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  align-items: start;
+}
+
+.signatureCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+}
+
+.companyName {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #E4E4E7;
+  text-transform: uppercase;
+}
+
+.companyLocation {
+  font-family: var(--font-inter);
+  font-size: 0.82rem;
+  color: var(--text-muted, #71717A);
+}
+
+.signatureLink {
+  color: var(--text-muted, #71717A);
+  text-decoration: none;
+  font-family: var(--font-inter);
+  font-size: 0.82rem;
+  transition: color 0.2s ease;
+}
+
+.signatureLink:hover {
+  color: var(--accent-cyan, #36CFF6);
+}
+
+@media (max-width: 768px) {
+  .successContainer {
+    padding: 2rem 1rem 1.5rem 1rem;
+  }
+
+  .confirmationCluster {
+    margin-bottom: 3.5rem;
+  }
+  
+  .successHeading {
+    font-size: 1.5rem;
+  }
+  
+  .successText {
+    font-size: 0.95rem;
+  }
+
+  .signatureRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+    align-items: center;
+    max-width: 320px;
+  }
+
+  .signatureCol {
+    align-items: center;
+  }
+}

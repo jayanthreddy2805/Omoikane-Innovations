@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 2rem;
-  background-color: rgba(5, 11, 18, 0.9);
+  background-color: #050b12;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   position: sticky;
@@ -223,6 +223,7 @@
   cursor: pointer;
   transition: color 0.2s ease;
   white-space: nowrap;
+  margin-right: 20px;
 }
 
 .searchTrigger:hover {
@@ -291,7 +292,7 @@
   top: 77px;
   left: 0;
   right: 0;
-  background: rgba(5, 11, 18, 0.97);
+  background: #050b12;
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   display: flex;

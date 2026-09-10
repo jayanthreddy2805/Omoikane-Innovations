@@ -612,7 +612,8 @@
 
 /* SECTION F: FORM */
 .applicationSection {
-  padding: 8rem 5%;
+  scroll-margin-top: 100px;
+  padding: 3.5rem 5% 8rem 5%;
   background: var(--bg-primary);
 }
 
@@ -693,19 +694,15 @@
 
 .contactGroup h4 {
   font-family: var(--font-space-grotesk);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.4);
-  text-transform: uppercase;
-  margin-bottom: 0.15rem;
-}
-
-.contactGroup h4 {
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 1px;
-  color: #fff;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .contactGroup p,
@@ -854,34 +851,80 @@
   border-color: var(--accent-cyan);
 }
 
-.fileDrop {
-  position: relative;
+.uploadLabel {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary, #fff);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.65rem;
 }
 
-.hiddenFile {
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-}
-
-.fileDropLabel {
-  display: block;
-  padding: 3rem 1rem;
-  text-align: center;
-  border: 1px dashed var(--border-subtle);
+.fileInputRow {
+  display: flex;
+  align-items: center;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s ease;
-  word-wrap: break-word; /* Prevent long filename overflow */
+  transition: border-color 0.2s ease;
 }
 
-.fileDropLabel:hover {
-  border-color: var(--accent-cyan);
+.fileInputRow:hover {
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
-.fileDropText {
-  color: var(--text-muted);
-  font-size: 0.95rem;
+.chooseFileBtn {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.82rem;
+  font-family: var(--font-inter);
+  font-weight: 400;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  pointer-events: none; /* Row handles click */
+  transition: background 0.2s ease;
+}
+
+.fileNameDisplay {
+  flex: 1;
+  padding: 0 0.85rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clearFileBtn {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.6rem 0.85rem;
+  transition: color 0.2s ease;
+  pointer-events: all;
+}
+
+.clearFileBtn:hover {
+  color: #fff;
+}
+
+.nativeFileInput {
+  /* Completely hidden — only the custom row is visible */
+  display: none;
+}
+
+.fileHint {
+  margin-top: 0.45rem;
+  font-size: 0.75rem;
+  color: var(--text-muted, #666);
 }
 
 .submitBtn {

@@ -22,11 +22,9 @@ const SEARCH_INDEX = [
 ];
 
 const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Technologies", href: "/technologies" },
-  { label: "Projects", href: "/projects" },
-  { label: "Industries", href: "/industries" },
+  { label: "About Us", href: "/about" },
+  { label: "Expertise", href: "/expertise" },
+  { label: "Our Work", href: "/work" },
   { label: "Leadership", href: "/leadership" },
   {
     label: "Careers",
