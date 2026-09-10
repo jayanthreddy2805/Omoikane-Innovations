@@ -1,6 +1,8 @@
-import styles from './not-found.module.css';
+"use client";
 
-export default function Home() {
+import styles from "./not-found.module.css";
+
+export default function NotFound() {
   return (
     <div className={styles.container}>
       <div className={styles.inner}>

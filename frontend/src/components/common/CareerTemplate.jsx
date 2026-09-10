@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Upload, Building, MapPin, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './CareerTemplate.module.css';
 import CustomSelect from '@/components/common/CustomSelect';
 import FileUpload from '@/components/common/FileUpload';
 import SubmitButton from '@/components/common/SubmitButton';
 import FormSuccessState from '@/components/common/FormSuccessState';
+import InternationalPhoneInput from '@/components/common/InternationalPhoneInput';
 import { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/v-field-21-utils/field';
 import { Input } from '@/components/ui/v-field-21-utils/input';
 
@@ -28,6 +30,7 @@ export default function CareerTemplate({ data }) {
   const [formRole, setFormRole] = useState("");
   const [hoveredCapability, setHoveredCapability] = useState(null);
   const [submitStatus, setSubmitStatus] = useState("idle");
+  const [phone, setPhone] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -188,42 +191,7 @@ export default function CareerTemplate({ data }) {
                         }
                       }}
                     >
-                      APPLY FOR THIS ROLE →
-                    </button>
-                  </div>
-                  
-                  <div className={styles.rolePagination}>
-                    <button 
-                      className={styles.pageBtn}
-                      onClick={() => {
-                        const currentIndex = data.roles.findIndex(r => r.id === activeRole.id);
-                        const prevIndex = currentIndex === 0 ? data.roles.length - 1 : currentIndex - 1;
-                        setActiveRole(data.roles[prevIndex]);
-                        window.scrollTo({ top: document.getElementById('roles').offsetTop - 100, behavior: 'smooth' });
-                      }}
-                    >
-                      <span className={styles.pageArrow}>←</span> PREVIOUS ROLE
-                    </button>
-                    
-                    <button 
-                      className={styles.pageBtnCenter}
-                      onClick={() => {
-                        window.scrollTo({ top: document.getElementById('roles').offsetTop - 150, behavior: 'smooth' });
-                      }}
-                    >
-                      ↑ BACK TO INDEX
-                    </button>
-                    
-                    <button 
-                      className={styles.pageBtn}
-                      onClick={() => {
-                        const currentIndex = data.roles.findIndex(r => r.id === activeRole.id);
-                        const nextIndex = currentIndex === data.roles.length - 1 ? 0 : currentIndex + 1;
-                        setActiveRole(data.roles[nextIndex]);
-                        window.scrollTo({ top: document.getElementById('roles').offsetTop - 100, behavior: 'smooth' });
-                      }}
-                    >
-                      NEXT ROLE <span className={styles.pageArrow}>→</span>
+                      <span>APPLY FOR THIS ROLE →</span>
                     </button>
                   </div>
                 </div>
@@ -276,7 +244,7 @@ export default function CareerTemplate({ data }) {
 
                 <div className={styles.contactIndex}>
                   <div className={styles.contactIndexTitle}>
-                    <a href="mailto:careers@omoikaneinnovations.com">CONTACT OUR TEAM <span>&rarr;</span></a>
+                    <Link href="/contact">CONTACT OUR TEAM <span>&rarr;</span></Link>
                   </div>
 
                   <div className={styles.contactGrid}>
@@ -323,8 +291,14 @@ export default function CareerTemplate({ data }) {
                   
                   <div className={styles.formRow}>
                     <div className={styles.inputGroup}>
-                      <label htmlFor="phone">Phone</label>
-                      <input type="tel" id="phone" required />
+                      <label htmlFor="career-phone">Phone</label>
+                      <InternationalPhoneInput
+                        id="career-phone"
+                        value={phone}
+                        onChange={setPhone}
+                        variant="career"
+                        required
+                      />
                     </div>
                     <div className={styles.inputGroup}>
                       <label>Applying For</label>

@@ -12,15 +12,15 @@ export default function SubmitButton({ status = "idle" }) {
     >
       <span className={styles.content}>
         {status === "submitting" ? (
-          <span className={styles.text}>SENDING...</span>
+          <span className={styles.text}>SUBMITTING...</span>
         ) : status === "success" ? (
           <>
-            <span className={styles.text}>APPLICATION SENT</span>
+            <span className={styles.text}>SUBMITTED</span>
             <Check size={16} strokeWidth={3} className={styles.checkIcon} />
           </>
         ) : (
           <>
-            <span className={styles.text}>SEND APPLICATION</span>
+            <span className={styles.text}>SUBMIT</span>
             <span className={styles.arrowWrapper}>
               <span className={styles.arrow}>&rarr;</span>
             </span>

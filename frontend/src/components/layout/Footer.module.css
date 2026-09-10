@@ -95,6 +95,11 @@
   color: #ffffff;
 }
 
+/* CONTACT HEADER */
+.contactHeader {
+  text-align: center;
+}
+
 /* SOCIAL LIST */
 .socialHeader {
   margin-left: 48px; /* Positions "SOCIAL" directly above Instagram and X logos */

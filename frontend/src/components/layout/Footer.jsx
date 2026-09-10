@@ -34,13 +34,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Customer Support */}
+          {/* Column 3: Contact */}
           <div className={styles.col}>
+            <h4 className={`${styles.colHeader} ${styles.contactHeader}`}>CONTACT</h4>
             <ul className={styles.iconList}>
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                <span>Customer Support</span>
-              </li>
               <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 <a href="mailto:info@omoikaneinnovations.com">info@omoikaneinnovations.com</a>

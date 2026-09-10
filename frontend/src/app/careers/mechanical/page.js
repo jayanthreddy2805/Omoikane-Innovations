@@ -10,6 +10,7 @@ import CustomSelect from '@/components/common/CustomSelect';
 import FileUpload from '@/components/common/FileUpload';
 import SubmitButton from '@/components/common/SubmitButton';
 import FormSuccessState from '@/components/common/FormSuccessState';
+import InternationalPhoneInput from '@/components/common/InternationalPhoneInput';
 import { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/v-field-21-utils/field';
 import { Input } from '@/components/ui/v-field-21-utils/input';
 
@@ -196,6 +197,7 @@ export default function MechanicalCareers() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [formRole, setFormRole] = useState("");
   const [submitStatus, setSubmitStatus] = useState("idle");
+  const [phone, setPhone] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -481,8 +483,14 @@ export default function MechanicalCareers() {
                   
                   <div className={templateStyles.formRow}>
                     <div className={templateStyles.inputGroup}>
-                      <label htmlFor="phone">Phone</label>
-                      <input type="tel" id="phone" required />
+                      <label htmlFor="mech-phone">Phone</label>
+                      <InternationalPhoneInput
+                        id="mech-phone"
+                        value={phone}
+                        onChange={setPhone}
+                        variant="career"
+                        required
+                      />
                     </div>
                     <div className={templateStyles.inputGroup}>
                       <label>Applying For</label>

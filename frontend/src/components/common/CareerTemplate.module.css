@@ -545,8 +545,60 @@
   line-height: 1.4;
 }
 
+.roleFooterActions {
+  display: flex;
+  align-items: center;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 2rem;
+}
+
 .roleApplyAction {
-  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.premiumApplyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 1rem 2rem;
+  font-family: var(--font-space-grotesk);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.premiumApplyBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-cyan, #36CFF6);
+  transform: translateX(-101%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.premiumApplyBtn:hover::before {
+  transform: translateX(0);
+}
+
+.premiumApplyBtn:hover {
+  color: #0A0F16;
+  border-color: var(--accent-cyan, #36CFF6);
+}
+
+.premiumApplyBtn span, .premiumApplyBtn > * {
+  position: relative;
+  z-index: 1;
 }
 
 .applyRoleBtn {

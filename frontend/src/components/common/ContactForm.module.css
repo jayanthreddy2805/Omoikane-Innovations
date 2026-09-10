@@ -1,0 +1,152 @@
+.formContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: fadeUp 0.6s ease-out backwards 0.4s;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.label {
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.input, .textarea {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 16px;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 15px;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.input::placeholder, .textarea::placeholder {
+  color: #555555;
+}
+
+.input:focus, .textarea:focus {
+  outline: none;
+  background-color: transparent;
+  border-color: #36CFF6;
+  box-shadow: 0 0 0 1px rgba(54, 207, 246, 0.15);
+}
+
+.submitRow {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 16px;
+}
+
+/* SUCCESS STATE */
+.successState {
+  animation: fadeUp 0.6s ease-out forwards;
+  padding: 32px 0;
+}
+
+.successHeading {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.successText {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+  max-width: 500px;
+}
+
+.signatureBlock {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.signatureTitle {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.signatureLocation {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 16px;
+}
+
+.signatureLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.signatureLinks a {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.signatureLinks a:hover {
+  color: #ffffff;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

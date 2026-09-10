@@ -1,103 +1,262 @@
-.contactContainer {
+/* GLOBAL PAGE WRAPPER */
+.pageWrapper {
+  --surf-hero: #0A0F16;
+  --surf-content: #0d1420;
+  --surf-enquiry: #0A0F16;
+  --surf-presence: #0d1420;
+  --accent-cyan: #36CFF6;
+  --text-primary: #F0F2F5;
+  --text-muted: #A1A1AA;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
   min-height: 100vh;
-  padding-top: 180px;
-  padding-bottom: 120px;
-  background-color: var(--bg-primary, #050b12);
-  color: var(--text-primary, #ffffff);
+  background-color: var(--surf-hero);
+  color: var(--text-primary);
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* 1. EDITORIAL HERO */
+.heroSection {
+  background-color: var(--surf-hero);
+  padding: 100px 0 80px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1200px;
   align-items: center;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
 }
 
-.contentWrapper {
-  max-width: 600px;
+.heroRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.heroImageWrapper {
+  position: relative;
   width: 100%;
-  padding: 0 24px;
-  text-align: center;
+  aspect-ratio: 1/1;
+  max-width: 500px;
+  transform: translateY(-80px);
 }
 
-.heading {
-  font-family: var(--font-inter, sans-serif);
-  font-size: 32px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: #ffffff;
+.heroRobotImage {
+  object-fit: contain;
+  /* Invert the black/white sketch and use screen to drop out the background */
+  filter: invert(1) brightness(0.9);
+  mix-blend-mode: screen;
+}
+
+.pcbImageWrapper {
+  position: absolute;
+  bottom: 10%;
+  left: -15%;
+  width: 45%;
+  aspect-ratio: 1/1;
+  z-index: 2;
+  transform: translate(80px, 90px);
+}
+
+.heroPcbImage {
+  object-fit: contain;
+  filter: invert(1) brightness(0.9);
+  mix-blend-mode: screen;
+}
+
+.hnImageWrapper {
+  position: absolute;
+  top: 15%;
+  right: -25%;
+  width: 56%;
+  aspect-ratio: 1/1;
+  z-index: 2;
+  transform: translate(30px, -100px);
+}
+
+.heroHnImage {
+  object-fit: contain;
+  filter: invert(1) brightness(0.9);
+  mix-blend-mode: screen;
+}
+
+/* --- NEW HERO LEFT TYPOGRAPHY --- */
+
+.heroTitleWrapper {
+  position: relative;
   margin-bottom: 32px;
-  text-transform: uppercase;
 }
 
-.subtext {
+.heroTitleSolid {
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: clamp(52px, 6.5vw, 80px);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: #ffffff;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.heroTitleStroke {
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: clamp(52px, 6.5vw, 80px);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  margin: 0;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+}
+
+.heroSubtitleBlock {
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  padding-left: 24px;
+  margin-bottom: 56px;
+}
+
+.heroSubtitle {
   font-family: var(--font-inter, sans-serif);
   font-size: 16px;
   font-weight: 300;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 80px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 500px;
 }
 
-.contactDetails {
+
+/* SECTION DIVIDERS */
+.sectionDivider {
   display: flex;
-  flex-direction: column;
-  gap: 64px;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 64px;
 }
 
-.detailGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.groupLabel {
+.sectionMarker {
   font-family: var(--font-space-grotesk, sans-serif);
   font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  opacity: 0.6;
+}
+
+.horizontalRule {
+  height: 1px;
+  flex-grow: 1;
+  background-color: var(--border-subtle);
+}
+
+/* 2. ENQUIRY SECTION */
+.enquirySection {
+  background-color: var(--surf-enquiry);
+  padding: 120px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.enquiryGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+}
+
+.enquiryContext {
+  display: flex;
+  flex-direction: column;
+}
+
+.enquiryHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 64px;
+}
+
+.enquiryTitle {
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: clamp(32px, 5vw, 48px);
   font-weight: 500;
-  letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.4);
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.detailText {
-  font-family: var(--font-inter, sans-serif);
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--accent-cyan);
   margin: 0;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
-.link {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  transition: color 0.3s ease;
+.enquiryText {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 40px;
 }
 
-.link:hover {
-  color: #ffffff;
+.enquiryVisualContainer {
+  width: 100%;
+  margin-top: auto;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
 }
 
-/* Tablet & Mobile Adjustments */
+.enquiryVisualWrapper {
+  position: relative;
+  width: 350px;
+  max-width: 100%;
+  min-height: 324px;
+  overflow: hidden;
+}
+
+.enquiryImage {
+  object-fit: fill;
+  object-position: left top;
+  mix-blend-mode: screen;
+}
+
+.formWrapper {
+  width: 100%;
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .heroGrid, .enquiryGrid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+}
+
 @media (max-width: 768px) {
-  .contactContainer {
-    padding-top: 140px;
-    padding-bottom: 80px;
+  .container {
+    padding: 0 24px;
   }
   
-  .heading {
-    font-size: 24px;
-    margin-bottom: 24px;
-  }
-  
-  .subtext {
-    font-size: 15px;
-    margin-bottom: 60px;
-  }
-  
-  .contactDetails {
-    gap: 48px;
+  .heroSection, .enquirySection, .presenceSection {
+    padding: 80px 0;
   }
 }
