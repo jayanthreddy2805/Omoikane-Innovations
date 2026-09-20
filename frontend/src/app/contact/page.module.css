@@ -63,12 +63,13 @@
   /* Invert the black/white sketch and use screen to drop out the background */
   filter: invert(1) brightness(0.9);
   mix-blend-mode: screen;
+  transform: scale(0.85);
 }
 
 .pcbImageWrapper {
   position: absolute;
-  bottom: 10%;
-  left: -15%;
+  bottom: calc(10% - 70px);
+  left: calc(-15% + 100px);
   width: 45%;
   aspect-ratio: 1/1;
   z-index: 2;
@@ -83,7 +84,7 @@
 
 .hnImageWrapper {
   position: absolute;
-  top: 15%;
+  top: calc(15% - 70px);
   right: -25%;
   width: 56%;
   aspect-ratio: 1/1;
@@ -98,6 +99,24 @@
 }
 
 /* --- NEW HERO LEFT TYPOGRAPHY --- */
+
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: rgba(54, 207, 246, 0.7);
+}
+
+.heroEyebrowLine {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: #36CFF6;
+}
 
 .heroTitleWrapper {
   position: relative;

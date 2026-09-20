@@ -97,7 +97,7 @@ export default function Header() {
         {/* ── LOGO ── */}
         <Link href="/" className={styles.logoLink}>
           <Image
-            src="/images/omoikane-logo.png"
+            src="/images/shared/omoikane-logo.png"
             alt="Omoikane Innovations"
             width={56}
             height={56}

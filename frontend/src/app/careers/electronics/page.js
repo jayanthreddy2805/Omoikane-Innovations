@@ -23,7 +23,7 @@ const electronicsRoles = [
     displayTitle: "HARDWARE DESIGN ENGINEER",
     subtitle: "System Architecture",
     description: "Architect and design complete electronic systems for autonomous vehicles and robotics.",
-    visual: "/images/careers/embedded-pcb.jpg", 
+    visual: "/images/careers/electronics/embedded-pcb.jpg", 
     work: [
       "System-level electronics architecture",
       "Power delivery network design",
@@ -67,7 +67,7 @@ const electronicsRoles = [
     displayTitle: "PCB DESIGN ENGINEER",
     subtitle: "Board Layout",
     description: "Translate complex schematics into highly optimized, manufacturable PCB layouts.",
-    visual: "/images/careers/python-architecture.jpg", // Placeholder
+    visual: "/images/careers/electronics/firmware.jpg",
     work: [
       "Multilayer PCB routing (up to 12+ layers)",
       "Impedance-controlled routing",
@@ -111,7 +111,7 @@ const electronicsRoles = [
     displayTitle: "RF SYSTEM DESIGNER",
     subtitle: "Wireless Communications",
     description: "Design and validate long-range, high-bandwidth radio systems for drone telemetry and control.",
-    visual: "/images/careers/web-dev-dashboard.jpg", // Placeholder
+    visual: "/images/careers/electronics/systems.jpg",
     work: [
       "RF circuit design (sub-GHz, 2.4GHz, 5GHz)",
       "Antenna matching and tuning",
@@ -155,7 +155,7 @@ const electronicsRoles = [
     displayTitle: "TEST ENGINEER",
     subtitle: "Validation & Reliability",
     description: "Develop automated test fixtures and validate electronics under extreme conditions.",
-    visual: "/images/careers/mech-structural.jpg", // Placeholder
+    visual: "/images/careers/electronics/hero.jpg",
     work: [
       "Automated Test Equipment (ATE) development",
       "Hardware-in-the-loop (HIL) testing",
@@ -245,7 +245,7 @@ export default function ElectronicsCareers() {
         </div>
         <div className={styles.heroVisualFullHeader}>
           <Image 
-            src="/images/careers/embedded-pcb.jpg" 
+            src="/images/careers/electronics/hero.jpg" 
             alt="Electronics Engineering" 
             fill 
             className={styles.heroImageBg} 

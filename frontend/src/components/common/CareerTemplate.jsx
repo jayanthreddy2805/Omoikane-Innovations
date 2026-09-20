@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Upload, Building, MapPin, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -40,6 +40,43 @@ export default function CareerTemplate({ data }) {
       setSubmitStatus("success");
     }, 1500);
   };
+  /* ── Shared easing / animation helpers ── */
+  const EASE = [0.16, 1, 0.3, 1];
+
+  /* FadeUp scoped to CareerTemplate */
+  function FadeUp({ children, delay = 0, style = {} }) {
+    const r = useRef(null);
+    const inV = useInView(r, { once: true, margin: '-40px' });
+    return (
+      <motion.div
+        ref={r}
+        style={style}
+        initial={{ opacity: 0, y: 28 }}
+        animate={inV ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.75, ease: EASE, delay }}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
+  /* Masked line reveal */
+  function RevealLine({ children, delay = 0 }) {
+    const r = useRef(null);
+    const inV = useInView(r, { once: true, margin: '-40px' });
+    return (
+      <div ref={r} style={{ overflow: 'hidden' }}>
+        <motion.div
+          initial={{ y: '105%', opacity: 0 }}
+          animate={inV ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.9, ease: EASE, delay }}
+        >
+          {children}
+        </motion.div>
+      </div>
+    );
+  }
+
 
   return (
     <div className={styles.pageContainer} data-theme={theme}>
@@ -47,39 +84,53 @@ export default function CareerTemplate({ data }) {
       {/* A. HERO */}
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
-          <span className={styles.eyebrow}>{eyebrow}</span>
-          <h1 className={styles.headline} dangerouslySetInnerHTML={{ __html: headline }}></h1>
-          <p className={styles.heroSub} dangerouslySetInnerHTML={{ __html: heroSub }}></p>
-          <div className={styles.heroCtas}>
-            <button className={styles.primaryCta} onClick={() => document.getElementById('roles').scrollIntoView({ behavior: 'smooth' })}>
-              EXPLORE ROLES ↓
-            </button>
-            <button className={styles.secondaryCta} onClick={() => document.getElementById('apply').scrollIntoView({ behavior: 'smooth' })}>
-              SEND YOUR CV →
-            </button>
-          </div>
+          <FadeUp delay={0.05}>
+            <span className={styles.eyebrow}>{eyebrow}</span>
+          </FadeUp>
+          <RevealLine delay={0.12}>
+            <h1 className={styles.headline} dangerouslySetInnerHTML={{ __html: headline }} />
+          </RevealLine>
+          <FadeUp delay={0.3}>
+            <p className={styles.heroSub} dangerouslySetInnerHTML={{ __html: heroSub }} />
+          </FadeUp>
+          <FadeUp delay={0.42}>
+            <div className={styles.heroCtas}>
+              <button className={styles.primaryCta} onClick={() => document.getElementById('roles').scrollIntoView({ behavior: 'smooth' })}>
+                EXPLORE ROLES ↓
+              </button>
+              <button className={styles.secondaryCta} onClick={() => document.getElementById('apply').scrollIntoView({ behavior: 'smooth' })}>
+                SEND YOUR CV →
+              </button>
+            </div>
+          </FadeUp>
         </div>
-        <div className={styles.heroVisual}>
+        <motion.div
+          className={styles.heroVisual}
+          initial={{ opacity: 0, x: 40, scale: 0.97 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1.1, ease: EASE, delay: 0.15 }}
+        >
           <Image src={heroVisual} alt={`${categoryLabel} Engineering`} fill className={styles.heroImg} priority />
-        </div>
+        </motion.div>
       </section>
 
       {/* B. WHAT WE WORK ON */}
       <section className={styles.whatWeBuildSection}>
         <div className={styles.sectionHeader}>
-          <h2>WHAT WE WORK ON</h2>
+          <FadeUp><h2>WHAT WE WORK ON</h2></FadeUp>
         </div>
         <div className={styles.wwbGrid}>
-          {capabilities.map((cap) => (
-            <div 
-              key={cap.id} 
-              className={styles.wwbItem}
-              onMouseEnter={() => setHoveredCapability(cap.id)}
-              onMouseLeave={() => setHoveredCapability(null)}
-            >
-              <h3>{cap.title}</h3>
-              <p>{cap.description}</p>
-            </div>
+          {capabilities.map((cap, i) => (
+            <FadeUp key={cap.id} delay={i * 0.08}>
+              <div 
+                className={styles.wwbItem}
+                onMouseEnter={() => setHoveredCapability(cap.id)}
+                onMouseLeave={() => setHoveredCapability(null)}
+              >
+                <h3>{cap.title}</h3>
+                <p>{cap.description}</p>
+              </div>
+            </FadeUp>
           ))}
         </div>
       </section>

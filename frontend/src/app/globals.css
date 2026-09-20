@@ -2,11 +2,19 @@
   --bg-primary: #050B12;
   --bg-secondary: #0B141F;
   --bg-card: #111D29;
-  --text-primary: #F5F7FA;
-  --text-secondary: #94A3B8;
+  --text-primary: #C8D0D8; /* Steel Grey */
+  --text-secondary: #8B97A2; /* Graphite */
   --accent: #00C2FF;
   --accent-hover: #38D6FF;
   --border: #1E3447;
+  
+  /* Missing variables from recent find-and-replace */
+  --color-bg: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: rgba(255, 255, 255, 0.25);
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -42,4 +50,33 @@ button {
   border: none;
   background: none;
   font-family: inherit;
+}
+
+@font-face {
+  font-family: 'Satoshi Italic';
+  src: url('https://moussamamadou.github.io/flip-plugin-horizontal-scroll/fonts/Satoshi-VariableItalic.ttf') format('truetype');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://moussamamadou.github.io/flip-plugin-horizontal-scroll/fonts/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Generalsans Italic';
+  src: url('https://moussamamadou.github.io/flip-plugin-horizontal-scroll/fonts/GeneralSans-VariableItalic.ttf') format('truetype');
+  font-weight: 200 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Generalsans';
+  src: url('https://moussamamadou.github.io/flip-plugin-horizontal-scroll/fonts/GeneralSans-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
 }

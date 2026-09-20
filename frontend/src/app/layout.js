@@ -1,6 +1,7 @@
 import { Inter, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import IntroLoader from "@/components/common/IntroLoader";
 import "./globals.css";
 
 const inter = Inter({
@@ -49,9 +50,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <IntroLoader>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </IntroLoader>
       </body>
     </html>
   );

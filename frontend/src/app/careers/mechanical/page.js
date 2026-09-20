@@ -23,7 +23,7 @@ const mechanicalRoles = [
     displayTitle: "MECHANICAL DESIGN ENGINEER", // for the intro
     subtitle: "Drone Structures",
     description: "Design geometry, assemblies, and physical prototypes for UAV airframes, CAD modeling, and manufacturing drawings.",
-    visual: "/images/careers/mech-design.jpg",
+    visual: "/images/careers/mechanical/mech-design.jpg",
     work: [
       "3D CAD Modeling (SolidWorks, CATIA, Fusion 360)",
       "2D Drawings & GD&T",
@@ -67,7 +67,7 @@ const mechanicalRoles = [
     displayTitle: "ASSEMBLY & INTEGRATION ENGINEER",
     subtitle: "Hardware Build",
     description: "Lead system integration, physical prototyping, and the full mechanical product build for aerospace platforms.",
-    visual: "/images/careers/mech-assembly.jpg",
+    visual: "/images/careers/mechanical/mech-assembly.jpg",
     work: [
       "Mechanical Assembly & Integration",
       "Tolerance Stack-Up & Fitment Validation",
@@ -110,7 +110,7 @@ const mechanicalRoles = [
     displayTitle: "STRUCTURAL & THERMAL ENGINEER",
     subtitle: "Environmental Engineering",
     description: "Conduct advanced simulation, structural validation, and reliability engineering for high-performance UAVs.",
-    visual: "/images/careers/mech-structural.jpg",
+    visual: "/images/careers/mechanical/mech-structural.jpg",
     work: [
       "Structural Analysis (Stress, Strain, Deformation)",
       "Thermal Analysis (Heat Dissipation & Cooling)",
@@ -153,7 +153,7 @@ const mechanicalRoles = [
     displayTitle: "PRODUCT ENGINEER",
     subtitle: "System Hardware",
     description: "Design and optimize hardware enclosures, battery housings, and mass-manufacturable systems.",
-    visual: "/images/careers/mech-product.jpg",
+    visual: "/images/careers/mechanical/mech-product.jpg",
     work: [
       "Enclosure Design (IP-Rated, Weatherproof, Dustproof)",
       "Thermal Management (Heat Sinks, Airflow Design)",
@@ -244,7 +244,7 @@ export default function MechanicalCareers() {
         </div>
         <div className={styles.heroVisualFullHeader}>
           <Image 
-            src="/images/careers/mech-assembly.jpg" 
+            src="/images/careers/mechanical/hero.jpg" 
             alt="Mechanical Engineering" 
             fill 
             className={styles.heroImageBg} 

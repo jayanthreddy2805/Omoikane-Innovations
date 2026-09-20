@@ -35,7 +35,7 @@ const softwareRoles = [
     subtitle: "App & Dashboard",
     specialization: "Product interfaces · Live data",
     description: "Build interfaces for monitoring, control and real-time operations.",
-    visual: "/images/careers/web-dev-dashboard.jpg",
+    visual: "/images/careers/software/web-dev-dashboard.jpg",
     work: [
       "Control interfaces",
       "Monitoring dashboards",
@@ -93,7 +93,7 @@ const softwareRoles = [
     subtitle: "Product-Level",
     specialization: "Backend · APIs · Services",
     description: "Build backend systems, APIs and product infrastructure for intelligent applications.",
-    visual: "/images/careers/python-architecture.jpg",
+    visual: "/images/careers/software/python-architecture.jpg",
     work: [
       "Scalable backend architectures",
       "Drone fleet systems",
@@ -147,7 +147,7 @@ const softwareRoles = [
     subtitle: "Autonomy & Perception",
     specialization: "Vision · ML · Sensor fusion",
     description: "Develop perception, machine-learning and autonomy systems for real-world environments.",
-    visual: "/images/careers/ai-vision.jpg",
+    visual: "/images/careers/software/ai-vision.jpg",
     work: [
       "Autonomous navigation",
       "Swarm intelligence",
@@ -201,7 +201,7 @@ const softwareRoles = [
     subtitle: "Real-Time Systems",
     specialization: "Firmware · Sensors · Control",
     description: "Develop real-time firmware for sensors, controllers, communication and motor systems.",
-    visual: "/images/careers/embedded-pcb.jpg",
+    visual: "/images/careers/electronics/embedded-pcb.jpg",
     work: [
       "Flight controller programming",
       "Payload controls",
@@ -255,7 +255,7 @@ export default function SoftwareCareers() {
     eyebrow: "SOFTWARE DEVELOPMENT",
     headline: "SOFTWARE THAT<br />MEETS THE REAL WORLD.",
     heroSub: "We build applications, real-time platforms,<br />autonomous software and interfaces for connected systems.",
-    heroVisual: "/images/careers/hero.jpg",
+    heroVisual: "/images/careers/software/hero.jpg",
     capabilities: softwareCapabilities,
     roles: softwareRoles,
     categoryLabel: "SOFTWARE"
