@@ -1,0 +1,34 @@
+/* Contained mode for FooterVisual */
+.containerFill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+  background: transparent;
+  mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, #000000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, #000000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+}
+
+/* Fallback mode */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+  background: transparent;
+  mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, #000000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, #000000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  background: transparent;
+}
