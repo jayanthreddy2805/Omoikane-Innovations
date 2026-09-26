@@ -198,7 +198,7 @@ function AboutHero() {
       {/* Background video with parallax */}
       <motion.div className={styles.heroImageWrap} style={{ y: imageY }}>
         <video
-          src="/videos/drone.mp4"
+          src="/videos/omoikane.mp4"
           autoPlay
           loop
           muted
