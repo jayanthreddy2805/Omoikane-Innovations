@@ -5,7 +5,7 @@ import SubmitButton from '../common/SubmitButton';
 import InternationalPhoneInput from './InternationalPhoneInput';
 import styles from './ContactForm.module.css';
 
-export default function ContactForm() {
+export default function ContactForm({ onSuccess }) {
   const [status, setStatus] = useState('idle');
   const [phone, setPhone] = useState('');
 
@@ -16,22 +16,11 @@ export default function ContactForm() {
     // phone will contain the E.164 formatted value e.g. +918861035848
     setTimeout(() => {
       setStatus('success');
+      if (onSuccess) onSuccess();
     }, 1500);
   };
 
-  if (status === 'success') {
-    return (
-      <div className={styles.successState} aria-live="polite">
-        <h3 className={styles.successHeading}>MESSAGE RECEIVED</h3>
-        <p className={styles.successText}>
-          Thank you for getting in touch.
-        </p>
-        <p className={styles.successText}>
-          Our team will review your enquiry and get back to you if a conversation is the right next step.
-        </p>
-      </div>
-    );
-  }
+
 
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit}>
@@ -42,7 +31,7 @@ export default function ContactForm() {
             type="text" 
             id="cf-name" 
             className={styles.input} 
-            placeholder="Jane Doe"
+            placeholder="Enter name"
             required 
           />
         </div>
@@ -53,7 +42,7 @@ export default function ContactForm() {
             type="email" 
             id="cf-email" 
             className={styles.input} 
-            placeholder="jane@company.com"
+            placeholder="Enter email@gmail.com"
             required 
           />
         </div>
@@ -64,7 +53,7 @@ export default function ContactForm() {
             type="text" 
             id="cf-company" 
             className={styles.input} 
-            placeholder="Organization"
+            placeholder="Enter company"
           />
         </div>
 
@@ -78,11 +67,11 @@ export default function ContactForm() {
         </div>
 
         <div className={`${styles.inputGroup} ${styles.fullWidth}`}>
-          <label htmlFor="cf-message" className={styles.label}>Enquiry</label>
+          <label htmlFor="cf-message" className={styles.label}>Message</label>
           <textarea 
             id="cf-message" 
             className={styles.textarea} 
-            placeholder="How can we help?"
+            placeholder="Write your message..."
             rows={5}
             required 
           />

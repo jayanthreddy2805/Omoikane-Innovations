@@ -1,6 +1,6 @@
 .footer {
-  background-color: #0c0c0c; /* Ultra dark almost black */
-  color: #fff;
+  background-color: var(--bg-primary); /* Ultra dark almost black */
+  color: var(--text-primary);
   font-family: var(--font-inter, sans-serif);
   width: 100%;
   position: relative;
@@ -92,7 +92,7 @@
 
 .linkList li a:hover,
 .iconList li a:hover {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 /* CONTACT HEADER */
@@ -119,14 +119,14 @@
   width: 36px;
   height: 36px;
   border-radius: 50%; /* Circle like APSLOCK */
-  background-color: #1a1a1a;
+  background-color: var(--bg-secondary);
   color: #888888;
   transition: all 0.2s ease;
 }
 
 .socialIcon:hover {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
 }
 
 /* ICON LIST (Location, Email, Phone) */
@@ -164,7 +164,7 @@
 .subscribeForm {
   display: flex;
   align-items: center;
-  background: #1c1c1c;
+  background: var(--bg-secondary);
   border: 1px solid #2a2a2a;
   border-radius: 9999px; /* Full pill */
   overflow: hidden;
@@ -208,7 +208,7 @@
 }
 
 .subscribeBtn:hover {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 /* BOTTOM SECTION */
@@ -248,5 +248,5 @@
 }
 
 .legalLinks a:hover {
-  color: #ffffff;
+  color: var(--text-primary);
 }

@@ -1,8 +1,8 @@
 .pageWrapper {
-  --surf-hero: #F5F3EE;
-  --surf-content: #F5F3EE;
-  --surf-enquiry: #F5F3EE;
-  --surf-presence: #F5F3EE;
+  --surf-hero: #FAFAF7;
+  --surf-content: #FAFAF7;
+  --surf-enquiry: #FAFAF7;
+  --surf-presence: #FAFAF7;
   --accent-cyan: #111111;
   --text-primary: var(--text-primary);
   --text-muted: #626762;
@@ -223,18 +223,13 @@
 }
 
 .letsConnectTitle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(30px, 6vw, 60px);
   font-family: var(--font-space-grotesk), sans-serif;
   font-size: clamp(40px, 8vw, 100px);
   line-height: 0.8;
   font-weight: 700;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.15em;
   margin: 0;
   text-transform: uppercase;
-  transform: scale(0.6, 1.5);
 }
 
 .textWhite {
@@ -250,7 +245,7 @@
   left: 50%;
   top: 50%;
   transform: translateY(-50%);
-  margin-left: max(210px, 19vw); /* Anchors to the right of the text */
+  margin-left: max(160px, 16vw); /* Anchors to the right of the text */
   height: clamp(60px, 12vw, 150px); /* Exactly 1.5x the text clamp */
   aspect-ratio: 238 / 267; /* Original image ratio */
   mix-blend-mode: multiply;
@@ -318,12 +313,80 @@
   margin-bottom: 40px;
 }
 
-.enquiryVisualContainer {
-  width: 100%;
-  margin-top: auto;
-  border-top: 1px solid #D8D7D1;
-  padding-top: 24px;
+/* --- CONTACT DETAILS BLOCK --- */
+.contactDetailsBlock {
+  background-color: #0A0F16;
+  border-radius: 12px;
+  padding: 2.5rem;
+  color: #F5F3EE;
+  margin-top: 1rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  width: calc(100% + 40px);
+  max-width: none;
 }
+
+.contactDetailsHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contactDetailsHeader h3 {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+.contactDetailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2.5rem;
+  column-gap: 2rem;
+}
+
+.contactDetailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactDetailLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.contactDetailLabel svg {
+  opacity: 0.8;
+}
+
+.contactDetailText {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #F5F3EE;
+}
+
+@media (max-width: 768px) {
+  .contactDetailsGrid {
+    grid-template-columns: 1fr;
+  }
+  .contactDetailsBlock {
+    width: 100%;
+  }
+}
+
 
 .enquiryVisualWrapper {
   position: relative;
@@ -355,6 +418,9 @@
   .heroGrid, .enquiryGrid {
     grid-template-columns: 1fr;
     gap: 64px;
+  }
+  .contactDetailsBlock {
+    width: 100%;
   }
 }
 

@@ -8,8 +8,8 @@
   overflow: hidden;
   z-index: 1;
   background: transparent;
-  mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, #000000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, #000000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+  mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, var(--bg-primary) 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, var(--bg-primary) 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
 }
 
 /* Fallback mode */
@@ -21,8 +21,8 @@
   overflow: hidden;
   z-index: 1;
   background: transparent;
-  mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, #000000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, #000000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+  mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, var(--bg-primary) 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, var(--bg-primary) 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
 }
 
 .canvas {

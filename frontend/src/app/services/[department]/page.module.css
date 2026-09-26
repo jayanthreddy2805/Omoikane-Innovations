@@ -112,7 +112,7 @@
 
 .submitBtn {
   background-color: var(--accent);
-  color: #000;
+  color: var(--bg-primary);
   padding: 1rem;
   font-family: var(--font-space-grotesk);
   font-weight: 700;

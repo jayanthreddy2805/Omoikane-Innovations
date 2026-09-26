@@ -1,10 +1,15 @@
 .footer {
-  background-color: #000000; /* Pure black */
-  color: #fff;
+  background-color: #000000;
+  --bg-primary: #000000;
+  --bg-secondary: #111111;
+  --text-primary: #fafafa;
+  --text-secondary: #a0a0a0;
+  color: var(--text-primary);
   font-family: var(--font-inter, sans-serif);
   width: 100%;
   position: relative;
   overflow: hidden;
+  margin-top: auto;
 }
 
 /* MAIN GRID */
@@ -96,7 +101,7 @@
 
 .linkList li a:hover,
 .iconList li a:hover {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 /* CONTACT HEADER */
@@ -123,14 +128,14 @@
   width: 36px;
   height: 36px;
   border-radius: 50%; /* Circle like APSLOCK */
-  background-color: #1a1a1a;
+  background-color: var(--bg-secondary);
   color: #888888;
   transition: all 0.2s ease;
 }
 
 .socialIcon:hover {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
 }
 
 /* ICON LIST (Location, Email, Phone) */
@@ -167,7 +172,7 @@
 .subscribeForm {
   display: flex;
   align-items: center;
-  background: #1c1c1c;
+  background: var(--bg-secondary);
   border: 1px solid #2a2a2a;
   border-radius: 9999px; /* Full pill */
   overflow: hidden;
@@ -211,7 +216,7 @@
 }
 
 .subscribeBtn:hover {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 /* BOTTOM SECTION */
@@ -251,7 +256,7 @@
 }
 
 .legalLinks a:hover {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 /* ==========================================================================
@@ -261,7 +266,7 @@
 .heroSection {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
   padding-bottom: 2rem;
   margin-bottom: 2.25rem;
   width: 100%;
@@ -307,8 +312,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, #000000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, #000000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+  mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, var(--bg-primary) 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 85% at 50% 50%, var(--bg-primary) 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
 }
 
 /* Right Content Column (~70%) */
@@ -316,7 +321,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   padding: 1.5rem 0 0 0;
 }
@@ -324,8 +329,8 @@
 @media (min-width: 768px) {
   .heroContentCol {
     width: 68%;
-    justify-content: flex-start;
-    padding: 2.75rem 0 1rem 48px; /* 48px left padding on desktop; positions heading where WHAT WE BUILD was */
+    justify-content: center;
+    padding: 0 0 0 48px; /* 48px left padding on desktop */
   }
 }
 
@@ -359,7 +364,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 1.25rem;
   max-width: 800px;
 }
@@ -379,8 +384,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  background-color: #ffffff;
-  color: #0c0c0c;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
   font-family: var(--font-inter), sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
@@ -394,8 +399,8 @@
 }
 
 .heroCta:hover {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
   transform: translateY(-2px);
   box-shadow: 0 6px 22px rgba(0, 194, 255, 0.3);
 }
@@ -433,7 +438,7 @@
   font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   font-weight: 700;
   letter-spacing: 3.5px;
-  color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.15);
   text-transform: uppercase;
   line-height: 1;
 }
@@ -443,7 +448,7 @@
   font-size: clamp(0.75rem, 1.1vw, 0.95rem);
   font-weight: 600;
   letter-spacing: 4px;
-  color: rgba(0, 194, 255, 0.45);
+  color: rgba(54, 207, 246, 0.4);
   text-transform: uppercase;
   line-height: 1;
 }

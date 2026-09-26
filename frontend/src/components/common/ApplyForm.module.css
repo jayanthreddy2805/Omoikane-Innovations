@@ -33,13 +33,14 @@
 
 .input, .textarea {
   background-color: transparent;
-  border: 1px solid #D8D7D1;
-  border-radius: 4px;
-  padding: 16px;
+  border: none;
+  border-bottom: 1px solid #D8D7D1;
+  border-radius: 0;
+  padding: 16px 0;
   font-family: var(--font-inter, sans-serif);
   font-size: 15px;
   color: #202321;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .textarea {
@@ -54,8 +55,7 @@
 .input:focus, .textarea:focus {
   outline: none;
   background-color: transparent;
-  border-color: #465340;
-  box-shadow: 0 0 0 1px rgba(70, 83, 64, 0.2);
+  border-bottom-color: #465340;
 }
 
 .submitRow {

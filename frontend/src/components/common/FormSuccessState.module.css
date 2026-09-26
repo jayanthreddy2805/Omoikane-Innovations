@@ -25,15 +25,40 @@
   align-items: center;
   text-align: center;
   max-width: 580px;
-  margin-bottom: 5rem; /* Generous intentional whitespace break */
+  margin-bottom: 50px; /* Reduced from 5rem to pull footer up by 30px */
+}
+
+.videoWrapper {
+  width: 100%;
+  max-width: 500px; /* Restored size */
+  margin-top: -100px;
+  margin-bottom: 2rem;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.successVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+  filter: grayscale(100%) brightness(1.05) contrast(1.15);
+  /* 4-sided rectangular feather mask with less feather area */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%),
+                      linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%),
+              linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-composite: intersect;
 }
 
 .successHeading {
-  font-family: var(--font-space-grotesk);
-  font-size: clamp(1.65rem, 3.5vw, 2.15rem); /* ~28-34px desktop, ~24-28px mobile */
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: #F0F2F5;
+  font-family: var(--font-inter);
+  font-size: clamp(2rem, 4.5vw, 3rem); /* Slightly larger */
+  font-weight: 800; /* Bolder */
+  letter-spacing: -0.5px; /* Tighter tracking for Inter */
+  color: #7A684E; /* Matched to Name label color */
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   line-height: 1.15;
@@ -51,7 +76,7 @@
   font-family: var(--font-inter);
   font-size: 1.05rem; /* ~16-17px */
   line-height: 1.65;
-  color: var(--text-muted, #A1A1AA);
+  color: #626762;
   margin: 0;
 }
 
@@ -63,7 +88,7 @@
   font-size: 0.75rem; /* ~12px */
   font-weight: 600;
   letter-spacing: 1.5px;
-  color: var(--text-muted, #888888);
+  color: #626762;
   text-transform: uppercase;
   user-select: none;
 }
@@ -79,43 +104,43 @@
 
 /* 2. QUIET EDITORIAL COMPANY SIGNATURE */
 .signatureRow {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
   width: 100%;
-  max-width: 720px;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  max-width: 680px; /* Tighter layout */
+  padding-top: 10px; /* Moved up by ~30px from 2.5rem */
+  border-top: 1px solid rgba(10, 10, 10, 0.08);
   align-items: start;
 }
 
 .signatureCol {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  font-size: 0.82rem;
+  gap: 0.4rem;
 }
 
 .companyName {
-  font-family: var(--font-space-grotesk);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: #E4E4E7;
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgba(10, 10, 10, 0.3);
   text-transform: uppercase;
 }
 
 .companyLocation {
   font-family: var(--font-inter);
-  font-size: 0.82rem;
-  color: var(--text-muted, #71717A);
+  font-size: 0.85rem;
+  color: rgba(10, 10, 10, 0.5);
 }
 
 .signatureLink {
-  color: var(--text-muted, #71717A);
+  color: rgba(10, 10, 10, 0.5);
   text-decoration: none;
   font-family: var(--font-inter);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   transition: color 0.2s ease;
 }
 

@@ -1,20 +1,20 @@
 :root {
-  --bg-primary: #050B12;
-  --bg-secondary: #0B141F;
-  --bg-card: #111D29;
-  --text-primary: #C8D0D8; /* Steel Grey */
-  --text-secondary: #8B97A2; /* Graphite */
-  --accent: #00C2FF;
-  --accent-hover: #38D6FF;
-  --border: #1E3447;
+  --bg-primary: #FAFAF7;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --text-primary: #0A0A0A;
+  --text-secondary: #5A5A5A;
+  --accent: #0A0A0A;
+  --accent-hover: #333333;
+  --border: #E6E4DE;
   
   /* Missing variables from recent find-and-replace */
   --color-bg: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
-  --color-text-muted: rgba(255, 255, 255, 0.25);
-  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-text-muted: rgba(10, 10, 10, 0.25);
+  --color-border-subtle: rgba(10, 10, 10, 0.1);
 }
 
 * {
@@ -79,4 +79,37 @@ button {
   font-weight: 200 700;
   font-style: normal;
   font-display: swap;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.5); }
+}
+
+@keyframes premiumBlobMorph {
+  0% { 
+    transform: translate(0, 0) scale(1) rotate(0deg); 
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  33% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  66% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+  100% {
+    transform: translate(15%, -10%) scale(1.15) rotate(180deg);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+}
+
+@keyframes driftAtmosphere {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(15%, 5%) scale(1.15); }
+}
+
+@keyframes metricsShine {
+  to {
+    background-position: 200% center;
+  }
 }

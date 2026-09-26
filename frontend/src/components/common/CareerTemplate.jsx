@@ -6,11 +6,6 @@ import { Upload, Building, MapPin, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './CareerTemplate.module.css';
-import CustomSelect from '@/components/common/CustomSelect';
-import FileUpload from '@/components/common/FileUpload';
-import SubmitButton from '@/components/common/SubmitButton';
-import FormSuccessState from '@/components/common/FormSuccessState';
-import InternationalPhoneInput from '@/components/common/InternationalPhoneInput';
 import { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/v-field-21-utils/field';
 import { Input } from '@/components/ui/v-field-21-utils/input';
 
@@ -27,19 +22,7 @@ export default function CareerTemplate({ data }) {
   } = data;
 
   const [activeRole, setActiveRole] = useState(roles[0]);
-  const [formRole, setFormRole] = useState("");
   const [hoveredCapability, setHoveredCapability] = useState(null);
-  const [submitStatus, setSubmitStatus] = useState("idle");
-  const [phone, setPhone] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitStatus("submitting");
-    // Simulate network request
-    setTimeout(() => {
-      setSubmitStatus("success");
-    }, 1500);
-  };
   /* ── Shared easing / animation helpers ── */
   const EASE = [0.16, 1, 0.3, 1];
 
@@ -98,9 +81,9 @@ export default function CareerTemplate({ data }) {
               <button className={styles.primaryCta} onClick={() => document.getElementById('roles').scrollIntoView({ behavior: 'smooth' })}>
                 EXPLORE ROLES ↓
               </button>
-              <button className={styles.secondaryCta} onClick={() => document.getElementById('apply').scrollIntoView({ behavior: 'smooth' })}>
+              <Link href={`/apply?dept=${theme}&role=${roles[0]?.id || 'other'}`} className={styles.secondaryCta} style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', justifyContent: 'center' }}>
                 SEND YOUR CV →
-              </button>
+              </Link>
             </div>
           </FadeUp>
         </div>
@@ -231,19 +214,13 @@ export default function CareerTemplate({ data }) {
 
                 <div className={styles.roleFooterActions}>
                   <div className={styles.roleApplyAction}>
-                    <button 
+                    <Link 
+                      href={`/apply?dept=${theme}&role=${activeRole.id}`}
                       className={styles.premiumApplyBtn}
-                      onClick={() => {
-                        setFormRole(activeRole.id);
-                        const el = document.getElementById('apply');
-                        if (el) {
-                          const y = el.getBoundingClientRect().top + window.scrollY - 100;
-                          window.scrollTo({ top: y, behavior: 'smooth' });
-                        }
-                      }}
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}
                     >
                       <span>APPLY FOR THIS ROLE →</span>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
@@ -277,119 +254,7 @@ export default function CareerTemplate({ data }) {
         </div>
       </section>
 
-      {/* F. GENERAL APPLICATION CTA / FORM */}
-      <section id="apply" className={styles.applicationSection}>
-        <AnimatePresence mode="wait">
-          {submitStatus !== "success" ? (
-            <motion.div 
-              key="form-layout"
-              className={styles.applyLayout}
-              initial={{ opacity: 1 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
-            >
-              <div className={styles.applyText}>
-                <h2>WORK WITH US</h2>
-                
-                <div className={styles.contactDivider}></div>
 
-                <div className={styles.contactIndex}>
-                  <div className={styles.contactIndexTitle}>
-                    <Link href="/contact">CONTACT OUR TEAM <span>&rarr;</span></Link>
-                  </div>
-
-                  <div className={styles.contactGrid}>
-                    <div className={styles.contactGroup}>
-                      <h4><Building size={16} strokeWidth={2} /> OFFICE</h4>
-                      <p>Monday–Friday<br/>9:00 am – 6:00 pm</p>
-                    </div>
-
-                    <div className={styles.contactGroup}>
-                      <h4><MapPin size={16} strokeWidth={2} /> LOCATION</h4>
-                      <p>Bangalore, India</p>
-                    </div>
-
-                    <div className={styles.contactGroup}>
-                      <h4><Mail size={16} strokeWidth={2} /> EMAIL</h4>
-                      <a href="mailto:info@omoikaneinnovations.com">info@omoikaneinnovations.com</a>
-                      <a href="mailto:bd@omoikaneinnovations.com">bd@omoikaneinnovations.com</a>
-                    </div>
-
-                    <div className={styles.contactGroup}>
-                      <h4><Phone size={16} strokeWidth={2} /> PHONE</h4>
-                      <a href="tel:+918861035848">+91-8861035848</a>
-                      <a href="tel:+919353627825">+91-9353627825</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className={styles.applyFormContainer}>
-                <form 
-                  className={styles.formElement} 
-                  onSubmit={handleSubmit}
-                >
-                  <div className={styles.formRow}>
-                    <div className={styles.inputGroup}>
-                      <label htmlFor="name">Name</label>
-                      <input type="text" id="name" required />
-                    </div>
-                    <div className={styles.inputGroup}>
-                      <label htmlFor="email">Email</label>
-                      <input type="email" id="email" required />
-                    </div>
-                  </div>
-                  
-                  <div className={styles.formRow}>
-                    <div className={styles.inputGroup}>
-                      <label htmlFor="career-phone">Phone</label>
-                      <InternationalPhoneInput
-                        id="career-phone"
-                        value={phone}
-                        onChange={setPhone}
-                        variant="career"
-                        required
-                      />
-                    </div>
-                    <div className={styles.inputGroup}>
-                      <label>Applying For</label>
-                      <CustomSelect 
-                        options={[
-                          ...roles.map(r => ({ id: r.id, label: r.title })),
-                          { id: 'other', label: 'Other' }
-                        ]}
-                        value={formRole}
-                        onChange={(val) => setFormRole(val)}
-                        placeholder="Select Role"
-                      />
-                    </div>
-                  </div>
-
-                  <div className={styles.inputGroup}>
-                    <FileUpload id="cv" required />
-                  </div>
-
-                  <div className={styles.inputGroup}>
-                    <label htmlFor="message">Message (Optional)</label>
-                    <textarea id="message" rows={4}></textarea>
-                  </div>
-
-                  <SubmitButton status={submitStatus} />
-                </form>
-              </div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="success-layout"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-            >
-              <FormSuccessState />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </section>
 
     </div>
   );

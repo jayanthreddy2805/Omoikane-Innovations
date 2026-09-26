@@ -3,7 +3,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import styles from "./Header.module.css";
 
 // ─── Search index — all searchable pages ──────────────────────────
@@ -45,6 +45,30 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState("");
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [isHidden, setIsHidden] = React.useState(false);
+
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (typeof window === "undefined") return;
+    const documentHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+    
+    // Hide header if within 200px of the bottom
+    if (documentHeight - (latest + windowHeight) < 200) {
+      setIsHidden(true);
+    } else {
+      setIsHidden(false);
+    }
+
+    setIsScrolled((prev) => {
+      if (latest > 80) return true;
+      if (latest < 20) return false;
+      return prev;
+    });
+  });
 
   const searchInputRef = React.useRef(null);
   const careersRef = React.useRef(null);
@@ -93,7 +117,11 @@ export default function Header() {
 
   return (
     <>
-      <header className={styles.header}>
+      <motion.header 
+        className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}
+        animate={{ y: isHidden ? "-100%" : (isScrolled ? 16 : 0), opacity: isHidden ? 0 : 1 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
         {/* ── LOGO ── */}
         <Link href="/" className={styles.logoLink}>
           <Image
@@ -228,7 +256,7 @@ export default function Header() {
           <span className={`${styles.bar} ${mobileOpen ? styles.barMid : ""}`} />
           <span className={`${styles.bar} ${mobileOpen ? styles.barBot : ""}`} />
         </button>
-      </header>
+      </motion.header>
 
       {/* ── MOBILE MENU ── */}
       <AnimatePresence>

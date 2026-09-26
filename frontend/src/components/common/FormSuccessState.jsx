@@ -22,17 +22,27 @@ export default function FormSuccessState() {
     >
       {/* 1. MAIN EDITORIAL CONFIRMATION CLUSTER */}
       <div className={styles.confirmationCluster}>
-        <h3 className={styles.successHeading}>APPLICATION RECEIVED</h3>
+        <div className={styles.videoWrapper}>
+          <video 
+            src="/videos/success.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={styles.successVideo}
+          />
+        </div>
+        <h3 className={styles.successHeading}>MESSAGE RECEIVED</h3>
 
         <div className={styles.textGroup}>
-          <p className={styles.successText}>Thank you for your application.</p>
+          <p className={styles.successText}>Thank you for getting in touch.</p>
           <p className={styles.successText}>
-            Our team will review your details and get back to you if your experience aligns with a current opportunity.
+            Our team will review your enquiry and get back to you if a conversation is the right next step.
           </p>
         </div>
 
         <div className={styles.statusLine}>
-          <span>APPLICATION SUBMITTED</span>
+          <span>MESSAGE SUBMITTED</span>
           <span className={styles.statusArrow}>→</span>
         </div>
       </div>
