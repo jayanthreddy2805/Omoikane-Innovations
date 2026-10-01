@@ -1,6 +1,7 @@
 import { Inter, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import AIChatbot from "@/components/AIChatbot/AIChatbot";
 import "./globals.css";
 
 const inter = Inter({
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main>{children}</main>
         <Footer />
+        <AIChatbot />
       </body>
     </html>
   );
