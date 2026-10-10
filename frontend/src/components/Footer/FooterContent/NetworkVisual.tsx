@@ -719,13 +719,15 @@ export default function NetworkVisual({
 
         const pulseColor = Math.random() > 0.5 ? new THREE.Color(0xffd700) : new THREE.Color(0xff4500);
 
-        nodesMesh.material.uniforms.uPulsePositions.value[lastPulseIndex].copy(pulsePos);
-        nodesMesh.material.uniforms.uPulseTimes.value[lastPulseIndex] = time;
-        nodesMesh.material.uniforms.uPulseColors.value[lastPulseIndex].copy(pulseColor);
+        const nMat = nodesMesh.material as THREE.ShaderMaterial;
+        nMat.uniforms.uPulsePositions.value[lastPulseIndex].copy(pulsePos);
+        nMat.uniforms.uPulseTimes.value[lastPulseIndex] = time;
+        nMat.uniforms.uPulseColors.value[lastPulseIndex].copy(pulseColor);
 
-        connectionsMesh.material.uniforms.uPulsePositions.value[lastPulseIndex].copy(pulsePos);
-        connectionsMesh.material.uniforms.uPulseTimes.value[lastPulseIndex] = time;
-        connectionsMesh.material.uniforms.uPulseColors.value[lastPulseIndex].copy(pulseColor);
+        const cMat = connectionsMesh.material as THREE.ShaderMaterial;
+        cMat.uniforms.uPulsePositions.value[lastPulseIndex].copy(pulsePos);
+        cMat.uniforms.uPulseTimes.value[lastPulseIndex] = time;
+        cMat.uniforms.uPulseColors.value[lastPulseIndex].copy(pulseColor);
       };
 
       // Periodic gentle pulse every 2.6s

@@ -11,10 +11,11 @@ import {
 } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Volume2, VolumeX } from 'lucide-react';
 import { MeshGradient } from '@paper-design/shaders-react';
 import styles from './page.module.css';
 import { AnimatedNumberBg } from "@/components/ui/AnimatedNumberBg";
+import AboutHero from '@/components/about/AboutHero';
 /* ─────────────────────────────────────────────────────────
    DESIGN TOKENS (page-level, extend global)
 ───────────────────────────────────────────────────────── */
@@ -159,66 +160,7 @@ function Counter({ value, suffix = '' }) {
 /* ─────────────────────────────────────────────────────────
    SECTION 01 — HERO
 ───────────────────────────────────────────────────────── */
-function AboutHero() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
-  const textY = useTransform(scrollYProgress, [0, 0.6], ['0%', '-12%']);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 0.4]);
-
-  const [mouse, setMouse] = useState({ x: 0.5, y: 0.5 });
-  const [hovered, setHovered] = useState(null);
-
-  const handleMouseMove = useCallback((e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMouse({
-      x: (e.clientX - rect.left) / rect.width,
-      y: (e.clientY - rect.top) / rect.height,
-    });
-  }, []);
-
-  const annotations = [
-    { id: 'sensor', label: 'SENSOR', x: '62%', y: '22%' },
-    { id: 'compute', label: 'COMPUTE', x: '78%', y: '48%' },
-    { id: 'control', label: 'CONTROL', x: '58%', y: '68%' },
-    { id: 'link', label: 'LINK', x: '85%', y: '30%' },
-  ];
-
-  const springX = useSpring(mouse.x, { stiffness: 60, damping: 20 });
-  const springY = useSpring(mouse.y, { stiffness: 60, damping: 20 });
-
-  return (
-    <section
-      className={styles.hero}
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      aria-label="About Omoikane Innovations"
-    >
-      {/* Background video with parallax */}
-      <motion.div className={styles.heroImageWrap} style={{ y: imageY }}>
-        <video
-          src="/videos/omoikane.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{ width: '110%', height: '110%', objectFit: 'cover', objectPosition: 'center', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%) scale(1.10)' }}
-        />
-      </motion.div>
-
-      {/* Progressive overlay on scroll */}
-      <motion.div className={styles.heroScrollOverlay} style={{ opacity: overlayOpacity }} />
-
-
-
-
-
-
-
-    </section>
-  );
-}
 
 /* ─────────────────────────────────────────────────────────
    SECTION 01.5 — VISION
@@ -642,7 +584,7 @@ export default function AboutPage() {
       <AboutVision />
       <OmoikaneSystemArchitecture />
       <Testimonials />
-      <AwardsAndCertifications />
+      <CredentialsArchive />
       <MissionDomainExplorer />
       <FaqSection />
       <CallToAction />
@@ -651,81 +593,80 @@ export default function AboutPage() {
 }
 
 /* ─────────────────────────────────────────────────────────
-   AWARDS & CERTIFICATIONS
+   CREDENTIALS ARCHIVE
 ───────────────────────────────────────────────────────── */
-function AwardsAndCertifications() {
-  const items = [
-    {
-      year: "2025",
-      title: "ISO 9001 & AS9100D",
-      desc: "Certified for design, development, and manufacturing of advanced aerospace and defense systems.",
-      tags: ["Quality Management", "Aerospace Standard", "Compliance"]
-    },
-    {
-      year: "2024",
-      title: "DIU Vanguard Award",
-      desc: "Recognized by the Defense Innovation Unit for accelerating the deployment of autonomous systems in demanding environments.",
-      tags: ["Innovation", "Tactical Autonomy", "Rapid Deployment"]
-    },
-    {
-      year: "2023",
-      title: "NIST 800-171 Compliance",
-      desc: "Fully compliant with rigorous cybersecurity requirements for protecting Controlled Unclassified Information (CUI).",
-      tags: ["Cybersecurity", "CMMC Readiness", "Data Protection"]
-    },
-    {
-      year: "2022",
-      title: "AIAA Excellence in Robotics",
-      desc: "Awarded for breakthrough flight control algorithms stabilizing multi-rotor systems under adversarial conditions.",
-      tags: ["Flight Control", "Robotics", "Adversarial Resilience"]
-    }
-  ];
-
+function CredentialsArchive() {
   return (
-    <section className={styles.acSection}>
-      <div className={styles.acContainer}>
+    <section className={styles.credSection}>
+      <div className={styles.credContainer}>
+        {/* Section Header */}
         <motion.div 
-          className={styles.acHeader}
+          className={styles.credHeader}
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className={styles.acHeading}>
-            AWARDS<br />&<br />CERTIFICATIONS
+          <h2 className={styles.credHeading}>
+            CERTIFICATIONS
           </h2>
-          <p className={styles.acSubtext}>
-            Standards, certifications, and recognition across engineering, quality, and autonomous systems.
+          <p className={styles.credSubtext}>
+            Standards and registrations supporting our engineering and operational practices.
           </p>
         </motion.div>
-        
-        <div className={styles.acList}>
-          {items.map((item, idx) => (
-            <motion.div 
-              key={idx} 
-              className={styles.acRow}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-            >
-              <div className={styles.acCol1}>
-                <span className={styles.acYear}>{item.year}</span>
+
+        <div className={styles.credList}>
+          {/* Credential 01 - ISO (Text Left, Image Right) */}
+          <motion.div 
+            className={styles.credRow}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className={styles.credTextCol}>
+              <h3 className={styles.credTitle}>ISO 9001:2015</h3>
+              <p className={styles.credDesc}>Certified in Quality Management System standards, demonstrating knowledge of quality assurance and process management.</p>
+            </div>
+            <div className={styles.credImageCol}>
+              <div className={styles.credImageWrapper}>
+                <Image 
+                  src="/images/certifications/iso-9001.png" 
+                  alt="ISO 9001:2015 Quality Management System mark"
+                  width={600}
+                  height={600}
+                  className={styles.credImage}
+                  quality={100}
+                />
               </div>
-              <div className={styles.acCol2}>
-                <h3 className={styles.acTitle}>{item.title}</h3>
-                <p className={styles.acDesc}>{item.desc}</p>
+            </div>
+          </motion.div>
+
+          {/* Credential 02 - MSME (Image Left, Text Right) */}
+          <motion.div 
+            className={`${styles.credRow} ${styles.credRowReverse}`}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className={styles.credImageCol}>
+              <div className={styles.credImageWrapper}>
+                <Image 
+                  src="/images/certifications/msme.png" 
+                  alt="MSME Micro, Small & Medium Enterprise mark"
+                  width={600}
+                  height={400}
+                  className={styles.credImage}
+                  quality={100}
+                />
               </div>
-              <div className={styles.acCol3}>
-                <span className={styles.acIndex}>0{idx + 1}</span>
-                <div className={styles.acMetaList}>
-                  {item.tags.map(tag => (
-                    <span key={tag} className={styles.acMetaLabel}>{tag}</span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+            </div>
+            <div className={styles.credTextCol}>
+              <h3 className={styles.credTitle}>MSME</h3>
+              <p className={styles.credDesc}>Certificate recognizing registration/association with the Micro, Small &amp; Medium Enterprises sector.</p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -964,19 +905,17 @@ function CallToAction() {
 
         {/* MeshGradient layer 1 — black + purple-950 at 90% opacity */}
         <MeshGradient
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1, opacity: 0.9 }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1, opacity: 0.9, backgroundColor: '#000000' }}
           colors={['#000000', '#000000', '#3b0764', '#3b0764']}
           speed={0.6}
-          backgroundColor="#000000"
         />
 
         {/* MeshGradient layer 2 — wireframe, purple-950 */}
         <MeshGradient
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.9, zIndex: 2 }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.9, zIndex: 2, backgroundColor: 'transparent' }}
           colors={['#000000', '#3b0764', '#000000']}
           speed={0.4}
           wireframe={true}
-          backgroundColor="transparent"
         />
 
         <motion.div

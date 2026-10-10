@@ -300,8 +300,7 @@ export default function LeadershipGallery() {
       <div className={styles.scrollWrapper} data-scroll="wrapper" ref={scrollWrapperRef}>
         <div className={styles.galleryHeader}>
           <h2 className={styles.editorialHeading}>
-            Forged by leaders<br/>
-            <span className={styles.editorialItalic}>who have paved the way</span>
+            Board of directors
           </h2>
         </div>
         <section className={styles.scrollContent} data-scroll="content" ref={scrollContentRef}>

@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+.heroContainer {
+  position: relative;
+  width: 100%;
+  height: 350vh; /* Scroll duration */
+  background-color: #F5F6EF;
+}
+
+.stickyScene {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #F5F6EF;
+}
+
+.svgLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let clicks pass through to UI */
+  z-index: 1;
+}
+
+.maskText {
+  font-family: var(--font-inter), 'Helvetica Neue', sans-serif;
+  font-size: 13vw;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.videoWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform, width, height;
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: auto; /* Re-enable pointer events if needed */
+}
+
+.videoDarkOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #050505;
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────────────────
+   PHASE 4 HTML UI 
+───────────────────────────────────────────────────────── */
+
+.aboutStatement {
+  position: absolute;
+  top: 20vh;
+  left: 6vw;
+  width: 60vw;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.redLine {
+  width: 48px;
+  height: 2px;
+  background-color: #EF443D;
+  margin-bottom: 24px;
+}
+
+.aboutStatement h2 {
+  font-family: var(--font-inter), 'Helvetica Neue', sans-serif;
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  color: #151515;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.serif {
+  font-family: 'Instrument Serif', 'DM Serif Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.aboutCopy {
+  position: absolute;
+  bottom: 15vh;
+  left: 6vw;
+  width: 26vw;
+  min-width: 300px;
+  max-width: 430px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  pointer-events: auto;
+}
+
+.aboutCopy p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #62635E;
+  margin: 0;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #151515;
+  color: #fff;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  width: fit-content;
+  transition: opacity 0.2s;
+}
+
+.ctaButton:hover {
+  opacity: 0.85;
+}
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE RESPONSIVENESS
+───────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .maskText {
+    font-size: 20vw;
+  }
+  
+  /* Override Framer Motion inline styles for Mobile Layout using !important */
+  .videoWrapper {
+    width: 90vw !important;
+    height: 35vh !important;
+    transform: translate(5vw, 55vh) !important; 
+  }
+  
+  .aboutStatement {
+    top: 15vh;
+    left: 5vw;
+    width: 90vw;
+  }
+  
+  .aboutCopy {
+    top: 35vh;
+    bottom: auto;
+    left: 5vw;
+    width: 90vw;
+    max-width: none;
+    gap: 24px;
+  }
+  
+  .aboutCopy p {
+    font-size: 16px;
+  }
+}
