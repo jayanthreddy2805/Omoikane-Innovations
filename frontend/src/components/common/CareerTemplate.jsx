@@ -15,14 +15,12 @@ export default function CareerTemplate({ data }) {
     headline,
     heroSub,
     heroVisual,
-    capabilities,
     roles,
     categoryLabel,
     theme = "software"
   } = data;
 
   const [activeRole, setActiveRole] = useState(roles[0]);
-  const [hoveredCapability, setHoveredCapability] = useState(null);
   /* ── Shared easing / animation helpers ── */
   const EASE = [0.16, 1, 0.3, 1];
 
@@ -97,26 +95,6 @@ export default function CareerTemplate({ data }) {
         </motion.div>
       </section>
 
-      {/* B. WHAT WE WORK ON */}
-      <section className={styles.whatWeBuildSection}>
-        <div className={styles.sectionHeader}>
-          <FadeUp><h2>WHAT WE WORK ON</h2></FadeUp>
-        </div>
-        <div className={styles.wwbGrid}>
-          {capabilities.map((cap, i) => (
-            <FadeUp key={cap.id} delay={i * 0.08}>
-              <div 
-                className={styles.wwbItem}
-                onMouseEnter={() => setHoveredCapability(cap.id)}
-                onMouseLeave={() => setHoveredCapability(null)}
-              >
-                <h3>{cap.title}</h3>
-                <p>{cap.description}</p>
-              </div>
-            </FadeUp>
-          ))}
-        </div>
-      </section>
 
       {/* C & D. ROLE EXPLORER */}
       <section id="roles" className={styles.roleExplorerSection}>
@@ -126,24 +104,21 @@ export default function CareerTemplate({ data }) {
           <nav className={styles.roleNav}>
             <span className={styles.navHeader}>{categoryLabel.toUpperCase()}<br/>{roles.length} ENGINEERING ROLES</span>
             <ul className={styles.navList}>
-              {roles.map((role) => {
-                const isHoverRelated = hoveredCapability && capabilities.find(c => c.id === hoveredCapability)?.relatedRoles?.includes(role.id);
-                return (
-                  <li key={role.id}>
-                    <button
-                      className={`${styles.navItem} ${activeRole.id === role.id ? styles.navItemActive : ''} ${isHoverRelated ? styles.navItemHighlighted : ''}`}
-                      onClick={() => setActiveRole(role)}
-                    >
+              {roles.map((role) => (
+                <li key={role.id}>
+                  <button
+                    className={`${styles.navItem} ${activeRole.id === role.id ? styles.navItemActive : ''}`}
+                    onClick={() => setActiveRole(role)}
+                  >
                       <span className={styles.navNumber}>{role.number}</span>
                       <div className={styles.navText}>
                         <span className={styles.navTitle}>{role.title}</span>
                         <span className={styles.navSubtitle}>{role.subtitle}</span>
                         <span className={styles.navSpec}>{role.specialization}</span>
                       </div>
-                    </button>
-                  </li>
-                );
-              })}
+                  </button>
+                </li>
+              ))}
             </ul>
           </nav>
 
@@ -229,30 +204,6 @@ export default function CareerTemplate({ data }) {
         </div>
       </section>
 
-      {/* E. HOW WE WORK (Generic for all roles) */}
-      <section className={styles.whyJoinSection}>
-        <div className={styles.sectionHeader}>
-          <h2>HOW WE WORK</h2>
-        </div>
-        <div className={styles.whyGrid}>
-          <div className={styles.whyItem}>
-            <h3>BUILD FOR THE REAL WORLD</h3>
-            <p>Our engineering directly interacts with sensors, machines and physical systems.</p>
-          </div>
-          <div className={styles.whyItem}>
-            <h3>WORK ACROSS DISCIPLINES</h3>
-            <p>Software works alongside AI, electronics and mechanical engineers.</p>
-          </div>
-          <div className={styles.whyItem}>
-            <h3>OWN THE PRODUCT</h3>
-            <p>Architecture, implementation, deployment and iteration.</p>
-          </div>
-          <div className={styles.whyItem}>
-            <h3>SOLVE DIFFICULT PROBLEMS</h3>
-            <p>Build systems that have to work outside the browser and outside the lab.</p>
-          </div>
-        </div>
-      </section>
 
 
 

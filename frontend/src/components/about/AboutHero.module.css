@@ -1,179 +1,278 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+.hero,
+.summarySection {
+  --about-paper: var(--color-bg, #F4F3EE);
+  --about-ink: #111111;
+  --about-muted: #686868;
+  --about-rule: rgba(17, 17, 17, 0.12);
+  --about-accent: #AD5137;
+  --about-accent-dark: #873C29;
+}
 
-.heroContainer {
-  position: relative;
+.hero {
   width: 100%;
-  height: 350vh; /* Scroll duration */
-  background-color: #F5F6EF;
+  height: auto;
+  background: var(--color-bg, #F4F3EE);
+  background-color: var(--color-bg, #F4F3EE);
+  color: var(--about-ink);
+  padding: 1.25rem clamp(1.25rem, 5.55vw, 5.5rem) 2px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
-.stickyScene {
-  position: sticky;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #F5F6EF;
-}
-
-.svgLayer {
-  position: absolute;
-  top: 0;
-  left: 0;
+.container {
   width: 100%;
-  height: 100%;
-  pointer-events: none; /* Let clicks pass through to UI */
-  z-index: 1;
+  max-width: 1720px;
+  margin-inline: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
-.maskText {
-  font-family: var(--font-inter), 'Helvetica Neue', sans-serif;
-  font-size: 13vw;
-  font-weight: 800;
+.intro {
+  flex-shrink: 0;
+  padding-top: 0;
+  padding-bottom: clamp(0.75rem, 1.6vh, 1.5rem);
+}
+
+.headline {
+  margin: 0;
+  color: var(--about-ink);
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: clamp(2.5rem, min(4.5vw, 6.8vh), 4.75rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  text-transform: none;
+}
+
+.headlineLine {
+  display: block;
+}
+
+.headlineLineSecondary {
+  margin-top: 0.035em;
+  color: #686868;
+  font-weight: 400;
   letter-spacing: -0.05em;
-  line-height: 0.9;
 }
 
-.videoWrapper {
+.film {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: clamp(380px, 48vh, 500px);
+  margin-inline: auto;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+}
+
+.filmVideo {
   position: absolute;
-  top: 0;
-  left: 0;
-  will-change: transform, width, height;
-}
-
-.heroVideo {
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  pointer-events: auto; /* Re-enable pointer events if needed */
-}
-
-.videoDarkOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #050505;
-  pointer-events: none;
+  object-position: center 34%;
+  background: transparent;
+  border: none;
+  outline: none;
 }
 
 /* ─────────────────────────────────────────────────────────
-   PHASE 4 HTML UI 
+   SUMMARY SECTION (Normal document flow below hero)
 ───────────────────────────────────────────────────────── */
-
-.aboutStatement {
-  position: absolute;
-  top: 20vh;
-  left: 6vw;
-  width: 60vw;
-  z-index: 10;
-  pointer-events: auto;
+.summarySection {
+  width: 100%;
+  background: var(--color-bg, #F4F3EE);
+  background-color: var(--color-bg, #F4F3EE);
+  color: var(--about-ink);
+  padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.25rem, 5.55vw, 5.5rem) clamp(2rem, 3.5vw, 3.5rem);
+  box-sizing: border-box;
 }
 
-.redLine {
-  width: 48px;
-  height: 2px;
-  background-color: #EF443D;
-  margin-bottom: 24px;
+.summarySection .container {
+  height: auto;
+  display: block;
 }
 
-.aboutStatement h2 {
-  font-family: var(--font-inter), 'Helvetica Neue', sans-serif;
-  font-size: clamp(48px, 6vw, 88px);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.055em;
-  color: #151515;
-  margin: 0;
-  text-transform: uppercase;
+.summary {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.75fr) minmax(0, 2.3fr) minmax(170px, 0.85fr);
+  align-items: start;
+  gap: clamp(1.25rem, 3.2vw, 3.5rem);
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-.serif {
-  font-family: 'Instrument Serif', 'DM Serif Display', serif;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0;
-}
-
-.aboutCopy {
-  position: absolute;
-  bottom: 15vh;
-  left: 6vw;
-  width: 26vw;
-  min-width: 300px;
-  max-width: 430px;
-  z-index: 10;
+.summaryLabel {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  pointer-events: auto;
-}
-
-.aboutCopy p {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 17px;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: var(--about-muted);
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: 0.66rem;
+  font-weight: 600;
   line-height: 1.5;
-  color: #62635E;
-  margin: 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.ctaButton {
+.summaryNumber {
+  color: var(--about-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.summaryCopy {
+  max-width: 68ch;
+  margin: 0;
+  color: #555650;
+  font-family: var(--font-inter, sans-serif);
+  font-size: clamp(0.95rem, 1.12vw, 1.08rem);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.summaryAction {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.1rem;
+}
+
+.expertiseLink {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  background-color: #151515;
-  color: #fff;
-  height: 48px;
-  padding: 0 24px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
+  justify-content: space-between;
+  gap: 1.1rem;
+  width: max-content;
+  max-width: 100%;
+  padding: 0 0 0.55rem;
+  border-bottom: 1px solid var(--about-ink);
+  color: var(--about-ink);
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  line-height: 1.4;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  width: fit-content;
-  transition: opacity 0.2s;
+  transition: color 0.25s ease, border-color 0.25s ease;
 }
 
-.ctaButton:hover {
-  opacity: 0.85;
+.expertiseLink:hover {
+  color: var(--about-accent);
+  border-color: var(--about-accent);
+}
+
+.linkArrow {
+  display: inline-block;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.expertiseLink:hover .linkArrow {
+  transform: translate(3px, -3px);
 }
 
 /* ─────────────────────────────────────────────────────────
-   MOBILE RESPONSIVENESS
+   RESPONSIVE
 ───────────────────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .hero {
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    padding-inline: clamp(1.25rem, 4vw, 2rem);
+  }
 
-@media (max-width: 768px) {
-  .maskText {
-    font-size: 20vw;
-  }
-  
-  /* Override Framer Motion inline styles for Mobile Layout using !important */
-  .videoWrapper {
-    width: 90vw !important;
-    height: 35vh !important;
-    transform: translate(5vw, 55vh) !important; 
-  }
-  
-  .aboutStatement {
-    top: 15vh;
-    left: 5vw;
-    width: 90vw;
-  }
-  
-  .aboutCopy {
-    top: 35vh;
-    bottom: auto;
-    left: 5vw;
-    width: 90vw;
+  .film {
+    width: 100%;
     max-width: none;
-    gap: 24px;
+    aspect-ratio: 16 / 9;
+    max-height: none;
+    margin-inline: 0;
   }
-  
-  .aboutCopy p {
-    font-size: 16px;
+
+  .summary {
+    grid-template-columns: minmax(110px, 0.65fr) minmax(0, 2fr);
+    row-gap: 1.5rem;
+  }
+
+  .summaryAction {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .intro {
+    padding-top: 0;
+    padding-bottom: 1.25rem;
+  }
+
+  .headline {
+    font-size: clamp(2.35rem, 9.5vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .film {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 200px;
+    max-height: none;
+  }
+
+  .filmVideo {
+    object-position: center;
+  }
+
+  .summarySection {
+    padding-inline: 1.25rem;
+  }
+
+  .summary {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-top: 1.4rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .summaryLabel {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .summaryCopy {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .summaryAction {
+    grid-column: auto;
+    padding-top: 0.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expertiseLink,
+  .linkArrow {
+    transition: none;
   }
 }

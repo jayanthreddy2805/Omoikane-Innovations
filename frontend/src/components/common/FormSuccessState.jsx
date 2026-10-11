@@ -24,7 +24,7 @@ export default function FormSuccessState() {
       <div className={styles.confirmationCluster}>
         <div className={styles.videoWrapper}>
           <video 
-            src="/videos/success.mp4"
+            src="/videos/shared/success.mp4"
             autoPlay
             loop
             muted

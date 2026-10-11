@@ -8,7 +8,7 @@ import { useGSAP } from '@gsap/react';
 import Lenis from 'lenis';
 import { ExpertiseSection } from '@/components/expertise/ExpertiseSection';
 import { TechMarquee } from '@/components/expertise/TechMarquee';
-import { OmoikaneEngineeringHero } from '@/components/omoikane-engineering-hero/OmoikaneEngineeringHero';
+import { ExpertiseHero } from '@/components/expertise/ExpertiseHero';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { MeshGradient } from '@paper-design/shaders-react';
@@ -41,7 +41,7 @@ export default function ExpertisePage() {
     <main className={styles.container} ref={containerRef}>
       
       {/* Ultra Clean Hero */}
-      <OmoikaneEngineeringHero />
+      <ExpertiseHero />
 
       {/* Scrolling Technologies Marquee */}
       <TechMarquee />

@@ -14,31 +14,31 @@ type Clip = {
 const CLIPS: Clip[] = [
   {
     id: "uav-flight",
-    src: "/videos/01-uav-flight.mp4",
+    src: "/videos/expertise/01-uav-flight.mp4",
     alt: "Fixed-wing unmanned aircraft in a flight-test turn",
     bgColor: "#D9DEE0", // cool light gray
   },
   {
     id: "flight-control",
-    src: "/videos/02-flight-control.mp4",
+    src: "/videos/expertise/02-flight-control.mp4",
     alt: "Aerospace actuator and mechanical flight-control linkage being tested",
     bgColor: "#8796A3", // muted blue-gray
   },
   {
     id: "airframe-assembly",
-    src: "/videos/03-airframe-assembly.mp4",
+    src: "/videos/expertise/03-airframe-assembly.mp4",
     alt: "Technicians assembling and inspecting an unmanned aircraft",
     bgColor: "#F1F0EB", // warm technical off-white
   },
   {
     id: "rf-communications",
-    src: "/videos/04-rf-communications.mp4",
+    src: "/videos/expertise/04-rf-communications.mp4",
     alt: "Engineer testing antenna and radio communication equipment",
     bgColor: "#242A2E", // deep graphite
   },
   {
     id: "field-operations",
-    src: "/videos/05-uav-field-operations.mp4",
+    src: "/videos/expertise/05-uav-field-operations.mp4",
     alt: "Unmanned aircraft accelerating along a test runway and taking off",
     bgColor: "#111518", // aerospace near-black
   },

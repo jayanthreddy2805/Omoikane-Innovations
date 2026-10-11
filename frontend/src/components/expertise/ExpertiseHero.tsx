@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import styles from "./OmoikaneEngineeringHero.module.css";
+import styles from "./ExpertiseHero.module.css";
 import { motion } from "framer-motion";
 
-export function OmoikaneEngineeringHero() {
+export function ExpertiseHero() {
   return (
     <section className={styles.hero} aria-labelledby="omk-hero-title">
       <motion.div 

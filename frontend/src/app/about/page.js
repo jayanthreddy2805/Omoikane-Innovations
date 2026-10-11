@@ -302,7 +302,7 @@ function MissionDomainExplorer() {
    ALL METRICS ARE PLACEHOLDER
 ───────────────────────────────────────────────────────── */
 const METRICS = [
-  { value: '10', suffix: '+', label: 'Years of Experience', detail: 'Over a decade of creating memorable digital experiences.' },
+  { value: '10', suffix: '+', label: 'Employee Years of Experience', detail: 'Over a decade of creating memorable digital experiences.' },
   { value: '98', suffix: '%', label: 'Client Retention', detail: 'Building strong relationships through consistent quality and trust.' },
   { value: '50', suffix: '+', label: 'Global Clients', detail: 'Trusted by brands across different industries and markets.' },
   { value: '80', suffix: '+', label: 'Delivered Projects', detail: 'Transforming ideas into impactful digital and visual solutions.' },

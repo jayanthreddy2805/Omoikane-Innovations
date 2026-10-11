@@ -1,31 +1,5 @@
 import CareerTemplate from '@/components/common/CareerTemplate';
 
-const softwareCapabilities = [
-  {
-    id: "ai-autonomy",
-    title: "AI / AUTONOMY",
-    description: "Machine perception and decision systems.",
-    relatedRoles: ["ai-dev", "python-dev"]
-  },
-  {
-    id: "realtime",
-    title: "REAL-TIME SYSTEMS",
-    description: "Telemetry, communications and control.",
-    relatedRoles: ["python-dev", "firmware-eng", "ai-dev"]
-  },
-  {
-    id: "product",
-    title: "PRODUCT SOFTWARE",
-    description: "Applications, dashboards and interfaces.",
-    relatedRoles: ["web-dev", "python-dev"]
-  },
-  {
-    id: "connected",
-    title: "CONNECTED SYSTEMS",
-    description: "Data, APIs, fleets and mission systems.",
-    relatedRoles: ["python-dev", "web-dev", "firmware-eng"]
-  }
-];
 
 const softwareRoles = [
   {
@@ -256,7 +230,6 @@ export default function SoftwareCareers() {
     headline: "SOFTWARE THAT<br />MEETS THE REAL WORLD.",
     heroSub: "We build applications, real-time platforms,<br />autonomous software and interfaces for connected systems.",
     heroVisual: "/images/careers/software/hero.jpg",
-    capabilities: softwareCapabilities,
     roles: softwareRoles,
     categoryLabel: "SOFTWARE"
   };
