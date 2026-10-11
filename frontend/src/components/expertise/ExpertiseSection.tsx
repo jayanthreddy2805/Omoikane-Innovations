@@ -25,6 +25,49 @@ function useReducedMotion() {
   return reduced;
 }
 
+function MergedRailwayVideo() {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const v1 = useRef<HTMLVideoElement>(null);
+  const v2 = useRef<HTMLVideoElement>(null);
+
+  const handleEnd = (idx: number) => {
+    const nextIdx = idx === 0 ? 1 : 0;
+    setActiveIdx(nextIdx);
+    if (nextIdx === 0 && v1.current) {
+      v1.current.currentTime = 0;
+      v1.current.play().catch(() => {});
+    }
+    if (nextIdx === 1 && v2.current) {
+      v2.current.currentTime = 0;
+      v2.current.play().catch(() => {});
+    }
+  };
+
+  return (
+    <div style={{ width: '100%', minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ position: 'relative', width: '100%', maxWidth: '640px', aspectRatio: '4 / 3', borderRadius: '12px', background: 'transparent', boxShadow: '0 15px 40px rgba(0, 0, 0, 0.19)', overflow: 'hidden' }}>
+        <video
+          ref={v1}
+          src="/videos/video_7cee3861bd7c.mp4"
+          autoPlay
+          muted
+          playsInline
+          onEnded={() => handleEnd(0)}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: activeIdx === 0 ? 'block' : 'none' }}
+        />
+        <video
+          ref={v2}
+          src="/videos/video_7cee3861bd7c1.mp4"
+          muted
+          playsInline
+          onEnded={() => handleEnd(1)}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: activeIdx === 1 ? 'block' : 'none' }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export function ExpertiseSection() {
   const reducedMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -328,24 +371,24 @@ export function ExpertiseSection() {
               <AerospaceVideoSequence active={activeIndex === index} reducedMotion={reducedMotion} />
             ) : item.id === "automotive" ? (
               <div style={{ width: '100%', minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ position: 'relative', isolation: 'isolate', width: '100%', maxWidth: '640px', aspectRatio: '1 / 1', overflow: 'hidden', backgroundColor: '#e3e6e3', borderRadius: '24px' }}>
-                  <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: '80%', aspectRatio: '16 / 9', borderRadius: '6px', background: 'transparent', boxShadow: '0 15px 40px rgba(0, 0, 0, 0.19)', overflow: 'hidden' }}>
-                    <video
-                      ref={(node) => {
-                        if (node) {
-                          node.playbackRate = 1.75;
-                        }
-                      }}
-                      src="/videos/turbo.mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: 'block' }}
-                    />
-                  </div>
+                <div style={{ position: 'relative', width: '100%', maxWidth: '640px', aspectRatio: '4 / 3', borderRadius: '12px', background: 'transparent', boxShadow: '0 15px 40px rgba(0, 0, 0, 0.19)', overflow: 'hidden' }}>
+                  <video
+                    ref={(node) => {
+                      if (node) {
+                        node.playbackRate = 1.75;
+                      }
+                    }}
+                    src="/videos/turbo.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: 'block' }}
+                  />
                 </div>
               </div>
+            ) : item.id === "railways" ? (
+              <MergedRailwayVideo />
             ) : (
               <div className={`${styles.sceneCanvas} ${styles[`sceneCanvas${index}`]}`}>
                 <div className={styles.sceneIndex}>{String(index + 1).padStart(2, "0")}</div>

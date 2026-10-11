@@ -3,6 +3,7 @@
 import styles from "./LeadershipHero.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function LeadershipHero() {
   return (
@@ -27,7 +28,12 @@ export default function LeadershipHero() {
         {/* Tiny technical coordinate placeholder removed */}
 
         {/* Central visual Stage */}
-        <div className={styles.visualStage}>
+        <motion.div 
+          className={styles.visualStage}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className={styles.visualPlaceholder}>
             <span className={`${styles.placeholderCorner} ${styles.topLeft}`} />
             <span className={`${styles.placeholderCorner} ${styles.topRight}`} />
@@ -45,28 +51,38 @@ export default function LeadershipHero() {
                />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Interaction/issue tooltip removed */}
       </section>
 
       {/* Bottom editorial band */}
       <section className={styles.infoBand}>
-        <div className={styles.headlineContainer}>
+        <motion.div 
+          className={styles.headlineContainer}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        >
           <h1 className={styles.actualTitle}>
             LEADERSHIP BUILT ON <br/>
             <span style={{ fontStyle: 'italic', textTransform: 'lowercase', fontWeight: 400 }}>vision</span> & <span style={{ fontStyle: 'italic', textTransform: 'lowercase', fontWeight: 400 }}>precision</span>
           </h1>
-        </div>
+        </motion.div>
 
-        <div className={styles.descriptionContainer}>
+        <motion.div 
+          className={styles.descriptionContainer}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        >
           <p className={styles.actualDesc}>
             Omoikane drives technological leaps by aligning deep-tech engineering with autonomous systems from day one.
           </p>
           <p className={styles.actualDesc}>
             Our senior-led team partners with defense and enterprise sectors to build robust, bleeding-edge platforms that guarantee operational superiority.
           </p>
-        </div>
+        </motion.div>
 
 
 

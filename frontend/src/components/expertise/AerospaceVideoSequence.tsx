@@ -46,8 +46,9 @@ const CLIPS: Clip[] = [
 
 function safePlay(video: HTMLVideoElement | null) {
   if (!video) return;
+  video.currentTime = 0;
   video.muted = true;
-  video.playbackRate = 2.0;
+  video.playbackRate = 1.5;
   const playback = video.play();
   if (playback && typeof playback.catch === "function") {
     playback.catch(() => {
@@ -107,40 +108,43 @@ export default function AerospaceVideoSequence({
       gsap.set(tiles[3], { xPercent: 200, yPercent: -50, autoAlpha: 1 }); // right
       gsap.set(tiles[4], { xPercent: -50, yPercent: -300, autoAlpha: 1 }); // top
       
-      gsap.set(stage, { backgroundColor: '#e3e6e3' });
+      // Removed background color setter
 
       const tl = gsap.timeline({
         paused: true,
+        repeat: -1,
       });
-      tl.timeScale(2.0);
 
       // 0s — Video 01 enters from bottom
       tl.call(() => safePlay(videos[0]), [], 0);
       tl.to(tiles[0], { yPercent: -50, duration: 1, ease: "power3.out" }, 0);
 
-      // 7s — Video 01 moves upward out.
-      tl.to(tiles[0], { yPercent: -300, duration: 0.8, ease: "power2.in" }, 7);
+      // 4.7s — Video 01 moves upward out.
+      tl.to(tiles[0], { yPercent: -300, duration: 0.8, ease: "power2.in" }, 4.7);
       // THEN Video 02 enters from bottom.
-      tl.call(() => safePlay(videos[1]), [], 7.8);
-      tl.to(tiles[1], { yPercent: -50, duration: 1, ease: "power3.out" }, 7.8);
+      tl.call(() => safePlay(videos[1]), [], 5.5);
+      tl.to(tiles[1], { yPercent: -50, duration: 1, ease: "power3.out" }, 5.5);
 
-      // 14s — Video 02 moves left out.
-      tl.to(tiles[1], { xPercent: -300, duration: 0.8, ease: "power2.in" }, 14);
+      // 10.2s — Video 02 moves left out.
+      tl.to(tiles[1], { xPercent: -300, duration: 0.8, ease: "power2.in" }, 10.2);
       // THEN Video 03 enters from left.
-      tl.call(() => safePlay(videos[2]), [], 14.8);
-      tl.to(tiles[2], { xPercent: -50, duration: 1, ease: "power3.out" }, 14.8);
+      tl.call(() => safePlay(videos[2]), [], 11.0);
+      tl.to(tiles[2], { xPercent: -50, duration: 1, ease: "power3.out" }, 11.0);
 
-      // 21s — Video 03 moves right out.
-      tl.to(tiles[2], { xPercent: 200, duration: 0.8, ease: "power2.in" }, 21);
+      // 15.7s — Video 03 moves right out.
+      tl.to(tiles[2], { xPercent: 200, duration: 0.8, ease: "power2.in" }, 15.7);
       // THEN Video 04 enters from right.
-      tl.call(() => safePlay(videos[3]), [], 21.8);
-      tl.to(tiles[3], { xPercent: -50, duration: 1, ease: "power3.out" }, 21.8);
+      tl.call(() => safePlay(videos[3]), [], 16.5);
+      tl.to(tiles[3], { xPercent: -50, duration: 1, ease: "power3.out" }, 16.5);
 
-      // 28s — Video 04 moves downward out.
-      tl.to(tiles[3], { yPercent: 200, duration: 0.8, ease: "power2.in" }, 28);
+      // 21.2s — Video 04 moves downward out.
+      tl.to(tiles[3], { yPercent: 200, duration: 0.8, ease: "power2.in" }, 21.2);
       // THEN Video 05 enters from top.
-      tl.call(() => safePlay(videos[4]), [], 28.8);
-      tl.to(tiles[4], { yPercent: -50, duration: 1, ease: "power3.out" }, 28.8);
+      tl.call(() => safePlay(videos[4]), [], 22.0);
+      tl.to(tiles[4], { yPercent: -50, duration: 1, ease: "power3.out" }, 22.0);
+
+      // 26.7s — Video 05 moves upward out, making way for Video 01 to loop from bottom
+      tl.to(tiles[4], { yPercent: -300, duration: 0.8, ease: "power2.in" }, 26.7);
 
       timelineRef.current = tl;
     }, stage);
@@ -181,7 +185,6 @@ export default function AerospaceVideoSequence({
               className={styles.video}
               src={clip.src}
               muted
-              loop
               playsInline
               preload="auto"
               aria-label={clip.alt}

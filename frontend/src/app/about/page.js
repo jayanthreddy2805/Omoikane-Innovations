@@ -1,101 +1,20 @@
 "use client";
 
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
   motion,
   useScroll,
   useTransform,
-  useSpring,
   useInView,
   AnimatePresence,
 } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Sparkles, Volume2, VolumeX } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { MeshGradient } from '@paper-design/shaders-react';
 import styles from './page.module.css';
 import { AnimatedNumberBg } from "@/components/ui/AnimatedNumberBg";
 import AboutHero from '@/components/about/AboutHero';
-/* ─────────────────────────────────────────────────────────
-   DESIGN TOKENS (page-level, extend global)
-───────────────────────────────────────────────────────── */
-// bg: #030914 | surface: #07111F | signal: #A7A8A5 | text: #F2F5F8
-
-/* ─────────────────────────────────────────────────────────
-   MICRO-COMPONENTS
-───────────────────────────────────────────────────────── */
-
-function ScrambleText({ text, delay = 0 }) {
-  const [displayText, setDisplayText] = useState('');
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-40px' });
-  const chars = '!<>-_\\\\/[]{}—=+*^?#_';
-  
-  useEffect(() => {
-    if (!inView) return;
-    
-    let frame = 0;
-    const totalFrames = 40;
-    const queue = [];
-    
-    for (let i = 0; i < text.length; i++) {
-      const char = text[i];
-      if (char === ' ') {
-        queue.push({ char, start: 0, end: 0 });
-      } else {
-        const start = Math.floor(Math.random() * 20);
-        const end = start + Math.floor(Math.random() * 20) + 10;
-        queue.push({ char, start, end });
-      }
-    }
-    
-    const timeout = setTimeout(() => {
-      const update = () => {
-        let output = '';
-        let complete = 0;
-        
-        for (let i = 0; i < queue.length; i++) {
-          let { char, start, end } = queue[i];
-          if (frame >= end) {
-            output += char;
-            complete++;
-          } else if (frame >= start) {
-            output += chars[Math.floor(Math.random() * chars.length)];
-          } else {
-            output += '';
-          }
-        }
-        
-        setDisplayText(output);
-        if (complete === queue.length) return;
-        frame++;
-        requestAnimationFrame(update);
-      };
-      update();
-    }, delay * 1000);
-    
-    return () => clearTimeout(timeout);
-  }, [inView, text, delay]);
-  
-  return <span ref={ref}>{displayText || <span style={{ opacity: 0 }}>{text}</span>}</span>;
-}
-
-function RevealText({ children, className = '', delay = 0 }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <div ref={ref} className={`${styles.revealWrap} ${className}`}>
-      <motion.div
-        initial={{ y: '100%', opacity: 0 }}
-        animate={inView ? { y: 0, opacity: 1 } : {}}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay }}
-      >
-        {children}
-      </motion.div>
-    </div>
-  );
-}
-
 function FadeUp({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-40px' });
@@ -112,50 +31,11 @@ function FadeUp({ children, className = '', delay = 0 }) {
   );
 }
 
-function TechnicalDivider() {
-  return <div className={styles.technicalDivider} aria-hidden="true" />;
-}
 
-function SignalLine({ vertical = false }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  return (
-    <div
-      ref={ref}
-      className={vertical ? styles.signalLineV : styles.signalLineH}
-      aria-hidden="true"
-    >
-      <motion.div
-        className={styles.signalLineFill}
-        initial={{ scaleX: vertical ? 1 : 0, scaleY: vertical ? 0 : 1 }}
-        animate={inView ? { scaleX: 1, scaleY: 1 } : {}}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-        style={{ transformOrigin: vertical ? 'top' : 'left' }}
-      />
-    </div>
-  );
-}
 
-function Counter({ value, suffix = '' }) {
-  const [display, setDisplay] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  useEffect(() => {
-    if (!inView) return;
-    const target = parseInt(value, 10);
-    let frame = 0;
-    const total = 60;
-    const run = () => {
-      frame++;
-      const progress = frame / total;
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(Math.round(eased * target));
-      if (frame < total) requestAnimationFrame(run);
-    };
-    requestAnimationFrame(run);
-  }, [inView, value]);
-  return <span ref={ref}>{display}{suffix}</span>;
-}
+
+
+
 
 /* ─────────────────────────────────────────────────────────
    SECTION 01 — HERO
@@ -521,58 +401,7 @@ function FaqSection() {
 /* ─────────────────────────────────────────────────────────
    SECTION 07 — FINAL BRAND STATEMENT
 ───────────────────────────────────────────────────────── */
-function FinalBrandStatement() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
 
-  return (
-    <section className={styles.finale} ref={ref}>
-      {/* Vertical grid lines */}
-      <div className={styles.finaleGrid} aria-hidden="true">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className={styles.finaleGridLine}
-            initial={{ scaleY: 0 }}
-            animate={inView ? { scaleY: 1 } : {}}
-            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-            style={{ transformOrigin: 'top' }}
-          />
-        ))}
-      </div>
-
-      <div className={styles.finaleInner}>
-
-
-        <div className={styles.finalHeadlineWrap}>
-          <RevealText delay={0.05}>
-            <h2 className={styles.finaleH2}>FROM POSSIBILITY</h2>
-          </RevealText>
-          <RevealText delay={0.12}>
-            <h2 className={`${styles.finaleH2} ${styles.finaleH2Stroke}`}>TO DEPLOYMENT.</h2>
-          </RevealText>
-        </div>
-
-        <FadeUp delay={0.3}>
-          <p className={styles.finaleSub}>
-            Omoikane Innovations builds advanced technologies for environments where
-            systems must perform beyond the laboratory and deliver where it matters.
-          </p>
-        </FadeUp>
-
-
-
-        <div className={styles.finaleBottomMeta} aria-hidden="true">
-          <span>OMK / ABOUT</span>
-          <span className={styles.finaleMetaSep} />
-          <span>SYSTEM / 007</span>
-          <span className={styles.finaleMetaSep} />
-          <span>STATUS / COMPLETE</span>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ─────────────────────────────────────────────────────────
    PAGE ROOT
@@ -915,7 +744,6 @@ function CallToAction() {
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.9, zIndex: 2, backgroundColor: 'transparent' }}
           colors={['#000000', '#3b0764', '#000000']}
           speed={0.4}
-          wireframe={true}
         />
 
         <motion.div

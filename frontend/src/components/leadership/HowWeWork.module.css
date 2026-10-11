@@ -1,0 +1,60 @@
+.section {
+  width: 100%;
+  padding: 80px 24px;
+  background-color: var(--paper, #F4F3EE);
+  color: var(--ink, #111615);
+  font-family: system-ui, -apple-system, sans-serif;
+  border-top: 1px solid rgba(17, 22, 21, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7d8480;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.columnTitle {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 16px 0;
+  color: #1a1a1a;
+}
+
+.columnDesc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .section {
+    padding: 60px 20px;
+  }
+}

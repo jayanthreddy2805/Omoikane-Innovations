@@ -12,6 +12,12 @@ export const expertise: ExpertiseItem[] = [
       "We develop advanced UAV platforms, flight control systems, avionics, and RF communication modules engineered for precision, stability, and real-time performance. Our products are designed for mission-critical aerospace operations and high-reliability environments.",
   },
   {
+    id: "railways",
+    title: "Railways",
+    description:
+      "Our technologies enable predictive maintenance, automation, and intelligent control systems for industrial and railway environments, ensuring efficiency and reliability at scale.",
+  },
+  {
     id: "automotive",
     title: "Automotive",
     description:
@@ -22,11 +28,5 @@ export const expertise: ExpertiseItem[] = [
     title: "Defense",
     description:
       "Our defense-grade technologies include secure communication systems, autonomous surveillance platforms, and rugged embedded electronics. Built for reliability and performance, our solutions support modern defense operations and situational awareness.",
-  },
-  {
-    id: "railways",
-    title: "Railways",
-    description:
-      "Our technologies enable predictive maintenance, automation, and intelligent control systems for industrial and railway environments, ensuring efficiency and reliability at scale.",
   },
 ];
