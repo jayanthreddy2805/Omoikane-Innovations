@@ -42,7 +42,7 @@ export default function LeadershipHero() {
 
             <div className={styles.placeholderBody} style={{ border: 'none', background: 'transparent' }}>
                <Image 
-                  src="/images/leadership/123-transparent.png" 
+                  src="/images/leadership/uav-architecture-blueprint.png" 
                   alt="UAV Architecture" 
                   fill 
                   style={{ objectFit: 'contain', padding: '10px' }} 

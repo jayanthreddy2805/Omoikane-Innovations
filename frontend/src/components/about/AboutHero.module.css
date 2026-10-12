@@ -84,6 +84,54 @@
 }
 
 /* ─────────────────────────────────────────────────────────
+   SOUND TOGGLE (Bottom-Right of Hero Film)
+───────────────────────────────────────────────────────── */
+.soundToggle {
+  position: absolute;
+  right: clamp(14px, 2.2vw, 24px);
+  bottom: clamp(14px, 2.2vw, 24px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  background: rgba(17, 17, 17, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #F4F3EE;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.soundToggle:hover {
+  background: rgba(17, 17, 17, 0.75);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.soundToggle:active {
+  transform: translateY(0);
+}
+
+.soundToggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 2px;
+}
+
+.soundIcon {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  display: block;
+}
+
+/* ─────────────────────────────────────────────────────────
    SUMMARY SECTION (Normal document flow below hero)
 ───────────────────────────────────────────────────────── */
 .summarySection {
@@ -268,11 +316,24 @@
     grid-column: auto;
     padding-top: 0.4rem;
   }
+
+  .soundToggle {
+    right: 12px;
+    bottom: 12px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .soundIcon {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .expertiseLink,
-  .linkArrow {
+  .linkArrow,
+  .soundToggle {
     transition: none;
   }
 }

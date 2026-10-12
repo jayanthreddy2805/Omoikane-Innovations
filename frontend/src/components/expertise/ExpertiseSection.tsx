@@ -48,7 +48,7 @@ function MergedRailwayVideo() {
       <div style={{ position: 'relative', width: '100%', maxWidth: '640px', aspectRatio: '4 / 3', borderRadius: '12px', background: 'transparent', boxShadow: '0 15px 40px rgba(0, 0, 0, 0.19)', overflow: 'hidden' }}>
         <video
           ref={v1}
-          src="/videos/expertise/video_7cee3861bd7c.mp4"
+          src="/videos/expertise/railway-inspection-part1.mp4"
           autoPlay
           muted
           playsInline
@@ -57,7 +57,7 @@ function MergedRailwayVideo() {
         />
         <video
           ref={v2}
-          src="/videos/expertise/video_7cee3861bd7c1.mp4"
+          src="/videos/expertise/railway-inspection-part2.mp4"
           muted
           playsInline
           onEnded={() => handleEnd(1)}
@@ -378,7 +378,7 @@ export function ExpertiseSection() {
                         node.playbackRate = 1.75;
                       }
                     }}
-                    src="/videos/expertise/turbo.mp4"
+                    src="/videos/expertise/automotive-turbocharger.mp4"
                     autoPlay
                     muted
                     loop

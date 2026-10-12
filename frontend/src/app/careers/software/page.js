@@ -1,4 +1,4 @@
-import CareerTemplate from '@/components/common/CareerTemplate';
+import CareerTemplate from '@/components/careers/CareerTemplate';
 
 
 const softwareRoles = [

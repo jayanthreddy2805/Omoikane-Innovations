@@ -4,7 +4,7 @@ import { useRef, useState, Suspense } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { Building2, MapPin, Mail, Phone, ArrowRight } from 'lucide-react';
-import ApplyForm from '@/components/common/ApplyForm';
+import ApplyForm from '@/components/apply/ApplyForm';
 import FormSuccessState from '@/components/common/FormSuccessState';
 import styles from './page.module.css';
 

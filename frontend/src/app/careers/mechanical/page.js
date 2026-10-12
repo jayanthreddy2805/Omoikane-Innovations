@@ -6,7 +6,7 @@ import { Upload, Building, MapPin, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
-import templateStyles from '@/components/common/CareerTemplate.module.css';
+import templateStyles from '@/components/careers/CareerTemplate.module.css';
 import { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/v-field-21-utils/field';
 import { Input } from '@/components/ui/v-field-21-utils/input';
 

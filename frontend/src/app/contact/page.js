@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import ContactForm from '@/components/common/ContactForm';
+import ContactForm from '@/components/contact/ContactForm';
 import FormSuccessState from '@/components/common/FormSuccessState';
 import styles from './page.module.css';
 
@@ -65,7 +65,7 @@ export default function ContactPage() {
                 </h1>
                 <div className={styles.drawingWrapper}>
                    <Image 
-                      src="/images/contact/aer.png" 
+                      src="/images/contact/aeronautical-drawing-sketch.png" 
                       alt="Aeronautical Drawing" 
                       fill
                       className={styles.drawingImage} 
