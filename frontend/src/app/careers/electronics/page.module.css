@@ -4,7 +4,7 @@
   /* Software deep blue-black theme per user request */
   --surf-hero: #0A0F16; 
   --surf-index: #0A0F16;
-  --surf-content: #0d1420;
+  --surf-content: var(--bg-secondary);
   --surf-tech: #111827;
   --surf-apply: #0A0F16;
   
@@ -13,7 +13,7 @@
   --accent-cyan: #36CFF6;
   --text-primary: #F0F2F5;
   --text-muted: #A1A1AA;
-  --border-subtle: rgba(255, 255, 255, 0.2);
+  --border-subtle: rgba(10, 10, 10, 0.2);
   
   background: var(--surf-hero);
   color: var(--text-primary);
@@ -31,7 +31,7 @@
   padding: 6rem 5% 0;
   overflow: hidden;
   background: var(--surf-hero);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.05);
 }
 
 .heroVisualFullHeader {
@@ -89,7 +89,7 @@
   font-size: clamp(3rem, 6vw, 5.5rem);
   font-weight: 500;
   line-height: 1.05;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: -1px;
   margin-bottom: 2rem;
 }
@@ -109,7 +109,7 @@
   width: 100%;
   height: 56px;
   background: var(--surf-index);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
   z-index: 100;
   transform: translateY(-100%);
   opacity: 0;
@@ -152,15 +152,15 @@
 }
 
 .stickyBtn:hover {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .stickyNumber {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(10, 10, 10, 0.3);
 }
 
 .stickyBtnActive {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .stickyBtnActive .stickyNumber {
@@ -181,7 +181,7 @@
 .roleIndexSection {
   background: var(--surf-index);
   padding: 4rem 5%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.05);
 }
 
 .indexWrapper {
@@ -201,7 +201,7 @@
     overflow-x: auto;
     padding-bottom: 1rem;
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    scrollbar-color: rgba(10, 10, 10, 0.2) transparent;
   }
 }
 
@@ -213,7 +213,7 @@
   gap: 1rem;
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
   padding: 0 0 1.5rem 0;
   cursor: pointer;
   text-align: left;
@@ -255,7 +255,7 @@
 }
 
 .indexColActive .colTitle {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .indexColActive::after {
@@ -301,7 +301,7 @@
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 500;
   line-height: 1.1;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
@@ -367,7 +367,7 @@
 .editorialDivider {
   width: 100%;
   height: 1px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(10, 10, 10, 0.15);
   margin-bottom: 3rem;
 }
 
@@ -382,7 +382,7 @@
   align-items: baseline;
   gap: 2rem;
   padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.05);
   transition: background 0.3s ease;
 }
 
@@ -391,7 +391,7 @@
 }
 
 .workRow:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(10, 10, 10, 0.02);
 }
 
 .workRowNumber {
@@ -409,7 +409,7 @@
 
 .workRowMain {
   font-size: 1.15rem;
-  color: #fff;
+  color: var(--text-primary);
   letter-spacing: 0.5px;
 }
 
@@ -472,7 +472,7 @@
 .specThinRule {
   width: 100%;
   height: 1px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(10, 10, 10, 0.15);
   margin-bottom: 1.5rem;
 }
 
@@ -518,8 +518,8 @@
 
 .premiumApplyBtn {
   background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  border: 1px solid rgba(10, 10, 10, 0.2);
   padding: 1.25rem 2.5rem;
   font-family: var(--font-space-grotesk);
   font-size: 0.85rem;

@@ -1,0 +1,388 @@
+.page {
+  --paper: #f5f6ef;
+  --paper-deep: #eef0e7;
+  --ink: #2a2b29;
+  --muted: #666762;
+  --grid: rgba(60, 62, 58, 0.11);
+  --grid-light: rgba(60, 62, 58, 0.055);
+  --border: rgba(45, 46, 43, 0.28);
+  --accent: #f13f38;
+
+  position: relative;
+  width: 100%;
+  color: var(--ink);
+  background: var(--paper);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---------------------------------------------------------
+   MAIN TECHNICAL CANVAS
+--------------------------------------------------------- */
+.canvas {
+  position: relative;
+  min-height: calc(min(81vh, 680px) - 100px);
+}
+
+
+
+/* ---------------------------------------------------------
+   CORNER CROSSES
+--------------------------------------------------------- */
+.cross {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  z-index: 4;
+}
+.cross::before,
+.cross::after {
+  content: "";
+  position: absolute;
+  background: var(--ink);
+  opacity: 0.75;
+}
+.cross::before { top: 5px; left: 0; width: 12px; height: 1px; }
+.cross::after { top: 0; left: 5px; width: 1px; height: 12px; }
+
+.crossTopLeft { top: 7px; left: 7px; }
+.crossTopRight { top: 7px; right: 7px; }
+.crossBottomLeft { bottom: 7px; left: 7px; }
+.crossBottomRight { bottom: 7px; right: 7px; }
+
+/* ---------------------------------------------------------
+   RULER TICKS
+--------------------------------------------------------- */
+.topTicks,
+.bottomTicks {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  height: 8px;
+  background:
+    repeating-linear-gradient(
+      to right,
+      rgba(50, 51, 48, 0.21) 0,
+      rgba(50, 51, 48, 0.21) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+  opacity: 0.5;
+  pointer-events: none;
+}
+.topTicks { top: 7px; }
+.bottomTicks { bottom: 7px; }
+
+.leftTicks,
+.rightTicks {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  width: 8px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(50, 51, 48, 0.21) 0,
+      rgba(50, 51, 48, 0.21) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+  opacity: 0.5;
+  pointer-events: none;
+}
+.leftTicks { left: 7px; }
+.rightTicks { right: 7px; }
+
+/* ---------------------------------------------------------
+   RED TECHNICAL GUIDES
+--------------------------------------------------------- */
+.redHorizontal {
+  position: absolute;
+  top: 3.1%;
+  left: 23.6%;
+  width: 52.8%;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.9;
+}
+.redVertical {
+  position: absolute;
+  top: 17.2%;
+  right: 1.75%;
+  width: 1px;
+  height: 58%;
+  background: var(--accent);
+  opacity: 0.86;
+}
+
+/* ---------------------------------------------------------
+   COORDINATE UI
+--------------------------------------------------------- */
+.coordinate {
+  position: absolute;
+  top: 19%;
+  right: 20.8%;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 8px;
+  line-height: 1.15;
+  color: rgba(43, 44, 41, 0.7);
+  z-index: 6;
+}
+
+/* ---------------------------------------------------------
+   CENTRAL VISUAL PLACEHOLDER
+--------------------------------------------------------- */
+.visualStage {
+  position: absolute;
+  inset: 8% 9% 16% 9%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualPlaceholder {
+  position: relative;
+  width: min(139.5vw, 1935px);
+  height: min(110.25vh, 945px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1.5);
+}
+
+.placeholderBody {
+  position: relative;
+  width: 78%;
+  height: 54%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.placeholderBody::before,
+.placeholderBody::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+.placeholderBody::before {
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgba(70, 71, 67, 0.11) 50%, transparent 50.2%),
+    linear-gradient(0deg, transparent 49.8%, rgba(70, 71, 67, 0.11) 50%, transparent 50.2%);
+}
+.placeholderBody::after {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+  left: 0;
+  background: rgba(50, 51, 48, 0.12);
+}
+
+.placeholderTag {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px 12px;
+  border: 1px solid rgba(40, 41, 38, 0.16);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(43, 44, 41, 0.45);
+  background: rgba(255,255,255,0.5);
+  z-index: 10;
+}
+
+/* ---------------------------------------------------------
+   IMAGE PLACEHOLDER CORNERS
+--------------------------------------------------------- */
+.placeholderCorner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  z-index: 2;
+}
+.placeholderCorner::before,
+.placeholderCorner::after {
+  content: "";
+  position: absolute;
+  background: rgba(43, 44, 41, 0.42);
+}
+.placeholderCorner::before { width: 12px; height: 1px; }
+.placeholderCorner::after { width: 1px; height: 12px; }
+
+.topLeft { top: calc(23% - 6px); left: calc(11% - 6px); }
+.topRight { top: calc(23% - 6px); right: calc(11% - 6px); }
+.bottomLeft { bottom: calc(23% - 6px); left: calc(11% - 6px); }
+.bottomRight { bottom: calc(23% - 6px); right: calc(11% - 6px); }
+
+/* ---------------------------------------------------------
+   ISSUE / TOOLTIP PLACEHOLDER
+--------------------------------------------------------- */
+.issueTooltip {
+  position: absolute;
+  top: 18.5%;
+  left: 79.4%;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 9px;
+  background: #30312f;
+  color: #f4f4ef;
+  font-size: 7px;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  z-index: 8;
+}
+.issueTooltip strong,
+.issueTooltip span { display: block; }
+.issueTooltip strong { margin-bottom: 2px; font-size: 7px; }
+.issueTooltip span { color: rgba(255, 255, 255, 0.72); }
+
+.issueDot {
+  width: 5px;
+  height: 5px;
+  margin-top: 2px;
+  background: var(--accent);
+}
+
+/* ---------------------------------------------------------
+   BOTTOM INFORMATION BAND
+--------------------------------------------------------- */
+.infoBand {
+  position: relative;
+  min-height: 138px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.84fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(245, 246, 239, 0.88);
+}
+
+/* ---------------------------------------------------------
+   HEADLINE 
+--------------------------------------------------------- */
+.headlineContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 20px 24px;
+}
+.actualTitle {
+  font-family: 'Generalsans', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+--------------------------------------------------------- */
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 20px 24px 14px;
+  border-left: 1px solid var(--border);
+}
+.actualDesc {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 90%;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------------------------------------------------------
+   ACTION
+--------------------------------------------------------- */
+.actionPlaceholder {
+  position: relative;
+  border-left: 1px solid var(--border);
+  padding: 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.actionPlaceholder:hover {
+  background: rgba(241, 63, 56, 0.05);
+}
+.actionLabel {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.actionArrow {
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------
+   BOTTOM STRIP
+--------------------------------------------------------- */
+.metaStrip {
+  position: absolute;
+  left: calc(1.15 * 100% / 2);
+  right: 0;
+  bottom: 0;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  padding: 0 18px;
+  white-space: nowrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: rgba(60, 61, 58, 0.72);
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .canvas { min-height: 550px; }
+  .visualStage { inset: 9% 7% 17% 7%; }
+  .visualPlaceholder { width: 78vw; }
+  .infoBand { grid-template-columns: 1.2fr 1fr; }
+}
+
+@media (max-width: 760px) {
+  .canvas {
+    min-height: 460px;
+    background-size: 54px 54px, 54px 54px;
+  }
+  .visualStage { inset: 12% 3% 14% 3%; }
+  .visualPlaceholder { width: 100%; height: 360px; }
+  .placeholderBody { width: 90%; height: 55%; }
+  .issueTooltip { left: auto; right: 5%; top: 15%; }
+  .infoBand { grid-template-columns: 1fr; }
+  .descriptionContainer { min-height: 120px; border-top: 1px solid var(--border); border-left: 0; }
+  .actionPlaceholder { min-height: 70px; border-top: 1px solid var(--border); border-left: 0; }
+  .metaStrip { position: static; grid-column: 1; border-top: 1px solid var(--border); }
+}
+
+@media (max-width: 480px) {
+  .canvas { min-height: 370px; }
+  .topTicks, .bottomTicks, .leftTicks, .rightTicks { opacity: 0.28; }
+  .visualPlaceholder { width: 115%; }
+  .placeholderBody { width: 84%; }
+  .issueTooltip { transform: scale(0.9); transform-origin: top right; }
+  .headlineContainer { padding: 18px; }
+}

@@ -1,20 +1,37 @@
-/* GLOBAL PAGE WRAPPER */
 .pageWrapper {
-  --surf-hero: #0A0F16;
-  --surf-content: #0d1420;
-  --surf-enquiry: #0A0F16;
-  --surf-presence: #0d1420;
-  --accent-cyan: #36CFF6;
-  --text-primary: #F0F2F5;
-  --text-muted: #A1A1AA;
-  --border-subtle: rgba(255, 255, 255, 0.08);
+  --surf-hero: #F5F3EE;
+  --surf-content: #F5F3EE;
+  --surf-enquiry: #F5F3EE;
+  --surf-presence: #F5F3EE;
+  --accent-cyan: #111111;
+  --text-primary: var(--text-primary);
+  --text-muted: #626762;
+  --border-subtle: #D8D7D1;
 
   min-height: 100vh;
   background-color: var(--surf-hero);
   color: var(--text-primary);
-  padding-top: 100px;
+  margin-top: -104px;
+  padding-top: 204px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: -20%;
+  left: 10%;
+  width: 150vw;
+  height: 150vh;
+  background: 
+    radial-gradient(circle at 30% 40%, #ECEAE4 0%, transparent 60%),
+    radial-gradient(circle at 70% 60%, #ECEAE4 0%, transparent 60%);
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .container {
@@ -60,15 +77,16 @@
 
 .heroRobotImage {
   object-fit: contain;
-  /* Invert the black/white sketch and use screen to drop out the background */
-  filter: invert(1) brightness(0.9);
-  mix-blend-mode: screen;
+  /* Use multiply to drop out the white background on a light theme */
+  mix-blend-mode: multiply;
+  opacity: 0.15;
+  transform: scale(0.85);
 }
 
 .pcbImageWrapper {
   position: absolute;
-  bottom: 10%;
-  left: -15%;
+  bottom: calc(10% - 70px);
+  left: calc(-15% + 100px);
   width: 45%;
   aspect-ratio: 1/1;
   z-index: 2;
@@ -77,13 +95,13 @@
 
 .heroPcbImage {
   object-fit: contain;
-  filter: invert(1) brightness(0.9);
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
+  opacity: 0.12;
 }
 
 .hnImageWrapper {
   position: absolute;
-  top: 15%;
+  top: calc(15% - 70px);
   right: -25%;
   width: 56%;
   aspect-ratio: 1/1;
@@ -91,13 +109,31 @@
   transform: translate(30px, -100px);
 }
 
-.heroHnImage {
+.heroArmImage {
   object-fit: contain;
-  filter: invert(1) brightness(0.9);
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
+  opacity: 0.12;
 }
 
 /* --- NEW HERO LEFT TYPOGRAPHY --- */
+
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: rgba(54, 207, 246, 0.7);
+}
+
+.heroEyebrowLine {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: #36CFF6;
+}
 
 .heroTitleWrapper {
   position: relative;
@@ -110,7 +146,7 @@
   font-weight: 500;
   letter-spacing: -2px;
   line-height: 1;
-  color: #ffffff;
+  color: var(--text-primary);
   margin: 0;
   position: relative;
   z-index: 2;
@@ -123,7 +159,7 @@
   letter-spacing: -2px;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  -webkit-text-stroke: 1px rgba(10, 10, 10, 0.15);
   margin: 0;
   position: absolute;
   top: 8px;
@@ -132,7 +168,7 @@
 }
 
 .heroSubtitleBlock {
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  border-left: 2px solid rgba(10, 10, 10, 0.1);
   padding-left: 24px;
   margin-bottom: 56px;
 }
@@ -173,9 +209,75 @@
 
 /* 2. ENQUIRY SECTION */
 .enquirySection {
-  background-color: var(--surf-enquiry);
-  padding: 120px 0;
-  border-top: 1px solid var(--border-subtle);
+  background-color: transparent;
+  padding: 0 0 90px;
+}
+
+.contactHeroWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 120px;
+  margin-top: -40px;
+}
+
+.letsConnectTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(30px, 6vw, 60px);
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(40px, 8vw, 100px);
+  line-height: 0.8;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  margin: 0;
+  text-transform: uppercase;
+  transform: scale(0.6, 1.5);
+}
+
+.textWhite {
+  color: #202321;
+}
+
+.textGrey {
+  color: #465340;
+}
+
+.drawingWrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: max(210px, 19vw); /* Anchors to the right of the text */
+  height: clamp(60px, 12vw, 150px); /* Exactly 1.5x the text clamp */
+  aspect-ratio: 238 / 267; /* Original image ratio */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.drawingImage {
+  object-fit: contain;
+}
+
+.sparkWrapper {
+  position: absolute;
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sparkSymbol {
+  width: 50px;
+  height: 50px;
+  color: #ffffff;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
 }
 
 .enquiryGrid {
@@ -212,29 +314,34 @@
   font-family: var(--font-inter, sans-serif);
   font-size: 15px;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: #626762;
   margin-bottom: 40px;
 }
 
 .enquiryVisualContainer {
   width: 100%;
   margin-top: auto;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid #D8D7D1;
   padding-top: 24px;
 }
 
 .enquiryVisualWrapper {
   position: relative;
-  width: 350px;
-  max-width: 100%;
-  min-height: 324px;
+  width: 100%;
+  min-height: 350px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: multiply;
 }
 
 .enquiryImage {
-  object-fit: fill;
-  object-position: left top;
-  mix-blend-mode: screen;
+  object-fit: cover;
+  object-position: center;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+  opacity: 1;
 }
 
 .formWrapper {

@@ -1,31 +1,30 @@
 /* Color Palette & Base */
 .pageContainer {
-  --bg-primary: #0A0F16;
-  --bg-secondary: #0d1420;
-  --bg-tertiary: #111;
-  --accent-cyan: #36CFF6;
-  --border-subtle: rgba(255, 255, 255, 0.2);
-  --text-muted: #A1A1AA;
+  --bg-primary: #FAFAF7;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F2F2ED;
+  --theme-accent: #0A0A0A;
+  --border-subtle: rgba(10, 10, 10, 0.1);
+  --text-primary: #0A0A0A;
+  --text-muted: #5A5A5A;
   
   background-color: var(--bg-primary);
-  color: #F0F2F5;
+  color: var(--text-primary);
   font-family: var(--font-inter);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
 .pageContainer[data-theme="mechanical"] {
-  --bg-primary: #111315; /* Graphite */
-  --bg-secondary: #181a1c; /* Carbon/Steel */
-  --bg-tertiary: #1d1f21;
-  --accent-cyan: #4A90E2; /* Muted industrial blue */
+  --theme-accent: #1E3A8A; /* Elegant refined blue */
 }
 
 .pageContainer[data-theme="electronics"] {
-  --bg-primary: #0D1110; /* PCB Charcoal */
-  --bg-secondary: #141c18; /* Solder */
-  --bg-tertiary: #1a241f;
-  --accent-cyan: #19C97B; /* Copper/Solder Green */
+  --theme-accent: #064E3B; /* Elegant refined green/oxidized */
+}
+
+.pageContainer[data-theme="software"] {
+  --theme-accent: #3F3F46; /* Charcoal/Graphite */
 }
 
 /* SECTION A: HERO */
@@ -66,7 +65,7 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .heroSub {
@@ -85,7 +84,7 @@
 
 .primaryCta {
   background: transparent;
-  color: #fff;
+  color: var(--text-primary);
   border: none;
   font-family: var(--font-inter);
   font-weight: 600;
@@ -93,7 +92,7 @@
   letter-spacing: 1px;
   cursor: pointer;
   padding: 0;
-  border-bottom: 1px solid var(--accent-cyan);
+  border-bottom: 1px solid var(--theme-accent);
   padding-bottom: 0.25rem;
   transition: opacity 0.2s ease;
 }
@@ -114,22 +113,22 @@
 }
 
 .secondaryCta:hover {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .heroVisual {
   position: relative;
   width: 100%;
   aspect-ratio: 4/3;
-  background: #111;
-  border-radius: 2px;
+  background: transparent;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
   overflow: hidden;
 }
 
 .heroImg {
   object-fit: cover;
-  opacity: 0.8;
-  mix-blend-mode: luminosity; /* gives a mature, desaturated technical feel */
+  opacity: 1;
 }
 
 /* SECTION B: WHAT WE BUILD */
@@ -176,7 +175,7 @@
   font-family: var(--font-space-grotesk);
   font-size: 1rem;
   letter-spacing: 1px;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 0.75rem;
   transition: color 0.3s ease;
 }
@@ -189,11 +188,11 @@
 }
 
 .wwbItem:hover h3 {
-  color: var(--accent-cyan);
+  color: var(--theme-accent);
 }
 
 .wwbItem:hover p {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 /* SECTION C & D: ROLE EXPLORER */
@@ -264,15 +263,15 @@
 }
 
 .navItem:hover {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .navItemActive {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .navItemHighlighted {
-  color: #fff;
+  color: var(--text-primary);
 }
 .navItemHighlighted::after {
   content: '';
@@ -282,7 +281,8 @@
   transform: translateY(-50%);
   height: 20px;
   width: 1px;
-  background-color: rgba(54, 207, 246, 0.4);
+  background-color: var(--theme-accent);
+  opacity: 0.4;
 }
 
 /* The subtle cyan indicator */
@@ -293,7 +293,7 @@
   top: 10px;
   height: 20px;
   width: 1px;
-  background-color: var(--accent-cyan);
+  background-color: var(--theme-accent);
 }
 
 .navNumber {
@@ -316,7 +316,7 @@
 
 .navSubtitle {
   font-size: 0.85rem;
-  color: #fff;
+  color: var(--text-primary);
   opacity: 0.9;
 }
 
@@ -357,7 +357,7 @@
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 500;
   letter-spacing: -0.5px;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 0.25rem;
   line-height: 1.1;
 }
@@ -371,7 +371,7 @@
 .roleDesc {
   font-size: 1.25rem;
   line-height: 1.6;
-  color: #F0F2F5;
+  color: var(--text-primary);
   margin-bottom: 3.5rem;
   max-width: 700px;
 }
@@ -380,8 +380,11 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
-  background: var(--bg-tertiary);
+  background: transparent;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
   margin-bottom: 4rem;
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {
@@ -392,8 +395,7 @@
 
 .roleVisualImg {
   object-fit: cover;
-  mix-blend-mode: luminosity; /* mature editorial styling */
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .roleContentEditorial {
@@ -459,7 +461,7 @@
   font-family: var(--font-space-grotesk);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--accent-cyan);
+  color: var(--theme-accent);
   min-width: 1.5rem;
 }
 
@@ -471,7 +473,7 @@
 
 .workMain {
   font-size: 1.05rem;
-  color: #fff;
+  color: var(--text-primary);
   font-weight: 400;
   line-height: 1.4;
 }
@@ -492,8 +494,8 @@
 
 .editorialTechList li {
   font-size: 1rem;
-  color: #D1D5DB;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.05);
   padding-bottom: 1rem;
 }
 
@@ -541,7 +543,7 @@
 
 .skillGroup ul li {
   font-size: 0.95rem;
-  color: #D1D5DB;
+  color: var(--text-muted);
   line-height: 1.4;
 }
 
@@ -563,8 +565,8 @@
   align-items: center;
   gap: 12px;
   background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--text-primary);
+  border: 1px solid rgba(10, 10, 10, 0.25);
   padding: 1rem 2rem;
   font-family: var(--font-space-grotesk);
   font-size: 0.8rem;
@@ -581,7 +583,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--accent-cyan, #36CFF6);
+  background: var(--theme-accent);
   transform: translateX(-101%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 0;
@@ -592,8 +594,8 @@
 }
 
 .premiumApplyBtn:hover {
-  color: #0A0F16;
-  border-color: var(--accent-cyan, #36CFF6);
+  color: #FFFFFF;
+  border-color: var(--theme-accent);
 }
 
 .premiumApplyBtn span, .premiumApplyBtn > * {
@@ -604,7 +606,7 @@
 .applyRoleBtn {
   align-self: flex-start;
   background: transparent;
-  color: #fff;
+  color: var(--text-primary);
   border: 1px solid var(--border-subtle);
   padding: 1.15rem 2.25rem;
   font-family: var(--font-space-grotesk);
@@ -617,8 +619,8 @@
 }
 
 .applyRoleBtn:hover {
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
 }
 
 /* SECTION E: WHY JOIN */
@@ -653,7 +655,7 @@
   font-size: 1.25rem;
   font-weight: 500;
   margin-bottom: 1rem;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .whyItem p {
@@ -702,11 +704,11 @@
   letter-spacing: -1px;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .applyText > p {
-  color: #a0a5ab;
+  color: var(--text-muted);
   line-height: 1.5;
   font-size: 1.05rem;
   margin-bottom: 2.5rem;
@@ -719,7 +721,7 @@
 .contactDivider {
   width: 100%;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(10, 10, 10, 0.08);
   margin-bottom: 2.5rem;
 }
 
@@ -734,7 +736,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 2px;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: -0.5rem;
 }
 
@@ -760,7 +762,7 @@
 .contactGroup p,
 .contactGroup a {
   font-size: 1.05rem;
-  color: #d1d5db;
+  color: var(--text-muted);
   line-height: 1.6;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -771,7 +773,7 @@
 }
 
 .contactGroup a:hover {
-  color: var(--accent-cyan);
+  color: var(--theme-accent);
 }
 
 .contactIndexTitle {
@@ -782,14 +784,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #ffffff;
+  color: var(--text-primary);
   font-family: var(--font-space-grotesk);
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.2);
   padding-bottom: 0.35rem;
   transition: all 0.2s ease;
 }
@@ -799,8 +801,8 @@
 }
 
 .contactIndexTitle a:hover {
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
 }
 
 .contactIndexTitle a:hover span {
@@ -815,14 +817,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #ffffff;
+  color: var(--text-primary);
   font-family: var(--font-space-grotesk);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.2);
   padding-bottom: 0.35rem;
   transition: all 0.2s ease;
 }
@@ -832,8 +834,8 @@
 }
 
 .contactCta a:hover {
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
 }
 
 .contactCta a:hover span {
@@ -884,7 +886,7 @@
   border: none;
   border-bottom: 1px solid var(--border-subtle);
   padding: 0.75rem 0;
-  color: #fff;
+  color: var(--text-primary);
   font-family: var(--font-inter);
   font-size: 1.1rem;
   outline: none;
@@ -900,13 +902,13 @@
 .inputGroup input:focus,
 .inputGroup select:focus,
 .inputGroup textarea:focus {
-  border-color: var(--accent-cyan);
+  border-color: var(--theme-accent);
 }
 
 .uploadLabel {
   display: flex;
   align-items: center;
-  color: var(--text-primary, #fff);
+  color: var(--text-primary, var(--text-primary));
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 0.65rem;
@@ -915,8 +917,8 @@
 .fileInputRow {
   display: flex;
   align-items: center;
-  background: #111;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--bg-secondary);
+  border: 1px solid rgba(10, 10, 10, 0.12);
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
@@ -924,15 +926,15 @@
 }
 
 .fileInputRow:hover {
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(10, 10, 10, 0.25);
 }
 
 .chooseFileBtn {
   flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 10, 0.08);
   border: none;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  border-right: 1px solid rgba(10, 10, 10, 0.1);
+  color: var(--text-primary);
   font-size: 0.82rem;
   font-family: var(--font-inter);
   font-weight: 400;
@@ -946,7 +948,7 @@
   flex: 1;
   padding: 0 0.85rem;
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(10, 10, 10, 0.35);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -956,7 +958,7 @@
   flex-shrink: 0;
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(10, 10, 10, 0.35);
   font-size: 0.9rem;
   cursor: pointer;
   padding: 0.6rem 0.85rem;
@@ -965,7 +967,7 @@
 }
 
 .clearFileBtn:hover {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .nativeFileInput {
@@ -981,8 +983,8 @@
 
 .submitBtn {
   align-self: flex-start;
-  background: #fff;
-  color: #000;
+  background: var(--text-primary);
+  color: var(--bg-primary);
   border: none;
   padding: 1.25rem 3rem;
   font-family: var(--font-inter);

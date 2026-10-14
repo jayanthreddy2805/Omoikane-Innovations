@@ -2,6 +2,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AIChatbot from "@/components/AIChatbot/AIChatbot";
+import IntroLoader from "@/components/common/IntroLoader";
 import "./globals.css";
 
 const inter = Inter({
@@ -50,10 +51,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <AIChatbot />
+        <IntroLoader>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <AIChatbot />
+        </IntroLoader>
       </body>
     </html>
   );

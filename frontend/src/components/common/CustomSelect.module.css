@@ -10,13 +10,14 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  min-height: 54px;
-  background-color: var(--bg-primary, #0A0F16);
-  border: 1px solid #333333;
-  border-radius: 8px;
-  padding: 0 1.25rem;
-  color: #888888;
-  font-size: 0.95rem;
+  min-height: 52px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #D8D7D1;
+  border-radius: 0;
+  padding: 16px 0;
+  color: #202321;
+  font-size: 15px;
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
@@ -24,53 +25,53 @@
 }
 
 .selectTrigger:hover {
-  border-color: #555555;
-  background-color: var(--bg-primary, #0A0F16);
+  border-bottom-color: #465340;
 }
 
 .selectTrigger:focus-visible,
 .selectTrigger.open {
-  border-color: #00d2ff;
-  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.15);
-  background-color: var(--bg-primary, #0A0F16);
+  border-bottom-color: #465340;
 }
 
-.selectTrigger.hasValue {
-  color: #f5f5f5;
-  font-weight: 500;
+.selectTrigger:not(.hasValue) {
+  color: #858780;
 }
 
 .selectValue {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-right: 1rem;
+  padding-right: 16px;
 }
 
 .chevron {
-  color: #888888;
+  color: #858780;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
   flex-shrink: 0;
 }
 
 .selectTrigger:hover .chevron, 
 .selectTrigger.open .chevron {
-  color: #00d2ff;
+  color: #465340;
+}
+
+.selectTrigger.open .chevron {
+  transform: rotate(180deg);
 }
 
 /* Dropdown Panel */
 .optionsDropdown {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 4px);
   left: 0;
   width: 100%;
-  background-color: var(--bg-secondary, #0d1420);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  background-color: #ffffff;
+  border: 1px solid #D8D7D1;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   z-index: 100;
   overflow: hidden;
 }
@@ -79,7 +80,7 @@
   max-height: 280px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #444444 transparent;
+  scrollbar-color: #D8D7D1 transparent;
   display: flex;
   flex-direction: column;
 }
@@ -93,7 +94,7 @@
 }
 
 .optionsScroll::-webkit-scrollbar-thumb {
-  background-color: #444444;
+  background-color: #D8D7D1;
   border-radius: 6px;
 }
 
@@ -102,12 +103,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 52px;
-  padding: 0.75rem 1.25rem;
-  color: #a0a5ab; /* muted light grey */
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  color: #202321;
   cursor: pointer;
   transition: all 0.15s ease;
-  font-size: 0.95rem;
+  font-size: 15px;
   user-select: none;
   border-left: 3px solid transparent;
 }
@@ -119,17 +120,18 @@
 
 .optionItem:hover,
 .optionItem.focused {
-  background-color: #222222; /* subtle shift toward graphite/slate */
-  color: #ffffff; /* brighter text */
-  border-left-color: #00d2ff; /* cyan accent */
+  background-color: #f7f7f5;
+  color: #202321;
+  border-left-color: #465340;
 }
 
 .optionItem.selected {
-  background-color: rgba(0, 210, 255, 0.05);
-  color: #ffffff;
+  background-color: rgba(70, 83, 64, 0.05);
+  color: #465340;
+  font-weight: 500;
 }
 
 .checkIcon {
-  color: #00d2ff;
+  color: #465340;
   flex-shrink: 0;
 }

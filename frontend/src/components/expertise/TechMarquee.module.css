@@ -1,0 +1,77 @@
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--paper, #F4F3EE);
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* Add a gap for spacing between the hero and expertise section */
+  margin: 20px 0 40px 0;
+}
+
+/* Optional soft gradient mask to fade the edges */
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--paper, #F4F3EE), transparent);
+}
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--paper, #F4F3EE), transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+.techItem {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: rgba(17, 22, 21, 0.4); /* subtle dark ink color */
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: color 0.3s;
+}
+
+.techItem:hover {
+  color: var(--teal, #246d70);
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background-color: rgba(17, 22, 21, 0.2);
+  border-radius: 50%;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate half the width since we duplicate the content */
+    transform: translateX(calc(-50% - 20px));
+  }
+}

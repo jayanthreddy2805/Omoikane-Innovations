@@ -18,7 +18,7 @@
 }
 
 .inputGroupCareer:focus-within {
-  border-bottom-color: var(--accent-cyan, #36CFF6);
+  border-bottom-color: var(--theme-accent);
   box-shadow: none;
 }
 
@@ -34,7 +34,7 @@
   height: 100%;
   background: transparent;
   border: none;
-  color: #ffffff;
+  color: var(--text-primary);
   font-family: var(--font-inter, sans-serif);
   font-size: 1.1rem;
   cursor: pointer;
@@ -67,7 +67,7 @@
   border-bottom: none !important;
   box-shadow: none !important;
   padding: 0.75rem 0 0.75rem 12px;
-  color: #fff;
+  color: var(--text-primary);
   font-family: var(--font-inter, sans-serif);
   font-size: 1.1rem;
   outline: none;
@@ -75,7 +75,7 @@
 }
 
 .phoneInputCareer::placeholder {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(10, 10, 10, 0.25);
 }
 /* ── END CAREER VARIANT ── */
 
@@ -85,7 +85,7 @@
   display: flex;
   align-items: center;
   background-color: transparent;
-  border: 1px solid var(--border-subtle, #30363D);
+  border: 1px solid #D8D7D1;
   border-radius: 4px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   height: 48px;
@@ -93,11 +93,28 @@
 }
 
 .inputGroup:focus-within {
-  border-color: var(--accent-cyan, #36CFF6);
-  box-shadow: 0 0 0 1px var(--accent-cyan, #36CFF6);
+  border-color: #465340;
+  box-shadow: 0 0 0 1px rgba(70, 83, 64, 0.2);
 }
 
-.inputGroup.invalid {
+.inputGroupLine {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #D8D7D1;
+  border-radius: 0;
+  transition: border-color 0.2s ease;
+  height: 48px;
+  width: 100%;
+}
+
+.inputGroupLine:focus-within {
+  border-bottom-color: #465340;
+}
+
+.inputGroup.invalid, .inputGroupLine.invalid {
   border-color: #f85149;
 }
 
@@ -105,7 +122,7 @@
   box-shadow: 0 0 0 1px #f85149;
 }
 
-/* Country Selector Button */
+/* Country Selector Button - default (boxed) variant */
 .countrySelectBtn {
   display: flex;
   align-items: center;
@@ -114,17 +131,40 @@
   height: 100%;
   background: transparent;
   border: none;
-  border-right: 1px solid var(--border-subtle, #30363D);
-  color: #ffffff;
+  border-right: 1px solid #D8D7D1;
+  color: #202321;
   font-family: var(--font-inter, sans-serif);
   font-size: 15px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: opacity 0.2s ease;
   flex-shrink: 0;
 }
 
-.countrySelectBtn:hover, .countrySelectBtn[aria-expanded="true"] {
-  background-color: rgba(255, 255, 255, 0.05);
+.countrySelectBtn:hover {
+  opacity: 0.8;
+}
+
+/* Country Selector Button - line variant (matches file upload) */
+.countrySelectBtnLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px 0 0;
+  margin-right: 12px;
+  height: 100%;
+  background: transparent;
+  border: none;
+  border-right: 1px solid #D8D7D1;
+  color: #202321;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 15px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.countrySelectBtnLine:hover {
+  opacity: 0.8;
 }
 
 .flagIcon {
@@ -135,11 +175,11 @@
 }
 
 .dialCode {
-  color: var(--text-muted, #8b949e);
+  color: #626762;
 }
 
 .chevron {
-  color: var(--text-muted, #8b949e);
+  color: #626762;
   transition: transform 0.2s ease;
 }
 
@@ -154,7 +194,7 @@
   border: none;
   padding: 0 16px;
   height: 100%;
-  color: #ffffff;
+  color: #202321;
   font-family: var(--font-inter, sans-serif);
   font-size: 15px;
   min-width: 0;
@@ -165,7 +205,7 @@
 }
 
 .phoneInput::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: #858780;
 }
 
 /* Dropdown Popover — matches CustomSelect style */
@@ -176,8 +216,8 @@
   width: 100%;
   min-width: 300px;
   max-height: 350px;
-  background-color: var(--bg-secondary, #0d1420);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: #F5F3EE;
+  border: 1px solid #D8D7D1;
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
   z-index: 100;
@@ -188,28 +228,28 @@
 
 .searchHeader {
   padding: 10px 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid #D8D7D1;
   position: sticky;
   top: 0;
-  background-color: var(--bg-secondary, #0d1420);
+  background-color: #F5F3EE;
   z-index: 2;
 }
 
 .searchInput {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background-color: transparent;
+  border: 1px solid #D8D7D1 !important;
+  border-bottom: 1px solid #D8D7D1 !important;
   border-radius: 6px;
   padding: 8px 12px 8px 32px;
-  color: #f5f5f5;
+  color: #202321;
   font-family: var(--font-inter, sans-serif);
   font-size: 0.9rem;
 }
 
 .searchInput:focus {
   outline: none;
-  border-color: #00d2ff;
+  border-color: #333333;
 }
 
 .dropdownList {
@@ -245,7 +285,7 @@
   border-left: 3px solid transparent;
   text-align: left;
   cursor: pointer;
-  color: #a0a5ab;
+  color: #626762;
   font-family: var(--font-inter, sans-serif);
   font-size: 0.95rem;
   transition: all 0.15s ease;
@@ -254,9 +294,9 @@
 
 .countryOption:hover,
 .countryOption[aria-selected="true"] {
-  background-color: #222222;
-  color: #ffffff;
-  border-left-color: #00d2ff;
+  background-color: rgba(32, 35, 33, 0.05);
+  color: #202321;
+  border-left-color: #202321;
 }
 
 .countryName {
@@ -269,7 +309,7 @@
 }
 
 .countryDialCode {
-  color: #888888;
+  color: #626762;
   font-variant-numeric: tabular-nums;
   font-size: 0.85rem;
 }
@@ -318,8 +358,8 @@
   top: calc(100% + 6px);
   left: 0;
   width: 100%;
-  background-color: var(--bg-secondary, #0d1420);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: var(--bg-secondary, var(--bg-secondary));
+  border: 1px solid rgba(10, 10, 10, 0.15);
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
   z-index: 100;
@@ -330,15 +370,15 @@
 
 .searchHeaderCareer {
   padding: 10px 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background-color: var(--bg-secondary, #0d1420);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+  background-color: var(--bg-secondary, var(--bg-secondary));
 }
 
 .searchInputCareer {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background-color: rgba(10, 10, 10, 0.05) !important;
+  border: 1px solid rgba(10, 10, 10, 0.15) !important;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.15) !important;
   border-radius: 6px !important;
   padding: 8px 12px 8px 32px !important;
   color: #f5f5f5 !important;
@@ -349,7 +389,7 @@
 }
 
 .searchInputCareer:focus {
-  border-color: #00d2ff !important;
+  border-color: #465340 !important;
   outline: none;
 }
 
@@ -389,9 +429,9 @@
 
 .countryOptionCareer:hover,
 .countryOptionCareer[aria-selected="true"] {
-  background-color: #222222;
-  color: #ffffff;
-  border-left-color: #00d2ff;
+  background-color: rgba(70, 83, 64, 0.05);
+  color: var(--text-primary);
+  border-left-color: #465340;
 }
 
 .countryNameCareer {

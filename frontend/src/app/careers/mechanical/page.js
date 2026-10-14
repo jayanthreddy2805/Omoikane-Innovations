@@ -4,13 +4,9 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Upload, Building, MapPin, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './page.module.css';
-import templateStyles from '@/components/common/CareerTemplate.module.css';
-import CustomSelect from '@/components/common/CustomSelect';
-import FileUpload from '@/components/common/FileUpload';
-import SubmitButton from '@/components/common/SubmitButton';
-import FormSuccessState from '@/components/common/FormSuccessState';
-import InternationalPhoneInput from '@/components/common/InternationalPhoneInput';
+import templateStyles from '@/components/careers/CareerTemplate.module.css';
 import { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/v-field-21-utils/field';
 import { Input } from '@/components/ui/v-field-21-utils/input';
 
@@ -23,7 +19,7 @@ const mechanicalRoles = [
     displayTitle: "MECHANICAL DESIGN ENGINEER", // for the intro
     subtitle: "Drone Structures",
     description: "Design geometry, assemblies, and physical prototypes for UAV airframes, CAD modeling, and manufacturing drawings.",
-    visual: "/images/careers/mech-design.jpg",
+    visual: "/images/careers/mechanical/mech-design.jpg",
     work: [
       "3D CAD Modeling (SolidWorks, CATIA, Fusion 360)",
       "2D Drawings & GD&T",
@@ -67,7 +63,7 @@ const mechanicalRoles = [
     displayTitle: "ASSEMBLY & INTEGRATION ENGINEER",
     subtitle: "Hardware Build",
     description: "Lead system integration, physical prototyping, and the full mechanical product build for aerospace platforms.",
-    visual: "/images/careers/mech-assembly.jpg",
+    visual: "/images/careers/mechanical/mech-assembly.jpg",
     work: [
       "Mechanical Assembly & Integration",
       "Tolerance Stack-Up & Fitment Validation",
@@ -110,7 +106,7 @@ const mechanicalRoles = [
     displayTitle: "STRUCTURAL & THERMAL ENGINEER",
     subtitle: "Environmental Engineering",
     description: "Conduct advanced simulation, structural validation, and reliability engineering for high-performance UAVs.",
-    visual: "/images/careers/mech-structural.jpg",
+    visual: "/images/careers/mechanical/mech-structural.jpg",
     work: [
       "Structural Analysis (Stress, Strain, Deformation)",
       "Thermal Analysis (Heat Dissipation & Cooling)",
@@ -153,7 +149,7 @@ const mechanicalRoles = [
     displayTitle: "PRODUCT ENGINEER",
     subtitle: "System Hardware",
     description: "Design and optimize hardware enclosures, battery housings, and mass-manufacturable systems.",
-    visual: "/images/careers/mech-product.jpg",
+    visual: "/images/careers/mechanical/mech-product.jpg",
     work: [
       "Enclosure Design (IP-Rated, Weatherproof, Dustproof)",
       "Thermal Management (Heat Sinks, Airflow Design)",
@@ -195,17 +191,6 @@ const mechanicalRoles = [
 export default function MechanicalCareers() {
   const [activeRole, setActiveRole] = useState(mechanicalRoles[0]);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [formRole, setFormRole] = useState("");
-  const [submitStatus, setSubmitStatus] = useState("idle");
-  const [phone, setPhone] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitStatus("submitting");
-    setTimeout(() => {
-      setSubmitStatus("success");
-    }, 1500);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -244,7 +229,7 @@ export default function MechanicalCareers() {
         </div>
         <div className={styles.heroVisualFullHeader}>
           <Image 
-            src="/images/careers/mech-assembly.jpg" 
+            src="/images/careers/mechanical/hero.jpg" 
             alt="Mechanical Engineering" 
             fill 
             className={styles.heroImageBg} 
@@ -399,138 +384,20 @@ export default function MechanicalCareers() {
             {/* APPLY */}
             <div id="role-cta" className={styles.roleFooterActions}>
               <div className={styles.applyActionContainer}>
-                <button 
+                <Link 
+                  href={`/apply?dept=mechanical&role=${activeRole.id}`}
                   className={styles.premiumApplyBtn}
-                  onClick={() => {
-                    setFormRole(activeRole.id);
-                    const el = document.getElementById('apply');
-                    if (el) {
-                      const y = el.getBoundingClientRect().top + window.scrollY - 100;
-                      window.scrollTo({ top: y, behavior: 'smooth' });
-                    }
-                  }}
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}
                 >
                   APPLY FOR THIS ROLE <span className={styles.arrow}>→</span>
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
       </section>
 
-      {/* 4. WORK WITH US (Application Form) */}
-      <section id="apply" className={templateStyles.applicationSection}>
-        <AnimatePresence mode="wait">
-          {submitStatus !== "success" ? (
-            <motion.div 
-              key="form-layout"
-              className={templateStyles.applyLayout}
-              initial={{ opacity: 1 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
-            >
-              <div className={templateStyles.applyText}>
-                <h2>WORK WITH US</h2>
-                
-                <div className={templateStyles.contactDivider}></div>
 
-                <div className={templateStyles.contactIndex}>
-                  <div className={templateStyles.contactIndexTitle}>
-                    <a href="mailto:careers@omoikaneinnovations.com">CONTACT OUR TEAM <span>&rarr;</span></a>
-                  </div>
-
-                  <div className={templateStyles.contactGrid}>
-                    <div className={templateStyles.contactGroup}>
-                      <h4><Building size={16} strokeWidth={2} /> OFFICE</h4>
-                      <p>Monday–Friday<br/>9:00 am – 6:00 pm</p>
-                    </div>
-
-                    <div className={templateStyles.contactGroup}>
-                      <h4><MapPin size={16} strokeWidth={2} /> LOCATION</h4>
-                      <p>Bangalore, India</p>
-                    </div>
-
-                    <div className={templateStyles.contactGroup}>
-                      <h4><Mail size={16} strokeWidth={2} /> EMAIL</h4>
-                      <a href="mailto:info@omoikaneinnovations.com">info@omoikaneinnovations.com</a>
-                      <a href="mailto:bd@omoikaneinnovations.com">bd@omoikaneinnovations.com</a>
-                    </div>
-
-                    <div className={templateStyles.contactGroup}>
-                      <h4><Phone size={16} strokeWidth={2} /> PHONE</h4>
-                      <a href="tel:+918861035848">+91-8861035848</a>
-                      <a href="tel:+919353627825">+91-9353627825</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className={templateStyles.applyFormContainer}>
-                <form 
-                  className={templateStyles.formElement} 
-                  onSubmit={handleSubmit}
-                >
-                  <div className={templateStyles.formRow}>
-                    <div className={templateStyles.inputGroup}>
-                      <label htmlFor="name">Name</label>
-                      <input type="text" id="name" required />
-                    </div>
-                    <div className={templateStyles.inputGroup}>
-                      <label htmlFor="email">Email</label>
-                      <input type="email" id="email" required />
-                    </div>
-                  </div>
-                  
-                  <div className={templateStyles.formRow}>
-                    <div className={templateStyles.inputGroup}>
-                      <label htmlFor="mech-phone">Phone</label>
-                      <InternationalPhoneInput
-                        id="mech-phone"
-                        value={phone}
-                        onChange={setPhone}
-                        variant="career"
-                        required
-                      />
-                    </div>
-                    <div className={templateStyles.inputGroup}>
-                      <label>Applying For</label>
-                      <CustomSelect 
-                        options={[
-                          ...mechanicalRoles.map(r => ({ id: r.id, label: r.title })),
-                          { id: 'other', label: 'Other' }
-                        ]}
-                        value={formRole}
-                        onChange={(val) => setFormRole(val)}
-                        placeholder="Select Role"
-                      />
-                    </div>
-                  </div>
-
-                  <div className={templateStyles.inputGroup}>
-                    <FileUpload id="cv" required />
-                  </div>
-
-                  <div className={templateStyles.inputGroup}>
-                    <label htmlFor="message">Message (Optional)</label>
-                    <textarea id="message" rows={4}></textarea>
-                  </div>
-
-                  <SubmitButton status={submitStatus} />
-                </form>
-              </div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="success-layout"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-            >
-              <FormSuccessState />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </section>
 
     </div>
   );

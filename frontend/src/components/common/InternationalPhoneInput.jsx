@@ -165,14 +165,14 @@ export default function InternationalPhoneInput({
   return (
     <div className={`${styles.container} ${className}`} ref={containerRef}>
       <div className={`
-        ${isCareer ? styles.inputGroupCareer : styles.inputGroup} 
-        ${!isValid && !isCareer ? styles.invalid : ''}
+        ${isCareer ? styles.inputGroupCareer : (variant === 'line' ? styles.inputGroupLine : styles.inputGroup)} 
+        ${!isValid && !isCareer ? (variant === 'line' ? styles.inputGroupLine + ' ' + styles.invalid : styles.invalid) : ''}
         ${!isValid && isCareer ? styles.invalidCareer : ''}
       `}>
         
         <button 
           type="button"
-          className={isCareer ? styles.countrySelectBtnCareer : styles.countrySelectBtn}
+          className={isCareer ? styles.countrySelectBtnCareer : (variant === 'line' ? styles.countrySelectBtnLine : styles.countrySelectBtn)}
           onClick={() => !disabled && setIsDropdownOpen(!isDropdownOpen)}
           aria-expanded={isDropdownOpen}
           aria-label="Select country"

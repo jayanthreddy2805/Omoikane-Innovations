@@ -5,16 +5,34 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 2rem;
-  background-color: #050b12;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  padding: 1.5rem 2rem;
+  background-color: transparent;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid transparent;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 0;
+  transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+.headerScrolled {
+  background-color: var(--bg-primary); /* Opaque immediately */
+  padding: 0.4rem 1.5rem;
+  width: calc(100% - 2rem);
+  max-width: 1200px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
 
 /* ─────────────────────────────────────────────
    LOGO
@@ -25,6 +43,12 @@
   gap: 0.75rem;
   text-decoration: none;
   flex-shrink: 0;
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.headerScrolled .logoLink {
+  transform: scale(0.85);
 }
 
 .logoImage {
@@ -45,7 +69,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: 4px;
-  color: #ffffff;
+  color: var(--text-primary);
   text-transform: uppercase;
 }
 
@@ -80,8 +104,8 @@
   list-style: none;
   margin: 0;
   padding: 0.35rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
   border-radius: 999px;
 }
 
@@ -97,7 +121,7 @@
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   background: none;
   border: none;
   cursor: pointer;
@@ -109,13 +133,13 @@
 }
 
 .pillBtn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  background: rgba(10, 10, 10, 0.05);
 }
 
 .pillActive {
-  color: #ffffff !important;
-  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--bg-primary) !important;
+  background: var(--text-primary) !important;
 }
 
 /* ─────────────────────────────────────────────
@@ -127,10 +151,10 @@
   left: 50%;
   min-width: 280px;
   padding: 0.5rem;
-  background: #0d1420;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
   border-radius: 14px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   z-index: 200;
 }
 
@@ -138,7 +162,7 @@
   padding: 0.5rem 0.75rem 0.35rem;
   font-size: 0.7rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -155,7 +179,7 @@
 }
 
 .dropdownItem:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(10, 10, 10, 0.05);
 }
 
 .dropdownItemActive {
@@ -171,17 +195,17 @@
 .dropdownItemTitle {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--text-primary);
   letter-spacing: 0.2px;
 }
 
 .dropdownItemDesc {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(10, 10, 10, 0.4);
 }
 
 .dropdownArrow {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(10, 10, 10, 0.3);
   flex-shrink: 0;
   transition: transform 0.2s ease, color 0.2s ease;
 }
@@ -216,7 +240,7 @@
   border-radius: 999px;
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(10, 10, 10, 0.65);
   font-size: 0.85rem;
   font-weight: 500;
   font-family: inherit;
@@ -227,7 +251,7 @@
 }
 
 .searchTrigger:hover {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 /* Contact — filled pill CTA like "Sign Up" */
@@ -237,7 +261,7 @@
   padding: 0.5rem 1.25rem;
   border-radius: 999px;
   background: var(--accent);
-  color: #000000;
+  color: var(--bg-primary);
   font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
@@ -248,7 +272,7 @@
 
 .contactBtn:hover {
   opacity: 0.88;
-  box-shadow: 0 0 18px rgba(54, 207, 246, 0.35);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 /* ─────────────────────────────────────────────
@@ -274,7 +298,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--text-primary);
   border-radius: 2px;
   transition: all 0.25s ease;
   transform-origin: center;
@@ -292,9 +316,9 @@
   top: 77px;
   left: 0;
   right: 0;
-  background: #050b12;
+  background: var(--bg-primary);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.07);
   display: flex;
   flex-direction: column;
   padding: 1rem 2rem 2rem;
@@ -310,24 +334,24 @@
 .mobileLink {
   font-size: 1.05rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(10, 10, 10, 0.75);
   text-decoration: none;
   padding: 0.85rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.06);
   transition: color 0.2s ease;
 }
 
 .mobileLink:hover,
 .mobileLinkActive {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .mobileSubLink {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(10, 10, 10, 0.45);
   text-decoration: none;
   padding: 0.6rem 0 0.6rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.04);
   transition: color 0.2s ease;
 }
 
@@ -341,7 +365,7 @@
 .searchBackdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(250, 250, 247, 0.65);
   backdrop-filter: blur(4px);
   z-index: 1100;
 }
@@ -352,8 +376,8 @@
   left: 50%;
   transform: translateX(-50%);
   width: min(640px, calc(100vw - 2rem));
-  background: #0d1420;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
   z-index: 1200;
@@ -365,11 +389,11 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.07);
 }
 
 .searchIcon {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(10, 10, 10, 0.4);
   flex-shrink: 0;
 }
 
@@ -379,19 +403,19 @@
   border: none;
   outline: none;
   font-size: 1rem;
-  color: #ffffff;
+  color: var(--text-primary);
   font-family: inherit;
   caret-color: var(--accent);
 }
 
 .searchInput::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(10, 10, 10, 0.3);
 }
 
 .searchEsc {
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
   padding: 2px 7px;
   border-radius: 5px;
   cursor: pointer;
@@ -426,23 +450,24 @@
 }
 
 .searchResultItem:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(10, 10, 10, 0.05);
+  color: var(--text-primary);
 }
 
 .searchResultTitle {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .searchResultDesc {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(10, 10, 10, 0.4);
   margin-top: 2px;
 }
 
 .searchResultArrow {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(10, 10, 10, 0.25);
   flex-shrink: 0;
   transition: transform 0.15s ease, color 0.15s ease;
 }
@@ -455,13 +480,15 @@
 .searchEmpty {
   padding: 1.5rem 1rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(10, 10, 10, 0.35);
   font-size: 0.9rem;
 }
 
 .searchEmpty strong {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(10, 10, 10, 0.7);
 }
 
 /* Legacy */
 .accent { color: var(--accent); }
+
+
