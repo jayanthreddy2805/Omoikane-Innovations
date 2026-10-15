@@ -1,7 +1,7 @@
 import { Inter, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import AIChatbot from "@/components/AIChatbot/AIChatbot";
+import ChatbotWidget from "@/components/Chatbot/ChatbotWidget";
 import IntroLoader from "@/components/common/IntroLoader";
 import "./globals.css";
 
@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
           <Header />
           <main>{children}</main>
           <Footer />
-          <AIChatbot />
+          <ChatbotWidget />
         </IntroLoader>
       </body>
     </html>
