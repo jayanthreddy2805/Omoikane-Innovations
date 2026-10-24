@@ -1,16 +1,14 @@
-import styles from './not-found.module.css';
+import HomeClient from "@/components/home/HomeClient";
+
+export const metadata = {
+  title: "Omoikane Innovations | Mission-Critical Products & Autonomous Systems",
+  description:
+    "Designing and developing mission-critical products, autonomous systems, and advanced embedded solutions for aerospace, defense, and industrial applications.",
+};
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <div className={styles.inner}>
-        <span className={styles.code}>404</span>
-        <div className={styles.divider} />
-        <div className={styles.textBlock}>
-          <h1 className={styles.heading}>PAGE UNDER CONSTRUCTION</h1>
-          <p className={styles.sub}>This experience is being engineered.<br />Check back soon.</p>
-        </div>
-      </div>
-    </div>
-  );
+  return <HomeClient />;
 }
+
+
+
