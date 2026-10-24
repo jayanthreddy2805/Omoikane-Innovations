@@ -444,56 +444,56 @@ function CredentialsArchive() {
           </p>
         </motion.div>
 
-        <div className={styles.credList}>
-          {/* Credential 01 - ISO (Text Left, Image Right) */}
+        <div className={styles.credGrid}>
+          {/* Card 01 - ISO 9001:2015 */}
           <motion.div 
-            className={styles.credRow}
-            initial={{ opacity: 0, y: 12 }}
+            className={styles.credCard}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5 }}
           >
-            <div className={styles.credTextCol}>
-              <h3 className={styles.credTitle}>ISO 9001:2015</h3>
-              <p className={styles.credDesc}>Certified in Quality Management System standards, demonstrating knowledge of quality assurance and process management.</p>
+            <div className={styles.credCardLogo}>
+              <Image 
+                src="/images/certifications/iso-9001.png" 
+                alt="ISO 9001:2015 Quality Management System mark"
+                width={240}
+                height={240}
+                className={styles.credImageIso}
+                quality={100}
+              />
             </div>
-            <div className={styles.credImageCol}>
-              <div className={styles.credImageWrapper}>
-                <Image 
-                  src="/images/certifications/iso-9001.png" 
-                  alt="ISO 9001:2015 Quality Management System mark"
-                  width={600}
-                  height={600}
-                  className={styles.credImage}
-                  quality={100}
-                />
-              </div>
+            <div className={styles.credCardContent}>
+              <h3 className={styles.credTitle}>ISO 9001:2015</h3>
+              <p className={styles.credDesc}>
+                Quality management system standards and process discipline.
+              </p>
             </div>
           </motion.div>
 
-          {/* Credential 02 - MSME (Image Left, Text Right) */}
+          {/* Card 02 - MSME */}
           <motion.div 
-            className={`${styles.credRow} ${styles.credRowReverse}`}
-            initial={{ opacity: 0, y: 12 }}
+            className={styles.credCard}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className={styles.credImageCol}>
-              <div className={styles.credImageWrapper}>
-                <Image 
-                  src="/images/certifications/msme.png" 
-                  alt="MSME Micro, Small & Medium Enterprise mark"
-                  width={600}
-                  height={400}
-                  className={styles.credImage}
-                  quality={100}
-                />
-              </div>
+            <div className={styles.credCardLogo}>
+              <Image 
+                src="/images/certifications/msme.png" 
+                alt="MSME Micro, Small & Medium Enterprise mark"
+                width={340}
+                height={140}
+                className={styles.credImageMsme}
+                quality={100}
+              />
             </div>
-            <div className={styles.credTextCol}>
+            <div className={styles.credCardContent}>
               <h3 className={styles.credTitle}>MSME</h3>
-              <p className={styles.credDesc}>Certificate recognizing registration/association with the Micro, Small &amp; Medium Enterprises sector.</p>
+              <p className={styles.credDesc}>
+                Registration within the Micro, Small &amp; Medium Enterprises sector.
+              </p>
             </div>
           </motion.div>
         </div>

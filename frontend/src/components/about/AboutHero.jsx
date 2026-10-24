@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import Link from "next/link";
 import { useReducedMotion } from "framer-motion";
 import styles from "./AboutHero.module.css";
 
@@ -128,13 +127,6 @@ export default function AboutHero() {
               solutions for aerospace, defense, and industrial applications. Its
               products are engineered for reliability, scalability, and real-world deployment.
             </p>
-
-            <div className={styles.summaryAction}>
-              <Link href="/expertise" className={styles.expertiseLink}>
-                <span>Explore our expertise</span>
-                <span className={styles.linkArrow} aria-hidden="true">↗</span>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
