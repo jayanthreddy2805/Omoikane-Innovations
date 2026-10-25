@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./CapabilityStack.module.css";
 
@@ -18,17 +19,31 @@ function RisingCard({ cap, containerRef, start, end }) {
   return (
     <div className={styles.cardSlot}>
       <motion.div className={styles.card} style={{ y }}>
-        <span className={styles.cardNumber}>{cap.number}</span>
-        <h3 className={styles.cardTitle}>{cap.title}</h3>
-        <p className={styles.cardDesc}>{cap.description}</p>
-        <ul className={styles.cardList}>
-          {cap.capabilities.map((item) => (
-            <li key={item} className={styles.cardItem}>
-              <span className={styles.cardDot} />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+        {/* Background Image & Overlay */}
+        {cap.image && (
+          <div className={styles.cardBg}>
+            <Image
+              src={cap.image}
+              alt={cap.title}
+              fill
+              className={styles.cardImage}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              priority={cap.number === "01"}
+            />
+            <div className={styles.cardOverlay} />
+          </div>
+        )}
+
+        {/* Top: Giant Number Right-Aligned */}
+        <div className={styles.cardTop}>
+          <span className={styles.cardNumber}>{cap.number}</span>
+        </div>
+
+        {/* Bottom: Title & Description */}
+        <div className={styles.cardBottom}>
+          <h3 className={styles.cardTitle}>{cap.title}</h3>
+          <p className={styles.cardDesc}>{cap.description}</p>
+        </div>
       </motion.div>
     </div>
   );
@@ -36,8 +51,8 @@ function RisingCard({ cap, containerRef, start, end }) {
 
 export default function CapabilityStack({ capabilities, tag, title, subtitle }) {
   const containerRef = useRef(null);
-  const n = capabilities.length; // 4
-  const step = 0.8 / n;         // each card gets 20% of scroll
+  const n = capabilities.length;
+  const step = 0.8 / n;
 
   return (
     <div
@@ -46,7 +61,6 @@ export default function CapabilityStack({ capabilities, tag, title, subtitle }) 
       style={{ height: `${(n + 1) * 100}vh` }}
     >
       <div className={styles.sticky}>
-
         {/* Header at TOP of sticky frame */}
         <div className={styles.stickyHeader}>
           <span className={styles.tag}>{tag}</span>
@@ -73,7 +87,6 @@ export default function CapabilityStack({ capabilities, tag, title, subtitle }) 
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );

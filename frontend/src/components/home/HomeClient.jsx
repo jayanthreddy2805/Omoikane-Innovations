@@ -13,7 +13,7 @@ import {
   Zap,
 } from "lucide-react";
 import styles from "@/app/page.module.css";
-import CapabilityStack from "./CapabilityStack";
+import CallToAction from "@/components/common/CallToAction";
 
 
 // ─── Focused Production Areas & Products ──────────────────────────
@@ -56,79 +56,32 @@ const FOCUSED_PRODUCTION_AREAS = [
   },
 ];
 
-// ─── Core Engineering Capabilities ────────────────────────────────
-const CORE_CAPABILITIES = [
-  {
-    number: "01",
-    title: "Embedded & Control Systems",
-    description:
-      "Advanced embedded electronics, flight control systems, RF communication modules, and real-time processing units engineered for precision and reliability.",
-    capabilities: [
-      "Flight Control Computers",
-      "RF Communication Modules",
-      "Real-Time Processing Units",
-      "High-Precision Sensors",
-    ],
-  },
-  {
-    number: "02",
-    title: "Autonomous & Robotic Platforms",
-    description:
-      "Development of UAV systems, autonomous ground platforms, and intelligent robotic solutions for surveillance, monitoring, and industrial automation.",
-    capabilities: [
-      "Autonomous UAV Systems",
-      "Ground Robotic Platforms",
-      "Perimeter Surveillance",
-      "Intelligent Automation",
-    ],
-  },
-  {
-    number: "03",
-    title: "Defense Electronics & AI Systems",
-    description:
-      "High-performance hardware integrated with AI-driven analytics, enabling intelligent decision-making, tracking, and mission-critical operations.",
-    capabilities: [
-      "AI-Driven Decision Making",
-      "Multi-Object Tracking",
-      "Encrypted Telemetry Links",
-      "Ruggedized Payloads",
-    ],
-  },
-  {
-    number: "04",
-    title: "Full-Stack System Integration",
-    description:
-      "Bringing electronics, firmware, and precision mechanical packaging together into cohesive, deployment-ready mission platforms.",
-    capabilities: [
-      "Hardware-Software Co-Design",
-      "Thermal & Stress Hardening",
-      "Custom Airframe Packaging",
-      "Hardware-in-the-Loop Validation",
-    ],
-  },
-];
 
-// ─── Core Value Pillars ───────────────────────────────────────────
-const CORE_PILLARS = [
+// ─── Why Our Products Stand Out ───────────────────────────────────
+const WHY_US_PILLARS = [
   {
     code: "MCE",
     title: "Mission-Critical Engineering",
     description:
       "Our products are designed for high reliability, precision, and performance in demanding environments such as defense, aerospace, and industrial systems.",
+    image: "/images/why-us/mission-critical.jpg",
   },
   {
     code: "IPD",
     title: "Indigenous Product Development",
     description:
       "We build and own our technologies, enabling scalable deployment, customization, and licensing across global markets.",
+    image: "/images/why-us/indigenous-tech.jpg",
   },
   {
     code: "AI",
     title: "Advanced Embedded & AI Systems",
     description:
       "From embedded electronics to intelligent automation, our solutions integrate cutting-edge technologies for real-world applications.",
+    image: "/images/why-us/embedded-ai.jpg",
   },
 ];
+const CORE_PILLARS = WHY_US_PILLARS;
 
 // ─── Subtle Animation Variants ────────────────────────────────────
 const headerVariants = {
@@ -157,25 +110,9 @@ export default function HomeClient() {
   return (
     <div className={styles.pageContainer}>
       {/* ─────────────────────────────────────────────────────────
-          1. HERO SECTION (EMPTY FOR NOW)
+          1. HERO SECTION (RESERVED GAP)
       ───────────────────────────────────────────────────────── */}
-      <section className={styles.heroSection} id="hero" aria-label="Hero Section">
-        <motion.div
-          className={styles.heroPlaceholder}
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className={styles.heroTag}>
-            <span className={styles.heroTagPulse} />
-            <span>HERO SECTION &bull; RESERVED</span>
-          </div>
-          <h1 className={styles.heroTitle}>Engineering the Future, One Idea at a Time</h1>
-          <p className={styles.heroSubtitle}>
-            Designing and developing mission-critical products, autonomous systems, and advanced embedded solutions for aerospace, defense, and industrial applications.
-          </p>
-        </motion.div>
-      </section>
+      <section className={styles.heroSection} id="hero" aria-label="Hero Section" />
 
       {/* ─────────────────────────────────────────────────────────
           2. PROJECTS & FOCUSED PRODUCTION AREAS
@@ -374,36 +311,54 @@ export default function HomeClient() {
           </motion.div>
         </div>
       </section>
-
+ 
       {/* ─────────────────────────────────────────────────────────
-          3. CORE CAPABILITIES / EXPERTISE
+          2.5. WHY OUR PRODUCTS STAND OUT
       ───────────────────────────────────────────────────────── */}
-      <section id="expertise" aria-label="Core Engineering Capabilities" className={styles.capSection}>
-
-        {/* Header text is rendered INSIDE the sticky frame at top, cards rise from bottom */}
-        <CapabilityStack
-          capabilities={CORE_CAPABILITIES}
-          tag="[ 02 / CORE CAPABILITIES ]"
-          title="CAPABILITIES THAT POWER OUR PRODUCTS"
-          subtitle="We design and build advanced embedded systems, autonomous platforms, and high-performance electronics tailored for mission-critical applications across Aerospace, Defense, and Industrial domains."
-        />
-
-        {/* CTA link after the scroll stack */}
+      <section className={styles.whySection} id="why-us" aria-label="Why Our Products Stand Out">
         <div className={styles.sectionInner}>
           <motion.div
-            className={styles.sectionFooterLink}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            className={styles.whyHeader}
+            variants={headerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
           >
-            <Link href="/expertise" className={styles.outlineButton}>
-              <span>Explore Engineering Expertise</span>
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
+            <span className={styles.whyEyebrow}>Omoikane Innovations</span>
+            <h2 className={styles.whyHeadline}>Why Our Products Stand Out</h2>
+            <p className={styles.whySubtitle}>
+              Engineered for absolute reliability, indigenous ownership, and high performance across Aerospace, Defense, and Industrial applications.
+            </p>
           </motion.div>
+
+          <div className={styles.whyGrid}>
+            {WHY_US_PILLARS.map((pillar, i) => (
+              <motion.div
+                key={pillar.title}
+                className={styles.whyCard}
+                variants={cardVariants}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+              >
+                <div className={styles.whyCardVisual}>
+                  <Image
+                    src={pillar.image}
+                    alt={pillar.title}
+                    width={180}
+                    height={140}
+                    className={styles.whyCardImg}
+                  />
+                </div>
+                <h3 className={styles.whyCardTitle}>{pillar.title}</h3>
+                <p className={styles.whyCardDesc}>{pillar.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
+
 
 
       {/* ─────────────────────────────────────────────────────────
@@ -471,68 +426,9 @@ export default function HomeClient() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────
-          5. CALL TO ACTION (CTA) SECTION
+          5. CALL TO ACTION (REGULAR CTA)
       ───────────────────────────────────────────────────────── */}
-      <section className={styles.ctaSection} id="contact" aria-label="Contact and Partnership">
-        <motion.div
-          className={styles.ctaBox}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className={styles.ctaInner}>
-            <span className={styles.ctaTag}>[ 04 / PARTNER &amp; COLLABORATE ]</span>
-            <h2 className={styles.ctaHeading}>HAVE A REQUIREMENT OR COLLABORATION IN MIND?</h2>
-            <p className={styles.ctaText}>
-              Discover advanced embedded systems and autonomous solutions engineered for real-world deployment. Partner with us to integrate, customize, or license high-performance technologies across Aerospace, Defense, and Industrial applications.
-            </p>
-
-            <div className={styles.ctaEmailRow}>
-              <a href="mailto:info@omoikaneinnovations.com" className={styles.ctaEmailLink}>
-                <span>✉ info@omoikaneinnovations.com</span>
-              </a>
-              <a href="mailto:bd@omoikaneinnovations.com" className={styles.ctaEmailLink}>
-                <span>✉ bd@omoikaneinnovations.com</span>
-              </a>
-            </div>
-
-            <div className={styles.ctaActions}>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Link href="/contact" className={styles.btnPrimary}>
-                  <span>Contact Our Team</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Link href="/services" className={styles.btnSecondary}>
-                  <span>View Products</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </motion.div>
-            </div>
-
-            <div className={styles.ctaSpecStrip}>
-              <div className={styles.ctaSpecItem}>
-                <span className={styles.ctaSpecDot} />
-                <span>READY-TO-DEPLOY PRODUCTS</span>
-              </div>
-              <div className={styles.ctaSpecItem}>
-                <span className={styles.ctaSpecDot} />
-                <span>CUSTOMIZATION &amp; INTEGRATION</span>
-              </div>
-              <div className={styles.ctaSpecItem}>
-                <span className={styles.ctaSpecDot} />
-                <span>TECHNOLOGY LICENSING</span>
-              </div>
-              <div className={styles.ctaSpecItem}>
-                <span className={styles.ctaSpecDot} />
-                <span>GLOBAL SCALE &amp; RELIABILITY</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </section>
+      <CallToAction />
     </div>
   );
 }
