@@ -17,7 +17,7 @@ import { OFFICIAL_KNOWLEDGE_BASE } from '@/data/omoikaneKnowledge';
 
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || 'http://127.0.0.1:11434';
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'phi3:mini';
-const OLLAMA_TIMEOUT_MS = parseInt(process.env.OLLAMA_TIMEOUT_MS || '45000', 10);
+const OLLAMA_TIMEOUT_MS = parseInt(process.env.OLLAMA_TIMEOUT_MS || '7000', 10);
 
 const SYSTEM_INSTRUCTIONS = `You are the information assistant for Omoikane Innovations Pvt. Ltd.
 
@@ -91,7 +91,9 @@ async function callOllamaChat(messages, timeoutMs = OLLAMA_TIMEOUT_MS) {
         options: {
           temperature: 0.1, // High grounding, low randomness
           top_p: 0.8,
-          num_predict: 650
+          num_predict: 120, // Crisp, fast answers to prevent long CPU generation lags
+          num_ctx: 1024,    // Fits evidence + instructions compactly without memory thrashing
+          num_thread: 8     // Utilize all 8 logical cores
         }
       }),
       signal: controller.signal
