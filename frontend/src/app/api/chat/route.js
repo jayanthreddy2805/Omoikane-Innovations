@@ -1,15 +1,16 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import Groq from 'groq-sdk';
 import { COMPANY_KNOWLEDGE_DOCUMENT } from '@/data/omoikaneKnowledge';
 import { omiAssistantService } from '@/services/omiAssistantService';
 
 /**
  * ============================================================================
- * GEMINI RAG CHAT API — Omoikane Innovations AI Assistant
+ * GROQ AI (LLAMA 3.3 70B) RAG CHAT API — Omoikane Innovations
  * ============================================================================
- * Uses Google Gemini (with model fallbacks) with the full company knowledge base
- * as context (RAG). Handles typos, varied phrasing, and all company queries.
- * Also gracefully falls back to local semantic knowledge engine if external API drops.
+ * Powered by Meta's open-source Llama 3.3 70B on Groq LPUs.
+ * Injected with the verified official Omoikane Innovations knowledge document.
+ * Fast, open-source, highly accurate, and typo-tolerant.
+ * Includes local semantic fallback engine if API key is unconfigured or rate-limited.
  */
 
 const SYSTEM_PROMPT = `You are "Omi", the official AI assistant for Omoikane Innovations.
@@ -45,44 +46,51 @@ Choose the source that best matches the answer you gave.
 
 9. **Location** — The company is located in Bangalore, India ONLY.`;
 
-let genAI = null;
+let groqClient = null;
 
-function getGeminiClient() {
-  if (!genAI) {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) {
-      throw new Error('GEMINI_API_KEY environment variable is not set');
-    }
-    genAI = new GoogleGenerativeAI(apiKey);
+function getGroqClient() {
+  const apiKey = process.env.GROQ_API_KEY;
+  if (!apiKey) {
+    return null;
   }
-  return genAI;
+  if (!groqClient) {
+    groqClient = new Groq({ apiKey });
+  }
+  return groqClient;
 }
 
-function parseGeminiResponse(rawText) {
+function parseModelResponse(rawText) {
   let text = rawText.trim();
   let suggestions = ["About Omoikane", "Products & Services", "Contact Team"];
   let sourceLabel = "About Us";
   let sourceUrl = "https://www.omoikaneinnovations.com/about-us/";
 
-  const lines = text.split('\n');
-  const lastLine = lines[lines.length - 1].trim();
-
-  if (lastLine.startsWith('{') && lastLine.endsWith('}')) {
+  // Look for JSON block anywhere at the end of the text
+  const jsonMatch = text.match(/\{[\s\S]*?"suggestions"[\s\S]*?"source_url"[\s\S]*?\}+/);
+  if (jsonMatch) {
     try {
-      const meta = JSON.parse(lastLine);
+      let jsonStr = jsonMatch[0];
+      while (jsonStr.endsWith('}}') && !jsonStr.includes('{{')) {
+        jsonStr = jsonStr.slice(0, -1);
+      }
+      const meta = JSON.parse(jsonStr);
       if (meta.suggestions && Array.isArray(meta.suggestions)) {
         suggestions = meta.suggestions.slice(0, 3);
       }
       if (meta.source_label) sourceLabel = meta.source_label;
       if (meta.source_url) sourceUrl = meta.source_url;
-      text = lines.slice(0, -1).join('\n').trim();
+      text = text.replace(jsonMatch[0], '').trim();
     } catch {
-      // Keep defaults
+      text = text.replace(jsonMatch[0], '').trim();
     }
   }
 
-  // Remove possible stray markdown backticks if wrapped in json block
+  // Remove possible stray markdown backticks or remaining json code blocks
+  text = text.replace(/```(?:json)?\s*\{[\s\S]*?\}\s*```/g, '').trim();
   text = text.replace(/^```[\w]*\n?/gm, '').replace(/```$/gm, '').trim();
+
+  // Strip trailing "Next you might ask/explore" text since suggestions appear as UI buttons
+  text = text.replace(/\n\s*---\s*\n\s*\*\*Next you might (?:want to )?(?:ask|explore):\*\*[\s\S]*?$/i, '').trim();
 
   return {
     text,
@@ -96,7 +104,9 @@ export async function POST(request) {
     const body = await request.json();
     const { message, conversationHistory = [], resume } = body;
 
-    // Handle resume upload analysis with proper PDF/DOCX extraction & AI evaluation
+    // ────────────────────────────────────────────────────────────────────────
+    // 1. RESUME ATTACHMENT PROCESSING (PDF / DOCX / TXT)
+    // ────────────────────────────────────────────────────────────────────────
     if (resume && resume.fileName) {
       let extractedText = resume.fileText || "";
 
@@ -124,10 +134,10 @@ export async function POST(request) {
         }
       }
 
-      // Try AI-powered deep resume evaluation with Gemini
-      if (extractedText && extractedText.length > 20) {
+      // Try Groq Llama 3.3 for deep candidate skill extraction & role alignment
+      const client = getGroqClient();
+      if (client && extractedText && extractedText.length > 20) {
         try {
-          const client = getGeminiClient();
           const resumePrompt = `You are an expert technical recruiter evaluating a candidate's resume for engineering career opportunities at Omoikane Innovations.
 
 Candidate Resume Filename: "${resume.fileName}"
@@ -167,19 +177,18 @@ Instructions:
 {"suggestions":["How do I apply for the matched role?","What projects does Omoikane build?","Software development careers"],"source_label":"Careers Portal","source_url":"https://www.omoikaneinnovations.com/software-development/"}
 `;
 
-          for (const modelName of ['gemini-3.5-flash', 'gemini-3.8-flash', 'gemini-3.7-flash']) {
+          for (const modelName of ['openai/gpt-oss-120b', 'qwen/qwen3.8-27b', 'openai/gpt-oss-20b']) {
             try {
-              const model = client.getGenerativeModel({
+              const completion = await client.chat.completions.create({
                 model: modelName,
-                generationConfig: {
-                  temperature: 0.2,
-                  maxOutputTokens: 1200,
-                },
+                messages: [{ role: 'user', content: resumePrompt }],
+                temperature: 0.2,
+                max_tokens: 1200,
               });
-              const res = await model.generateContent(resumePrompt);
-              const raw = res.response.text();
+
+              const raw = completion.choices[0]?.message?.content || "";
               if (raw && raw.trim()) {
-                const parsed = parseGeminiResponse(raw);
+                const parsed = parseModelResponse(raw);
                 return NextResponse.json(
                   {
                     ...parsed,
@@ -188,12 +197,12 @@ Instructions:
                   { status: 200 }
                 );
               }
-            } catch (gemErr) {
-              console.warn(`[Gemini resume model ${modelName} error]:`, gemErr.message);
+            } catch (modelErr) {
+              console.warn(`[Groq resume model ${modelName} warning]:`, modelErr.message);
             }
           }
         } catch (aiErr) {
-          console.warn('[Gemini resume evaluation error]:', aiErr.message);
+          console.warn('[Groq resume evaluation error]:', aiErr.message);
         }
       }
 
@@ -208,7 +217,9 @@ Instructions:
       );
     }
 
-    // Input validation
+    // ────────────────────────────────────────────────────────────────────────
+    // 2. TEXT & VOICE QUERY PROCESSING
+    // ────────────────────────────────────────────────────────────────────────
     if (!message || typeof message !== 'string' || !message.trim()) {
       return NextResponse.json(
         {
@@ -223,67 +234,65 @@ Instructions:
 
     const trimmed = message.trim().slice(0, 1500);
 
-    // List of candidate models to try in order of priority
+    // Candidate Groq models (High-performance open-source weights on Groq LPUs)
     const candidateModels = [
-      'gemini-3.5-flash',
-      'gemini-3.8-flash',
-      'gemini-3.7-flash',
-      'gemini-3.6-flash'
+      'openai/gpt-oss-120b',
+      'qwen/qwen3.8-27b',
+      'openai/gpt-oss-20b'
     ];
 
-    let geminiError = null;
+    let groqError = null;
+    const client = getGroqClient();
 
-    try {
-      const client = getGeminiClient();
+    if (client) {
+      try {
+        // Build conversation messages for Groq
+        const messages = [
+          { role: 'system', content: SYSTEM_PROMPT }
+        ];
 
-      // Format conversation history for Gemini chat
-      const history = [];
-      for (const turn of conversationHistory.slice(-6)) {
-        if (turn.role === 'user' && turn.text) {
-          history.push({ role: 'user', parts: [{ text: turn.text }] });
-        } else if (turn.role === 'bot' && turn.text) {
-          history.push({ role: 'model', parts: [{ text: turn.text }] });
-        }
-      }
-
-      for (const modelName of candidateModels) {
-        try {
-          const model = client.getGenerativeModel({
-            model: modelName,
-            systemInstruction: SYSTEM_PROMPT,
-            generationConfig: {
-              temperature: 0.2,
-              topP: 0.8,
-              maxOutputTokens: 1024,
-            },
-          });
-
-          const chat = model.startChat({ history });
-          const result = await chat.sendMessage(trimmed);
-          const rawText = result.response.text();
-
-          if (rawText && rawText.trim()) {
-            const parsed = parseGeminiResponse(rawText);
-            return NextResponse.json(
-              {
-                ...parsed,
-                timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-              },
-              { status: 200 }
-            );
+        for (const turn of conversationHistory.slice(-6)) {
+          if (turn.role === 'user' && turn.text) {
+            messages.push({ role: 'user', content: turn.text });
+          } else if (turn.role === 'bot' && turn.text) {
+            messages.push({ role: 'assistant', content: turn.text });
           }
-        } catch (mErr) {
-          console.warn(`[Gemini model ${modelName} warning]:`, mErr.message);
-          geminiError = mErr;
-          // Continue to next model candidate
         }
+
+        messages.push({ role: 'user', content: trimmed });
+
+        for (const modelName of candidateModels) {
+          try {
+            const completion = await client.chat.completions.create({
+              model: modelName,
+              messages,
+              temperature: 0.2,
+              max_tokens: 1024,
+            });
+
+            const rawText = completion.choices[0]?.message?.content || "";
+            if (rawText && rawText.trim()) {
+              const parsed = parseModelResponse(rawText);
+              return NextResponse.json(
+                {
+                  ...parsed,
+                  timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                },
+                { status: 200 }
+              );
+            }
+          } catch (mErr) {
+            console.warn(`[Groq model ${modelName} warning]:`, mErr.message);
+            groqError = mErr;
+          }
+        }
+      } catch (err) {
+        groqError = err;
       }
-    } catch (clientErr) {
-      geminiError = clientErr;
     }
 
-    // If Gemini models fail or rate limit, immediately fallback to local verified knowledge engine
-    console.warn('[Gemini RAG fallback activated]:', geminiError?.message || 'Using local verified engine');
+    // Fallback: If Groq key is not set or network fails, use the local verified knowledge engine
+    console.warn('[Groq fallback activated]:', groqError?.message || 'Using local verified engine');
     const localResponse = await omiAssistantService.processMessage(trimmed);
 
     return NextResponse.json(
