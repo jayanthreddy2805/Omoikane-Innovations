@@ -178,6 +178,79 @@ export const omiAssistantService = {
         source: { label: "About Us", url: OFFICIAL_KNOWLEDGE_BASE.company.officialUrls.aboutUs }
       };
     }
+    // 6c. SPECIFIC HARDWARE PRODUCTS (OFC-X, OESC, OGN-X, OCOM-X) & TOOLS
+    if (q.includes('ofc-x') || q.includes('ofc x') || (q.includes('flight controller') && !q.includes('role') && !q.includes('career'))) {
+      return {
+        text: `**OFC-X — High-Performance Flight Controller**\n\n• **Category:** Flight Controller for Autonomous Platforms\n• **Core Features:**\n  - STM32 and AT32 microcontroller (MCU) platform options\n  - Multiple I/O and sensor interfaces for actuator and payload integration\n  - Precision, real-time control architecture designed for demanding UAV and defense applications\n  - Configurable around system-level requirements, operating conditions, and integration constraints\n\nFor custom configuration or OEM integration, please contact our engineering team at [info@omoikaneinnovations.com](mailto:info@omoikaneinnovations.com).`,
+        suggestions: ['OESC Speed Controllers', 'OGN-X GNSS Module', 'Aerospace Capabilities'],
+        source: { label: 'Products / OFC-X', url: 'https://www.omoikaneinnovations.com/services/' }
+      };
+    }
+
+    if (q.includes('oesc') || q.includes('speed controller') || (q.includes('esc') && !q.includes('escape'))) {
+      return {
+        text: `**OESC-60 / OESC-100 — 4-in-1 Electronic Speed Controller (ESC)**\n\n• **Category:** Multirotor Propulsion Control\n• **Variants:** 60A (OESC-60) and 100A (OESC-100) options\n• **Core Features:**\n  - 6S to 12S LiPo battery platform options\n  - High-efficiency, high-current ESC platform for heavy-lift multirotor systems\n  - Advanced current and thermal protection mechanisms\n  - Robust power electronics design with heat dissipation and reliability considerations`,
+        suggestions: ['OFC-X Flight Controller', 'OGN-X GNSS Module', 'Aerospace Capabilities'],
+        source: { label: 'Products / OESC', url: 'https://www.omoikaneinnovations.com/services/' }
+      };
+    }
+
+    if (q.includes('ogn-x') || q.includes('ogn x') || q.includes('gps module') || q.includes('gnss')) {
+      return {
+        text: `**OGN-X — Precision GNSS / GPS Module**\n\n• **Category:** Satellite Positioning & Navigation Architecture\n• **Core Features:**\n  - Multi-constellation GNSS support (GPS, GLONASS, Galileo, BeiDou/NavIC)\n  - RTK-ready (Real-Time Kinematic) architecture for centimeter-level positioning accuracy\n  - Compact, rugged enclosure and integration designed for demanding autonomous navigation and mapping`,
+        suggestions: ['OFC-X Flight Controller', 'OCOM-X Communication', 'Aerospace Capabilities'],
+        source: { label: 'Products / OGN-X', url: 'https://www.omoikaneinnovations.com/services/' }
+      };
+    }
+
+    if (q.includes('ocom-x') || q.includes('ocom x') || (q.includes('communication system') && !q.includes('defense'))) {
+      return {
+        text: `**OCOM-X — Autonomous Communication System**\n\n• **Category:** Connected Autonomous Communications & Telemetry\n• **Core Features:**\n  - RF (Radio Frequency) and LTE cellular integration options\n  - Secure, encrypted data link architecture for telemetry, control, and payload transmission\n  - Low-power design approach ensuring extended mission endurance for airborne and ground platforms`,
+        suggestions: ['OFC-X Flight Controller', 'OGN-X GNSS Module', 'Defense Technologies'],
+        source: { label: 'Products / OCOM-X', url: 'https://www.omoikaneinnovations.com/services/' }
+      };
+    }
+
+    if (q.includes('all products') || q.includes('list products') || q.includes('what products') || q.includes('hardware products') || q === 'products') {
+      return {
+        text: `**Omoikane Innovations Hardware Products & Subsystems:**\n\n1. **OFC-X (Flight Controller):** High-performance flight control for autonomous platforms, featuring STM32/AT32 MCUs and multi-sensor I/O.\n2. **OESC-60 / OESC-100 (4-in-1 ESC):** High-efficiency 60A/100A propulsion control supporting 6S–12S platforms with advanced thermal protection.\n3. **OGN-X (GNSS/GPS Module):** Precision multi-constellation satellite navigation with RTK-ready architecture for autonomous mapping and positioning.\n4. **OCOM-X (Communication System):** Reliable RF/LTE telemetry architecture with secure encryption and low-power design.\n\nAll products are developed around system-level requirements and are configurable by platform and OEM project requirements.`,
+        suggestions: ['Tell me about OFC-X', 'Tell me about OESC', 'Contact for product pricing'],
+        source: { label: 'Our Products', url: 'https://www.omoikaneinnovations.com/services/' }
+      };
+    }
+
+    if (q.includes('tagline') || q.includes('motto') || q.includes('slogan') || q.includes('standard') || q.includes('goal')) {
+      return {
+        text: `**Omoikane Innovations Tagline & Motto:**\n\n> *"Innovation is not our goal; it’s our standard."*\n\n**Brand Slogan:** *"Indigenous technology · Global standards"*\n\nWe design, engineer, and own advanced defense, aerospace, and autonomous platforms locally in India to global reliability benchmarks.`,
+        suggestions: ['What products do you offer?', 'About the company', 'Core engineering strengths'],
+        source: { label: 'About Us', url: OFFICIAL_KNOWLEDGE_BASE.company.officialUrls.aboutUs }
+      };
+    }
+
+    if (q.includes('address') || q.includes('street') || q.includes('deepanjali nagar') || q.includes('vijayanagar') || q.includes('marenahalli')) {
+      return {
+        text: `**Official Registered Address:**\n\n${OFFICIAL_KNOWLEDGE_BASE.company.address}\n\n• **Location:** Bengaluru (Bangalore), Karnataka, India\n• **Email:** [info@omoikaneinnovations.com](mailto:info@omoikaneinnovations.com) | [omoikaneinnovations@gmail.com](mailto:omoikaneinnovations@gmail.com)\n• **Phone:** +91-8861035848 | +91-9353627825\n• **Office Hours:** Monday to Friday, 9:00 AM – 6:00 PM IST`,
+        suggestions: ['Office location on map', 'General contact info', 'Send an enquiry'],
+        source: { label: 'Contact Us', url: OFFICIAL_KNOWLEDGE_BASE.company.officialUrls.contactUs }
+      };
+    }
+
+    if (q.includes('tools') || q.includes('orcad') || q.includes('allegro') || q.includes('altium') || q.includes('ltspice') || q.includes('ansys') || q.includes('ecad') || q.includes('software used')) {
+      return {
+        text: `**Engineering Tools & Workflows at Omoikane Innovations:**\n\n• **ECAD & PCB Layout:** OrCAD, Cadence Allegro, Altium Designer, PADS\n• **Simulation & Modeling:** LTspice (circuit simulation), ANSYS (FEA stress & CFD aerodynamic modeling)\n• **Mechanical Design:** SolidWorks, CATIA, Fusion 360\n• **Engineering Practices:** Formal Design Reviews, DFM (Design for Manufacturing), and DFT (Design for Testing)`,
+        suggestions: ['Hardware Design Engineer role', 'Our products (OFC-X, OESC)', 'Embedded firmware skills'],
+        source: { label: 'Technology & Engineering', url: OFFICIAL_KNOWLEDGE_BASE.company.officialUrls.services }
+      };
+    }
+
+    if (q.includes('internship') || q.includes('intern') || q.includes('early career') || q.includes('student')) {
+      return {
+        text: `**Engineering Internship at Omoikane Innovations:**\n\n• **Role:** Engineering Internship – Hardware / Embedded Systems\n• **Location:** Bengaluru, Karnataka, India (Early Career)\n• **Description:** Project-based hands-on learning and mentorship working on real aerospace, UAV, and defense embedded hardware.\n• **How to Apply:** Send your resume and interest to [omoikaneinnovations@gmail.com](mailto:omoikaneinnovations@gmail.com) or [info@omoikaneinnovations.com](mailto:info@omoikaneinnovations.com) with the subject *"Internship Enquiry"*.`,
+        suggestions: ['Hardware Design Engineer opening', 'Software development careers', 'Contact team'],
+        source: { label: 'Careers', url: OFFICIAL_KNOWLEDGE_BASE.company.officialUrls.softwareCareers }
+      };
+    }
+
 
     // ──────────────────────────────────────────────────────────────────────────
     // 6b. COMPANY OVERVIEW (broad "tell me about", "what is omoikane", etc.)

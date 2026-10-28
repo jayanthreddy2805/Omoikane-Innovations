@@ -177,7 +177,7 @@ Instructions:
 {"suggestions":["How do I apply for the matched role?","What projects does Omoikane build?","Software development careers"],"source_label":"Careers Portal","source_url":"https://www.omoikaneinnovations.com/software-development/"}
 `;
 
-          for (const modelName of ['openai/gpt-oss-120b', 'qwen/qwen3.8-27b', 'openai/gpt-oss-20b']) {
+          for (const modelName of ['qwen/qwen3.8-27b', 'openai/gpt-oss-120b', 'openai/gpt-oss-20b']) {
             try {
               const completion = await client.chat.completions.create({
                 model: modelName,
@@ -236,8 +236,8 @@ Instructions:
 
     // Candidate Groq models (High-performance open-source weights on Groq LPUs)
     const candidateModels = [
-      'openai/gpt-oss-120b',
       'qwen/qwen3.8-27b',
+      'openai/gpt-oss-120b',
       'openai/gpt-oss-20b'
     ];
 
