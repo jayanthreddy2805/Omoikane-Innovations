@@ -4,7 +4,7 @@
  * Sources: Official Website (https://www.omoikaneinnovations.com/) & 
  *          Official Company Reference Website Package (ZIP)
  * ============================================================================
- * This file is the single source of truth fed to the Groq/Llama RAG AI assistant
+ * This file is the single source of truth fed to the Local Ollama RAG AI assistant
  * and the local semantic engine to answer all company-related questions.
  */
 
