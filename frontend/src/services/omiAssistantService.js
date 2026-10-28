@@ -918,6 +918,14 @@ function isCapabilitiesOverviewQuestion(q) {
     q.includes("technical capabilities") ||
     q.includes("what are your capabilities") ||
     q.includes("capabilities") ||
+    q.includes("services") ||
+    q.includes("service") ||
+    q.includes("what are you providing") ||
+    q.includes("what do you provide") ||
+    q.includes("what do you offer") ||
+    q.includes("what are you offering") ||
+    q.includes("what do you do") ||
+    q.includes("what does omoikane do") ||
     q.includes("what can you do") ||
     q.includes("what do you build") ||
     q.includes("what do you engineer")
