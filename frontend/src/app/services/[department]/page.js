@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './page.module.css';
 
 export default async function DepartmentService({ params }) {
@@ -20,32 +21,11 @@ export default async function DepartmentService({ params }) {
           <h2 className={styles.sectionTitle}>Discuss Your Requirement</h2>
           <p className={styles.formDesc}>Connect directly with our {title} team to explore custom solutions.</p>
           
-          <form className={styles.premiumForm}>
-            <div className={styles.inputGroup}>
-              <input type="text" id="name" placeholder=" " required className={styles.input} />
-              <label htmlFor="name" className={styles.floatingLabel}>Full Name</label>
-            </div>
-            
-            <div className={styles.inputGroup}>
-              <input type="email" id="email" placeholder=" " required className={styles.input} />
-              <label htmlFor="email" className={styles.floatingLabel}>Work Email</label>
-            </div>
-            
-            <div className={styles.inputGroup}>
-              <select id="requirement" required className={styles.select}>
-                <option value="" disabled selected>Select Requirement Area...</option>
-                <option>UAV / Drone</option>
-                <option>Embedded System</option>
-                <option>Defense Electronics</option>
-                <option>AI / Computer Vision</option>
-                <option>Custom Product Development</option>
-              </select>
-            </div>
-            
-            <button type="button" className={styles.submitBtn}>
-              Submit Requirement →
-            </button>
-          </form>
+          <div className={styles.premiumForm}>
+            <Link href="/contact" className={styles.submitBtn}>
+              Contact the {title} team →
+            </Link>
+          </div>
         </div>
       </div>
     </div>

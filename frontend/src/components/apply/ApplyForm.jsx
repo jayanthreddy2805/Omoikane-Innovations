@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import SubmitButton from '@/components/common/SubmitButton';
 import InternationalPhoneInput from '@/components/common/InternationalPhoneInput';
@@ -41,30 +41,17 @@ const DEFAULT_ROLES = [
 
 export default function ApplyForm({ onSuccess }) {
   const searchParams = useSearchParams();
+  const urlDept = searchParams.get('dept');
+  const urlRole = searchParams.get('role');
+  const availableRoles = urlDept && ROLES_BY_DEPT[urlDept]
+    ? ROLES_BY_DEPT[urlDept]
+    : DEFAULT_ROLES;
+  const initialRole = availableRoles.some((item) => item.id === urlRole)
+    ? urlRole
+    : 'other';
   const [status, setStatus] = useState('idle');
   const [phone, setPhone] = useState('');
-  const [role, setRole] = useState('other');
-  const [availableRoles, setAvailableRoles] = useState(DEFAULT_ROLES);
-
-  useEffect(() => {
-    const urlDept = searchParams.get('dept');
-    const urlRole = searchParams.get('role');
-    
-    let currentRoles = DEFAULT_ROLES;
-    if (urlDept && ROLES_BY_DEPT[urlDept]) {
-      currentRoles = ROLES_BY_DEPT[urlDept];
-      setAvailableRoles(currentRoles);
-    } else {
-      setAvailableRoles(DEFAULT_ROLES);
-    }
-
-    if (urlRole) {
-      const match = currentRoles.find(r => r.id === urlRole);
-      if (match) {
-        setRole(match.id);
-      }
-    }
-  }, [searchParams]);
+  const [role, setRole] = useState(initialRole);
 
   const handleSubmit = (e) => {
     e.preventDefault();

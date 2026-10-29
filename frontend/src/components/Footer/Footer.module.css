@@ -111,7 +111,7 @@
 
 /* SOCIAL LIST */
 .socialHeader {
-  margin-left: 48px; /* Positions "SOCIAL" directly above Instagram and X logos */
+  margin-left: 0;
 }
 
 .socialList {
@@ -216,6 +216,17 @@
 }
 
 .subscribeBtn:hover {
+  color: var(--text-primary);
+}
+
+.subscribeLink {
+  color: #cccccc;
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.subscribeLink:hover {
   color: var(--text-primary);
 }
 

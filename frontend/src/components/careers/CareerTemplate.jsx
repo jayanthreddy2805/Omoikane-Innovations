@@ -9,6 +9,40 @@ import styles from './CareerTemplate.module.css';
 import { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/form-field/field';
 import { Input } from '@/components/ui/form-field/input';
 
+const EASE = [0.16, 1, 0.3, 1];
+
+function FadeUp({ children, delay = 0, style = {} }) {
+  const r = useRef(null);
+  const inV = useInView(r, { once: true, margin: '-40px' });
+  return (
+    <motion.div
+      ref={r}
+      style={style}
+      initial={{ opacity: 0, y: 28 }}
+      animate={inV ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.75, ease: EASE, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function RevealLine({ children, delay = 0 }) {
+  const r = useRef(null);
+  const inV = useInView(r, { once: true, margin: '-40px' });
+  return (
+    <div ref={r} style={{ overflow: 'hidden' }}>
+      <motion.div
+        initial={{ y: '105%', opacity: 0 }}
+        animate={inV ? { y: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.9, ease: EASE, delay }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
 export default function CareerTemplate({ data }) {
   const {
     eyebrow,
@@ -21,42 +55,6 @@ export default function CareerTemplate({ data }) {
   } = data;
 
   const [activeRole, setActiveRole] = useState(roles[0]);
-  /* ── Shared easing / animation helpers ── */
-  const EASE = [0.16, 1, 0.3, 1];
-
-  /* FadeUp scoped to CareerTemplate */
-  function FadeUp({ children, delay = 0, style = {} }) {
-    const r = useRef(null);
-    const inV = useInView(r, { once: true, margin: '-40px' });
-    return (
-      <motion.div
-        ref={r}
-        style={style}
-        initial={{ opacity: 0, y: 28 }}
-        animate={inV ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.75, ease: EASE, delay }}
-      >
-        {children}
-      </motion.div>
-    );
-  }
-
-  /* Masked line reveal */
-  function RevealLine({ children, delay = 0 }) {
-    const r = useRef(null);
-    const inV = useInView(r, { once: true, margin: '-40px' });
-    return (
-      <div ref={r} style={{ overflow: 'hidden' }}>
-        <motion.div
-          initial={{ y: '105%', opacity: 0 }}
-          animate={inV ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.9, ease: EASE, delay }}
-        >
-          {children}
-        </motion.div>
-      </div>
-    );
-  }
 
 
   return (
