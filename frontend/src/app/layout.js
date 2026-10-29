@@ -2,7 +2,6 @@ import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ChatbotWidget from "@/components/Chatbot/ChatbotWidget";
-import IntroLoader from "@/components/common/IntroLoader";
 import "./globals.css";
 
 const inter = Inter({
@@ -57,12 +56,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${cormorantGaramond.variable}`}>
       <body>
-        <IntroLoader>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <ChatbotWidget />
-        </IntroLoader>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <ChatbotWidget />
       </body>
     </html>
   );
