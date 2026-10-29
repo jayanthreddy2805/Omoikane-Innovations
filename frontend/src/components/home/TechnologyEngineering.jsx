@@ -39,7 +39,8 @@ const DISCIPLINES = [
 export default function TechnologyEngineering() {
   const [activeMobileIndex, setActiveMobileIndex] = useState(null);
 
-  const handleCellClick = (index) => {
+  const handleCellClick = (index, force = false) => {
+    if (!force && window.matchMedia("(hover: hover)").matches) return;
     setActiveMobileIndex((prev) => (prev === index ? null : index));
   };
 
@@ -75,11 +76,11 @@ export default function TechnologyEngineering() {
                 onClick={() => handleCellClick(index)}
                 tabIndex={0}
                 role="button"
-                aria-expanded={isActive}
+                aria-label={`${discipline.name}. ${discipline.description}`}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    handleCellClick(index);
+                    handleCellClick(index, true);
                   }
                 }}
               >

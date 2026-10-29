@@ -125,7 +125,7 @@ function OmoikaneSystemArchitecture() {
               <span className={styles.editorialFooterStatement}>
                 From embedded hardware to autonomous intelligence — engineered as one system.
               </span>
-              <Link href="/services/electronics" className={styles.editorialFooterLink}>
+              <Link href="/expertise" className={styles.editorialFooterLink}>
                 Explore our expertise <span className={styles.editorialArrow}>→</span>
               </Link>
             </div>
@@ -340,7 +340,7 @@ function FaqSection() {
   const [activeFaq, setActiveFaq] = useState(null);
 
   return (
-    <section className={styles.faqSection}>
+    <section className={styles.faqSection} id="faq">
       <div className={styles.faqContainer}>
         <div className={styles.faqHeader}>
           <FadeUp>

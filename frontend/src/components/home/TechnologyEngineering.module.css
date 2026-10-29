@@ -39,7 +39,7 @@
 }
 
 .headline {
-  font-family: 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  font-family: var(--font-cormorant-garamond), Garamond, Georgia, 'Times New Roman', serif;
   font-size: clamp(2.6rem, 4.2vw, 3.8rem); /* 52–60px desktop */
   font-weight: 600;
   line-height: 1.08;
@@ -50,7 +50,7 @@
 }
 
 .subheadline {
-  font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+  font-family: var(--font-cormorant-garamond), Garamond, Georgia, serif;
   font-style: italic;
   font-size: clamp(1.35rem, 1.85vw, 1.85rem);
   font-weight: 500;

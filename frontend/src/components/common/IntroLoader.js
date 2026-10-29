@@ -22,9 +22,9 @@ export default function IntroLoader({ children }) {
     // Check if user has already seen the intro this session
     const hasSeen = sessionStorage.getItem('omoikane-particle-intro-seen');
     if (hasSeen) {
-      setLoading(false);
       finishedRef.current = true;
-      return;
+      const frame = window.requestAnimationFrame(() => setLoading(false));
+      return () => window.cancelAnimationFrame(frame);
     }
 
     // Safety fallback: guarantee home page shows quickly even if RAF is throttled

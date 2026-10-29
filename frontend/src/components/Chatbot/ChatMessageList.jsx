@@ -33,7 +33,7 @@ export default function ChatMessageList({
           </div>
           <h3 className={styles.welcomeHeading}>Omoikane Innovations</h3>
           <p className={styles.welcomeGreeting}>
-            Hi there! 👋 Welcome to Omoikane Innovations. I'm your company assistant. I can help you explore our technologies, engineering capabilities, career information, and contact details. How can I help you today?
+            Hi there! 👋 Welcome to Omoikane Innovations. I’m your company assistant. I can help you explore our technologies, engineering capabilities, career information, and contact details. How can I help you today?
           </p>
 
           <QuickQuestions onSelectQuestion={onSelectQuickAction} />

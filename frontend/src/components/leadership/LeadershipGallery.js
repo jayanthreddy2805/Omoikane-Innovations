@@ -316,6 +316,8 @@ export default function LeadershipGallery() {
                   className={styles.imageContainer} 
                   ref={el => galleryImages.current[i] = el}
                 >
+                  {/* This image node is moved between containers by GSAP Flip; next/image wrappers break that transition. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={profile.image} loading="lazy" alt={profile.topTitle} />
                 </div>
                 <div className={styles.cardNameOverlay}>

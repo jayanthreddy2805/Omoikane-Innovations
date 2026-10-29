@@ -10,9 +10,9 @@ import styles from "./Header.module.css";
 const SEARCH_INDEX = [
   { title: "Home", desc: "Omoikane Innovations — Aerospace, Defense & Embedded Systems", href: "/" },
   { title: "About Us", desc: "Learn about Omoikane Innovations, our mission and history", href: "/about" },
-  { title: "Technologies", desc: "Our advanced technology stack and engineering capabilities", href: "/technologies" },
+  { title: "Technologies", desc: "Our advanced technology stack and engineering capabilities", href: "/expertise" },
   { title: "Projects", desc: "Real-world projects and deployments by Omoikane", href: "/projects" },
-  { title: "Industries", desc: "Industries we serve: Defense, Agriculture, Aerospace", href: "/industries" },
+  { title: "Industries", desc: "Industries we serve: Defense, Agriculture, Aerospace", href: "/expertise" },
   { title: "Leadership", desc: "Meet the leadership team at Omoikane Innovations", href: "/leadership" },
   { title: "Contact", desc: "Get in touch with the Omoikane team", href: "/contact" },
   { title: "Software Development Careers", desc: "React, Next.js, Python, AI Developer, Embedded Firmware roles", href: "/careers/software" },
@@ -76,10 +76,14 @@ export default function Header() {
 
   // Close on route change
   React.useEffect(() => {
-    setCareersOpen(false);
-    setSearchOpen(false);
-    setMobileOpen(false);
-    setSearchQuery("");
+    const frame = window.requestAnimationFrame(() => {
+      setCareersOpen(false);
+      setSearchOpen(false);
+      setMobileOpen(false);
+      setSearchQuery("");
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, [pathname]);
 
   // Focus search input when opened
@@ -349,7 +353,7 @@ export default function Header() {
                 {searchQuery.trim() === "" && (
                   <div className={styles.searchHint}>
                     {SEARCH_INDEX.slice(0, 6).map((item) => (
-                      <Link key={item.href} href={item.href} className={styles.searchResultItem} onClick={() => setSearchOpen(false)}>
+                      <Link key={`${item.title}-${item.href}`} href={item.href} className={styles.searchResultItem} onClick={() => setSearchOpen(false)}>
                         <span className={styles.searchResultTitle}>{item.title}</span>
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className={styles.searchResultArrow}>
                           <path d="M4.5 2.5L8 6L4.5 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -360,11 +364,11 @@ export default function Header() {
                 )}
 
                 {searchQuery.trim() !== "" && searchResults.length === 0 && (
-                  <div className={styles.searchEmpty}>No results for "<strong>{searchQuery}</strong>"</div>
+                  <div className={styles.searchEmpty}>No results for “<strong>{searchQuery}</strong>”</div>
                 )}
 
                 {searchResults.map((item) => (
-                  <Link key={item.href} href={item.href} className={styles.searchResultItem} onClick={() => setSearchOpen(false)}>
+                  <Link key={`${item.title}-${item.href}`} href={item.href} className={styles.searchResultItem} onClick={() => setSearchOpen(false)}>
                     <div>
                       <div className={styles.searchResultTitle}>{item.title}</div>
                       <div className={styles.searchResultDesc}>{item.desc}</div>

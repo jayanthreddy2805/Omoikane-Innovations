@@ -27,7 +27,7 @@ const FOCUSED_PRODUCTION_AREAS = [
     description:
       "We design and develop advanced UAV platforms, flight control systems, avionics, and RF communication modules engineered for precision, stability, and real-time performance in high-reliability aerospace environments.",
     specs: ["UAV Platforms", "Flight Control Systems", "Avionics Integration", "RF Telemetry Modules"],
-    href: "/services",
+    href: "/expertise",
   },
   {
     index: "02",
@@ -36,7 +36,7 @@ const FOCUSED_PRODUCTION_AREAS = [
     description:
       "Our defense-grade products include secure communication systems, surveillance technologies, and autonomous platforms built for high reliability, real-time operations, and electronic resilience.",
     specs: ["Secure Communication", "Tactical Surveillance", "Autonomous Platforms", "Rugged Electronics"],
-    href: "/services",
+    href: "/expertise",
   },
   {
     index: "03",
@@ -45,7 +45,7 @@ const FOCUSED_PRODUCTION_AREAS = [
     description:
       "We deliver intelligent automotive electronics, ECU solutions, and real-time embedded systems that support next-generation mobility, functional safety, and vehicle automation.",
     specs: ["Automotive ECU Solutions", "Real-Time Embedded Systems", "Vehicle Automation", "Functional Safety"],
-    href: "/services",
+    href: "/expertise",
   },
   {
     index: "04",
@@ -54,7 +54,7 @@ const FOCUSED_PRODUCTION_AREAS = [
     description:
       "Our solutions enable predictive maintenance, industrial automation, and intelligent control systems designed for large-scale, high-efficiency operations across industrial and transit networks.",
     specs: ["Predictive Maintenance", "Industrial Automation", "Intelligent Control Systems", "High Reliability at Scale"],
-    href: "/services",
+    href: "/expertise",
   },
 ];
 
@@ -143,7 +143,7 @@ export default function HomeClient() {
               whileInView="visible"
               viewport={{ once: true, margin: "-40px" }}
             >
-              <Link href="/services" className={`${styles.bentoCard} ${styles.bentoCardTall}`}>
+              <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardTall}`}>
                 <div className={styles.bentoTextCol}>
                   <h3 className={styles.bentoTitle}>Aerospace</h3>
                   <div className={styles.bentoMetaList}>
@@ -185,7 +185,7 @@ export default function HomeClient() {
                 viewport={{ once: true, margin: "-40px" }}
                 style={{ flex: 1 }}
               >
-                <Link href="/services" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
+                <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
                   <div className={styles.bentoTextCol}>
                     <h3 className={styles.bentoTitle}>Defense</h3>
                     <div className={styles.bentoMetaList}>
@@ -225,7 +225,7 @@ export default function HomeClient() {
                 viewport={{ once: true, margin: "-40px" }}
                 style={{ flex: 1 }}
               >
-                <Link href="/services" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
+                <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
                   <div className={styles.bentoTextCol}>
                     <h3 className={styles.bentoTitle}>Automotive</h3>
                     <div className={styles.bentoMetaList}>
@@ -266,7 +266,7 @@ export default function HomeClient() {
               viewport={{ once: true, margin: "-40px" }}
               className={styles.bentoCardWideWrap}
             >
-              <Link href="/services" className={`${styles.bentoCard} ${styles.bentoCardWide}`}>
+              <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardWide}`}>
                 <div className={styles.bentoTextCol}>
                   <h3 className={styles.bentoTitle}>Railways</h3>
                   <div className={styles.bentoMetaList}>
@@ -305,7 +305,7 @@ export default function HomeClient() {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Link href="/services" className={styles.outlineButton}>
+            <Link href="/expertise" className={styles.outlineButton}>
               <span>View All Products &amp; Solutions</span>
               <span aria-hidden="true">&rarr;</span>
             </Link>

@@ -1,4 +1,4 @@
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ChatbotWidget from "@/components/Chatbot/ChatbotWidget";
@@ -15,7 +15,13 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant-garamond",
+  subsets: ["latin"],
+});
+
 export const metadata = {
+  metadataBase: new URL("https://www.omoikaneinnovations.com"),
   title: "Omoikane Innovations",
   description: "Advanced UAVs, embedded electronics, autonomous platforms and defense technologies engineered for real-world deployment.",
   icons: {
@@ -49,7 +55,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${cormorantGaramond.variable}`}>
       <body>
         <IntroLoader>
           <Header />

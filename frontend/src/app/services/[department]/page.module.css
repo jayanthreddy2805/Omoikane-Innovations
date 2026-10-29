@@ -111,6 +111,7 @@
 }
 
 .submitBtn {
+  display: block;
   background-color: var(--accent);
   color: var(--bg-primary);
   padding: 1rem;
@@ -121,6 +122,8 @@
   letter-spacing: 1px;
   border-radius: 4px;
   margin-top: 1rem;
+  text-align: center;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
 

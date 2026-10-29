@@ -110,7 +110,7 @@
 
 .headlineSerif {
   display: block;
-  font-family: 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  font-family: var(--font-cormorant-garamond), Garamond, Georgia, 'Times New Roman', serif;
   font-style: italic;
   font-weight: 500;
   letter-spacing: -0.015em;
