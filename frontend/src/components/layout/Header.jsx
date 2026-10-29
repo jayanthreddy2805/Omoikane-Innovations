@@ -2,7 +2,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import styles from "./Header.module.css";
 
@@ -39,7 +39,7 @@ const NAV_LINKS = [
 
 export default function Header() {
   const pathname = usePathname();
-  const router = useRouter();
+
 
   const [careersOpen, setCareersOpen] = React.useState(false);
   const [searchOpen, setSearchOpen] = React.useState(false);
@@ -341,7 +341,9 @@ export default function Header() {
                   className={styles.searchInput}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && searchResults.length > 0) {
-                      router.push(searchResults[0].href);
+                      if (typeof window !== "undefined") {
+                        window.location.href = searchResults[0].href;
+                      }
                       setSearchOpen(false);
                     }
                   }}
