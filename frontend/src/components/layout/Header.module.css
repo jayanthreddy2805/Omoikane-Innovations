@@ -43,6 +43,7 @@
   gap: 0.75rem;
   text-decoration: none;
   flex-shrink: 0;
+  cursor: pointer;
   transform-origin: left center;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -183,7 +184,7 @@
 }
 
 .dropdownItemActive {
-  background: rgba(54, 207, 246, 0.08);
+  background: rgba(10, 10, 10, 0.06);
 }
 
 .dropdownItemContent {

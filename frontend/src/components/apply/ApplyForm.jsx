@@ -17,17 +17,18 @@ const ROLES_BY_DEPT = {
     { id: 'other', label: 'Other' }
   ],
   mechanical: [
-    { id: 'mech-design', label: '3D & 2D Mechanical Design' },
-    { id: 'mech-assembly', label: 'Mechanical Assembly & Integration' },
-    { id: 'struct-therm', label: 'Structural & Thermal Analysis' },
-    { id: 'prod-eng', label: 'Product Engineering' },
+    { id: 'mech-design', label: '3D & 2D Mechanical Design Engineer' },
+    { id: 'prod-eng', label: 'Enclosure & Product Design Engineer' },
+    { id: 'mech-assembly', label: 'Mechanical Assembly & Integration Engineer' },
+    { id: 'struct-therm', label: 'Structural & Thermal Analysis Engineer' },
     { id: 'other', label: 'Other' }
   ],
   electronics: [
-    { id: 'hardware-eng', label: 'Hardware System Design' },
-    { id: 'pcb-eng', label: 'PCB Layout & Routing' },
-    { id: 'rf-eng', label: 'RF & Communications' },
-    { id: 'test-eng', label: 'Testing & Integration' },
+    { id: 'hardware-eng', label: 'Hardware Design Engineer' },
+    { id: 'pcb-eng', label: 'PCB Design Engineer' },
+    { id: 'rf-eng', label: 'RF System Designer' },
+    { id: 'test-eng', label: 'Test Engineer' },
+    { id: 'prod-eng-elec', label: 'Product Engineer' },
     { id: 'other', label: 'Other' }
   ]
 };

@@ -3,7 +3,7 @@
   --surf-content: #F5F3EE;
   --surf-enquiry: #F5F3EE;
   --surf-presence: #F5F3EE;
-  --accent-cyan: #111111;
+  --accent-primary: #111111;
   --text-primary: var(--text-primary);
   --text-muted: #626762;
   --border-subtle: #D8D7D1;
@@ -125,14 +125,14 @@
   font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   letter-spacing: 0.25em;
-  color: rgba(54, 207, 246, 0.7);
+  color: rgba(10, 10, 10, 0.5);
 }
 
 .heroEyebrowLine {
   display: block;
   width: 18px;
   height: 1px;
-  background: #36CFF6;
+  background: var(--text-primary);
 }
 
 .heroTitleWrapper {
@@ -303,7 +303,7 @@
   font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 500;
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   margin: 0;
   letter-spacing: -1px;
   text-transform: uppercase;

@@ -94,7 +94,7 @@
 }
 
 .statusArrow {
-  color: var(--accent-cyan, #36CFF6);
+  color: var(--text-primary);
   transition: transform 0.2s ease;
 }
 
@@ -145,7 +145,7 @@
 }
 
 .signatureLink:hover {
-  color: var(--accent-cyan, #36CFF6);
+  color: var(--text-primary);
 }
 
 @media (max-width: 768px) {

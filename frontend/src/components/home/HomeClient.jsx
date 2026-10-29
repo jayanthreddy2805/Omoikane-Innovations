@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import styles from "@/app/page.module.css";
 import CallToAction from "@/components/common/CallToAction";
+import SelectedWork from "@/components/home/SelectedWork";
+import HomeCareers from "@/components/home/HomeCareers";
 
 
 // ─── Focused Production Areas & Products ──────────────────────────
@@ -81,7 +83,6 @@ const WHY_US_PILLARS = [
     image: "/images/why-us/embedded-ai.jpg",
   },
 ];
-const CORE_PILLARS = WHY_US_PILLARS;
 
 // ─── Subtle Animation Variants ────────────────────────────────────
 const headerVariants = {
@@ -127,7 +128,7 @@ export default function HomeClient() {
             viewport={{ once: true, margin: "-60px" }}
           >
             <span className={styles.sectionTag}>[ 01 / FOCUSED PRODUCTION AREAS ]</span>
-            <h2 className={styles.sectionTitle}>AEROSPACE &amp; DEFENSE AT THE CORE</h2>
+            <h2 className={styles.sectionTitle}>CORE EXPERTISE</h2>
             <p className={styles.sectionSubtitle}>
               We primarily design and build advanced products for Aerospace and Defense applications, where performance, precision, and reliability are mission-critical. Our capabilities also extend to selected industrial domains.
             </p>
@@ -311,9 +312,14 @@ export default function HomeClient() {
           </motion.div>
         </div>
       </section>
- 
+
       {/* ─────────────────────────────────────────────────────────
-          2.5. WHY OUR PRODUCTS STAND OUT
+          2.5. SELECTED WORK (EDITORIAL PROJECT INDEX)
+      ───────────────────────────────────────────────────────── */}
+      <SelectedWork />
+
+      {/* ─────────────────────────────────────────────────────────
+          3. WHY OUR PRODUCTS STAND OUT
       ───────────────────────────────────────────────────────── */}
       <section className={styles.whySection} id="why-us" aria-label="Why Our Products Stand Out">
         <div className={styles.sectionInner}>
@@ -324,7 +330,6 @@ export default function HomeClient() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
           >
-            <span className={styles.whyEyebrow}>Omoikane Innovations</span>
             <h2 className={styles.whyHeadline}>Why Our Products Stand Out</h2>
             <p className={styles.whySubtitle}>
               Engineered for absolute reliability, indigenous ownership, and high performance across Aerospace, Defense, and Industrial applications.
@@ -362,68 +367,9 @@ export default function HomeClient() {
 
 
       {/* ─────────────────────────────────────────────────────────
-          4. ABOUT US
+          4. CAREERS (HOMEPAGE CAREERS SECTION)
       ───────────────────────────────────────────────────────── */}
-      <section className={styles.section} id="about" aria-label="About Omoikane Innovations">
-        <div className={styles.sectionInner}>
-          <motion.div
-            className={styles.aboutCompact}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* LEFT */}
-            <div className={styles.aboutLeft}>
-              <span className={styles.sectionTag}>[ 03 / ABOUT US ]</span>
-              <h2 className={styles.aboutHeadline}>
-                Product-focused engineering for Aerospace, Defense &amp; Industrial domains.
-              </h2>
-
-              {/* Badge row */}
-              <div className={styles.aboutBadgeRow}>
-                {["100% Indigenous IP", "ISO 9001", "MSME Registered"].map((b) => (
-                  <span key={b} className={styles.aboutBadge}>{b}</span>
-                ))}
-              </div>
-
-              {/* Vision / Mission one-liners */}
-              <div className={styles.aboutOneLiners}>
-                <div className={styles.aboutOneLiner}>
-                  <span className={styles.aboutOneLinerLabel}>Vision</span>
-                  <span className={styles.aboutOneLinerText}>Global leader in indigenous defense &amp; embedded tech.</span>
-                </div>
-                <div className={styles.aboutOneLiner}>
-                  <span className={styles.aboutOneLinerLabel}>Mission</span>
-                  <span className={styles.aboutOneLinerText}>Design, build &amp; deliver platforms across Aerospace, Defense &amp; Industrial.</span>
-                </div>
-              </div>
-
-              <Link href="/about" className={styles.aboutLink}>
-                Know More <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-
-            {/* RIGHT — compact pillar rows */}
-            <div className={styles.aboutRight}>
-              {CORE_PILLARS.map((pillar, index) => (
-                <motion.div
-                  key={pillar.title}
-                  className={styles.aboutPillarRow}
-                  variants={cardVariants}
-                  custom={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-40px" }}
-                >
-                  <span className={styles.pillarIcon}>{pillar.code}</span>
-                  <span className={styles.aboutPillarTitle}>{pillar.title}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <HomeCareers />
 
       {/* ─────────────────────────────────────────────────────────
           5. CALL TO ACTION (REGULAR CTA)

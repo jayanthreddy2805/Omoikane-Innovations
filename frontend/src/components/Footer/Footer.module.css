@@ -448,7 +448,7 @@
   font-size: clamp(0.75rem, 1.1vw, 0.95rem);
   font-weight: 600;
   letter-spacing: 4px;
-  color: rgba(54, 207, 246, 0.4);
+  color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
   line-height: 1;
 }

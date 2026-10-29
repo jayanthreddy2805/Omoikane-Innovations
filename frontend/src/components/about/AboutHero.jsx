@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useReducedMotion } from "framer-motion";
 import styles from "./AboutHero.module.css";
 
-const COMPANY_VIDEO = "/videos/omoikane.mp4";
+const COMPANY_VIDEO = "/videos/about/omoikane.mp4";
 const COMPANY_VIDEO_POSTER = "/images/about/omoikane-film-poster.jpg";
 
 export default function AboutHero() {

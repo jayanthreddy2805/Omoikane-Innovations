@@ -115,6 +115,27 @@ export default function Header() {
 
   const isCareersActive = pathname?.startsWith("/careers");
 
+  const handleLogoClick = (e) => {
+    // Allow new tab or special modifier clicks (Cmd, Ctrl, Shift, Alt, middle-click)
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+      return;
+    }
+
+    setMobileOpen(false);
+    setCareersOpen(false);
+
+    if (pathname === "/") {
+      e.preventDefault();
+      const hero = document.getElementById("hero");
+      if (hero) {
+        hero.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <motion.header 
@@ -123,7 +144,7 @@ export default function Header() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         {/* ── LOGO ── */}
-        <Link href="/" className={styles.logoLink}>
+        <Link href="/" scroll={true} className={styles.logoLink} onClick={handleLogoClick}>
           <Image
             src="/images/shared/omoikane-logo.png"
             alt="Omoikane Innovations"

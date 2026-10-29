@@ -7,27 +7,22 @@ const softwareRoles = [
     number: "01",
     title: "WEB DEVELOPER",
     subtitle: "App & Dashboard",
-    specialization: "Product interfaces · Live data",
-    description: "Build interfaces for monitoring, control and real-time operations.",
+    description: "Role Focus: Control interfaces, monitoring dashboards, user apps",
     visual: "/images/careers/software/web-dev-dashboard.jpg",
-    work: [
-      "Control interfaces",
-      "Monitoring dashboards",
-      "Fleet management",
-      "Live telemetry",
-      "Mission planning"
-    ],
     tech: [
-      "React / Next.js",
-      "Node.js / Django",
-      "UI/UX for real-time systems",
-      "WebSocket / live data",
-      "AWS / Firebase",
-      "Agri analytics",
-      "Light show control",
-      "Mobile apps",
-      "Maps",
-      "Authentication / security"
+      "Frontend: React.js / Next.js",
+      "Backend: Node.js / Django",
+      "UI/UX for Real-Time Systems",
+      "WebSocket / Live Data Streaming",
+      "Cloud Integration (AWS / Firebase)",
+      "Fleet Management Dashboards",
+      "Live Telemetry Visualization",
+      "Mission Planning UI",
+      "Agri Analytics Dashboards",
+      "Light Show Control Interface",
+      "Mobile App Development (Flutter / React Native) – Bonus",
+      "Map Integration (Google Maps, Mapbox)",
+      "Authentication & Security Systems"
     ],
     fullSkills: [
       {
@@ -65,24 +60,21 @@ const softwareRoles = [
     number: "02",
     title: "PYTHON DEVELOPER",
     subtitle: "Product-Level",
-    specialization: "Backend · APIs · Services",
-    description: "Build backend systems, APIs and product infrastructure for intelligent applications.",
+    description: "Role Focus: AI integration, backend systems, and scalable product engineering",
     visual: "/images/careers/software/python-architecture.jpg",
-    work: [
-      "Scalable backend architectures",
-      "Drone fleet systems",
-      "API development",
-      "Ground control software",
-      "Real-time telemetry handling"
-    ],
     tech: [
-      "Advanced Python",
-      "API development",
-      "AI/ML integrations",
-      "Scalable systems",
-      "Docker / Cloud",
-      "Monitoring",
-      "REST / MQTT / WebSockets"
+      "Advanced Python (OOP, Async Programming, Multiprocessing)",
+      "API Development (FastAPI, Flask, RESTful Design)",
+      "AI/ML Pipeline Integration & Deployment",
+      "Scalable System Design (Microservices Architecture)",
+      "High-Performance Backend Optimization",
+      "Containerization (Docker) & Deployment Pipelines",
+      "Cloud Integration (AWS / GCP / Azure)",
+      "Logging, Monitoring & Debugging (Prometheus, Grafana, ELK)",
+      "Ground Control Software & Mission Planning",
+      "Drone Fleet Management Systems",
+      "Real-Time Telemetry & Data Pipelines",
+      "Communication: REST APIs, MQTT, WebSockets"
     ],
     fullSkills: [
       {
@@ -119,24 +111,21 @@ const softwareRoles = [
     number: "03",
     title: "AI DEVELOPER",
     subtitle: "Autonomy & Perception",
-    specialization: "Vision · ML · Sensor fusion",
-    description: "Develop perception, machine-learning and autonomy systems for real-world environments.",
+    description: "Role Focus: Autonomy, perception, and intelligent decision systems",
     visual: "/images/careers/software/ai-vision.jpg",
-    work: [
-      "Autonomous navigation",
-      "Swarm intelligence",
-      "Precision agriculture",
-      "Target detection",
-      "Multi-drone coordination"
-    ],
     tech: [
-      "Machine learning / Deep learning",
-      "Computer vision",
-      "Sensor fusion",
-      "VTOL control",
-      "PyTorch / TensorFlow",
-      "OpenCV",
-      "ROS / ROS2 / Edge AI"
+      "Machine Learning & Deep Learning (CNNs, Transformers, RL basics)",
+      "Computer Vision (object detection, tracking, segmentation)",
+      "Sensor Fusion (Camera, IMU, GPS, LiDAR)",
+      "Autonomous Navigation (path planning, obstacle avoidance)",
+      "Swarm Intelligence (for light-show drones)",
+      "Precision Agriculture (crop health, spraying optimization)",
+      "Target Detection & Tracking (defense/payload systems)",
+      "Autonomous VTOL Flight & Landing",
+      "Multi-Drone Coordination (light shows, fleet operations)",
+      "Python, PyTorch, TensorFlow, OpenCV",
+      "ROS / ROS2",
+      "Edge AI (NVIDIA Jetson, TensorRT)"
     ],
     fullSkills: [
       {
@@ -173,24 +162,21 @@ const softwareRoles = [
     number: "04",
     title: "EMBEDDED FIRMWARE",
     subtitle: "Real-Time Systems",
-    specialization: "Firmware · Sensors · Control",
-    description: "Develop real-time firmware for sensors, controllers, communication and motor systems.",
+    description: "Role Focus: Flight controller programming, sensor integration, payload controls, real-time motor control",
     visual: "/images/careers/electronics/embedded-pcb.jpg",
-    work: [
-      "Flight controller programming",
-      "Payload controls",
-      "Hardware telemetry pipelines",
-      "Sensor integration",
-      "Real-time motor control"
-    ],
     tech: [
-      "C / C++",
-      "STM32 / ARM Cortex / ESP32",
-      "RTOS",
-      "UART / SPI / I2C / CAN",
-      "PWM / ESC / DShot",
-      "IMU / GPS / Barometer / LiDAR",
-      "PX4 / ArduPilot"
+      "Embedded C/C++ (Bare-Metal & RTOS)",
+      "Microcontrollers (STM32, ARM Cortex, ESP32)",
+      "Real-Time Firmware Development & Debugging",
+      "Peripheral Drivers (UART, SPI, I2C, CAN, PWM)",
+      "Sensor Integration (IMU, GPS, Barometer, LiDAR)",
+      "Motor Control Interfaces (ESC, PWM, DShot)",
+      "Hardware–Firmware Co-Design & Debugging",
+      "Signal-Level Debugging (Oscilloscope & Logic Analyzer)",
+      "Flight Controller Firmware (PX4 / ArduPilot Customization)",
+      "VTOL & Multirotor Control Systems",
+      "Payload Control & Actuator Systems",
+      "Real-Time Telemetry & Communication Systems"
     ],
     fullSkills: [
       {

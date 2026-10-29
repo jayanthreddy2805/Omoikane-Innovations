@@ -1,0 +1,521 @@
+/* ─────────────────────────────────────────────────────────
+   SELECTED WORK — FULL-BLEED ACCORDION SHOWCASE
+   Color Treatment: Warm Roasted Coconut Brown & Ivory Palette
+   - Outer Section / Collapsed Rows Background: var(--bg-primary, #F4F3EE)
+   - Expanded Project Background: #46342C (Warm Roasted Coconut Brown - fills edge-to-edge)
+   - Primary Ivory Text: #F2ECE2
+   - Muted Warm-Grey Text: #B3A79B
+   - Hairline Dividers: rgba(242, 236, 226, 0.15)
+   - Subtle Active-Row / Block Background: #4F3B32
+   - Restrained Warm Accent: #D6B896
+   - Rounding: strictly max 10–12px on image and capability blocks;
+     outer container has NO rounding.
+───────────────────────────────────────────────────────── */
+
+.section {
+  width: 100%;
+  background-color: var(--bg-primary, #F4F3EE);
+  color: var(--text-primary, #0A0A0A);
+  /* 0 horizontal padding so expanded brown background fills 100% full viewport width */
+  padding: clamp(5.5rem, 8vw, 8.5rem) 0;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────
+   SECTION INTRODUCTION (Simple, Centered, Spacious)
+   Contained within the standard 1240px content width.
+───────────────────────────────────────────────────────── */
+.introContainer {
+  max-width: 1240px;
+  margin: 0 auto clamp(3.5rem, 5.5vw, 5rem) auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--text-primary, #0A0A0A);
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  color: var(--text-secondary, #555555);
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 620px;
+}
+
+/* ─────────────────────────────────────────────────────────
+   ACCORDION LIST & ROWS
+   Full-width accordion rows stretching edge-to-edge.
+───────────────────────────────────────────────────────── */
+.accordionList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border, #E6E4DE);
+}
+
+.row {
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid var(--border, #E6E4DE);
+  background-color: var(--bg-primary, #F4F3EE);
+  border-radius: 0; /* No rounded outer border */
+  overflow: hidden;
+  box-sizing: border-box;
+  transition:
+    background-color 280ms ease,
+    color 220ms ease,
+    border-color 280ms ease;
+}
+
+/* Expanded state: Warm roasted coconut brown #46342C fills edge-to-edge with NO gaps */
+.rowActive {
+  background-color: #46342C !important;
+  border-color: rgba(242, 236, 226, 0.15) !important;
+  color: #F2ECE2;
+  border-radius: 0 !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   ROW HEADER BUTTON (ACCESSIBILITY & SEMANTICS)
+   - Real semantic button
+   - Generous spacing inside standard container width
+   - Subtle 4px title movement and 3px arrow movement
+───────────────────────────────────────────────────────── */
+.headerInner {
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+  padding: clamp(1.8rem, 2.7vw, 2.6rem) clamp(1.25rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+}
+
+.rowHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  user-select: none;
+}
+
+.rowHeader:focus-visible {
+  outline: 2px solid #D6B896;
+  outline-offset: 4px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3.5vw, 3.2rem);
+  flex: 1;
+  min-width: 0;
+}
+
+.projectNumber {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(0.9rem, 1.15vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary, #777777);
+  width: 2.5rem;
+  flex-shrink: 0;
+  transition: color 220ms ease;
+}
+
+.rowActive .projectNumber {
+  color: #B3A79B;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.projectCategory {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary, #666666);
+  transition: color 220ms ease;
+}
+
+.rowActive .projectCategory {
+  color: #D6B896;
+}
+
+.projectTitle {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(1.45rem, 2.3vw, 2.05rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--text-primary, #0A0A0A);
+  margin: 0;
+  line-height: 1.22;
+  transition:
+    transform 280ms ease,
+    color 220ms ease;
+}
+
+/* Subtle title movement: max 4px, no bouncing/spring */
+.row:hover .projectTitle,
+.rowHeader:focus-visible .projectTitle,
+.rowActive .projectTitle {
+  transform: translateX(4px);
+}
+
+.rowActive .projectTitle {
+  color: #F2ECE2;
+}
+
+.rowCollapsed:hover .projectTitle {
+  color: #46342C;
+}
+
+.headerRight {
+  flex-shrink: 0;
+  padding-left: 1.5rem;
+}
+
+.headerAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary, #666666);
+  transition: color 220ms ease;
+}
+
+.rowActive .headerAction {
+  color: #D6B896;
+}
+
+.rowCollapsed:hover .headerAction {
+  color: #46342C;
+}
+
+/* Subtle arrow movement: ~3px */
+.headerArrow {
+  display: inline-block;
+  transition:
+    transform 280ms ease,
+    color 220ms ease;
+}
+
+.row:hover .headerArrow,
+.rowHeader:focus-visible .headerArrow,
+.rowActive .headerArrow {
+  transform: translateX(3px);
+}
+
+.rowActive .headerArrow {
+  color: #D6B896;
+}
+
+/* ─────────────────────────────────────────────────────────
+   HEIGHT TRANSITION (CSS GRID ACCORDION)
+   Smooth content-height transition: 0fr -> 1fr.
+   The expanded content remains mounted during closing.
+───────────────────────────────────────────────────────── */
+.detailsWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  width: 100%;
+  box-sizing: border-box;
+  transition:
+    grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease;
+}
+
+.detailsWrapperOpen {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.detailsInner {
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────
+   CONTENT REVEAL
+   Internal content animated separately from container height:
+   Closed: opacity: 0, translateY(8px)
+   Open: opacity: 1, translateY(0)
+───────────────────────────────────────────────────────── */
+.detailsContent {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(360px, 1.25fr);
+  gap: clamp(2rem, 4vw, 3.75rem);
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem) clamp(2.4rem, 3.8vw, 3.5rem);
+  box-sizing: border-box;
+  align-items: stretch;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 220ms ease 90ms,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1) 70ms;
+}
+
+.detailsContentOpen {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────────────────
+   LEFT COLUMN: LARGE PROJECT IMAGE
+   Image opacity transition: ~300ms, no scale animation
+───────────────────────────────────────────────────────── */
+.imageCol {
+  width: 100%;
+  display: flex;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 300px;
+  border-radius: 11px; /* Max 10–12px rounding */
+  overflow: hidden;
+  background-color: #37251E; /* Temporary backdrop preventing blank flash */
+  border: 1px solid rgba(242, 236, 226, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.projectImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  filter: brightness(0.97) contrast(1.02);
+}
+
+.projectImageActive {
+  opacity: 1;
+}
+
+/* Subtle warm overlay to harmonize with warm roasted coconut brown without appearing sepia */
+.imageWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(70, 52, 44, 0.05) 0%,
+    rgba(70, 52, 44, 0.22) 100%
+  );
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────────────────
+   RIGHT COLUMN: PROJECT INFO, CTA & CAPABILITIES
+───────────────────────────────────────────────────────── */
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.infoTop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.projectDesc {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+  line-height: 1.7;
+  color: #B3A79B;
+  margin: 0;
+  max-width: 620px;
+}
+
+/* CTA Link: Elegant editorial text link matching previous header action */
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D6B896;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  outline: none;
+  transition: color 220ms ease, transform 220ms ease;
+  padding: 0.25rem 0;
+}
+
+.ctaArrow {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 280ms ease, color 220ms ease;
+}
+
+.ctaLink:hover {
+  color: #F2ECE2;
+  transform: translateX(2px);
+}
+
+.ctaLink:hover .ctaArrow {
+  transform: translateX(4px);
+  color: #F2ECE2;
+}
+
+.ctaLink:focus-visible {
+  outline: 2px solid #D6B896;
+  outline-offset: 4px;
+}
+
+/* Three Capability Blocks: #4F3B32 subtle active background, #F2ECE2 ivory text */
+.capabilitiesRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.capabilityBlock {
+  display: inline-block;
+  background-color: #4F3B32;
+  color: #F2ECE2;
+  border: 1px solid rgba(242, 236, 226, 0.15);
+  padding: 0.55rem 1.05rem;
+  border-radius: 10px; /* Max 10–12px rounding */
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ─────────────────────────────────────────────────────────
+   RESPONSIVE: TABLET & MOBILE (<= 860px)
+───────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .section {
+    padding: 4.5rem 0;
+  }
+
+  .introContainer {
+    margin-bottom: 2.5rem;
+    padding: 0 1.25rem;
+  }
+
+  .heading {
+    font-size: 2.1rem;
+  }
+
+  .headerInner {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .headerLeft {
+    gap: 1.1rem;
+  }
+
+  .projectNumber {
+    width: 2rem;
+    font-size: 0.85rem;
+  }
+
+  .projectTitle {
+    font-size: 1.35rem;
+  }
+
+  .headerAction {
+    font-size: 0.78rem;
+  }
+
+  .detailsContent {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 0 1.25rem 2rem;
+  }
+
+  .imageWrapper {
+    aspect-ratio: 16 / 10;
+    min-height: 220px;
+  }
+
+  .ctaLink {
+    align-self: flex-start;
+  }
+
+  .capabilitiesRow {
+    gap: 0.5rem;
+  }
+
+  .capabilityBlock {
+    font-size: 0.78rem;
+    padding: 0.45rem 0.85rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   ACCESSIBILITY: REDUCED MOTION
+───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .detailsWrapper,
+  .detailsContent,
+  .row,
+  .projectTitle,
+  .headerArrow,
+  .projectImage,
+  .ctaLink,
+  .ctaArrow {
+    transition: opacity 100ms ease !important;
+    transform: none !important;
+  }
+}

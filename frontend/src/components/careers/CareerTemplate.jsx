@@ -6,8 +6,8 @@ import { Upload, Building, MapPin, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './CareerTemplate.module.css';
-import { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/v-field-21-utils/field';
-import { Input } from '@/components/ui/v-field-21-utils/input';
+import { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/form-field/field';
+import { Input } from '@/components/ui/form-field/input';
 
 export default function CareerTemplate({ data }) {
   const {
@@ -102,7 +102,6 @@ export default function CareerTemplate({ data }) {
           
           {/* Left Nav */}
           <nav className={styles.roleNav}>
-            <span className={styles.navHeader}>{categoryLabel.toUpperCase()}<br/>{roles.length} ENGINEERING ROLES</span>
             <ul className={styles.navList}>
               {roles.map((role) => (
                 <li key={role.id}>
@@ -114,7 +113,7 @@ export default function CareerTemplate({ data }) {
                       <div className={styles.navText}>
                         <span className={styles.navTitle}>{role.title}</span>
                         <span className={styles.navSubtitle}>{role.subtitle}</span>
-                        <span className={styles.navSpec}>{role.specialization}</span>
+                        {role.specialization && <span className={styles.navSpec}>{role.specialization}</span>}
                       </div>
                   </button>
                 </li>
@@ -134,7 +133,6 @@ export default function CareerTemplate({ data }) {
                 className={styles.roleDetails}
               >
                 <div className={styles.roleHeader}>
-                  <span className={styles.roleEyebrow}>{data.categoryLabel} / {activeRole.number}</span>
                   <h2>{activeRole.title}</h2>
                   <span className={styles.roleSubtitle}>{activeRole.subtitle}</span>
                 </div>
@@ -146,39 +144,41 @@ export default function CareerTemplate({ data }) {
                 </div>
                 
                 <div className={styles.roleContentEditorial}>
-                  <div className={styles.editorialCol}>
-                    <h3>THE WORK</h3>
-                    <div className={styles.editorialWorkList}>
-                      {activeRole.work.map((item, i) => {
-                        const num = (i + 1).toString().padStart(2, '0');
-                        // Split string if it contains a parenthesis or hyphen for subtitle, otherwise just render it
-                        let main = item;
-                        let sub = "";
-                        if (item.includes('(')) {
-                          const parts = item.split('(');
-                          main = parts[0].trim();
-                          sub = parts[1].replace(')', '').trim();
-                        } else if (item.includes(' - ')) {
-                          const parts = item.split(' - ');
-                          main = parts[0].trim();
-                          sub = parts[1].trim();
-                        }
-                        
-                        return (
-                          <div key={i} className={styles.editorialWorkItem}>
-                            <span className={styles.workNum}>{num}</span>
-                            <div className={styles.workText}>
-                              <span className={styles.workMain}>{main}</span>
-                              {sub && <span className={styles.workSub}>{sub}</span>}
+                  {activeRole.work && activeRole.work.length > 0 && (
+                    <div className={styles.editorialCol}>
+                      <h3>THE WORK</h3>
+                      <div className={styles.editorialWorkList}>
+                        {activeRole.work.map((item, i) => {
+                          const num = (i + 1).toString().padStart(2, '0');
+                          // Split string if it contains a parenthesis or hyphen for subtitle, otherwise just render it
+                          let main = item;
+                          let sub = "";
+                          if (item.includes('(')) {
+                            const parts = item.split('(');
+                            main = parts[0].trim();
+                            sub = parts[1].replace(')', '').trim();
+                          } else if (item.includes(' - ')) {
+                            const parts = item.split(' - ');
+                            main = parts[0].trim();
+                            sub = parts[1].trim();
+                          }
+                          
+                          return (
+                            <div key={i} className={styles.editorialWorkItem}>
+                              <span className={styles.workNum}>{num}</span>
+                              <div className={styles.workText}>
+                                <span className={styles.workMain}>{main}</span>
+                                {sub && <span className={styles.workSub}>{sub}</span>}
+                              </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
+                  )}
                   
                   <div className={styles.editorialCol}>
-                    <h3>TECHNOLOGIES</h3>
+                    <h3>CORE SKILLS</h3>
                     <ul className={styles.editorialTechList}>
                       {activeRole.tech.map((item, i) => <li key={i}>{item}</li>)}
                     </ul>
