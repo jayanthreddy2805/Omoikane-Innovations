@@ -130,5 +130,5 @@
 
 .submitBtn:hover {
   background-color: var(--color-navy, #061D40);
-  box-shadow: 0 4px 14px rgba(7, 87, 200, 0.25);
+  box-shadow: 0 4px 14px rgba(6, 29, 64, 0.14);
 }
