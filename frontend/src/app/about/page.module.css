@@ -114,8 +114,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, #F5F3EE 0%, rgba(245,243,238,0.7) 45%, transparent 100%),
-    linear-gradient(0deg, #F5F3EE 0%, transparent 20%);
+    linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0.72) 45%, transparent 100%),
+    linear-gradient(0deg, #FFFFFF 0%, transparent 20%);
 }
 
 .muteToggleBtn {
@@ -145,7 +145,7 @@
 .heroScrollOverlay {
   position: absolute;
   inset: 0;
-  background: #F5F3EE;
+  background: #FFFFFF;
   z-index: 1;
   pointer-events: none;
 }
