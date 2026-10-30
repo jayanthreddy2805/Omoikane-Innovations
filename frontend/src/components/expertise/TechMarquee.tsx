@@ -27,10 +27,7 @@ export function TechMarquee() {
     <div className={styles.marqueeContainer}>
       <div className={styles.marqueeTrack}>
         {displayTechs.map((tech, idx) => (
-          <React.Fragment key={idx}>
-            <span className={styles.techItem}>{tech}</span>
-            <span className={styles.dot} />
-          </React.Fragment>
+          <span key={idx} className={styles.techItem}>{tech}</span>
         ))}
       </div>
     </div>

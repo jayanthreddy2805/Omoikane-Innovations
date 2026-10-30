@@ -190,7 +190,6 @@ export default function SelectedWork() {
                   <div className={styles.headerLeft}>
                     <span className={styles.projectNumber}>{project.number}</span>
                     <div className={styles.titleGroup}>
-                      <span className={styles.projectCategory}>{project.category}</span>
                       <h3 className={styles.projectTitle}>{project.title}</h3>
                     </div>
                   </div>

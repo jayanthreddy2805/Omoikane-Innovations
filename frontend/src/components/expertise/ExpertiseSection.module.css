@@ -1,7 +1,7 @@
 .section {
   --black: #050505;
-  --paper: #F5F6EF;
-  --grid: rgba(15, 15, 15, 0.095);
+  --paper: #FFFFFF;
+  --grid: rgba(7, 87, 200, 0.08);
   --muted: rgba(247, 247, 245, 0.42);
   position: relative;
   display: grid;
@@ -150,9 +150,9 @@
 }
 
 .navItemActive {
-  color: #111;
-  background: #f4f0ea;
-  box-shadow: 5px 5px 0 #626262;
+  color: #061D40;
+  background: #EFF7FF;
+  box-shadow: 4px 4px 0 rgba(7, 87, 200, 0.4);
 }
 
 .navItemActive::after {
@@ -203,7 +203,7 @@
   display: grid;
   place-items: center;
   padding: 64px;
-  border-left: 1px solid rgba(25,22,20,.2);
+  border-left: 1px solid #DCE7F3;
   background: var(--paper);
   overflow: hidden;
 }
@@ -213,7 +213,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.035), transparent 58%);
+  background: radial-gradient(circle at 50% 50%, rgba(7,87,200,.02), transparent 58%);
 }
 
 .sceneCanvas {
@@ -221,7 +221,7 @@
   width: min(78%, 600px);
   aspect-ratio: 1.05 / 1;
   overflow: hidden;
-  background-color: #fbfaf7;
+  background-color: #F7FBFF;
   background-image:
     linear-gradient(to right, var(--grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid) 1px, transparent 1px);

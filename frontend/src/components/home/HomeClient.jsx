@@ -11,6 +11,8 @@ import {
   Activity,
   Layers,
   Zap,
+  ArrowDown,
+  ArrowUpRight,
 } from "lucide-react";
 import styles from "@/app/page.module.css";
 import CallToAction from "@/components/common/CallToAction";
@@ -111,14 +113,63 @@ export default function HomeClient() {
   return (
     <div className={styles.pageContainer}>
       {/* ─────────────────────────────────────────────────────────
-          1. HERO SECTION (RESERVED GAP)
+          1. HERO SECTION
       ───────────────────────────────────────────────────────── */}
-      <section className={styles.heroSection} id="hero" aria-label="Hero Section" />
+      <section className={styles.heroSection} id="hero" aria-labelledby="hero-headline">
+        <div className={styles.heroContent}>
+          <motion.div
+            className={styles.heroEyebrowBadge}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className={styles.heroEyebrowText}>Indigenous technology</span>
+            <span className={styles.heroEyebrowDivider} aria-hidden="true">|</span>
+            <span className={styles.heroEyebrowText}>Global standards</span>
+          </motion.div>
+
+          <motion.h1
+            id="hero-headline"
+            className={styles.heroHeadline}
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Advanced Defense, Aerospace &amp; Embedded Systems
+          </motion.h1>
+
+          <motion.p
+            className={styles.heroPhilosophy}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className={styles.heroPhilosophyLine}>Innovation is not our goal;</span>
+            <span className={styles.heroPhilosophyStandard}>it’s our standard.</span>
+          </motion.p>
+
+          <motion.div
+            className={styles.heroActions}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Link href="#projects" className={styles.heroBtnPrimary}>
+              <span>Explore Capabilities</span>
+              <ArrowDown size={14} aria-hidden="true" />
+            </Link>
+            <Link href="/contact" className={styles.heroBtnSecondary}>
+              <span>Contact Us</span>
+              <ArrowUpRight size={15} aria-hidden="true" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
 
       {/* ─────────────────────────────────────────────────────────
-          2. PROJECTS & FOCUSED PRODUCTION AREAS
+          2. PROJECTS & FOCUSED PRODUCTION AREAS (CORE EXPERTISE)
       ───────────────────────────────────────────────────────── */}
-      <section className={styles.section} id="projects" aria-label="Focused Production Areas and Products">
+      <section className={styles.expertiseSection} id="projects" aria-label="Focused Production Areas and Products">
         <div className={styles.sectionInner}>
           <motion.header
             className={styles.sectionHeader}
@@ -127,7 +178,6 @@ export default function HomeClient() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
           >
-            <span className={styles.sectionTag}>[ 01 / FOCUSED PRODUCTION AREAS ]</span>
             <h2 className={styles.sectionTitle}>CORE EXPERTISE</h2>
             <p className={styles.sectionSubtitle}>
               We primarily design and build advanced products for Aerospace and Defense applications, where performance, precision, and reliability are mission-critical. Our capabilities also extend to selected industrial domains.

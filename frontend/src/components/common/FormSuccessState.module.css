@@ -55,10 +55,10 @@
 
 .successHeading {
   font-family: var(--font-inter);
-  font-size: clamp(2rem, 4.5vw, 3rem); /* Slightly larger */
-  font-weight: 800; /* Bolder */
-  letter-spacing: -0.5px; /* Tighter tracking for Inter */
-  color: #7A684E; /* Matched to Name label color */
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #061D40;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   line-height: 1.15;
@@ -74,9 +74,9 @@
 
 .successText {
   font-family: var(--font-inter);
-  font-size: 1.05rem; /* ~16-17px */
+  font-size: 1.05rem;
   line-height: 1.65;
-  color: #626762;
+  color: #62748A;
   margin: 0;
 }
 
@@ -85,16 +85,16 @@
   align-items: center;
   gap: 0.45rem;
   font-family: var(--font-space-grotesk);
-  font-size: 0.75rem; /* ~12px */
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 1.5px;
-  color: #626762;
+  color: #0757C8;
   text-transform: uppercase;
   user-select: none;
 }
 
 .statusArrow {
-  color: var(--text-primary);
+  color: #0757C8;
   transition: transform 0.2s ease;
 }
 
@@ -109,9 +109,9 @@
   flex-wrap: wrap;
   gap: 2rem;
   width: 100%;
-  max-width: 680px; /* Tighter layout */
-  padding-top: 10px; /* Moved up by ~30px from 2.5rem */
-  border-top: 1px solid rgba(10, 10, 10, 0.08);
+  max-width: 680px;
+  padding-top: 10px;
+  border-top: 1px solid #DCE7F3;
   align-items: start;
 }
 
@@ -126,18 +126,18 @@
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 1px;
-  color: rgba(10, 10, 10, 0.3);
+  color: #061D40;
   text-transform: uppercase;
 }
 
 .companyLocation {
   font-family: var(--font-inter);
   font-size: 0.85rem;
-  color: rgba(10, 10, 10, 0.5);
+  color: #62748A;
 }
 
 .signatureLink {
-  color: rgba(10, 10, 10, 0.5);
+  color: #62748A;
   text-decoration: none;
   font-family: var(--font-inter);
   font-size: 0.85rem;
@@ -145,7 +145,7 @@
 }
 
 .signatureLink:hover {
-  color: var(--text-primary);
+  color: #0757C8;
 }
 
 @media (max-width: 768px) {

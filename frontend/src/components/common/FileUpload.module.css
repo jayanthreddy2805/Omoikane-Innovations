@@ -4,7 +4,7 @@
   align-items: center;
   gap: 0.375rem;
   font-family: var(--font-inter, sans-serif);
-  color: #7A684E;
+  color: #061D40;
   margin-bottom: 0.25rem;
 }
 
@@ -37,7 +37,7 @@
   align-items: center;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #D8D7D1;
+  border-bottom: 1px solid #DCE7F3;
   border-radius: 0;
   min-height: 52px;
   padding: 16px 0;
@@ -48,16 +48,16 @@
 }
 
 .container:hover {
-  border-bottom-color: #465340;
+  border-bottom-color: #0757C8;
 }
 
 .container:focus-visible {
-  border-bottom-color: #465340;
+  border-bottom-color: #0757C8;
 }
 
 .isDragging {
-  border-bottom-color: #465340;
-  background-color: rgba(70, 83, 64, 0.05);
+  border-bottom-color: #0757C8;
+  background-color: rgba(7, 87, 200, 0.05);
 }
 
 .hasError {
@@ -82,18 +82,18 @@
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  color: #202321;
+  color: #102746;
   font-size: 15px;
   font-family: var(--font-inter, sans-serif);
   font-weight: 500;
   padding-right: 1rem;
   margin-right: 1rem;
-  border-right: 1px solid #D8D7D1;
+  border-right: 1px solid #DCE7F3;
 }
 
 .plusIcon {
-  color: #465340;
-  opacity: 0.8;
+  color: #0757C8;
+  opacity: 0.9;
   transition: transform 0.2s ease;
 }
 
@@ -102,7 +102,7 @@
 }
 
 .emptyText {
-  color: #858780;
+  color: #62748A;
   font-size: 15px;
   font-family: var(--font-inter, sans-serif);
 }
@@ -114,7 +114,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  cursor: default; /* Remove pointer since it's selected */
+  cursor: default;
 }
 
 .fileInfo {
@@ -127,12 +127,12 @@
 }
 
 .checkIcon {
-  color: #465340;
+  color: #0757C8;
   flex-shrink: 0;
 }
 
 .fileName {
-  color: #202321;
+  color: #102746;
   font-size: 15px;
   font-family: var(--font-inter, sans-serif);
   font-weight: 500;
@@ -149,7 +149,7 @@
 }
 
 .fileSize {
-  color: #858780;
+  color: #62748A;
   font-size: 13px;
   font-family: var(--font-inter, sans-serif);
   font-weight: 400;
@@ -161,7 +161,7 @@
   justify-content: center;
   background: transparent;
   border: none;
-  color: #858780;
+  color: #62748A;
   width: 28px;
   height: 28px;
   border-radius: 4px;
@@ -172,13 +172,13 @@
 }
 
 .removeBtn:hover {
-  background: rgba(70, 83, 64, 0.05);
+  background: rgba(7, 87, 200, 0.08);
   color: #e57373;
 }
 
 .removeBtn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 1px rgba(70, 83, 64, 0.2);
+  box-shadow: 0 0 0 1px rgba(7, 87, 200, 0.3);
 }
 
 /* Bottom Area */
@@ -191,7 +191,7 @@
 }
 
 .helperText {
-  color: #858780;
+  color: #62748A;
   font-size: 12px;
   font-family: var(--font-inter, sans-serif);
 }

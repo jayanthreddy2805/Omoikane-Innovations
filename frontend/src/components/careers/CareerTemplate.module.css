@@ -1,12 +1,12 @@
 /* Color Palette & Base */
 .pageContainer {
-  --bg-primary: #FAFAF7;
-  --bg-secondary: #FFFFFF;
-  --bg-tertiary: #F2F2ED;
-  --theme-accent: #0A0A0A;
-  --border-subtle: rgba(10, 10, 10, 0.1);
-  --text-primary: #0A0A0A;
-  --text-muted: #5A5A5A;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #EFF7FF;
+  --bg-tertiary: #F7FBFF;
+  --theme-accent: #0757C8;
+  --border-subtle: #DCE7F3;
+  --text-primary: #061D40;
+  --text-muted: #62748A;
   
   background-color: var(--bg-primary);
   color: var(--text-primary);
@@ -16,15 +16,15 @@
 }
 
 .pageContainer[data-theme="mechanical"] {
-  --theme-accent: #3F3F46; /* Charcoal/Graphite - matching Software */
+  --theme-accent: #0757C8;
 }
 
 .pageContainer[data-theme="electronics"] {
-  --theme-accent: #3F3F46; /* Charcoal/Graphite - matching Software */
+  --theme-accent: #0757C8;
 }
 
 .pageContainer[data-theme="software"] {
-  --theme-accent: #3F3F46; /* Charcoal/Graphite */
+  --theme-accent: #0757C8;
 }
 
 /* SECTION A: HERO */

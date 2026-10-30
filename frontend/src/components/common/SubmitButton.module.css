@@ -1,5 +1,5 @@
 .button {
-  background-color: #202321;
+  background-color: #0757C8;
   border: none;
   border-radius: 4px;
   height: 48px;
@@ -23,13 +23,12 @@
 }
 
 .button:hover:not(:disabled) {
-  background-color: #465340;
-  border-color: #465340;
+  background-color: #061D40;
 }
 
 .button:focus-visible {
-  box-shadow: 0 0 0 3px rgba(32, 35, 33, 0.3);
-  border-color: #202321;
+  box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.25);
+  border-color: #0757C8;
 }
 
 .button:active:not(:disabled) {
@@ -43,10 +42,10 @@
 }
 
 .text {
-  color: #F5F3EE;
+  color: #FFFFFF;
   font-family: var(--font-inter, sans-serif);
   font-weight: 600;
-  font-size: 0.875rem; /* ~14px */
+  font-size: 0.875rem;
   letter-spacing: 0.05em;
   white-space: nowrap;
 }
@@ -58,7 +57,7 @@
 }
 
 .arrow {
-  color: #A47C52;
+  color: #FFFFFF;
   font-size: 1rem;
   font-weight: 500;
   transition: transform 0.2s ease;
@@ -89,7 +88,7 @@
 }
 
 .checkIcon {
-  color: #A47C52;
+  color: #FFFFFF;
   animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 

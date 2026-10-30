@@ -13,10 +13,10 @@
   min-height: 52px;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #D8D7D1;
+  border-bottom: 1px solid #DCE7F3;
   border-radius: 0;
   padding: 16px 0;
-  color: #202321;
+  color: #102746;
   font-size: 15px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -25,16 +25,16 @@
 }
 
 .selectTrigger:hover {
-  border-bottom-color: #465340;
+  border-bottom-color: #0757C8;
 }
 
 .selectTrigger:focus-visible,
 .selectTrigger.open {
-  border-bottom-color: #465340;
+  border-bottom-color: #0757C8;
 }
 
 .selectTrigger:not(.hasValue) {
-  color: #858780;
+  color: #62748A;
 }
 
 .selectValue {
@@ -45,7 +45,7 @@
 }
 
 .chevron {
-  color: #858780;
+  color: #62748A;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,7 +55,7 @@
 
 .selectTrigger:hover .chevron, 
 .selectTrigger.open .chevron {
-  color: #465340;
+  color: #0757C8;
 }
 
 .selectTrigger.open .chevron {
@@ -68,10 +68,10 @@
   top: calc(100% + 4px);
   left: 0;
   width: 100%;
-  background-color: #ffffff;
-  border: 1px solid #D8D7D1;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #FFFFFF;
+  border: 1px solid #DCE7F3;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(6, 29, 64, 0.08);
   z-index: 100;
   overflow: hidden;
 }
@@ -80,7 +80,7 @@
   max-height: 280px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #D8D7D1 transparent;
+  scrollbar-color: #DCE7F3 transparent;
   display: flex;
   flex-direction: column;
 }
@@ -94,7 +94,7 @@
 }
 
 .optionsScroll::-webkit-scrollbar-thumb {
-  background-color: #D8D7D1;
+  background-color: #DCE7F3;
   border-radius: 6px;
 }
 
@@ -105,7 +105,7 @@
   justify-content: space-between;
   min-height: 48px;
   padding: 0.75rem 1rem;
-  color: #202321;
+  color: #102746;
   cursor: pointer;
   transition: all 0.15s ease;
   font-size: 15px;
@@ -120,18 +120,18 @@
 
 .optionItem:hover,
 .optionItem.focused {
-  background-color: #f7f7f5;
-  color: #202321;
-  border-left-color: #465340;
+  background-color: #EFF7FF;
+  color: #061D40;
+  border-left-color: #0757C8;
 }
 
 .optionItem.selected {
-  background-color: rgba(70, 83, 64, 0.05);
-  color: #465340;
+  background-color: #EFF7FF;
+  color: #0757C8;
   font-weight: 500;
 }
 
 .checkIcon {
-  color: #465340;
+  color: #0757C8;
   flex-shrink: 0;
 }

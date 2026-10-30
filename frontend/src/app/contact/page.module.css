@@ -1,12 +1,12 @@
 .pageWrapper {
-  --surf-hero: #F5F3EE;
-  --surf-content: #F5F3EE;
-  --surf-enquiry: #F5F3EE;
-  --surf-presence: #F5F3EE;
-  --accent-primary: #111111;
-  --text-primary: #0A0A0A;
-  --text-muted: #626762;
-  --border-subtle: #D8D7D1;
+  --surf-hero: #FFFFFF;
+  --surf-content: #FFFFFF;
+  --surf-enquiry: #FFFFFF;
+  --surf-presence: #FFFFFF;
+  --accent-primary: #061D40;
+  --text-primary: #102746;
+  --text-muted: #62748A;
+  --border-subtle: #DCE7F3;
 
   min-height: 100vh;
   background-color: var(--surf-hero);
@@ -26,8 +26,8 @@
   width: 150vw;
   height: 150vh;
   background: 
-    radial-gradient(circle at 30% 40%, #ECEAE4 0%, transparent 60%),
-    radial-gradient(circle at 70% 60%, #ECEAE4 0%, transparent 60%);
+    radial-gradient(circle at 30% 40%, rgba(7, 87, 200, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(239, 247, 255, 0.8) 0%, transparent 60%);
   filter: blur(120px);
   z-index: 0;
   pointer-events: none;
@@ -238,11 +238,11 @@
 }
 
 .textWhite {
-  color: #202321;
+  color: var(--color-navy, #061D40);
 }
 
 .textGrey {
-  color: #465340;
+  color: var(--color-blue, #0757C8);
 }
 
 .drawingWrapper {
@@ -314,14 +314,14 @@
   font-family: var(--font-inter, sans-serif);
   font-size: 15px;
   line-height: 1.6;
-  color: #626762;
+  color: var(--color-muted, #62748A);
   margin-bottom: 40px;
 }
 
 .enquiryVisualContainer {
   width: 100%;
   margin-top: auto;
-  border-top: 1px solid #D8D7D1;
+  border-top: 1px solid var(--color-border, #DCE7F3);
   padding-top: 24px;
 }
 

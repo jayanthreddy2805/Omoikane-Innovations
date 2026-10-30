@@ -93,12 +93,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #F5F3EE;
+  background: #FFFFFF;
   padding: 5rem 5%;
-  --color-text-primary: #121212;
-  --color-text-secondary: #465340;
-  --color-text-muted: #626762;
-  --color-border-subtle: #D8D7D1;
+  --color-text-primary: #102746;
+  --color-text-secondary: #62748A;
+  --color-text-muted: #62748A;
+  --color-border-subtle: #DCE7F3;
 }
 
 .heroImageWrap {
@@ -397,7 +397,7 @@
   height: 45vw;
   max-width: 650px;
   max-height: 650px;
-  background: linear-gradient(135deg, rgba(164, 124, 82, 0.5), rgba(235, 220, 200, 0.8));
+  background: linear-gradient(135deg, rgba(7, 87, 200, 0.12), rgba(22, 136, 248, 0.18));
   filter: blur(70px);
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   animation: premiumBlobMorph 18s ease-in-out infinite alternate;
@@ -415,7 +415,7 @@
   height: 35vw;
   max-width: 550px;
   max-height: 550px;
-  background: linear-gradient(135deg, rgba(140, 160, 180, 0.4), rgba(250, 252, 255, 0.8));
+  background: linear-gradient(135deg, rgba(239, 247, 255, 0.8), rgba(220, 231, 243, 0.6));
   filter: blur(70px);
   border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%;
   animation: premiumBlobMorph 22s ease-in-out infinite alternate-reverse;
@@ -651,20 +651,6 @@
   height: 1px;
   background: var(--border);
   position: relative;
-}
-
-.editorialFooterRule::before {
-  content: 'SYS.END';
-  position: absolute;
-  top: -14px;
-  left: 0;
-  font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.55rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--color-text-muted);
-  background: var(--color-bg);
-  padding-right: 12px;
 }
 
 .editorialFooterContent {
@@ -1470,7 +1456,7 @@
 }
 
 .faqItem {
-  border: 1px solid rgba(10, 10, 10, 0.15);
+  border: 1px solid var(--color-border, #DCE7F3);
   border-radius: 12px;
   padding: 1.5rem 1.75rem;
   cursor: pointer;
@@ -1479,8 +1465,7 @@
 }
 
 .faqItemActive {
-  /* optional active shadow or subtle background shift */
-  background: rgba(10, 10, 10, 0.02);
+  background: var(--color-surface-blue, #EFF7FF);
 }
 
 .faqQuestionRow {
@@ -1960,10 +1945,10 @@
    CREDENTIALS ARCHIVE
 ═══════════════════════════════════════════════════════════ */
 .credSection {
-  background: var(--color-bg); /* warm off-white */
+  background: var(--color-bg);
   padding: clamp(8rem, 15vh, 12rem) clamp(1.25rem, 5.55vw, 5.5rem) clamp(5rem, 9vh, 7.5rem);
-  border-top: 1px solid rgba(17, 17, 17, 0.12);
-  color: #111111;
+  border-top: 1px solid var(--color-border, #DCE7F3);
+  color: var(--color-ink, #102746);
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -1985,7 +1970,7 @@
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #999999;
+  color: var(--color-muted, #62748A);
   margin-bottom: clamp(10px, 1.2vh, 16px);
 }
 
@@ -1995,14 +1980,14 @@
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.95;
-  color: #111111;
+  color: var(--color-navy, #061D40);
   margin-bottom: clamp(12px, 1.5vh, 18px);
 }
 
 .credSubtext {
   font-family: var(--font-inter, sans-serif);
   font-size: clamp(1rem, 1.1vw, 1.125rem);
-  color: #686868;
+  color: var(--color-muted, #62748A);
   max-width: 540px;
   line-height: 1.55;
 }
@@ -2017,7 +2002,7 @@
 
 .credCard {
   background: #FFFFFF;
-  border: 1px solid rgba(17, 17, 17, 0.08);
+  border: 1px solid var(--color-border, #DCE7F3);
   border-radius: 16px;
   padding: clamp(2.5rem, 3.5vw, 3.75rem) clamp(2.25rem, 3.2vw, 3.25rem);
   display: flex;
@@ -2031,8 +2016,8 @@
 
 .credCard:hover {
   transform: translateY(-2px);
-  border-color: rgba(17, 17, 17, 0.18);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-color: rgba(7, 87, 200, 0.25);
+  box-shadow: 0 10px 30px rgba(7, 87, 200, 0.06);
 }
 
 .credCardLogo {
@@ -2070,7 +2055,7 @@
   font-size: clamp(1.4rem, 1.75vw, 1.75rem);
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #111111;
+  color: var(--color-navy, #061D40);
   margin: 0 0 10px 0;
   line-height: 1.25;
 }
@@ -2078,7 +2063,7 @@
 .credDesc {
   font-family: var(--font-inter, sans-serif);
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
-  color: #555555;
+  color: var(--color-muted, #62748A);
   line-height: 1.55;
   margin: 0;
 }

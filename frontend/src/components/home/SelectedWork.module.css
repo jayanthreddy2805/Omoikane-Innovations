@@ -1,31 +1,31 @@
 /* ─────────────────────────────────────────────────────────
    SELECTED WORK — FULL-BLEED ACCORDION SHOWCASE
-   Color Treatment: Warm Roasted Coconut Brown & Ivory Palette
-   - Outer Section / Collapsed Rows Background: var(--bg-primary, #F4F3EE)
-   - Expanded Project Background: #46342C (Warm Roasted Coconut Brown - fills edge-to-edge)
-   - Primary Ivory Text: #F2ECE2
-   - Muted Warm-Grey Text: #B3A79B
-   - Hairline Dividers: rgba(242, 236, 226, 0.15)
-   - Subtle Active-Row / Block Background: #4F3B32
-   - Restrained Warm Accent: #D6B896
-   - Rounding: strictly max 10–12px on image and capability blocks;
-     outer container has NO rounding.
+   Authoritative Client Color System (Homepage Scoped):
+   - Section surface: #FFFFFF
+   - Collapsed row: #EFF7FF / #F7FBFF
+   - Row hover: #EAF5FF
+   - Primary navy: #061D40
+   - Primary royal blue: #0757C8
+   - Bright technical blue: #1688F8
+   - Dark ink: #102746
+   - Muted blue-grey: #62748A
+   - Border & divider: #DCE7F3
 ───────────────────────────────────────────────────────── */
 
 .section {
   width: 100%;
-  background-color: var(--bg-primary, #F4F3EE);
-  color: var(--text-primary, #0A0A0A);
-  /* 0 horizontal padding so expanded brown background fills 100% full viewport width */
+  background-color: #FFFFFF;
+  color: #102746;
   padding: clamp(5.5rem, 8vw, 8.5rem) 0;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
+  border-top: 1px solid #DCE7F3;
+  border-bottom: 1px solid #DCE7F3;
 }
 
 /* ─────────────────────────────────────────────────────────
-   SECTION INTRODUCTION (Simple, Centered, Spacious)
-   Contained within the standard 1240px content width.
+   SECTION INTRODUCTION
 ───────────────────────────────────────────────────────── */
 .introContainer {
   max-width: 1240px;
@@ -46,8 +46,8 @@
   font-size: clamp(2.2rem, 4.4vw, 3.4rem);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.035em;
-  color: var(--text-primary, #0A0A0A);
+  letter-spacing: -0.03em;
+  color: #061D40;
   margin: 0 0 1rem 0;
   text-transform: uppercase;
 }
@@ -55,7 +55,7 @@
 .subtitle {
   font-family: var(--font-inter), sans-serif;
   font-size: clamp(1rem, 1.35vw, 1.15rem);
-  color: var(--text-secondary, #555555);
+  color: var(--home-muted, #62748A);
   line-height: 1.65;
   margin: 0 auto;
   max-width: 620px;
@@ -63,42 +63,62 @@
 
 /* ─────────────────────────────────────────────────────────
    ACCORDION LIST & ROWS
-   Full-width accordion rows stretching edge-to-edge.
 ───────────────────────────────────────────────────────── */
 .accordionList {
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--border, #E6E4DE);
+  border-top: 1px solid var(--home-border, #DCE7F3);
 }
 
 .row {
   width: 100%;
   position: relative;
-  border-bottom: 1px solid var(--border, #E6E4DE);
-  background-color: var(--bg-primary, #F4F3EE);
-  border-radius: 0; /* No rounded outer border */
+  border-bottom: 1px solid var(--home-border, #DCE7F3);
+  background-color: transparent;
+  border-radius: 0;
   overflow: hidden;
   box-sizing: border-box;
   transition:
-    background-color 280ms ease,
-    color 220ms ease,
-    border-color 280ms ease;
+    background-color 220ms ease,
+    color 200ms ease,
+    border-color 220ms ease;
 }
 
-/* Expanded state: Warm roasted coconut brown #46342C fills edge-to-edge with NO gaps */
+.rowCollapsed {
+  background-color: #EFF7FF;
+}
+
+.rowCollapsed:nth-child(even) {
+  background-color: #F7FBFF;
+}
+
+.rowCollapsed:hover {
+  background-color: #EAF5FF;
+}
+
+/* Active Row: Clean white surface with royal-blue active indicator line */
 .rowActive {
-  background-color: #46342C !important;
-  border-color: rgba(242, 236, 226, 0.15) !important;
-  color: #F2ECE2;
+  background-color: #FFFFFF !important;
+  border-color: #DCE7F3 !important;
+  color: #102746;
   border-radius: 0 !important;
+  box-shadow: none;
+}
+
+.rowActive::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--home-blue, #0757C8);
+  z-index: 2;
 }
 
 /* ─────────────────────────────────────────────────────────
-   ROW HEADER BUTTON (ACCESSIBILITY & SEMANTICS)
-   - Real semantic button
-   - Generous spacing inside standard container width
-   - Subtle 4px title movement and 3px arrow movement
+   ROW HEADER BUTTON
 ───────────────────────────────────────────────────────── */
 .headerInner {
   max-width: 1240px;
@@ -126,7 +146,7 @@
 }
 
 .rowHeader:focus-visible {
-  outline: 2px solid #D6B896;
+  outline: 2px solid var(--home-blue, #0757C8);
   outline-offset: 4px;
 }
 
@@ -141,16 +161,12 @@
 .projectNumber {
   font-family: var(--font-space-grotesk), sans-serif;
   font-size: clamp(0.9rem, 1.15vw, 1.05rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--text-tertiary, #777777);
+  color: var(--home-blue, #0757C8);
   width: 2.5rem;
   flex-shrink: 0;
-  transition: color 220ms ease;
-}
-
-.rowActive .projectNumber {
-  color: #B3A79B;
+  transition: color 200ms ease;
 }
 
 .titleGroup {
@@ -166,12 +182,12 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-secondary, #666666);
-  transition: color 220ms ease;
+  color: var(--home-muted, #62748A);
+  transition: color 200ms ease;
 }
 
 .rowActive .projectCategory {
-  color: #D6B896;
+  color: var(--home-blue, #0757C8);
 }
 
 .projectTitle {
@@ -179,15 +195,14 @@
   font-size: clamp(1.45rem, 2.3vw, 2.05rem);
   font-weight: 600;
   letter-spacing: -0.025em;
-  color: var(--text-primary, #0A0A0A);
+  color: var(--home-ink, #102746);
   margin: 0;
   line-height: 1.22;
   transition:
-    transform 280ms ease,
-    color 220ms ease;
+    transform 240ms ease,
+    color 200ms ease;
 }
 
-/* Subtle title movement: max 4px, no bouncing/spring */
 .row:hover .projectTitle,
 .rowHeader:focus-visible .projectTitle,
 .rowActive .projectTitle {
@@ -195,11 +210,11 @@
 }
 
 .rowActive .projectTitle {
-  color: #F2ECE2;
+  color: var(--home-navy, #061D40);
 }
 
 .rowCollapsed:hover .projectTitle {
-  color: #46342C;
+  color: var(--home-navy, #061D40);
 }
 
 .headerRight {
@@ -216,24 +231,24 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-secondary, #666666);
-  transition: color 220ms ease;
+  color: var(--home-blue, #0757C8);
+  transition: color 200ms ease;
 }
 
 .rowActive .headerAction {
-  color: #D6B896;
+  color: var(--home-blue, #0757C8);
 }
 
 .rowCollapsed:hover .headerAction {
-  color: #46342C;
+  color: var(--home-navy, #061D40);
 }
 
-/* Subtle arrow movement: ~3px */
 .headerArrow {
   display: inline-block;
+  color: var(--home-blue, #0757C8);
   transition:
-    transform 280ms ease,
-    color 220ms ease;
+    transform 240ms ease,
+    color 200ms ease;
 }
 
 .row:hover .headerArrow,
@@ -242,14 +257,8 @@
   transform: translateX(3px);
 }
 
-.rowActive .headerArrow {
-  color: #D6B896;
-}
-
 /* ─────────────────────────────────────────────────────────
    HEIGHT TRANSITION (CSS GRID ACCORDION)
-   Smooth content-height transition: 0fr -> 1fr.
-   The expanded content remains mounted during closing.
 ───────────────────────────────────────────────────────── */
 .detailsWrapper {
   display: grid;
@@ -258,7 +267,7 @@
   width: 100%;
   box-sizing: border-box;
   transition:
-    grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    grid-template-rows 360ms cubic-bezier(0.22, 1, 0.36, 1),
     opacity 180ms ease;
 }
 
@@ -275,9 +284,6 @@
 
 /* ─────────────────────────────────────────────────────────
    CONTENT REVEAL
-   Internal content animated separately from container height:
-   Closed: opacity: 0, translateY(8px)
-   Open: opacity: 1, translateY(0)
 ───────────────────────────────────────────────────────── */
 .detailsContent {
   display: grid;
@@ -292,8 +298,8 @@
   opacity: 0;
   transform: translateY(8px);
   transition:
-    opacity 220ms ease 90ms,
-    transform 320ms cubic-bezier(0.22, 1, 0.36, 1) 70ms;
+    opacity 200ms ease 80ms,
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1) 60ms;
 }
 
 .detailsContentOpen {
@@ -302,8 +308,7 @@
 }
 
 /* ─────────────────────────────────────────────────────────
-   LEFT COLUMN: LARGE PROJECT IMAGE
-   Image opacity transition: ~300ms, no scale animation
+   LEFT COLUMN: NATURAL PROJECT IMAGE
 ───────────────────────────────────────────────────────── */
 .imageCol {
   width: 100%;
@@ -315,11 +320,11 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   min-height: 300px;
-  border-radius: 11px; /* Max 10–12px rounding */
+  border-radius: 8px;
   overflow: hidden;
-  background-color: #37251E; /* Temporary backdrop preventing blank flash */
-  border: 1px solid rgba(242, 236, 226, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  background-color: #EAF3FC;
+  border: 1px solid #DCE7F3;
+  box-shadow: none;
 }
 
 .projectImage {
@@ -327,25 +332,11 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 300ms ease;
-  filter: brightness(0.97) contrast(1.02);
+  transition: opacity 280ms ease;
 }
 
 .projectImageActive {
   opacity: 1;
-}
-
-/* Subtle warm overlay to harmonize with warm roasted coconut brown without appearing sepia */
-.imageWrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(70, 52, 44, 0.05) 0%,
-    rgba(70, 52, 44, 0.22) 100%
-  );
-  pointer-events: none;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -370,12 +361,12 @@
   font-family: var(--font-inter), sans-serif;
   font-size: clamp(0.98rem, 1.25vw, 1.08rem);
   line-height: 1.7;
-  color: #B3A79B;
+  color: var(--home-muted, #62748A);
   margin: 0;
   max-width: 620px;
 }
 
-/* CTA Link: Elegant editorial text link matching previous header action */
+/* Explore Link: Royal blue text with bright blue technical arrow highlight */
 .ctaLink {
   display: inline-flex;
   align-items: center;
@@ -385,12 +376,12 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #D6B896;
+  color: var(--home-blue, #0757C8);
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
   outline: none;
-  transition: color 220ms ease, transform 220ms ease;
+  transition: color 200ms ease, transform 200ms ease;
   padding: 0.25rem 0;
 }
 
@@ -398,25 +389,26 @@
   display: inline-block;
   font-size: 1rem;
   line-height: 1;
-  transition: transform 280ms ease, color 220ms ease;
+  color: var(--home-blue-bright, #1688F8);
+  transition: transform 240ms ease, color 200ms ease;
 }
 
 .ctaLink:hover {
-  color: #F2ECE2;
+  color: var(--home-navy, #061D40);
   transform: translateX(2px);
 }
 
 .ctaLink:hover .ctaArrow {
   transform: translateX(4px);
-  color: #F2ECE2;
+  color: var(--home-blue, #0757C8);
 }
 
 .ctaLink:focus-visible {
-  outline: 2px solid #D6B896;
+  outline: 2px solid var(--home-blue, #0757C8);
   outline-offset: 4px;
 }
 
-/* Three Capability Blocks: #4F3B32 subtle active background, #F2ECE2 ivory text */
+/* Capability Blocks: Pale-blue surface #E6F0FA with navy #061D40 text and fine border #DCE7F3 */
 .capabilitiesRow {
   display: flex;
   flex-wrap: wrap;
@@ -427,17 +419,17 @@
 
 .capabilityBlock {
   display: inline-block;
-  background-color: #4F3B32;
-  color: #F2ECE2;
-  border: 1px solid rgba(242, 236, 226, 0.15);
+  background-color: #EFF7FF;
+  color: #061D40;
+  border: 1px solid #DCE7F3;
   padding: 0.55rem 1.05rem;
-  border-radius: 10px; /* Max 10–12px rounding */
+  border-radius: 8px;
   font-family: var(--font-space-grotesk), sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
 }
 
 /* ─────────────────────────────────────────────────────────

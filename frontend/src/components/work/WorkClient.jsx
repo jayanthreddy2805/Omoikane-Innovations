@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+
 import styles from "./WorkClient.module.css";
 import CallToAction from "@/components/common/CallToAction";
 import TechnologyEngineering from "@/components/home/TechnologyEngineering";
@@ -113,11 +113,6 @@ export default function WorkClient() {
       {/* ── 1. OUR WORK EDITORIAL INTRO SECTION ── */}
       <section className={styles.heroSection} aria-labelledby="work-page-heading">
         <div className={styles.heroContentWrapper}>
-          {/* Top-left eyebrow */}
-          <div className={styles.eyebrow}>
-            [ 02 / OUR WORK ]
-          </div>
-
           {/* Main Headline: Sans uppercase line 1 + Italic serif line 2 */}
           <h1 id="work-page-heading" className={styles.mainHeadline}>
             <span className={styles.headlineSans}>FROM SYSTEM DESIGN</span>
@@ -141,19 +136,15 @@ export default function WorkClient() {
             <span className={styles.focusIndexLabel}>FOCUS AREAS</span>
             <nav className={styles.focusIndexNav} aria-label="Work focus areas">
               <Link href="/work#ofc-x" className={styles.focusIndexLink}>
-                <span className={styles.focusIndexNumber}>01</span>
                 <span className={styles.focusIndexText}>FLIGHT CONTROLLERS</span>
               </Link>
               <Link href="/work#oesc" className={styles.focusIndexLink}>
-                <span className={styles.focusIndexNumber}>02</span>
                 <span className={styles.focusIndexText}>ELECTRONIC SPEED CONTROLLERS</span>
               </Link>
               <Link href="/work#ogn-x" className={styles.focusIndexLink}>
-                <span className={styles.focusIndexNumber}>03</span>
                 <span className={styles.focusIndexText}>GNSS / GPS</span>
               </Link>
               <Link href="/work#ocom-x" className={styles.focusIndexLink}>
-                <span className={styles.focusIndexNumber}>04</span>
                 <span className={styles.focusIndexText}>COMMUNICATION SYSTEMS</span>
               </Link>
             </nav>
@@ -245,16 +236,7 @@ export default function WorkClient() {
                     </div>
                   </div>
 
-                  {/* Action Link */}
-                  <div className={styles.actionsRow}>
-                    <Link
-                      href={`/contact?subject=${encodeURIComponent(system.inquireSubject)}`}
-                      className={styles.learnMoreLink}
-                    >
-                      <span>Learn more</span>
-                      <ArrowUpRight size={15} />
-                    </Link>
-                  </div>
+
                 </div>
               </div>
             </article>
