@@ -397,7 +397,7 @@
   height: 45vw;
   max-width: 650px;
   max-height: 650px;
-  background: linear-gradient(135deg, rgba(7, 87, 200, 0.12), rgba(22, 136, 248, 0.18));
+  background: linear-gradient(135deg, rgba(220, 231, 243, 0.55), rgba(239, 247, 255, 0.85));
   filter: blur(70px);
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   animation: premiumBlobMorph 18s ease-in-out infinite alternate;
@@ -2017,7 +2017,7 @@
 .credCard:hover {
   transform: translateY(-2px);
   border-color: rgba(7, 87, 200, 0.25);
-  box-shadow: 0 10px 30px rgba(7, 87, 200, 0.06);
+  box-shadow: 0 10px 30px rgba(6, 29, 64, 0.06);
 }
 
 .credCardLogo {
