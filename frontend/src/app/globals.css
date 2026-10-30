@@ -9,7 +9,7 @@
   --color-surface-light: #F7FBFF;
   --color-border: #DCE7F3;
   --color-white: #FFFFFF;
-  --color-footer: #000812;
+  --color-footer: #031936;
 
   /* Legacy mappings */
   --bg-primary: #FFFFFF;
@@ -35,8 +35,7 @@
   margin: 0;
 }
 
-body,
-main {
+body {
   background: #FFFFFF;
   color: #102746;
   font-family: var(--font-inter), sans-serif;
@@ -54,9 +53,6 @@ a {
   transition: color 0.2s ease;
 }
 
-a:hover {
-  color: var(--accent);
-}
 
 button {
   cursor: pointer;
