@@ -335,6 +335,12 @@ export function ExpertiseSection() {
             <p ref={descriptionRef} className={styles.description} key={`description-${active.id}`}>
               {active.description}
             </p>
+            <div className={styles.systems} key={`systems-${active.id}`}>
+              <h3 className={styles.systemsLabel}>Engineering focus</h3>
+              <ul className={styles.systemsList}>
+                {active.systems.map((system) => <li key={system}>{system}</li>)}
+              </ul>
+            </div>
           </div>
 
           <nav className={styles.nav} aria-label="Expertise categories">

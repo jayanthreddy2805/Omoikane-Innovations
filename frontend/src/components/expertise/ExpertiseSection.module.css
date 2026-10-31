@@ -92,6 +92,35 @@
   will-change: transform, opacity, filter;
 }
 
+.systems {
+  margin-top: 24px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(220, 231, 243, 0.24);
+}
+
+.systemsLabel {
+  margin: 0 0 10px;
+  font: 600 11px/1.4 var(--font-inter, sans-serif);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-on-dark-subtle, #8FA6C0);
+}
+
+.systemsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  color: var(--color-on-dark, #F7FBFF);
+  font: 400 14px/1.45 var(--font-inter, sans-serif);
+}
+
+.systemsList li::before {
+  content: "— ";
+  color: var(--color-blue-bright, #1688F8);
+}
+
 .nav {
   margin-top: auto;
   padding-top: 72px;

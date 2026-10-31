@@ -135,7 +135,7 @@ export default function HomeClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Advanced Defense, Aerospace &amp; Embedded Systems
+            Flight control, embedded electronics and autonomous systems
           </motion.h1>
 
           <motion.p
@@ -144,8 +144,8 @@ export default function HomeClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className={styles.heroPhilosophyLine}>Innovation is not our goal;</span>
-            <span className={styles.heroPhilosophyStandard}>it’s our standard.</span>
+            <span className={styles.heroPhilosophyLine}>We design and develop products for OEMs, UAV manufacturers, system integrators and engineering teams.</span>
+            <span className={styles.heroPhilosophyStandard}>We align hardware with system requirements, interfaces and operating conditions for dependable integration.</span>
           </motion.p>
 
           <motion.div
@@ -154,8 +154,8 @@ export default function HomeClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Link href="#projects" className={styles.heroBtnPrimary}>
-              <span>Explore Capabilities</span>
+            <Link href="#selected-work" className={styles.heroBtnPrimary}>
+              <span>Explore Our Work</span>
               <ArrowDown size={14} aria-hidden="true" />
             </Link>
             <Link href="/contact" className={styles.heroBtnSecondary}>
