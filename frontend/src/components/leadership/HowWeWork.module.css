@@ -1,9 +1,9 @@
 .section {
   width: 100%;
-  background-color: #F1EFE8;
-  color: #252622;
+  background-color: #FFFFFF;
+  color: var(--color-ink, #102746);
   position: relative;
-  border-top: 1px solid #C9C6BD;
+  border-top: 1px solid var(--color-border, #DCE7F3);
   padding: clamp(80px, 8vw, 130px) clamp(24px, 5vw, 64px);
   box-sizing: border-box;
 }
@@ -26,7 +26,7 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #686861;
+  color: var(--color-muted, #62748A);
   margin-bottom: 20px;
 }
 
@@ -36,7 +36,7 @@
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.025em;
-  color: #252622;
+  color: var(--color-navy, #061D40);
   margin: 0;
   max-width: 860px;
 }
@@ -59,7 +59,7 @@
 .columnDivider {
   width: 100%;
   height: 1px;
-  background-color: #C9C6BD;
+  background-color: var(--color-border, #DCE7F3);
   margin-bottom: clamp(24px, 2.5vw, 32px);
   transition: background-color 240ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -69,7 +69,7 @@
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
-  color: #AD5137;
+  color: var(--color-blue, #0757C8);
   margin-bottom: 20px;
   transition: color 240ms cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-block;
@@ -82,7 +82,7 @@
   line-height: 1.35;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #252622;
+  color: var(--color-navy, #061D40);
   margin: 0 0 14px 0;
 }
 
@@ -90,18 +90,18 @@
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 14px;
   line-height: 1.62;
-  color: #686861;
+  color: var(--color-muted, #62748A);
   margin: 0;
   text-wrap: pretty;
 }
 
 /* Subtle Hover Transitions */
 .column:hover .columnDivider {
-  background-color: #873C29;
+  background-color: var(--color-blue, #0757C8);
 }
 
 .column:hover .sequenceNumber {
-  color: #873C29;
+  color: var(--color-blue-bright, #1688F8);
 }
 
 /* Responsive adjustments */

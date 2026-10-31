@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import SubmitButton from '@/components/common/SubmitButton';
 import InternationalPhoneInput from '@/components/common/InternationalPhoneInput';
@@ -19,17 +19,18 @@ const ROLES_BY_DEPT = {
     { id: 'other', label: 'Other' }
   ],
   mechanical: [
-    { id: 'mech-design', label: '3D & 2D Mechanical Design' },
-    { id: 'mech-assembly', label: 'Mechanical Assembly & Integration' },
-    { id: 'struct-therm', label: 'Structural & Thermal Analysis' },
-    { id: 'prod-eng', label: 'Product Engineering' },
+    { id: 'mech-design', label: '3D & 2D Mechanical Design Engineer' },
+    { id: 'prod-eng', label: 'Enclosure & Product Design Engineer' },
+    { id: 'mech-assembly', label: 'Mechanical Assembly & Integration Engineer' },
+    { id: 'struct-therm', label: 'Structural & Thermal Analysis Engineer' },
     { id: 'other', label: 'Other' }
   ],
   electronics: [
-    { id: 'hardware-eng', label: 'Hardware System Design' },
-    { id: 'pcb-eng', label: 'PCB Layout & Routing' },
-    { id: 'rf-eng', label: 'RF & Communications' },
-    { id: 'test-eng', label: 'Testing & Integration' },
+    { id: 'hardware-eng', label: 'Hardware Design Engineer' },
+    { id: 'pcb-eng', label: 'PCB Design Engineer' },
+    { id: 'rf-eng', label: 'RF System Designer' },
+    { id: 'test-eng', label: 'Test Engineer' },
+    { id: 'prod-eng-elec', label: 'Product Engineer' },
     { id: 'other', label: 'Other' }
   ]
 };
@@ -42,44 +43,21 @@ const DEFAULT_ROLES = [
 
 export default function ApplyForm({ onSuccess }) {
   const searchParams = useSearchParams();
+  const urlDept = searchParams.get('dept');
+  const urlRole = searchParams.get('role');
+  const availableRoles = urlDept && ROLES_BY_DEPT[urlDept]
+    ? ROLES_BY_DEPT[urlDept]
+    : DEFAULT_ROLES;
+  const initialRole = availableRoles.some((item) => item.id === urlRole)
+    ? urlRole
+    : 'other';
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [phone, setPhone] = useState('');
-  const [role, setRole] = useState('other');
-  const [department, setDepartment] = useState('');
-  const [availableRoles, setAvailableRoles] = useState(DEFAULT_ROLES);
+  const [role, setRole] = useState(initialRole);
+  const [department, setDepartment] = useState(urlDept || '');
   const [resumeFile, setResumeFile] = useState(null);
   const formRef = useRef(null);
-
-  useEffect(() => {
-    const urlDept = searchParams.get('dept');
-    const urlRole = searchParams.get('role');
-
-    let currentRoles = DEFAULT_ROLES;
-    if (urlDept && ROLES_BY_DEPT[urlDept]) {
-      setDepartment(urlDept);
-      currentRoles = ROLES_BY_DEPT[urlDept];
-      setAvailableRoles(currentRoles);
-    } else {
-      setAvailableRoles(DEFAULT_ROLES);
-    }
-
-    if (urlRole) {
-      const match = currentRoles.find(r => r.id === urlRole);
-      if (match) {
-        setRole(match.id);
-        // If department was not in url, infer from match
-        if (!urlDept) {
-          for (const [d, rolesList] of Object.entries(ROLES_BY_DEPT)) {
-            if (rolesList.some(r => r.id === match.id)) {
-              setDepartment(d);
-              break;
-            }
-          }
-        }
-      }
-    }
-  }, [searchParams]);
 
   const handleRoleChange = (selectedRole) => {
     setRole(selectedRole);

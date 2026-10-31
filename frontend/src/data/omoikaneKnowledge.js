@@ -1,251 +1,210 @@
 /**
  * ============================================================================
- * OMOIKANE INNOVATIONS — COMPLETE COMPANY KNOWLEDGE BASE
- * Source of Truth: https://www.omoikaneinnovations.com/
+ * OMOIKANE INNOVATIONS PVT. LTD. — COMPLETE COMPANY KNOWLEDGE BASE
+ * Sources: Official Website (https://www.omoikaneinnovations.com/) & 
+ *          Official Company Reference Website Package (ZIP)
  * ============================================================================
- * This file is used as the RAG context fed to Gemini to answer all queries.
+ * This file is the single source of truth fed to the Local Ollama RAG AI assistant
+ * and the local semantic engine to answer all company-related questions.
  */
 
 export const COMPANY_KNOWLEDGE_DOCUMENT = `
-# OMOIKANE INNOVATIONS — OFFICIAL COMPANY INFORMATION
+# OMOIKANE INNOVATIONS PVT. LTD. — OFFICIAL COMPANY INFORMATION
 
 ## ABOUT THE COMPANY
-Omoikane Innovations is a product-driven technology company focused on developing advanced embedded systems, autonomous platforms, and defense-grade solutions. We design and build high-performance technologies engineered for real-world deployment across Aerospace, Defense, and Industrial sectors.
+- **Legal Entity Name:** Omoikane Innovations Pvt. Ltd.
+- **Brand Name:** Omoikane Innovations
+- **Core Identity:** Product-driven technology company focused on indigenous design and development of electronic hardware, advanced embedded systems, autonomous platforms, and defense-grade solutions.
+- **Sectors Served:** Aerospace, Defense, Automotive, Railways & Industrial Automation.
+- **Tagline / Motto:** "Innovation is not our goal; it’s our standard."
+- **Brand Eyebrow:** "Indigenous technology · Global standards"
+- **Mission-Critical Engineering:** Purpose-built electronics and subsystems engineered for high reliability, precision, and real-world deployment in demanding environments.
+- **Indigenous Development:** We design, build, and own our technologies locally in India, reducing import dependence and enabling scalable deployment, customization, and technology licensing across global markets.
 
-Our products are built for mission-critical engineering — designed for high reliability, precision, and performance in demanding environments such as defense, aerospace, and industrial systems.
+**Official Website:** https://www.omoikaneinnovations.com/ (and https://omoikaneinnovations.com)
+**Headquarters / Registered Office:**
+No. 45, 2nd Main, 6th Cross, Marenahalli, Deepanjali Nagar, Vijayanagar, Bengaluru – 560026, Karnataka, India
+*(Located in Bengaluru / Bangalore, Karnataka, India ONLY. We have no offices in Hyderabad or other cities).*
 
-We build and own our technologies, enabling scalable deployment, customization, and licensing across global markets.
-
-**Official Website:** https://www.omoikaneinnovations.com/
-**Headquarters:** Bangalore, India
 **Office Hours:** Monday to Friday, 9:00 AM to 6:00 PM IST
 
 ---
 
-## VISION
-To become a global leader in indigenous defense and embedded technologies, building high-performance systems that are reliable, scalable, and ready for real-world deployment across mission-critical industries.
+## VISION, MISSION & CORE VALUES
 
-## MISSION
-To design, develop, and deliver advanced products and platforms in Aerospace, Defense, and Industrial domains — enabling deployment, integration, and technology licensing at scale.
+### Vision
+"To become a global leader in indigenous defense and embedded technologies, and to be a trusted contributor to indigenous aerospace and defense technology by building high-performance systems that are reliable, scalable, and ready for real-world deployment across mission-critical industries."
+
+### Mission
+"To design, develop, and deliver advanced products, hardware, and platforms across Aerospace, Defense, and Industrial domains — enabling deployment, integration, and technology licensing at scale for a safer, smarter, and self-reliant future."
+
+### Core Values
+1. **Innovation:** Continuous research, design, prototyping, and refinement.
+2. **Integrity:** Transparent and ethical engineering practices.
+3. **Excellence:** Design reviews and validation-led development.
+4. **Teamwork:** Cross-functional collaboration across hardware, firmware, and systems.
+5. **Customer Focus:** "Your mission. Our engineering." Tailoring platforms to exact operational needs.
 
 ---
 
-## PRODUCTS & FOCUSED PRODUCTION AREAS
+## FLAGSHIP PRODUCTS & SUBSYSTEMS
 
-### 1. AEROSPACE
-We develop advanced UAV platforms, flight control systems, avionics, and RF communication modules engineered for precision, stability, and real-time performance. Our products are designed for mission-critical aerospace operations and high-reliability environments.
+Omoikane Innovations develops purpose-built electronics and subsystems for autonomous platforms, UAVs, and defense systems:
 
-**Key capabilities:**
-- UAV (Unmanned Aerial Vehicle) platforms
-- Flight control systems
-- Avionics solutions
-- RF (Radio Frequency) communication modules
-- Precision, stability, and real-time performance engineering
+### 1. OFC-X — High-Performance Flight Controller
+- **Category:** Autonomous Flight Control System
+- **Description:** High-performance, reliable, and flexible flight controller designed for autonomous platforms and demanding UAV applications.
+- **Key Specifications & Architecture:**
+  - STM32 and AT32 microcontroller (MCU) platform options
+  - Multiple I/O and sensor interfaces for flexible payload and actuator integration
+  - Precision, real-time control algorithms and flight stability
+  - System integration, prototype evaluation, and validation planning
 
-**More info:** https://www.omoikaneinnovations.com/services/
+### 2. OESC-60 / OESC-100 — 4-in-1 Electronic Speed Controller (ESC)
+- **Category:** Multirotor Propulsion Control
+- **Description:** High-efficiency, high-current 4-in-1 ESC platform engineered for multirotor propulsion systems and extreme operational demands.
+- **Key Specifications & Architecture:**
+  - 60A (OESC-60) and 100A (OESC-100) current variants
+  - 6S to 12S LiPo battery platform voltage support
+  - Advanced current monitoring and thermal protection mechanisms
+  - Robust power electronics design with heat dissipation and protection considerations
 
-### 2. DEFENSE
-Our defense-grade technologies include secure communication systems, autonomous surveillance platforms, and rugged embedded electronics. Built for reliability and performance, our solutions support modern defense operations and situational awareness.
+### 3. OGN-X — High-Precision GNSS / GPS Module
+- **Category:** Satellite Positioning & Navigation Architecture
+- **Description:** Precision positioning and navigation architecture for autonomous UAV navigation, mapping, surveying, and defense platforms.
+- **Key Specifications & Architecture:**
+  - Multi-constellation GNSS support (GPS, GLONASS, Galileo, BeiDou/NavIC)
+  - RTK-ready (Real-Time Kinematic) architecture for centimeter-level accuracy
+  - Compact, rugged enclosure and integration designed for harsh airborne environments
 
-**Key capabilities:**
-- Secure communication systems
-- Surveillance technologies and autonomous surveillance platforms
-- Autonomous platforms
-- Rugged embedded electronics
-- Situational awareness and reliable real-time operations
+### 4. OCOM-X — Secure Autonomous Communication System
+- **Category:** Communications & Telemetry Subsystem
+- **Description:** Reliable, secure communication architecture for connected autonomous systems and unmanned operations.
+- **Key Specifications & Architecture:**
+  - RF (Radio Frequency) and LTE cellular integration options
+  - Secure, encrypted data link architecture for telemetry and control
+  - Low-power design approach ensuring extended mission endurance
 
-**More info:** https://www.omoikaneinnovations.com/services/
+---
 
-### 3. AUTOMOTIVE
-We build intelligent automotive electronics, ECU solutions, and real-time embedded systems that support next-generation mobility and vehicle automation.
+## CORE FOCUS SECTORS & PRODUCTION DOMAINS
 
-**Key capabilities:**
-- Intelligent automotive electronics
-- Electronic Control Unit (ECU) solutions
-- Real-time embedded systems
-- Vehicle automation, safety, and efficiency
-- Next-generation mobility solutions
+### 1. AEROSPACE & UAV SOLUTIONS
+- **Offerings:** Unmanned Aerial Vehicle (UAV) platforms, flight control systems (OFC-X), avionics solutions, RF communication modules (OCOM-X), and propulsion electronics (OESC).
+- **Core Engineering:** Aerodynamic stability, real-time control loops, fail-safe systems, and precision airborne navigation.
 
-**More info:** https://www.omoikaneinnovations.com/services/
+### 2. DEFENSE & SECURE SYSTEMS
+- **Offerings:** Defense-grade secure communication links, autonomous surveillance platforms (ground and aerial), and ruggedized embedded electronics.
+- **Core Engineering:** Hardened hardware for extreme field conditions, anti-jamming architectures, real-time situational awareness, and encrypted telemetry.
+
+### 3. AUTOMOTIVE & MOBILITY
+- **Offerings:** Intelligent automotive electronics, Electronic Control Units (ECUs), and real-time embedded computing.
+- **Core Engineering:** High safety integrity, vehicle automation, efficiency optimization, and powertrain telemetry.
 
 ### 4. RAILWAYS & INDUSTRIAL SYSTEMS
-Our technologies enable predictive maintenance, automation, and intelligent control systems for industrial and railway environments, ensuring efficiency and reliability at scale.
-
-**Key capabilities:**
-- Predictive maintenance systems
-- Industrial automation
-- Intelligent control systems
-- Efficiency and reliability for large-scale operations
-
-**More info:** https://www.omoikaneinnovations.com/services/
+- **Offerings:** Predictive maintenance platforms, industrial automation hardware, and intelligent SCADA/control units.
+- **Core Engineering:** Vibration/health monitoring, equipment failure prevention, and large-scale industrial efficiency.
 
 ---
 
-## CORE ENGINEERING CAPABILITIES
+## ENGINEERING DISCIPLINES, WORKFLOWS & TOOLS
 
-### 1. Embedded & Control Systems
-Advanced embedded electronics, flight control systems, RF communication modules, and real-time processing units engineered for precision and reliability.
+### Engineering Disciplines
+1. **Hardware Design:** System architecture, schematic capture, multi-layer high-speed PCB layout, signal integrity, and design reviews.
+2. **Embedded Platforms:** MCU / SoC selection (STM32, AT32, ARM Cortex, ESP32), bare-metal and RTOS firmware, board bring-up, and hardware-software co-design.
+3. **RF & GNSS:** Wireless telemetry, antenna design and tuning, satellite navigation, and communication subsystems.
+4. **System Integration:** Power distribution, electromechanical interfaces, cabling, and full subsystem integration.
+5. **Power Electronics:** Motor drives, ESC architecture, battery power management, and thermal dissipation modeling.
+6. **Prototyping & Validation:** Rapid prototype iteration, environmental stress testing, test benches, and compliance validation.
 
-### 2. Autonomous & Robotic Platforms
-Development of UAV systems, autonomous ground platforms, and intelligent robotic solutions for surveillance, monitoring, and industrial automation.
-
-### 3. Defense Electronics & AI Systems
-High-performance hardware integrated with AI-driven analytics, enabling intelligent decision-making, tracking, and mission-critical operations.
-
-### 4. Technology Integration & Licensing
-Omoikane Innovations supports technology licensing, custom product integration, and strategic technical collaborations. Our products are built to support integration, customization, and scalability based on specific operational and industry requirements. We actively explore technology licensing opportunities, enabling partners to integrate and deploy our systems across global markets.
-
----
-
-## WHY OMOIKANE PRODUCTS STAND OUT
-- **Mission-Critical Engineering:** Designed for high reliability, precision, and performance in demanding environments
-- **Indigenous Product Development:** We build and own our technologies, enabling scalable deployment, customization, and licensing
-- **Advanced Embedded & AI Systems:** From embedded electronics to intelligent automation, integrating cutting-edge technologies for real-world applications
+### Engineering Software & Design Tools Used
+- **ECAD & PCB Layout:** OrCAD, Cadence Allegro, Altium Designer, PADS
+- **Simulation & Modeling:** LTspice (circuit simulation), ANSYS (FEA stress and CFD aerodynamic analysis)
+- **Methodologies:** Formal Design Reviews, DFM (Design for Manufacturing), DFT (Design for Testing)
 
 ---
 
-## CAREER OPPORTUNITIES
-
-The official website lists career roles and required technical skills for prospective candidates. These role profiles are published for information purposes. The company does not publish current vacancy counts, hiring timelines, or salary figures on its website. For live application inquiries, candidates should contact the company directly.
-
-**Application Process:**
-Visit the relevant career page and submit your profile through the form provided on each page.
-
-### SOFTWARE DEVELOPMENT ROLES
-**Page:** https://www.omoikaneinnovations.com/software-development/
-
-#### 1. Web Developer (App & Dashboard)
-Focuses on building web applications and dashboards for technology platforms.
-**Skills Required:**
-- React.js, Next.js (frontend frameworks)
-- Node.js, Django (backend frameworks)
-- WebSockets and real-time data integration
-- Telemetry visualization and dashboards
-- REST API development
-- Security systems integration
-- TypeScript / JavaScript
-
-#### 2. Python Developer (Product-Level)
-Focuses on core backend architecture and product-level Python development.
-**Skills Required:**
-- Python (OOP, async programming)
-- FastAPI / Flask (web frameworks)
-- Microservices architecture
-- Docker containerization
-- REST API development
-- Data pipelines and telemetry integration
-- MQTT, WebSockets
-- Database management
-
-#### 3. AI Developer
-Focuses on artificial intelligence, machine learning, and computer vision systems.
-**Skills Required:**
-- Machine learning and deep learning
-- Computer vision (detection, tracking, segmentation)
-- Sensor fusion for autonomous navigation
-- PyTorch, TensorFlow (ML frameworks)
-- OpenCV (computer vision library)
-- ROS / ROS2 (Robot Operating System)
-- Edge AI deployment
-- NVIDIA Jetson, embedded AI hardware
-
-#### 4. Embedded Firmware Engineer
-Focuses on low-level embedded systems and firmware development.
-**Skills Required:**
-- Embedded C / C++
-- STM32 microcontrollers
-- ARM Cortex processors
-- ESP32
-- Bare-metal programming and RTOS (Real-Time Operating System)
-- UART, SPI, I2C, CAN communication protocols
-- Telemetry integration
-- Flight controller firmware
-
-**Difference between Python Developer and AI Developer:**
-- Python Developer focuses on backend architecture, APIs, microservices, data pipelines, and production infrastructure
-- AI Developer focuses on machine learning models, computer vision pipelines, sensor fusion, and edge AI deployment
-- Both roles collaborate closely on product-level platforms
-
-### ELECTRONICS ENGINEERING ROLES
-**Page:** https://www.omoikaneinnovations.com/electronics/
-
-#### 1. Hardware Design Engineer
-**Skills:** Circuit design, embedded hardware architecture, power management, component selection, schematic design
-
-#### 2. PCB Design Engineer
-**Skills:** Multi-layer PCB layout, high-speed signal routing, signal integrity analysis, EMI/EMC mitigation, Altium Designer, KiCad
-
-#### 3. RF System Designer
-**Skills:** RF circuit design, antenna design and tuning, telemetry modules, spectrum analysis, RF testing
-
-#### 4. Test Engineer
-**Skills:** Hardware validation and verification, environmental and stress testing, diagnostic test benches, automated test equipment
-
-#### 5. Product Engineer
-**Skills:** Hardware product lifecycle management, manufacturing coordination, technical documentation, QA compliance
-
-### MECHANICAL ENGINEERING ROLES
-**Page:** https://www.omoikaneinnovations.com/mechanical/
-
-#### 1. 3D & 2D Mechanical Design Engineer
-**Skills:** CAD modeling (SolidWorks, CATIA, Fusion 360), GD&T, 2D fabrication drawings, rapid prototyping, mechanical design
-
-#### 2. Enclosure & Product Design Engineer
-**Skills:** Rugged IP-rated enclosure design, aerospace-grade alloys and composites, sealing systems, impact resistance design
-
-#### 3. Mechanical Assembly & Integration Engineer
-**Skills:** Electromechanical integration, airframe assembly, gimbal assembly, tolerance stack-up analysis
-
-#### 4. Structural & Thermal Analysis Engineer
-**Skills:** FEA (Finite Element Analysis) stress and deflection analysis, CFD aerodynamic modeling, thermal dissipation analysis, ANSYS
+## TARGET MARKETS & CLIENTELE
+- UAV Manufacturers & Drone OEMs
+- Defense & Aerospace Contractors
+- Government Agencies & Public Sector Undertakings
+- Industrial Automation & Robotics Firms
+- Agriculture, Survey & Geospatial Companies
+- System Integrators
 
 ---
 
-## CONTACT INFORMATION
+## CAREER OPPORTUNITIES & RECRUITMENT
 
-**Official Website:** https://www.omoikaneinnovations.com/contact-us/
+Omoikane Innovations welcomes passionate engineers who care about practical engineering quality and indigenous innovation.
 
-**Email Addresses:**
-- General & Official Enquiries: info@omoikaneinnovations.com
-- Business Development & Partnerships: bd@omoikaneinnovations.com
+### Current Documented Positions in Bengaluru, India:
 
-**Phone Numbers:**
-- +91-8861035848
-- +91-9353627825
+#### 1. Embedded Hardware Design Engineer (Full-Time · Bengaluru)
+- **Role:** Design and development of embedded hardware and electronic subsystems for UAV, aerospace, defense, and industrial applications.
+- **Responsibilities:**
+  - Design schematics and multi-layer PCB layouts.
+  - Component selection, bill of materials (BOM), and engineering documentation.
+  - Work with cross-functional teams during board bring-up and prototyping.
+  - Hardware debugging with oscilloscopes, logic analyzers, and validation test benches.
+  - Follow DFM, DFT, and reliability practices.
+- **Required Skills:**
+  - PCB design tools: OrCAD, Cadence Allegro, or Altium Designer.
+  - Solid understanding of analog, digital, and power electronics.
+  - Knowledge of high-speed signal integrity, stack-up, and manufacturing constraints.
 
-**Office Location:** Bangalore, India (Bangalore, Karnataka, India)
-**Office Hours:** Monday to Friday, 9:00 AM to 6:00 PM IST
+#### 2. Engineering Internship – Hardware / Embedded Systems (Early Career · Bengaluru)
+- **Role:** Project-based hands-on learning and mentorship working on real aerospace and embedded systems hardware.
+- **Focus:** Schematic review, lab testing, soldering/bring-up, and firmware testing.
+
+#### 3. Software Development Career Tracks:
+- **Web Developer (App & Dashboard):** React.js, Next.js, Node.js, Django, WebSockets, telemetry visualization, REST APIs.
+- **Python Developer (Product-Level):** Python (OOP, async), FastAPI, Flask, microservices, Docker, MQTT, WebSockets, data pipelines.
+- **AI Developer:** Computer vision (detection, tracking, segmentation), PyTorch, TensorFlow, OpenCV, ROS/ROS2, Edge AI on NVIDIA Jetson.
+- **Embedded Firmware Engineer:** Embedded C/C++, STM32, ARM Cortex, ESP32, RTOS (FreeRTOS), CAN bus, UART, SPI, I2C, flight controller firmware.
+
+#### 4. Electronics Engineering Tracks:
+- Hardware Design Engineer, PCB Design Engineer, RF System Designer, Test Engineer, Product Engineer.
+
+#### 5. Mechanical Engineering Tracks:
+- 3D & 2D Mechanical Design Engineer (SolidWorks, CATIA, Fusion 360, GD&T), Enclosure & Product Design Engineer (rugged IP-rated enclosures), Mechanical Assembly & Integration Engineer, Structural & Thermal Analysis Engineer (ANSYS, FEA, CFD).
+
+**How to Apply:**
+- Candidates can apply through the career application forms on the official website or email their resume directly to: **info@omoikaneinnovations.com** or **omoikaneinnovations@gmail.com**.
 
 ---
 
-## FREQUENTLY ASKED QUESTIONS (from official website)
+## CONTACT DETAILS & OFFICIAL CHANNELS
 
-**Q: Do you offer ready-to-deploy products?**
-A: Yes, we design and develop systems that are engineered for real-world deployment, including embedded platforms, autonomous systems, and defense electronics.
-
-**Q: Can your technologies be customized or integrated?**
-A: Our products are built to support integration, customization, and scalability based on specific operational and industry requirements.
-
-**Q: Do you support technology licensing?**
-A: We actively explore technology licensing opportunities, enabling partners to integrate and deploy our systems across global markets.
-
-**Q: Which industries do you focus on?**
-A: Our primary focus is on Aerospace, Defense, and Industrial sectors, where reliability and performance are mission-critical. We also work with Automotive and Railways domains.
+- **Official Websites:**
+  - https://www.omoikaneinnovations.com/
+  - https://omoikaneinnovations.com/
+- **Registered Address:**
+  No. 45, 2nd Main, 6th Cross, Marenahalli, Deepanjali Nagar, Vijayanagar, Bengaluru – 560026, Karnataka, India
+- **Official Email Addresses:**
+  - General & Official Enquiries: info@omoikaneinnovations.com
+  - Direct Communications: omoikaneinnovations@gmail.com
+  - Business Development & Licensing: bd@omoikaneinnovations.com
+- **Phone Numbers:**
+  - +91-8861035848
+  - +91-9353627825
+- **Working Hours:** Monday to Friday, 9:00 AM – 6:00 PM IST
 
 ---
 
-## IMPORTANT POLICIES (DO NOT FABRICATE)
-- The company does NOT publish specific salary figures, stipends, or compensation brackets
-- The company does NOT confirm current vacancy counts or hiring status publicly
-- Executive names (CEO, founder, etc.) are NOT published on the official website
-- Specific unpublished technical metrics (drone range, payload, battery life, speed) are NOT published
-- Location is BANGALORE, INDIA — never Hyderabad or any other city
-- The company has 15+ skilled engineers and developers, 10+ engineering projects delivered, 5+ industry deployments, 10+ years engineering experience (as listed on About Us page)
+## STRICT POLICIES (DO NOT FABRICATE)
+1. **Location:** Bengaluru / Bangalore, Karnataka, India ONLY. (Do NOT mention Hyderabad or other cities).
+2. **Pricing & Quotations:** Product pricing is project-dependent and customized per OEM requirement; visitors must submit a project enquiry.
+3. **Salaries & Vacancy Numbers:** Specific salary figures, stipends, and exact employee headcount numbers are confidential and not disclosed online.
+4. **Leadership Names:** Executive/founder names are not published on the website; guide users to official company email channels.
 `;
 
 export const OFFICIAL_KNOWLEDGE_BASE = {
   company: {
+    legalName: "Omoikane Innovations Pvt. Ltd.",
     name: "Omoikane Innovations",
+    tagline: "Innovation is not our goal; it’s our standard.",
+    slogan: "Indigenous technology · Global standards",
     website: "https://www.omoikaneinnovations.com/",
     officialUrls: {
       home: "https://www.omoikaneinnovations.com/",
@@ -256,47 +215,200 @@ export const OFFICIAL_KNOWLEDGE_BASE = {
       mechanicalCareers: "https://www.omoikaneinnovations.com/mechanical/",
       contactUs: "https://www.omoikaneinnovations.com/contact-us/",
     },
-    localUrls: {
-      home: "/",
-      aboutUs: "/about",
-      services: "/expertise",
-      softwareCareers: "/careers/software",
-      electronicsCareers: "/careers/electronics",
-      mechanicalCareers: "/careers/mechanical",
-      contactUs: "/contact",
-    },
-    overview:
-      "Omoikane Innovations is a product-driven technology company focused on developing advanced embedded systems, autonomous platforms, and defense-grade solutions. We design and build high-performance technologies engineered for real-world deployment across Aerospace, Defense, and Industrial sectors.",
-    vision:
-      "To become a global leader in indigenous defense and embedded technologies, building high-performance systems that are reliable, scalable, and ready for real-world deployment across mission-critical industries.",
-    mission:
-      "To design, develop, and deliver advanced products and platforms in Aerospace, Defense, and Industrial domains — enabling deployment, integration, and technology licensing at scale.",
-    location: "Bangalore, India",
-    address: "Bangalore, Karnataka, India",
-    officeHours: "Monday to Friday, 9:00 AM to 6:00 PM",
+    location: "Bengaluru, Karnataka, India",
+    address: "No. 45, 2nd Main, 6th Cross, Marenahalli, Deepanjali Nagar, Vijayanagar, Bengaluru – 560026, Karnataka, India",
+    officeHours: "Monday to Friday, 9:00 AM to 6:00 PM IST",
     contactEmails: [
       { email: "info@omoikaneinnovations.com", type: "General & Official Enquiries" },
-      { email: "bd@omoikaneinnovations.com", type: "Business Development & Partnerships" }
+      { email: "omoikaneinnovations@gmail.com", type: "Direct Company Email" },
+      { email: "bd@omoikaneinnovations.com", type: "Business Development & Licensing" }
     ],
     contactPhones: [
       { phone: "+91-8861035848", display: "+91 88610 35848" },
       { phone: "+91-9353627825", display: "+91 93536 27825" }
     ],
+    overview:
+      "Omoikane Innovations Pvt. Ltd. is a product-driven technology company based in Bengaluru, India, focused on developing advanced embedded systems, autonomous platforms, and defense-grade solutions. We design and build high-performance electronics engineered for real-world deployment across Aerospace, Defense, Automotive, and Industrial sectors.",
+    vision:
+      "To become a global leader in indigenous defense and embedded technologies, and to be a trusted contributor to indigenous aerospace and defense technology by building high-performance systems that are reliable, scalable, and ready for real-world deployment across mission-critical industries.",
+    mission:
+      "To design, develop, and deliver advanced products, hardware, and platforms across Aerospace, Defense, and Industrial domains — enabling deployment, integration, and technology licensing at scale for a safer, smarter, and self-reliant future.",
     engineeringApproach:
-      "Omoikane Innovations approaches engineering with a focus on indigenous product development, mission-critical reliability, and advanced embedded technologies."
+      "Omoikane Innovations approaches engineering with a focus on indigenous product development, mission-critical reliability, and validation-led development ('Innovation is not our goal; it’s our standard').",
+    products: [
+      {
+        id: "ofc-x",
+        name: "OFC-X",
+        type: "Flight Controller",
+        desc: "High-performance, reliable and flexible flight control for autonomous platforms.",
+        specs: ["STM32 / AT32 MCU options", "Multiple I/O and sensor interfaces", "Designed for demanding UAV applications"]
+      },
+      {
+        id: "oesc",
+        name: "OESC-60 / OESC-100",
+        type: "4-in-1 Electronic Speed Controller",
+        desc: "High-efficiency, high-current ESC platform for multirotor propulsion systems.",
+        specs: ["60A / 100A variants", "6S–12S platform options", "Advanced current and thermal protection"]
+      },
+      {
+        id: "ogn-x",
+        name: "OGN-X",
+        type: "GNSS / GPS Module",
+        desc: "Precision positioning architecture for autonomous navigation and mapping.",
+        specs: ["Multi-constellation GNSS options", "RTK-ready architecture", "Compact, rugged integration"]
+      },
+      {
+        id: "ocom-x",
+        name: "OCOM-X",
+        type: "Communication System",
+        desc: "Reliable communication architecture for connected autonomous systems.",
+        specs: ["RF / LTE integration options", "Secure link architecture", "Low-power design approach"]
+      }
+    ],
+    engineeringTools: [
+      "OrCAD", "Cadence Allegro", "Altium Designer", "PADS", "LTspice", "ANSYS", "SolidWorks", "CATIA", "DFM / DFT"
+    ]
   },
 
   safeFallbacks: {
-    unverifiedFact: "I couldn't verify that information from the official Omoikane Innovations website. Please contact the company through its official contact page: https://www.omoikaneinnovations.com/contact-us/",
+    unverifiedFact: "I couldn't verify that information from the official Omoikane Innovations documentation. Please contact the company through its official contact page: https://www.omoikaneinnovations.com/contact-us/",
     unverifiedSpecification: (topic) => `I'm sorry, but specific unpublished technical metrics such as ${topic} are not published on the official Omoikane Innovations website. For detailed specifications, please contact the team directly at info@omoikaneinnovations.com.`,
     unverifiedExecutive: "Executive and leadership team personnel names (such as the CEO or founder) are not publicly listed on the official Omoikane Innovations website. For organizational inquiries, please contact info@omoikaneinnovations.com.",
   },
 
+  productDomains: [
+    {
+      id: "aerospace",
+      name: "Aerospace",
+      sourceLabel: "Services / Focused Areas",
+      sourceUrl: "https://www.omoikaneinnovations.com/services/",
+      description: "We develop advanced UAV platforms, flight control systems (OFC-X), avionics, and RF communication modules (OCOM-X) engineered for precision, stability, and real-time performance.",
+      capabilities: [
+        "UAV (Unmanned Aerial Vehicle) platforms",
+        "Flight control systems (OFC-X)",
+        "Avionics solutions",
+        "RF communication modules (OCOM-X)",
+        "Precision, stability, and real-time performance"
+      ]
+    },
+    {
+      id: "defense",
+      name: "Defense",
+      sourceLabel: "Services / Focused Areas",
+      sourceUrl: "https://www.omoikaneinnovations.com/services/",
+      description: "Our defense-grade technologies include secure communication systems, autonomous surveillance platforms, and rugged embedded electronics designed for reliable real-time operations.",
+      capabilities: [
+        "Secure communication systems",
+        "Autonomous surveillance platforms",
+        "Rugged embedded electronics",
+        "Situational awareness and reliable real-time operations"
+      ]
+    },
+    {
+      id: "automotive",
+      name: "Automotive",
+      sourceLabel: "Services / Focused Areas",
+      sourceUrl: "https://www.omoikaneinnovations.com/services/",
+      description: "We build intelligent automotive electronics, ECU solutions, and real-time embedded systems that enhance vehicle automation, safety, and efficiency.",
+      capabilities: [
+        "Intelligent automotive electronics",
+        "Electronic Control Unit (ECU) solutions",
+        "Real-time embedded systems",
+        "Vehicle automation, safety, and efficiency"
+      ]
+    },
+    {
+      id: "railways_industrial",
+      name: "Railways and Industrial Systems",
+      sourceLabel: "Services / Focused Areas",
+      sourceUrl: "https://www.omoikaneinnovations.com/services/",
+      description: "Our technologies enable predictive maintenance, industrial automation, and intelligent control systems for large-scale operations.",
+      capabilities: [
+        "Predictive maintenance systems",
+        "Industrial automation",
+        "Intelligent control systems",
+        "Efficiency and reliability in large-scale environments"
+      ]
+    }
+  ],
+
+  coreEngineeringCapabilities: [
+    {
+      id: "embedded_control",
+      name: "Embedded & Control Systems",
+      sourceLabel: "Services / Capabilities",
+      sourceUrl: "https://www.omoikaneinnovations.com/services/",
+      description: "Advanced embedded electronics, flight control systems (OFC-X), RF communication modules (OCOM-X), and real-time processing units engineered for precision and reliability.",
+      items: [
+        "Advanced embedded electronics",
+        "Flight control systems",
+        "RF communication modules",
+        "Real-time processing units"
+      ]
+    },
+    {
+      id: "autonomous_robotic",
+      name: "Autonomous & Robotic Platforms",
+      sourceLabel: "Services / Capabilities",
+      sourceUrl: "https://www.omoikaneinnovations.com/services/",
+      description: "UAV systems, autonomous ground platforms, and intelligent robotic solutions for surveillance, monitoring, and industrial automation.",
+      items: [
+        "UAV systems",
+        "Autonomous ground platforms",
+        "Intelligent robotic solutions",
+        "Surveillance and monitoring platforms"
+      ]
+    },
+    {
+      id: "defense_ai",
+      name: "Defense Electronics & AI Systems",
+      sourceLabel: "Services / Capabilities",
+      sourceUrl: "https://www.omoikaneinnovations.com/services/",
+      description: "High-performance defense hardware integrated with AI-driven analytics, enabling intelligent decision-making and mission-critical operations.",
+      items: [
+        "Defense electronics",
+        "AI-driven analytics and tracking",
+        "Mission-critical decision support",
+        "Secure hardware architectures"
+      ]
+    },
+    {
+      id: "integration_licensing",
+      name: "Technology Integration & Licensing",
+      sourceLabel: "Services / Capabilities",
+      sourceUrl: "https://www.omoikaneinnovations.com/services/",
+      description: "Omoikane Innovations supports technology licensing, custom product integration, and strategic technical collaborations across global markets.",
+      items: [
+        "Technology licensing",
+        "Custom product integration",
+        "Platform customization and scalability",
+        "Strategic technical collaborations"
+      ]
+    }
+  ],
+
   careers: {
     hiringPolicyNote: "The official website lists career roles and required technical skills to provide information to prospective candidates. The company does not confirm current vacancy counts or hiring status on its website.",
     salaryPolicyNote: "Omoikane Innovations does not publish salary figures, compensation brackets, or internship stipends on its official website.",
-    applicationInstructions: "To apply for a role at Omoikane Innovations, visit the relevant career page on the official website and submit your profile through the application form provided.",
+    applicationInstructions: "To apply for a role at Omoikane Innovations, visit the relevant career page on the official website and submit your profile through the application form provided, or email your resume to info@omoikaneinnovations.com or omoikaneinnovations@gmail.com.",
     departments: [
+      {
+        id: "hardware_engineering",
+        name: "Hardware & Embedded Engineering",
+        url: "https://www.omoikaneinnovations.com/electronics/",
+        roles: [
+          {
+            title: "Embedded Hardware Design Engineer",
+            description: "Design and develop schematics, multi-layer PCB layouts, and hardware validation for UAV, aerospace, defense, and industrial electronics.",
+            skills: ["OrCAD", "Cadence Allegro", "Altium Designer", "Analog/Digital electronics", "Power electronics", "Signal integrity", "DFM/DFT"]
+          },
+          {
+            title: "Engineering Internship – Hardware / Embedded Systems",
+            description: "Project-based hands-on learning and mentorship working on real aerospace and embedded systems hardware in Bengaluru.",
+            skills: ["PCB design", "Microcontrollers", "Lab testing", "Soldering", "Firmware bring-up"]
+          }
+        ]
+      },
       {
         id: "software",
         name: "Software Development",

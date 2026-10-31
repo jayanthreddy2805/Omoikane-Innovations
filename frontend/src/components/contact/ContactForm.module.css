@@ -27,18 +27,18 @@
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.1em;
-  color: #7A684E;
+  color: #061D40;
   text-transform: uppercase;
 }
 
 .input, .textarea {
-  background-color: transparent;
-  border: 1px solid #D8D7D1;
+  background-color: #FFFFFF;
+  border: 1px solid #DCE7F3;
   border-radius: 4px;
   padding: 16px;
   font-family: var(--font-inter, sans-serif);
   font-size: 15px;
-  color: #202321;
+  color: #102746;
   transition: all 0.2s ease;
 }
 
@@ -48,14 +48,14 @@
 }
 
 .input::placeholder, .textarea::placeholder {
-  color: #858780;
+  color: #62748A;
 }
 
 .input:focus, .textarea:focus {
   outline: none;
-  background-color: transparent;
-  border-color: #465340;
-  box-shadow: 0 0 0 1px rgba(70, 83, 64, 0.2);
+  background-color: #FFFFFF;
+  border-color: #0757C8;
+  box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.12);
 }
 
 .submitRow {
@@ -103,7 +103,7 @@
 .signatureBlock {
   margin-top: 48px;
   padding-top: 32px;
-  border-top: 1px solid rgba(10, 10, 10, 0.1);
+  border-top: 1px solid #DCE7F3;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -113,14 +113,14 @@
   font-family: var(--font-inter, sans-serif);
   font-size: 13px;
   letter-spacing: 0.05em;
-  color: var(--text-primary);
+  color: #061D40;
   margin-bottom: 2px;
 }
 
 .signatureLocation {
   font-family: var(--font-inter, sans-serif);
   font-size: 13px;
-  color: rgba(10, 10, 10, 0.5);
+  color: #62748A;
   margin-bottom: 16px;
 }
 
@@ -134,13 +134,13 @@
 .signatureLinks a {
   font-family: var(--font-inter, sans-serif);
   font-size: 13px;
-  color: rgba(10, 10, 10, 0.7);
+  color: #62748A;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .signatureLinks a:hover {
-  color: var(--text-primary);
+  color: #0757C8;
 }
 
 /* ANIMATIONS */

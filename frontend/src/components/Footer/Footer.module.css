@@ -1,7 +1,7 @@
 .footer {
-  background-color: #000000;
-  --bg-primary: #000000;
-  --bg-secondary: #111111;
+  background-color: #000812;
+  --bg-primary: #000812;
+  --bg-secondary: #071524;
   --text-primary: #fafafa;
   --text-secondary: #a0a0a0;
   color: var(--text-primary);
@@ -216,6 +216,17 @@
 }
 
 .subscribeBtn:hover {
+  color: var(--text-primary);
+}
+
+.subscribeLink {
+  color: #cccccc;
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.subscribeLink:hover {
   color: var(--text-primary);
 }
 
@@ -448,7 +459,7 @@
   font-size: clamp(0.75rem, 1.1vw, 0.95rem);
   font-weight: 600;
   letter-spacing: 4px;
-  color: rgba(54, 207, 246, 0.4);
+  color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
   line-height: 1;
 }

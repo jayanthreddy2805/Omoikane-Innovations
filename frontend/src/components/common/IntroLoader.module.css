@@ -1,87 +1,56 @@
 .introContainer {
   position: fixed;
   inset: 0;
-  z-index: 9999;
-  background: var(--color-bg);
+  z-index: 99999;
+  background-color: var(--bg-primary, #F4F3EE);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  will-change: transform;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
 }
 
-/* A cinematic grid background for the loader */
-.introGrid {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(10, 10, 10, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10, 10, 10, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center;
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.introContent {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.brandText {
-  font-family: var(--font-space-grotesk, sans-serif);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  color: var(--color-text-primary);
-  text-shadow: 0 0 20px rgba(10, 10, 10, 0.3);
-  text-transform: uppercase;
-}
-
-.statusText {
-  font-family: var(--font-inter, sans-serif);
-  font-size: 0.75rem;
-  letter-spacing: 0.25em;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-}
-
-.progressBarContainer {
-  width: 300px;
-  height: 2px;
-  background: rgba(10, 10, 10, 0.1);
-  position: relative;
-  overflow: hidden;
-  margin-top: 1rem;
-}
-
-.progressBarFill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: var(--color-text-primary);
-  box-shadow: 0 0 10px var(--color-text-primary);
-  transform-origin: left;
-}
-
-.scanline {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.particleWrapper {
+  width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(10, 10, 10, 0.02) 50%,
-    transparent 100%
-  );
-  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.skipHint {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--text-tertiary, rgba(10, 10, 10, 0.4));
+  text-transform: uppercase;
   pointer-events: none;
+  animation: fadeInHint 0.8s ease 1s both;
+}
+
+.pageContent {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeInHint {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }

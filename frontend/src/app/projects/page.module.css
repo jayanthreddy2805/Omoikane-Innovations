@@ -14,14 +14,15 @@
   font-size: clamp(2rem, 4vw, 3.5rem);
   letter-spacing: 1px;
   margin-bottom: 1rem;
+  color: var(--color-navy, #061D40);
 }
 
 .accent {
-  color: var(--accent);
+  color: var(--color-blue, #0757C8);
 }
 
 .subtitle {
-  color: var(--text-secondary);
+  color: var(--color-muted, #62748A);
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
@@ -34,8 +35,8 @@
 }
 
 .projectCard {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border, #DCE7F3);
   border-radius: 8px;
   padding: 2.5rem;
   transition: all 0.3s ease;
@@ -44,8 +45,8 @@
 }
 
 .projectCard:hover {
-  border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-color: var(--color-blue, #0757C8);
+  box-shadow: 0 10px 30px rgba(6, 29, 64, 0.06);
   transform: translateY(-4px);
 }
 
@@ -53,15 +54,15 @@
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  background-color: rgba(0, 194, 255, 0.1);
-  color: var(--accent);
+  background-color: var(--color-surface-blue, #EFF7FF);
+  color: var(--color-blue, #0757C8);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 1px solid rgba(0, 194, 255, 0.3);
+  border: 1px solid var(--color-border, #DCE7F3);
 }
 
 .projectTitle {
@@ -69,10 +70,11 @@
   margin-bottom: 1rem;
   font-family: var(--font-space-grotesk);
   padding-right: 6rem;
+  color: var(--color-navy, #061D40);
 }
 
 .projectDescription {
-  color: var(--text-secondary);
+  color: var(--color-muted, #62748A);
   margin-bottom: 2rem;
   line-height: 1.7;
 }
@@ -85,9 +87,9 @@
 }
 
 .specTag {
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border);
-  color: var(--text-primary);
+  background-color: var(--color-surface-blue, #EFF7FF);
+  border: 1px solid var(--color-border, #DCE7F3);
+  color: var(--color-ink, #102746);
   padding: 0.25rem 0.5rem;
   font-size: 0.75rem;
   border-radius: 4px;
@@ -95,7 +97,7 @@
 
 .viewBtn {
   display: inline-block;
-  color: var(--accent);
+  color: var(--color-blue, #0757C8);
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -104,8 +106,7 @@
 }
 
 .viewBtn:hover {
-  color: var(--accent-hover);
-  text-shadow: 0 0 10px rgba(0, 194, 255, 0.4);
+  color: var(--color-navy, #061D40);
 }
 
 /* Media Queries for Desktop */

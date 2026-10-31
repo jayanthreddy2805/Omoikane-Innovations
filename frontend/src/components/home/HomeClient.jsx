@@ -11,9 +11,13 @@ import {
   Activity,
   Layers,
   Zap,
+  ArrowDown,
+  ArrowUpRight,
 } from "lucide-react";
 import styles from "@/app/page.module.css";
-import CapabilityStack from "./CapabilityStack";
+import CallToAction from "@/components/common/CallToAction";
+import SelectedWork from "@/components/home/SelectedWork";
+import HomeCareers from "@/components/home/HomeCareers";
 
 
 // ─── Focused Production Areas & Products ──────────────────────────
@@ -25,7 +29,7 @@ const FOCUSED_PRODUCTION_AREAS = [
     description:
       "We design and develop advanced UAV platforms, flight control systems, avionics, and RF communication modules engineered for precision, stability, and real-time performance in high-reliability aerospace environments.",
     specs: ["UAV Platforms", "Flight Control Systems", "Avionics Integration", "RF Telemetry Modules"],
-    href: "/services",
+    href: "/expertise",
   },
   {
     index: "02",
@@ -34,7 +38,7 @@ const FOCUSED_PRODUCTION_AREAS = [
     description:
       "Our defense-grade products include secure communication systems, surveillance technologies, and autonomous platforms built for high reliability, real-time operations, and electronic resilience.",
     specs: ["Secure Communication", "Tactical Surveillance", "Autonomous Platforms", "Rugged Electronics"],
-    href: "/services",
+    href: "/expertise",
   },
   {
     index: "03",
@@ -43,7 +47,7 @@ const FOCUSED_PRODUCTION_AREAS = [
     description:
       "We deliver intelligent automotive electronics, ECU solutions, and real-time embedded systems that support next-generation mobility, functional safety, and vehicle automation.",
     specs: ["Automotive ECU Solutions", "Real-Time Embedded Systems", "Vehicle Automation", "Functional Safety"],
-    href: "/services",
+    href: "/expertise",
   },
   {
     index: "04",
@@ -52,81 +56,33 @@ const FOCUSED_PRODUCTION_AREAS = [
     description:
       "Our solutions enable predictive maintenance, industrial automation, and intelligent control systems designed for large-scale, high-efficiency operations across industrial and transit networks.",
     specs: ["Predictive Maintenance", "Industrial Automation", "Intelligent Control Systems", "High Reliability at Scale"],
-    href: "/services",
+    href: "/expertise",
   },
 ];
 
-// ─── Core Engineering Capabilities ────────────────────────────────
-const CORE_CAPABILITIES = [
-  {
-    number: "01",
-    title: "Embedded & Control Systems",
-    description:
-      "Advanced embedded electronics, flight control systems, RF communication modules, and real-time processing units engineered for precision and reliability.",
-    capabilities: [
-      "Flight Control Computers",
-      "RF Communication Modules",
-      "Real-Time Processing Units",
-      "High-Precision Sensors",
-    ],
-  },
-  {
-    number: "02",
-    title: "Autonomous & Robotic Platforms",
-    description:
-      "Development of UAV systems, autonomous ground platforms, and intelligent robotic solutions for surveillance, monitoring, and industrial automation.",
-    capabilities: [
-      "Autonomous UAV Systems",
-      "Ground Robotic Platforms",
-      "Perimeter Surveillance",
-      "Intelligent Automation",
-    ],
-  },
-  {
-    number: "03",
-    title: "Defense Electronics & AI Systems",
-    description:
-      "High-performance hardware integrated with AI-driven analytics, enabling intelligent decision-making, tracking, and mission-critical operations.",
-    capabilities: [
-      "AI-Driven Decision Making",
-      "Multi-Object Tracking",
-      "Encrypted Telemetry Links",
-      "Ruggedized Payloads",
-    ],
-  },
-  {
-    number: "04",
-    title: "Full-Stack System Integration",
-    description:
-      "Bringing electronics, firmware, and precision mechanical packaging together into cohesive, deployment-ready mission platforms.",
-    capabilities: [
-      "Hardware-Software Co-Design",
-      "Thermal & Stress Hardening",
-      "Custom Airframe Packaging",
-      "Hardware-in-the-Loop Validation",
-    ],
-  },
-];
 
-// ─── Core Value Pillars ───────────────────────────────────────────
-const CORE_PILLARS = [
+// ─── Why Our Products Stand Out ───────────────────────────────────
+const WHY_US_PILLARS = [
   {
     code: "MCE",
     title: "Mission-Critical Engineering",
     description:
       "Our products are designed for high reliability, precision, and performance in demanding environments such as defense, aerospace, and industrial systems.",
+    image: "/images/why-us/mission-critical.jpg",
   },
   {
     code: "IPD",
     title: "Indigenous Product Development",
     description:
       "We build and own our technologies, enabling scalable deployment, customization, and licensing across global markets.",
+    image: "/images/why-us/indigenous-tech.jpg",
   },
   {
     code: "AI",
     title: "Advanced Embedded & AI Systems",
     description:
       "From embedded electronics to intelligent automation, our solutions integrate cutting-edge technologies for real-world applications.",
+    image: "/images/why-us/embedded-ai.jpg",
   },
 ];
 
@@ -157,30 +113,63 @@ export default function HomeClient() {
   return (
     <div className={styles.pageContainer}>
       {/* ─────────────────────────────────────────────────────────
-          1. HERO SECTION (EMPTY FOR NOW)
+          1. HERO SECTION
       ───────────────────────────────────────────────────────── */}
-      <section className={styles.heroSection} id="hero" aria-label="Hero Section">
-        <motion.div
-          className={styles.heroPlaceholder}
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className={styles.heroTag}>
-            <span className={styles.heroTagPulse} />
-            <span>HERO SECTION &bull; RESERVED</span>
-          </div>
-          <h1 className={styles.heroTitle}>Engineering the Future, One Idea at a Time</h1>
-          <p className={styles.heroSubtitle}>
-            Designing and developing mission-critical products, autonomous systems, and advanced embedded solutions for aerospace, defense, and industrial applications.
-          </p>
-        </motion.div>
+      <section className={styles.heroSection} id="hero" aria-labelledby="hero-headline">
+        <div className={styles.heroContent}>
+          <motion.div
+            className={styles.heroEyebrowBadge}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className={styles.heroEyebrowText}>Indigenous technology</span>
+            <span className={styles.heroEyebrowDivider} aria-hidden="true">|</span>
+            <span className={styles.heroEyebrowText}>Global standards</span>
+          </motion.div>
+
+          <motion.h1
+            id="hero-headline"
+            className={styles.heroHeadline}
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Advanced Defense, Aerospace &amp; Embedded Systems
+          </motion.h1>
+
+          <motion.p
+            className={styles.heroPhilosophy}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className={styles.heroPhilosophyLine}>Innovation is not our goal;</span>
+            <span className={styles.heroPhilosophyStandard}>it’s our standard.</span>
+          </motion.p>
+
+          <motion.div
+            className={styles.heroActions}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Link href="#projects" className={styles.heroBtnPrimary}>
+              <span>Explore Capabilities</span>
+              <ArrowDown size={14} aria-hidden="true" />
+            </Link>
+            <Link href="/contact" className={styles.heroBtnSecondary}>
+              <span>Contact Us</span>
+              <ArrowUpRight size={15} aria-hidden="true" />
+            </Link>
+          </motion.div>
+        </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────
-          2. PROJECTS & FOCUSED PRODUCTION AREAS
+          2. PROJECTS & FOCUSED PRODUCTION AREAS (CORE EXPERTISE)
       ───────────────────────────────────────────────────────── */}
-      <section className={styles.section} id="projects" aria-label="Focused Production Areas and Products">
+      <section className={styles.expertiseSection} id="projects" aria-label="Focused Production Areas and Products">
         <div className={styles.sectionInner}>
           <motion.header
             className={styles.sectionHeader}
@@ -189,8 +178,7 @@ export default function HomeClient() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
           >
-            <span className={styles.sectionTag}>[ 01 / FOCUSED PRODUCTION AREAS ]</span>
-            <h2 className={styles.sectionTitle}>AEROSPACE &amp; DEFENSE AT THE CORE</h2>
+            <h2 className={styles.sectionTitle}>CORE EXPERTISE</h2>
             <p className={styles.sectionSubtitle}>
               We primarily design and build advanced products for Aerospace and Defense applications, where performance, precision, and reliability are mission-critical. Our capabilities also extend to selected industrial domains.
             </p>
@@ -205,7 +193,7 @@ export default function HomeClient() {
               whileInView="visible"
               viewport={{ once: true, margin: "-40px" }}
             >
-              <Link href="/services" className={`${styles.bentoCard} ${styles.bentoCardTall}`}>
+              <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardTall}`}>
                 <div className={styles.bentoTextCol}>
                   <h3 className={styles.bentoTitle}>Aerospace</h3>
                   <div className={styles.bentoMetaList}>
@@ -247,7 +235,7 @@ export default function HomeClient() {
                 viewport={{ once: true, margin: "-40px" }}
                 style={{ flex: 1 }}
               >
-                <Link href="/services" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
+                <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
                   <div className={styles.bentoTextCol}>
                     <h3 className={styles.bentoTitle}>Defense</h3>
                     <div className={styles.bentoMetaList}>
@@ -287,7 +275,7 @@ export default function HomeClient() {
                 viewport={{ once: true, margin: "-40px" }}
                 style={{ flex: 1 }}
               >
-                <Link href="/services" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
+                <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
                   <div className={styles.bentoTextCol}>
                     <h3 className={styles.bentoTitle}>Automotive</h3>
                     <div className={styles.bentoMetaList}>
@@ -328,7 +316,7 @@ export default function HomeClient() {
               viewport={{ once: true, margin: "-40px" }}
               className={styles.bentoCardWideWrap}
             >
-              <Link href="/services" className={`${styles.bentoCard} ${styles.bentoCardWide}`}>
+              <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardWide}`}>
                 <div className={styles.bentoTextCol}>
                   <h3 className={styles.bentoTitle}>Railways</h3>
                   <div className={styles.bentoMetaList}>
@@ -367,7 +355,7 @@ export default function HomeClient() {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Link href="/services" className={styles.outlineButton}>
+            <Link href="/expertise" className={styles.outlineButton}>
               <span>View All Products &amp; Solutions</span>
               <span aria-hidden="true">&rarr;</span>
             </Link>
@@ -376,163 +364,67 @@ export default function HomeClient() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────
-          3. CORE CAPABILITIES / EXPERTISE
+          2.5. SELECTED WORK (EDITORIAL PROJECT INDEX)
       ───────────────────────────────────────────────────────── */}
-      <section id="expertise" aria-label="Core Engineering Capabilities" className={styles.capSection}>
-
-        {/* Header text is rendered INSIDE the sticky frame at top, cards rise from bottom */}
-        <CapabilityStack
-          capabilities={CORE_CAPABILITIES}
-          tag="[ 02 / CORE CAPABILITIES ]"
-          title="CAPABILITIES THAT POWER OUR PRODUCTS"
-          subtitle="We design and build advanced embedded systems, autonomous platforms, and high-performance electronics tailored for mission-critical applications across Aerospace, Defense, and Industrial domains."
-        />
-
-        {/* CTA link after the scroll stack */}
-        <div className={styles.sectionInner}>
-          <motion.div
-            className={styles.sectionFooterLink}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Link href="/expertise" className={styles.outlineButton}>
-              <span>Explore Engineering Expertise</span>
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
+      <SelectedWork />
 
       {/* ─────────────────────────────────────────────────────────
-          4. ABOUT US
+          3. WHY OUR PRODUCTS STAND OUT
       ───────────────────────────────────────────────────────── */}
-      <section className={styles.section} id="about" aria-label="About Omoikane Innovations">
+      <section className={styles.whySection} id="why-us" aria-label="Why Our Products Stand Out">
         <div className={styles.sectionInner}>
           <motion.div
-            className={styles.aboutCompact}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className={styles.whyHeader}
+            variants={headerVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* LEFT */}
-            <div className={styles.aboutLeft}>
-              <span className={styles.sectionTag}>[ 03 / ABOUT US ]</span>
-              <h2 className={styles.aboutHeadline}>
-                Product-focused engineering for Aerospace, Defense &amp; Industrial domains.
-              </h2>
-
-              {/* Badge row */}
-              <div className={styles.aboutBadgeRow}>
-                {["100% Indigenous IP", "ISO 9001", "MSME Registered"].map((b) => (
-                  <span key={b} className={styles.aboutBadge}>{b}</span>
-                ))}
-              </div>
-
-              {/* Vision / Mission one-liners */}
-              <div className={styles.aboutOneLiners}>
-                <div className={styles.aboutOneLiner}>
-                  <span className={styles.aboutOneLinerLabel}>Vision</span>
-                  <span className={styles.aboutOneLinerText}>Global leader in indigenous defense &amp; embedded tech.</span>
-                </div>
-                <div className={styles.aboutOneLiner}>
-                  <span className={styles.aboutOneLinerLabel}>Mission</span>
-                  <span className={styles.aboutOneLinerText}>Design, build &amp; deliver platforms across Aerospace, Defense &amp; Industrial.</span>
-                </div>
-              </div>
-
-              <Link href="/about" className={styles.aboutLink}>
-                Know More <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-
-            {/* RIGHT — compact pillar rows */}
-            <div className={styles.aboutRight}>
-              {CORE_PILLARS.map((pillar, index) => (
-                <motion.div
-                  key={pillar.title}
-                  className={styles.aboutPillarRow}
-                  variants={cardVariants}
-                  custom={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-40px" }}
-                >
-                  <span className={styles.pillarIcon}>{pillar.code}</span>
-                  <span className={styles.aboutPillarTitle}>{pillar.title}</span>
-                </motion.div>
-              ))}
-            </div>
+            <h2 className={styles.whyHeadline}>Why Our Products Stand Out</h2>
+            <p className={styles.whySubtitle}>
+              Engineered for absolute reliability, indigenous ownership, and high performance across Aerospace, Defense, and Industrial applications.
+            </p>
           </motion.div>
+
+          <div className={styles.whyGrid}>
+            {WHY_US_PILLARS.map((pillar, i) => (
+              <motion.div
+                key={pillar.title}
+                className={styles.whyCard}
+                variants={cardVariants}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+              >
+                <div className={styles.whyCardVisual}>
+                  <Image
+                    src={pillar.image}
+                    alt={pillar.title}
+                    width={180}
+                    height={140}
+                    className={styles.whyCardImg}
+                  />
+                </div>
+                <h3 className={styles.whyCardTitle}>{pillar.title}</h3>
+                <p className={styles.whyCardDesc}>{pillar.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
+
+
       {/* ─────────────────────────────────────────────────────────
-          5. CALL TO ACTION (CTA) SECTION
+          4. CAREERS (HOMEPAGE CAREERS SECTION)
       ───────────────────────────────────────────────────────── */}
-      <section className={styles.ctaSection} id="contact" aria-label="Contact and Partnership">
-        <motion.div
-          className={styles.ctaBox}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className={styles.ctaInner}>
-            <span className={styles.ctaTag}>[ 04 / PARTNER &amp; COLLABORATE ]</span>
-            <h2 className={styles.ctaHeading}>HAVE A REQUIREMENT OR COLLABORATION IN MIND?</h2>
-            <p className={styles.ctaText}>
-              Discover advanced embedded systems and autonomous solutions engineered for real-world deployment. Partner with us to integrate, customize, or license high-performance technologies across Aerospace, Defense, and Industrial applications.
-            </p>
+      <HomeCareers />
 
-            <div className={styles.ctaEmailRow}>
-              <a href="mailto:info@omoikaneinnovations.com" className={styles.ctaEmailLink}>
-                <span>✉ info@omoikaneinnovations.com</span>
-              </a>
-              <a href="mailto:bd@omoikaneinnovations.com" className={styles.ctaEmailLink}>
-                <span>✉ bd@omoikaneinnovations.com</span>
-              </a>
-            </div>
-
-            <div className={styles.ctaActions}>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Link href="/contact" className={styles.btnPrimary}>
-                  <span>Contact Our Team</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Link href="/services" className={styles.btnSecondary}>
-                  <span>View Products</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </motion.div>
-            </div>
-
-            <div className={styles.ctaSpecStrip}>
-              <div className={styles.ctaSpecItem}>
-                <span className={styles.ctaSpecDot} />
-                <span>READY-TO-DEPLOY PRODUCTS</span>
-              </div>
-              <div className={styles.ctaSpecItem}>
-                <span className={styles.ctaSpecDot} />
-                <span>CUSTOMIZATION &amp; INTEGRATION</span>
-              </div>
-              <div className={styles.ctaSpecItem}>
-                <span className={styles.ctaSpecDot} />
-                <span>TECHNOLOGY LICENSING</span>
-              </div>
-              <div className={styles.ctaSpecItem}>
-                <span className={styles.ctaSpecDot} />
-                <span>GLOBAL SCALE &amp; RELIABILITY</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </section>
+      {/* ─────────────────────────────────────────────────────────
+          5. CALL TO ACTION (REGULAR CTA)
+      ───────────────────────────────────────────────────────── */}
+      <CallToAction />
     </div>
   );
 }

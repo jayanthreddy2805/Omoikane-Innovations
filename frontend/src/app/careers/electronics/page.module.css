@@ -1,16 +1,16 @@
 /* bespoke Mechanical Careers CSS */
 
 .bespokeContainer {
-  /* Software deep blue-black theme per user request */
-  --surf-hero: #0A0F16; 
-  --surf-index: #0A0F16;
+  /* Software theme */
+  --surf-hero: #000812;
+  --surf-index: #000812;
   --surf-content: var(--bg-secondary);
-  --surf-tech: #111827;
-  --surf-apply: #0A0F16;
+  --surf-tech: #000812;
+  --surf-apply: #000812;
   
   --bg-primary: var(--surf-apply);
   
-  --accent-cyan: #36CFF6;
+  --accent-primary: #000812;
   --text-primary: #F0F2F5;
   --text-muted: #A1A1AA;
   --border-subtle: rgba(10, 10, 10, 0.2);
@@ -79,7 +79,7 @@
   font-family: var(--font-space-grotesk);
   font-size: 0.85rem;
   letter-spacing: 3px;
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   text-transform: uppercase;
   margin-bottom: 1.5rem;
 }
@@ -164,7 +164,7 @@
 }
 
 .stickyBtnActive .stickyNumber {
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
 }
 
 .stickyBtnActive::after {
@@ -174,7 +174,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--accent-cyan);
+  background-color: var(--accent-primary);
 }
 
 /* 2. FULL HORIZONTAL ROLE INDEX */
@@ -251,7 +251,7 @@
 
 /* ACTIVE STATE FOR HORIZONTAL INDEX */
 .indexColActive .colNumber {
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
 }
 
 .indexColActive .colTitle {
@@ -265,7 +265,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--accent-cyan);
+  background-color: var(--accent-primary);
 }
 
 
@@ -307,7 +307,7 @@
 
 .roleIdentitySubtitle {
   font-size: 1.25rem;
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   margin-bottom: 2rem;
   font-weight: 400;
 }
@@ -323,7 +323,7 @@
   position: relative;
   width: 85%; /* As requested: 70-90% of main content */
   aspect-ratio: 21/9;
-  background: #111;
+  background: #000812;
   margin-bottom: 6rem;
 }
 
@@ -397,7 +397,7 @@
 .workRowNumber {
   font-family: var(--font-space-grotesk);
   font-size: 1rem;
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   min-width: 2rem;
 }
 
@@ -463,7 +463,7 @@
 .specCategoryLabel {
   font-family: var(--font-space-grotesk);
   font-size: 0.75rem;
-  color: var(--accent-cyan);
+  color: var(--accent-primary);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 0.75rem;
@@ -537,8 +537,8 @@
 }
 
 .premiumApplyBtn:hover {
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
 }
 
 .premiumApplyBtn:hover .arrow {

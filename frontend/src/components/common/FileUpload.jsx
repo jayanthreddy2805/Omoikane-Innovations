@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { Upload, Check, X, AlertCircle, Plus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Field, FieldLabel } from "@/components/ui/v-field-21-utils/field";
+import { Field, FieldLabel } from "@/components/ui/form-field/field";
 import styles from "./FileUpload.module.css";
 
 export default function FileUpload({ id = "cv", required = false, onChange, file: externalFile }) {

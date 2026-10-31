@@ -1,0 +1,234 @@
+/* ─────────────────────────────────────────────────────────
+   TECHNOLOGY & ENGINEERING (DARK EDITORIAL CAPABILITY MATRIX)
+   Palette:
+   - Unified deep navy: #000812
+   - Warm ivory: #FAF8F5 / #F4EEE7
+   - Warm muted gold / ochre: #C4A361 (sampled directly from recording)
+   - Subtle Dividers: rgba(255, 255, 255, 0.08)
+   - Muted secondary text: #8E908D
+───────────────────────────────────────────────────────── */
+
+.section {
+  width: 100%;
+  background-color: #000812;
+  /* Very subtle technical micro-texture */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 0);
+  background-size: 24px 24px;
+  color: #FAF8F5;
+  padding: clamp(6.5rem, 11vh, 9.5rem) clamp(1.5rem, 5vw, 4.5rem);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ─────────────────────────────────────────────────────────
+   1. UPPER-LEFT INTRODUCTION
+───────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: clamp(3.5rem, 6.5vh, 5.5rem);
+}
+
+.headline {
+  font-family: var(--font-cormorant-garamond), Garamond, Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.6rem, 4.2vw, 3.8rem); /* 52–60px desktop */
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: #FAF8F5;
+  margin: 0 0 0.85rem 0;
+  text-align: left;
+}
+
+.subheadline {
+  font-family: var(--font-cormorant-garamond), Garamond, Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.35rem, 1.85vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: #C4A361; /* Warm muted gold / ochre from recording */
+  margin: 0 0 1.5rem 0;
+}
+
+.supportingCopy {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(0.9375rem, 1.05vw, 1.0625rem); /* 15–17px */
+  line-height: 1.65;
+  color: #8E908D;
+  max-width: 540px;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────
+   2. PRECISE 3-COLUMN × 2-ROW CAPABILITY MATRIX
+   Created strictly with 1px divider lines; no cards, no boxes.
+───────────────────────────────────────────────────────── */
+.matrixGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cell {
+  position: relative;
+  min-height: clamp(165px, 20vh, 195px); /* 150–180px min-height */
+  padding: clamp(2.5rem, 3.5vw, 3.5rem) clamp(2rem, 2.8vw, 2.75rem);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 200ms ease;
+  user-select: none;
+}
+
+/* Desktop Grid Dividers */
+@media (min-width: 861px) {
+  /* Right divider line for columns 1 and 2 in each row */
+  .cell:not(:nth-child(3n)) {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Bottom divider line for the top row (01, 02, 03) */
+  .cell:nth-child(-n+3) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Small two-digit number positioned above the name */
+.number {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #727471;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* Lower-left text container: stacked grid so both name & description occupy identical area */
+.textContainer {
+  display: grid;
+  grid-template-areas: "content";
+  align-items: end;
+  justify-items: start;
+  width: 100%;
+}
+
+/* Capability Name (Default State: Visible, Active Color) */
+.name {
+  grid-area: content;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(1.2rem, 1.4vw, 1.45rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.28;
+  color: #C4A361; /* Warm muted gold / ochre from recording */
+  margin: 0;
+  opacity: 1;
+  transition: opacity 200ms ease;
+  will-change: opacity;
+}
+
+/* Description (Default State: Hidden, Fades into exact same position on hover) */
+.description {
+  grid-area: content;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(0.875rem, 0.98vw, 0.975rem);
+  line-height: 1.55;
+  color: #FAF8F5; /* Warm ivory primary text */
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+  will-change: opacity;
+}
+
+/* ── HOVER INTERACTION (Desktop / Devices supporting hover) ── */
+@media (hover: hover) {
+  .cell:hover {
+    background-color: rgba(255, 255, 255, 0.024);
+  }
+
+  .cell:hover .name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .cell:hover .description {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* ── TOUCH / ACTIVE STATE INTERACTION (Mobile & Keyboard) ── */
+.cellActive {
+  background-color: rgba(255, 255, 255, 0.024);
+}
+
+.cellActive .name {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.cellActive .description {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.cell:focus-visible {
+  outline: 1px solid rgba(196, 163, 97, 0.5);
+  outline-offset: -1px;
+}
+
+/* ─────────────────────────────────────────────────────────
+   3. MOBILE COMPOSITION (ONE COLUMN WITH HORIZONTAL SEPARATORS)
+───────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .section {
+    padding: 4.5rem 1.25rem 4rem 1.25rem;
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .matrixGrid {
+    grid-template-columns: 1fr;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: none;
+  }
+
+  .cell {
+    width: 100%;
+    min-height: 145px;
+    padding: 2rem 0.5rem;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .name,
+  .description,
+  .cell {
+    transition: none !important;
+  }
+}

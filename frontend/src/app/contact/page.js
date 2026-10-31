@@ -60,7 +60,7 @@ export default function ContactPage() {
             <>
               <div className={styles.contactHeroWrapper}>
                 <h1 className={styles.letsConnectTitle}>
-                  <span className={styles.textWhite}>LET'S</span>
+                  <span className={styles.textWhite}>LET’S</span>
                   <span className={styles.textGrey}>CONNECT</span>
                 </h1>
                 <div className={styles.drawingWrapper}>
@@ -77,7 +77,7 @@ export default function ContactPage() {
                 <FadeUp delay={0.1}>
                   <div className={styles.enquiryContext}>
                     <p className={styles.enquiryText}>
-                      Connect with the minds behind Omoikane. Whether it's a technical deep-dive or a strategic partnership, let's start the conversation.
+                      Connect with the minds behind Omoikane. Whether it’s a technical deep-dive or a strategic partnership, let’s start the conversation.
                     </p>
                     <div className={styles.enquiryVisualContainer}>
                       <div className={styles.enquiryVisualWrapper}>

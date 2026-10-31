@@ -85,7 +85,7 @@
   display: flex;
   align-items: center;
   background-color: transparent;
-  border: 1px solid #D8D7D1;
+  border: 1px solid #DCE7F3;
   border-radius: 4px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   height: 48px;
@@ -93,8 +93,8 @@
 }
 
 .inputGroup:focus-within {
-  border-color: #465340;
-  box-shadow: 0 0 0 1px rgba(70, 83, 64, 0.2);
+  border-color: #0757C8;
+  box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.12);
 }
 
 .inputGroupLine {
@@ -103,7 +103,7 @@
   align-items: center;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #D8D7D1;
+  border-bottom: 1px solid #DCE7F3;
   border-radius: 0;
   transition: border-color 0.2s ease;
   height: 48px;
@@ -111,7 +111,7 @@
 }
 
 .inputGroupLine:focus-within {
-  border-bottom-color: #465340;
+  border-bottom-color: #0757C8;
 }
 
 .inputGroup.invalid, .inputGroupLine.invalid {
@@ -131,8 +131,8 @@
   height: 100%;
   background: transparent;
   border: none;
-  border-right: 1px solid #D8D7D1;
-  color: #202321;
+  border-right: 1px solid #DCE7F3;
+  color: #102746;
   font-family: var(--font-inter, sans-serif);
   font-size: 15px;
   cursor: pointer;
@@ -154,8 +154,8 @@
   height: 100%;
   background: transparent;
   border: none;
-  border-right: 1px solid #D8D7D1;
-  color: #202321;
+  border-right: 1px solid #DCE7F3;
+  color: #102746;
   font-family: var(--font-inter, sans-serif);
   font-size: 15px;
   cursor: pointer;
@@ -175,11 +175,11 @@
 }
 
 .dialCode {
-  color: #626762;
+  color: #62748A;
 }
 
 .chevron {
-  color: #626762;
+  color: #62748A;
   transition: transform 0.2s ease;
 }
 
@@ -194,7 +194,7 @@
   border: none;
   padding: 0 16px;
   height: 100%;
-  color: #202321;
+  color: #102746;
   font-family: var(--font-inter, sans-serif);
   font-size: 15px;
   min-width: 0;
@@ -205,7 +205,7 @@
 }
 
 .phoneInput::placeholder {
-  color: #858780;
+  color: #62748A;
 }
 
 /* Dropdown Popover — matches CustomSelect style */
@@ -216,10 +216,10 @@
   width: 100%;
   min-width: 300px;
   max-height: 350px;
-  background-color: #F5F3EE;
-  border: 1px solid #D8D7D1;
+  background-color: #FFFFFF;
+  border: 1px solid #DCE7F3;
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 24px rgba(6, 29, 64, 0.08);
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -228,28 +228,28 @@
 
 .searchHeader {
   padding: 10px 12px;
-  border-bottom: 1px solid #D8D7D1;
+  border-bottom: 1px solid #DCE7F3;
   position: sticky;
   top: 0;
-  background-color: #F5F3EE;
+  background-color: #FFFFFF;
   z-index: 2;
 }
 
 .searchInput {
   width: 100%;
-  background-color: transparent;
-  border: 1px solid #D8D7D1 !important;
-  border-bottom: 1px solid #D8D7D1 !important;
+  background-color: #EFF7FF;
+  border: 1px solid #DCE7F3 !important;
+  border-bottom: 1px solid #DCE7F3 !important;
   border-radius: 6px;
   padding: 8px 12px 8px 32px;
-  color: #202321;
+  color: #102746;
   font-family: var(--font-inter, sans-serif);
   font-size: 0.9rem;
 }
 
 .searchInput:focus {
   outline: none;
-  border-color: #333333;
+  border-color: #0757C8 !important;
 }
 
 .dropdownList {
@@ -285,7 +285,7 @@
   border-left: 3px solid transparent;
   text-align: left;
   cursor: pointer;
-  color: #626762;
+  color: #62748A;
   font-family: var(--font-inter, sans-serif);
   font-size: 0.95rem;
   transition: all 0.15s ease;
@@ -294,9 +294,9 @@
 
 .countryOption:hover,
 .countryOption[aria-selected="true"] {
-  background-color: rgba(32, 35, 33, 0.05);
-  color: #202321;
-  border-left-color: #202321;
+  background-color: #EFF7FF;
+  color: #061D40;
+  border-left-color: #0757C8;
 }
 
 .countryName {
@@ -346,7 +346,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 8, 18, 0.6);
     z-index: 99;
     backdrop-filter: blur(2px);
   }

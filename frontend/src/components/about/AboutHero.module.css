@@ -1,18 +1,18 @@
 .hero,
 .summarySection {
-  --about-paper: var(--color-bg, #F4F3EE);
-  --about-ink: #111111;
-  --about-muted: #686868;
-  --about-rule: rgba(17, 17, 17, 0.12);
-  --about-accent: #AD5137;
-  --about-accent-dark: #873C29;
+  --about-paper: var(--color-white, #FFFFFF);
+  --about-ink: var(--color-navy, #061D40);
+  --about-muted: var(--color-muted, #62748A);
+  --about-rule: var(--color-border, #DCE7F3);
+  --about-accent: var(--color-blue, #0757C8);
+  --about-accent-dark: #061D40;
 }
 
 .hero {
   width: 100%;
   height: auto;
-  background: var(--color-bg, #F4F3EE);
-  background-color: var(--color-bg, #F4F3EE);
+  background: var(--color-white, #FFFFFF);
+  background-color: var(--color-white, #FFFFFF);
   color: var(--about-ink);
   padding: 1.25rem clamp(1.25rem, 5.55vw, 5.5rem) 2px;
   box-sizing: border-box;
@@ -53,7 +53,7 @@
 
 .headlineLineSecondary {
   margin-top: 0.035em;
-  color: #686868;
+  color: var(--color-muted, #62748A);
   font-weight: 400;
   letter-spacing: -0.05em;
 }
@@ -97,7 +97,7 @@
   width: 38px;
   height: 38px;
   padding: 0;
-  background: rgba(17, 17, 17, 0.5);
+  background: rgba(0, 8, 18, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -110,7 +110,7 @@
 }
 
 .soundToggle:hover {
-  background: rgba(17, 17, 17, 0.75);
+  background: rgba(0, 8, 18, 0.75);
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-1px);
 }
@@ -136,8 +136,8 @@
 ───────────────────────────────────────────────────────── */
 .summarySection {
   width: 100%;
-  background: var(--color-bg, #F4F3EE);
-  background-color: var(--color-bg, #F4F3EE);
+  background: var(--color-white, #FFFFFF);
+  background-color: var(--color-white, #FFFFFF);
   color: var(--about-ink);
   padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.25rem, 5.55vw, 5.5rem) clamp(2rem, 3.5vw, 3.5rem);
   box-sizing: border-box;
@@ -180,7 +180,7 @@
 .summaryCopy {
   max-width: 72ch;
   margin: 0;
-  color: #555650;
+  color: var(--color-ink, #102746);
   font-family: var(--font-inter, sans-serif);
   font-size: clamp(0.95rem, 1.12vw, 1.08rem);
   font-weight: 400;

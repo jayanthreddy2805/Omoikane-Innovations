@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { getCountries, getCountryCallingCode, AsYouType, parsePhoneNumberFromString, isValidPhoneNumber } from 'libphonenumber-js/min';
+import { getCountries, getCountryCallingCode, AsYouType, parsePhoneNumberFromString } from 'libphonenumber-js/min';
 import * as Flags from 'country-flag-icons/react/3x2';
 import { ChevronDown, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -19,8 +19,14 @@ export default function InternationalPhoneInput({
   variant = 'default', // 'default' | 'career'
   className = '' 
 }) {
-  const [country, setCountry] = useState('IN');
-  const [localValue, setLocalValue] = useState('');
+  const [country, setCountry] = useState(() => {
+    const parsed = typeof value === 'string' ? parsePhoneNumberFromString(value) : null;
+    return parsed?.country || 'IN';
+  });
+  const [localValue, setLocalValue] = useState(() => {
+    const parsed = typeof value === 'string' ? parsePhoneNumberFromString(value) : null;
+    return parsed ? parsed.formatNational() : '';
+  });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isValid, setIsValid] = useState(true);
@@ -58,28 +64,12 @@ export default function InternationalPhoneInput({
     );
   }, [searchQuery, allCountries]);
 
-  // Handle external value changes (e.g. pasted full E.164 number)
-  useEffect(() => {
-    if (value && typeof value === 'string') {
-      const phoneNumber = parsePhoneNumberFromString(value);
-      if (phoneNumber) {
-        if (phoneNumber.country && phoneNumber.country !== country) {
-          setCountry(phoneNumber.country);
-        }
-        // Extract just the national part for the input field to prevent double country code
-        const national = phoneNumber.formatNational();
-        if (localValue !== national) {
-          setLocalValue(national);
-        }
-      }
-    }
-  }, [value]);
-
   // Close dropdown on click outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (containerRef.current && !containerRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
+        setSearchQuery('');
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -90,14 +80,13 @@ export default function InternationalPhoneInput({
   useEffect(() => {
     if (isDropdownOpen && searchInputRef.current) {
       setTimeout(() => searchInputRef.current.focus(), 50);
-    } else {
-      setSearchQuery('');
     }
   }, [isDropdownOpen]);
 
   const handleCountrySelect = (c) => {
     setCountry(c.code);
     setIsDropdownOpen(false);
+    setSearchQuery('');
     
     // Re-format existing local value for the new country
     if (localValue) {
@@ -175,6 +164,8 @@ export default function InternationalPhoneInput({
           className={isCareer ? styles.countrySelectBtnCareer : (variant === 'line' ? styles.countrySelectBtnLine : styles.countrySelectBtn)}
           onClick={() => !disabled && setIsDropdownOpen(!isDropdownOpen)}
           aria-expanded={isDropdownOpen}
+          aria-haspopup="listbox"
+          aria-controls={`${id}-country-list`}
           aria-label="Select country"
           disabled={disabled}
         >
@@ -204,7 +195,10 @@ export default function InternationalPhoneInput({
 
       {isDropdownOpen && (
         <>
-          <div className={styles.dropdownOverlay} onClick={() => setIsDropdownOpen(false)} />
+          <div className={styles.dropdownOverlay} onClick={() => {
+            setIsDropdownOpen(false);
+            setSearchQuery('');
+          }} />
           <AnimatePresence>
             <motion.div
               className={isCareer ? styles.dropdownCareer : styles.dropdown}
@@ -228,7 +222,7 @@ export default function InternationalPhoneInput({
                 </div>
               </div>
               
-              <ul className={isCareer ? styles.dropdownListCareer : styles.dropdownList}>
+              <ul id={`${id}-country-list`} role="listbox" className={isCareer ? styles.dropdownListCareer : styles.dropdownList}>
                 {filteredCountries.length > 0 ? (
                   filteredCountries.map((c) => {
                     const Flag = Flags[c.code];
@@ -238,6 +232,7 @@ export default function InternationalPhoneInput({
                           type="button"
                           className={isCareer ? styles.countryOptionCareer : styles.countryOption}
                           onClick={() => handleCountrySelect(c)}
+                          role="option"
                           aria-selected={country === c.code}
                         >
                           {Flag ? <Flag className={styles.flagIcon} /> : <div className={styles.flagIcon} />}

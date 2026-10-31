@@ -1,6 +1,10 @@
 /* ─────────────────────────────────────────────
    HEADER SHELL
+   - Unscrolled: Transparent at top of page (matches current page background)
+   - Scrolled: Floating white pill with subtle border and shadow
+   - Clean neutral typography without blue accent in navbar
 ───────────────────────────────────────────── */
+
 .header {
   display: flex;
   align-items: center;
@@ -20,19 +24,22 @@
               width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               border-radius 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .headerScrolled {
-  background-color: var(--bg-primary); /* Opaque immediately */
-  padding: 0.4rem 1.5rem;
-  width: calc(100% - 2rem);
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  opacity: 1 !important;
+  padding: 0.45rem 1.5rem;
+  width: calc(100% - 2.5rem);
   max-width: 1200px;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  box-shadow: 0 10px 40px rgba(6, 29, 64, 0.12);
 }
-
 
 /* ─────────────────────────────────────────────
    LOGO
@@ -43,6 +50,7 @@
   gap: 0.75rem;
   text-decoration: none;
   flex-shrink: 0;
+  cursor: pointer;
   transform-origin: left center;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -69,16 +77,16 @@
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: 4px;
-  color: var(--text-primary);
+  color: #061D40;
   text-transform: uppercase;
 }
 
 .logoSub {
   font-family: var(--font-space-grotesk);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 6px;
-  color: var(--accent);
+  color: #62748A;
   text-transform: uppercase;
   margin-top: 3px;
 }
@@ -103,10 +111,18 @@
   gap: 0.25rem;
   list-style: none;
   margin: 0;
-  padding: 0.35rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
+  padding: 0.35rem 0.45rem;
+  background: transparent;
+  border: 1px solid transparent;
   border-radius: 999px;
+  box-shadow: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.headerScrolled .pillList {
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
 }
 
 .pillItem {
@@ -117,29 +133,37 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.15rem;
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #62748A;
   background: none;
   border: none;
   cursor: pointer;
   font-family: inherit;
   text-decoration: none;
   white-space: nowrap;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease;
   letter-spacing: 0.3px;
+  position: relative;
 }
 
 .pillBtn:hover {
-  color: var(--text-primary);
+  color: #061D40;
   background: rgba(10, 10, 10, 0.05);
 }
 
 .pillActive {
-  color: var(--bg-primary) !important;
-  background: var(--text-primary) !important;
+  color: #FFFFFF !important;
+  background: #000812 !important;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pillBtn:focus-visible {
+  outline: 2px solid #000812;
+  outline-offset: 2px;
 }
 
 /* ─────────────────────────────────────────────
@@ -151,10 +175,10 @@
   left: 50%;
   min-width: 280px;
   padding: 0.5rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
+  background: #FFFFFF;
+  border: 1px solid #DCE7F3;
   border-radius: 14px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 16px 40px rgba(6, 29, 64, 0.08);
   z-index: 200;
 }
 
@@ -162,7 +186,7 @@
   padding: 0.5rem 0.75rem 0.35rem;
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: #62748A;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -179,11 +203,11 @@
 }
 
 .dropdownItem:hover {
-  background: rgba(10, 10, 10, 0.05);
+  background: rgba(16, 39, 70, 0.04);
 }
 
 .dropdownItemActive {
-  background: rgba(54, 207, 246, 0.08);
+  background: rgba(16, 39, 70, 0.06);
 }
 
 .dropdownItemContent {
@@ -195,24 +219,24 @@
 .dropdownItemTitle {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #102746;
   letter-spacing: 0.2px;
 }
 
 .dropdownItemDesc {
   font-size: 0.75rem;
-  color: rgba(10, 10, 10, 0.4);
+  color: #62748A;
 }
 
 .dropdownArrow {
-  color: rgba(10, 10, 10, 0.3);
+  color: #62748A;
   flex-shrink: 0;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .dropdownItem:hover .dropdownArrow {
   transform: translateX(3px);
-  color: var(--accent);
+  color: #102746;
 }
 
 /* ─────────────────────────────────────────────
@@ -231,7 +255,7 @@
   }
 }
 
-/* Search — plain ghost like "Login" */
+/* Search — ghost text */
 .searchTrigger {
   display: flex;
   align-items: center;
@@ -240,7 +264,7 @@
   border-radius: 999px;
   background: none;
   border: none;
-  color: rgba(10, 10, 10, 0.65);
+  color: #62748A;
   font-size: 0.85rem;
   font-weight: 500;
   font-family: inherit;
@@ -250,18 +274,32 @@
   margin-right: 20px;
 }
 
-.searchTrigger:hover {
-  color: var(--text-primary);
+.searchTrigger svg {
+  color: #62748A;
+  transition: color 0.2s ease;
 }
 
-/* Contact — filled pill CTA like "Sign Up" */
+.searchTrigger:hover {
+  color: #102746;
+}
+
+.searchTrigger:hover svg {
+  color: #102746;
+}
+
+.searchTrigger:focus-visible {
+  outline: 2px solid #102746;
+  outline-offset: 2px;
+}
+
+/* Contact — filled pill CTA */
 .contactBtn {
   display: flex;
   align-items: center;
   padding: 0.5rem 1.25rem;
   border-radius: 999px;
-  background: var(--accent);
-  color: var(--bg-primary);
+  background: #000812;
+  color: #FFFFFF;
   font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
@@ -272,7 +310,12 @@
 
 .contactBtn:hover {
   opacity: 0.88;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.contactBtn:focus-visible {
+  outline: 2px solid #102746;
+  outline-offset: 2px;
 }
 
 /* ─────────────────────────────────────────────
@@ -298,7 +341,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--text-primary);
+  background: #102746;
   border-radius: 2px;
   transition: all 0.25s ease;
   transform-origin: center;
@@ -316,13 +359,13 @@
   top: 77px;
   left: 0;
   right: 0;
-  background: var(--bg-primary);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(10, 10, 10, 0.07);
+  background: #FFFFFF;
+  border-bottom: 1px solid #DCE7F3;
   display: flex;
   flex-direction: column;
   padding: 1rem 2rem 2rem;
   z-index: 999;
+  box-shadow: 0 10px 30px rgba(6, 29, 64, 0.05);
 }
 
 @media (min-width: 1024px) {
@@ -334,29 +377,30 @@
 .mobileLink {
   font-size: 1.05rem;
   font-weight: 600;
-  color: rgba(10, 10, 10, 0.75);
+  color: #102746;
   text-decoration: none;
   padding: 0.85rem 0;
-  border-bottom: 1px solid rgba(10, 10, 10, 0.06);
+  border-bottom: 1px solid #DCE7F3;
   transition: color 0.2s ease;
 }
 
 .mobileLink:hover,
 .mobileLinkActive {
-  color: var(--text-primary);
+  color: #102746;
+  font-weight: 700;
 }
 
 .mobileSubLink {
   font-size: 0.9rem;
-  color: rgba(10, 10, 10, 0.45);
+  color: #62748A;
   text-decoration: none;
   padding: 0.6rem 0 0.6rem 1rem;
-  border-bottom: 1px solid rgba(10, 10, 10, 0.04);
+  border-bottom: 1px solid #DCE7F3;
   transition: color 0.2s ease;
 }
 
 .mobileSubLink:hover {
-  color: var(--accent);
+  color: #102746;
 }
 
 /* ─────────────────────────────────────────────
@@ -365,7 +409,7 @@
 .searchBackdrop {
   position: fixed;
   inset: 0;
-  background: rgba(250, 250, 247, 0.65);
+  background: rgba(6, 29, 64, 0.35);
   backdrop-filter: blur(4px);
   z-index: 1100;
 }
@@ -376,10 +420,10 @@
   left: 50%;
   transform: translateX(-50%);
   width: min(640px, calc(100vw - 2rem));
-  background: var(--bg-secondary);
-  border-left: 1px solid var(--border);
+  background: #FFFFFF;
+  border: 1px solid #DCE7F3;
   border-radius: 16px;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 24px 70px rgba(6, 29, 64, 0.12);
   z-index: 1200;
   overflow: hidden;
 }
@@ -389,11 +433,11 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid rgba(10, 10, 10, 0.07);
+  border-bottom: 1px solid #DCE7F3;
 }
 
 .searchIcon {
-  color: rgba(10, 10, 10, 0.4);
+  color: #62748A;
   flex-shrink: 0;
 }
 
@@ -403,19 +447,20 @@
   border: none;
   outline: none;
   font-size: 1rem;
-  color: var(--text-primary);
+  color: #102746;
   font-family: inherit;
-  caret-color: var(--accent);
+  caret-color: #102746;
 }
 
 .searchInput::placeholder {
-  color: rgba(10, 10, 10, 0.3);
+  color: #62748A;
 }
 
 .searchEsc {
   font-size: 0.7rem;
-  color: var(--text-secondary);
-  border-bottom: 1px solid var(--border);
+  color: #62748A;
+  border: 1px solid #DCE7F3;
+  background-color: #EFF7FF;
   padding: 2px 7px;
   border-radius: 5px;
   cursor: pointer;
@@ -450,45 +495,39 @@
 }
 
 .searchResultItem:hover {
-  background: rgba(10, 10, 10, 0.05);
-  color: var(--text-primary);
+  background: #EFF7FF;
 }
 
 .searchResultTitle {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #102746;
 }
 
 .searchResultDesc {
   font-size: 0.78rem;
-  color: rgba(10, 10, 10, 0.4);
+  color: #62748A;
   margin-top: 2px;
 }
 
 .searchResultArrow {
-  color: rgba(10, 10, 10, 0.25);
+  color: #62748A;
   flex-shrink: 0;
   transition: transform 0.15s ease, color 0.15s ease;
 }
 
 .searchResultItem:hover .searchResultArrow {
   transform: translateX(3px);
-  color: var(--accent);
+  color: #102746;
 }
 
 .searchEmpty {
   padding: 1.5rem 1rem;
   text-align: center;
-  color: rgba(10, 10, 10, 0.35);
+  color: #62748A;
   font-size: 0.9rem;
 }
 
 .searchEmpty strong {
-  color: rgba(10, 10, 10, 0.7);
+  color: #102746;
 }
-
-/* Legacy */
-.accent { color: var(--accent); }
-
-

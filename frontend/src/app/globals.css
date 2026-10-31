@@ -1,21 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 :root {
-  --bg-primary: #F4F3EE;
-  --bg-secondary: #FFFFFF;
+  --color-navy: #061D40;
+  --color-blue: #0757C8;
+  --color-blue-bright: #1688F8;
+  --color-ink: #102746;
+  --color-muted: #62748A;
+  --color-surface-blue: #EFF7FF;
+  --color-surface-light: #F7FBFF;
+  --color-border: #DCE7F3;
+  --color-white: #FFFFFF;
+  --color-footer: #000812;
+
+  /* Legacy mappings */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #EFF7FF;
   --bg-card: #FFFFFF;
-  --text-primary: #0A0A0A;
-  --text-secondary: #5A5A5A;
-  --accent: #0A0A0A;
-  --accent-hover: #333333;
-  --border: #E6E4DE;
+  --text-primary: #102746;
+  --text-secondary: #62748A;
+  --accent: #0757C8;
+  --accent-hover: #1688F8;
+  --border: #DCE7F3;
   
-  /* Missing variables from recent find-and-replace */
   --color-bg: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
-  --color-text-muted: rgba(10, 10, 10, 0.25);
-  --color-border-subtle: rgba(10, 10, 10, 0.1);
+  --color-text-muted: #62748A;
+  --color-border-subtle: #DCE7F3;
 }
 
 * {
@@ -25,8 +36,8 @@
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background: #FFFFFF;
+  color: #102746;
   font-family: var(--font-inter), sans-serif;
   line-height: 1.6;
 }
@@ -42,9 +53,6 @@ a {
   transition: color 0.2s ease;
 }
 
-a:hover {
-  color: var(--accent);
-}
 
 button {
   cursor: pointer;

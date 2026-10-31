@@ -12,7 +12,7 @@ interface NetworkVisualProps {
 }
 
 // Omoikane Innovations brand color palette:
-// Electric Cyan (--accent), Bright Aqua (--accent-hover), Sky Blue, Avionics Blue, Slate Accent
+// Radiant Gold, Deep Amber, Burnt Orange, Deep Mahogany, Metallic Bronze
 const OMOIKANE_PALETTE = [
   new THREE.Color(0xffd700), // Radiant Gold
   new THREE.Color(0xff8c00), // Deep Amber
@@ -131,7 +131,7 @@ const nodeShader = {
         float innerGlow = smoothstep(0.65, 0.06, dist);
         float outerHalo = pow(1.0 - dist, 1.5);
 
-        // Aerospace blue/cyan base
+        // Base node tone
         vec3 baseColor = vColor * (0.95 + 0.25 * sin(uTime * 0.8 + vDistanceFromRoot * 0.3));
         vec3 finalColor = baseColor;
 

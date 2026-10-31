@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
+import { useId, useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Check } from 'lucide-react';
 import styles from './CustomSelect.module.css';
@@ -9,6 +9,7 @@ export default function CustomSelect({ options, value, onChange, placeholder = "
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const dropdownRef = useRef(null);
+  const listboxId = useId();
 
   const selectedOption = options.find(opt => opt.id === value);
 
@@ -22,22 +23,17 @@ export default function CustomSelect({ options, value, onChange, placeholder = "
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    if (isOpen) {
-      if (value) {
-        const idx = options.findIndex(opt => opt.id === value);
-        setFocusedIndex(idx !== -1 ? idx : 0);
-      } else {
-        setFocusedIndex(0);
-      }
-    }
-  }, [isOpen, value, options]);
+  const openDropdown = () => {
+    const selectedIndex = value ? options.findIndex(opt => opt.id === value) : -1;
+    setFocusedIndex(selectedIndex >= 0 ? selectedIndex : 0);
+    setIsOpen(true);
+  };
 
   const handleKeyDown = (e) => {
     if (!isOpen) {
       if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
         e.preventDefault();
-        setIsOpen(true);
+        openDropdown();
       }
       return;
     }
@@ -73,11 +69,12 @@ export default function CustomSelect({ options, value, onChange, placeholder = "
     >
       <div 
         className={`${styles.selectTrigger} ${isOpen ? styles.open : ''} ${selectedOption ? styles.hasValue : ''}`}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => (isOpen ? setIsOpen(false) : openDropdown())}
         tabIndex={0}
         role="combobox"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
+        aria-controls={listboxId}
       >
         <span className={styles.selectValue}>
           {selectedOption ? selectedOption.label : placeholder}
@@ -101,6 +98,7 @@ export default function CustomSelect({ options, value, onChange, placeholder = "
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.2 }}
             role="listbox"
+            id={listboxId}
           >
             <div className={styles.optionsScroll}>
               {options.map((option, index) => (

@@ -2,7 +2,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import styles from "./Header.module.css";
 
@@ -10,9 +10,9 @@ import styles from "./Header.module.css";
 const SEARCH_INDEX = [
   { title: "Home", desc: "Omoikane Innovations — Aerospace, Defense & Embedded Systems", href: "/" },
   { title: "About Us", desc: "Learn about Omoikane Innovations, our mission and history", href: "/about" },
-  { title: "Technologies", desc: "Our advanced technology stack and engineering capabilities", href: "/technologies" },
+  { title: "Technologies", desc: "Our advanced technology stack and engineering capabilities", href: "/expertise" },
   { title: "Projects", desc: "Real-world projects and deployments by Omoikane", href: "/projects" },
-  { title: "Industries", desc: "Industries we serve: Defense, Agriculture, Aerospace", href: "/industries" },
+  { title: "Industries", desc: "Industries we serve: Defense, Agriculture, Aerospace", href: "/expertise" },
   { title: "Leadership", desc: "Meet the leadership team at Omoikane Innovations", href: "/leadership" },
   { title: "Contact", desc: "Get in touch with the Omoikane team", href: "/contact" },
   { title: "Software Development Careers", desc: "React, Next.js, Python, AI Developer, Embedded Firmware roles", href: "/careers/software" },
@@ -39,7 +39,7 @@ const NAV_LINKS = [
 
 export default function Header() {
   const pathname = usePathname();
-  const router = useRouter();
+
 
   const [careersOpen, setCareersOpen] = React.useState(false);
   const [searchOpen, setSearchOpen] = React.useState(false);
@@ -64,8 +64,8 @@ export default function Header() {
     }
 
     setIsScrolled((prev) => {
-      if (latest > 80) return true;
-      if (latest < 20) return false;
+      if (latest > 20) return true;
+      if (latest <= 10) return false;
       return prev;
     });
   });
@@ -76,10 +76,14 @@ export default function Header() {
 
   // Close on route change
   React.useEffect(() => {
-    setCareersOpen(false);
-    setSearchOpen(false);
-    setMobileOpen(false);
-    setSearchQuery("");
+    const frame = window.requestAnimationFrame(() => {
+      setCareersOpen(false);
+      setSearchOpen(false);
+      setMobileOpen(false);
+      setSearchQuery("");
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, [pathname]);
 
   // Focus search input when opened
@@ -115,6 +119,27 @@ export default function Header() {
 
   const isCareersActive = pathname?.startsWith("/careers");
 
+  const handleLogoClick = (e) => {
+    // Allow new tab or special modifier clicks (Cmd, Ctrl, Shift, Alt, middle-click)
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+      return;
+    }
+
+    setMobileOpen(false);
+    setCareersOpen(false);
+
+    if (pathname === "/") {
+      e.preventDefault();
+      const hero = document.getElementById("hero");
+      if (hero) {
+        hero.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <motion.header 
@@ -123,7 +148,7 @@ export default function Header() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         {/* ── LOGO ── */}
-        <Link href="/" className={styles.logoLink}>
+        <Link href="/" scroll={true} className={styles.logoLink} onClick={handleLogoClick}>
           <Image
             src="/images/shared/omoikane-logo.png"
             alt="Omoikane Innovations"
@@ -316,7 +341,9 @@ export default function Header() {
                   className={styles.searchInput}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && searchResults.length > 0) {
-                      router.push(searchResults[0].href);
+                      if (typeof window !== "undefined") {
+                        window.location.href = searchResults[0].href;
+                      }
                       setSearchOpen(false);
                     }
                   }}
@@ -328,7 +355,7 @@ export default function Header() {
                 {searchQuery.trim() === "" && (
                   <div className={styles.searchHint}>
                     {SEARCH_INDEX.slice(0, 6).map((item) => (
-                      <Link key={item.href} href={item.href} className={styles.searchResultItem} onClick={() => setSearchOpen(false)}>
+                      <Link key={`${item.title}-${item.href}`} href={item.href} className={styles.searchResultItem} onClick={() => setSearchOpen(false)}>
                         <span className={styles.searchResultTitle}>{item.title}</span>
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className={styles.searchResultArrow}>
                           <path d="M4.5 2.5L8 6L4.5 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -339,11 +366,11 @@ export default function Header() {
                 )}
 
                 {searchQuery.trim() !== "" && searchResults.length === 0 && (
-                  <div className={styles.searchEmpty}>No results for "<strong>{searchQuery}</strong>"</div>
+                  <div className={styles.searchEmpty}>No results for “<strong>{searchQuery}</strong>”</div>
                 )}
 
                 {searchResults.map((item) => (
-                  <Link key={item.href} href={item.href} className={styles.searchResultItem} onClick={() => setSearchOpen(false)}>
+                  <Link key={`${item.title}-${item.href}`} href={item.href} className={styles.searchResultItem} onClick={() => setSearchOpen(false)}>
                     <div>
                       <div className={styles.searchResultTitle}>{item.title}</div>
                       <div className={styles.searchResultDesc}>{item.desc}</div>
