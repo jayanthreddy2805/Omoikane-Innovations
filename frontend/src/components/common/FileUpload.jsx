@@ -6,11 +6,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Field, FieldLabel } from "@/components/ui/v-field-21-utils/field";
 import styles from "./FileUpload.module.css";
 
-export default function FileUpload({ id = "cv", required = false }) {
-  const [file, setFile] = useState(null);
+export default function FileUpload({ id = "cv", required = false, onChange, file: externalFile }) {
+  const [internalFile, setInternalFile] = useState(null);
+  const file = externalFile !== undefined ? externalFile : internalFile;
   const [isDragging, setIsDragging] = useState(false);
   const [error, setError] = useState("");
   const inputRef = useRef(null);
+
+  const updateFile = (newFile) => {
+    if (externalFile === undefined) {
+      setInternalFile(newFile);
+    }
+    if (onChange) {
+      onChange(newFile);
+    }
+  };
 
   const formatFileSize = (bytes) => {
     if (bytes === 0) return '0 Bytes';
@@ -51,9 +61,9 @@ export default function FileUpload({ id = "cv", required = false }) {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
       if (validateFile(selectedFile)) {
-        setFile(selectedFile);
+        updateFile(selectedFile);
       } else {
-        setFile(null);
+        updateFile(null);
         if (inputRef.current) inputRef.current.value = "";
       }
     }
@@ -61,7 +71,7 @@ export default function FileUpload({ id = "cv", required = false }) {
 
   const handleClear = (e) => {
     e.stopPropagation();
-    setFile(null);
+    updateFile(null);
     setError("");
     if (inputRef.current) inputRef.current.value = "";
   };
@@ -82,7 +92,7 @@ export default function FileUpload({ id = "cv", required = false }) {
     const droppedFile = e.dataTransfer.files?.[0];
     if (droppedFile) {
       if (validateFile(droppedFile)) {
-        setFile(droppedFile);
+        updateFile(droppedFile);
         const dataTransfer = new DataTransfer();
         dataTransfer.items.add(droppedFile);
         if (inputRef.current) inputRef.current.files = dataTransfer.files;
