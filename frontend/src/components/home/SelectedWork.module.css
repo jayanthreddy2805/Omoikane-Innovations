@@ -86,20 +86,16 @@
 }
 
 .rowCollapsed {
-  background-color: #EFF7FF;
-}
-
-.rowCollapsed:nth-child(even) {
-  background-color: #F7FBFF;
+  background-color: #FFFFFF;
 }
 
 .rowCollapsed:hover {
-  background-color: #EAF5FF;
+  background-color: #F7FBFF;
 }
 
-/* Active Row: Clean white surface with royal-blue active indicator line */
+/* Active Row: Pale blue gradient with royal-blue active indicator line */
 .rowActive {
-  background-color: #FFFFFF !important;
+  background: var(--gradient-surface) !important;
   border-color: #DCE7F3 !important;
   color: #102746;
   border-radius: 0 !important;

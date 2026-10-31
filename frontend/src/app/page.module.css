@@ -450,13 +450,13 @@
 
 /* ─────────────────────────────────────────────────────────
    WHY OUR PRODUCTS STAND OUT
-   Pale highlighted section: linear-gradient(180deg, #EFF7FF 0%, #F7FBFF 100%)
+   White section with pale blue cards
 ───────────────────────────────────────────────────────── */
 .whySection {
   width: 100%;
   padding: clamp(5rem, 7.5vw, 7.5rem) 1.5rem;
   position: relative;
-  background: linear-gradient(180deg, var(--color-surface-blue) 0%, var(--color-surface-light) 100%);
+  background: var(--color-white);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
@@ -517,7 +517,7 @@
 }
 
 .whyCard {
-  background: var(--color-white);
+  background: var(--gradient-surface);
   border-radius: 12px;
   padding: clamp(1.75rem, 2.5vw, 2.25rem) clamp(1.5rem, 2vw, 1.85rem);
   border: 1px solid var(--color-border);

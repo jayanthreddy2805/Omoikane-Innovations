@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  background: var(--gradient-surface);
+  background: #FFFFFF;
   color: var(--color-ink, #102746);
   position: relative;
   border-top: 1px solid var(--color-border, #DCE7F3);

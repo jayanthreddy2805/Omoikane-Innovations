@@ -11,7 +11,7 @@
   position: relative;
   width: 100%;
   color: var(--ink);
-  background: var(--gradient-surface);
+  background: var(--paper);
   overflow: hidden;
   isolation: isolate;
 }
