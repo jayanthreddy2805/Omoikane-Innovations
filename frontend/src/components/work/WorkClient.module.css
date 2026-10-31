@@ -124,103 +124,149 @@
   margin: 0;
 }
 
-/* ── Focus Areas horizontal engineering index ── */
-.focusIndexContainer {
+/* ── Focus Areas Horizontal Strip (Reference Redesign) ── */
+.focusStripContainer {
   width: 100%;
   max-width: 1320px;
-  margin: clamp(3rem, 6vh, 5rem) auto 0 auto;
+  margin: clamp(3rem, 5.5vh, 4.5rem) auto 0 auto;
   position: relative;
   z-index: 1;
   border-top: 1px solid var(--color-border, #DCE7F3);
-  padding-top: clamp(1.5rem, 2.5vh, 2.25rem);
+  border-bottom: 1px solid var(--color-border, #DCE7F3);
+  background-color: #FFFFFF;
+  box-sizing: border-box;
 }
 
-.focusIndexInner {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
+.focusStripTrack {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.focusIndexLabel {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-muted, #62748A);
-  white-space: nowrap;
-}
-
-.focusIndexNav {
+.focusStripItem {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: clamp(1.75rem, 3.2vw, 3.25rem);
-}
-
-.focusIndexLink {
-  display: inline-flex;
-  align-items: baseline;
+  gap: 1.15rem;
+  padding: 1.6rem 1.4rem;
   text-decoration: none;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  padding: 0;
-}
-
-.focusIndexText {
+  color: inherit;
   position: relative;
-  display: inline-block;
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(0.78rem, 0.95vw, 0.88rem);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-ink, #102746);
-  transition: color 220ms ease;
+  transition: background-color 200ms ease;
+  box-sizing: border-box;
 }
 
-.focusIndexText::after {
+.focusStripItem:not(:last-child)::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 1px;
-  background-color: var(--color-blue, #0757C8);
-  transition: width 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  right: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 1px;
+  background-color: var(--color-border, #DCE7F3);
 }
 
-.focusIndexLink:hover .focusIndexText {
+.focusStripItem:hover {
+  background-color: #F7FBFF;
+}
+
+.focusIconBox {
+  width: 50px;
+  height: 50px;
+  border-radius: 13px;
+  background-color: #EFF7FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-blue, #0757C8);
+  flex-shrink: 0;
+  transition: transform 220ms ease, background-color 200ms ease;
+}
+
+.focusStripItem:hover .focusIconBox {
+  transform: scale(1.04);
+  background-color: #E2F0FD;
+}
+
+.focusTextBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.focusTitle {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-navy, #061D40);
+  line-height: 1.25;
+  margin: 0;
+  transition: color 200ms ease;
+}
+
+.focusStripItem:hover .focusTitle {
   color: var(--color-blue, #0757C8);
 }
 
-.focusIndexLink:hover .focusIndexText::after {
-  width: 100%;
+.focusSubtitle {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(0.76rem, 0.88vw, 0.82rem);
+  font-weight: 400;
+  color: var(--color-muted, #62748A);
+  line-height: 1.35;
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 1140px) {
+  .focusSubtitle {
+    white-space: normal;
+  }
 }
 
 @media (max-width: 900px) {
-  .focusIndexInner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
+  .focusStripTrack {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .focusIndexNav {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.15rem;
+
+  .focusStripItem:nth-child(2)::after {
+    display: none;
   }
-  
-  .focusIndexLink {
-    width: 100%;
-    padding-bottom: 0.5rem;
+
+  .focusStripItem:nth-child(1),
+  .focusStripItem:nth-child(2) {
     border-bottom: 1px solid var(--color-border, #DCE7F3);
+  }
+
+  .focusStripItem {
+    padding: 1.35rem 1.15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .focusStripTrack {
+    grid-template-columns: 1fr;
+  }
+
+  .focusStripItem::after {
+    display: none !important;
+  }
+
+  .focusStripItem:not(:last-child) {
+    border-bottom: 1px solid var(--color-border, #DCE7F3);
+  }
+
+  .focusStripItem {
+    padding: 1.15rem 1rem;
+    gap: 1rem;
+  }
+
+  .focusIconBox {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
   }
 }
 

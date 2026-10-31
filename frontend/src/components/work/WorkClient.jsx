@@ -107,6 +107,68 @@ const WORK_SYSTEMS = [
   },
 ];
 
+const FOCUS_AREAS = [
+  {
+    id: "aerospace",
+    title: "Aerospace",
+    subtitle: "High reliability. Mission critical.",
+    href: "/work#ofc-x",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" transform="rotate(45 12 12)" />
+      </svg>
+    ),
+  },
+  {
+    id: "defense",
+    title: "Defense",
+    subtitle: "Trusted. Secure. Indigenous.",
+    href: "/work#ogn-x",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 2.5L20.5 12L12 21.5L3.5 12Z" />
+      </svg>
+    ),
+  },
+  {
+    id: "embedded-systems",
+    title: "Embedded Systems",
+    subtitle: "Intelligent hardware. Real impact.",
+    href: "/work#ocom-x",
+    icon: (
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <rect x="2.5" y="2.5" width="3.5" height="3.5" rx="0.6" />
+        <rect x="8" y="2.5" width="3.5" height="3.5" rx="0.6" />
+        <rect x="13.5" y="2.5" width="3.5" height="3.5" rx="0.6" />
+        <rect x="19" y="2.5" width="3.5" height="3.5" rx="0.6" />
+        <rect x="2.5" y="8" width="3.5" height="3.5" rx="0.6" />
+        <rect x="8" y="8" width="3.5" height="3.5" rx="0.6" />
+        <rect x="13.5" y="8" width="3.5" height="3.5" rx="0.6" />
+        <rect x="19" y="8" width="3.5" height="3.5" rx="0.6" />
+        <rect x="2.5" y="13.5" width="3.5" height="3.5" rx="0.6" />
+        <rect x="8" y="13.5" width="3.5" height="3.5" rx="0.6" />
+        <rect x="13.5" y="13.5" width="3.5" height="3.5" rx="0.6" />
+        <rect x="19" y="13.5" width="3.5" height="3.5" rx="0.6" />
+        <rect x="2.5" y="19" width="3.5" height="3.5" rx="0.6" />
+        <rect x="8" y="19" width="3.5" height="3.5" rx="0.6" />
+        <rect x="13.5" y="19" width="3.5" height="3.5" rx="0.6" />
+        <rect x="19" y="19" width="3.5" height="3.5" rx="0.6" />
+      </svg>
+    ),
+  },
+  {
+    id: "uav-solutions",
+    title: "UAV Solutions",
+    subtitle: "Autonomous. Precise. Future ready.",
+    href: "/work#oesc",
+    icon: (
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+      </svg>
+    ),
+  },
+];
+
 export default function WorkClient() {
   return (
     <div className={styles.pageContainer}>
@@ -130,24 +192,25 @@ export default function WorkClient() {
           </div>
         </div>
 
-        {/* Focus Areas Horizontal Engineering Index */}
-        <div className={styles.focusIndexContainer}>
-          <div className={styles.focusIndexInner}>
-            <span className={styles.focusIndexLabel}>FOCUS AREAS</span>
-            <nav className={styles.focusIndexNav} aria-label="Work focus areas">
-              <Link href="/work#ofc-x" className={styles.focusIndexLink}>
-                <span className={styles.focusIndexText}>FLIGHT CONTROLLERS</span>
+        {/* Focus Areas Horizontal Strip */}
+        <div className={styles.focusStripContainer}>
+          <div className={styles.focusStripTrack} role="list" aria-label="Work focus areas">
+            {FOCUS_AREAS.map((item) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={styles.focusStripItem}
+                role="listitem"
+              >
+                <div className={styles.focusIconBox}>
+                  {item.icon}
+                </div>
+                <div className={styles.focusTextBox}>
+                  <h3 className={styles.focusTitle}>{item.title}</h3>
+                  <p className={styles.focusSubtitle}>{item.subtitle}</p>
+                </div>
               </Link>
-              <Link href="/work#oesc" className={styles.focusIndexLink}>
-                <span className={styles.focusIndexText}>ELECTRONIC SPEED CONTROLLERS</span>
-              </Link>
-              <Link href="/work#ogn-x" className={styles.focusIndexLink}>
-                <span className={styles.focusIndexText}>GNSS / GPS</span>
-              </Link>
-              <Link href="/work#ocom-x" className={styles.focusIndexLink}>
-                <span className={styles.focusIndexText}>COMMUNICATION SYSTEMS</span>
-              </Link>
-            </nav>
+            ))}
           </div>
         </div>
       </section>
