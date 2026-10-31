@@ -8,8 +8,8 @@ import ChatMessageList from './ChatMessageList';
 import ChatInput from './ChatInput';
 import styles from './ChatbotWidget.module.css';
 
-export default function ChatbotWidget() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function ChatbotWidget({ initiallyOpen = false }) {
+  const [isOpen, setIsOpen] = useState(initiallyOpen);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
