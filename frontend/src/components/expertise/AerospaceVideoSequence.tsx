@@ -160,6 +160,11 @@ export default function AerospaceVideoSequence({
 
   // 2. Trigger playback when active becomes true
   useEffect(() => {
+    if (!active) {
+      timelineRef.current?.pause();
+      videoRefs.current.forEach((video) => video?.pause());
+      return;
+    }
     if (active && !playedRef.current) {
       playedRef.current = true;
       if (reducedMotion) {
@@ -186,7 +191,7 @@ export default function AerospaceVideoSequence({
               src={clip.src}
               muted
               playsInline
-              preload="auto"
+              preload="none"
               aria-label={clip.alt}
             />
           </div>
