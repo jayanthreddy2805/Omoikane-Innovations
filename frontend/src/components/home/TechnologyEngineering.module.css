@@ -62,10 +62,10 @@
 
 .supportingCopy {
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(0.9375rem, 1.05vw, 1.0625rem); /* 15–17px */
+  font-size: var(--type-body);
   line-height: 1.65;
   color: var(--color-on-dark-muted, #B6C8DE);
-  max-width: 540px;
+  max-width: min(100%, var(--measure-copy));
   margin: 0;
 }
 
@@ -150,8 +150,8 @@
 .description {
   grid-area: content;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(0.875rem, 0.98vw, 0.975rem);
-  line-height: 1.55;
+  font-size: var(--type-body);
+  line-height: 1.6;
   color: var(--color-on-dark, #F7FBFF);
   margin: 0;
   opacity: 0;

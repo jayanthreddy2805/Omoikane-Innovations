@@ -16,7 +16,7 @@
   width: 100%;
   background-color: #FFFFFF;
   color: #102746;
-  padding: clamp(5.5rem, 8vw, 8.5rem) 0;
+  padding: var(--space-section) 0;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
@@ -43,7 +43,7 @@
 
 .heading {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-size: var(--type-section);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -54,11 +54,11 @@
 
 .subtitle {
   font-family: var(--font-inter), sans-serif;
-  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  font-size: var(--type-lead);
   color: var(--home-muted, #62748A);
   line-height: 1.65;
   margin: 0 auto;
-  max-width: 620px;
+  max-width: var(--measure-copy);
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -352,8 +352,8 @@
 
 .projectDesc {
   font-family: var(--font-inter), sans-serif;
-  font-size: clamp(0.98rem, 1.25vw, 1.08rem);
-  line-height: 1.7;
+  font-size: var(--type-body);
+  line-height: 1.65;
   color: var(--home-muted, #62748A);
   margin: 0;
   max-width: 620px;

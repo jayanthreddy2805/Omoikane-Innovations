@@ -194,7 +194,7 @@
 ───────────────────────────────────────────────────────── */
 .expertiseSection {
   width: 100%;
-  padding: clamp(5.5rem, 8vw, 8rem) 1.5rem;
+  padding: var(--space-section) 1.5rem;
   position: relative;
   background: linear-gradient(180deg, var(--color-surface-blue) 0%, var(--color-surface-light) 100%);
   border-bottom: 1px solid var(--color-border);
@@ -222,7 +222,7 @@
 
 .sectionTitle {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: var(--type-section);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -231,9 +231,9 @@
 }
 
 .sectionSubtitle {
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-size: var(--type-lead);
   color: var(--color-muted);
-  max-width: 680px;
+  max-width: var(--measure-copy);
   line-height: 1.65;
 }
 
@@ -454,7 +454,7 @@
 ───────────────────────────────────────────────────────── */
 .whySection {
   width: 100%;
-  padding: clamp(5rem, 7.5vw, 7.5rem) 1.5rem;
+  padding: var(--space-section) 1.5rem;
   position: relative;
   background: var(--color-white);
   border-top: 1px solid var(--color-border);
@@ -483,7 +483,7 @@
 
 .whyHeadline {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.2rem, 4.2vw, 3.25rem);
+  font-size: var(--type-section);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -493,10 +493,10 @@
 
 .whySubtitle {
   font-family: var(--font-inter), sans-serif;
-  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  font-size: var(--type-body);
   color: var(--color-muted);
-  max-width: 620px;
-  line-height: 1.6;
+  max-width: var(--measure-copy);
+  line-height: 1.65;
   margin: 0;
 }
 

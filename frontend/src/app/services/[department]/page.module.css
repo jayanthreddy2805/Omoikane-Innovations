@@ -12,8 +12,9 @@
 }
 
 .title {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: var(--type-section);
   letter-spacing: 1px;
+  line-height: 1.1;
   margin-bottom: 1rem;
   color: var(--color-navy, #061D40);
 }
@@ -31,7 +32,10 @@
 
 .subtitle {
   color: var(--color-muted, #62748A);
-  font-size: 1.1rem;
+  font-size: var(--type-lead);
+  line-height: 1.65;
+  max-width: var(--measure-copy);
+  margin-inline: auto;
 }
 
 .contactSection {
@@ -59,7 +63,8 @@
 .formDesc {
   color: var(--color-muted, #62748A);
   margin-bottom: 2rem;
-  font-size: 0.95rem;
+  font-size: var(--type-body);
+  line-height: 1.65;
 }
 
 .premiumForm {

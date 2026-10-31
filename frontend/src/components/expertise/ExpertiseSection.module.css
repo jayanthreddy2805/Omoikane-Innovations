@@ -84,9 +84,9 @@
   margin: 25px 0 0;
   max-width: 510px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(18px, 1.5vw, 22px);
+  font-size: var(--type-lead);
   font-weight: 400;
-  line-height: 1.44;
+  line-height: 1.6;
   letter-spacing: -.018em;
   color: var(--color-on-dark-muted, #B6C8DE);
   will-change: transform, opacity, filter;
