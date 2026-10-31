@@ -468,8 +468,18 @@
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   line-height: 1.68;
   color: var(--color-muted, #62748A);
-  margin: 0 0 1.75rem 0;
+  margin: 0 0 1.5rem 0;
   max-width: 58ch;
+}
+
+.profileLabel {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-blue, #0757C8);
+  margin: 0 0 0.5rem;
 }
 
 /* Key design considerations header */

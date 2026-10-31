@@ -14,8 +14,10 @@ const WORK_SYSTEMS = [
     number: "01",
     title: "OFC-X — Flight Controller",
     description:
-      "High-performance, reliable and flexible flight control for autonomous platforms. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
-    considerationsHeading: "Key design considerations",
+      "High-performance, reliable and flexible flight control for autonomous platforms.",
+    engineering:
+      "Omoikane develops flight controller configurations around MCU options, sensor and I/O interfaces, and the platform's operating conditions.",
+    considerationsHeading: "Technical and integration considerations",
     considerationsCol1: [
       "STM32 / AT32 MCU options",
       "Multiple I/O and sensor interfaces",
@@ -38,8 +40,10 @@ const WORK_SYSTEMS = [
     number: "02",
     title: "OESC-60 / OESC-100 — 4-in-1 Electronic Speed Controller",
     description:
-      "High-efficiency, high-current ESC platform for multirotor propulsion systems. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
-    considerationsHeading: "Key design considerations",
+      "High-efficiency, high-current ESC platform for multirotor propulsion systems.",
+    engineering:
+      "The 4-in-1 controller is developed with 60A / 100A variants, 6S–12S platform options, and current and thermal protection in scope.",
+    considerationsHeading: "Technical and integration considerations",
     considerationsCol1: [
       "60A / 100A variants",
       "6S–12S platform options",
@@ -62,8 +66,10 @@ const WORK_SYSTEMS = [
     number: "03",
     title: "OGN-X — GNSS / GPS Module",
     description:
-      "Precision positioning architecture for autonomous navigation and mapping. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
-    considerationsHeading: "Key design considerations",
+      "Precision positioning architecture for autonomous navigation and mapping.",
+    engineering:
+      "The module's engineering scope includes multi-constellation GNSS options, an RTK-ready architecture, and compact integration for the host platform.",
+    considerationsHeading: "Technical and integration considerations",
     considerationsCol1: [
       "Multi-constellation GNSS options",
       "RTK-ready architecture",
@@ -86,8 +92,10 @@ const WORK_SYSTEMS = [
     number: "04",
     title: "OCOM-X — Communication System",
     description:
-      "Reliable communication architecture for connected autonomous systems. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
-    considerationsHeading: "Key design considerations",
+      "Reliable communication architecture for connected autonomous systems.",
+    engineering:
+      "The system is developed around RF / LTE integration options, secure link architecture, and low-power design requirements.",
+    considerationsHeading: "Technical and integration considerations",
     considerationsCol1: [
       "RF / LTE integration options",
       "Secure link architecture",
@@ -218,7 +226,7 @@ export default function WorkClient() {
       {/* ── 2. TECHNOLOGY & ENGINEERING MATRIX ── */}
       <TechnologyEngineering />
 
-      {/* ── 3. SHOWCASE ROWS (MATCHING REFERENCE DESIGN) ── */}
+      {/* ── 3. PRODUCT PROFILES ── */}
       <section className={styles.showcaseSection} aria-label="Our Work Product Configurations">
         <div className={styles.showcaseContainer}>
           {WORK_SYSTEMS.map((system, index) => (
@@ -274,7 +282,10 @@ export default function WorkClient() {
 
                 <div className={styles.editorialBody}>
                   <h2 className={styles.productTitle}>{system.title}</h2>
+                  <h3 className={styles.profileLabel}>Product purpose</h3>
                   <p className={styles.productDescription}>{system.description}</p>
+                  <h3 className={styles.profileLabel}>Engineering scope</h3>
+                  <p className={styles.productDescription}>{system.engineering}</p>
 
                   <h3 className={styles.considerationsHeading}>
                     {system.considerationsHeading}
