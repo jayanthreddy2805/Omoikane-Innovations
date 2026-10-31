@@ -70,11 +70,11 @@
 }
 
 .heroSub {
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: var(--type-lead);
+  line-height: 1.65;
   color: var(--text-muted);
   margin-bottom: 3rem;
-  max-width: 500px;
+  max-width: var(--measure-copy);
 }
 
 .heroCtas {
@@ -372,11 +372,11 @@
 }
 
 .roleDesc {
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: var(--type-lead);
+  line-height: 1.65;
   color: var(--text-primary);
   margin-bottom: 3.5rem;
-  max-width: 700px;
+  max-width: var(--measure-copy);
 }
 
 .roleVisualFull {
@@ -712,7 +712,7 @@
 
 .applyText h2 {
   font-family: var(--font-space-grotesk);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: var(--type-section);
   font-weight: 500;
   letter-spacing: -1px;
   line-height: 1.1;
@@ -722,8 +722,9 @@
 
 .applyText > p {
   color: var(--text-muted);
-  line-height: 1.5;
-  font-size: 1.05rem;
+  line-height: 1.65;
+  font-size: var(--type-body);
+  max-width: var(--measure-copy);
   margin-bottom: 2.5rem;
 }
 

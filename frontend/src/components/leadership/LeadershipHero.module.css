@@ -256,10 +256,10 @@
 }
 .actualDesc {
   font-family: 'Satoshi', sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: var(--type-body);
+  line-height: 1.65;
   color: var(--muted);
-  max-width: 90%;
+  max-width: min(90%, var(--measure-copy));
   margin: 0;
   margin-bottom: 0.5rem;
 }

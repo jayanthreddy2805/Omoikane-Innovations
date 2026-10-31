@@ -16,6 +16,13 @@
   --color-border-dark: rgba(220, 231, 243, 0.16);
   --gradient-surface: linear-gradient(180deg, #EFF7FF 0%, #F7FBFF 100%);
 
+  /* Shared reading scale; display lettering and technical labels stay component-specific. */
+  --type-section: clamp(2.25rem, 4vw, 3.5rem);
+  --type-lead: clamp(1.0625rem, 1.35vw, 1.1875rem);
+  --type-body: 1rem;
+  --measure-copy: 65ch;
+  --space-section: clamp(5rem, 8vw, 8rem);
+
   /* Legacy mappings */
   --bg-primary: #FFFFFF;
   --bg-secondary: #EFF7FF;
@@ -44,7 +51,8 @@ body {
   background: var(--color-white);
   color: var(--color-ink);
   font-family: var(--font-inter), sans-serif;
-  line-height: 1.6;
+  font-size: var(--type-body);
+  line-height: 1.65;
 }
 
 h1, h2, h3, h4, h5, h6 {

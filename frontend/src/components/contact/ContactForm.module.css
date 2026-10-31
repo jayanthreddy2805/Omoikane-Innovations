@@ -37,7 +37,7 @@
   border-radius: 4px;
   padding: 16px;
   font-family: var(--font-inter, sans-serif);
-  font-size: 15px;
+  font-size: var(--type-body);
   color: #102746;
   transition: all 0.2s ease;
 }
@@ -93,8 +93,8 @@
 
 .successText {
   font-family: var(--font-inter, sans-serif);
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: var(--type-body);
+  line-height: 1.65;
   color: #62748A;
   margin-bottom: 8px;
   max-width: 500px;
@@ -111,7 +111,7 @@
 
 .signatureTitle {
   font-family: var(--font-inter, sans-serif);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.05em;
   color: #061D40;
   margin-bottom: 2px;
@@ -119,7 +119,7 @@
 
 .signatureLocation {
   font-family: var(--font-inter, sans-serif);
-  font-size: 13px;
+  font-size: 14px;
   color: #62748A;
   margin-bottom: 16px;
 }
@@ -133,7 +133,7 @@
 
 .signatureLinks a {
   font-family: var(--font-inter, sans-serif);
-  font-size: 13px;
+  font-size: 14px;
   color: #62748A;
   text-decoration: none;
   transition: color 0.2s ease;

@@ -73,7 +73,7 @@
 
 /* TYPOGRAPHY */
 .colHeader {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 2.5px;
   color: var(--text-subtle);
@@ -96,9 +96,9 @@
 .certDesc {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   transition: color 0.2s ease;
-  line-height: 1.4;
+  line-height: 1.55;
 }
 
 .linkList li a:hover,
@@ -166,8 +166,8 @@
 
 .subscribeDesc {
   color: var(--text-secondary);
-  font-size: 0.82rem;
-  line-height: 1.55;
+  font-size: 0.875rem;
+  line-height: 1.6;
   margin-bottom: 1.25rem;
 }
 
@@ -385,10 +385,10 @@
 /* Supporting Text */
 .heroText {
   font-family: var(--font-inter), sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: var(--type-body);
+  line-height: 1.65;
   color: var(--text-secondary);
-  max-width: 580px;
+  max-width: var(--measure-copy);
   margin-bottom: 1.75rem;
 }
 

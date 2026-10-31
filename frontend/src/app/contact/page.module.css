@@ -312,10 +312,11 @@
 
 .enquiryText {
   font-family: var(--font-inter, sans-serif);
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: var(--type-body);
+  line-height: 1.65;
   color: var(--color-muted, #62748A);
   margin-bottom: 40px;
+  max-width: var(--measure-copy);
 }
 
 .enquiryVisualContainer {

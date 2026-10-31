@@ -4,7 +4,7 @@
   color: var(--color-ink, #102746);
   position: relative;
   border-top: 1px solid var(--color-border, #DCE7F3);
-  padding: clamp(80px, 8vw, 130px) clamp(24px, 5vw, 64px);
+  padding: var(--space-section) clamp(24px, 5vw, 64px);
   box-sizing: border-box;
 }
 
@@ -32,7 +32,7 @@
 
 .headline {
   font-family: var(--font-space-grotesk), "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(34px, 4vw, 56px);
+  font-size: var(--type-section);
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -88,8 +88,8 @@
 
 .columnDesc {
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 14px;
-  line-height: 1.62;
+  font-size: var(--type-body);
+  line-height: 1.65;
   color: var(--color-muted, #62748A);
   margin: 0;
   text-wrap: pretty;

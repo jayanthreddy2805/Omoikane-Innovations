@@ -7,7 +7,7 @@
   width: 100%;
   background: #FFFFFF;
   color: #102746;
-  padding: clamp(5rem, 8vw, 8rem) 1.5rem;
+  padding: var(--space-section) 1.5rem;
   position: relative;
   box-sizing: border-box;
   border-top: 1px solid #DCE7F3;
@@ -16,7 +16,7 @@
 
 @media (min-width: 1024px) {
   .careersSection {
-    padding: clamp(5.5rem, 8.5vw, 8.5rem) 2rem;
+    padding-inline: 2rem;
   }
 }
 
@@ -40,7 +40,7 @@
 
 .heading {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  font-size: var(--type-section);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -51,11 +51,11 @@
 
 .description {
   font-family: var(--font-inter), sans-serif;
-  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  font-size: var(--type-lead);
   line-height: 1.65;
   color: #62748A;
   margin: 0;
-  max-width: 64ch;
+  max-width: var(--measure-copy);
 }
 
 /* ─────────────────────────────────────────────────────────
