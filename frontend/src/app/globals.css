@@ -10,6 +10,11 @@
   --color-border: #DCE7F3;
   --color-white: #FFFFFF;
   --color-footer: #000812;
+  --color-on-dark: #F7FBFF;
+  --color-on-dark-muted: #B6C8DE;
+  --color-on-dark-subtle: #8FA6C0;
+  --color-border-dark: rgba(220, 231, 243, 0.16);
+  --gradient-surface: linear-gradient(180deg, #EFF7FF 0%, #F7FBFF 100%);
 
   /* Legacy mappings */
   --bg-primary: #FFFFFF;
@@ -36,8 +41,8 @@
 }
 
 body {
-  background: #FFFFFF;
-  color: #102746;
+  background: var(--color-white);
+  color: var(--color-ink);
   font-family: var(--font-inter), sans-serif;
   line-height: 1.6;
 }

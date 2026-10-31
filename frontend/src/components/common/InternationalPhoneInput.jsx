@@ -209,7 +209,7 @@ export default function InternationalPhoneInput({
             >
               <div className={isCareer ? styles.searchHeaderCareer : styles.searchHeader}>
                 <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-                  <Search size={14} color="#888888" style={{ position: 'absolute', left: '10px' }} />
+                  <Search size={14} color="#62748A" style={{ position: 'absolute', left: '10px' }} />
                   <input
                     ref={searchInputRef}
                     type="text"

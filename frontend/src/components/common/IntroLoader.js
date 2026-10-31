@@ -48,7 +48,7 @@ export default function IntroLoader({ children }) {
   };
 
   const activePalette = dark ? DARK : LIGHT;
-  const containerBg = dark ? '#0c0c0e' : '#F4F3EE';
+  const containerBg = dark ? '#000812' : '#F7FBFF';
 
   return (
     <>

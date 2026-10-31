@@ -1,7 +1,7 @@
 .marqueeContainer {
   width: 100%;
   overflow: hidden;
-  background-color: #FFFFFF;
+  background: var(--gradient-surface);
   padding: 30px 0;
   display: flex;
   align-items: center;
@@ -23,11 +23,11 @@
 }
 .marqueeContainer::before {
   left: 0;
-  background: linear-gradient(to right, #FFFFFF, transparent);
+  background: linear-gradient(to right, #EFF7FF, transparent);
 }
 .marqueeContainer::after {
   right: 0;
-  background: linear-gradient(to left, #FFFFFF, transparent);
+  background: linear-gradient(to left, #F7FBFF, transparent);
 }
 
 .marqueeTrack {

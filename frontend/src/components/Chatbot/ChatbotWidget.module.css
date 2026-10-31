@@ -15,9 +15,9 @@
   gap: 10px;
   padding: 8px 18px 8px 10px;
   background-color: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #DCE7F3;
   border-radius: 9999px;
-  color: #111827;
+  color: #102746;
   cursor: pointer;
   box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.14), 0 4px 10px -2px rgba(0, 0, 0, 0.08);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -26,7 +26,7 @@
 .launcherButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 30px -4px rgba(0, 0, 0, 0.18), 0 6px 14px -2px rgba(0, 0, 0, 0.1);
-  border-color: #D1D5DB;
+  border-color: #DCE7F3;
 }
 
 .launcherInner {
@@ -42,8 +42,8 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
+  background: #F7FBFF;
+  border: 1px solid #DCE7F3;
   overflow: hidden;
 }
 
@@ -55,7 +55,7 @@
   font-family: var(--font-inter, -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: 0.9rem;
   font-weight: 600;
-  color: #0F172A;
+  color: #061D40;
   letter-spacing: -0.01em;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .launcherCloseIcon {
-  color: #475569;
+  color: #62748A;
 }
 
 /* ─── 2. Main Chat Panel (Intercom Light Theme) ───────────────────────────── */
@@ -81,7 +81,7 @@
   height: 630px;
   max-height: calc(100vh - 48px);
   background-color: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #DCE7F3;
   border-radius: 18px;
   box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.18), 0 8px 20px -4px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -101,7 +101,7 @@
   flex-direction: column;
   flex: 1;
   min-height: 0;
-  background-color: #F8FAFC;
+  background-color: #F7FBFF;
 }
 
 /* ─── 3. Header ───────────────────────────────────────────────────────────── */
@@ -111,7 +111,7 @@
   justify-content: space-between;
   padding: 12px 18px;
   background-color: #FFFFFF;
-  border-bottom: 1px solid #E5E7EB;
+  border-bottom: 1px solid #DCE7F3;
   user-select: none;
 }
 
@@ -129,8 +129,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #F1F5F9;
-  border: 1px solid #E2E8F0;
+  background: #EFF7FF;
+  border: 1px solid #DCE7F3;
   overflow: visible;
 }
 
@@ -159,7 +159,7 @@
   font-family: var(--font-space-grotesk, var(--font-inter), sans-serif);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #0F172A;
+  color: #061D40;
   line-height: 1.25;
 }
 
@@ -179,7 +179,7 @@
 
 .headerStatusText {
   font-size: 0.74rem;
-  color: #64748B;
+  color: #62748A;
   font-weight: 500;
 }
 
@@ -196,7 +196,7 @@
   width: 30px;
   height: 30px;
   border-radius: 8px;
-  color: #64748B;
+  color: #62748A;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -204,8 +204,8 @@
 }
 
 .headerActionButton:hover {
-  color: #0F172A;
-  background-color: #F1F5F9;
+  color: #061D40;
+  background-color: #EFF7FF;
 }
 
 .headerCloseBtn:hover {
@@ -222,7 +222,7 @@
   flex-direction: column;
   gap: 16px;
   scroll-behavior: smooth;
-  background-color: #F8FAFC;
+  background-color: #F7FBFF;
 }
 
 .chatScrollArea::-webkit-scrollbar {
@@ -234,12 +234,12 @@
 }
 
 .chatScrollArea::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #DCE7F3;
   border-radius: 9999px;
 }
 
 .chatScrollArea::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #8FA6C0;
 }
 
 .messageStream {
@@ -256,7 +256,7 @@
   text-align: center;
   padding: 24px 14px 16px;
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #DCE7F3;
   border-radius: 16px;
   box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
   margin: auto 0;
@@ -266,8 +266,8 @@
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: #F1F5F9;
-  border: 1px solid #E2E8F0;
+  background: #EFF7FF;
+  border: 1px solid #DCE7F3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -283,13 +283,13 @@
   font-family: var(--font-space-grotesk, sans-serif);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #0F172A;
+  color: #061D40;
   margin-bottom: 8px;
 }
 
 .welcomeGreeting {
   font-size: 0.88rem;
-  color: #475569;
+  color: #62748A;
   line-height: 1.6;
   max-width: 330px;
   margin-bottom: 18px;
@@ -301,7 +301,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  border-top: 1px solid #F1F5F9;
+  border-top: 1px solid #EFF7FF;
   padding-top: 14px;
 }
 
@@ -310,7 +310,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #64748B;
+  color: #62748A;
   text-align: left;
 }
 
@@ -321,9 +321,9 @@
 }
 
 .quickQuestionPill {
-  background-color: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  color: #1E293B;
+  background-color: #F7FBFF;
+  border: 1px solid #DCE7F3;
+  color: #102746;
   font-family: var(--font-inter, sans-serif);
   font-size: 0.8rem;
   font-weight: 500;
@@ -335,9 +335,9 @@
 }
 
 .quickQuestionPill:hover {
-  background-color: #EFF6FF;
-  border-color: #3B82F6;
-  color: #1D4ED8;
+  background-color: #EFF7FF;
+  border-color: #0757C8;
+  color: #0757C8;
   transform: translateY(-1px);
 }
 
@@ -363,7 +363,7 @@
   height: 28px;
   border-radius: 50%;
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #DCE7F3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -393,8 +393,8 @@
 
 .botBubble {
   background-color: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  color: #1F2937;
+  border: 1px solid #DCE7F3;
+  color: #102746;
   border-bottom-left-radius: 4px;
   box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.05);
 }
@@ -432,19 +432,19 @@
 }
 
 .inlineLink {
-  color: #0284C7;
+  color: #0757C8;
   font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .inlineLink:hover {
-  color: #0369A1;
+  color: #061D40;
 }
 
 .messageTimestamp {
   font-size: 0.68rem;
-  color: #94A3B8;
+  color: #8FA6C0;
   margin-top: 6px;
   display: block;
   text-align: right;
@@ -457,12 +457,12 @@
   gap: 6px;
   margin-top: 8px;
   padding-top: 8px;
-  border-top: 1px solid #F1F5F9;
+  border-top: 1px solid #EFF7FF;
   font-size: 0.74rem;
 }
 
 .sourceLabel {
-  color: #64748B;
+  color: #62748A;
   font-weight: 500;
 }
 
@@ -470,19 +470,19 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: #0284C7;
+  color: #0757C8;
   font-weight: 600;
   text-decoration: none;
-  background-color: #F0F9FF;
+  background-color: #F7FBFF;
   padding: 3px 8px;
   border-radius: 6px;
-  border: 1px solid #BAE6FD;
+  border: 1px solid #DCE7F3;
   transition: all 0.15s ease;
 }
 
 .sourceLink:hover {
-  background-color: #E0F2FE;
-  color: #0369A1;
+  background-color: #EFF7FF;
+  color: #061D40;
 }
 
 .sourceIcon {
@@ -499,8 +499,8 @@
 
 .followupChip {
   background-color: #FFFFFF;
-  border: 1px solid #CBD5E1;
-  color: #334155;
+  border: 1px solid #DCE7F3;
+  color: #102746;
   font-size: 0.76rem;
   font-weight: 500;
   padding: 5px 11px;
@@ -511,9 +511,9 @@
 }
 
 .followupChip:hover {
-  background-color: #F8FAFC;
-  border-color: #0284C7;
-  color: #0284C7;
+  background-color: #F7FBFF;
+  border-color: #0757C8;
+  color: #0757C8;
   transform: translateY(-1px);
 }
 
@@ -533,7 +533,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #64748B;
+  background-color: #62748A;
   animation: waveDot 1.4s infinite ease-in-out both;
 }
 
@@ -548,7 +548,7 @@
 /* ─── 11. Fixed Bottom Composer ───────────────────────────────────────────── */
 .composerWrapper {
   background-color: #FFFFFF;
-  border-top: 1px solid #E5E7EB;
+  border-top: 1px solid #DCE7F3;
   padding: 10px 14px 12px;
   display: flex;
   flex-direction: column;
@@ -575,9 +575,9 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: #F1F5F9;
-  border: 1px solid #CBD5E1;
-  color: #1E293B;
+  background-color: #EFF7FF;
+  border: 1px solid #DCE7F3;
+  color: #102746;
   font-size: 0.78rem;
   padding: 4px 10px;
   border-radius: 8px;
@@ -585,7 +585,7 @@
 }
 
 .fileIcon {
-  color: #0284C7;
+  color: #0757C8;
   flex-shrink: 0;
 }
 
@@ -602,7 +602,7 @@
   justify-content: center;
   background: transparent;
   border: none;
-  color: #64748B;
+  color: #62748A;
   cursor: pointer;
   padding: 2px;
   border-radius: 4px;
@@ -610,15 +610,15 @@
 
 .removeFileBtn:hover {
   color: #DC2626;
-  background-color: #E2E8F0;
+  background-color: #DCE7F3;
 }
 
 .composerForm {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #F8FAFC;
-  border: 1px solid #E2E8F0;
+  background-color: #F7FBFF;
+  border: 1px solid #DCE7F3;
   border-radius: 24px;
   padding: 5px 6px 5px 12px;
   transition: all 0.2s ease;
@@ -626,7 +626,7 @@
 
 .composerForm:focus-within {
   background-color: #FFFFFF;
-  border-color: #94A3B8;
+  border-color: #8FA6C0;
   box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.2);
 }
 
@@ -635,7 +635,7 @@
   background: transparent;
   border: none;
   outline: none;
-  color: #0F172A;
+  color: #061D40;
   font-family: var(--font-inter, sans-serif);
   font-size: 0.88rem;
   line-height: 1.4;
@@ -645,7 +645,7 @@
 }
 
 .composerTextarea::placeholder {
-  color: #94A3B8;
+  color: #8FA6C0;
 }
 
 .listeningActive::placeholder {
@@ -662,15 +662,15 @@
   border-radius: 50%;
   background: transparent;
   border: none;
-  color: #64748B;
+  color: #62748A;
   cursor: pointer;
   transition: all 0.15s ease;
   flex-shrink: 0;
 }
 
 .actionIconButton:hover {
-  color: #0F172A;
-  background-color: #E2E8F0;
+  color: #061D40;
+  background-color: #DCE7F3;
 }
 
 .micActiveBtn {
@@ -708,8 +708,8 @@
 }
 
 .composerSendBtn:disabled {
-  background-color: #E2E8F0;
-  color: #94A3B8;
+  background-color: #DCE7F3;
+  color: #8FA6C0;
   cursor: not-allowed;
   transform: none;
 }

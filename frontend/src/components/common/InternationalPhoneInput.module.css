@@ -12,7 +12,7 @@
   align-items: center;
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--border-subtle, #333333);
+  border-bottom: 1px solid var(--border-subtle, #DCE7F3);
   transition: border-color 0.3s ease;
   width: 100%;
 }
@@ -46,13 +46,13 @@
 }
 
 .dialCodeCareer {
-  color: var(--text-muted, #8b949e);
+  color: var(--text-muted, #62748A);
   font-family: var(--font-inter, sans-serif);
   font-size: 1.1rem;
 }
 
 .chevronCareer {
-  color: var(--text-muted, #8b949e);
+  color: var(--text-muted, #62748A);
   transition: transform 0.2s ease;
 }
 
@@ -259,7 +259,7 @@
   margin: 0;
   list-style: none;
   scrollbar-width: thin;
-  scrollbar-color: #444444 transparent;
+  scrollbar-color: #102746 transparent;
 }
 
 .dropdownList::-webkit-scrollbar {
@@ -269,7 +269,7 @@
   background: transparent;
 }
 .dropdownList::-webkit-scrollbar-thumb {
-  background-color: #444444;
+  background-color: #102746;
   border-radius: 6px;
 }
 
@@ -309,14 +309,14 @@
 }
 
 .countryDialCode {
-  color: #626762;
+  color: #62748A;
   font-variant-numeric: tabular-nums;
   font-size: 0.85rem;
 }
 
 .noResults {
   padding: 16px 20px;
-  color: #888888;
+  color: #62748A;
   font-size: 0.9rem;
   font-family: var(--font-inter, sans-serif);
 }
@@ -381,7 +381,7 @@
   border-bottom: 1px solid rgba(10, 10, 10, 0.15) !important;
   border-radius: 6px !important;
   padding: 8px 12px 8px 32px !important;
-  color: #f5f5f5 !important;
+  color: #F7FBFF !important;
   font-family: var(--font-inter, sans-serif);
   font-size: 0.9rem;
   outline: none;
@@ -389,7 +389,7 @@
 }
 
 .searchInputCareer:focus {
-  border-color: #465340 !important;
+  border-color: #DCE7F3 !important;
   outline: none;
 }
 
@@ -401,12 +401,12 @@
   list-style: none;
   max-height: 280px;
   scrollbar-width: thin;
-  scrollbar-color: #444444 transparent;
+  scrollbar-color: #102746 transparent;
 }
 
 .dropdownListCareer::-webkit-scrollbar { width: 6px; }
 .dropdownListCareer::-webkit-scrollbar-track { background: transparent; }
-.dropdownListCareer::-webkit-scrollbar-thumb { background-color: #444444; border-radius: 6px; }
+.dropdownListCareer::-webkit-scrollbar-thumb { background-color: #102746; border-radius: 6px; }
 
 .countryOptionCareer {
   display: flex;
@@ -420,7 +420,7 @@
   border-left: 3px solid transparent;
   text-align: left;
   cursor: pointer;
-  color: #a0a5ab;
+  color: #8FA6C0;
   font-family: var(--font-inter, sans-serif);
   font-size: 0.95rem;
   transition: all 0.15s ease;
@@ -429,9 +429,9 @@
 
 .countryOptionCareer:hover,
 .countryOptionCareer[aria-selected="true"] {
-  background-color: rgba(70, 83, 64, 0.05);
+  background-color: rgba(7, 87, 200, 0.05);
   color: var(--text-primary);
-  border-left-color: #465340;
+  border-left-color: #DCE7F3;
 }
 
 .countryNameCareer {
@@ -444,14 +444,14 @@
 }
 
 .countryDialCodeCareer {
-  color: #888888;
+  color: #62748A;
   font-variant-numeric: tabular-nums;
   font-size: 0.85rem;
 }
 
 .noResultsCareer {
   padding: 16px 20px;
-  color: #888888;
+  color: #62748A;
   font-size: 0.9rem;
   font-family: var(--font-inter, sans-serif);
 }
