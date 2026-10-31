@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #FFFFFF;
+  background: var(--gradient-surface);
   padding: clamp(6.5rem, 11vh, 9rem) clamp(1.5rem, 5vw, 4.5rem) clamp(2.5rem, 5vh, 4rem);
   box-sizing: border-box;
   overflow: hidden;
@@ -233,6 +233,7 @@
   z-index: 1;
   padding: clamp(7rem, 12vh, 10.5rem) 1.5rem clamp(5rem, 8vw, 8rem);
   box-sizing: border-box;
+  background: #FFFFFF;
 }
 
 .showcaseContainer {

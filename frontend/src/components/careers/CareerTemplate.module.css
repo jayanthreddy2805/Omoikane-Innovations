@@ -36,6 +36,7 @@
   grid-template-columns: 1fr;
   gap: 4rem;
   align-items: center;
+  background: var(--gradient-surface);
 }
 
 @media (min-width: 1024px) {
@@ -138,6 +139,7 @@
   margin: 0 auto;
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
+  background: var(--color-white, #FFFFFF);
 }
 
 .sectionHeader {
@@ -200,6 +202,7 @@
   padding: 8rem 5%;
   max-width: 1600px;
   margin: 0 auto;
+  background: var(--color-white, #FFFFFF);
 }
 
 .explorerLayout {
@@ -635,7 +638,7 @@
 
 /* SECTION E: WHY JOIN */
 .whyJoinSection {
-  background: var(--bg-secondary);
+  background: var(--gradient-surface);
   padding: 8rem 5%;
   max-width: 1600px;
   margin: 0 auto;
@@ -731,7 +734,7 @@
 .contactDivider {
   width: 100%;
   height: 1px;
-  background-color: rgba(10, 10, 10, 0.08);
+  background-color: var(--border-subtle);
   margin-bottom: 2.5rem;
 }
 
@@ -928,7 +931,7 @@
   display: flex;
   align-items: center;
   background: var(--bg-secondary);
-  border: 1px solid rgba(10, 10, 10, 0.12);
+  border: 1px solid var(--border-subtle);
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
@@ -936,14 +939,14 @@
 }
 
 .fileInputRow:hover {
-  border-color: rgba(10, 10, 10, 0.25);
+  border-color: var(--theme-accent);
 }
 
 .chooseFileBtn {
   flex-shrink: 0;
-  background: rgba(10, 10, 10, 0.08);
+  background: var(--color-border, #DCE7F3);
   border: none;
-  border-right: 1px solid rgba(10, 10, 10, 0.1);
+  border-right: 1px solid var(--border-subtle);
   color: var(--text-primary);
   font-size: 0.82rem;
   font-family: var(--font-inter);
@@ -958,7 +961,7 @@
   flex: 1;
   padding: 0 0.85rem;
   font-size: 0.82rem;
-  color: rgba(10, 10, 10, 0.35);
+  color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -968,7 +971,7 @@
   flex-shrink: 0;
   background: transparent;
   border: none;
-  color: rgba(10, 10, 10, 0.35);
+  color: var(--text-muted);
   font-size: 0.9rem;
   cursor: pointer;
   padding: 0.6rem 0.85rem;
@@ -988,7 +991,7 @@
 .fileHint {
   margin-top: 0.45rem;
   font-size: 0.75rem;
-  color: var(--text-muted, #666);
+  color: var(--text-muted, #62748A);
 }
 
 .submitBtn {

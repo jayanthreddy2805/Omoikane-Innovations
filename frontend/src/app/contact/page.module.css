@@ -9,7 +9,7 @@
   --border-subtle: #DCE7F3;
 
   min-height: 100vh;
-  background-color: var(--surf-hero);
+  background: var(--gradient-surface);
   color: var(--text-primary);
   margin-top: -104px;
   padding-top: 204px;
@@ -42,7 +42,7 @@
 
 /* 1. EDITORIAL HERO */
 .heroSection {
-  background-color: var(--surf-hero);
+  background-color: transparent;
   padding: 100px 0 80px;
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -125,7 +125,7 @@
   font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   letter-spacing: 0.25em;
-  color: rgba(10, 10, 10, 0.5);
+  color: var(--color-muted, #62748A);
 }
 
 .heroEyebrowLine {
@@ -159,7 +159,7 @@
   letter-spacing: -2px;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(10, 10, 10, 0.15);
+  -webkit-text-stroke: 1px rgba(7, 87, 200, 0.18);
   margin: 0;
   position: absolute;
   top: 8px;
@@ -168,7 +168,7 @@
 }
 
 .heroSubtitleBlock {
-  border-left: 2px solid rgba(10, 10, 10, 0.1);
+  border-left: 2px solid var(--color-border, #DCE7F3);
   padding-left: 24px;
   margin-bottom: 56px;
 }

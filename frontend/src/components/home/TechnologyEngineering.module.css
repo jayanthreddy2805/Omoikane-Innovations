@@ -2,10 +2,10 @@
    TECHNOLOGY & ENGINEERING (DARK EDITORIAL CAPABILITY MATRIX)
    Palette:
    - Unified deep navy: #000812
-   - Warm ivory: #FAF8F5 / #F4EEE7
-   - Warm muted gold / ochre: #C4A361 (sampled directly from recording)
+   - Ice white: #F7FBFF
+   - Technical blue: #1688F8
    - Subtle Dividers: rgba(255, 255, 255, 0.08)
-   - Muted secondary text: #8E908D
+   - Muted secondary text: #B6C8DE
 ───────────────────────────────────────────────────────── */
 
 .section {
@@ -14,7 +14,7 @@
   /* Very subtle technical micro-texture */
   background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 0);
   background-size: 24px 24px;
-  color: #FAF8F5;
+  color: var(--color-on-dark, #F7FBFF);
   padding: clamp(6.5rem, 11vh, 9.5rem) clamp(1.5rem, 5vw, 4.5rem);
   box-sizing: border-box;
   position: relative;
@@ -44,7 +44,7 @@
   font-weight: 600;
   line-height: 1.08;
   letter-spacing: -0.015em;
-  color: #FAF8F5;
+  color: var(--color-on-dark, #F7FBFF);
   margin: 0 0 0.85rem 0;
   text-align: left;
 }
@@ -56,7 +56,7 @@
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.3;
-  color: #C4A361; /* Warm muted gold / ochre from recording */
+  color: var(--color-blue-bright, #1688F8);
   margin: 0 0 1.5rem 0;
 }
 
@@ -64,7 +64,7 @@
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(0.9375rem, 1.05vw, 1.0625rem); /* 15–17px */
   line-height: 1.65;
-  color: #8E908D;
+  color: var(--color-on-dark-muted, #B6C8DE);
   max-width: 540px;
   margin: 0;
 }
@@ -117,7 +117,7 @@
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.14em;
-  color: #727471;
+  color: var(--color-on-dark-subtle, #8FA6C0);
   margin-bottom: 1.5rem;
   display: block;
 }
@@ -139,7 +139,7 @@
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.28;
-  color: #C4A361; /* Warm muted gold / ochre from recording */
+  color: var(--color-blue-bright, #1688F8);
   margin: 0;
   opacity: 1;
   transition: opacity 200ms ease;
@@ -152,7 +152,7 @@
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(0.875rem, 0.98vw, 0.975rem);
   line-height: 1.55;
-  color: #FAF8F5; /* Warm ivory primary text */
+  color: var(--color-on-dark, #F7FBFF);
   margin: 0;
   opacity: 0;
   pointer-events: none;
@@ -193,7 +193,7 @@
 }
 
 .cell:focus-visible {
-  outline: 1px solid rgba(196, 163, 97, 0.5);
+  outline: 1px solid rgba(22, 136, 248, 0.5);
   outline-offset: -1px;
 }
 

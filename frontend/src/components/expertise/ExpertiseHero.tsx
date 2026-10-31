@@ -22,8 +22,8 @@ export function ExpertiseHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span>BUILT FOR <span style={{ color: '#1e3d3a' }}>REAL</span></span>
-          <span><span style={{ color: '#1e3d3a' }}>WORLD</span> SYSTEMS</span>
+          <span>BUILT FOR <span style={{ color: '#0757C8' }}>REAL</span></span>
+          <span><span style={{ color: '#0757C8' }}>WORLD</span> SYSTEMS</span>
         </motion.h1>
         <motion.p 
           className={styles.description}

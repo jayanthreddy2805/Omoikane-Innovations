@@ -120,7 +120,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: transparent;
+  background: #FFFFFF;
   display: flex;
   flex-direction: column;
 }
