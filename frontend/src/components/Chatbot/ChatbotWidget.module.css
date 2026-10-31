@@ -400,7 +400,7 @@
 }
 
 .userBubble {
-  background-color: #0F172A;
+  background-color: #000812;
   color: #FFFFFF;
   border-bottom-right-radius: 4px;
   align-self: flex-end;
@@ -694,7 +694,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background-color: #0F172A;
+  background-color: #000812;
   color: #FFFFFF;
   border: none;
   cursor: pointer;
@@ -703,7 +703,7 @@
 }
 
 .composerSendBtn:hover:not(:disabled) {
-  background-color: #1E293B;
+  background-color: #061D40;
   transform: scale(1.05);
 }
 

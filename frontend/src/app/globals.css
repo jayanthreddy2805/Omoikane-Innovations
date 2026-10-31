@@ -35,8 +35,7 @@
   margin: 0;
 }
 
-body,
-main {
+body {
   background: #FFFFFF;
   color: #102746;
   font-family: var(--font-inter), sans-serif;
@@ -54,9 +53,6 @@ a {
   transition: color 0.2s ease;
 }
 
-a:hover {
-  color: var(--accent);
-}
 
 button {
   cursor: pointer;

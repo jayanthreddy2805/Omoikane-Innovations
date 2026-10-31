@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────────────────────
    TECHNOLOGY & ENGINEERING (DARK EDITORIAL CAPABILITY MATRIX)
    Palette:
-   - Deep graphite: #171817
+   - Unified deep navy: #000812
    - Warm ivory: #FAF8F5 / #F4EEE7
    - Warm muted gold / ochre: #C4A361 (sampled directly from recording)
    - Subtle Dividers: rgba(255, 255, 255, 0.08)
@@ -10,7 +10,7 @@
 
 .section {
   width: 100%;
-  background-color: #171817;
+  background-color: #000812;
   /* Very subtle technical micro-texture */
   background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 0);
   background-size: 24px 24px;

@@ -26,8 +26,8 @@
   width: 150vw;
   height: 150vh;
   background: 
-    radial-gradient(circle at 30% 40%, rgba(7, 87, 200, 0.05) 0%, transparent 60%),
-    radial-gradient(circle at 70% 60%, rgba(239, 247, 255, 0.8) 0%, transparent 60%);
+    radial-gradient(circle at 30% 40%, rgba(220, 231, 243, 0.38) 0%, transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(239, 247, 255, 0.72) 0%, transparent 60%);
   filter: blur(120px);
   z-index: 0;
   pointer-events: none;
@@ -315,7 +315,7 @@
 
 /* --- CONTACT DETAILS BLOCK --- */
 .contactDetailsBlock {
-  background-color: #0A0F16;
+  background-color: #000812;
   border-radius: 12px;
   padding: 2.5rem;
   color: #F5F3EE;
