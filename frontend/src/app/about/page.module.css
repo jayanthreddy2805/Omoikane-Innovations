@@ -1862,7 +1862,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .ctaTitleCentered em {
@@ -1874,6 +1874,18 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.ctaTagline {
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-on-dark, #F7FBFF);
+  opacity: 0.92;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  max-width: 680px;
 }
 
 .ctaButtonPill {
@@ -1911,30 +1923,15 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(1.5rem, 3vw, 3.5rem);
+  justify-content: center;
   box-sizing: border-box;
-}
-
-.ctaPartnersHeading {
-  display: flex;
-  flex-direction: column;
-  font-family: var(--font-space-grotesk, sans-serif);
-  font-size: clamp(1.2rem, 1.55vw, 1.45rem);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: #FFFFFF;
-  text-align: left;
-  flex-shrink: 0;
-  max-width: 290px;
 }
 
 .ctaPartnersList {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: clamp(0.75rem, 1.5vw, 1.75rem);
-  flex: 1;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  width: 100%;
   align-items: flex-start;
 }
 
@@ -1964,9 +1961,9 @@
 
 .ctaPartnerLabel {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: clamp(0.72rem, 0.85vw, 0.8rem);
+  font-size: clamp(0.75rem, 0.9vw, 0.85rem);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
   line-height: 1.28;
   letter-spacing: -0.01em;
   text-align: center;
@@ -1977,29 +1974,16 @@
   color: #FFFFFF;
 }
 
-@media (max-width: 1080px) {
-  .ctaPartnersStrip {
-    flex-direction: column;
-    align-items: center;
-    gap: 2.25rem;
-    text-align: center;
-  }
-
-  .ctaPartnersHeading {
-    text-align: center;
-    max-width: 100%;
-    font-size: 1.35rem;
-  }
-
+@media (max-width: 960px) {
   .ctaPartnersList {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem 1.25rem;
-    width: 100%;
     max-width: 680px;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 580px) {
   .ctaBottomSection {
     margin-top: 3.5rem;
     padding-top: 2rem;

@@ -136,7 +136,11 @@ export default function CallToAction() {
             Ready to deploy your next <em>mission?</em>
           </motion.h2>
 
-          <motion.div variants={itemVariants} style={{ marginTop: "1.5rem" }}>
+          <motion.p className={styles.ctaTagline} variants={itemVariants}>
+            From Sky to Soil, We Power Possibilities
+          </motion.p>
+
+          <motion.div variants={itemVariants} style={{ marginTop: "1.25rem" }}>
             <Link href="/contact" className={styles.ctaButtonPill}>
               <Sparkles size={16} strokeWidth={2.5} />
               Contact OMOIKANE
@@ -145,11 +149,6 @@ export default function CallToAction() {
 
           <motion.div variants={itemVariants} className={styles.ctaBottomSection}>
             <div className={styles.ctaPartnersStrip}>
-              <div className={styles.ctaPartnersHeading}>
-                <span>From Sky to Soil,</span>
-                <span>We Power Possibilities</span>
-              </div>
-
               <div className={styles.ctaPartnersList}>
                 {PARTNERS.map((partner) => (
                   <div key={partner.title} className={styles.ctaPartnerItem}>
