@@ -68,6 +68,8 @@ export default function ContactPage() {
                       src="/images/contact/aeronautical-drawing-sketch.png" 
                       alt="Aeronautical Drawing" 
                       fill
+                      sizes="(max-width: 768px) 100vw, 45vw"
+                      priority
                       className={styles.drawingImage} 
                     />
                 </div>
