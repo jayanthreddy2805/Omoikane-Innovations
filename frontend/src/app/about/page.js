@@ -10,11 +10,10 @@ import {
 } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sparkles } from 'lucide-react';
-import { MeshGradient } from '@paper-design/shaders-react';
 import styles from './page.module.css';
 import { AnimatedNumberBg } from "@/components/ui/AnimatedNumberBg";
 import AboutHero from '@/components/about/AboutHero';
+import CallToAction from '@/components/common/CallToAction';
 function FadeUp({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-40px' });
@@ -690,94 +689,3 @@ const Testimonials = () => {
     </section>
   );
 };
-
-/* ─────────────────────────────────────────────────────────
-   CTA SECTION
-───────────────────────────────────────────────────────── */
-function CallToAction() {
-  const [email, setEmail] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Thank you for signing up with ${email}!`);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 12,
-      },
-    },
-  };
-
-  return (
-    <section className={styles.ctaSection}>
-      <div className={styles.ctaCard}>
-        {/* Dark base + purple radial glow — our CTA bg colors */}
-        <div className={styles.ctaHeroBg} />
-
-        {/* MeshGradient layer 1 — Stealth Titanium & Obsidian (slate/graphite tones over #000812) */}
-        <MeshGradient
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1, opacity: 0.85, backgroundColor: '#000812' }}
-          colors={['#000812', '#0F172A', '#1E293B', '#334155']}
-          speed={0.5}
-        />
-
-        {/* MeshGradient layer 2 — subtle metallic titanium highlights */}
-        <MeshGradient
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.75, zIndex: 2, backgroundColor: 'transparent' }}
-          colors={['#000812', '#475569', '#000812']}
-          speed={0.35}
-        />
-
-        <motion.div
-          className={styles.ctaContentCentered}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-        >
-          <motion.h2 className={styles.ctaTitleCentered} variants={itemVariants}>
-            Ready to deploy your next <em>mission?</em>
-          </motion.h2>
-
-          <motion.div variants={itemVariants} style={{ marginTop: '1.5rem' }}>
-            <button className={styles.ctaButtonPill} onClick={(e) => { e.preventDefault(); alert('Contact initiated.'); }}>
-              <Sparkles size={16} strokeWidth={2.5} />
-              Contact OMOIKANE
-            </button>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className={styles.ctaBottomSection}>
-            <p className={styles.ctaSublabel}>BUILT FOR PERFORMANCE AND RELIABILITY.</p>
-            <div className={styles.ctaTagsWrapper}>
-              <div className={styles.ctaTags}>
-                <span className={styles.ctaTag}>Embedded Systems</span>
-                <span className={styles.ctaTag}>Flight Control</span>
-                <span className={styles.ctaTag}>AI Integration</span>
-                <span className={styles.ctaTag}>Robotic Platforms</span>
-                <span className={styles.ctaTag}>Defense Tech</span>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
