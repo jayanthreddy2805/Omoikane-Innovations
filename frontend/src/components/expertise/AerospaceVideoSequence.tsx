@@ -165,6 +165,10 @@ export default function AerospaceVideoSequence({
       videoRefs.current.forEach((video) => video?.pause());
       return;
     }
+    if (active && playedRef.current) {
+      timelineRef.current?.resume();
+      return;
+    }
     if (active && !playedRef.current) {
       playedRef.current = true;
       if (reducedMotion) {
