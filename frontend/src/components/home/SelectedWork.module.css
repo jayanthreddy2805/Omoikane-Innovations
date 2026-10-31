@@ -194,15 +194,7 @@
   color: var(--home-ink, #102746);
   margin: 0;
   line-height: 1.22;
-  transition:
-    transform 240ms ease,
-    color 200ms ease;
-}
-
-.row:hover .projectTitle,
-.rowHeader:focus-visible .projectTitle,
-.rowActive .projectTitle {
-  transform: translateX(4px);
+  transition: color 200ms ease;
 }
 
 .rowActive .projectTitle {
@@ -215,42 +207,42 @@
 
 .headerRight {
   flex-shrink: 0;
+  margin-left: auto;
   padding-left: 1.5rem;
+  display: flex;
+  align-items: center;
 }
 
-.headerAction {
+.toggleIcon {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
   color: var(--home-blue, #0757C8);
-  transition: color 200ms ease;
-}
-
-.rowActive .headerAction {
-  color: var(--home-blue, #0757C8);
-}
-
-.rowCollapsed:hover .headerAction {
-  color: var(--home-navy, #061D40);
-}
-
-.headerArrow {
-  display: inline-block;
-  color: var(--home-blue, #0757C8);
+  background-color: #EFF7FF;
+  border: 1px solid #DCE7F3;
   transition:
-    transform 240ms ease,
-    color 200ms ease;
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
 }
 
-.row:hover .headerArrow,
-.rowHeader:focus-visible .headerArrow,
-.rowActive .headerArrow {
-  transform: translateX(3px);
+.rowActive .toggleIcon {
+  background-color: var(--home-blue, #0757C8);
+  color: #FFFFFF;
+  border-color: var(--home-blue, #0757C8);
+}
+
+.toggleIconOpen {
+  transform: rotate(180deg);
+}
+
+.rowCollapsed:hover .toggleIcon {
+  background-color: #E2F0FD;
+  color: var(--home-navy, #061D40);
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -336,13 +328,13 @@
 }
 
 /* ─────────────────────────────────────────────────────────
-   RIGHT COLUMN: PROJECT INFO, CTA & CAPABILITIES
+   RIGHT COLUMN: PROJECT INFO, SIDE HEADING & CTA
 ───────────────────────────────────────────────────────── */
 .infoCol {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.75rem;
+  justify-content: center;
+  gap: 1.5rem;
   width: 100%;
 }
 
@@ -350,7 +342,33 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1.25rem;
+}
+
+/* Side heading: Project type displayed above description */
+.sideHeadingBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sideHeadingKicker {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--home-blue, #0757C8);
+}
+
+.sideHeadingTitle {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--home-navy, #061D40);
+  line-height: 1.22;
+  margin: 0;
 }
 
 .projectDesc {
@@ -404,30 +422,6 @@
   outline-offset: 4px;
 }
 
-/* Capability Blocks: Pale-blue surface #E6F0FA with navy #061D40 text and fine border #DCE7F3 */
-.capabilitiesRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: auto;
-  padding-top: 0.5rem;
-}
-
-.capabilityBlock {
-  display: inline-block;
-  background-color: #EFF7FF;
-  color: #061D40;
-  border: 1px solid #DCE7F3;
-  padding: 0.55rem 1.05rem;
-  border-radius: 8px;
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-  box-shadow: none;
-}
-
 /* ─────────────────────────────────────────────────────────
    RESPONSIVE: TABLET & MOBILE (<= 860px)
 ───────────────────────────────────────────────────────── */
@@ -479,15 +473,6 @@
 
   .ctaLink {
     align-self: flex-start;
-  }
-
-  .capabilitiesRow {
-    gap: 0.5rem;
-  }
-
-  .capabilityBlock {
-    font-size: 0.78rem;
-    padding: 0.45rem 0.85rem;
   }
 }
 

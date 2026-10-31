@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./SelectedWork.module.css";
@@ -8,69 +8,52 @@ import styles from "./SelectedWork.module.css";
 const PROJECTS = [
   {
     number: "01",
-    title: "OFC-X — Flight Controller",
+    name: "OFC-X",
+    type: "Flight Controller",
     category: "Flight Control",
     description:
       "High-performance, reliable and flexible flight control for autonomous platforms. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/projects/flight-controller.webp",
     alt: "OFC-X Flight Controller for autonomous platforms",
-    capabilities: [
-      "Real-Time Control",
-      "Sensor Fusion",
-      "Autonomous Guidance",
-    ],
     href: "/projects",
   },
   {
     number: "02",
-    title: "OESC-60 / OESC-100 — 4-in-1 Electronic Speed Controller",
+    name: "OESC-60 / OESC-100",
+    type: "4-in-1 Electronic Speed Controller",
     category: "Propulsion & ESC",
     description:
       "High-efficiency, high-current ESC platform for multirotor propulsion systems. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/careers/electronics/embedded-pcb.jpg",
     alt: "OESC-60 / OESC-100 4-in-1 Electronic Speed Controller platform",
-    capabilities: [
-      "High-Current ESC",
-      "Multirotor Propulsion",
-      "High Efficiency",
-    ],
     href: "/projects",
   },
   {
     number: "03",
-    title: "OCOM-X — Communication System",
+    name: "OCOM-X",
+    type: "Communication System",
     category: "Communications",
     description:
       "Reliable communication architecture for connected autonomous systems. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/projects/tactical-datalink.webp",
     alt: "OCOM-X Communication System for connected autonomous systems",
-    capabilities: [
-      "Connected Autonomy",
-      "Secure Telemetry",
-      "Low Latency",
-    ],
     href: "/projects",
   },
   {
     number: "04",
-    title: "OGN-X — GNSS / GPS Module",
+    name: "OGN-X",
+    type: "GNSS / GPS Module",
     category: "Navigation & Positioning",
     description:
       "Precision positioning architecture for autonomous navigation and mapping. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/projects/ground-platform.webp",
     alt: "OGN-X GNSS / GPS Module for autonomous navigation and mapping",
-    capabilities: [
-      "Precision Positioning",
-      "Autonomous Navigation",
-      "Mapping Architecture",
-    ],
     href: "/projects",
   },
 ];
 
 export default function SelectedWork() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const hoverTimerRef = useRef(null);
 
   // Preload all project preview images after first render to prevent blank flash
   useEffect(() => {
@@ -79,8 +62,6 @@ export default function SelectedWork() {
       "/images/careers/electronics/embedded-pcb.jpg",
       "/images/projects/tactical-datalink.webp",
       "/images/projects/ground-platform.webp",
-      "/images/projects/uav-platform.webp",
-      "/images/projects/ai-vision.webp",
     ];
 
     imagesToPreload.forEach((src) => {
@@ -91,58 +72,8 @@ export default function SelectedWork() {
     });
   }, []);
 
-  // Cleanup hover timer on unmount
-  useEffect(() => {
-    return () => {
-      if (hoverTimerRef.current) {
-        clearTimeout(hoverTimerRef.current);
-      }
-    };
-  }, []);
-
-  const handleMouseEnter = (index) => {
-    // Clear any existing hover timer
-    if (hoverTimerRef.current) {
-      clearTimeout(hoverTimerRef.current);
-      hoverTimerRef.current = null;
-    }
-
-    // Only on hover-capable devices
-    if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
-      if (index === activeIndex) return;
-
-      // 100ms hover-intent delay before activating the new row
-      hoverTimerRef.current = setTimeout(() => {
-        setActiveIndex(index);
-        hoverTimerRef.current = null;
-      }, 100);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    // If the pointer leaves before the 100ms delay finishes, cancel pending activation
-    if (hoverTimerRef.current) {
-      clearTimeout(hoverTimerRef.current);
-      hoverTimerRef.current = null;
-    }
-    // Do not set active project to null on mouse leave!
-  };
-
-  const handleFocus = (index) => {
-    if (hoverTimerRef.current) {
-      clearTimeout(hoverTimerRef.current);
-      hoverTimerRef.current = null;
-    }
-    setActiveIndex(index);
-  };
-
   const handleRowClick = (index) => {
-    if (hoverTimerRef.current) {
-      clearTimeout(hoverTimerRef.current);
-      hoverTimerRef.current = null;
-    }
-    // Mobile tap or click: opens selected row, keeping active row open if tapped again
-    setActiveIndex(index);
+    setActiveIndex((prev) => (prev === index ? null : index));
   };
 
   return (
@@ -172,8 +103,6 @@ export default function SelectedWork() {
             <div
               key={project.number}
               className={`${styles.row} ${isActive ? styles.rowActive : styles.rowCollapsed}`}
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}
               role="listitem"
             >
               {/* Row Header — semantic button */}
@@ -183,15 +112,34 @@ export default function SelectedWork() {
                   id={`project-header-${project.number}`}
                   className={styles.rowHeader}
                   onClick={() => handleRowClick(index)}
-                  onFocus={() => handleFocus(index)}
                   aria-expanded={isActive}
                   aria-controls={`project-details-${project.number}`}
                 >
                   <div className={styles.headerLeft}>
                     <span className={styles.projectNumber}>{project.number}</span>
                     <div className={styles.titleGroup}>
-                      <h3 className={styles.projectTitle}>{project.title}</h3>
+                      <h3 className={styles.projectTitle}>{project.name}</h3>
                     </div>
+                  </div>
+
+                  <div className={styles.headerRight}>
+                    <span
+                      className={`${styles.toggleIcon} ${isActive ? styles.toggleIconOpen : ""}`}
+                      aria-hidden="true"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </span>
                   </div>
                 </button>
               </div>
@@ -222,6 +170,12 @@ export default function SelectedWork() {
                     {/* Project details on the right */}
                     <div className={styles.infoCol}>
                       <div className={styles.infoTop}>
+                        {/* Side heading above content showing project type */}
+                        <div className={styles.sideHeadingBlock}>
+                          <span className={styles.sideHeadingKicker}>{project.category}</span>
+                          <h4 className={styles.sideHeadingTitle}>{project.type}</h4>
+                        </div>
+
                         <p className={styles.projectDesc}>{project.description}</p>
                         <Link
                           href={project.href}
@@ -230,15 +184,6 @@ export default function SelectedWork() {
                           <span>Explore</span>
                           <span className={styles.ctaArrow} aria-hidden="true">&rarr;</span>
                         </Link>
-                      </div>
-
-                      {/* Three capability blocks along bottom */}
-                      <div className={styles.capabilitiesRow}>
-                        {project.capabilities.map((cap) => (
-                          <span key={cap} className={styles.capabilityBlock}>
-                            {cap}
-                          </span>
-                        ))}
                       </div>
                     </div>
                   </div>
