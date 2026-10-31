@@ -64,8 +64,8 @@ export default function Header() {
     }
 
     setIsScrolled((prev) => {
-      if (latest > 80) return true;
-      if (latest < 20) return false;
+      if (latest > 20) return true;
+      if (latest <= 10) return false;
       return prev;
     });
   });

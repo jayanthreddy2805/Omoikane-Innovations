@@ -33,10 +33,9 @@
 
   width: 100%;
   min-height: 100vh;
-  background-color: var(--color-white);
+  background-color: transparent;
   color: var(--color-ink);
   margin-top: -104px;
-  padding-top: 104px;
   display: flex;
   flex-direction: column;
 }
@@ -48,7 +47,7 @@
 ───────────────────────────────────────────────────────── */
 .heroSection {
   width: 100%;
-  min-height: clamp(520px, 72vh, 760px);
+  min-height: clamp(620px, 80vh, 840px);
   position: relative;
   display: flex;
   align-items: center;
@@ -56,7 +55,7 @@
   background: var(--color-white);
   border-bottom: 1px solid var(--color-border);
   overflow: hidden;
-  padding: clamp(4.5rem, 9vh, 7rem) clamp(1.25rem, 4vw, 2.5rem);
+  padding: calc(clamp(4.5rem, 9vh, 7rem) + 104px) clamp(1.25rem, 4vw, 2.5rem) clamp(4.5rem, 9vh, 7rem);
   box-sizing: border-box;
 }
 
