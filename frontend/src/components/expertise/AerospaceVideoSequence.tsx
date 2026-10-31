@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import styles from "./AerospaceVideoSequence.module.css";
 
@@ -71,6 +71,17 @@ export default function AerospaceVideoSequence({
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
   const playedRef = useRef(false);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage) return;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), {
+      rootMargin: "250px 0px", threshold: 0,
+    });
+    observer.observe(stage);
+    return () => observer.disconnect();
+  }, []);
 
   const setFinalComposition = useCallback(() => {
     tileRefs.current.forEach((tile, index) => {
@@ -160,7 +171,7 @@ export default function AerospaceVideoSequence({
 
   // 2. Trigger playback when active becomes true
   useEffect(() => {
-    if (!active) {
+    if (!active || !inView) {
       timelineRef.current?.pause();
       videoRefs.current.forEach((video) => video?.pause());
       return;
@@ -177,7 +188,7 @@ export default function AerospaceVideoSequence({
         timelineRef.current.play(0);
       }
     }
-  }, [active, reducedMotion]);
+  }, [active, reducedMotion, inView]);
 
   return (
     <div className={styles.frame}>
