@@ -403,6 +403,8 @@ export default function HomeClient() {
                     alt={pillar.title}
                     width={180}
                     height={140}
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 25vw, 180px"
+                    loading="lazy"
                     className={styles.whyCardImg}
                   />
                 </div>
