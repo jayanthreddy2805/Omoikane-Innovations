@@ -310,7 +310,7 @@
   overflow: hidden;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(10, 10, 10, 0.08);
-  background-color: #0A0A0A;
+  background-color: #000812;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
   z-index: 1;
 }
@@ -331,7 +331,7 @@
   overflow: hidden;
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.15);
   border: 3px solid #FFFFFF;
-  background-color: #0A0A0A;
+  background-color: #000812;
   z-index: 3;
   transform: rotate(3deg);
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
@@ -353,7 +353,7 @@
   overflow: hidden;
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.15);
   border: 3px solid #FFFFFF;
-  background-color: #0A0A0A;
+  background-color: #000812;
   z-index: 4;
   transform: rotate(-3.5deg);
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;

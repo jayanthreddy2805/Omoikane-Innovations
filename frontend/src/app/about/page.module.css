@@ -789,7 +789,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(90deg, rgba(10,12,16,0.95) 0%, rgba(10,12,16,0.7) 25%, rgba(10,12,16,0.2) 50%, transparent 75%);
+  background: linear-gradient(90deg, rgba(0,8,18,0.95) 0%, rgba(0,8,18,0.7) 25%, rgba(0,8,18,0.2) 50%, transparent 75%);
 }
 
 /* Technical Overlays */
@@ -1134,7 +1134,7 @@
 .credSpotlight {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(20, 32, 45, 0.6), rgba(5, 11, 18, 0.9));
+  background: #000812;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(10, 10, 10, 0.08);
@@ -1268,7 +1268,7 @@
   position: relative;
   width: 100%;
   padding: 3.5rem 0; /* Reduced padding for a tighter stripe */
-  background: #08162B; /* Full horizontal navy background */
+  background: #000812; /* Unified deep navy background */
   overflow: hidden;
 }
 
@@ -1772,7 +1772,7 @@
   min-height: 220px;
   display: flex;
   align-items: center;
-  background: #000000;
+  background: #000812;
 }
 
 /* Dark radial gradient overlay (purple glow like the HeroSection) */
@@ -1781,7 +1781,7 @@
   inset: 0;
   background:
     radial-gradient(ellipse 60% 80% at 50% -20%, rgba(120, 119, 198, 0.35), transparent),
-    #000000;
+    #000812;
   z-index: 0;
 }
 
@@ -1825,7 +1825,7 @@
 .retroGridFade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #000000 10%, transparent 90%);
+  background: linear-gradient(to top, #000812 10%, transparent 90%);
   z-index: 2;
 }
 
@@ -2127,7 +2127,7 @@
   align-items: center;
   padding: clamp(5rem, 8vh, 7rem) 0 clamp(6rem, 10vh, 8.5rem);
   overflow: hidden;
-  background-color: #151515;
+  background-color: #000812;
 }
 
 .testiContainer {
@@ -2236,7 +2236,7 @@
 }
 
 .testiCard {
-  background-color: #151515;
+  background-color: #000812;
   padding: 2.5rem;
   border-radius: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -2320,7 +2320,7 @@
   cursor: default;
   box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  background-color: #1a1a1a;
+  background-color: #000812;
 }
 
 @keyframes testiScrollUp {
