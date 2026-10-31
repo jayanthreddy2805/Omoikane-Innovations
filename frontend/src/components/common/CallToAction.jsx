@@ -4,7 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import { MeshGradient } from "@paper-design/shaders-react";
+import dynamic from "next/dynamic";
+const DeferredMeshGradient = dynamic(() => import("@/components/expertise/DeferredMeshGradient"), { ssr: false });
 import styles from "@/app/about/page.module.css";
 
 export default function CallToAction() {
@@ -39,7 +40,7 @@ export default function CallToAction() {
         <div className={styles.ctaHeroBg} />
 
         {/* MeshGradient layer 1 — Stealth Titanium & Obsidian (slate/graphite tones over #000812) */}
-        <MeshGradient
+        <DeferredMeshGradient
           style={{
             position: "absolute",
             inset: 0,
@@ -54,7 +55,7 @@ export default function CallToAction() {
         />
 
         {/* MeshGradient layer 2 — subtle metallic titanium highlights */}
-        <MeshGradient
+        <DeferredMeshGradient
           style={{
             position: "absolute",
             inset: 0,
