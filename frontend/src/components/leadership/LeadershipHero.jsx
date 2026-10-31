@@ -21,9 +21,7 @@ export default function LeadershipHero() {
         <span className={styles.leftTicks} />
         <span className={styles.rightTicks} />
 
-        {/* Technical red guide */}
-        <span className={styles.redHorizontal} />
-        <span className={styles.redVertical} />
+
 
         {/* Tiny technical coordinate placeholder removed */}
 
