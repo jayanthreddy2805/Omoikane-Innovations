@@ -172,19 +172,6 @@
   min-width: 0;
 }
 
-.projectCategory {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--home-muted, #62748A);
-  transition: color 200ms ease;
-}
-
-.rowActive .projectCategory {
-  color: var(--home-blue, #0757C8);
-}
 
 .projectTitle {
   font-family: var(--font-space-grotesk), sans-serif;
@@ -352,14 +339,6 @@
   gap: 0.35rem;
 }
 
-.sideHeadingKicker {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--home-blue, #0757C8);
-}
 
 .sideHeadingTitle {
   font-family: var(--font-space-grotesk), sans-serif;

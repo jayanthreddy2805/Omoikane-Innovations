@@ -10,7 +10,6 @@ const PROJECTS = [
     number: "01",
     name: "OFC-X",
     type: "Flight Controller",
-    category: "Flight Control",
     description:
       "High-performance, reliable and flexible flight control for autonomous platforms. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/projects/flight-controller.webp",
@@ -21,7 +20,6 @@ const PROJECTS = [
     number: "02",
     name: "OESC-60 / OESC-100",
     type: "4-in-1 Electronic Speed Controller",
-    category: "Propulsion & ESC",
     description:
       "High-efficiency, high-current ESC platform for multirotor propulsion systems. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/careers/electronics/embedded-pcb.jpg",
@@ -32,7 +30,6 @@ const PROJECTS = [
     number: "03",
     name: "OCOM-X",
     type: "Communication System",
-    category: "Communications",
     description:
       "Reliable communication architecture for connected autonomous systems. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/projects/tactical-datalink.webp",
@@ -43,7 +40,6 @@ const PROJECTS = [
     number: "04",
     name: "OGN-X",
     type: "GNSS / GPS Module",
-    category: "Navigation & Positioning",
     description:
       "Precision positioning architecture for autonomous navigation and mapping. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/projects/ground-platform.webp",
@@ -172,7 +168,6 @@ export default function SelectedWork() {
                       <div className={styles.infoTop}>
                         {/* Side heading above content showing project type */}
                         <div className={styles.sideHeadingBlock}>
-                          <span className={styles.sideHeadingKicker}>{project.category}</span>
                           <h4 className={styles.sideHeadingTitle}>{project.type}</h4>
                         </div>
 
