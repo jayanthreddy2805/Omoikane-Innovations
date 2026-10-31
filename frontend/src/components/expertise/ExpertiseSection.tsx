@@ -25,19 +25,29 @@ function useReducedMotion() {
   return reduced;
 }
 
-function MergedRailwayVideo() {
+function MergedRailwayVideo({ active }: { active: boolean }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const v1 = useRef<HTMLVideoElement>(null);
   const v2 = useRef<HTMLVideoElement>(null);
 
+  useEffect(() => {
+    if (!active) {
+      v1.current?.pause();
+      v2.current?.pause();
+      return;
+    }
+    const current = activeIdx === 0 ? v1.current : v2.current;
+    current?.play().catch(() => {});
+  }, [active, activeIdx]);
+
   const handleEnd = (idx: number) => {
     const nextIdx = idx === 0 ? 1 : 0;
     setActiveIdx(nextIdx);
-    if (nextIdx === 0 && v1.current) {
+    if (active && nextIdx === 0 && v1.current) {
       v1.current.currentTime = 0;
       v1.current.play().catch(() => {});
     }
-    if (nextIdx === 1 && v2.current) {
+    if (active && nextIdx === 1 && v2.current) {
       v2.current.currentTime = 0;
       v2.current.play().catch(() => {});
     }
@@ -48,8 +58,8 @@ function MergedRailwayVideo() {
       <div style={{ position: 'relative', width: '100%', maxWidth: '640px', aspectRatio: '4 / 3', borderRadius: '12px', background: 'transparent', boxShadow: '0 15px 40px rgba(0, 0, 0, 0.19)', overflow: 'hidden' }}>
         <video
           ref={v1}
-          src="/videos/expertise/railway-inspection-part1.mp4"
-          autoPlay
+          src={active ? "/videos/expertise/railway-inspection-part1.mp4" : undefined}
+          preload="none"
           muted
           playsInline
           onEnded={() => handleEnd(0)}
@@ -57,7 +67,8 @@ function MergedRailwayVideo() {
         />
         <video
           ref={v2}
-          src="/videos/expertise/railway-inspection-part2.mp4"
+          src={active ? "/videos/expertise/railway-inspection-part2.mp4" : undefined}
+          preload="none"
           muted
           playsInline
           onEnded={() => handleEnd(1)}
@@ -378,8 +389,9 @@ export function ExpertiseSection() {
                         node.playbackRate = 1.75;
                       }
                     }}
-                    src="/videos/expertise/automotive-turbocharger.mp4"
-                    autoPlay
+                    src={activeIndex === index ? "/videos/expertise/automotive-turbocharger.mp4" : undefined}
+                    autoPlay={activeIndex === index}
+                    preload="none"
                     muted
                     loop
                     playsInline
@@ -388,7 +400,7 @@ export function ExpertiseSection() {
                 </div>
               </div>
             ) : item.id === "railways" ? (
-              <MergedRailwayVideo />
+              <MergedRailwayVideo active={activeIndex === index} />
             ) : (
               <div className={`${styles.sceneCanvas} ${styles[`sceneCanvas${index}`]}`}>
                 <div className={styles.sceneIndex}>{String(index + 1).padStart(2, "0")}</div>

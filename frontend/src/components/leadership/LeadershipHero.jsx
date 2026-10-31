@@ -47,7 +47,7 @@ export default function LeadershipHero() {
                   fill 
                   style={{ objectFit: 'contain', padding: '10px' }} 
                   priority
-                  unoptimized={true}
+                  sizes="(max-width: 768px) 100vw, 75vw"
                />
             </div>
           </div>

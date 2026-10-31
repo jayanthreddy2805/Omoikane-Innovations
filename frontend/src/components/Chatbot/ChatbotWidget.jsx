@@ -3,9 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ChatbotLauncher from './ChatbotLauncher';
-import ChatbotHeader from './ChatbotHeader';
-import ChatMessageList from './ChatMessageList';
-import ChatInput from './ChatInput';
+import dynamic from 'next/dynamic';
+const ChatbotHeader = dynamic(() => import('./ChatbotHeader'), { ssr: false });
+const ChatMessageList = dynamic(() => import('./ChatMessageList'), { ssr: false });
+const ChatInput = dynamic(() => import('./ChatInput'), { ssr: false });
 import styles from './ChatbotWidget.module.css';
 
 export default function ChatbotWidget() {

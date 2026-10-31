@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
+import dynamic from 'next/dynamic';
 import styles from './page.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -11,7 +12,7 @@ import { TechMarquee } from '@/components/expertise/TechMarquee';
 import { ExpertiseHero } from '@/components/expertise/ExpertiseHero';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
-import { MeshGradient } from '@paper-design/shaders-react';
+const DeferredMeshGradient = dynamic(() => import('@/components/expertise/DeferredMeshGradient'), { ssr: false });
 import aboutStyles from '../about/page.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -26,14 +27,14 @@ export default function ExpertisePage() {
       smoothWheel: true,
     });
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
+    const updateLenis = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(updateLenis);
 
 
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
+      gsap.ticker.remove(updateLenis);
     };
   }, { scope: containerRef });
 
@@ -79,14 +80,14 @@ function CallToAction() {
       <div className={aboutStyles.ctaCard}>
         <div className={aboutStyles.ctaHeroBg} />
 
-        <MeshGradient
+        <DeferredMeshGradient
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1, opacity: 0.85, backgroundColor: '#000812' }}
           colors={['#000812', '#0F172A', '#1E293B', '#334155']}
           speed={0.5}
         />
 
         {/* MeshGradient layer 2 — subtle metallic titanium highlights */}
-        <MeshGradient
+        <DeferredMeshGradient
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.75, zIndex: 2, backgroundColor: 'transparent' }}
           colors={['#000812', '#475569', '#000812']}
           speed={0.35}
