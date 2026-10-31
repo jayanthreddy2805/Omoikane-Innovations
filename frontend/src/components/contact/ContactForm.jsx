@@ -1,29 +1,70 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import SubmitButton from '@/components/common/SubmitButton';
 import InternationalPhoneInput from '@/components/common/InternationalPhoneInput';
 import styles from './ContactForm.module.css';
 
-export default function ContactForm({ onSuccess }) {
-  const [status, setStatus] = useState('idle');
-  const [phone, setPhone] = useState('');
+/**
+ * API base URL — uses Next.js public env variable if set,
+ * defaults to localhost:8080 for local development.
+ */
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080';
 
-  const handleSubmit = (e) => {
+export default function ContactForm({ onSuccess }) {
+  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+  const [errorMsg, setErrorMsg] = useState('');
+  const [phone, setPhone] = useState('');
+  const formRef = useRef(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Prevent duplicate submissions
+    if (status === 'submitting') return;
+
     setStatus('submitting');
-    // Simulate network request
-    // phone will contain the E.164 formatted value e.g. +918861035848
-    setTimeout(() => {
-      setStatus('success');
-      if (onSuccess) onSuccess();
-    }, 1500);
+    setErrorMsg('');
+
+    const form = formRef.current;
+    const payload = {
+      name: form.elements['cf-name'].value.trim(),
+      email: form.elements['cf-email'].value.trim(),
+      company: form.elements['cf-company'].value.trim() || undefined,
+      phone: phone.trim() || undefined,
+      message: form.elements['cf-message'].value.trim(),
+    };
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json().catch(() => null);
+
+      if (res.status === 201) {
+        setStatus('success');
+        if (onSuccess) onSuccess();
+      } else if (res.status === 429) {
+        setStatus('error');
+        setErrorMsg('Too many submissions. Please wait a moment and try again.');
+      } else if (res.status === 400 && data?.message) {
+        setStatus('error');
+        setErrorMsg(data.message);
+      } else {
+        setStatus('error');
+        setErrorMsg('Something went wrong. Please try again later.');
+      }
+    } catch (err) {
+      setStatus('error');
+      setErrorMsg('Unable to reach the server. Please check your connection and try again.');
+    }
   };
 
-
-
   return (
-    <form className={styles.formContainer} onSubmit={handleSubmit}>
+    <form className={styles.formContainer} onSubmit={handleSubmit} ref={formRef}>
       <div className={styles.formGrid}>
         <div className={styles.inputGroup}>
           <label htmlFor="cf-name" className={styles.label}>Name</label>
@@ -78,8 +119,12 @@ export default function ContactForm({ onSuccess }) {
         </div>
       </div>
 
+      {status === 'error' && errorMsg && (
+        <p className={styles.errorMessage} role="alert">{errorMsg}</p>
+      )}
+
       <div className={styles.submitRow}>
-        <SubmitButton status={status} />
+        <SubmitButton status={status === 'error' ? 'idle' : status} />
       </div>
     </form>
   );
