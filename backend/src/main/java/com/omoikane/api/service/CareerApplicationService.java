@@ -106,6 +106,11 @@ public class CareerApplicationService {
             } catch (Exception e) {
                 log.warn("Email delivery failed for career application [id={}]: {}", saved.getId(), e.getMessage());
             }
+            try {
+                emailService.sendAdminCareerAlert(saved);
+            } catch (Exception e) {
+                log.warn("Admin notification email failed for career application [id={}]: {}", saved.getId(), e.getMessage());
+            }
         }
 
         return saved;

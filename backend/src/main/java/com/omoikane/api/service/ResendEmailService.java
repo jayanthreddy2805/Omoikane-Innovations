@@ -35,6 +35,7 @@ public class ResendEmailService {
     private final String apiKey;
     private final String fromEmail;
     private final String fromName;
+    private final String adminEmail;
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
@@ -42,18 +43,24 @@ public class ResendEmailService {
     public ResendEmailService(
             @Value("${app.resend.api-key:}") String apiKey,
             @Value("${app.resend.from-email:}") String fromEmail,
-            @Value("${app.resend.from-name:Omoikane Innovations}") String fromName) {
+            @Value("${app.resend.from-name:Omoikane Innovations}") String fromName,
+            @Value("${app.resend.admin-email:}") String adminEmail) {
         this.apiKey = apiKey != null ? apiKey.trim() : "";
         this.fromEmail = fromEmail != null ? fromEmail.trim() : "";
         this.fromName = fromName != null ? fromName.trim() : "";
+        this.adminEmail = adminEmail != null ? adminEmail.trim() : "";
         this.httpClient = HttpClient.newBuilder()
                 .connectTimeout(Duration.ofSeconds(10))
                 .build();
         this.objectMapper = new ObjectMapper();
     }
 
+    public ResendEmailService(String apiKey, String fromEmail, String fromName) {
+        this(apiKey, fromEmail, fromName, "");
+    }
+
     public ResendEmailService(String apiKey, String fromEmail) {
-        this(apiKey, fromEmail, "Omoikane Innovations");
+        this(apiKey, fromEmail, "Omoikane Innovations", "");
     }
 
     /**
@@ -283,6 +290,150 @@ public class ResendEmailService {
                 </body>
                 </html>
                 """.formatted(safeName, safeId, safeDept, safeRole);
+    }
+
+    /**
+     * Sends an instant notification email to the admin/manager whenever a new contact inquiry arrives.
+     */
+    public boolean sendAdminContactAlert(ContactSubmission submission) {
+        if (!isConfigured() || adminEmail.isBlank()) {
+            return false;
+        }
+
+        String company = (submission.getCompany() != null && !submission.getCompany().isBlank())
+                ? submission.getCompany().trim()
+                : "Individual";
+        String subject = "[New Enquiry] " + submission.getName() + " (" + company + ")";
+        String htmlContent = buildAdminContactAlertHtml(submission);
+
+        return sendEmail(adminEmail, subject, htmlContent, "admin contact alert", submission.getId());
+    }
+
+    /**
+     * Sends an instant notification email to the admin/manager whenever a new job application arrives.
+     */
+    public boolean sendAdminCareerAlert(CareerApplication application) {
+        if (!isConfigured() || adminEmail.isBlank()) {
+            return false;
+        }
+
+        String role = (application.getRoleTitle() != null && !application.getRoleTitle().isBlank())
+                ? application.getRoleTitle().trim()
+                : application.getRoleId();
+        String subject = "[New Job Application] " + role + " - " + application.getName();
+        String htmlContent = buildAdminCareerAlertHtml(application);
+
+        return sendEmail(adminEmail, subject, htmlContent, "admin career alert", application.getId());
+    }
+
+    String buildAdminContactAlertHtml(ContactSubmission sub) {
+        String safeName = escapeHtml(sub.getName());
+        String safeEmail = escapeHtml(sub.getEmail());
+        String safePhone = escapeHtml(sub.getPhone() != null ? sub.getPhone() : "Not provided");
+        String safeCompany = escapeHtml(sub.getCompany() != null ? sub.getCompany() : "Not provided");
+        String safeMessage = escapeHtml(sub.getMessage()).replace("\n", "<br/>");
+        String timeStr = sub.getCreatedAt() != null ? sub.getCreatedAt().toString() : "Just now";
+
+        return """
+                <!DOCTYPE html>
+                <html lang="en">
+                <head><meta charset="UTF-8"><title>New Contact Enquiry</title></head>
+                <body style="margin: 0; padding: 24px; background-color: #0b1523; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #f1f5f9;">
+                  <div style="max-width: 600px; margin: 0 auto; background-color: #001224; border: 1px solid #00E5FF33; border-radius: 12px; padding: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                    <div style="display: flex; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 16px; margin-bottom: 24px;">
+                      <h2 style="margin: 0; color: #00E5FF; font-size: 20px; letter-spacing: 0.5px;">New Contact Enquiry Received</h2>
+                    </div>
+                    <table width="100%%" cellpadding="8" cellspacing="0" style="font-size: 14px; margin-bottom: 24px; border-collapse: collapse;">
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; width: 120px; font-weight: 600;">Name:</td>
+                        <td style="color: #ffffff; font-weight: 600;">%s</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; font-weight: 600;">Email:</td>
+                        <td><a href="mailto:%s" style="color: #38bdf8; text-decoration: none;">%s</a></td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; font-weight: 600;">Phone:</td>
+                        <td style="color: #e2e8f0;">%s</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; font-weight: 600;">Company:</td>
+                        <td style="color: #e2e8f0;">%s</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; font-weight: 600;">Received:</td>
+                        <td style="color: #64748b; font-size: 13px;">%s</td>
+                      </tr>
+                    </table>
+                    <div style="background-color: #0b1523; border: 1px solid #1e293b; border-radius: 8px; padding: 18px; margin-bottom: 24px;">
+                      <div style="font-size: 12px; font-weight: 600; color: #38bdf8; text-transform: uppercase; margin-bottom: 8px;">Message:</div>
+                      <div style="font-size: 14px; line-height: 1.6; color: #cbd5e1;">%s</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 24px;">
+                      <a href="http://localhost:3000/admin" style="display: inline-block; background-color: #0070F3; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 600;">Open Admin Dashboard</a>
+                    </div>
+                  </div>
+                </body>
+                </html>
+                """.formatted(safeName, safeEmail, safeEmail, safePhone, safeCompany, timeStr, safeMessage);
+    }
+
+    String buildAdminCareerAlertHtml(CareerApplication app) {
+        String safeName = escapeHtml(app.getName());
+        String safeEmail = escapeHtml(app.getEmail());
+        String safePhone = escapeHtml(app.getPhone() != null ? app.getPhone() : "Not provided");
+        String safeDept = escapeHtml(formatDepartment(app.getDepartment()));
+        String safeRole = escapeHtml(app.getRoleTitle() != null ? app.getRoleTitle() : app.getRoleId());
+        String safeFilename = escapeHtml(app.getResumeFilename() != null ? app.getResumeFilename() : "resume");
+        String safeMessage = escapeHtml(app.getMessage() != null ? app.getMessage() : "").replace("\n", "<br/>");
+        String timeStr = app.getCreatedAt() != null ? app.getCreatedAt().toString() : "Just now";
+
+        return """
+                <!DOCTYPE html>
+                <html lang="en">
+                <head><meta charset="UTF-8"><title>New Job Application</title></head>
+                <body style="margin: 0; padding: 24px; background-color: #0b1523; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #f1f5f9;">
+                  <div style="max-width: 600px; margin: 0 auto; background-color: #001224; border: 1px solid #00E5FF33; border-radius: 12px; padding: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                    <div style="border-bottom: 1px solid #1e293b; padding-bottom: 16px; margin-bottom: 24px;">
+                      <h2 style="margin: 0; color: #00E5FF; font-size: 20px; letter-spacing: 0.5px;">New Job Application Received</h2>
+                    </div>
+                    <table width="100%%" cellpadding="8" cellspacing="0" style="font-size: 14px; margin-bottom: 24px; border-collapse: collapse;">
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; width: 120px; font-weight: 600;">Applicant:</td>
+                        <td style="color: #ffffff; font-weight: 600;">%s</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; font-weight: 600;">Email:</td>
+                        <td><a href="mailto:%s" style="color: #38bdf8; text-decoration: none;">%s</a></td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; font-weight: 600;">Phone:</td>
+                        <td style="color: #e2e8f0;">%s</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; font-weight: 600;">Position:</td>
+                        <td style="color: #38bdf8; font-weight: 600;">%s (%s)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; font-weight: 600;">Resume:</td>
+                        <td style="color: #e2e8f0;">%s</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="color: #94a3b8; font-weight: 600;">Applied At:</td>
+                        <td style="color: #64748b; font-size: 13px;">%s</td>
+                      </tr>
+                    </table>
+                    <div style="background-color: #0b1523; border: 1px solid #1e293b; border-radius: 8px; padding: 18px; margin-bottom: 24px;">
+                      <div style="font-size: 12px; font-weight: 600; color: #38bdf8; text-transform: uppercase; margin-bottom: 8px;">Cover Letter:</div>
+                      <div style="font-size: 14px; line-height: 1.6; color: #cbd5e1;">%s</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 24px;">
+                      <a href="http://localhost:3000/admin" style="display: inline-block; background-color: #0070F3; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 600;">Review & Download Resume</a>
+                    </div>
+                  </div>
+                </body>
+                </html>
+                """.formatted(safeName, safeEmail, safeEmail, safePhone, safeRole, safeDept, safeFilename, timeStr, safeMessage);
     }
 
     static String formatDepartment(String department) {

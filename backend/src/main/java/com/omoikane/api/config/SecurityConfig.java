@@ -29,6 +29,7 @@ public class SecurityConfig {
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/contact", "/api/careers/apply").permitAll()
+                .requestMatchers("/api/admin/**").permitAll()
                 .anyRequest().denyAll()
             );
         return http.build();
@@ -38,8 +39,8 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(Arrays.asList(allowedOrigins.split(",")));
-        config.setAllowedMethods(List.of("POST", "OPTIONS"));
-        config.setAllowedHeaders(List.of("Content-Type", "Accept", "Origin", "X-Requested-With"));
+        config.setAllowedMethods(List.of("GET", "POST", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("Content-Type", "Accept", "Origin", "X-Requested-With", "X-Admin-Key"));
         config.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

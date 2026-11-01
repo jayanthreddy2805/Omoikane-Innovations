@@ -53,6 +53,13 @@ public class ContactService {
             // Record stays saved — email failure is non-fatal
         }
 
+        // Notify admin/manager email
+        try {
+            emailService.sendAdminContactAlert(submission);
+        } catch (Exception e) {
+            log.warn("Admin notification email failed for submission [id={}]: {}", submission.getId(), e.getMessage());
+        }
+
         return submission;
     }
 }

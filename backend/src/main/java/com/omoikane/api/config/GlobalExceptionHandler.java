@@ -56,6 +56,12 @@ public class GlobalExceptionHandler {
                 .body(ContactResponse.error("File exceeds maximum size of 5 MB."));
     }
 
+    @ExceptionHandler(org.springframework.web.server.ResponseStatusException.class)
+    public ResponseEntity<ContactResponse> handleResponseStatus(org.springframework.web.server.ResponseStatusException ex) {
+        return ResponseEntity.status(ex.getStatusCode())
+                .body(ContactResponse.error(ex.getReason() != null ? ex.getReason() : ex.getMessage()));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ContactResponse> handleGeneral(Exception ex) {
         log.error("Unexpected error processing request", ex);
