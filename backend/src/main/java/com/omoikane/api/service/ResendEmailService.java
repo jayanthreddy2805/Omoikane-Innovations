@@ -35,7 +35,7 @@ public class ResendEmailService {
 
     private static final Logger log = LoggerFactory.getLogger(ResendEmailService.class);
     private static final String RESEND_API_URL = "https://api.resend.com/emails";
-    public static final String DEFAULT_LOGO_URL = "https://omoikane-innovations-3h7t.vercel.app/omoikane-logo.png";
+    public static final String DEFAULT_LOGO_URL = "https://raw.githubusercontent.com/jayanthreddy2805/Omoikane-Innovations/main/frontend/public/omoikane-logo.png";
 
     private final String apiKey;
     private final String fromEmail;
@@ -51,13 +51,14 @@ public class ResendEmailService {
             @Value("${app.resend.from-email:}") String fromEmail,
             @Value("${app.resend.from-name:Omoikane Innovations}") String fromName,
             @Value("${app.resend.admin-email:}") String adminEmail,
-            @Value("${app.resend.logo-url:https://omoikane-innovations-3h7t.vercel.app/omoikane-logo.png}") String logoUrl) {
+            @Value("${app.resend.logo-url:https://raw.githubusercontent.com/jayanthreddy2805/Omoikane-Innovations/main/frontend/public/omoikane-logo.png}") String logoUrl) {
         this.apiKey = apiKey != null ? apiKey.trim() : "";
         this.fromEmail = fromEmail != null ? fromEmail.trim() : "";
         this.fromName = fromName != null ? fromName.trim() : "";
         this.adminEmail = adminEmail != null ? adminEmail.trim() : "";
         this.logoUrl = (logoUrl != null && !logoUrl.isBlank()) ? logoUrl.trim() : DEFAULT_LOGO_URL;
         this.httpClient = HttpClient.newBuilder()
+
                 .connectTimeout(Duration.ofSeconds(10))
                 .build();
         this.objectMapper = new ObjectMapper();
@@ -277,15 +278,16 @@ public class ResendEmailService {
                             <td style="background-color: #0f172a; padding: 22px 28px; text-align: left;">
                               <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="vertical-align: middle;">
                                 <tr>
-                                  <td style="vertical-align: middle; padding-right: 14px;">
-                                    <img src="%s" alt="Omoikane Logo" width="38" height="38" style="display: block; width: 38px; height: 38px; border-radius: 6px; object-fit: contain;" />
+                                  <td style="vertical-align: middle; padding-right: 14px; width: 40px;">
+                                    <img src="%s" alt="Omoikane Innovations" width="40" height="40" border="0" style="display: block; width: 40px; height: 40px; max-width: 40px; max-height: 40px; border: 0; outline: none; text-decoration: none;" />
                                   </td>
                                   <td style="vertical-align: middle;">
-                                    <span style="color: #ffffff; font-size: 20px; font-weight: 600; letter-spacing: 0.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: inline-block; vertical-align: middle;">Omoikane Innovations</span>
+                                    <span style="color: #ffffff; font-size: 20px; font-weight: 700; letter-spacing: 0.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: inline-block; vertical-align: middle;">Omoikane Innovations</span>
                                   </td>
                                 </tr>
                               </table>
                             </td>
+
                           </tr>
                           <tr>
                             <td style="padding: 32px;">
@@ -351,15 +353,16 @@ public class ResendEmailService {
                             <td style="background-color: #0f172a; padding: 22px 28px; text-align: left;">
                               <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="vertical-align: middle;">
                                 <tr>
-                                  <td style="vertical-align: middle; padding-right: 14px;">
-                                    <img src="%s" alt="Omoikane Logo" width="38" height="38" style="display: block; width: 38px; height: 38px; border-radius: 6px; object-fit: contain;" />
+                                  <td style="vertical-align: middle; padding-right: 14px; width: 40px;">
+                                    <img src="%s" alt="Omoikane Innovations" width="40" height="40" border="0" style="display: block; width: 40px; height: 40px; max-width: 40px; max-height: 40px; border: 0; outline: none; text-decoration: none;" />
                                   </td>
                                   <td style="vertical-align: middle;">
-                                    <span style="color: #ffffff; font-size: 20px; font-weight: 600; letter-spacing: 0.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: inline-block; vertical-align: middle;">Omoikane Innovations</span>
+                                    <span style="color: #ffffff; font-size: 20px; font-weight: 700; letter-spacing: 0.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: inline-block; vertical-align: middle;">Omoikane Innovations</span>
                                   </td>
                                 </tr>
                               </table>
                             </td>
+
                           </tr>
                           <tr>
                             <td style="padding: 32px;">
@@ -430,11 +433,11 @@ public class ResendEmailService {
                   <div style="max-width: 600px; margin: 0 auto; background-color: #001224; border: 1px solid #00E5FF33; border-radius: 12px; padding: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 20px;">
                       <tr>
-                        <td style="vertical-align: middle; padding-right: 12px;">
-                          <img src="%s" alt="Omoikane Logo" width="34" height="34" style="display: block; width: 34px; height: 34px; border-radius: 6px; object-fit: contain;" />
+                        <td style="vertical-align: middle; padding-right: 12px; width: 36px;">
+                          <img src="%s" alt="Omoikane Innovations" width="36" height="36" border="0" style="display: block; width: 36px; height: 36px; max-width: 36px; max-height: 36px; border: 0; outline: none; text-decoration: none;" />
                         </td>
                         <td style="vertical-align: middle;">
-                          <span style="color: #ffffff; font-size: 18px; font-weight: 600; letter-spacing: 0.5px;">Omoikane Innovations</span>
+                          <span style="color: #ffffff; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Omoikane Innovations</span>
                         </td>
                       </tr>
                     </table>
@@ -495,14 +498,15 @@ public class ResendEmailService {
                   <div style="max-width: 600px; margin: 0 auto; background-color: #001224; border: 1px solid #00E5FF33; border-radius: 12px; padding: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 20px;">
                       <tr>
-                        <td style="vertical-align: middle; padding-right: 12px;">
-                          <img src="%s" alt="Omoikane Logo" width="34" height="34" style="display: block; width: 34px; height: 34px; border-radius: 6px; object-fit: contain;" />
+                        <td style="vertical-align: middle; padding-right: 12px; width: 36px;">
+                          <img src="%s" alt="Omoikane Innovations" width="36" height="36" border="0" style="display: block; width: 36px; height: 36px; max-width: 36px; max-height: 36px; border: 0; outline: none; text-decoration: none;" />
                         </td>
                         <td style="vertical-align: middle;">
-                          <span style="color: #ffffff; font-size: 18px; font-weight: 600; letter-spacing: 0.5px;">Omoikane Innovations</span>
+                          <span style="color: #ffffff; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Omoikane Innovations</span>
                         </td>
                       </tr>
                     </table>
+
                     <div style="border-bottom: 1px solid #1e293b; padding-bottom: 16px; margin-bottom: 24px;">
                       <h2 style="margin: 0; color: #00E5FF; font-size: 20px; letter-spacing: 0.5px;">New Job Application Received</h2>
                     </div>
