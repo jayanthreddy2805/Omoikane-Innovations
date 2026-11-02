@@ -6,8 +6,6 @@ on:
       - "backend/**"
       - ".github/workflows/backend-tests.yml"
   push:
-    branches:
-      - main
     paths:
       - "backend/**"
       - ".github/workflows/backend-tests.yml"
@@ -16,7 +14,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: backend-tests-${{ github.workflow }}-${{ github.ref }}
+  group: backend-tests-${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
