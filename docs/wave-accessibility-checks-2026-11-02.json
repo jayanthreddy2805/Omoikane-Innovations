@@ -7,7 +7,7 @@
     "type": "WAVE-annotated homepage printout"
   },
   "source_base_commit": "b6352f7803e04749d6aa478a313ee0c55193db9c",
-  "tested_frontend_tree": "1431486b50a8e6ff80127eb26619ede7ca223ba7",
+  "tested_frontend_tree": "132b1076f438c3ff559f6bac14b0e9450728feed",
   "environment": {
     "server": "local Next.js 16.4.3 production build (Turbopack)",
     "browser": "Chromium 153",
@@ -34,6 +34,54 @@
     {
       "name": "language, one main/H1, valid ARIA references and heading structure",
       "pass": true
+    },
+    {
+      "name": "mobile menu destinations, expanded state, position and keyboard dismissal",
+      "pass": true,
+      "detail": {
+        "layouts": [
+          {
+            "width": 320,
+            "height": 700,
+            "scrolled": false,
+            "menuTop": 76,
+            "headerBottom": 77,
+            "menuBottom": 536.3125,
+            "viewport": 700,
+            "scrollable": false
+          },
+          {
+            "width": 768,
+            "height": 700,
+            "scrolled": false,
+            "menuTop": 104,
+            "headerBottom": 105,
+            "menuBottom": 564.3125,
+            "viewport": 700,
+            "scrollable": false
+          },
+          {
+            "width": 1024,
+            "height": 480,
+            "scrolled": false,
+            "menuTop": 104,
+            "headerBottom": 105,
+            "menuBottom": 444,
+            "viewport": 480,
+            "scrollable": true
+          },
+          {
+            "width": 412,
+            "height": 700,
+            "scrolled": true,
+            "menuTop": 75.375,
+            "headerBottom": 76.375,
+            "menuBottom": 535.6875,
+            "viewport": 700,
+            "scrollable": false
+          }
+        ]
+      }
     },
     {
       "name": "decorative alternative text and company link name",
@@ -117,10 +165,15 @@
         "aria-valid-attr-value",
         "color-contrast"
       ]
+    },
+    "mobile-menu": {
+      "violations": 0,
+      "passed_rules": 11,
+      "manual_review_rules": []
     }
   },
   "lighthouse": {
-    "mode": "local production mobile defaults; one run",
+    "mode": "local production mobile defaults; recheck run",
     "scores": {
       "performance": 100,
       "accessibility": 100,
@@ -129,15 +182,15 @@
     },
     "metrics": {
       "first-contentful-paint": {
-        "value": 1069.252,
+        "value": 1079.278,
         "unit": "millisecond"
       },
       "largest-contentful-paint": {
-        "value": 1069.252,
+        "value": 1079.278,
         "unit": "millisecond"
       },
       "total-blocking-time": {
-        "value": 33.5,
+        "value": 36.5,
         "unit": "millisecond"
       },
       "cumulative-layout-shift": {
@@ -145,7 +198,7 @@
         "unit": "unitless"
       },
       "speed-index": {
-        "value": 1080.8367660008623,
+        "value": 1130.6661979992025,
         "unit": "millisecond"
       }
     }
@@ -158,5 +211,35 @@
     "No real newsletter subscription service or published legal policy was invented.",
     "Local Lighthouse scores do not guarantee identical results after deployment.",
     "Verification uses Chromium; full assistive-technology, Safari and Firefox coverage is not claimed."
-  ]
+  ],
+  "recheck": {
+    "previous_pr_head": "59203232353c79d0f8d07ec704d5245b361bec5e",
+    "previous_head_vercel_status": "success",
+    "github_review_threads": 0,
+    "additional_findings_fixed": [
+      "Mobile Careers navigation used /careers, which returned HTTP 404; it now opens /#careers and closes the menu.",
+      "Menu used a fixed 77px top despite a 105px tablet header; menu now follows the actual header and scrolls within short viewports.",
+      "Menu trigger lacked expanded state and controlled-navigation reference; added both, a named navigation landmark, and Escape focus restoration."
+    ],
+    "additional_layouts": [
+      {
+        "width": 320,
+        "height": 700
+      },
+      {
+        "width": 768,
+        "height": 700
+      },
+      {
+        "width": 1024,
+        "height": 480
+      },
+      {
+        "width": 412,
+        "height": 700,
+        "scroll_y": 1000
+      }
+    ],
+    "live_preview_http_verification": "Not completed: Vercel connector lacks access to the project team; build status was verified through GitHub."
+  }
 }

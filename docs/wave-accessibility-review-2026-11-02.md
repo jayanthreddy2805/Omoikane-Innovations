@@ -30,12 +30,16 @@ Source: all nine pages of `Omoikane Innovations _ Mission-Critical Products & Au
 
 ## Verification
 
-All 12 browser check groups passed. `npm run lint`, `npm run build` (18 routes, production Turbopack) and `git diff --check` passed. Responsive checks cover 320, 360, 412, 768, 1024, 1199, 1200 and 1440px. Axe reported zero violations on the revealed homepage, open search dialog and contact form; manual-review items are documented below.
+A second pass found a missed mobile-menu Careers link to `/careers` (confirmed HTTP 404), a fixed 77px menu offset that did not follow the 105px tablet header, and missing expanded-state semantics on the menu trigger. Fixed the destination to `/#careers`, close-on-selection behavior, header-relative positioning, short-viewport scrolling, labelled navigation, expanded/control attributes and Escape focus restoration. The added check exercises 320px and 768px screens, a 1024 × 480 viewport, and a scrolled 412px screen. All menu destinations return HTTP 200; the open menu has zero Axe violations.
 
-A fresh local Lighthouse 13.6.0 mobile run scored 100 Performance, 100 Accessibility, 100 Best Practices and 100 SEO. FCP/LCP were 1.07s, TBT 33.5ms and CLS 0. This is a local production benchmark, not a new public-site WAVE/PageSpeed report.
+All 13 browser check groups passed. `npm run lint`, `npm run build` (18 routes, production Turbopack) and `git diff --check` passed. Responsive checks cover 320, 360, 412, 768, 1024, 1199, 1200 and 1440px. Axe reported zero violations on the revealed homepage, open search dialog, expanded mobile navigation and contact form; manual-review items are documented below.
+
+A fresh local Lighthouse 13.6.0 mobile run scored 100 Performance, 100 Accessibility, 100 Best Practices and 100 SEO. FCP/LCP were 1.08s, TBT 36.5ms and CLS 0. This is a local production benchmark, not a new public-site WAVE/PageSpeed report.
 
 The companion `wave-accessibility-checks-2026-11-02.json` records the final production-build results, environment and limitations. Coverage includes homepage WCAG checks, search keyboard behavior, all product accordion states, real link/anchor targets, CTA animation opacity, responsive layout, footer link hit testing, the contact form, JavaScript-disabled content, reduced motion and runtime/CSP errors. Mailto links were inspected only; no messages or contact submissions were sent.
 
 The source is a WAVE-annotated printout, not a machine-readable WAVE results export. A new WAVE extension/API assessment was not run. The fixes are verified with Axe, browser interaction, source inspection and visual review; this is not a claim of WAVE certification or complete site-wide WCAG conformance. Axe cannot resolve every gradient/pseudo-element background; those contrast items require visual/manual review. The contact country popup is mounted on expansion, which produces an Axe manual-review item for its collapsed `aria-controls` reference.
 
 WAVE's own documentation distinguishes errors, alerts, features, structural elements and ARIA annotations. References: [WAVE Help](https://wave.webaim.org/help), [API documentation](https://wave.webaim.org/api/docs), and the public reference details for `link_redundant`, `alt_redundant`, `label_missing` and `contrast`. No paid WAVE API scan was invoked.
+
+The previous PR head (`5920323`) had a successful Vercel status and no review threads. Direct live-preview HTTP verification was unavailable because the connected Vercel account lacks access to the project team; the checks above use the local production build.

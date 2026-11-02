@@ -28,7 +28,8 @@ const NAV_LINKS = [
   { label: "Leadership", href: "/leadership" },
   {
     label: "Careers",
-    href: "/careers",
+    href: "/#careers",
+    activePath: "/careers",
     dropdown: [
       { title: "Software Development", desc: "Software, AI & real-time systems", href: "/careers/software" },
       { title: "Mechanical", desc: "Product, structures & integration", href: "/careers/mechanical" },
@@ -90,6 +91,7 @@ export default function Header() {
   const searchInputRef = React.useRef(null);
   const searchButtonRef = React.useRef(null);
   const searchDialogRef = React.useRef(null);
+  const mobileButtonRef = React.useRef(null);
   const careersRef = React.useRef(null);
   const closeTimer = React.useRef(null);
 
@@ -135,6 +137,7 @@ export default function Header() {
   React.useEffect(() => {
     function onKey(e) {
       if (e.key === "Escape") {
+        if (mobileOpen) mobileButtonRef.current?.focus();
         setSearchOpen(false);
         setCareersOpen(false);
         setMobileOpen(false);
@@ -142,7 +145,7 @@ export default function Header() {
     }
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, []);
+  }, [mobileOpen]);
 
   // Search results
   const searchResults = React.useMemo(() => {
@@ -205,9 +208,10 @@ export default function Header() {
         <nav className={styles.pillNav}>
           <ul className={styles.pillList}>
             {NAV_LINKS.map((item) => {
-              const isActive = item.href === "/"
+              const activePath = item.activePath || item.href;
+              const isActive = activePath === "/"
                 ? pathname === "/"
-                : pathname?.startsWith(item.href);
+                : pathname?.startsWith(activePath);
 
               if (item.dropdown) {
                 return (
@@ -315,20 +319,23 @@ export default function Header() {
 
         {/* ── MOBILE HAMBURGER ── */}
         <button
+          ref={mobileButtonRef}
           className={styles.hamburger}
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Menu"
+          aria-expanded={mobileOpen}
+          aria-controls={mobileOpen ? "mobile-navigation" : undefined}
         >
           <span className={`${styles.bar} ${mobileOpen ? styles.barTop : ""}`} />
           <span className={`${styles.bar} ${mobileOpen ? styles.barMid : ""}`} />
           <span className={`${styles.bar} ${mobileOpen ? styles.barBot : ""}`} />
         </button>
-      </motion.header>
-
       {/* ── MOBILE MENU ── */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <motion.nav
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
             className={styles.mobileMenu}
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -337,19 +344,20 @@ export default function Header() {
           >
             {NAV_LINKS.map((item) => (
               <React.Fragment key={item.label}>
-                <Link href={item.href} className={`${styles.mobileLink} ${pathname?.startsWith(item.href) && item.href !== "/" ? styles.mobileLinkActive : pathname === "/" && item.href === "/" ? styles.mobileLinkActive : ""}`}>
+                <Link href={item.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileLink} ${pathname?.startsWith(item.activePath || item.href) && item.href !== "/" ? styles.mobileLinkActive : pathname === "/" && item.href === "/" ? styles.mobileLinkActive : ""}`}>
                   {item.label}
                 </Link>
                 {item.dropdown && item.dropdown.map((opt) => (
-                  <Link key={opt.href} href={opt.href} className={`${styles.mobileSubLink} ${pathname === opt.href ? styles.mobileLinkActive : ""}`}>
+                  <Link key={opt.href} href={opt.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileSubLink} ${pathname === opt.href ? styles.mobileLinkActive : ""}`}>
                     — {opt.title}
                   </Link>
                 ))}
               </React.Fragment>
             ))}
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
+      </motion.header>
 
       {/* ── SEARCH OVERLAY ── */}
       <AnimatePresence>
