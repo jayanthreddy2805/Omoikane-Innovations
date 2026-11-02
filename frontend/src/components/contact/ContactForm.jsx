@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 import SubmitButton from '@/components/common/SubmitButton';
 import InternationalPhoneInput from '@/components/common/InternationalPhoneInput';
 import styles from './ContactForm.module.css';
@@ -12,6 +13,8 @@ import styles from './ContactForm.module.css';
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080';
 
 export default function ContactForm({ onSuccess }) {
+  const searchParams = useSearchParams();
+  const enquirySubject = searchParams.get('subject')?.trim().slice(0, 120) || '';
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('');
   const [phone, setPhone] = useState('');
@@ -32,7 +35,7 @@ export default function ContactForm({ onSuccess }) {
       email: form.elements['cf-email'].value.trim(),
       company: form.elements['cf-company'].value.trim() || undefined,
       phone: phone.trim() || undefined,
-      message: form.elements['cf-message'].value.trim(),
+      message: `${enquirySubject ? `[Enquiry: ${enquirySubject}]\n` : ''}${form.elements['cf-message'].value.trim()}`,
     };
 
     try {
@@ -65,6 +68,7 @@ export default function ContactForm({ onSuccess }) {
 
   return (
     <form id="contact-form" aria-label="Contact Omoikane" tabIndex={-1} className={styles.formContainer} onSubmit={handleSubmit} ref={formRef}>
+      {enquirySubject && <p className={styles.enquirySubject}>Enquiry about <strong>{enquirySubject}</strong></p>}
       <div className={styles.formGrid}>
         <div className={styles.inputGroup}>
           <label htmlFor="cf-name" className={styles.label}>Name</label>
@@ -118,6 +122,8 @@ export default function ContactForm({ onSuccess }) {
           />
         </div>
       </div>
+
+      <p className={styles.formNotice}>We use the information you submit to review your enquiry and respond to you.</p>
 
       {status === 'error' && errorMsg && (
         <p className={styles.errorMessage} role="alert">{errorMsg}</p>

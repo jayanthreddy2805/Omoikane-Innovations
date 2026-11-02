@@ -41,6 +41,15 @@
   animation-play-state: paused;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+}
+
 .techItem {
   font-family: var(--font-mono, ui-monospace, monospace);
   font-weight: 700;

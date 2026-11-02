@@ -36,15 +36,15 @@ public class AdminController {
     public AdminController(
             ContactSubmissionRepository contactRepository,
             CareerApplicationRepository careerRepository,
-            @Value("${app.admin.secret-key:omoikane-admin-2026}") String adminSecretKey) {
+            @Value("${app.admin.secret-key:}") String adminSecretKey) {
         this.contactRepository = contactRepository;
         this.careerRepository = careerRepository;
-        this.adminSecretKey = adminSecretKey != null ? adminSecretKey.trim() : "omoikane-admin-2026";
+        this.adminSecretKey = adminSecretKey != null ? adminSecretKey.trim() : "";
     }
 
     private void authenticate(String headerKey, String queryKey) {
         String key = (headerKey != null && !headerKey.isBlank()) ? headerKey.trim() : (queryKey != null ? queryKey.trim() : null);
-        if (key == null || !adminSecretKey.equals(key)) {
+        if (adminSecretKey.isBlank() || key == null || !adminSecretKey.equals(key)) {
             log.warn("Unauthorized attempt to access admin endpoint");
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid admin credentials");
         }

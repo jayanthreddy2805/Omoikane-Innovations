@@ -112,7 +112,34 @@
   flex-shrink: 0;
   position: relative;
   overflow: visible;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
 }
+
+.galleryImage:focus-visible {
+  outline: 4px solid rgba(7, 87, 200, 0.5);
+  outline-offset: 8px;
+}
+
+.closeButton {
+  position: absolute;
+  z-index: 10;
+  top: -3.5rem;
+  right: 0;
+  border: 1px solid rgba(7, 87, 200, 0.35);
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  background: #FFFFFF;
+  color: #061D40;
+  font: 600 0.76rem/1 var(--font-inter, sans-serif);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.closeButton:focus-visible { outline: 3px solid rgba(7, 87, 200, 0.35); outline-offset: 3px; }
 
 .scrollWrapper {
   position: relative;

@@ -23,19 +23,20 @@ export default function ExpertisePage() {
       smoothWheel: true,
     });
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    const tick = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
 
 
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
+      gsap.ticker.remove(tick);
     };
   }, { scope: containerRef });
 
   return (
-    <main className={styles.container} ref={containerRef}>
+    <div className={styles.container} ref={containerRef}>
       
       {/* Ultra Clean Hero */}
       <ExpertiseHero />
@@ -49,6 +50,6 @@ export default function ExpertisePage() {
       {/* About Us CTA */}
       <CallToAction />
 
-    </main>
+    </div>
   );
 }

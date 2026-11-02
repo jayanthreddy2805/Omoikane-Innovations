@@ -215,6 +215,7 @@ export default function InternationalPhoneInput({
                     type="text"
                     className={isCareer ? styles.searchInputCareer : styles.searchInput}
                     placeholder="Search countries..."
+                    aria-label="Search countries"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onClick={(e) => e.stopPropagation()}
@@ -222,13 +223,12 @@ export default function InternationalPhoneInput({
                 </div>
               </div>
               
-              <ul id={`${id}-country-list`} role="listbox" className={isCareer ? styles.dropdownListCareer : styles.dropdownList}>
+              <div id={`${id}-country-list`} role="listbox" aria-label="Countries" className={isCareer ? styles.dropdownListCareer : styles.dropdownList}>
                 {filteredCountries.length > 0 ? (
                   filteredCountries.map((c) => {
                     const Flag = Flags[c.code];
                     return (
-                      <li key={c.code}>
-                        <button
+                        <button key={c.code}
                           type="button"
                           className={isCareer ? styles.countryOptionCareer : styles.countryOption}
                           onClick={() => handleCountrySelect(c)}
@@ -239,13 +239,12 @@ export default function InternationalPhoneInput({
                           <span className={isCareer ? styles.countryNameCareer : styles.countryName}>{c.name}</span>
                           <span className={isCareer ? styles.countryDialCodeCareer : styles.countryDialCode}>{c.dialCode}</span>
                         </button>
-                      </li>
                     );
                   })
                 ) : (
-                  <li className={isCareer ? styles.noResultsCareer : styles.noResults}>No countries found.</li>
+                  <div role="status" className={isCareer ? styles.noResultsCareer : styles.noResults}>No countries found.</div>
                 )}
-              </ul>
+              </div>
             </motion.div>
           </AnimatePresence>
 

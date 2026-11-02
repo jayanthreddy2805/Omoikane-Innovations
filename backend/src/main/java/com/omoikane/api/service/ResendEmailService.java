@@ -42,6 +42,7 @@ public class ResendEmailService {
     private final String fromName;
     private final String adminEmail;
     private final String logoUrl;
+    private final String adminDashboardUrl;
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
@@ -51,12 +52,16 @@ public class ResendEmailService {
             @Value("${app.resend.from-email:}") String fromEmail,
             @Value("${app.resend.from-name:Omoikane Innovations}") String fromName,
             @Value("${app.resend.admin-email:}") String adminEmail,
-            @Value("${app.resend.logo-url:https://raw.githubusercontent.com/jayanthreddy2805/Omoikane-Innovations/main/frontend/public/omoikane-logo.png}") String logoUrl) {
+            @Value("${app.resend.logo-url:https://raw.githubusercontent.com/jayanthreddy2805/Omoikane-Innovations/main/frontend/public/omoikane-logo.png}") String logoUrl,
+            @Value("${app.admin.dashboard-url:https://www.omoikaneinnovations.com/admin}") String adminDashboardUrl) {
         this.apiKey = apiKey != null ? apiKey.trim() : "";
         this.fromEmail = fromEmail != null ? fromEmail.trim() : "";
         this.fromName = fromName != null ? fromName.trim() : "";
         this.adminEmail = adminEmail != null ? adminEmail.trim() : "";
         this.logoUrl = (logoUrl != null && !logoUrl.isBlank()) ? logoUrl.trim() : DEFAULT_LOGO_URL;
+        this.adminDashboardUrl = (adminDashboardUrl != null && !adminDashboardUrl.isBlank())
+                ? adminDashboardUrl.trim()
+                : "https://www.omoikaneinnovations.com/admin";
         this.httpClient = HttpClient.newBuilder()
 
                 .connectTimeout(Duration.ofSeconds(10))
@@ -65,15 +70,15 @@ public class ResendEmailService {
     }
 
     public ResendEmailService(String apiKey, String fromEmail, String fromName, String adminEmail) {
-        this(apiKey, fromEmail, fromName, adminEmail, DEFAULT_LOGO_URL);
+        this(apiKey, fromEmail, fromName, adminEmail, DEFAULT_LOGO_URL, "https://www.omoikaneinnovations.com/admin");
     }
 
     public ResendEmailService(String apiKey, String fromEmail, String fromName) {
-        this(apiKey, fromEmail, fromName, "", DEFAULT_LOGO_URL);
+        this(apiKey, fromEmail, fromName, "", DEFAULT_LOGO_URL, "https://www.omoikaneinnovations.com/admin");
     }
 
     public ResendEmailService(String apiKey, String fromEmail) {
-        this(apiKey, fromEmail, "Omoikane Innovations", "", DEFAULT_LOGO_URL);
+        this(apiKey, fromEmail, "Omoikane Innovations", "", DEFAULT_LOGO_URL, "https://www.omoikaneinnovations.com/admin");
     }
 
     public String getLogoUrl() {
@@ -471,12 +476,12 @@ public class ResendEmailService {
                       <div style="font-size: 14px; line-height: 1.6; color: #cbd5e1;">%s</div>
                     </div>
                     <div style="text-align: center; margin-top: 24px;">
-                      <a href="http://localhost:3000/admin" style="display: inline-block; background-color: #0070F3; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 600;">Open Admin Dashboard</a>
+                      <a href="%s" style="display: inline-block; background-color: #0070F3; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 600;">Open Admin Dashboard</a>
                     </div>
                   </div>
                 </body>
                 </html>
-                """.formatted(safeLogoUrl, safeName, safeEmail, safeEmail, safePhone, safeCompany, timeStr, safeMessage);
+                """.formatted(safeLogoUrl, safeName, safeEmail, safeEmail, safePhone, safeCompany, timeStr, safeMessage, escapeHtml(adminDashboardUrl));
     }
 
     String buildAdminCareerAlertHtml(CareerApplication app) {
@@ -541,12 +546,12 @@ public class ResendEmailService {
                       <div style="font-size: 14px; line-height: 1.6; color: #cbd5e1;">%s</div>
                     </div>
                     <div style="text-align: center; margin-top: 24px;">
-                      <a href="http://localhost:3000/admin" style="display: inline-block; background-color: #0070F3; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 600;">Review in Admin Dashboard</a>
+                      <a href="%s" style="display: inline-block; background-color: #0070F3; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 600;">Review in Admin Dashboard</a>
                     </div>
                   </div>
                 </body>
                 </html>
-                """.formatted(safeLogoUrl, safeName, safeEmail, safeEmail, safePhone, safeRole, safeDept, safeFilename, timeStr, safeMessage);
+                """.formatted(safeLogoUrl, safeName, safeEmail, safeEmail, safePhone, safeRole, safeDept, safeFilename, timeStr, safeMessage, escapeHtml(adminDashboardUrl));
     }
 
     static String formatDepartment(String department) {

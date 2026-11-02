@@ -8,7 +8,7 @@ const contentSecurityPolicy = [
   "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
-  "font-src 'self' https://moussamamadou.github.io",
+  "font-src 'self'",
   `connect-src 'self' ${apiOrigin}${isDevelopment ? " ws://localhost:* ws://127.0.0.1:*" : ""}`,
   "media-src 'self' blob:",
   "worker-src 'self' blob:",
@@ -25,6 +25,20 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     imageSizes: [32, 48, 64, 96, 128, 192, 256, 384, 512],
+  },
+  async redirects() {
+    return [
+      { source: "/about-us", destination: "/about", permanent: true },
+      { source: "/contact-us", destination: "/contact", permanent: true },
+      { source: "/software-development", destination: "/careers/software", permanent: true },
+      { source: "/electronics", destination: "/careers/electronics", permanent: true },
+      { source: "/mechanical", destination: "/careers/mechanical", permanent: true },
+      { source: "/services", destination: "/expertise", permanent: true },
+      { source: "/products.html", has: [{ type: "query", key: "product", value: "ofc-x" }], destination: "/work#ofc-x", permanent: true },
+      { source: "/products.html", has: [{ type: "query", key: "product", value: "oesc" }], destination: "/work#oesc", permanent: true },
+      { source: "/products.html", has: [{ type: "query", key: "product", value: "ogn-x" }], destination: "/work#ogn-x", permanent: true },
+      { source: "/products.html", has: [{ type: "query", key: "product", value: "ocom-x" }], destination: "/work#ocom-x", permanent: true },
+    ];
   },
   async headers() {
     return [{

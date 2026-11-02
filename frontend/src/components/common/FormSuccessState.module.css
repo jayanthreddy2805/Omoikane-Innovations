@@ -102,52 +102,6 @@
   transform: translateX(4px);
 }
 
-/* 2. QUIET EDITORIAL COMPANY SIGNATURE */
-.signatureRow {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-  width: 100%;
-  max-width: 680px;
-  padding-top: 10px;
-  border-top: 1px solid #DCE7F3;
-  align-items: start;
-}
-
-.signatureCol {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.companyName {
-  font-family: var(--font-inter);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #061D40;
-  text-transform: uppercase;
-}
-
-.companyLocation {
-  font-family: var(--font-inter);
-  font-size: 0.85rem;
-  color: #62748A;
-}
-
-.signatureLink {
-  color: #62748A;
-  text-decoration: none;
-  font-family: var(--font-inter);
-  font-size: 0.85rem;
-  transition: color 0.2s ease;
-}
-
-.signatureLink:hover {
-  color: #0757C8;
-}
-
 @media (max-width: 768px) {
   .successContainer {
     padding: 2rem 1rem 1.5rem 1rem;
@@ -165,15 +119,4 @@
     font-size: 0.95rem;
   }
 
-  .signatureRow {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    text-align: center;
-    align-items: center;
-    max-width: 320px;
-  }
-
-  .signatureCol {
-    align-items: center;
-  }
 }

@@ -64,6 +64,13 @@
   margin-top: 16px;
 }
 
+.formNotice {
+  max-width: 62ch;
+  margin: -8px 0 0;
+  color: #445B75;
+  font: 0.82rem/1.6 var(--font-inter, sans-serif);
+}
+
 /* ERROR MESSAGE */
 .errorMessage {
   font-family: var(--font-inter, sans-serif);

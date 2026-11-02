@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Check } from 'lucide-react';
 import styles from './CustomSelect.module.css';
 
-export default function CustomSelect({ options, value, onChange, placeholder = "Select an option" }) {
+export default function CustomSelect({ options, value, onChange, placeholder = "Select an option", id, labelledBy }) {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const dropdownRef = useRef(null);
@@ -68,6 +68,7 @@ export default function CustomSelect({ options, value, onChange, placeholder = "
       onKeyDown={handleKeyDown}
     >
       <div 
+        id={id}
         className={`${styles.selectTrigger} ${isOpen ? styles.open : ''} ${selectedOption ? styles.hasValue : ''}`}
         onClick={() => (isOpen ? setIsOpen(false) : openDropdown())}
         tabIndex={0}
@@ -75,6 +76,8 @@ export default function CustomSelect({ options, value, onChange, placeholder = "
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-controls={listboxId}
+        aria-labelledby={labelledBy}
+        aria-activedescendant={isOpen && focusedIndex >= 0 ? `${listboxId}-option-${focusedIndex}` : undefined}
       >
         <span className={styles.selectValue}>
           {selectedOption ? selectedOption.label : placeholder}
@@ -100,10 +103,11 @@ export default function CustomSelect({ options, value, onChange, placeholder = "
             role="listbox"
             id={listboxId}
           >
-            <div className={styles.optionsScroll}>
+            <div className={styles.optionsScroll} role="presentation">
               {options.map((option, index) => (
                 <div
                   key={option.id}
+                  id={`${listboxId}-option-${index}`}
                   role="option"
                   aria-selected={value === option.id}
                   className={`${styles.optionItem} ${value === option.id ? styles.selected : ''} ${focusedIndex === index ? styles.focused : ''}`}
