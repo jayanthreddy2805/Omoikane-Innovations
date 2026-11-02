@@ -33,7 +33,7 @@ export default function FooterHero() {
 
         {/* CTA Button & Company Brand Watermark */}
         <div className={styles.heroActionRow}>
-          <Link href="/contact" className={styles.heroCta}>
+          <Link href="/contact#contact-form" className={styles.heroCta}>
             <span>Start a Conversation</span>
             <svg
               width="15"

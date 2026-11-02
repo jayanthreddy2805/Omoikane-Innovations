@@ -158,7 +158,7 @@ export default function HomeClient() {
               <span>Explore Our Work</span>
               <ArrowDown size={14} aria-hidden="true" />
             </Link>
-            <Link href="/contact" className={styles.heroBtnSecondary}>
+            <Link href="/contact#contact-form" className={styles.heroBtnSecondary}>
               <span>Contact Us</span>
               <ArrowUpRight size={15} aria-hidden="true" />
             </Link>
@@ -193,7 +193,7 @@ export default function HomeClient() {
               whileInView="visible"
               viewport={{ once: true, margin: "-40px" }}
             >
-              <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardTall}`}>
+              <Link href="/expertise#aerospace" className={`${styles.bentoCard} ${styles.bentoCardTall}`}>
                 <div className={styles.bentoTextCol}>
                   <h3 className={styles.bentoTitle}>Aerospace</h3>
                   <div className={styles.bentoMetaList}>
@@ -235,7 +235,7 @@ export default function HomeClient() {
                 viewport={{ once: true, margin: "-40px" }}
                 style={{ flex: 1 }}
               >
-                <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
+                <Link href="/expertise#defense" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
                   <div className={styles.bentoTextCol}>
                     <h3 className={styles.bentoTitle}>Defense</h3>
                     <div className={styles.bentoMetaList}>
@@ -275,7 +275,7 @@ export default function HomeClient() {
                 viewport={{ once: true, margin: "-40px" }}
                 style={{ flex: 1 }}
               >
-                <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
+                <Link href="/expertise#automotive" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
                   <div className={styles.bentoTextCol}>
                     <h3 className={styles.bentoTitle}>Automotive</h3>
                     <div className={styles.bentoMetaList}>
@@ -316,7 +316,7 @@ export default function HomeClient() {
               viewport={{ once: true, margin: "-40px" }}
               className={styles.bentoCardWideWrap}
             >
-              <Link href="/expertise" className={`${styles.bentoCard} ${styles.bentoCardWide}`}>
+              <Link href="/expertise#railways" className={`${styles.bentoCard} ${styles.bentoCardWide}`}>
                 <div className={styles.bentoTextCol}>
                   <h3 className={styles.bentoTitle}>Railways</h3>
                   <div className={styles.bentoMetaList}>
@@ -355,7 +355,7 @@ export default function HomeClient() {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Link href="/expertise" className={styles.outlineButton}>
+            <Link href="/work" className={styles.outlineButton}>
               <span>View All Products &amp; Solutions</span>
               <span aria-hidden="true">&rarr;</span>
             </Link>
@@ -400,7 +400,7 @@ export default function HomeClient() {
                 <div className={styles.whyCardVisual}>
                   <Image
                     src={pillar.image}
-                    alt={pillar.title}
+                    alt=""
                     width={180}
                     height={140}
                     sizes="142px"

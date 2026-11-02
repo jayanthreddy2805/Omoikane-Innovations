@@ -1,0 +1,162 @@
+{
+  "date": "2026-11-02",
+  "source_report": {
+    "filename": "Omoikane Innovations _ Mission-Critical Products & Autonomous Systems.pdf",
+    "pages_reviewed": 9,
+    "printed_at": "2026-11-02 18:34",
+    "type": "WAVE-annotated homepage printout"
+  },
+  "source_base_commit": "b6352f7803e04749d6aa478a313ee0c55193db9c",
+  "tested_frontend_tree": "1431486b50a8e6ff80127eb26619ede7ca223ba7",
+  "environment": {
+    "server": "local Next.js 16.4.3 production build (Turbopack)",
+    "browser": "Chromium 153",
+    "axe": "4.14.0",
+    "lighthouse": "13.6.0",
+    "responsive_widths": [
+      320,
+      360,
+      412,
+      768,
+      1024,
+      1199,
+      1200,
+      1440
+    ]
+  },
+  "build": {
+    "lint": "pass",
+    "production_build": "pass",
+    "routes": 18,
+    "diff_check": "pass"
+  },
+  "browser_checks": [
+    {
+      "name": "language, one main/H1, valid ARIA references and heading structure",
+      "pass": true
+    },
+    {
+      "name": "decorative alternative text and company link name",
+      "pass": true
+    },
+    {
+      "name": "four topic links, actual anchors, and products index destination",
+      "pass": true
+    },
+    {
+      "name": "all product accordions expand, collapse, and expose specific work links",
+      "pass": true
+    },
+    {
+      "name": "footer services, email request and privacy enquiry are working destinations",
+      "pass": true
+    },
+    {
+      "name": "CTA copy stays opaque before and throughout its entrance",
+      "pass": true
+    },
+    {
+      "name": "whole homepage WCAG checks after revealing content",
+      "pass": true,
+      "detail": {
+        "passes": 45,
+        "incomplete": [
+          "color-contrast"
+        ]
+      }
+    },
+    {
+      "name": "mobile/desktop overflow and footer screenshots",
+      "pass": true
+    },
+    {
+      "name": "search label, dialog focus, keyboard wrap, closing and centering",
+      "pass": true,
+      "detail": {
+        "passes": 20,
+        "incomplete": []
+      }
+    },
+    {
+      "name": "contact deep link, form label and labelled controls",
+      "pass": true,
+      "detail": {
+        "passes": 17,
+        "incomplete": [
+          "aria-valid-attr-value",
+          "color-contrast"
+        ]
+      }
+    },
+    {
+      "name": "JavaScript-disabled CTA remains readable and reduced motion is usable",
+      "pass": true
+    },
+    {
+      "name": "no runtime or CSP errors in the exercised flows",
+      "pass": true
+    }
+  ],
+  "axe": {
+    "homepage": {
+      "violations": 0,
+      "passed_rules": 45,
+      "manual_review_rules": [
+        "color-contrast"
+      ]
+    },
+    "search": {
+      "violations": 0,
+      "passed_rules": 20,
+      "manual_review_rules": []
+    },
+    "contact-form": {
+      "violations": 0,
+      "passed_rules": 17,
+      "manual_review_rules": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    }
+  },
+  "lighthouse": {
+    "mode": "local production mobile defaults; one run",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 1069.252,
+        "unit": "millisecond"
+      },
+      "largest-contentful-paint": {
+        "value": 1069.252,
+        "unit": "millisecond"
+      },
+      "total-blocking-time": {
+        "value": 33.5,
+        "unit": "millisecond"
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "unit": "unitless"
+      },
+      "speed-index": {
+        "value": 1080.8367660008623,
+        "unit": "millisecond"
+      }
+    }
+  },
+  "limits": [
+    "No new WAVE extension or API scan; no WAVE certification claim.",
+    "Gradient/pseudo-element contrast needs manual review; rendered CTA/footer/search inspected.",
+    "Contact country popup aria-controls target mounts when expanded; Axe lists this for manual review in its collapsed state.",
+    "No email sent or live contact submission performed.",
+    "No real newsletter subscription service or published legal policy was invented.",
+    "Local Lighthouse scores do not guarantee identical results after deployment.",
+    "Verification uses Chromium; full assistive-technology, Safari and Firefox coverage is not claimed."
+  ]
+}

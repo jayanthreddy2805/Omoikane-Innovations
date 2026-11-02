@@ -64,7 +64,7 @@ export default function ContactForm({ onSuccess }) {
   };
 
   return (
-    <form className={styles.formContainer} onSubmit={handleSubmit} ref={formRef}>
+    <form id="contact-form" aria-label="Contact Omoikane" tabIndex={-1} className={styles.formContainer} onSubmit={handleSubmit} ref={formRef}>
       <div className={styles.formGrid}>
         <div className={styles.inputGroup}>
           <label htmlFor="cf-name" className={styles.label}>Name</label>
