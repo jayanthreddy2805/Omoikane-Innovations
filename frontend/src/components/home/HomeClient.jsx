@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/common/IntentLink";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import {
   Navigation,
   Cpu,
@@ -119,7 +119,7 @@ export default function HomeClient() {
         <div className={styles.heroContent}>
           <motion.div
             className={styles.heroEyebrowBadge}
-            initial={{ opacity: 0, y: 14 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -131,7 +131,7 @@ export default function HomeClient() {
           <motion.h1
             id="hero-headline"
             className={styles.heroHeadline}
-            initial={{ opacity: 0, y: 22 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -140,7 +140,7 @@ export default function HomeClient() {
 
           <motion.p
             className={styles.heroPhilosophy}
-            initial={{ opacity: 0, y: 18 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -150,7 +150,7 @@ export default function HomeClient() {
 
           <motion.div
             className={styles.heroActions}
-            initial={{ opacity: 0, y: 16 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -218,7 +218,7 @@ export default function HomeClient() {
                     alt="Aerospace and autonomous flight platform"
                     fill
                     className={styles.bentoCardImg}
-                    sizes="(max-width: 960px) 100vw, 50vw"
+                    sizes="(max-width: 959px) calc(100vw - 124px), (max-width: 1288px) calc(53.5vw - 115px), 574px"
                   />
                 </div>
               </Link>
@@ -260,7 +260,7 @@ export default function HomeClient() {
                       alt="Defense technologies and tactical platforms"
                       fill
                       className={styles.bentoCardImg}
-                      sizes="(max-width: 960px) 100vw, 25vw"
+                      sizes="(max-width: 680px) calc(100vw - 124px), 190px"
                     />
                   </div>
                 </Link>
@@ -300,7 +300,7 @@ export default function HomeClient() {
                       alt="Intelligent automotive electronics and ECUs"
                       fill
                       className={styles.bentoCardImg}
-                      sizes="(max-width: 960px) 100vw, 25vw"
+                      sizes="(max-width: 680px) calc(100vw - 124px), 190px"
                     />
                   </div>
                 </Link>
@@ -341,7 +341,7 @@ export default function HomeClient() {
                     alt="Railway automation and industrial systems"
                     fill
                     className={styles.bentoCardImg}
-                    sizes="(max-width: 960px) 100vw, 35vw"
+                    sizes="(max-width: 680px) calc(100vw - 124px), 320px"
                   />
                 </div>
               </Link>
@@ -403,6 +403,7 @@ export default function HomeClient() {
                     alt={pillar.title}
                     width={180}
                     height={140}
+                    sizes="142px"
                     className={styles.whyCardImg}
                   />
                 </div>

@@ -1,14 +1,21 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
-import { useReducedMotion } from "framer-motion";
+import React, { useRef, useState, useEffect, useSyncExternalStore } from "react";
 import styles from "./AboutHero.module.css";
 
 const COMPANY_VIDEO = "/videos/about/omoikane.mp4";
 const COMPANY_VIDEO_POSTER = "/images/about/omoikane-film-poster.jpg";
 
+const subscribeToMotion = (notify) => {
+  const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  preference.addEventListener("change", notify);
+  return () => preference.removeEventListener("change", notify);
+};
+const getMotionPreference = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const getServerMotionPreference = () => true;
+
 export default function AboutHero() {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useSyncExternalStore(subscribeToMotion, getMotionPreference, getServerMotionPreference);
   const autoplayEnabled = prefersReducedMotion !== true;
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);

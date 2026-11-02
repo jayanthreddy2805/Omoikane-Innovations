@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/common/IntentLink";
 import styles from "./SelectedWork.module.css";
 
 const PROJECTS = [
@@ -50,25 +50,10 @@ const PROJECTS = [
 
 export default function SelectedWork() {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // Preload all project preview images after first render to prevent blank flash
-  useEffect(() => {
-    const imagesToPreload = [
-      "/images/projects/flight-controller.webp",
-      "/images/careers/electronics/embedded-pcb.jpg",
-      "/images/projects/tactical-datalink.webp",
-      "/images/projects/ground-platform.webp",
-    ];
-
-    imagesToPreload.forEach((src) => {
-      if (typeof window !== "undefined") {
-        const img = new window.Image();
-        img.src = src;
-      }
-    });
-  }, []);
+  const [loadedIndices, setLoadedIndices] = useState([0]);
 
   const handleRowClick = (index) => {
+    setLoadedIndices(previous => previous.includes(index) ? previous : [...previous, index]);
     setActiveIndex((prev) => (prev === index ? null : index));
   };
 
@@ -145,21 +130,21 @@ export default function SelectedWork() {
                 id={`project-details-${project.number}`}
                 role="region"
                 aria-labelledby={`project-header-${project.number}`}
+                inert={!isActive}
                 className={`${styles.detailsWrapper} ${isActive ? styles.detailsWrapperOpen : ""}`}
               >
                 <div className={styles.detailsInner}>
-                  <div className={`${styles.detailsContent} ${isActive ? styles.detailsContentOpen : ""}`}>
+                  {loadedIndices.includes(index) && <div className={`${styles.detailsContent} ${isActive ? styles.detailsContentOpen : ""}`}>
                     {/* Large project image on the left */}
                     <div className={styles.imageCol}>
                       <div className={styles.imageWrapper}>
-                        <Image
+                        {isActive && <Image
                           src={project.image}
                           alt={project.alt}
                           fill
-                          priority={index === 0}
                           className={`${styles.projectImage} ${isActive ? styles.projectImageActive : ""}`}
-                          sizes="(max-width: 860px) 100vw, 45vw"
-                        />
+                          sizes="(max-width: 860px) calc(100vw - 40px), (max-width: 1280px) 45vw, 560px"
+                        />}
                       </div>
                     </div>
 
@@ -181,7 +166,7 @@ export default function SelectedWork() {
                         </Link>
                       </div>
                     </div>
-                  </div>
+                  </div>}
                 </div>
               </div>
             </div>

@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import Link from "./IntentLink";
+import { m as motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import { MeshGradient } from "@paper-design/shaders-react";
-import styles from "@/app/about/page.module.css";
+import DeferredCTAEffects from "./DeferredCTAEffects";
+import styles from "./CallToAction.module.css";
 
 const PARTNERS = [
   {
@@ -95,35 +95,7 @@ export default function CallToAction() {
         {/* Dark base + purple radial glow — our CTA bg colors */}
         <div className={styles.ctaHeroBg} />
 
-        {/* MeshGradient layer 1 — Stealth Titanium & Obsidian (slate/graphite tones over #000812) */}
-        <MeshGradient
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: 1,
-            opacity: 0.85,
-            backgroundColor: "#000812",
-          }}
-          colors={["#000812", "#0F172A", "#1E293B", "#334155"]}
-          speed={0.5}
-        />
-
-        {/* MeshGradient layer 2 — subtle metallic titanium highlights */}
-        <MeshGradient
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            opacity: 0.75,
-            zIndex: 2,
-            backgroundColor: "transparent",
-          }}
-          colors={["#000812", "#475569", "#000812"]}
-          speed={0.35}
-        />
+        <DeferredCTAEffects />
 
         <motion.div
           className={styles.ctaContentCentered}

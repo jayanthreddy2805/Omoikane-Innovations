@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/common/IntentLink";
 import styles from "./HomeCareers.module.css";
 
 const DISCIPLINES = [

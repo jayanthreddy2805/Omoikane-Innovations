@@ -1,9 +1,9 @@
 "use client";
 import * as React from "react";
-import Link from "next/link";
+import Link from "@/components/common/IntentLink";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import styles from "./Header.module.css";
 
 // ─── Search index — all searchable pages ──────────────────────────
@@ -48,27 +48,44 @@ export default function Header() {
   const [isHidden, setIsHidden] = React.useState(false);
 
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const scrollBounds = React.useRef({ height: 0, viewport: 0 });
 
-  const { scrollY } = useScroll();
+  React.useEffect(() => {
+    const measure = () => {
+      scrollBounds.current = {
+        height: document.documentElement.scrollHeight,
+        viewport: window.innerHeight,
+      };
+    };
+    const observer = new ResizeObserver(measure);
+    observer.observe(document.body);
+    window.addEventListener("resize", measure);
+    measure();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    if (typeof window === "undefined") return;
-    const documentHeight = document.documentElement.scrollHeight;
-    const windowHeight = window.innerHeight;
-    
-    // Hide header if within 200px of the bottom
-    if (documentHeight - (latest + windowHeight) < 200) {
-      setIsHidden(true);
-    } else {
-      setIsHidden(false);
-    }
-
-    setIsScrolled((prev) => {
-      if (latest > 20) return true;
-      if (latest <= 10) return false;
-      return prev;
-    });
-  });
+  React.useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const latest = window.scrollY;
+      const { height, viewport } = scrollBounds.current;
+      setIsHidden(height - (latest + viewport) < 200);
+      setIsScrolled(previous => latest > 20 ? true : latest <= 10 ? false : previous);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
 
   const searchInputRef = React.useRef(null);
   const careersRef = React.useRef(null);

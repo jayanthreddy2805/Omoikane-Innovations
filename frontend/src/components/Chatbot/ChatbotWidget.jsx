@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ChatbotLauncher from './ChatbotLauncher';
 import ChatbotHeader from './ChatbotHeader';
@@ -8,26 +8,34 @@ import ChatMessageList from './ChatMessageList';
 import ChatInput from './ChatInput';
 import styles from './ChatbotWidget.module.css';
 
-export default function ChatbotWidget() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function ChatbotWidget({ initiallyOpen = false }) {
+  const [isOpen, setIsOpen] = useState(initiallyOpen);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
+  const dialogRef = useRef(null);
 
-  // Close or minimize on Escape key
+  useEffect(() => {
+    if (!isOpen || isMinimized) return;
+    const frame = requestAnimationFrame(() => dialogRef.current?.querySelector('textarea')?.focus());
+    return () => cancelAnimationFrame(frame);
+  }, [isOpen, isMinimized]);
+
+  const closeAssistant = useCallback(() => {
+    setIsOpen(false);
+    document.getElementById('company-assistant-launcher')?.focus();
+  }, []);
+
+  // Escape closes the assistant and restores focus to its launcher.
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && isOpen) {
-        if (!isMinimized) {
-          setIsMinimized(true);
-        } else {
-          setIsOpen(false);
-        }
+        closeAssistant();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, isMinimized]);
+  }, [isOpen, closeAssistant]);
 
   const getTimestamp = () => {
     return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -140,6 +148,8 @@ export default function ChatbotWidget() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="company-assistant-dialog"
+            ref={dialogRef}
             className={`${styles.widgetPanel} ${isMinimized ? styles.widgetPanelMinimized : ''}`}
             initial={{ opacity: 0, y: 24, scale: 0.96 }}
             animate={{
@@ -157,7 +167,7 @@ export default function ChatbotWidget() {
             <ChatbotHeader
               isMinimized={isMinimized}
               onMinimize={() => setIsMinimized((prev) => !prev)}
-              onClose={() => setIsOpen(false)}
+              onClose={closeAssistant}
               onReset={handleResetConversation}
             />
 
