@@ -1,0 +1,245 @@
+{
+  "date": "2026-11-02",
+  "source_report": {
+    "filename": "Omoikane Innovations _ Mission-Critical Products & Autonomous Systems.pdf",
+    "pages_reviewed": 9,
+    "printed_at": "2026-11-02 18:34",
+    "type": "WAVE-annotated homepage printout"
+  },
+  "source_base_commit": "b6352f7803e04749d6aa478a313ee0c55193db9c",
+  "tested_frontend_tree": "132b1076f438c3ff559f6bac14b0e9450728feed",
+  "environment": {
+    "server": "local Next.js 16.4.3 production build (Turbopack)",
+    "browser": "Chromium 153",
+    "axe": "4.14.0",
+    "lighthouse": "13.6.0",
+    "responsive_widths": [
+      320,
+      360,
+      412,
+      768,
+      1024,
+      1199,
+      1200,
+      1440
+    ]
+  },
+  "build": {
+    "lint": "pass",
+    "production_build": "pass",
+    "routes": 18,
+    "diff_check": "pass"
+  },
+  "browser_checks": [
+    {
+      "name": "language, one main/H1, valid ARIA references and heading structure",
+      "pass": true
+    },
+    {
+      "name": "mobile menu destinations, expanded state, position and keyboard dismissal",
+      "pass": true,
+      "detail": {
+        "layouts": [
+          {
+            "width": 320,
+            "height": 700,
+            "scrolled": false,
+            "menuTop": 76,
+            "headerBottom": 77,
+            "menuBottom": 536.3125,
+            "viewport": 700,
+            "scrollable": false
+          },
+          {
+            "width": 768,
+            "height": 700,
+            "scrolled": false,
+            "menuTop": 104,
+            "headerBottom": 105,
+            "menuBottom": 564.3125,
+            "viewport": 700,
+            "scrollable": false
+          },
+          {
+            "width": 1024,
+            "height": 480,
+            "scrolled": false,
+            "menuTop": 104,
+            "headerBottom": 105,
+            "menuBottom": 444,
+            "viewport": 480,
+            "scrollable": true
+          },
+          {
+            "width": 412,
+            "height": 700,
+            "scrolled": true,
+            "menuTop": 75.375,
+            "headerBottom": 76.375,
+            "menuBottom": 535.6875,
+            "viewport": 700,
+            "scrollable": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "decorative alternative text and company link name",
+      "pass": true
+    },
+    {
+      "name": "four topic links, actual anchors, and products index destination",
+      "pass": true
+    },
+    {
+      "name": "all product accordions expand, collapse, and expose specific work links",
+      "pass": true
+    },
+    {
+      "name": "footer services, email request and privacy enquiry are working destinations",
+      "pass": true
+    },
+    {
+      "name": "CTA copy stays opaque before and throughout its entrance",
+      "pass": true
+    },
+    {
+      "name": "whole homepage WCAG checks after revealing content",
+      "pass": true,
+      "detail": {
+        "passes": 45,
+        "incomplete": [
+          "color-contrast"
+        ]
+      }
+    },
+    {
+      "name": "mobile/desktop overflow and footer screenshots",
+      "pass": true
+    },
+    {
+      "name": "search label, dialog focus, keyboard wrap, closing and centering",
+      "pass": true,
+      "detail": {
+        "passes": 20,
+        "incomplete": []
+      }
+    },
+    {
+      "name": "contact deep link, form label and labelled controls",
+      "pass": true,
+      "detail": {
+        "passes": 17,
+        "incomplete": [
+          "aria-valid-attr-value",
+          "color-contrast"
+        ]
+      }
+    },
+    {
+      "name": "JavaScript-disabled CTA remains readable and reduced motion is usable",
+      "pass": true
+    },
+    {
+      "name": "no runtime or CSP errors in the exercised flows",
+      "pass": true
+    }
+  ],
+  "axe": {
+    "homepage": {
+      "violations": 0,
+      "passed_rules": 45,
+      "manual_review_rules": [
+        "color-contrast"
+      ]
+    },
+    "search": {
+      "violations": 0,
+      "passed_rules": 20,
+      "manual_review_rules": []
+    },
+    "contact-form": {
+      "violations": 0,
+      "passed_rules": 17,
+      "manual_review_rules": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    "mobile-menu": {
+      "violations": 0,
+      "passed_rules": 11,
+      "manual_review_rules": []
+    }
+  },
+  "lighthouse": {
+    "mode": "local production mobile defaults; recheck run",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 1079.278,
+        "unit": "millisecond"
+      },
+      "largest-contentful-paint": {
+        "value": 1079.278,
+        "unit": "millisecond"
+      },
+      "total-blocking-time": {
+        "value": 36.5,
+        "unit": "millisecond"
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "unit": "unitless"
+      },
+      "speed-index": {
+        "value": 1130.6661979992025,
+        "unit": "millisecond"
+      }
+    }
+  },
+  "limits": [
+    "No new WAVE extension or API scan; no WAVE certification claim.",
+    "Gradient/pseudo-element contrast needs manual review; rendered CTA/footer/search inspected.",
+    "Contact country popup aria-controls target mounts when expanded; Axe lists this for manual review in its collapsed state.",
+    "No email sent or live contact submission performed.",
+    "No real newsletter subscription service or published legal policy was invented.",
+    "Local Lighthouse scores do not guarantee identical results after deployment.",
+    "Verification uses Chromium; full assistive-technology, Safari and Firefox coverage is not claimed."
+  ],
+  "recheck": {
+    "previous_pr_head": "59203232353c79d0f8d07ec704d5245b361bec5e",
+    "previous_head_vercel_status": "success",
+    "github_review_threads": 0,
+    "additional_findings_fixed": [
+      "Mobile Careers navigation used /careers, which returned HTTP 404; it now opens /#careers and closes the menu.",
+      "Menu used a fixed 77px top despite a 105px tablet header; menu now follows the actual header and scrolls within short viewports.",
+      "Menu trigger lacked expanded state and controlled-navigation reference; added both, a named navigation landmark, and Escape focus restoration."
+    ],
+    "additional_layouts": [
+      {
+        "width": 320,
+        "height": 700
+      },
+      {
+        "width": 768,
+        "height": 700
+      },
+      {
+        "width": 1024,
+        "height": 480
+      },
+      {
+        "width": 412,
+        "height": 700,
+        "scroll_y": 1000
+      }
+    ],
+    "live_preview_http_verification": "Not completed: Vercel connector lacks access to the project team; build status was verified through GitHub."
+  }
+}

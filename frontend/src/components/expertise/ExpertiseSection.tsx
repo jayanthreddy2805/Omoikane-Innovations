@@ -369,6 +369,7 @@ export function ExpertiseSection() {
         {expertise.map((item, index) => (
           <article
             key={item.id}
+            id={item.id}
             ref={(node) => setSceneRef(node, index)}
             className={styles.scene}
             aria-label={`${item.title} visual area`}

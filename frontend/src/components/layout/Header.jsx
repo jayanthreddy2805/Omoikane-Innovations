@@ -18,7 +18,7 @@ const SEARCH_INDEX = [
   { title: "Software Development Careers", desc: "React, Next.js, Python, AI Developer, Embedded Firmware roles", href: "/careers/software" },
   { title: "Mechanical Careers", desc: "CAD, structural analysis, assembly engineering roles", href: "/careers/mechanical" },
   { title: "Electronics Careers", desc: "Hardware, RF & embedded systems engineering roles", href: "/careers/electronics" },
-  { title: "Careers", desc: "Join the Omoikane engineering team", href: "/careers" },
+  { title: "Careers", desc: "Join the Omoikane engineering team", href: "/#careers" },
 ];
 
 const NAV_LINKS = [
@@ -28,7 +28,8 @@ const NAV_LINKS = [
   { label: "Leadership", href: "/leadership" },
   {
     label: "Careers",
-    href: "/careers",
+    href: "/#careers",
+    activePath: "/careers",
     dropdown: [
       { title: "Software Development", desc: "Software, AI & real-time systems", href: "/careers/software" },
       { title: "Mechanical", desc: "Product, structures & integration", href: "/careers/mechanical" },
@@ -88,6 +89,9 @@ export default function Header() {
   }, []);
 
   const searchInputRef = React.useRef(null);
+  const searchButtonRef = React.useRef(null);
+  const searchDialogRef = React.useRef(null);
+  const mobileButtonRef = React.useRef(null);
   const careersRef = React.useRef(null);
   const closeTimer = React.useRef(null);
 
@@ -103,17 +107,37 @@ export default function Header() {
     return () => window.cancelAnimationFrame(frame);
   }, [pathname]);
 
-  // Focus search input when opened
+  // Search is a modal: focus its input, then return to its opener on close.
   React.useEffect(() => {
-    if (searchOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
+    if (!searchOpen) return;
+    const opener = searchButtonRef.current;
+    const frame = requestAnimationFrame(() => searchInputRef.current?.focus());
+    return () => {
+      cancelAnimationFrame(frame);
+      opener?.focus();
+    };
   }, [searchOpen]);
+
+  const containSearchFocus = (event) => {
+    if (event.key !== "Tab" || !searchDialogRef.current) return;
+    const controls = Array.from(searchDialogRef.current.querySelectorAll('a[href], button:not([disabled]), input:not([disabled])'))
+      .filter(element => element.getClientRects().length > 0);
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last?.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first?.focus();
+    }
+  };
 
   // Close on Escape
   React.useEffect(() => {
     function onKey(e) {
       if (e.key === "Escape") {
+        if (mobileOpen) mobileButtonRef.current?.focus();
         setSearchOpen(false);
         setCareersOpen(false);
         setMobileOpen(false);
@@ -121,7 +145,7 @@ export default function Header() {
     }
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, []);
+  }, [mobileOpen]);
 
   // Search results
   const searchResults = React.useMemo(() => {
@@ -168,7 +192,7 @@ export default function Header() {
         <Link href="/" scroll={true} className={styles.logoLink} onClick={handleLogoClick}>
           <Image
             src="/images/shared/omoikane-logo.png"
-            alt="Omoikane Innovations"
+            alt=""
             width={56}
             height={56}
             className={styles.logoImage}
@@ -184,9 +208,10 @@ export default function Header() {
         <nav className={styles.pillNav}>
           <ul className={styles.pillList}>
             {NAV_LINKS.map((item) => {
-              const isActive = item.href === "/"
+              const activePath = item.activePath || item.href;
+              const isActive = activePath === "/"
                 ? pathname === "/"
-                : pathname?.startsWith(item.href);
+                : pathname?.startsWith(activePath);
 
               if (item.dropdown) {
                 return (
@@ -271,9 +296,13 @@ export default function Header() {
         <div className={styles.rightActions}>
           {/* Search — plain ghost (like Login) */}
           <button
+            ref={searchButtonRef}
             className={styles.searchTrigger}
             onClick={() => setSearchOpen(true)}
             aria-label="Search"
+            aria-haspopup="dialog"
+            aria-expanded={searchOpen}
+            aria-controls={searchOpen ? "site-search-dialog" : undefined}
           >
             <svg width="17" height="17" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" strokeWidth="1.5" />
@@ -290,20 +319,23 @@ export default function Header() {
 
         {/* ── MOBILE HAMBURGER ── */}
         <button
+          ref={mobileButtonRef}
           className={styles.hamburger}
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Menu"
+          aria-expanded={mobileOpen}
+          aria-controls={mobileOpen ? "mobile-navigation" : undefined}
         >
           <span className={`${styles.bar} ${mobileOpen ? styles.barTop : ""}`} />
           <span className={`${styles.bar} ${mobileOpen ? styles.barMid : ""}`} />
           <span className={`${styles.bar} ${mobileOpen ? styles.barBot : ""}`} />
         </button>
-      </motion.header>
-
       {/* ── MOBILE MENU ── */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <motion.nav
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
             className={styles.mobileMenu}
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -312,19 +344,20 @@ export default function Header() {
           >
             {NAV_LINKS.map((item) => (
               <React.Fragment key={item.label}>
-                <Link href={item.href} className={`${styles.mobileLink} ${pathname?.startsWith(item.href) && item.href !== "/" ? styles.mobileLinkActive : pathname === "/" && item.href === "/" ? styles.mobileLinkActive : ""}`}>
+                <Link href={item.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileLink} ${pathname?.startsWith(item.activePath || item.href) && item.href !== "/" ? styles.mobileLinkActive : pathname === "/" && item.href === "/" ? styles.mobileLinkActive : ""}`}>
                   {item.label}
                 </Link>
                 {item.dropdown && item.dropdown.map((opt) => (
-                  <Link key={opt.href} href={opt.href} className={`${styles.mobileSubLink} ${pathname === opt.href ? styles.mobileLinkActive : ""}`}>
+                  <Link key={opt.href} href={opt.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileSubLink} ${pathname === opt.href ? styles.mobileLinkActive : ""}`}>
                     — {opt.title}
                   </Link>
                 ))}
               </React.Fragment>
             ))}
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
+      </motion.header>
 
       {/* ── SEARCH OVERLAY ── */}
       <AnimatePresence>
@@ -339,11 +372,19 @@ export default function Header() {
             />
             <motion.div
               className={styles.searchModal}
+              style={{ x: "-50%" }}
+              id="site-search-dialog"
+              ref={searchDialogRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="site-search-label"
+              onKeyDown={containSearchFocus}
               initial={{ opacity: 0, y: -20, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.97 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             >
+              <label id="site-search-label" htmlFor="site-search" className={styles.searchLabel}>Search this website</label>
               <div className={styles.searchInputRow}>
                 <svg width="20" height="20" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.searchIcon}>
                   <circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" strokeWidth="1.5" />
@@ -351,6 +392,7 @@ export default function Header() {
                 </svg>
                 <input
                   ref={searchInputRef}
+                  id="site-search"
                   type="text"
                   placeholder="Search pages, roles, technologies…"
                   value={searchQuery}
@@ -365,7 +407,7 @@ export default function Header() {
                     }
                   }}
                 />
-                <kbd className={styles.searchEsc} onClick={() => setSearchOpen(false)}>ESC</kbd>
+                <button type="button" className={styles.searchEsc} aria-label="Close search (Esc)" onClick={() => setSearchOpen(false)}>ESC</button>
               </div>
 
               <div className={styles.searchResults}>

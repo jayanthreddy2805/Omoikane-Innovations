@@ -14,7 +14,7 @@ const PROJECTS = [
       "High-performance, reliable and flexible flight control for autonomous platforms. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/projects/flight-controller.webp",
     alt: "OFC-X Flight Controller for autonomous platforms",
-    href: "/projects",
+    href: "/work#ofc-x",
   },
   {
     number: "02",
@@ -24,7 +24,7 @@ const PROJECTS = [
       "High-efficiency, high-current ESC platform for multirotor propulsion systems. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/careers/electronics/embedded-pcb.jpg",
     alt: "OESC-60 / OESC-100 4-in-1 Electronic Speed Controller platform",
-    href: "/projects",
+    href: "/work#oesc",
   },
   {
     number: "03",
@@ -34,7 +34,7 @@ const PROJECTS = [
       "Reliable communication architecture for connected autonomous systems. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/projects/tactical-datalink.webp",
     alt: "OCOM-X Communication System for connected autonomous systems",
-    href: "/projects",
+    href: "/work#ocom-x",
   },
   {
     number: "04",
@@ -44,7 +44,7 @@ const PROJECTS = [
       "Precision positioning architecture for autonomous navigation and mapping. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
     image: "/images/projects/ground-platform.webp",
     alt: "OGN-X GNSS / GPS Module for autonomous navigation and mapping",
-    href: "/projects",
+    href: "/work#ogn-x",
   },
 ];
 
@@ -159,6 +159,7 @@ export default function SelectedWork() {
                         <p className={styles.projectDesc}>{project.description}</p>
                         <Link
                           href={project.href}
+                          aria-label={`Explore ${project.name} ${project.type}`}
                           className={styles.ctaLink}
                         >
                           <span>Explore</span>
