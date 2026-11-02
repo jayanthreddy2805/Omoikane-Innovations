@@ -6,6 +6,11 @@ import com.omoikane.api.entity.CareerApplication;
 import com.omoikane.api.entity.ContactSubmission;
 import org.junit.jupiter.api.Test;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+import java.util.List;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ResendEmailServiceTest {
@@ -68,7 +73,7 @@ class ResendEmailServiceTest {
     }
 
     @Test
-    void buildContactEmailHtml_containsRequiredWordingAndRecipientName() {
+    void buildContactEmailHtml_containsRequiredWordingAndRecipientNameAndLogo() {
         ResendEmailService service = new ResendEmailService("key", "info@example.com");
         String html = service.buildContactEmailHtml("John Doe");
 
@@ -78,10 +83,12 @@ class ResendEmailServiceTest {
         assertTrue(html.contains("We appreciate your interest in our company."), "Must contain appreciation message");
         assertTrue(html.contains("Best regards,"), "Must contain sign-off");
         assertTrue(html.contains("Team Omoikane Innovations"), "Must contain sender team");
+        assertTrue(html.contains("omoikane-logo.png"), "Must contain company logo");
+        assertTrue(html.contains("Omoikane Innovations</span>"), "Must display company name beside logo");
     }
 
     @Test
-    void buildCareerEmailHtml_containsRequiredFieldsAndActualDatabaseId() {
+    void buildCareerEmailHtml_containsRequiredFieldsAndActualDatabaseIdAndLogo() {
         ResendEmailService service = new ResendEmailService("key", "info@example.com");
         Long actualDatabaseId = 1042L;
         String html = service.buildCareerEmailHtml("Jane Smith", actualDatabaseId, "software", "Web Developer");
@@ -96,6 +103,7 @@ class ResendEmailServiceTest {
         assertTrue(html.contains("Application Received"), "Must contain application status");
         assertTrue(html.contains("Our recruitment team will carefully review your application."), "Must contain review message");
         assertTrue(html.contains("Recruitment Team<br/>Omoikane Innovations"), "Must contain recruitment team sign-off");
+        assertTrue(html.contains("omoikane-logo.png"), "Must contain company logo");
     }
 
     @Test
@@ -108,5 +116,64 @@ class ResendEmailServiceTest {
         assertEquals("candidate@example.com", root.get("to").get(0).asText());
         assertEquals("Application Received – Web Developer | Omoikane Innovations", root.get("subject").asText());
         assertEquals("<p>Body</p>", root.get("html").asText());
+        assertNull(root.get("attachments"));
+    }
+
+    @Test
+    void buildResumeAttachments_encodesFileBytesToBase64() {
+        ResendEmailService service = new ResendEmailService("key", "careers@omoikane.com");
+        CareerApplication app = new CareerApplication();
+        byte[] samplePdf = "%PDF-1.4 Mock resume content for testing".getBytes(StandardCharsets.UTF_8);
+        app.setResumeFilename("john_doe_resume.pdf");
+        app.setResumeData(samplePdf);
+
+        List<Map<String, Object>> attachments = service.buildResumeAttachments(app);
+        assertNotNull(attachments);
+        assertEquals(1, attachments.size());
+        assertEquals("john_doe_resume.pdf", attachments.get(0).get("filename"));
+        assertEquals(Base64.getEncoder().encodeToString(samplePdf), attachments.get(0).get("content"));
+    }
+
+    @Test
+    void buildResumeAttachments_handlesEmptyOrNullGracefully() {
+        ResendEmailService service = new ResendEmailService("key", "careers@omoikane.com");
+        assertTrue(service.buildResumeAttachments(null).isEmpty());
+
+        CareerApplication appWithoutResume = new CareerApplication();
+        assertTrue(service.buildResumeAttachments(appWithoutResume).isEmpty());
+    }
+
+    @Test
+    void buildEmailJson_includesAttachmentsWhenPresent() throws Exception {
+        ResendEmailService service = new ResendEmailService("key", "careers@omoikane.com", "Omoikane Innovations");
+        Map<String, Object> attachment = Map.of(
+                "filename", "cv.pdf",
+                "content", "dGVzdC1jb250ZW50"
+        );
+
+        String json = service.buildEmailJson("candidate@example.com", "Subject", "<p>Hi</p>", List.of(attachment));
+        JsonNode root = objectMapper.readTree(json);
+
+        assertNotNull(root.get("attachments"));
+        assertEquals(1, root.get("attachments").size());
+        assertEquals("cv.pdf", root.get("attachments").get(0).get("filename").asText());
+        assertEquals("dGVzdC1jb250ZW50", root.get("attachments").get(0).get("content").asText());
+    }
+
+    @Test
+    void buildAdminCareerAlertHtml_includesLogoAndResumeNotice() {
+        ResendEmailService service = new ResendEmailService("key", "info@example.com");
+        CareerApplication app = new CareerApplication();
+        app.setName("Alice Cooper");
+        app.setEmail("alice@example.com");
+        app.setDepartment("software");
+        app.setRoleTitle("Lead Architect");
+        app.setResumeFilename("alice_cv.pdf");
+        app.setMessage("Excited to apply!");
+
+        String html = service.buildAdminCareerAlertHtml(app);
+        assertTrue(html.contains("omoikane-logo.png"), "Admin template must include company logo");
+        assertTrue(html.contains("Alice Cooper"), "Must display applicant name");
+        assertTrue(html.contains("alice_cv.pdf (Attached to this email)"), "Must indicate resume is attached");
     }
 }
