@@ -20,47 +20,6 @@ import SelectedWork from "@/components/home/SelectedWork";
 import HomeCareers from "@/components/home/HomeCareers";
 
 
-// ─── Focused Production Areas & Products ──────────────────────────
-const FOCUSED_PRODUCTION_AREAS = [
-  {
-    index: "01",
-    title: "Aerospace",
-    category: "Aviation & UAVs",
-    description:
-      "We design and develop advanced UAV platforms, flight control systems, avionics, and RF communication modules engineered for precision, stability, and real-time performance in high-reliability aerospace environments.",
-    specs: ["UAV Platforms", "Flight Control Systems", "Avionics Integration", "RF Telemetry Modules"],
-    href: "/expertise",
-  },
-  {
-    index: "02",
-    title: "Defense",
-    category: "Defense Technologies",
-    description:
-      "Our defense-grade products include secure communication systems, surveillance technologies, and autonomous platforms built for high reliability, real-time operations, and electronic resilience.",
-    specs: ["Secure Communication", "Tactical Surveillance", "Autonomous Platforms", "Rugged Electronics"],
-    href: "/expertise",
-  },
-  {
-    index: "03",
-    title: "Automotive",
-    category: "Mobility & Embedded",
-    description:
-      "We deliver intelligent automotive electronics, ECU solutions, and real-time embedded systems that support next-generation mobility, functional safety, and vehicle automation.",
-    specs: ["Automotive ECU Solutions", "Real-Time Embedded Systems", "Vehicle Automation", "Functional Safety"],
-    href: "/expertise",
-  },
-  {
-    index: "04",
-    title: "Railways",
-    category: "Industrial & Transit",
-    description:
-      "Our solutions enable predictive maintenance, industrial automation, and intelligent control systems designed for large-scale, high-efficiency operations across industrial and transit networks.",
-    specs: ["Predictive Maintenance", "Industrial Automation", "Intelligent Control Systems", "High Reliability at Scale"],
-    href: "/expertise",
-  },
-];
-
-
 // ─── Why Our Products Stand Out ───────────────────────────────────
 const WHY_US_PILLARS = [
   {
@@ -81,7 +40,7 @@ const WHY_US_PILLARS = [
     code: "AI",
     title: "Advanced Embedded & AI Systems",
     description:
-      "From embedded electronics to intelligent automation, our solutions integrate cutting-edge technologies for real-world applications.",
+      "We combine embedded electronics, control software and intelligent automation around the operating requirements of each platform.",
     image: "/images/why-us/embedded-ai.jpg",
   },
 ];

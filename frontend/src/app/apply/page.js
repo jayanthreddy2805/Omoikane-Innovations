@@ -121,7 +121,7 @@ export default function ApplyPage() {
             </>
           ) : (
             <FadeUp delay={0.1}>
-              <FormSuccessState />
+              <FormSuccessState variant="application" />
             </FadeUp>
           )}
 

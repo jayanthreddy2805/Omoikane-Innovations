@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Flip } from 'gsap/Flip';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -68,6 +68,8 @@ export default function LeadershipGallery() {
   const galleryImages = useRef([]);
   const contentWrappers = useRef([]);
   const contents = useRef([]);
+  const openerRefs = useRef([]);
+  const closeButtonRef = useRef(null);
   const listOfSplits = useRef([]);
   
   const [error, setError] = useState('');
@@ -185,6 +187,7 @@ export default function LeadershipGallery() {
         splits.titleTopSplits[0].chars.forEach(char => {
           char.style.willChange = 'auto';
         });
+        closeButtonRef.current?.focus();
       },
     });
 
@@ -233,7 +236,7 @@ export default function LeadershipGallery() {
   };
 
   // Handle closing a gallery item
-  const hideContent = (index) => {
+  const hideContent = useCallback((index) => {
     if (openIndex !== index) return;
     
     const currentWrapper = contentWrappers.current[index];
@@ -249,6 +252,7 @@ export default function LeadershipGallery() {
         setOpenIndex(null);
         sectionContentRef.current.classList.add(styles.isHidden);
         contents.current[index].classList.add(styles.isHidden);
+        openerRefs.current[index]?.focus();
       },
     });
 
@@ -289,7 +293,23 @@ export default function LeadershipGallery() {
         { clipPath: 'inset(0% 0 0 0)' }
       )
       .set(galleryImageWrappers.current, { clipPath: 'none' });
-  };
+  }, [openIndex]);
+
+  useEffect(() => {
+    if (openIndex === null) return;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        hideContent(openIndex);
+      }
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        closeButtonRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [hideContent, openIndex]);
 
   if (error) {
     return <div style={{position:'fixed', zIndex:9999, top:100, left:0, color:'red', background:'white', padding:'2rem', width:'100%', height:'100%'}}>{error}</div>;
@@ -306,11 +326,17 @@ export default function LeadershipGallery() {
         <section className={styles.scrollContent} data-scroll="content" ref={scrollContentRef}>
           <div className={styles.gallery}>
             {PROFILES.map((profile, i) => (
-              <div 
+              <button
+                type="button"
                 key={profile.id} 
                 className={styles.galleryImage} 
-                ref={el => galleryImageWrappers.current[i] = el}
+                ref={el => {
+                  galleryImageWrappers.current[i] = el;
+                  openerRefs.current[i] = el;
+                }}
                 onClick={() => openContent(i)}
+                aria-haspopup="dialog"
+                aria-label={`Open profile for ${profile.topTitle}, ${profile.bottomTitle}`}
               >
                 <div 
                   className={styles.imageContainer} 
@@ -323,7 +349,7 @@ export default function LeadershipGallery() {
                 <div className={styles.cardNameOverlay}>
                   <h3>{profile.topTitle.toUpperCase()}</h3>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </section>
@@ -335,11 +361,26 @@ export default function LeadershipGallery() {
             key={profile.id} 
             className={`${styles.content} ${styles.isHidden}`} 
             ref={el => contents.current[i] = el}
-            onClick={() => hideContent(i)}
+            role="dialog"
+            aria-modal="true"
+            aria-hidden={openIndex !== i}
+            aria-labelledby={`leadership-profile-${profile.id}`}
+            onClick={(event) => {
+              if (event.target === event.currentTarget) hideContent(i);
+            }}
           >
             <div className={styles.contentWrapper} ref={el => contentWrappers.current[i] = el}>
+              <button
+                ref={openIndex === i ? closeButtonRef : undefined}
+                type="button"
+                className={styles.closeButton}
+                onClick={() => hideContent(i)}
+                aria-label={`Close profile for ${profile.topTitle}`}
+              >
+                Close <span aria-hidden="true">×</span>
+              </button>
               <div className={styles.contentTitleTop} data-content="text-top">
-                <div className={styles.titleBig}>{profile.topTitle}</div>
+                <div id={`leadership-profile-${profile.id}`} className={styles.titleBig}>{profile.topTitle}</div>
               </div>
               <div className={styles.contentTitleBottom} data-content="text-bottom">
                 <div className={styles.titleBig}>{profile.bottomTitle}</div>

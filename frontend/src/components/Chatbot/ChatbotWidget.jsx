@@ -56,7 +56,7 @@ export default function ChatbotWidget({ initiallyOpen = false }) {
 
     const userText = rawText ? rawText.trim() : '';
     const displayText = attachedFile
-      ? (userText ? `📎 Attached Resume: **${attachedFile.name}**\n${userText}` : `📎 Attached Resume: **${attachedFile.name}**`)
+      ? (userText ? `Attached resume: **${attachedFile.name}**\n${userText}` : `Attached resume: **${attachedFile.name}**`)
       : userText;
 
     const userMsg = {
@@ -98,7 +98,7 @@ export default function ChatbotWidget({ initiallyOpen = false }) {
         botResponse = {
           text: "I'm having trouble connecting right now. Please try again, or contact Omoikane Innovations directly at **info@omoikaneinnovations.com** or call **+91-8861035848**.",
           suggestions: ["Contact Us", "About Omoikane", "Career Opportunities"],
-          source: { label: "Contact Us", url: "https://www.omoikaneinnovations.com/contact-us/" }
+          source: { label: "Contact Us", url: "https://www.omoikaneinnovations.com/contact" }
         };
       }
 
@@ -117,9 +117,9 @@ export default function ChatbotWidget({ initiallyOpen = false }) {
       const fallbackMsg = {
         id: `bot-err-${Date.now()}`,
         sender: 'bot',
-        text: "I'm having trouble connecting right now. Please try again in a moment, or reach out directly:\n\n📧 **info@omoikaneinnovations.com**\n📞 **+91-8861035848**\n🌐 **https://www.omoikaneinnovations.com/contact-us/**",
+        text: "I'm having trouble connecting right now. Please try again in a moment, or contact us at **info@omoikaneinnovations.com**, **+91-8861035848**, or **https://www.omoikaneinnovations.com/contact**.",
         timestamp: getTimestamp(),
-        source: { label: "Contact Us", url: "https://www.omoikaneinnovations.com/contact-us/" },
+        source: { label: "Contact Us", url: "https://www.omoikaneinnovations.com/contact" },
         suggestions: ["About Omoikane", "Explore Technologies", "Contact the Company"]
       };
       setMessages((prev) => [...prev, fallbackMsg]);

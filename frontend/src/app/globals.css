@@ -100,35 +100,6 @@ button {
   }
 }
 
-@font-face {
-  font-family: 'Satoshi Italic';
-  src: url('https://moussamamadou.github.io/flip-plugin-horizontal-scroll/fonts/Satoshi-VariableItalic.ttf') format('truetype');
-  font-weight: 300 900;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Satoshi';
-  src: url('https://moussamamadou.github.io/flip-plugin-horizontal-scroll/fonts/Satoshi-Variable.ttf') format('truetype');
-  font-weight: 300 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Generalsans Italic';
-  src: url('https://moussamamadou.github.io/flip-plugin-horizontal-scroll/fonts/GeneralSans-VariableItalic.ttf') format('truetype');
-  font-weight: 200 700;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Generalsans';
-  src: url('https://moussamamadou.github.io/flip-plugin-horizontal-scroll/fonts/GeneralSans-Variable.ttf') format('truetype');
-  font-weight: 200 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.3; transform: scale(0.5); }

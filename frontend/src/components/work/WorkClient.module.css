@@ -82,7 +82,7 @@
 /* Main headline */
 .mainHeadline {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.75rem, 5.8vw, 5.4rem);
+  font-size: clamp(2.75rem, 5.8vw, 5rem);
   line-height: 1.04;
   letter-spacing: -0.035em;
   margin: 0 0 clamp(2rem, 3.8vh, 3rem) 0;
@@ -525,6 +525,19 @@
   color: var(--color-ink, #102746);
   line-height: 1.4;
 }
+
+.productEnquiry {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.75rem;
+  color: var(--color-blue, #0757C8);
+  font: 600 0.84rem/1.2 var(--font-space-grotesk, sans-serif);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.productEnquiry:hover, .productEnquiry:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
 
 /* ── ACTIONS / LINKS ── */
 .actionsRow {

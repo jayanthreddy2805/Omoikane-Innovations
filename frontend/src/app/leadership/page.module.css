@@ -109,7 +109,7 @@
 }
 
 .heroText {
-  font-family: var(--font-inter), 'Satoshi', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: clamp(1rem, 1.2vw, 1.5rem);
   line-height: 1.6;
   color: var(--text-secondary);
@@ -139,7 +139,7 @@
   line-height: 1.1;
   overflow: hidden;
   color: var(--text-secondary);
-  font-family: 'Satoshi', sans-serif;
+  font-family: var(--font-inter), sans-serif;
 }
 
 @media screen and (max-width: 991px) {

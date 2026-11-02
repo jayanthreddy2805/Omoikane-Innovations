@@ -235,9 +235,9 @@
   padding: 20px 24px;
 }
 .actualTitle {
-  font-family: 'Generalsans', sans-serif;
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 500;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: var(--type-section);
+  font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
   margin: 0;
@@ -255,7 +255,7 @@
   border-left: 1px solid var(--border);
 }
 .actualDesc {
-  font-family: 'Satoshi', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: var(--type-body);
   line-height: 1.65;
   color: var(--muted);

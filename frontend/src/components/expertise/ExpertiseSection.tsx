@@ -25,7 +25,7 @@ function useReducedMotion() {
   return reduced;
 }
 
-function MergedRailwayVideo() {
+function MergedRailwayVideo({ reducedMotion }: { reducedMotion: boolean }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const v1 = useRef<HTMLVideoElement>(null);
   const v2 = useRef<HTMLVideoElement>(null);
@@ -49,10 +49,10 @@ function MergedRailwayVideo() {
         <video
           ref={v1}
           src="/videos/expertise/railway-inspection-part1.mp4"
-          autoPlay
+          autoPlay={!reducedMotion}
           muted
           playsInline
-          onEnded={() => handleEnd(0)}
+          onEnded={reducedMotion ? undefined : () => handleEnd(0)}
           style={{ width: "100%", height: "100%", objectFit: "cover", display: activeIdx === 0 ? 'block' : 'none' }}
         />
         <video
@@ -60,7 +60,7 @@ function MergedRailwayVideo() {
           src="/videos/expertise/railway-inspection-part2.mp4"
           muted
           playsInline
-          onEnded={() => handleEnd(1)}
+          onEnded={reducedMotion ? undefined : () => handleEnd(1)}
           style={{ width: "100%", height: "100%", objectFit: "cover", display: activeIdx === 1 ? 'block' : 'none' }}
         />
       </div>
@@ -291,28 +291,6 @@ export function ExpertiseSection() {
     );
   }, [activeIndex, reducedMotion]);
 
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      const tag = (event.target as HTMLElement | null)?.tagName;
-      if (tag && ["INPUT", "TEXTAREA", "SELECT"].includes(tag)) return;
-
-      if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-        event.preventDefault();
-        const next = Math.min(activeIndexRef.current + 1, expertise.length - 1);
-        sceneRefs.current[next]?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
-      }
-
-      if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-        event.preventDefault();
-        const next = Math.max(activeIndexRef.current - 1, 0);
-        sceneRefs.current[next]?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
-      }
-    };
-
-    window.addEventListener("keydown", onKeyDown, { passive: false });
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [reducedMotion]);
-
   const jumpTo = (index: number) => {
     sceneRefs.current[index]?.scrollIntoView({
       behavior: reducedMotion ? "auto" : "smooth",
@@ -323,7 +301,7 @@ export function ExpertiseSection() {
   const active = expertise[activeIndex];
 
   return (
-    <section ref={sectionRef} className={styles.section} aria-label="Omoikabe expertise">
+    <section ref={sectionRef} className={styles.section} aria-label="Omoikane expertise">
       <aside className={styles.leftRail} aria-label="Expertise navigation">
         <div className={styles.leftInner}>
           <div className={styles.eyebrow}>EXPERTISE</div>
@@ -386,7 +364,7 @@ export function ExpertiseSection() {
                       }
                     }}
                     src="/videos/expertise/automotive-turbocharger.mp4"
-                    autoPlay
+                    autoPlay={!reducedMotion}
                     muted
                     loop
                     playsInline
@@ -395,7 +373,7 @@ export function ExpertiseSection() {
                 </div>
               </div>
             ) : item.id === "railways" ? (
-              <MergedRailwayVideo />
+              <MergedRailwayVideo reducedMotion={reducedMotion} />
             ) : (
               <div className={`${styles.sceneCanvas} ${styles[`sceneCanvas${index}`]}`}>
                 <div className={styles.sceneIndex}>{String(index + 1).padStart(2, "0")}</div>

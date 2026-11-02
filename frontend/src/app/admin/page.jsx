@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import { Activity, AlertTriangle, BriefcaseBusiness, Eye, EyeOff, FileText, LockKeyhole, Mail, Phone } from 'lucide-react';
 import styles from './admin.module.css';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080';
@@ -283,7 +284,7 @@ export default function AdminDashboardPage() {
               <form onSubmit={handleLoginSubmit} className={styles.authForm}>
                 {authError && (
                   <div className={styles.errorBanner}>
-                    <span>⚠️</span>
+                    <AlertTriangle size={18} aria-hidden="true" />
                     <span>{authError}</span>
                   </div>
                 )}
@@ -308,7 +309,7 @@ export default function AdminDashboardPage() {
                       className={styles.togglePassBtn}
                       title={showPassword ? 'Hide password' : 'Show password'}
                     >
-                      {showPassword ? '👁️' : '🔒'}
+                      {showPassword ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
                     </button>
                   </div>
                 </div>
@@ -359,7 +360,7 @@ export default function AdminDashboardPage() {
               <span>Sync Data</span>
             </button>
             <button onClick={handleLogout} className={styles.lockBtn} title="End session">
-              <span>🔒 Lock Console</span>
+              <LockKeyhole size={15} aria-hidden="true" /><span>Lock Console</span>
             </button>
           </div>
         </div>
@@ -372,7 +373,7 @@ export default function AdminDashboardPage() {
               <span className={styles.kpiValue}>{careers.length}</span>
               <span className={styles.kpiMeta}>Talent pipeline active</span>
             </div>
-            <div className={styles.kpiIconBox}>💼</div>
+            <div className={styles.kpiIconBox}><BriefcaseBusiness aria-hidden="true" /></div>
           </div>
 
           <div className={styles.kpiCard}>
@@ -381,7 +382,7 @@ export default function AdminDashboardPage() {
               <span className={styles.kpiValue}>{totalResumes}</span>
               <span className={styles.kpiMeta}>Stored in database</span>
             </div>
-            <div className={styles.kpiIconBox}>📄</div>
+            <div className={styles.kpiIconBox}><FileText aria-hidden="true" /></div>
           </div>
 
           <div className={styles.kpiCard}>
@@ -390,7 +391,7 @@ export default function AdminDashboardPage() {
               <span className={styles.kpiValue}>{contacts.length}</span>
               <span className={styles.kpiMeta}>Enterprise & mission leads</span>
             </div>
-            <div className={styles.kpiIconBox}>✉️</div>
+            <div className={styles.kpiIconBox}><Mail aria-hidden="true" /></div>
           </div>
 
           <div className={styles.kpiCard}>
@@ -401,7 +402,7 @@ export default function AdminDashboardPage() {
               </span>
               <span className={styles.kpiMeta}>Flyway Schema v2</span>
             </div>
-            <div className={styles.kpiIconBox}>⚡</div>
+            <div className={styles.kpiIconBox}><Activity aria-hidden="true" /></div>
           </div>
         </div>
 
@@ -478,7 +479,7 @@ export default function AdminDashboardPage() {
             <div className={styles.tableScrollArea}>
               {filteredCareers.length === 0 ? (
                 <div className={styles.emptyNotice}>
-                  <div className={styles.emptyIconCircle}>💼</div>
+                  <div className={styles.emptyIconCircle}><BriefcaseBusiness aria-hidden="true" /></div>
                   <div className={styles.emptyTitle}>No Career Applications Found</div>
                   <div className={styles.emptyDesc}>
                     {searchTerm || deptFilter !== 'all' ? 'Try adjusting your filters or search query.' : 'Incoming job applications will appear here.'}
@@ -545,7 +546,7 @@ export default function AdminDashboardPage() {
                             </div>
                             {app.phone && (
                               <div className={styles.phoneText}>
-                                <span>📞</span>
+                                <Phone size={14} aria-hidden="true" />
                                 <a href={`tel:${app.phone}`} style={{ color: 'inherit' }}>
                                   {app.phone}
                                 </a>
@@ -605,7 +606,7 @@ export default function AdminDashboardPage() {
             <div className={styles.tableScrollArea}>
               {filteredContacts.length === 0 ? (
                 <div className={styles.emptyNotice}>
-                  <div className={styles.emptyIconCircle}>✉️</div>
+                  <div className={styles.emptyIconCircle}><Mail aria-hidden="true" /></div>
                   <div className={styles.emptyTitle}>No Contact Enquiries Found</div>
                   <div className={styles.emptyDesc}>
                     {searchTerm ? 'No enquiries match your search query.' : 'Customer mission inquiries will appear here.'}
@@ -658,7 +659,7 @@ export default function AdminDashboardPage() {
                             </div>
                             {c.phone && (
                               <div className={styles.phoneText}>
-                                <span>📞</span>
+                                <Phone size={14} aria-hidden="true" />
                                 <a href={`tel:${c.phone}`} style={{ color: 'inherit' }}>
                                   {c.phone}
                                 </a>
@@ -707,7 +708,7 @@ export default function AdminDashboardPage() {
       {deleteTarget && (
         <div className={styles.modalBackdrop} onClick={() => !isDeleting && setDeleteTarget(null)}>
           <div className={styles.deleteConfirmCard} onClick={(e) => e.stopPropagation()}>
-            <div className={styles.dangerIconBadge}>⚠️</div>
+            <div className={styles.dangerIconBadge}><AlertTriangle aria-hidden="true" /></div>
 
             <h3 className={styles.deleteModalTitle}>
               Delete {deleteTarget.type === 'career' ? 'Job Application' : 'Contact Enquiry'}?
@@ -866,7 +867,7 @@ export default function AdminDashboardPage() {
                   href={`mailto:${selectedDetail.data.email}`}
                   className={styles.emailApplicantBtn}
                 >
-                  ✉ Reply via Email
+                  <Mail size={15} aria-hidden="true" /> Reply via Email
                 </a>
 
                 {selectedDetail.type === 'career' && selectedDetail.data.resumeFilename && (

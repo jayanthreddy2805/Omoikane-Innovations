@@ -15,7 +15,7 @@ const technologies = [
 ];
 
 export function TechMarquee() {
-  // Repeat array 4 times (2 sets of 2) for seamless infinite scrolling on all screen widths
+  // The repeated set keeps the marquee continuous on wide screens.
   const displayTechs = [
     ...technologies,
     ...technologies,
@@ -24,10 +24,10 @@ export function TechMarquee() {
   ];
 
   return (
-    <div className={styles.marqueeContainer}>
+    <div className={styles.marqueeContainer} aria-label="Engineering tools and methods">
       <div className={styles.marqueeTrack}>
         {displayTechs.map((tech, idx) => (
-          <span key={idx} className={styles.techItem}>{tech}</span>
+          <span key={idx} className={styles.techItem} aria-hidden={idx >= technologies.length}>{tech}</span>
         ))}
       </div>
     </div>

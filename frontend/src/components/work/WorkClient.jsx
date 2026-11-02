@@ -24,14 +24,14 @@ const WORK_SYSTEMS = [
       "Designed for demanding UAV applications",
     ],
     considerationsCol2: [
-      "System integration and interface requirements",
-      "Prototype evaluation and validation planning",
+      "Host-platform interface definition",
+      "Control-loop and prototype validation planning",
     ],
     images: {
       main: "/images/projects/flight-controller.webp",
       top: "/images/careers/electronics/embedded-pcb.jpg",
       bottom: "/images/leadership/uav-architecture-blueprint.png",
-      alt: "OFC-X Flight Controller hardware and architecture",
+      alt: "OFC-X flight controller and supporting platform imagery",
     },
     inquireSubject: "OFC-X Flight Controller",
   },
@@ -50,14 +50,14 @@ const WORK_SYSTEMS = [
       "Advanced current and thermal protection",
     ],
     considerationsCol2: [
-      "System integration and interface requirements",
-      "Prototype evaluation and validation planning",
+      "Power and propulsion interface definition",
+      "Current and thermal validation planning",
     ],
     images: {
       main: "/images/careers/electronics/embedded-pcb.jpg",
       top: "/images/careers/electronics/systems.jpg",
       bottom: "/images/capabilities/cap-03.jpg",
-      alt: "OESC-60 / OESC-100 4-in-1 Electronic Speed Controller platform",
+      alt: "Electronics imagery accompanying the OESC controller profile",
     },
     inquireSubject: "OESC-60 / OESC-100 Electronic Speed Controller",
   },
@@ -76,14 +76,14 @@ const WORK_SYSTEMS = [
       "Compact, rugged integration",
     ],
     considerationsCol2: [
-      "System integration and interface requirements",
-      "Prototype evaluation and validation planning",
+      "Antenna placement and host interface requirements",
+      "Positioning and prototype validation planning",
     ],
     images: {
       main: "/images/projects/ground-platform.webp",
       top: "/images/projects/flight-controller.webp",
       bottom: "/images/about/domain-air.jpg",
-      alt: "OGN-X GNSS / GPS Module for autonomous navigation",
+      alt: "Autonomous platform imagery accompanying the OGN-X navigation profile",
     },
     inquireSubject: "OGN-X GNSS / GPS Module",
   },
@@ -102,14 +102,14 @@ const WORK_SYSTEMS = [
       "Low-power design approach",
     ],
     considerationsCol2: [
-      "System integration and interface requirements",
-      "Prototype evaluation and validation planning",
+      "Host-system and telemetry interface requirements",
+      "Link evaluation and validation planning",
     ],
     images: {
       main: "/images/projects/tactical-datalink.webp",
       top: "/images/about/domain-ground.jpg",
       bottom: "/images/contact/aeronautical-drawing-sketch.png",
-      alt: "OCOM-X Communication System transceiver and datalink",
+      alt: "Communication and platform imagery accompanying the OCOM-X profile",
     },
     inquireSubject: "OCOM-X Communication System",
   },
@@ -253,7 +253,7 @@ export default function WorkClient() {
                   <div className={styles.topCard}>
                     <Image
                       src={system.images.top}
-                      alt={`${system.title} hardware view`}
+                      alt=""
                       fill
                       className={styles.cardImage}
                       sizes="(max-width: 960px) 50vw, 20vw"
@@ -264,7 +264,7 @@ export default function WorkClient() {
                   <div className={styles.bottomCard}>
                     <Image
                       src={system.images.bottom}
-                      alt={`${system.title} engineering view`}
+                      alt=""
                       fill
                       className={styles.cardImage}
                       sizes="(max-width: 960px) 50vw, 20vw"
@@ -309,8 +309,12 @@ export default function WorkClient() {
                       ))}
                     </div>
                   </div>
-
-
+                  <Link
+                    className={styles.productEnquiry}
+                    href={`/contact?subject=${encodeURIComponent(system.inquireSubject)}#contact-form`}
+                  >
+                    Discuss this product <span aria-hidden="true">→</span>
+                  </Link>
                 </div>
               </div>
             </article>

@@ -183,9 +183,11 @@ export default function ApplyForm({ onSuccess }) {
         </div>
 
         <div className={styles.inputGroup}>
-          <label className={styles.label}>Applying For</label>
+          <label id="af-role-label" htmlFor="af-role" className={styles.label}>Applying For</label>
           <div className={styles.selectWrapper}>
             <CustomSelect
+              id="af-role"
+              labelledBy="af-role-label"
               options={availableRoles}
               value={role}
               onChange={handleRoleChange}
@@ -214,6 +216,8 @@ export default function ApplyForm({ onSuccess }) {
           />
         </div>
       </div>
+
+      <p className={styles.formNotice}>We use the information and resume you submit to assess your application and contact you about the role.</p>
 
       {status === 'error' && errorMsg && (
         <p className={styles.errorMessage} role="alert">{errorMsg}</p>

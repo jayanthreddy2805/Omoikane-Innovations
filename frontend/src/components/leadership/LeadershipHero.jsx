@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function LeadershipHero() {
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       <section className={styles.canvas}>
         {/* Engineering canvas controls */}
         <span className={`${styles.cross} ${styles.crossTopLeft}`} />
@@ -75,16 +75,16 @@ export default function LeadershipHero() {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className={styles.actualDesc}>
-            Omoikane drives technological leaps by aligning deep-tech engineering with autonomous systems from day one.
+            Senior oversight connects hardware, firmware, autonomy and system integration from early requirements through prototype validation.
           </p>
           <p className={styles.actualDesc}>
-            Our senior-led team partners with defense and enterprise sectors to build robust, bleeding-edge platforms that guarantee operational superiority.
+            We work with UAV manufacturers, system integrators and industrial teams on products designed around their platform and operating conditions.
           </p>
         </motion.div>
 
 
 
       </section>
-    </main>
+    </div>
   );
 }

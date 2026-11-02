@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from 'react';
+import { Suspense, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import ContactForm from '@/components/contact/ContactForm';
@@ -94,7 +94,9 @@ export default function ContactPage() {
                 </FadeUp>
                 <FadeUp delay={0.18}>
                   <div className={styles.formWrapper}>
-                    <ContactForm onSuccess={() => setIsSubmitted(true)} />
+                    <Suspense fallback={<div>Loading form…</div>}>
+                      <ContactForm onSuccess={() => setIsSubmitted(true)} />
+                    </Suspense>
                   </div>
                 </FadeUp>
               </div>
