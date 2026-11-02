@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import dynamic from "next/dynamic";
+import useDecorativeEffect from "@/hooks/useDecorativeEffect";
 import styles from "../Footer.module.css";
 
 // Dynamic client-only import to ensure Three.js / WebGL executes strictly in browser
@@ -20,9 +21,11 @@ const NetworkVisual = dynamic(
  * or Footer/index.tsx.
  */
 export default function FooterVisual() {
+  const ref = useRef<HTMLDivElement>(null);
+  const active = useDecorativeEffect(ref);
   return (
-    <div className={styles.visualWrapper}>
-      <NetworkVisual fillContainer />
+    <div className={styles.visualWrapper} ref={ref} aria-hidden="true">
+      {active && <NetworkVisual fillContainer />}
     </div>
   );
 }

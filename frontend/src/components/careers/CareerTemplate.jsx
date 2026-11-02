@@ -11,6 +11,12 @@ import { Input } from '@/components/ui/form-field/input';
 
 const EASE = [0.16, 1, 0.3, 1];
 
+function TextLines({ text }) {
+  return text.split(/<br\s*\/?\s*>/i).map((line, index) => (
+    <span key={index}>{index > 0 && <br />}{line}</span>
+  ));
+}
+
 function FadeUp({ children, delay = 0, style = {} }) {
   const r = useRef(null);
   const inV = useInView(r, { once: true, margin: '-40px' });
@@ -67,10 +73,10 @@ export default function CareerTemplate({ data }) {
             <span className={styles.eyebrow}>{eyebrow}</span>
           </FadeUp>
           <RevealLine delay={0.12}>
-            <h1 className={styles.headline} dangerouslySetInnerHTML={{ __html: headline }} />
+            <h1 className={styles.headline}><TextLines text={headline} /></h1>
           </RevealLine>
           <FadeUp delay={0.3}>
-            <p className={styles.heroSub} dangerouslySetInnerHTML={{ __html: heroSub }} />
+            <p className={styles.heroSub}><TextLines text={heroSub} /></p>
           </FadeUp>
           <FadeUp delay={0.42}>
             <div className={styles.heroCtas}>

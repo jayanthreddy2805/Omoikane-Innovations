@@ -450,6 +450,10 @@
   text-align: right;
 }
 
+.botBubble .messageTimestamp {
+  color: #62748A;
+}
+
 /* ─── 8. Verified Source Link Badge ───────────────────────────────────────── */
 .sourceContainer {
   display: flex;
@@ -719,11 +723,13 @@
   .launcherButton {
     bottom: 18px;
     right: 18px;
-    padding: 7px 14px 7px 8px;
+    width: 52px;
+    height: 52px;
+    padding: 8px;
   }
 
-  .launcherText {
-    font-size: 0.82rem;
+  .launcherText, .launcherOnlineBadge {
+    display: none;
   }
 
   .widgetPanel {

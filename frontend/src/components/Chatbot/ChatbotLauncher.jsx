@@ -1,20 +1,25 @@
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { MessageSquare, X } from 'lucide-react';
 import styles from './ChatbotWidget.module.css';
 
-export default function ChatbotLauncher({ onClick, isOpen }) {
+export default function ChatbotLauncher({ onClick, isOpen, busy = false }) {
   return (
     <motion.button
       type="button"
+      id="company-assistant-launcher"
+      disabled={busy}
+      aria-busy={busy || undefined}
       className={styles.launcherButton}
       onClick={onClick}
-      initial={{ scale: 0, opacity: 0 }}
+      initial={false}
       animate={{ scale: 1, opacity: 1 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      aria-label={isOpen ? "Close Company Assistant" : "Open Omoikane Company Assistant"}
+      aria-label={isOpen ? "Close Company Assistant" : "Chat with us — Omoikane Company Assistant"}
+      aria-expanded={isOpen}
+      aria-controls={isOpen ? "company-assistant-dialog" : undefined}
       title={isOpen ? "Close Assistant" : "Chat with Omoikane Assistant"}
     >
       {isOpen ? (
@@ -28,7 +33,6 @@ export default function ChatbotLauncher({ onClick, isOpen }) {
               width={26}
               height={26}
               className={styles.launcherLogo}
-              priority
             />
           </div>
           <span className={styles.launcherText}>Chat with us</span>
