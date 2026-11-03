@@ -218,7 +218,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(16px, 2.5vw, 32px);
   margin-bottom: 90px;
   margin-top: -30px;
 }
@@ -227,9 +226,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(14px, 2vw, 24px);
+  gap: clamp(16px, 2.4vw, 28px);
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(44px, 6.2vw, 84px);
+  font-size: clamp(53px, 7.5vw, 101px);
   line-height: 0.95;
   font-weight: 800;
   letter-spacing: -0.035em;
@@ -243,13 +242,10 @@
   color: var(--color-navy, #061D40);
 }
 
-.accentDot {
-  color: var(--color-blue, #0757C8) !important;
-}
-
 .drawingWrapper {
   position: relative;
-  height: clamp(52px, 7vw, 92px);
+  margin-left: 6px;
+  height: clamp(62px, 8.4vw, 110px);
   aspect-ratio: 238 / 267;
   mix-blend-mode: multiply;
   pointer-events: none;
@@ -328,7 +324,7 @@
 .enquiryVisualWrapper {
   position: relative;
   width: 100%;
-  min-height: 350px;
+  min-height: 420px;
   overflow: hidden;
   display: flex;
   align-items: center;
