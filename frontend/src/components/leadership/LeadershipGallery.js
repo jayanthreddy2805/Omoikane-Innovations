@@ -2,7 +2,6 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { Flip } from 'gsap/Flip';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import SplitType from 'split-type';
@@ -10,7 +9,7 @@ import Lenis from 'lenis';
 import styles from './LeadershipGallery.module.css';
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(Flip, ScrollTrigger, useGSAP);
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
 const PROFILES = [
@@ -64,8 +63,6 @@ export default function LeadershipGallery() {
   const lenisRef = useRef(null);
   
   // Keep refs for elements we need to animate dynamically
-  const galleryImageWrappers = useRef([]);
-  const galleryImages = useRef([]);
   const contentWrappers = useRef([]);
   const contents = useRef([]);
   const openerRefs = useRef([]);
@@ -171,7 +168,7 @@ export default function LeadershipGallery() {
     const currentWrapper = contentWrappers.current[index];
     const splits = listOfSplits.current[index];
 
-    splits.titleTopSplits[0].chars.forEach(char => {
+    splits.titleTopSplits[0]?.chars?.forEach(char => {
       char.style.willChange = 'transform, clip-path';
     });
 
@@ -184,7 +181,7 @@ export default function LeadershipGallery() {
       onComplete: () => {
         if (lenisRef.current) lenisRef.current.stop();
         scrollWrapperRef.current.classList.add(styles.isHidden);
-        splits.titleTopSplits[0].chars.forEach(char => {
+        splits.titleTopSplits[0]?.chars?.forEach(char => {
           char.style.willChange = 'auto';
         });
         closeButtonRef.current?.focus();
@@ -193,36 +190,23 @@ export default function LeadershipGallery() {
 
     currentAnimation
       .addLabel('start', 0)
-      .addLabel('texts', 0.5)
-      .add(() => {
-        const flipState = Flip.getState(galleryImages.current[index]);
-        currentWrapper.appendChild(galleryImages.current[index]);
-        
-        Flip.from(flipState, {
-          duration: 1.25,
-          ease: 'power4.inOut',
-        });
-      }, 'start')
-      .to(
-        galleryImageWrappers.current.filter((img, i) => i !== index),
-        {
-          clipPath: 'inset(100% 0 0 0)',
-          duration: 0.75,
-          ease: 'power3.inOut',
-        },
-        0
+      .fromTo(
+        currentWrapper,
+        { opacity: 0, scale: 0.96 },
+        { opacity: 1, scale: 1, duration: 0.65, ease: 'power3.out' },
+        'start'
       )
       .fromTo(
-        [splits.titleTopSplits[0].elements, splits.titleTopSplits[0].elements],
+        [splits.titleTopSplits[0].elements, splits.titleBottomSplits[0].elements],
         { xPercent: 15 },
-        { xPercent: 0, duration: 1, ease: 'power3.out' },
-        'start+=1.25'
+        { xPercent: 0, duration: 0.75, ease: 'power3.out' },
+        'start+=0.15'
       )
       .fromTo(
         [splits.titleTopSplits[0].chars, splits.titleBottomSplits[0].chars],
         { clipPath: 'inset(0 100% 0 0)', xPercent: 10 },
-        { clipPath: 'inset(0 0% 0 0)', xPercent: 0, duration: 0.75, ease: 'power3.out' },
-        'start+=1.25'
+        { clipPath: 'inset(0 0% 0 0)', xPercent: 0, duration: 0.6, ease: 'power3.out' },
+        'start+=0.15'
       )
       .fromTo(
         [
@@ -231,7 +215,7 @@ export default function LeadershipGallery() {
         ],
         { yPercent: 100, opacity: 0 },
         { yPercent: 0, opacity: 1, stagger: 0.025 },
-        'start+=1.2'
+        'start+=0.2'
       );
   };
 
@@ -278,21 +262,11 @@ export default function LeadershipGallery() {
         { yPercent: 100, stagger: 0.025, duration: 0.75 },
         'start'
       )
-      .add(() => {
-        const contentWrapperImage = currentWrapper.querySelector(`.${styles.imageContainer}`);
-        if (!contentWrapperImage) return;
-        const flipState = Flip.getState(contentWrapperImage);
-        galleryImageWrappers.current[index].appendChild(contentWrapperImage);
-        Flip.from(flipState, {
-          duration: 1.25,
-          ease: 'power3.inOut',
-        });
-      }, 'start+=0.25')
       .to(
-        galleryImageWrappers.current.filter((img, i) => i !== index),
-        { clipPath: 'inset(0% 0 0 0)' }
-      )
-      .set(galleryImageWrappers.current, { clipPath: 'none' });
+        currentWrapper,
+        { opacity: 0, scale: 0.96, duration: 0.45, ease: 'power3.inOut' },
+        'start+=0.15'
+      );
   }, [openIndex]);
 
   useEffect(() => {
@@ -331,7 +305,6 @@ export default function LeadershipGallery() {
                 key={profile.id} 
                 className={styles.galleryImage} 
                 ref={el => {
-                  galleryImageWrappers.current[i] = el;
                   openerRefs.current[i] = el;
                 }}
                 onClick={() => openContent(i)}
@@ -340,9 +313,7 @@ export default function LeadershipGallery() {
               >
                 <div 
                   className={styles.imageContainer} 
-                  ref={el => galleryImages.current[i] = el}
                 >
-                  {/* This image node is moved between containers by GSAP Flip; next/image wrappers break that transition. */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={profile.image} loading="lazy" alt={profile.topTitle} />
                 </div>
@@ -370,6 +341,10 @@ export default function LeadershipGallery() {
             }}
           >
             <div className={styles.contentWrapper} ref={el => contentWrappers.current[i] = el}>
+              <div className={styles.imageContainer} aria-hidden="true">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={profile.image} loading="lazy" alt="" />
+              </div>
               <button
                 ref={openIndex === i ? closeButtonRef : undefined}
                 type="button"
