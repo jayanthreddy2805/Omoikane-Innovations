@@ -218,44 +218,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 120px;
-  margin-top: -40px;
+  gap: clamp(16px, 2.5vw, 32px);
+  margin-bottom: 90px;
+  margin-top: -30px;
 }
 
 .letsConnectTitle {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(30px, 6vw, 60px);
+  gap: clamp(14px, 2vw, 24px);
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(40px, 8vw, 100px);
-  line-height: 0.8;
-  font-weight: 700;
-  letter-spacing: 0.25em;
+  font-size: clamp(44px, 6.2vw, 84px);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   margin: 0;
   text-transform: uppercase;
-  transform: scale(0.6, 1.5);
-}
-
-.textWhite {
   color: var(--color-navy, #061D40);
 }
 
-.textGrey {
-  color: var(--color-blue, #0757C8);
+.letsConnectTitle span {
+  display: inline-block;
+  color: var(--color-navy, #061D40);
+}
+
+.accentDot {
+  color: var(--color-blue, #0757C8) !important;
 }
 
 .drawingWrapper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: max(210px, 19vw); /* Anchors to the right of the text */
-  height: clamp(60px, 12vw, 150px); /* Exactly 1.5x the text clamp */
-  aspect-ratio: 238 / 267; /* Original image ratio */
+  position: relative;
+  height: clamp(52px, 7vw, 92px);
+  aspect-ratio: 238 / 267;
   mix-blend-mode: multiply;
   pointer-events: none;
-  z-index: 0;
+  flex-shrink: 0;
+  opacity: 0.85;
 }
 
 .drawingImage {
@@ -366,5 +365,10 @@
   
   .heroSection, .enquirySection, .presenceSection {
     padding: 80px 0;
+  }
+
+  .contactHeroWrapper {
+    margin-bottom: 50px;
+    margin-top: -10px;
   }
 }

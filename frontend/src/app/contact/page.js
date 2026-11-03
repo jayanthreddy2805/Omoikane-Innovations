@@ -60,8 +60,8 @@ export default function ContactPage() {
             <>
               <div className={styles.contactHeroWrapper}>
                 <h1 className={styles.letsConnectTitle}>
-                  <span className={styles.textWhite}>LET’S</span>
-                  <span className={styles.textGrey}>CONNECT</span>
+                  <span>LET’S</span>
+                  <span>CONNECT<span className={styles.accentDot}>.</span></span>
                 </h1>
                 <div className={styles.drawingWrapper}>
                    <Image 
