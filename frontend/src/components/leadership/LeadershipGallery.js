@@ -67,6 +67,7 @@ export default function LeadershipGallery() {
   const contents = useRef([]);
   const openerRefs = useRef([]);
   const closeButtonRef = useRef(null);
+  const profileAnimationRef = useRef(null);
   const listOfSplits = useRef([]);
   
   const [error, setError] = useState('');
@@ -152,6 +153,7 @@ export default function LeadershipGallery() {
       return () => {
         if (rafId) cancelAnimationFrame(rafId);
         if (lenisRef.current) lenisRef.current.destroy();
+        profileAnimationRef.current?.kill();
       };
     } catch (e) {
       setError(e.toString());
@@ -161,6 +163,8 @@ export default function LeadershipGallery() {
   // Handle opening a gallery item
   const openContent = (index) => {
     if (openIndex !== null) return;
+
+    profileAnimationRef.current?.kill();
     
     setOpenIndex(index);
     contents.current[index].classList.remove(styles.isHidden);
@@ -179,14 +183,18 @@ export default function LeadershipGallery() {
         sectionContentRef.current.classList.remove(styles.isHidden);
       },
       onComplete: () => {
+        if (profileAnimationRef.current !== currentAnimation) return;
         if (lenisRef.current) lenisRef.current.stop();
         scrollWrapperRef.current.classList.add(styles.isHidden);
         splits.titleTopSplits[0]?.chars?.forEach(char => {
           char.style.willChange = 'auto';
         });
         closeButtonRef.current?.focus();
+        profileAnimationRef.current = null;
       },
     });
+
+    profileAnimationRef.current = currentAnimation;
 
     currentAnimation
       .addLabel('start', 0)
@@ -222,6 +230,8 @@ export default function LeadershipGallery() {
   // Handle closing a gallery item
   const hideContent = useCallback((index) => {
     if (openIndex !== index) return;
+
+    profileAnimationRef.current?.kill();
     
     const currentWrapper = contentWrappers.current[index];
     const splits = listOfSplits.current[index];
@@ -233,12 +243,17 @@ export default function LeadershipGallery() {
       duration: 1.25,
       ease: 'power4.inOut',
       onComplete: () => {
+        if (profileAnimationRef.current !== currentAnimation) return;
         setOpenIndex(null);
         sectionContentRef.current.classList.add(styles.isHidden);
         contents.current[index].classList.add(styles.isHidden);
+        scrollWrapperRef.current.classList.remove(styles.isHidden);
         openerRefs.current[index]?.focus();
+        profileAnimationRef.current = null;
       },
     });
+
+    profileAnimationRef.current = currentAnimation;
 
     currentAnimation
       .addLabel('start', 0)
