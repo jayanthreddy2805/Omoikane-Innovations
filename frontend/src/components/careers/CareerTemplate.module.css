@@ -179,22 +179,12 @@
   letter-spacing: 1px;
   color: var(--text-primary);
   margin-bottom: 0.75rem;
-  transition: color 0.3s ease;
 }
 
 .wwbItem p {
   color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.5;
-  transition: color 0.3s ease;
-}
-
-.wwbItem:hover h3 {
-  color: var(--theme-accent);
-}
-
-.wwbItem:hover p {
-  color: var(--text-primary);
 }
 
 /* SECTION C & D: ROLE EXPLORER */
@@ -593,20 +583,11 @@
 }
 
 .premiumApplyBtn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--theme-accent);
-  transform: translateX(-101%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 0;
-}
-
-.premiumApplyBtn:hover::before {
-  transform: translateX(0);
+  display: none;
 }
 
 .premiumApplyBtn:hover {
+  background: var(--theme-accent);
   color: #FFFFFF;
   border-color: var(--theme-accent);
 }
@@ -819,10 +800,6 @@
   color: var(--theme-accent);
 }
 
-.contactIndexTitle a:hover span {
-  transform: translateX(4px);
-}
-
 .contactCta {
   margin-top: 1rem;
 }
@@ -850,10 +827,6 @@
 .contactCta a:hover {
   border-color: var(--theme-accent);
   color: var(--theme-accent);
-}
-
-.contactCta a:hover span {
-  transform: translateX(4px);
 }
 
 .applyFormContainer {

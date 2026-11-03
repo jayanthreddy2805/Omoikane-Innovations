@@ -94,11 +94,6 @@
 .plusIcon {
   color: #0757C8;
   opacity: 0.9;
-  transition: transform 0.2s ease;
-}
-
-.container:hover .plusIcon {
-  transform: translateY(-1px);
 }
 
 .emptyText {

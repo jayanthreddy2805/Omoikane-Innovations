@@ -90,14 +90,12 @@
   cursor: pointer;
   transition:
     background-color 0.2s ease,
-    border-left-color 0.2s ease,
-    padding-left 0.2s ease;
+    border-left-color 0.2s ease;
 }
 
 .disciplineItem:hover {
   background-color: #EFF7FF;
   border-left-color: #0757C8;
-  padding-left: 1.25rem;
 }
 
 .disciplineItem:focus-visible {
@@ -125,11 +123,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .disciplineItem:hover .itemArrow {
-  transform: translate(3px, -3px);
   color: #1688F8;
 }
 

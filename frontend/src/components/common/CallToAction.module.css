@@ -95,12 +95,6 @@
   font-size: 1rem;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.ctaButtonPill:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
 }
 
 .ctaBottomSection {
@@ -145,12 +139,6 @@
   height: 28px;
   color: #FFFFFF;
   opacity: 0.95;
-  transition: transform 200ms ease, color 200ms ease;
-}
-
-.ctaPartnerItem:hover .ctaPartnerIcon {
-  transform: translateY(-2px);
-  color: #38BDF8;
 }
 
 .ctaPartnerLabel {
@@ -161,11 +149,6 @@
   line-height: 1.28;
   letter-spacing: -0.01em;
   text-align: center;
-  transition: color 200ms ease;
-}
-
-.ctaPartnerItem:hover .ctaPartnerLabel {
-  color: #FFFFFF;
 }
 
 @media (max-width: 960px) {

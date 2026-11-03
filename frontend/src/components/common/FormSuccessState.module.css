@@ -95,11 +95,6 @@
 
 .statusArrow {
   color: #0757C8;
-  transition: transform 0.2s ease;
-}
-
-.statusLine:hover .statusArrow {
-  transform: translateX(4px);
 }
 
 @media (max-width: 768px) {

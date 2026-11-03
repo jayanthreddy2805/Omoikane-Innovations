@@ -95,15 +95,6 @@
   text-wrap: pretty;
 }
 
-/* Subtle Hover Transitions */
-.column:hover .columnDivider {
-  background-color: var(--color-blue, #0757C8);
-}
-
-.column:hover .sequenceNumber {
-  color: var(--color-blue-bright, #1688F8);
-}
-
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .grid {
