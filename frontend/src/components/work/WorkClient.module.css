@@ -180,11 +180,10 @@
   justify-content: center;
   color: var(--color-blue, #0757C8);
   flex-shrink: 0;
-  transition: transform 220ms ease, background-color 200ms ease;
+  transition: background-color 200ms ease;
 }
 
 .focusStripItem:hover .focusIconBox {
-  transform: scale(1.04);
   background-color: #E2F0FD;
 }
 
@@ -358,13 +357,7 @@
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(10, 10, 10, 0.08);
   background-color: #000812;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
   z-index: 1;
-}
-
-.collageCanvas:hover .baseCard {
-  transform: scale(1.02);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
 }
 
 /* Top-Right Overlapping Card */
@@ -381,12 +374,6 @@
   background-color: #000812;
   z-index: 3;
   transform: rotate(3deg);
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-}
-
-.collageCanvas:hover .topCard {
-  transform: translate(6px, -6px) rotate(5deg);
-  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.2);
 }
 
 /* Bottom-Left Overlapping Card */
@@ -403,21 +390,10 @@
   background-color: #000812;
   z-index: 4;
   transform: rotate(-3.5deg);
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-}
-
-.collageCanvas:hover .bottomCard {
-  transform: translate(-6px, 6px) rotate(-5.5deg);
-  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.2);
 }
 
 .cardImage {
   object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.collageCanvas:hover .cardImage {
-  transform: scale(1.04);
 }
 
 /* ── EDITORIAL CONTENT COLUMN (RIGHT) ── */
@@ -559,13 +535,12 @@
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 1.5px;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .learnMoreLink:hover {
   opacity: 0.8;
   color: var(--color-navy, #061D40);
-  transform: translateX(2px);
 }
 
 /* ─────────────────────────────────────────────────────────

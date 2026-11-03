@@ -231,11 +231,10 @@
 .dropdownArrow {
   color: #62748A;
   flex-shrink: 0;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .dropdownItem:hover .dropdownArrow {
-  transform: translateX(3px);
   color: #102746;
 }
 
@@ -310,7 +309,6 @@
 
 .contactBtn:hover {
   opacity: 0.88;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
 
 .contactBtn:focus-visible {
@@ -527,11 +525,10 @@
 .searchResultArrow {
   color: #62748A;
   flex-shrink: 0;
-  transition: transform 0.15s ease, color 0.15s ease;
+  transition: color 0.15s ease;
 }
 
 .searchResultItem:hover .searchResultArrow {
-  transform: translateX(3px);
   color: #102746;
 }
 

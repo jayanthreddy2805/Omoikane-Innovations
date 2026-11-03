@@ -63,10 +63,6 @@
   transition: transform 0.2s ease;
 }
 
-.button:hover:not(:disabled) .arrow {
-  transform: translateX(5px);
-}
-
 /* States */
 .submitting {
   background-color: #DCE7F3;

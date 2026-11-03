@@ -15,7 +15,6 @@ export default function ChatbotLauncher({ onClick, isOpen, busy = false }) {
       onClick={onClick}
       initial={false}
       animate={{ scale: 1, opacity: 1 }}
-      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       aria-label={isOpen ? "Close Company Assistant" : "Chat with us — Omoikane Company Assistant"}
       aria-expanded={isOpen}

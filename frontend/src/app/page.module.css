@@ -153,13 +153,12 @@
   padding: 0.85rem 1.85rem;
   border-radius: 9999px;
   text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease;
   box-shadow: none;
 }
 
 .heroBtnPrimary:hover {
   background-color: var(--color-navy);
-  transform: translateY(-2px);
 }
 
 .heroBtnSecondary {
@@ -177,7 +176,7 @@
   padding: 0.85rem 1.85rem;
   border-radius: 9999px;
   text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   box-shadow: none;
 }
 
@@ -185,7 +184,6 @@
   background-color: var(--color-surface-blue);
   border-color: var(--color-blue);
   color: var(--color-blue);
-  transform: translateY(-2px);
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -259,7 +257,7 @@
   border-radius: 12px;
   padding: 2.25rem;
   display: flex;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: border-color 0.2s ease;
   box-shadow: none;
   position: relative;
   overflow: hidden;
@@ -268,7 +266,6 @@
 }
 
 .bentoCard:hover {
-  transform: translateY(-2px);
   border-color: var(--color-blue);
   background-color: var(--color-white);
   box-shadow: none;
@@ -393,11 +390,6 @@
 
 .bentoCardImg {
   object-fit: cover;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bentoCard:hover .bentoCardImg {
-  transform: scale(1.03);
 }
 
 @media (max-width: 680px) {
@@ -434,13 +426,12 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-blue);
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .outlineButton:hover {
   background-color: var(--color-blue);
   color: var(--color-white);
-  transform: translateY(-2px);
 }
 
 .outlineButton:focus-visible {
@@ -527,13 +518,12 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  transition: transform 0.2s ease, border-top-color 0.2s ease;
+  transition: border-top-color 0.2s ease;
   height: 100%;
   box-sizing: border-box;
 }
 
 .whyCard:hover {
-  transform: translateY(-2px);
   border-top-color: var(--color-blue);
   box-shadow: none;
 }

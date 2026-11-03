@@ -60,11 +60,6 @@
   background: transparent;
   user-select: none;
   flex-shrink: 0;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.logoCard:hover {
-  transform: scale(1.05);
 }
 
 /* Responsive logo images */

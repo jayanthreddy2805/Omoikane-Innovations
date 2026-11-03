@@ -186,7 +186,6 @@ const DOMAINS = [
 
 function MissionDomainExplorer() {
   const [active, setActive] = useState('defense');
-  const [hovered, setHovered] = useState(false);
   const activeDomain = DOMAINS.find((d) => d.id === active);
 
   return (
@@ -223,8 +222,6 @@ function MissionDomainExplorer() {
                     style={{
                       objectFit: 'cover',
                       objectPosition: d.imagePosition,
-                      transform: active === d.id && hovered ? 'scale(1.02)' : 'scale(1)',
-                      transition: 'transform 1.4s cubic-bezier(0.16,1,0.3,1)',
                     }}
                   />
                   <div 
@@ -242,8 +239,6 @@ function MissionDomainExplorer() {
                   key={d.id}
                   className={`${styles.domainTab} ${active === d.id ? styles.domainTabActive : ''}`}
                   onClick={() => setActive(d.id)}
-                  onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}
                 >
                   {active === d.id && (
                     <motion.span

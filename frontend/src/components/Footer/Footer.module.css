@@ -360,7 +360,7 @@
   border-radius: 9999px;
   text-decoration: none;
   letter-spacing: 0.2px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.2s ease, color 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   white-space: nowrap;
 }
@@ -368,8 +368,6 @@
 .heroCta:hover {
   background-color: var(--text-primary);
   color: var(--bg-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(0, 194, 255, 0.3);
 }
 
 .heroCtaArrow {
@@ -377,10 +375,6 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
-}
-
-.heroCta:hover .heroCtaArrow {
-  transform: translate(2px, -2px);
 }
 
 /* Action Row & Brand Watermark */

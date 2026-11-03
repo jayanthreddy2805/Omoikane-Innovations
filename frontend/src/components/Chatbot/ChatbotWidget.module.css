@@ -20,13 +20,6 @@
   color: #102746;
   cursor: pointer;
   box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.14), 0 4px 10px -2px rgba(0, 0, 0, 0.08);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.launcherButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px -4px rgba(0, 0, 0, 0.18), 0 6px 14px -2px rgba(0, 0, 0, 0.1);
-  border-color: #DCE7F3;
 }
 
 .launcherInner {
@@ -338,7 +331,6 @@
   background-color: #EFF7FF;
   border-color: #0757C8;
   color: #0757C8;
-  transform: translateY(-1px);
 }
 
 /* ─── 7. Chat Messages ────────────────────────────────────────────────────── */
@@ -518,7 +510,6 @@
   background-color: #F7FBFF;
   border-color: #0757C8;
   color: #0757C8;
-  transform: translateY(-1px);
 }
 
 /* ─── 10. Typing Wave Indicator ───────────────────────────────────────────── */
@@ -708,7 +699,6 @@
 
 .composerSendBtn:hover:not(:disabled) {
   background-color: #061D40;
-  transform: scale(1.05);
 }
 
 .composerSendBtn:disabled {

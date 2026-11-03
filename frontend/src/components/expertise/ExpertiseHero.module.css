@@ -27,3 +27,10 @@
   .description { max-width: min(100%, 42ch); font-size: var(--type-body); line-height: 1.65; }
   .primaryCta, .secondaryCta { font-size: 14px; }
 }
+
+/* Keep hover feedback restrained: colour may change, geometry does not. */
+.primaryCta:hover { transform: none; }
+.primaryCta:hover .arrow { transform: none; }
+.capabilityItem:hover { padding-left: 14px; }
+.capabilityItem:hover .capArrow { opacity: 0; transform: none; }
+.capabilityActive .capArrow { transform: none; }
