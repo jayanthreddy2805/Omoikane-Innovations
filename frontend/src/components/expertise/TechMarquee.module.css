@@ -1,46 +1,110 @@
 .marqueeContainer {
   width: 100%;
   overflow: hidden;
-  background: var(--gradient-surface);
-  padding: 30px 0;
+  background: var(--gradient-surface, #F8FAFC);
+  padding: 28px 0;
   display: flex;
   align-items: center;
   position: relative;
-  /* Add a gap for spacing between the hero and expertise section */
-  margin: 20px 0 40px 0;
+  margin: 16px 0 36px 0;
+  border-top: 1px solid rgba(7, 87, 200, 0.08);
+  border-bottom: 1px solid rgba(7, 87, 200, 0.08);
 }
 
-/* Optional soft gradient mask to fade the edges */
+/* Gradient edge fades for seamless entrance/exit */
 .marqueeContainer::before,
 .marqueeContainer::after {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100px;
+  width: 120px;
   z-index: 2;
   pointer-events: none;
 }
+
 .marqueeContainer::before {
   left: 0;
-  background: linear-gradient(to right, #EFF7FF, transparent);
+  background: linear-gradient(to right, #F4F8FC 0%, rgba(244, 248, 252, 0) 100%);
 }
+
 .marqueeContainer::after {
   right: 0;
-  background: linear-gradient(to left, #F7FBFF, transparent);
+  background: linear-gradient(to left, #F4F8FC 0%, rgba(244, 248, 252, 0) 100%);
 }
 
+/* Continuous marquee track */
 .marqueeTrack {
   display: flex;
-  gap: 48px;
   width: max-content;
-  animation: scroll 40s linear infinite;
+  will-change: transform;
+  animation: scroll 38s linear infinite;
 }
 
+/* CRITICAL: Stop animation when user hovers over marquee container or track */
+.marqueeContainer:hover .marqueeTrack,
 .marqueeTrack:hover {
   animation-play-state: paused;
 }
 
+/* Individual track groups for 100% seamless mathematical loop */
+.marqueeGroup {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-right: 32px;
+  flex-shrink: 0;
+}
+
+/* Individual Logo Card with MNC-level polish */
+.logoCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  min-width: 145px;
+  padding: 12px 26px;
+  background: #FFFFFF;
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.logoCard:hover {
+  transform: translateY(-2px) scale(1.03);
+  border-color: rgba(7, 87, 200, 0.35);
+  box-shadow: 0 10px 24px -4px rgba(7, 87, 200, 0.15),
+              0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  background: #FFFFFF;
+}
+
+/* Responsive logo images */
+.toolLogo {
+  display: block;
+  max-height: 36px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+/* Perfect infinite seamless loop */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Accessibility: respect user preference for reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .marqueeTrack {
     animation: none;
@@ -48,31 +112,38 @@
     width: auto;
     justify-content: center;
   }
-}
-
-.techItem {
-  font-family: var(--font-mono, ui-monospace, monospace);
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 0.1em;
-  color: var(--color-muted, #62748A);
-  text-transform: uppercase;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  transition: color 0.3s;
-}
-
-.techItem:hover {
-  color: var(--color-blue, #0757C8);
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
+  .marqueeGroup {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
   }
-  100% {
-    /* Translate half the width since we duplicate the content */
-    transform: translateX(calc(-50% - 24px));
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .marqueeContainer {
+    padding: 20px 0;
+    margin: 12px 0 28px 0;
+  }
+
+  .marqueeGroup {
+    gap: 18px;
+    padding-right: 18px;
+  }
+
+  .logoCard {
+    height: 52px;
+    min-width: 120px;
+    padding: 8px 18px;
+    border-radius: 10px;
+  }
+
+  .toolLogo {
+    max-height: 28px;
+  }
+
+  .marqueeContainer::before,
+  .marqueeContainer::after {
+    width: 50px;
   }
 }

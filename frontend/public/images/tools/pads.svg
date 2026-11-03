@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 42" height="34" width="105" style="display:block;">
+  <text x="65" y="27" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="bold" font-size="28" fill="#00A2DE" letter-spacing="1.5px">PADS</text>
+  <rect x="12" y="33" width="74" height="3" fill="#00A2DE" rx="1.5" />
+  <rect x="90" y="33" width="28" height="3" fill="#E53935" rx="1.5" />
+</svg>
