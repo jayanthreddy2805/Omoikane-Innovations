@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "@/components/common/IntentLink";
 import { OPEN_COOKIE_PREFERENCES_EVENT } from "@/lib/cookieConsent";
+import NewsletterSubscriptionForm from "../NewsletterSubscription/NewsletterSubscriptionForm";
 import styles from "../Footer.module.css";
 
 export default function FooterContent() {
@@ -66,13 +67,11 @@ export default function FooterContent() {
           </div>
         </div>
 
-        {/* Column 5: A real email enquiry while no subscription service is configured. */}
+        {/* Column 5: Company updates subscription */}
         <div className={styles.colSubscribe}>
           <h3 className={styles.colHeader}>COMPANY UPDATES</h3>
-          <p className={styles.subscribeDesc}>For product and company news, request updates from our team.</p>
-          <a className={styles.subscribeLink} href="mailto:info@omoikaneinnovations.com?subject=Company%20updates">
-            Request updates by email
-          </a>
+          <p className={styles.subscribeDesc}>Receive occasional product and company news from Omoikane.</p>
+          <NewsletterSubscriptionForm />
         </div>
       </div>
 

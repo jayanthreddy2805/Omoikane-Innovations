@@ -80,10 +80,15 @@ public class RateLimitFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        // Rate-limit contact and careers application submission endpoints
+        // Rate-limit public form submissions and unsubscribe-token attempts
         String uri = request.getRequestURI();
-        boolean isProtectedEndpoint = "/api/contact".equals(uri) || "/api/careers/apply".equals(uri);
-        return !isProtectedEndpoint || !"POST".equalsIgnoreCase(request.getMethod());
+        boolean isPublicSubmission = "POST".equalsIgnoreCase(request.getMethod())
+                && ("/api/contact".equals(uri)
+                || "/api/careers/apply".equals(uri)
+                || "/api/subscriptions".equals(uri));
+        boolean isUnsubscribeAttempt = "DELETE".equalsIgnoreCase(request.getMethod())
+                && uri.startsWith("/api/subscriptions/");
+        return !isPublicSubmission && !isUnsubscribeAttempt;
     }
 
     private Bucket createBucket(String key) {

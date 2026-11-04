@@ -1,11 +1,13 @@
 # Omoikane Innovations — Backend API
 
-Spring Boot 3.4 backend service providing the contact form API for Omoikane Innovations.
+Spring Boot 3.4 backend service providing contact, careers, and email-subscription APIs for Omoikane Innovations.
 
 ## Features
 - **Endpoint**: `POST /api/contact` for contact form submissions.
+- **Email subscriptions**: `POST /api/subscriptions` stores consented company-update subscribers, prevents duplicates, and reactivates previously unsubscribed addresses.
+- **Unsubscribe endpoint**: `DELETE /api/subscriptions/{token}` disables a subscription using an unguessable per-subscriber token.
 - **Persistence**: PostgreSQL database with Spring Data JPA.
-- **Database Migrations**: Flyway automatic schema versioning (`V1__create_contact_submissions.sql`).
+- **Database Migrations**: Flyway automatic schema versioning for contact submissions, career applications, and email subscribers.
 - **Input Validation**: Jakarta Bean Validation (`@NotBlank`, `@Email`, `@Size`) with field length constraints.
 - **Safe Responses**: Consistent JSON response envelop (`ContactResponse`) and `GlobalExceptionHandler` preventing internal error or stack trace leakage.
 - **Rate Limiting**: In-memory token bucket rate limiting via Bucket4j (5 submissions/min per client IP).
@@ -110,6 +112,28 @@ The Next.js frontend runs on `http://localhost:3000` and submits contact request
 ---
 
 ## API Documentation
+
+### `POST /api/subscriptions`
+
+Subscribes an email address to occasional product and company updates.
+
+```json
+{
+  "email": "person@example.com",
+  "consent": true
+}
+```
+
+- Returns **`201 Created`** for a new subscription.
+- Returns **`200 OK`** when the address is already active or is reactivated.
+- Returns **`400 Bad Request`** for invalid email addresses or missing consent.
+- Returns **`429 Too Many Requests`** when the per-IP rate limit is exceeded.
+
+The service stores normalized lowercase emails, consent time, subscription status, source, and an unsubscribe token. It does not send marketing email by itself.
+
+### `DELETE /api/subscriptions/{token}`
+
+Marks the matching subscription as unsubscribed. The token is generated when the subscription is created and is intended for use in unsubscribe links when outbound company-update emails are configured.
 
 ### `POST /api/contact`
 
