@@ -2,6 +2,8 @@ import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ChatbotMount from "@/components/Chatbot/ChatbotMount";
+import ConsentAwareAnalytics from "@/components/privacy/ConsentAwareAnalytics";
+import CookiePreferences from "@/components/privacy/CookiePreferences";
 import MotionPreferences from "@/components/layout/MotionPreferences";
 import "./globals.css";
 
@@ -65,6 +67,8 @@ export default function RootLayout({ children }) {
           <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
           <ChatbotMount />
+          <CookiePreferences />
+          <ConsentAwareAnalytics />
         </MotionPreferences>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

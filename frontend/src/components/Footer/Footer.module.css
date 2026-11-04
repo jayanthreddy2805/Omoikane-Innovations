@@ -222,7 +222,16 @@
   transition: color 0.2s ease;
 }
 
-.legalLinks a:hover {
+.legalButton {
+  padding: 0;
+  color: var(--text-subtle);
+  font-size: inherit;
+  line-height: inherit;
+  transition: color 0.2s ease;
+}
+
+.legalLinks a:hover,
+.legalButton:hover {
   color: var(--text-primary);
 }
 

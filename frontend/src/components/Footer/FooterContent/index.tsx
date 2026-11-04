@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "@/components/common/IntentLink";
+import { OPEN_COOKIE_PREFERENCES_EVENT } from "@/lib/cookieConsent";
 import styles from "../Footer.module.css";
 
 export default function FooterContent() {
@@ -81,6 +82,13 @@ export default function FooterContent() {
           &copy; {new Date().getFullYear()} OMOIKANE INNOVATIONS. All rights reserved.
         </div>
         <div className={styles.legalLinks}>
+          <button
+            className={styles.legalButton}
+            type="button"
+            onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_PREFERENCES_EVENT))}
+          >
+            Cookie settings
+          </button>
           <a href="mailto:info@omoikaneinnovations.com?subject=Privacy%20and%20terms%20enquiry">Privacy and terms enquiries</a>
         </div>
       </div>

@@ -25,6 +25,7 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     imageSizes: [32, 48, 64, 96, 128, 192, 256, 384, 512],
+    minimumCacheTTL: 86400,
   },
   async redirects() {
     return [
@@ -41,16 +42,37 @@ const nextConfig = {
     ];
   },
   async headers() {
-    return [{
-      source: "/:path*",
-      headers: [
-        { key: "Content-Security-Policy", value: contentSecurityPolicy },
-        { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
-        { key: "X-Frame-Options", value: "DENY" },
-        { key: "X-Content-Type-Options", value: "nosniff" },
-        { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-      ],
-    }];
+    const privateNoStore = "private, no-store, max-age=0, must-revalidate";
+    const publicMediaCache = "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400";
+
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "Content-Security-Policy", value: contentSecurityPolicy },
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        ],
+      },
+      {
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: publicMediaCache }],
+      },
+      {
+        source: "/videos/:path*",
+        headers: [{ key: "Cache-Control", value: publicMediaCache }],
+      },
+      {
+        source: "/api/:path*",
+        headers: [{ key: "Cache-Control", value: privateNoStore }],
+      },
+      {
+        source: "/admin/:path*",
+        headers: [{ key: "Cache-Control", value: privateNoStore }],
+      },
+    ];
   },
 };
 
