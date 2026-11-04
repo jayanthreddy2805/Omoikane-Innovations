@@ -96,8 +96,8 @@ export default function CookiePreferences() {
           <div className={styles.bannerCopy}>
             <h2>Cookie choices</h2>
             <p>
-              Essential cookies keep the website working. Optional analytics cookies help us
-              understand visits and are off unless you allow them.
+              Essential cookies keep the website working. Optional, privacy-friendly analytics
+              helps us understand visits and stays off unless you allow it.
             </p>
           </div>
           <div className={styles.bannerActions}>
@@ -149,7 +149,7 @@ export default function CookiePreferences() {
             </div>
 
             <p id="cookie-preferences-description" className={styles.description}>
-              Choose whether optional analytics cookies may be used. Your selection is saved for
+              Choose whether optional analytics may be used. Your selection is saved for
               six months and can be changed from the footer at any time.
             </p>
 
@@ -164,9 +164,10 @@ export default function CookiePreferences() {
 
               <label className={styles.preferenceRow}>
                 <span>
-                  <span className={styles.preferenceTitle}>Analytics cookies</span>
+                  <span className={styles.preferenceTitle}>Analytics</span>
                   <span className={styles.preferenceText}>
-                    Help us understand website visits and improve the experience. Off by default.
+                    Uses Vercel Web Analytics to measure anonymous, aggregated visits without
+                    third-party cookies. Off by default.
                   </span>
                 </span>
                 <span className={styles.switch}>
