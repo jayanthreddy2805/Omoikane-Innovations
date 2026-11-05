@@ -75,6 +75,22 @@ class ContactControllerTest {
     }
 
     @Test
+    void matchingContactDetails_returnsAlreadySubmitted() throws Exception {
+        when(contactService.processContactRequest(any(ContactRequest.class), anyString()))
+                .thenThrow(new DuplicateContactException());
+
+        ContactRequest req = new ContactRequest();
+        req.setName("Test User");
+        req.setEmail("test@example.com");
+        req.setMessage("A second enquiry");
+
+        mockMvc.perform(contactPost(objectMapper.writeValueAsString(req)))
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.success").value(false))
+                .andExpect(jsonPath("$.message").value("Already submitted. These contact details have an existing enquiry."));
+    }
+
+    @Test
     void missingName_returns400() throws Exception {
         ContactRequest req = new ContactRequest();
         req.setEmail("test@example.com");

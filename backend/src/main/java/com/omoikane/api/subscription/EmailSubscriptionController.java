@@ -26,16 +26,12 @@ public class EmailSubscriptionController {
                 request,
                 httpRequest.getRemoteAddr()
         );
-
-        HttpStatus status = result == EmailSubscriptionService.Result.CREATED
-                ? HttpStatus.CREATED
-                : HttpStatus.OK;
-
-        String message = result == EmailSubscriptionService.Result.ALREADY_ACTIVE
-                ? "This email is already subscribed to company updates."
-                : "You are subscribed to company updates.";
-
-        return ResponseEntity.status(status).body(ApiResponse.ok(message));
+        if (result == EmailSubscriptionService.Result.ALREADY_ACTIVE) {
+            return ResponseEntity.ok(ApiResponse.ok("Already submitted. This email is subscribed to company updates."));
+        }
+        return ResponseEntity.status(result == EmailSubscriptionService.Result.CREATED
+                        ? HttpStatus.CREATED : HttpStatus.OK)
+                .body(ApiResponse.ok("Your subscription has been submitted successfully."));
     }
 
     @DeleteMapping("/{token}")

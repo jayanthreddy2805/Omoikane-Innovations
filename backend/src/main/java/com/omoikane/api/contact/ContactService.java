@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.Locale;
+
 @Service
 public class ContactService {
 
@@ -26,11 +28,17 @@ public class ContactService {
      * @return the saved entity
      */
     public ContactSubmission processContactRequest(ContactRequest request, String clientIp) {
+        String email = request.getEmail().trim().toLowerCase(Locale.ROOT);
+        String phone = request.getPhone() == null ? "" : request.getPhone().trim();
+        if (repository.existsByContactDetails(email, phone)) {
+            throw new DuplicateContactException();
+        }
+
         ContactSubmission submission = new ContactSubmission();
         submission.setName(request.getName());
-        submission.setEmail(request.getEmail());
+        submission.setEmail(email);
         submission.setCompany(request.getCompany());
-        submission.setPhone(request.getPhone());
+        submission.setPhone(phone.isEmpty() ? null : phone);
         submission.setMessage(request.getMessage());
         submission.setClientIp(clientIp);
 

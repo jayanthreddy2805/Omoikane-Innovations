@@ -124,4 +124,34 @@ class ContactServiceTest {
                         && "Contact Submitter".equals(sub.getName())
         ));
     }
+
+    @Test
+    void matchingEmailAndPhone_doesNotSaveOrSendEmail() {
+        ContactRequest req = new ContactRequest();
+        req.setName("Alice");
+        req.setEmail("  ALICE@example.com ");
+        req.setPhone(" +1 555 0100 ");
+        req.setMessage("Another enquiry");
+        when(repository.existsByContactDetails("alice@example.com", "+1 555 0100")).thenReturn(true);
+
+        assertThrows(DuplicateContactException.class, () -> contactService.processContactRequest(req, "127.0.0.1"));
+        verify(repository, never()).save(any());
+        verifyNoInteractions(emailService);
+    }
+
+    @Test
+    void sameEmailWithDifferentPhone_canSubmit() {
+        ContactRequest req = new ContactRequest();
+        req.setName("Alice");
+        req.setEmail(" Alice@EXAMPLE.COM ");
+        req.setPhone("+1 555 0101");
+        req.setMessage("Enquiry");
+        when(repository.save(any(ContactSubmission.class))).thenAnswer(inv -> inv.getArgument(0));
+
+        ContactSubmission saved = contactService.processContactRequest(req, "127.0.0.1");
+
+        verify(repository).existsByContactDetails("alice@example.com", "+1 555 0101");
+        assertEquals("alice@example.com", saved.getEmail());
+        assertEquals("+1 555 0101", saved.getPhone());
+    }
 }

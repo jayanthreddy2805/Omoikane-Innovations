@@ -45,7 +45,7 @@ class EmailSubscriptionControllerTest {
     }
 
     @Test
-    void validSubscription_returns201() throws Exception {
+    void validSubscription_returnsCreated() throws Exception {
         when(subscriptionService.subscribe(any(SubscriptionRequest.class), anyString()))
                 .thenReturn(EmailSubscriptionService.Result.CREATED);
 
@@ -54,11 +54,11 @@ class EmailSubscriptionControllerTest {
         mockMvc.perform(subscriptionPost(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.message").value("You are subscribed to company updates."));
+                .andExpect(jsonPath("$.message").value("Your subscription has been submitted successfully."));
     }
 
     @Test
-    void duplicateSubscription_returns200() throws Exception {
+    void duplicateSubscription_returnsAlreadySubmitted() throws Exception {
         when(subscriptionService.subscribe(any(SubscriptionRequest.class), anyString()))
                 .thenReturn(EmailSubscriptionService.Result.ALREADY_ACTIVE);
 
@@ -66,7 +66,18 @@ class EmailSubscriptionControllerTest {
 
         mockMvc.perform(subscriptionPost(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.success").value(true));
+                .andExpect(jsonPath("$.success").value(true))
+                .andExpect(jsonPath("$.message").value("Already submitted. This email is subscribed to company updates."));
+    }
+
+    @Test
+    void unsubscribedEmail_canSubscribeAgain() throws Exception {
+        when(subscriptionService.subscribe(any(SubscriptionRequest.class), anyString()))
+                .thenReturn(EmailSubscriptionService.Result.REACTIVATED);
+
+        mockMvc.perform(subscriptionPost(objectMapper.writeValueAsString(request("person@example.com", true))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.message").value("Your subscription has been submitted successfully."));
     }
 
     @Test
