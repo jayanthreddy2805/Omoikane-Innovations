@@ -271,11 +271,13 @@ function MissionDomainExplorer() {
                 <p className={styles.domainPanelFocus}>{activeDomain.focus}</p>
                 <div className={styles.domainPanelDivider} />
                 <p className={styles.domainPanelDetail}>{activeDomain.detail}</p>
-                <div className={styles.domainPanelTags}>
-                  {activeDomain.tags.map((t) => (
-                    <span key={t} className={styles.domainPanelTag}>{t}</span>
-                  ))}
-                </div>
+                {activeDomain.tags && activeDomain.tags.length > 0 && (
+                  <div className={styles.domainPanelTags}>
+                    {activeDomain.tags.map((t) => (
+                      <span key={t} className={styles.domainPanelTag}>{t}</span>
+                    ))}
+                  </div>
+                )}
 
               </motion.div>
             </AnimatePresence>

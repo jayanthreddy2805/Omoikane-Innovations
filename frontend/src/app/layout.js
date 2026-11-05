@@ -59,8 +59,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${cormorantGaramond.variable}`}>
-      <body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${spaceGrotesk.variable} ${cormorantGaramond.variable}`}
+    >
+      <body suppressHydrationWarning>
         <a href="#main-content" className="skipLink">Skip to main content</a>
         <MotionPreferences>
           <Header />

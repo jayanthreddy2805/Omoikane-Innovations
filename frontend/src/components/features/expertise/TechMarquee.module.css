@@ -2,13 +2,12 @@
   width: 100%;
   overflow: hidden;
   background: #FFFFFF;
-  padding: 26px 0;
+  padding: 18px 0;
   display: flex;
   align-items: center;
   position: relative;
-  margin: 16px 0 36px 0;
-  border-top: 1px solid #EAEFE9;
-  border-bottom: 1px solid #EAEFE9;
+  margin: 0;
+  border: none;
 }
 
 /* Pure white gradient edge fades for seamless entrance and exit */
@@ -98,8 +97,8 @@
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
   .marqueeContainer {
-    padding: 18px 0;
-    margin: 12px 0 24px 0;
+    padding: 14px 0;
+    margin: 0;
   }
 
   .marqueeGroup {
