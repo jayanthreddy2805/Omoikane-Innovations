@@ -57,11 +57,21 @@ Tests mirror these packages under `src/test/java`. See the repository-level `ARC
 
 ## Environment Configuration
 
-Copy `.env.example` to `.env` (or set system environment variables):
+Copy `.env.example` to `.env` (or set system environment variables). Spring loads `backend/.env` when started from the `backend/` directory; an absent file is allowed. Set your PostgreSQL credentials before starting the API:
 
 ```bash
 cp .env.example .env
 ```
+
+The frontend and backend must run together for local form submissions. In one terminal, start PostgreSQL and run `./mvnw spring-boot:run` from `backend/`. In another, run `npm run dev` from `frontend/`. To check the subscription API directly:
+
+```bash
+curl -i -X POST http://localhost:8080/api/subscriptions \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"test@example.com","consent":true}'
+```
+
+The first request should return `201 Created`; repeating the same email should return `200 OK` with “Already submitted”. If the browser shows a different HTTP status, check the URL in `frontend/.env.local` (`NEXT_PUBLIC_API_BASE_URL`, without a trailing slash) and the backend terminal logs. This check creates a real subscriber in the configured database, so use a local test database.
 
 | Variable | Default | Description |
 |---|---|---|
