@@ -1,10 +1,10 @@
 import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import ChatbotMount from "@/components/Chatbot/ChatbotMount";
-import ConsentAwareAnalytics from "@/components/privacy/ConsentAwareAnalytics";
-import CookiePreferences from "@/components/privacy/CookiePreferences";
-import MotionPreferences from "@/components/layout/MotionPreferences";
+import Header from "@/components/layout/header/Header";
+import Footer from "@/components/layout/footer";
+import ChatbotMount from "@/components/features/chatbot/ChatbotMount";
+import ConsentAwareAnalytics from "@/components/features/privacy/ConsentAwareAnalytics";
+import CookiePreferences from "@/components/features/privacy/CookiePreferences";
+import MotionPreferences from "@/components/layout/motion/MotionPreferences";
 import "./globals.css";
 
 const inter = Inter({

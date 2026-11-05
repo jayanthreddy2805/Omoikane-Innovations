@@ -3,8 +3,8 @@
 import { Suspense, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import ContactForm from '@/components/contact/ContactForm';
-import FormSuccessState from '@/components/common/FormSuccessState';
+import ContactForm from '@/components/features/contact/ContactForm';
+import FormSuccessState from '@/components/shared/FormSuccessState';
 import styles from './page.module.css';
 
 /* ── Shared easing ── */

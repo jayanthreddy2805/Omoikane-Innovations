@@ -6,10 +6,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Lenis from 'lenis';
-import { ExpertiseSection } from '@/components/expertise/ExpertiseSection';
-import { TechMarquee } from '@/components/expertise/TechMarquee';
-import { ExpertiseHero } from '@/components/expertise/ExpertiseHero';
-import CallToAction from '@/components/common/CallToAction';
+import { ExpertiseSection } from '@/components/features/expertise/ExpertiseSection';
+import { TechMarquee } from '@/components/features/expertise/TechMarquee';
+import { ExpertiseHero } from '@/components/features/expertise/ExpertiseHero';
+import CallToAction from '@/components/shared/CallToAction';
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -1,4 +1,4 @@
-import HomeClient from "@/components/home/HomeClient";
+import HomeClient from "@/components/features/home/HomeClient";
 
 export const metadata = {
   title: "Omoikane Innovations | Mission-Critical Products & Autonomous Systems",
