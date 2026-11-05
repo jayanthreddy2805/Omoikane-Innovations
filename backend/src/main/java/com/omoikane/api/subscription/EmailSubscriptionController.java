@@ -22,20 +22,14 @@ public class EmailSubscriptionController {
             @Valid @RequestBody SubscriptionRequest request,
             HttpServletRequest httpRequest) {
 
-        EmailSubscriptionService.Result result = subscriptionService.subscribe(
+        subscriptionService.subscribe(
                 request,
                 httpRequest.getRemoteAddr()
         );
-
-        HttpStatus status = result == EmailSubscriptionService.Result.CREATED
-                ? HttpStatus.CREATED
-                : HttpStatus.OK;
-
-        String message = result == EmailSubscriptionService.Result.ALREADY_ACTIVE
-                ? "This email is already subscribed to company updates."
-                : "You are subscribed to company updates.";
-
-        return ResponseEntity.status(status).body(ApiResponse.ok(message));
+        // Return the same response for new, existing and reactivated addresses.
+        // Public callers must not be able to enumerate the subscriber list.
+        return ResponseEntity.status(HttpStatus.ACCEPTED)
+                .body(ApiResponse.ok("Your request for company updates has been received."));
     }
 
     @DeleteMapping("/{token}")

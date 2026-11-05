@@ -45,28 +45,29 @@ class EmailSubscriptionControllerTest {
     }
 
     @Test
-    void validSubscription_returns201() throws Exception {
+    void validSubscription_returnsAccepted() throws Exception {
         when(subscriptionService.subscribe(any(SubscriptionRequest.class), anyString()))
                 .thenReturn(EmailSubscriptionService.Result.CREATED);
 
         SubscriptionRequest request = request("person@example.com", true);
 
         mockMvc.perform(subscriptionPost(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isCreated())
+                .andExpect(status().isAccepted())
                 .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.message").value("You are subscribed to company updates."));
+                .andExpect(jsonPath("$.message").value("Your request for company updates has been received."));
     }
 
     @Test
-    void duplicateSubscription_returns200() throws Exception {
+    void duplicateSubscription_hasSamePublicResponse() throws Exception {
         when(subscriptionService.subscribe(any(SubscriptionRequest.class), anyString()))
                 .thenReturn(EmailSubscriptionService.Result.ALREADY_ACTIVE);
 
         SubscriptionRequest request = request("person@example.com", true);
 
         mockMvc.perform(subscriptionPost(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.success").value(true));
+                .andExpect(status().isAccepted())
+                .andExpect(jsonPath("$.success").value(true))
+                .andExpect(jsonPath("$.message").value("Your request for company updates has been received."));
     }
 
     @Test
