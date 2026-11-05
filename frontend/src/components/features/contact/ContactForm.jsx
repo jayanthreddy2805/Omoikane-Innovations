@@ -53,7 +53,7 @@ export default function ContactForm({ onSuccess }) {
       } else if (res.status === 429) {
         setStatus('error');
         setErrorMsg('Too many submissions. Please wait a moment and try again.');
-      } else if (res.status === 400 && data?.message) {
+      } else if ((res.status === 400 || res.status === 409) && data?.message) {
         setStatus('error');
         setErrorMsg(data.message);
       } else {

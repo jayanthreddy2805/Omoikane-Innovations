@@ -140,12 +140,13 @@ Subscribes an email address to occasional product and company updates.
 }
 ```
 
-- Returns **`201 Created`** for a new subscription.
-- Returns **`200 OK`** when the address is already active or is reactivated.
+- Returns **`201 Created`** for a new address, **`200 OK`** with “Already submitted” for an active address, or **`200 OK`** after reactivating an unsubscribed address. Email matching ignores case and surrounding whitespace. Existing active addresses are not saved again.
 - Returns **`400 Bad Request`** for invalid email addresses or missing consent.
 - Returns **`429 Too Many Requests`** when the per-IP rate limit is exceeded.
 
 The service stores normalized lowercase emails, consent time, subscription status, source, and an unsubscribe token. It does not send marketing email by itself.
+
+The explicit “Already submitted” response reveals whether an email is subscribed to a caller who knows the address. The public endpoint remains rate limited.
 
 ### `DELETE /api/subscriptions/{token}`
 
@@ -187,6 +188,14 @@ Accept: application/json
   {
     "success": true,
     "message": "Your enquiry has been submitted successfully."
+  }
+  ```
+
+- **`409 Conflict`**: The same email and phone combination has already submitted an enquiry. Email matching ignores case and surrounding whitespace; a blank phone matches another blank phone. No new record or email is sent.
+  ```json
+  {
+    "success": false,
+    "message": "Already submitted. These contact details have an existing enquiry."
   }
   ```
 

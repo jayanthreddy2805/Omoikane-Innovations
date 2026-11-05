@@ -33,4 +33,10 @@ public class ContactController {
                 .status(HttpStatus.CREATED)
                 .body(ApiResponse.ok("Your enquiry has been submitted successfully."));
     }
+
+    @ExceptionHandler(DuplicateContactException.class)
+    public ResponseEntity<ApiResponse> duplicateContact() {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(ApiResponse.error("Already submitted. These contact details have an existing enquiry."));
+    }
 }
