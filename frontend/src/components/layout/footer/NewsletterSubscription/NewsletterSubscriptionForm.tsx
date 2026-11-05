@@ -3,7 +3,7 @@
 import { type FormEvent, useState } from "react";
 import styles from "./NewsletterSubscriptionForm.module.css";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8080";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, "") || "http://localhost:8080";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -43,8 +43,10 @@ export default function NewsletterSubscriptionForm() {
         setMessage("Too many attempts. Please wait a moment and try again.");
       } else if (response.status === 400 && data?.message) {
         setMessage(data.message);
+      } else if (process.env.NODE_ENV === "development") {
+        setMessage(`Subscription request failed (HTTP ${response.status}). Check the backend logs and API URL.`);
       } else {
-        setMessage("We could not save your subscription. Please try again later.");
+        setMessage("Subscriptions are temporarily unavailable. Please try again later.");
       }
     } catch {
       setStatus("error");
