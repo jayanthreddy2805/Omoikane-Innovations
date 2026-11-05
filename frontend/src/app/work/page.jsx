@@ -1,4 +1,4 @@
-import WorkClient from "@/components/work/WorkClient";
+import WorkClient from "@/components/features/work/WorkClient";
 
 export const metadata = {
   title: "Our Work & Systems | Omoikane Innovations",

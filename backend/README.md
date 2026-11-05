@@ -9,7 +9,7 @@ Spring Boot 3.4 backend service providing contact, careers, and email-subscripti
 - **Persistence**: PostgreSQL database with Spring Data JPA.
 - **Database Migrations**: Flyway automatic schema versioning for contact submissions, career applications, and email subscribers.
 - **Input Validation**: Jakarta Bean Validation (`@NotBlank`, `@Email`, `@Size`) with field length constraints.
-- **Safe Responses**: Consistent JSON response envelop (`ContactResponse`) and `GlobalExceptionHandler` preventing internal error or stack trace leakage.
+- **Safe Responses**: Consistent JSON response envelope (`ApiResponse`) and `GlobalExceptionHandler` preventing internal error or stack trace leakage.
 - **Rate Limiting**: In-memory token bucket rate limiting via Bucket4j (5 submissions/min per client IP).
 - **CORS Protection**: Restricted to configured frontend origins (no wildcard CORS).
 - **Email Notifications**: Async confirmation emails via Resend HTTPS API, with graceful failure fallback (submissions are saved even if email fails or credentials are unset).
@@ -21,6 +21,22 @@ Spring Boot 3.4 backend service providing contact, careers, and email-subscripti
 1. **Java 21 JDK** (e.g. Eclipse Temurin 21 or Oracle JDK 21)
 2. **Apache Maven 3.9+** (or use the included Maven Wrapper `mvnw` / `mvnw.cmd` once Java 21 is set in `JAVA_HOME`)
 3. **PostgreSQL 14+**
+
+## Source Structure
+
+Backend code is grouped by business feature:
+
+```text
+src/main/java/com/omoikane/api/
+├── admin/          management endpoints
+├── careers/        job application workflow
+├── contact/        contact enquiry workflow
+├── subscription/   company-update subscriptions
+├── email/          shared outbound email delivery
+└── common/         shared configuration and API responses
+```
+
+Tests mirror these packages under `src/test/java`. See the repository-level `ARCHITECTURE.md` for the complete frontend and backend map.
 
 ---
 

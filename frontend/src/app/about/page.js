@@ -11,9 +11,9 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
-import { AnimatedNumberBg } from "@/components/ui/AnimatedNumberBg";
-import AboutHero from '@/components/about/AboutHero';
-import CallToAction from '@/components/common/CallToAction';
+import { AnimatedNumberBg } from "@/components/shared/ui/AnimatedNumberBg";
+import AboutHero from '@/components/features/about/AboutHero';
+import CallToAction from '@/components/shared/CallToAction';
 function FadeUp({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-40px' });
