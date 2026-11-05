@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import SubmitButton from '@/components/shared/SubmitButton';
 import InternationalPhoneInput from '@/components/shared/InternationalPhoneInput';
 import styles from './ContactForm.module.css';
@@ -10,7 +11,8 @@ import styles from './ContactForm.module.css';
  * API base URL — uses Next.js public env variable if set,
  * defaults to localhost:8080 for local development.
  */
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ||
+  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : null);
 
 export default function ContactForm({ onSuccess }) {
   const searchParams = useSearchParams();
@@ -19,6 +21,19 @@ export default function ContactForm({ onSuccess }) {
   const [errorMsg, setErrorMsg] = useState('');
   const [phone, setPhone] = useState('');
   const formRef = useRef(null);
+
+  if (!API_BASE_URL) {
+    return (
+      <div id="contact-form" className={styles.formUnavailable}>
+        <h2>Contact our team</h2>
+        <p>The online enquiry form is unavailable at the moment. Please email your enquiry directly.</p>
+        <a href={`mailto:info@omoikaneinnovations.com?subject=${encodeURIComponent(enquirySubject || 'Website enquiry')}`}>
+          Email Omoikane <span aria-hidden="true">→</span>
+        </a>
+        <p>See how we handle enquiries in our <Link href="/privacy">Privacy Notice</Link>.</p>
+      </div>
+    );
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -123,7 +138,7 @@ export default function ContactForm({ onSuccess }) {
         </div>
       </div>
 
-      <p className={styles.formNotice}>We use the information you submit to review your enquiry and respond to you.</p>
+      <p className={styles.formNotice}>We use your details to review and respond to your enquiry. Read our <Link href="/privacy">Privacy Notice</Link>.</p>
 
       {status === 'error' && errorMsg && (
         <p className={styles.errorMessage} role="alert">{errorMsg}</p>

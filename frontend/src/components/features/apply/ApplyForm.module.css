@@ -71,6 +71,24 @@
   font: 0.82rem/1.6 var(--font-inter, sans-serif);
 }
 
+.formNotice a {
+  color: #0757C8;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.formUnavailable {
+  max-width: 62ch;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid #DCE7F3;
+  background: #FFFFFF;
+  color: #102746;
+}
+
+.formUnavailable h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.75rem; }
+.formUnavailable p { line-height: 1.65; margin-top: 0.75rem; }
+.formUnavailable a { color: #0757C8; text-decoration: underline; text-underline-offset: 0.15em; }
+
 /* ERROR MESSAGE */
 .errorMessage {
   font-family: var(--font-inter, sans-serif);
