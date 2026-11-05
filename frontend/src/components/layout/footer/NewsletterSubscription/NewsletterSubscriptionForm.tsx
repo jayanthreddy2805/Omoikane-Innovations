@@ -1,15 +1,26 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
+import Link from "next/link";
 import styles from "./NewsletterSubscriptionForm.module.css";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8080";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ||
+  (process.env.NODE_ENV === "development" ? "http://localhost:8080" : null);
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function NewsletterSubscriptionForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [message, setMessage] = useState("");
+
+  if (!API_BASE_URL) {
+    return (
+      <p className={styles.privacyNote}>
+        To request company updates, email <a href="mailto:info@omoikaneinnovations.com?subject=Company%20updates%20request">our team</a>.
+        Please say that you agree to receive them. Read our <Link href="/privacy">Privacy Notice</Link>.
+      </p>
+    );
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -78,6 +89,7 @@ export default function NewsletterSubscriptionForm() {
         <input name="consent" type="checkbox" required />
         <span>I agree to receive product and company updates by email.</span>
       </label>
+      <p className={styles.privacyNote}>Read our <Link href="/privacy">Privacy Notice</Link>.</p>
 
       {message && (
         <p

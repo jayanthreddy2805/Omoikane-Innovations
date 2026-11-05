@@ -195,6 +195,12 @@
 .legalLinks {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .legalLinks { justify-content: flex-end; }
 }
 
 .legalLinks a {
