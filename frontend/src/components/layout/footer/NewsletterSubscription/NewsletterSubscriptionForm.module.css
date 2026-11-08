@@ -65,6 +65,18 @@
   margin-top: 0.15rem;
 }
 
+.privacyNote {
+  color: var(--text-subtle);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.privacyNote a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .successMessage,
 .errorMessage {
   margin: 0;

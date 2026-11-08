@@ -90,6 +90,8 @@ export default function FooterContent() {
           &copy; {new Date().getFullYear()} OMOIKANE INNOVATIONS. All rights reserved.
         </div>
         <div className={styles.legalLinks}>
+          <Link href="/privacy">Privacy Notice</Link>
+          <Link href="/terms">Website Terms</Link>
           <button
             className={styles.legalButton}
             type="button"
@@ -97,7 +99,6 @@ export default function FooterContent() {
           >
             Cookie settings
           </button>
-          <a href="mailto:info@omoikaneinnovations.com?subject=Privacy%20and%20terms%20enquiry">Privacy and terms enquiries</a>
         </div>
       </div>
     </>

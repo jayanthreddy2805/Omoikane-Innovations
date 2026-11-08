@@ -2,13 +2,15 @@
 
 import React, { useState, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import SubmitButton from '@/components/shared/SubmitButton';
 import InternationalPhoneInput from '@/components/shared/InternationalPhoneInput';
 import CustomSelect from '@/components/shared/CustomSelect';
 import FileUpload from '@/components/shared/FileUpload';
 import styles from './ApplyForm.module.css';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ||
+  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : null);
 
 const ROLES_BY_DEPT = {
   software: [
@@ -58,6 +60,19 @@ export default function ApplyForm({ onSuccess }) {
   const [department, setDepartment] = useState(urlDept || '');
   const [resumeFile, setResumeFile] = useState(null);
   const formRef = useRef(null);
+
+  if (!API_BASE_URL) {
+    return (
+      <div className={styles.formUnavailable}>
+        <h2>Apply by email</h2>
+        <p>The online application form is unavailable at the moment. Email your application and attach your CV or resume.</p>
+        <a href={`mailto:info@omoikaneinnovations.com?subject=${encodeURIComponent(`Career application${urlRole ? `: ${urlRole}` : ''}`)}`}>
+          Email your application <span aria-hidden="true">→</span>
+        </a>
+        <p>See how we handle applications in our <Link href="/privacy">Privacy Notice</Link>.</p>
+      </div>
+    );
+  }
 
   const handleRoleChange = (selectedRole) => {
     setRole(selectedRole);
@@ -217,7 +232,7 @@ export default function ApplyForm({ onSuccess }) {
         </div>
       </div>
 
-      <p className={styles.formNotice}>We use the information and resume you submit to assess your application and contact you about the role.</p>
+      <p className={styles.formNotice}>We use your details and resume to assess your application and contact you about the role. Read our <Link href="/privacy">Privacy Notice</Link>.</p>
 
       {status === 'error' && errorMsg && (
         <p className={styles.errorMessage} role="alert">{errorMsg}</p>
