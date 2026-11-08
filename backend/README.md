@@ -57,11 +57,37 @@ Tests mirror these packages under `src/test/java`. See the repository-level `ARC
 
 ## Environment Configuration
 
-Copy `.env.example` to `.env` (or set system environment variables):
+Copy `.env.example` to `.env` (or set system environment variables). Spring loads `backend/.env` when started from the `backend/` directory; an absent file is allowed. Set your PostgreSQL credentials before starting the API:
 
 ```bash
 cp .env.example .env
 ```
+
+Use unquoted values in `.env`. Spring imports it as a Java properties file, so
+`DATABASE_URL="jdbc:postgresql://..."` includes the quote characters and the
+PostgreSQL driver rejects the URL. For a Neon database, use the JDBC form and
+set the username and password in separate properties:
+
+```properties
+DATABASE_URL=jdbc:postgresql://your-host/neondb?sslmode=require
+DATABASE_USERNAME=your_user
+DATABASE_PASSWORD=your_password
+```
+
+Run `sh scripts/check-local-config.sh` from `backend/` to check the local file's
+format without printing its credentials. This check does not establish a database
+connection; `./mvnw spring-boot:run` verifies that the credentials and network
+work. Keep `.env` out of Git.
+
+The frontend and backend must run together for local form submissions. In one terminal, start PostgreSQL and run `./mvnw spring-boot:run` from `backend/`. In another, run `npm run dev` from `frontend/`. To check the subscription API directly:
+
+```bash
+curl -i -X POST http://localhost:8080/api/subscriptions \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"test@example.com","consent":true}'
+```
+
+The first request should return `201 Created`; repeating the same email should return `200 OK` with “Already submitted”. If the browser shows a different HTTP status, check the URL in `frontend/.env.local` (`NEXT_PUBLIC_API_BASE_URL`, without a trailing slash) and the backend terminal logs. This check creates a real subscriber in the configured database, so use a local test database.
 
 | Variable | Default | Description |
 |---|---|---|
