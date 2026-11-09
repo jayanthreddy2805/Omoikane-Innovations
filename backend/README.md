@@ -36,7 +36,7 @@ src/main/java/com/omoikane/api/
 └── common/         shared configuration and API responses
 ```
 
-Tests mirror these packages under `src/test/java`. See the repository-level `ARCHITECTURE.md` for the complete frontend and backend map.
+Tests mirror these packages under `src/test/java`. See [DEPLOYMENT.md](DEPLOYMENT.md) for the online backend setup and launch checks.
 
 ---
 
@@ -99,6 +99,8 @@ The first request should return `201 Created`; repeating the same email should r
 | `RESEND_API_KEY` | *(empty)* | Resend API key (`re_...`). Leave blank to skip email sending |
 | `RESEND_FROM_EMAIL` | *(empty)* | Sender email address verified in Resend |
 | `RATE_LIMIT_RPM` | `5` | Submissions allowed per minute per client IP |
+
+The Docker image uses the `prod` profile. It requires database credentials, the allowed frontend origins, and an admin secret from the hosting platform. It listens on `SERVER_PORT`, then `PORT`, then `8080` and exposes `/actuator/health` for deployment checks. See [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ### Resend Email Setup
 - **Testing without a custom domain:** Resend provides a sandbox test address `onboarding@resend.dev`. Note that in testing mode, Resend only allows sending to the email address registered to your Resend account.

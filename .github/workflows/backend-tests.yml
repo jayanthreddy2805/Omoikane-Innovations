@@ -21,7 +21,7 @@ jobs:
   test:
     name: Maven test (Java 21)
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     defaults:
       run:
@@ -41,3 +41,6 @@ jobs:
 
       - name: Run backend tests
         run: ./mvnw --batch-mode --no-transfer-progress verify
+
+      - name: Build deployable container
+        run: docker build --file Dockerfile --tag omoikane-api:ci .
