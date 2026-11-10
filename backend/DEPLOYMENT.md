@@ -4,7 +4,7 @@ The website runs on Vercel. Neon stores the data. This Spring Boot service must 
 
 ## 1. Create a backend service
 
-Connect the GitHub repository to the chosen host and set the service's **root directory to `backend`**. Deploy its `Dockerfile` with one instance initially. Configure the HTTP health check path as `/actuator/health`. The container reads the host's `PORT` when it is supplied. Use a public HTTPS URL from the host while the organization domain remains disconnected.
+Connect this repository to Render using the root `render.yaml` Blueprint. It defines one Docker web service with `backend/` as its build context and `/actuator/health` as its HTTP health check. Its `1c-2g` compute plan is paid; review Render's current pricing before applying the Blueprint. The database remains on Neon; the Blueprint does not create another database or set any credentials. Use the resulting `onrender.com` HTTPS URL while the organization domain remains disconnected.
 
 The image runs with `SPRING_PROFILES_ACTIVE=prod`; the application refuses to start without its required database, CORS, and admin configuration. Its health check includes database availability and returns a non-success status if the database cannot be reached. Flyway applies pending migrations at startup.
 
@@ -40,4 +40,4 @@ This does not require connecting the organization domain. Keep the preview prote
 3. Verify actual confirmation and notification email delivery to approved test recipients, then unsubscribe and confirm the subscriber's status changes. Check browser Network for CORS and CSP errors.
 4. Review database recovery settings and perform a restore drill on an isolated branch. Approve the privacy notice and terms with the client. Check desktop/mobile preview and rollback procedure before connecting the domain.
 
-The old admin implementation puts the secret in résumé URLs; merge and deploy PR #22 before using the admin console with real candidate data. The API host must use HTTPS. Once the site is approved, add the organization domain as a frontend origin, update the admin URL, and retest. Do not switch DNS early.
+The admin access hardening from PR #22 is merged. The API host must use HTTPS. Once the site is approved, add the organization domain as a frontend origin, update the admin URL, and retest. Do not switch DNS early.
