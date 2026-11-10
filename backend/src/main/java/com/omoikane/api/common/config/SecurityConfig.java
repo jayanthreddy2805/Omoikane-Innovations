@@ -28,6 +28,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/actuator/health", "/actuator/health/**").permitAll()
                 .requestMatchers("/api/contact", "/api/careers/apply", "/api/subscriptions", "/api/subscriptions/**").permitAll()
                 .requestMatchers("/api/admin/**").permitAll()
                 .anyRequest().denyAll()

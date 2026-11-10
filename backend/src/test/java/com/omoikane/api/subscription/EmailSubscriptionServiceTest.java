@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -30,12 +31,12 @@ class EmailSubscriptionServiceTest {
     void subscribe_normalizesAndSavesNewEmail() {
         SubscriptionRequest request = request("  Person@Example.COM  ");
         when(repository.findByEmailIgnoreCase("person@example.com")).thenReturn(Optional.empty());
-        when(repository.save(any(EmailSubscriber.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        when(repository.saveAndFlush(any(EmailSubscriber.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
         EmailSubscriptionService.Result result = service.subscribe(request, "127.0.0.1");
 
         assertEquals(EmailSubscriptionService.Result.CREATED, result);
-        verify(repository).save(argThat(subscriber ->
+        verify(repository).saveAndFlush(argThat(subscriber ->
                 "person@example.com".equals(subscriber.getEmail())
                         && subscriber.getStatus() == EmailSubscriber.Status.ACTIVE
                         && "127.0.0.1".equals(subscriber.getClientIp())
@@ -54,6 +55,31 @@ class EmailSubscriptionServiceTest {
 
         assertEquals(EmailSubscriptionService.Result.ALREADY_ACTIVE, result);
         verify(repository, never()).save(any());
+    }
+
+    @Test
+    void simultaneousInsertReturnsAlreadyActiveInsteadOfServerError() {
+        SubscriptionRequest request = request("  PERSON@EXAMPLE.COM  ");
+        EmailSubscriber existing = subscriber("person@example.com", EmailSubscriber.Status.ACTIVE);
+        when(repository.findByEmailIgnoreCase("person@example.com"))
+                .thenReturn(Optional.empty(), Optional.of(existing));
+        when(repository.saveAndFlush(any(EmailSubscriber.class)))
+                .thenThrow(new DataIntegrityViolationException("unique email"));
+
+        assertEquals(EmailSubscriptionService.Result.ALREADY_ACTIVE,
+                service.subscribe(request, "127.0.0.1"));
+    }
+
+    @Test
+    void unrelatedInsertFailureIsNotReportedAsAlreadySubscribed() {
+        SubscriptionRequest request = request("person@example.com");
+        when(repository.findByEmailIgnoreCase("person@example.com"))
+                .thenReturn(Optional.empty());
+        when(repository.saveAndFlush(any(EmailSubscriber.class)))
+                .thenThrow(new DataIntegrityViolationException("database unavailable"));
+
+        assertThrows(DataIntegrityViolationException.class,
+                () -> service.subscribe(request, "127.0.0.1"));
     }
 
     @Test

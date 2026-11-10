@@ -1,0 +1,25 @@
+# Spring Boot API only. Vercel hosts the frontend and Neon hosts PostgreSQL.
+# Credentials are entered in Render during the initial Blueprint setup.
+services:
+  - type: web
+    name: omoikane-api
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /actuator/health
+    autoDeployTrigger: checksPass
+    numInstances: 1
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_USERNAME
+        sync: false
+      - key: DATABASE_PASSWORD
+        sync: false
+      - key: ADMIN_SECRET_KEY
+        generateValue: true
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://omoikane-innovations-3h7t.vercel.app,https://omoikane-innovations-3h7t-git-main-j-f4ac.vercel.app

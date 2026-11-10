@@ -1,5 +1,7 @@
 package com.omoikane.api.common.config;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket;
@@ -18,7 +20,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * In-memory per-IP rate limiter using Bucket4j.
@@ -40,7 +41,12 @@ public class RateLimitFilter extends OncePerRequestFilter {
     private static final Logger log = LoggerFactory.getLogger(RateLimitFilter.class);
 
     private final int requestsPerMinute;
-    private final ConcurrentHashMap<String, Bucket> buckets = new ConcurrentHashMap<>();
+    // Bound memory under high-cardinality traffic; idle clients expire. This
+    // remains an instance-local limiter, so do not scale out without a shared store.
+    private final Cache<String, Bucket> buckets = Caffeine.newBuilder()
+            .expireAfterAccess(Duration.ofMinutes(5))
+            .maximumSize(100_000)
+            .build();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public RateLimitFilter(@Value("${app.rate-limit.requests-per-minute:5}") int requestsPerMinute) {
@@ -52,7 +58,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
      * Used for test isolation and state resetting.
      */
     public void reset() {
-        buckets.clear();
+        buckets.invalidateAll();
     }
 
     @Override
@@ -62,7 +68,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         String clientIp = request.getRemoteAddr();
-        Bucket bucket = buckets.computeIfAbsent(clientIp, this::createBucket);
+        Bucket bucket = buckets.get(clientIp, this::createBucket);
 
         if (bucket.tryConsume(1)) {
             filterChain.doFilter(request, response);
@@ -88,7 +94,9 @@ public class RateLimitFilter extends OncePerRequestFilter {
                 || "/api/subscriptions".equals(uri));
         boolean isUnsubscribeAttempt = "DELETE".equalsIgnoreCase(request.getMethod())
                 && uri.startsWith("/api/subscriptions/");
-        return !isPublicSubmission && !isUnsubscribeAttempt;
+        boolean isAdminVerification = "POST".equalsIgnoreCase(request.getMethod())
+                && "/api/admin/auth/verify".equals(uri);
+        return !isPublicSubmission && !isUnsubscribeAttempt && !isAdminVerification;
     }
 
     private Bucket createBucket(String key) {

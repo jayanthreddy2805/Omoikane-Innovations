@@ -794,6 +794,8 @@
 
 /* Resume Pill */
 .resumeDownloadPill {
+  font-family: inherit;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -813,6 +815,18 @@
   background: #0757C8;
   color: #FFFFFF;
   box-shadow: 0 4px 12px rgba(7, 87, 200, 0.2);
+}
+
+.resumeDownloadPill:disabled,
+.downloadBigBtn:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.resumeDownloadPill:focus-visible,
+.downloadBigBtn:focus-visible {
+  outline: 2px solid #0757C8;
+  outline-offset: 3px;
 }
 
 /* Action Buttons */
@@ -1173,6 +1187,8 @@
 }
 
 .downloadBigBtn {
+  font-family: inherit;
+  cursor: pointer;
   background: #0757C8;
   color: #FFFFFF;
   padding: 10px 18px;

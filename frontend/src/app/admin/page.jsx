@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { Activity, AlertTriangle, BriefcaseBusiness, Eye, EyeOff, FileText, LockKeyhole, Mail, Phone } from 'lucide-react';
 import styles from './admin.module.css';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, '') ||
+  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : null);
 
 export default function AdminDashboardPage() {
   const [adminKey, setAdminKey] = useState('');
@@ -27,9 +28,13 @@ export default function AdminDashboardPage() {
   const [deleteTarget, setDeleteTarget] = useState(null); // { type: 'contact' | 'career', item }
   const [isDeleting, setIsDeleting] = useState(false);
   const [copiedId, setCopiedId] = useState(null);
+  const [downloadError, setDownloadError] = useState('');
+  const [downloadingId, setDownloadingId] = useState(null);
+  const [dataError, setDataError] = useState('');
 
   const loadData = useCallback(async (keyToUse) => {
     setIsLoading(true);
+    setDataError('');
     try {
       const [contactsRes, careersRes] = await Promise.all([
         fetch(`${API_BASE_URL}/api/admin/contacts`, {
@@ -40,16 +45,14 @@ export default function AdminDashboardPage() {
         }),
       ]);
 
-      if (contactsRes.ok) {
-        const contactsData = await contactsRes.json();
-        setContacts(contactsData);
-      }
-      if (careersRes.ok) {
-        const careersData = await careersRes.json();
-        setCareers(careersData);
-      }
-    } catch (err) {
-      console.error('Failed to load dashboard data:', err);
+      if (!contactsRes.ok || !careersRes.ok) throw new Error('Dashboard data unavailable');
+      const [contactsData, careersData] = await Promise.all([contactsRes.json(), careersRes.json()]);
+      setContacts(contactsData);
+      setCareers(careersData);
+    } catch {
+      setContacts([]);
+      setCareers([]);
+      setDataError('Unable to load submissions. Check the API connection and refresh the dashboard.');
     } finally {
       setIsLoading(false);
       setIsRefreshing(false);
@@ -72,11 +75,9 @@ export default function AdminDashboardPage() {
         if (res.ok) {
           setIsAuthenticated(true);
           setAdminKey(key);
-          sessionStorage.setItem('omoikane_admin_key', key);
           loadData(key);
         } else {
           setAuthError('Invalid admin secret key. Please check your credentials and try again.');
-          sessionStorage.removeItem('omoikane_admin_key');
           setIsAuthenticated(false);
         }
       } catch {
@@ -88,38 +89,6 @@ export default function AdminDashboardPage() {
     [loadData]
   );
 
-  // Check saved session on initial mount
-  useEffect(() => {
-    let isMounted = true;
-    const savedKey = typeof window !== 'undefined' ? sessionStorage.getItem('omoikane_admin_key') : null;
-    if (!savedKey) return;
-
-    fetch(`${API_BASE_URL}/api/admin/auth/verify`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Admin-Key': savedKey,
-      },
-    })
-      .then((res) => {
-        if (!isMounted) return;
-        if (res.ok) {
-          setIsAuthenticated(true);
-          setAdminKey(savedKey);
-          loadData(savedKey);
-        } else {
-          sessionStorage.removeItem('omoikane_admin_key');
-        }
-      })
-      .catch(() => {
-        // Silent catch on initial mount restore
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, [loadData]);
-
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     if (!keyInput.trim()) return;
@@ -127,7 +96,6 @@ export default function AdminDashboardPage() {
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('omoikane_admin_key');
     setAdminKey('');
     setKeyInput('');
     setIsAuthenticated(false);
@@ -135,6 +103,34 @@ export default function AdminDashboardPage() {
     setCareers([]);
     setSelectedDetail(null);
     setDeleteTarget(null);
+    setDownloadError('');
+    setDataError('');
+  };
+
+  const downloadResume = async (application) => {
+    if (downloadingId !== null) return;
+    setDownloadingId(application.id);
+    setDownloadError('');
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/admin/careers/${application.id}/resume`, {
+        headers: { 'X-Admin-Key': adminKey },
+        cache: 'no-store',
+      });
+      if (!response.ok) throw new Error('Resume download failed');
+
+      const objectUrl = URL.createObjectURL(await response.blob());
+      const link = document.createElement('a');
+      link.href = objectUrl;
+      link.download = application.resumeFilename?.split(/[\\/]/).pop() || 'resume';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 60000);
+    } catch {
+      setDownloadError('Unable to download the resume. Please check your connection and sign in again if needed.');
+    } finally {
+      setDownloadingId(null);
+    }
   };
 
   const handleRefresh = () => {
@@ -257,6 +253,23 @@ export default function AdminDashboardPage() {
     return careers.filter((c) => c.resumeFilename).length;
   }, [careers]);
 
+  if (!API_BASE_URL) {
+    return (
+      <div className={styles.pageWrapper}>
+        <div className={styles.container}>
+          <div className={styles.authContainer}>
+            <div className={styles.authCard}>
+              <h1 className={styles.authTitle}>Operations console</h1>
+              <p className={styles.authSubtitle}>
+                The admin service is not configured for this deployment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // ─────────────────────────────────────────────────────────────
   // RENDER AUTHENTICATION GATE IF NOT LOGGED IN
   // ─────────────────────────────────────────────────────────────
@@ -353,7 +366,7 @@ export default function AdminDashboardPage() {
           <div className={styles.heroRight}>
             <div className={styles.systemBadge}>
               <span className={styles.pulsingDot} />
-              <span>POSTGRESQL • CONNECTED</span>
+              <span>{dataError ? 'DATA UNAVAILABLE' : isLoading ? 'LOADING DATA' : 'DATA LOADED'}</span>
             </div>
             <button onClick={handleRefresh} className={styles.refreshBtn} title="Sync latest data">
               <span className={isRefreshing ? styles.spinning : ''}>↻</span>
@@ -364,6 +377,8 @@ export default function AdminDashboardPage() {
             </button>
           </div>
         </div>
+        {downloadError && <p className={styles.errorBanner} role="alert">{downloadError}</p>}
+        {dataError && <p className={styles.errorBanner} role="alert">{dataError}</p>}
 
         {/* 2. MNC KPI METRICS OVERVIEW */}
         <div className={styles.kpiGrid}>
@@ -397,10 +412,10 @@ export default function AdminDashboardPage() {
           <div className={styles.kpiCard}>
             <div className={styles.kpiContent}>
               <span className={styles.kpiLabel}>System Status</span>
-              <span className={styles.kpiValue} style={{ fontSize: '24px', color: '#16A34A', marginTop: '6px' }}>
-                OPTIMAL
+              <span className={styles.kpiValue} style={{ fontSize: '24px', color: dataError ? '#B91C1C' : '#16A34A', marginTop: '6px' }}>
+                {dataError ? 'UNAVAILABLE' : isLoading ? 'LOADING' : 'AVAILABLE'}
               </span>
-              <span className={styles.kpiMeta}>Flyway Schema v2</span>
+              <span className={styles.kpiMeta}>Submission API</span>
             </div>
             <div className={styles.kpiIconBox}><Activity aria-hidden="true" /></div>
           </div>
@@ -556,10 +571,10 @@ export default function AdminDashboardPage() {
                         </td>
                         <td>
                           {app.resumeFilename ? (
-                            <a
-                              href={`${API_BASE_URL}/api/admin/careers/${app.id}/resume?key=${encodeURIComponent(adminKey)}`}
-                              target="_blank"
-                              rel="noreferrer"
+                            <button
+                              type="button"
+                              onClick={() => downloadResume(app)}
+                              disabled={downloadingId !== null}
                               className={styles.resumeDownloadPill}
                               title="Download candidate resume"
                             >
@@ -570,7 +585,7 @@ export default function AdminDashboardPage() {
                                   ({formatFileSize(app.resumeSize)})
                                 </span>
                               )}
-                            </a>
+                            </button>
                           ) : (
                             <span style={{ color: '#94a3b8', fontSize: '13px' }}>None attached</span>
                           )}
@@ -824,14 +839,14 @@ export default function AdminDashboardPage() {
                     <div className={styles.detailFieldLabel}>Attached Resume</div>
                     <div className={styles.detailFieldValue}>
                       {selectedDetail.data.resumeFilename ? (
-                        <a
-                          href={`${API_BASE_URL}/api/admin/careers/${selectedDetail.data.id}/resume?key=${encodeURIComponent(adminKey)}`}
-                          target="_blank"
-                          rel="noreferrer"
+                        <button
+                          type="button"
+                          onClick={() => downloadResume(selectedDetail.data)}
+                          disabled={downloadingId !== null}
                           className={styles.resumeDownloadPill}
                         >
                           ⬇ Download {selectedDetail.data.resumeFilename}
-                        </a>
+                        </button>
                       ) : (
                         'No resume attached'
                       )}
@@ -871,14 +886,14 @@ export default function AdminDashboardPage() {
                 </a>
 
                 {selectedDetail.type === 'career' && selectedDetail.data.resumeFilename && (
-                  <a
-                    href={`${API_BASE_URL}/api/admin/careers/${selectedDetail.data.id}/resume?key=${encodeURIComponent(adminKey)}`}
-                    target="_blank"
-                    rel="noreferrer"
+                  <button
+                    type="button"
+                    onClick={() => downloadResume(selectedDetail.data)}
+                    disabled={downloadingId !== null}
                     className={styles.downloadBigBtn}
                   >
                     ⬇ Download Resume
-                  </a>
+                  </button>
                 )}
               </div>
 
