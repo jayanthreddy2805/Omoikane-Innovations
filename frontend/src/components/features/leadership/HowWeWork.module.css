@@ -31,7 +31,7 @@
 }
 
 .headline {
-  font-family: var(--font-space-grotesk), "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: var(--type-section);
   font-weight: 500;
   line-height: 1.15;
@@ -76,7 +76,7 @@
 }
 
 .columnTitle {
-  font-family: var(--font-space-grotesk), "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: clamp(14px, 1.05vw, 16px);
   font-weight: 650;
   line-height: 1.35;

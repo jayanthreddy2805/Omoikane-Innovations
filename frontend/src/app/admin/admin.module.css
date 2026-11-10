@@ -123,7 +123,7 @@
 }
 
 .authTitle {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 26px;
   font-weight: 700;
   margin: 0 0 10px 0;
@@ -278,7 +278,7 @@
 }
 
 .heroTitle {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 700;
   color: #061D40;
@@ -420,7 +420,7 @@
 }
 
 .kpiValue {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: #061D40;
@@ -941,7 +941,7 @@
 }
 
 .deleteModalTitle {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: #061D40;
@@ -1059,7 +1059,7 @@
 }
 
 .detailHeaderTitle {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: #061D40;

@@ -28,7 +28,7 @@
   bottom: 2.2rem;
   left: 50%;
   transform: translateX(-50%);
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.22em;
   color: var(--text-tertiary, #62748A);

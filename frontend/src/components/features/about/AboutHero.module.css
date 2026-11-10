@@ -38,12 +38,12 @@
 
 .headline {
   margin: 0;
-  color: var(--about-ink);
-  font-family: var(--font-space-grotesk, sans-serif);
+  color: #09284D;
+  font-family: var(--font-inter, sans-serif);
   font-size: clamp(2.5rem, min(4.5vw, 6.8vh), 4.75rem);
-  font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  font-weight: 850;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   text-transform: none;
 }
 
@@ -53,9 +53,9 @@
 
 .headlineLineSecondary {
   margin-top: 0.035em;
-  color: var(--color-muted, #62748A);
+  color: #425A73;
   font-weight: 400;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
 }
 
 .film {
@@ -157,12 +157,12 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.7rem;
-  color: var(--about-muted);
-  font-family: var(--font-space-grotesk, sans-serif);
+  color: #5D7898;
+  font-family: var(--font-inter, sans-serif);
   font-size: 0.66rem;
-  font-weight: 600;
+  font-weight: 850;
   line-height: 1.5;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 

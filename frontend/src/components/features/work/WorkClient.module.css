@@ -81,7 +81,7 @@
 
 /* Main headline */
 .mainHeadline {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: clamp(2.75rem, 5.8vw, 5rem);
   line-height: 1.04;
   letter-spacing: -0.035em;
@@ -92,19 +92,21 @@
 
 .headlineSans {
   display: block;
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-weight: 700;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 850;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
   text-transform: uppercase;
-  color: var(--color-navy, #061D40);
+  color: #09284D;
 }
 
 .headlineSerif {
   display: block;
-  font-family: var(--font-cormorant-garamond), Garamond, Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  color: var(--color-blue, #0757C8);
+  font-family: var(--font-inter), sans-serif;
+  font-style: normal;
+  font-weight: 850;
+  letter-spacing: -0.025em;
+  color: #0757C8;
   margin-top: 0.12em;
 }
 
@@ -195,7 +197,7 @@
 }
 
 .focusTitle {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: clamp(0.98rem, 1.1vw, 1.08rem);
   font-weight: 700;
   letter-spacing: -0.015em;
@@ -411,7 +413,7 @@
   right: -20px;
   top: 50%;
   transform: translateY(-50%);
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: clamp(12rem, 19vw, 21rem);
   font-weight: 800;
   line-height: 0.8;
@@ -430,7 +432,7 @@
 }
 
 .productTitle {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: clamp(1.9rem, 3.2vw, 2.75rem);
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -449,7 +451,7 @@
 }
 
 .profileLabel {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -460,7 +462,7 @@
 
 /* Key design considerations header */
 .considerationsHeading {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -495,7 +497,7 @@
   align-items: center;
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--color-border, #DCE7F3);
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 0.92rem;
   font-weight: 600;
   color: var(--color-ink, #102746);
@@ -508,7 +510,7 @@
   gap: 0.65rem;
   margin-top: 1.75rem;
   color: var(--color-blue, #0757C8);
-  font: 600 0.84rem/1.2 var(--font-space-grotesk, sans-serif);
+  font: 600 0.84rem/1.2 var(--font-inter, sans-serif);
   letter-spacing: 0.04em;
   text-decoration: none;
 }
@@ -528,7 +530,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-blue, #0757C8);
