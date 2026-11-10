@@ -3,6 +3,7 @@ package com.omoikane.api.contact;
 import com.omoikane.api.email.ResendEmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.Locale;
@@ -43,7 +44,17 @@ public class ContactService {
         submission.setClientIp(clientIp);
 
         // Save FIRST — before any email attempt
-        submission = repository.save(submission);
+        try {
+            // Flush before sending any email so a concurrent duplicate is rejected here.
+            submission = repository.saveAndFlush(submission);
+        } catch (DataIntegrityViolationException exception) {
+            // Only translate a duplicate of these contact details. Other database
+            // constraints must still surface as operational errors.
+            if (repository.existsByContactDetails(email, phone)) {
+                throw new DuplicateContactException();
+            }
+            throw exception;
+        }
         log.info("Contact submission saved [id={}]", submission.getId());
 
         // Attempt confirmation email (fire-and-forget style)
