@@ -82,4 +82,20 @@ class RateLimitFilterTest {
                 .andExpect(jsonPath("$.success").value(false))
                 .andExpect(jsonPath("$.message").value("Too many requests. Please try again later."));
     }
+
+    @Test
+    void repeatedAdminKeyGuessesAreRateLimited() throws Exception {
+        String testIp = "198.51.100.2";
+        for (int i = 0; i < 5; i++) {
+            mockMvc.perform(post("/api/admin/auth/verify")
+                            .with(request -> { request.setRemoteAddr(testIp); return request; })
+                            .header("X-Admin-Key", "wrong-key"))
+                    .andExpect(status().isUnauthorized());
+        }
+
+        mockMvc.perform(post("/api/admin/auth/verify")
+                        .with(request -> { request.setRemoteAddr(testIp); return request; })
+                        .header("X-Admin-Key", "wrong-key"))
+                .andExpect(status().isTooManyRequests());
+    }
 }

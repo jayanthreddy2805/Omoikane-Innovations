@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -42,8 +43,8 @@ public class AdminController {
         this.adminSecretKey = adminSecretKey != null ? adminSecretKey.trim() : "";
     }
 
-    private void authenticate(String headerKey, String queryKey) {
-        String key = (headerKey != null && !headerKey.isBlank()) ? headerKey.trim() : (queryKey != null ? queryKey.trim() : null);
+    private void authenticate(String headerKey) {
+        String key = headerKey != null ? headerKey.trim() : null;
         if (adminSecretKey.isBlank() || key == null || !adminSecretKey.equals(key)) {
             log.warn("Unauthorized attempt to access admin endpoint");
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid admin credentials");
@@ -58,7 +59,7 @@ public class AdminController {
         if (key == null && body != null) {
             key = body.get("key");
         }
-        authenticate(key, null);
+        authenticate(key);
         return ResponseEntity.ok(Map.of("valid", true, "message", "Admin authentication successful"));
     }
 
@@ -67,7 +68,7 @@ public class AdminController {
     @GetMapping("/contacts")
     public ResponseEntity<List<ContactSubmission>> getContacts(
             @RequestHeader(value = "X-Admin-Key", required = false) String headerKey) {
-        authenticate(headerKey, null);
+        authenticate(headerKey);
         return ResponseEntity.ok(contactRepository.findAllByOrderByCreatedAtDesc());
     }
 
@@ -75,7 +76,7 @@ public class AdminController {
     public ResponseEntity<Map<String, Object>> deleteContact(
             @PathVariable Long id,
             @RequestHeader(value = "X-Admin-Key", required = false) String headerKey) {
-        authenticate(headerKey, null);
+        authenticate(headerKey);
         if (!contactRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Submission not found");
         }
@@ -89,7 +90,7 @@ public class AdminController {
     @GetMapping("/careers")
     public ResponseEntity<List<CareerApplicationSummary>> getCareers(
             @RequestHeader(value = "X-Admin-Key", required = false) String headerKey) {
-        authenticate(headerKey, null);
+        authenticate(headerKey);
         List<CareerApplicationSummary> summaries = careerRepository.findAllByOrderByCreatedAtDesc()
                 .stream()
                 .map(CareerApplicationSummary::fromEntity)
@@ -100,9 +101,8 @@ public class AdminController {
     @GetMapping("/careers/{id}/resume")
     public ResponseEntity<byte[]> downloadResume(
             @PathVariable Long id,
-            @RequestHeader(value = "X-Admin-Key", required = false) String headerKey,
-            @RequestParam(value = "key", required = false) String queryKey) {
-        authenticate(headerKey, queryKey);
+            @RequestHeader(value = "X-Admin-Key", required = false) String headerKey) {
+        authenticate(headerKey);
 
         CareerApplication application = careerRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Application not found"));
@@ -118,11 +118,14 @@ public class AdminController {
             mediaType = MediaType.APPLICATION_OCTET_STREAM;
         }
 
-        String filename = application.getResumeFilename() != null ? application.getResumeFilename() : "resume.pdf";
+        String filename = application.getResumeFilename() != null
+                ? application.getResumeFilename().replace('\\', '/').replaceAll(".*/", "").replaceAll("[\\r\\n]", "")
+                : "resume.pdf";
+        if (filename.isBlank()) filename = "resume.pdf";
 
         return ResponseEntity.ok()
                 .contentType(mediaType)
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
+                .header(HttpHeaders.CONTENT_DISPOSITION, ContentDisposition.attachment().filename(filename).build().toString())
                 .body(application.getResumeData());
     }
 
@@ -130,7 +133,7 @@ public class AdminController {
     public ResponseEntity<Map<String, Object>> deleteCareer(
             @PathVariable Long id,
             @RequestHeader(value = "X-Admin-Key", required = false) String headerKey) {
-        authenticate(headerKey, null);
+        authenticate(headerKey);
         if (!careerRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Application not found");
         }

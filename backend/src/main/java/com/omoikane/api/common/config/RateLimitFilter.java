@@ -88,7 +88,9 @@ public class RateLimitFilter extends OncePerRequestFilter {
                 || "/api/subscriptions".equals(uri));
         boolean isUnsubscribeAttempt = "DELETE".equalsIgnoreCase(request.getMethod())
                 && uri.startsWith("/api/subscriptions/");
-        return !isPublicSubmission && !isUnsubscribeAttempt;
+        boolean isAdminVerification = "POST".equalsIgnoreCase(request.getMethod())
+                && "/api/admin/auth/verify".equals(uri);
+        return !isPublicSubmission && !isUnsubscribeAttempt && !isAdminVerification;
     }
 
     private Bucket createBucket(String key) {
