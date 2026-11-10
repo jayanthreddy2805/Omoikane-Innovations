@@ -2,6 +2,7 @@ package com.omoikane.api.subscription;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +27,6 @@ public class EmailSubscriptionService {
         this.repository = repository;
     }
 
-    @Transactional
     public Result subscribe(SubscriptionRequest request, String clientIp) {
         String normalizedEmail = normalizeEmail(request.getEmail());
 
@@ -63,7 +63,15 @@ public class EmailSubscriptionService {
         subscriber.setStatus(EmailSubscriber.Status.ACTIVE);
         subscriber.setConsentGivenAt(OffsetDateTime.now());
         subscriber.setUnsubscribeToken(newUnsubscribeToken());
-        repository.save(subscriber);
+        try {
+            // Flush in the repository's own transaction. A competing insert can
+            // then be handled after that transaction rolls back.
+            repository.saveAndFlush(subscriber);
+        } catch (DataIntegrityViolationException exception) {
+            return repository.findByEmailIgnoreCase(email)
+                    .map(existing -> reactivateIfRequired(existing, clientIp))
+                    .orElseThrow(() -> exception);
+        }
         log.info("Email subscription saved [id={}]", subscriber.getId());
         return Result.CREATED;
     }
