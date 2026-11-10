@@ -4,7 +4,7 @@ The website runs on Vercel. Neon stores the data. This Spring Boot service must 
 
 ## 1. Create a backend service
 
-Connect this repository to Render using the root `render.yaml` Blueprint. It defines one Docker web service with `backend/` as its build context and `/actuator/health` as its HTTP health check. Its `1c-2g` compute plan is paid; review Render's current pricing before applying the Blueprint. The database remains on Neon; the Blueprint does not create another database or set any credentials. Use the resulting `onrender.com` HTTPS URL while the organization domain remains disconnected.
+Connect this repository to Render using the root `render.yaml` Blueprint. It defines one free Docker web service with `backend/` as its build context and `/actuator/health` as its HTTP health check. Render's free web services can sleep after inactivity and have resource limits, so use this configuration to test the API and its Vercel integration. Choose a suitable paid plan and repeat deployment and load tests before treating the API as production-ready. The database remains on Neon; the Blueprint does not create another database or set any credentials. Use the resulting `onrender.com` HTTPS URL while the organization domain remains disconnected.
 
 The image runs with `SPRING_PROFILES_ACTIVE=prod`; the application refuses to start without its required database, CORS, and admin configuration. Its health check includes database availability and returns a non-success status if the database cannot be reached. Flyway applies pending migrations at startup.
 
