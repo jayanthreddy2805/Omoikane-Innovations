@@ -38,9 +38,10 @@ export default function ChatInput({ onSendMessage, isTyping }) {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Validate size (max 10MB)
-    if (file.size > 10 * 1024 * 1024) {
-      setVoiceNotice('File size exceeds the 10MB limit.');
+    // The file is sent inside JSON to a Vercel Function. Base64 increases its
+    // size by a third, so leave room for the message and conversation history.
+    if (file.size > 2 * 1024 * 1024) {
+      setVoiceNotice('File size exceeds the 2MB limit.');
       if (fileInputRef.current) fileInputRef.current.value = '';
       return;
     }
@@ -71,7 +72,9 @@ export default function ChatInput({ onSendMessage, isTyping }) {
       setAttachedFile({
         name: file.name,
         size: file.size,
-        base64: base64Data,
+        // Plain text is already available as text; sending both copies can
+        // exceed the function's request limit even for a small file.
+        base64: ext === '.txt' ? '' : base64Data,
         text: textPreview
       });
     };
