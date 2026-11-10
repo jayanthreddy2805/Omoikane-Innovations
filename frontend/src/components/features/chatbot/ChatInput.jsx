@@ -80,12 +80,8 @@ export default function ChatInput({ onSendMessage, isTyping }) {
     };
 
     reader.onerror = () => {
-      setAttachedFile({
-        name: file.name,
-        size: file.size,
-        base64: '',
-        text: file.name
-      });
+      setAttachedFile(null);
+      setVoiceNotice('Could not read this file. Please try another resume.');
     };
 
     reader.readAsDataURL(file);
