@@ -1,0 +1,558 @@
+/* ─────────────────────────────────────────────────────────
+   OUR WORK — EDITORIAL LAYERED SHOWCASE (REFERENCE DESIGN)
+   Palette:
+   - Canvas: var(--bg-primary, #FAF7F2)
+   - Text Primary: #0A0A0A
+   - Text Secondary: #555555
+   - Hairline Borders: rgba(10, 10, 10, 0.09)
+   - Watermark: rgba(10, 10, 10, 0.038)
+───────────────────────────────────────────────────────── */
+
+.pageContainer {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  color: var(--color-ink, #102746);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ─────────────────────────────────────────────────────────
+   1. EDITORIAL INTRO SECTION (85–90VH EDITORIAL SCALE)
+───────────────────────────────────────────────────────── */
+.heroSection {
+  width: 100%;
+  min-height: clamp(660px, 88vh, 920px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--gradient-surface);
+  padding: clamp(6.5rem, 11vh, 9rem) clamp(1.5rem, 5vw, 4.5rem) clamp(2.5rem, 5vh, 4rem);
+  box-sizing: border-box;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border, #DCE7F3);
+  z-index: 1;
+}
+
+/* Atmospheric muted blue ambient blur (top right) */
+.heroSection::before {
+  content: "";
+  position: absolute;
+  top: -15%;
+  right: -8%;
+  width: clamp(480px, 55vw, 850px);
+  height: clamp(480px, 55vw, 850px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 231, 243, 0.38) 0%, rgba(239, 247, 255, 0.2) 45%, transparent 70%);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Atmospheric pale surface ambient blur (bottom left) */
+.heroSection::after {
+  content: "";
+  position: absolute;
+  bottom: -10%;
+  left: 2%;
+  width: clamp(420px, 50vw, 750px);
+  height: clamp(420px, 50vw, 750px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(239, 247, 255, 0.8) 0%, rgba(220, 231, 243, 0.3) 50%, transparent 75%);
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroContentWrapper {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* Main headline */
+.mainHeadline {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(2.75rem, 5.8vw, 5rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin: 0 0 clamp(2rem, 3.8vh, 3rem) 0;
+  text-align: left;
+  max-width: 1150px;
+}
+
+.headlineSans {
+  display: block;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-navy, #061D40);
+}
+
+.headlineSerif {
+  display: block;
+  font-family: var(--font-cormorant-garamond), Garamond, Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--color-blue, #0757C8);
+  margin-top: 0.12em;
+}
+
+/* Supporting copy */
+.supportingCopy {
+  max-width: var(--measure-copy);
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.copyParagraph {
+  font-family: var(--font-inter), sans-serif;
+  font-size: var(--type-lead);
+  line-height: 1.65;
+  color: var(--color-muted, #62748A);
+  margin: 0;
+}
+
+/* ── Focus Areas Horizontal Strip (Reference Redesign) ── */
+.focusStripContainer {
+  width: 100%;
+  max-width: 1320px;
+  margin: clamp(3rem, 5.5vh, 4.5rem) auto 0 auto;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--color-border, #DCE7F3);
+  border-bottom: 1px solid var(--color-border, #DCE7F3);
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+}
+
+.focusStripTrack {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.focusStripItem {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 1.6rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: background-color 200ms ease;
+  box-sizing: border-box;
+}
+
+.focusStripItem:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 1px;
+  background-color: var(--color-border, #DCE7F3);
+}
+
+.focusStripItem:hover {
+  background-color: #F7FBFF;
+}
+
+.focusIconBox {
+  width: 50px;
+  height: 50px;
+  border-radius: 13px;
+  background-color: #EFF7FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-blue, #0757C8);
+  flex-shrink: 0;
+  transition: background-color 200ms ease;
+}
+
+.focusStripItem:hover .focusIconBox {
+  background-color: #E2F0FD;
+}
+
+.focusTextBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.focusTitle {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-navy, #061D40);
+  line-height: 1.25;
+  margin: 0;
+  transition: color 200ms ease;
+}
+
+.focusStripItem:hover .focusTitle {
+  color: var(--color-blue, #0757C8);
+}
+
+.focusSubtitle {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(0.76rem, 0.88vw, 0.82rem);
+  font-weight: 400;
+  color: var(--color-muted, #62748A);
+  line-height: 1.35;
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 1140px) {
+  .focusSubtitle {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 900px) {
+  .focusStripTrack {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .focusStripItem:nth-child(2)::after {
+    display: none;
+  }
+
+  .focusStripItem:nth-child(1),
+  .focusStripItem:nth-child(2) {
+    border-bottom: 1px solid var(--color-border, #DCE7F3);
+  }
+
+  .focusStripItem {
+    padding: 1.35rem 1.15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .focusStripTrack {
+    grid-template-columns: 1fr;
+  }
+
+  .focusStripItem::after {
+    display: none !important;
+  }
+
+  .focusStripItem:not(:last-child) {
+    border-bottom: 1px solid var(--color-border, #DCE7F3);
+  }
+
+  .focusStripItem {
+    padding: 1.15rem 1rem;
+    gap: 1rem;
+  }
+
+  .focusIconBox {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   2. SHOWCASE ROWS (COLLAGE LEFT / EDITORIAL RIGHT)
+───────────────────────────────────────────────────────── */
+.showcaseSection {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding: var(--space-section) 1.5rem;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+
+.showcaseContainer {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(5rem, 8.5vw, 8rem);
+}
+
+/* Single Showcase Row */
+.productRow {
+  width: 100%;
+  scroll-margin-top: 110px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 6rem);
+  position: relative;
+  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+  border-bottom: 1px solid var(--color-border, #DCE7F3);
+}
+
+.productRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+@media (min-width: 960px) {
+  .productRow {
+    grid-template-columns: 1fr 1.15fr;
+  }
+
+  .rowReversed {
+    grid-template-columns: 1.15fr 1fr;
+  }
+
+  .rowReversed .collageCol {
+    order: 2;
+  }
+
+  .rowReversed .editorialCol {
+    order: 1;
+  }
+
+  .rowReversed .ghostWatermark {
+    right: auto;
+    left: -20px;
+  }
+}
+
+/* ── 3-CARD OVERLAPPING COLLAGE (LEFT) ── */
+.collageCol {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2.5rem 2rem;
+  box-sizing: border-box;
+}
+
+.collageCanvas {
+  position: relative;
+  width: clamp(260px, 30vw, 360px);
+  height: clamp(260px, 30vw, 360px);
+}
+
+/* Base Primary Card */
+.baseCard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  background-color: var(--color-footer, #000812);
+  z-index: 1;
+}
+
+/* Top-Right Overlapping Card */
+.topCard {
+  position: absolute;
+  top: -24px;
+  right: -36px;
+  width: clamp(145px, 17vw, 195px);
+  height: clamp(170px, 20vw, 230px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.15);
+  border: 3px solid #FFFFFF;
+  background-color: var(--color-footer, #000812);
+  z-index: 3;
+  transform: rotate(3deg);
+}
+
+/* Bottom-Left Overlapping Card */
+.bottomCard {
+  position: absolute;
+  bottom: -28px;
+  left: -32px;
+  width: clamp(155px, 18vw, 210px);
+  height: clamp(120px, 14vw, 160px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.15);
+  border: 3px solid #FFFFFF;
+  background-color: var(--color-footer, #000812);
+  z-index: 4;
+  transform: rotate(-3.5deg);
+}
+
+.cardImage {
+  object-fit: cover;
+}
+
+/* ── EDITORIAL CONTENT COLUMN (RIGHT) ── */
+.editorialCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Enormous subtle watermark number sitting in the background */
+.ghostWatermark {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(12rem, 19vw, 21rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: rgba(7, 87, 200, 0.04);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.editorialBody {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.productTitle {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--color-navy, #061D40);
+  margin: 0 0 1rem 0;
+}
+
+.productDescription {
+  font-family: var(--font-inter), sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.65;
+  color: var(--color-muted, #62748A);
+  margin: 0 0 1.5rem 0;
+  max-width: var(--measure-copy);
+}
+
+.profileLabel {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-blue, #0757C8);
+  margin: 0 0 0.5rem;
+}
+
+/* Key design considerations header */
+.considerationsHeading {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy, #061D40);
+  margin: 0 0 0.85rem 0;
+}
+
+/* ── 2-COLUMN CHECKMARK CAPABILITIES TABLE ── */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 0;
+  column-gap: 2.25rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .featuresGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.featureCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border, #DCE7F3);
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-ink, #102746);
+  line-height: 1.4;
+}
+
+.productEnquiry {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.75rem;
+  color: var(--color-blue, #0757C8);
+  font: 600 0.84rem/1.2 var(--font-space-grotesk, sans-serif);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.productEnquiry:hover, .productEnquiry:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ── ACTIONS / LINKS ── */
+.actionsRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 0.25rem;
+}
+
+.learnMoreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-blue, #0757C8);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.learnMoreLink:hover {
+  opacity: 0.8;
+  color: var(--color-navy, #061D40);
+}
+
+/* ─────────────────────────────────────────────────────────
+   REDUCED MOTION
+───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .baseCard,
+  .topCard,
+  .bottomCard,
+  .cardImage,
+  .learnMoreLink {
+    transition: none !important;
+    transform: none !important;
+  }
+}

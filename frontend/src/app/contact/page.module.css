@@ -9,7 +9,7 @@
   --border-subtle: #DCE7F3;
 
   min-height: 100vh;
-  background-color: var(--surf-hero);
+  background: var(--gradient-surface);
   color: var(--text-primary);
   margin-top: -104px;
   padding-top: 204px;
@@ -42,7 +42,7 @@
 
 /* 1. EDITORIAL HERO */
 .heroSection {
-  background-color: var(--surf-hero);
+  background-color: transparent;
   padding: 100px 0 80px;
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -125,7 +125,7 @@
   font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   letter-spacing: 0.25em;
-  color: rgba(10, 10, 10, 0.5);
+  color: var(--color-muted, #62748A);
 }
 
 .heroEyebrowLine {
@@ -159,7 +159,7 @@
   letter-spacing: -2px;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(10, 10, 10, 0.15);
+  -webkit-text-stroke: 1px rgba(7, 87, 200, 0.18);
   margin: 0;
   position: absolute;
   top: 8px;
@@ -168,7 +168,7 @@
 }
 
 .heroSubtitleBlock {
-  border-left: 2px solid rgba(10, 10, 10, 0.1);
+  border-left: 2px solid var(--color-border, #DCE7F3);
   padding-left: 24px;
   margin-bottom: 56px;
 }
@@ -218,44 +218,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 120px;
-  margin-top: -40px;
+  margin-bottom: 90px;
+  margin-top: -30px;
 }
 
 .letsConnectTitle {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(30px, 6vw, 60px);
+  gap: clamp(16px, 2.4vw, 28px);
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(40px, 8vw, 100px);
-  line-height: 0.8;
-  font-weight: 700;
-  letter-spacing: 0.25em;
+  font-size: clamp(53px, 7.5vw, 101px);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   margin: 0;
   text-transform: uppercase;
-  transform: scale(0.6, 1.5);
-}
-
-.textWhite {
   color: var(--color-navy, #061D40);
 }
 
-.textGrey {
-  color: var(--color-blue, #0757C8);
+.letsConnectTitle span {
+  display: inline-block;
+  color: var(--color-navy, #061D40);
 }
 
 .drawingWrapper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: max(210px, 19vw); /* Anchors to the right of the text */
-  height: clamp(60px, 12vw, 150px); /* Exactly 1.5x the text clamp */
-  aspect-ratio: 238 / 267; /* Original image ratio */
+  position: relative;
+  margin-left: 6px;
+  height: clamp(62px, 8.4vw, 110px);
+  aspect-ratio: 238 / 267;
   mix-blend-mode: multiply;
   pointer-events: none;
-  z-index: 0;
+  flex-shrink: 0;
+  opacity: 0.85;
 }
 
 .drawingImage {
@@ -312,10 +307,11 @@
 
 .enquiryText {
   font-family: var(--font-inter, sans-serif);
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: var(--type-body);
+  line-height: 1.65;
   color: var(--color-muted, #62748A);
   margin-bottom: 40px;
+  max-width: var(--measure-copy);
 }
 
 .enquiryVisualContainer {
@@ -328,7 +324,7 @@
 .enquiryVisualWrapper {
   position: relative;
   width: 100%;
-  min-height: 350px;
+  min-height: 420px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -365,5 +361,10 @@
   
   .heroSection, .enquirySection, .presenceSection {
     padding: 80px 0;
+  }
+
+  .contactHeroWrapper {
+    margin-bottom: 50px;
+    margin-top: -10px;
   }
 }

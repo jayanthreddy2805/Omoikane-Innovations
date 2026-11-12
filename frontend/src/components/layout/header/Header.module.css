@@ -1,0 +1,575 @@
+/* ─────────────────────────────────────────────
+   HEADER SHELL
+   - Unscrolled: Transparent at top of page (matches current page background)
+   - Scrolled: Floating white pill with subtle border and shadow
+   - Clean neutral typography without blue accent in navbar
+───────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2.5rem;
+  background-color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #DCE7F3;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: 0 1px 4px rgba(6, 29, 64, 0.05);
+  transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.headerScrolled {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  opacity: 1 !important;
+  padding: 0.45rem 1.5rem;
+  width: calc(100% - 2.5rem);
+  max-width: 1200px;
+  border-radius: 999px;
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  box-shadow: 0 10px 40px rgba(6, 29, 64, 0.12);
+}
+
+/* ─────────────────────────────────────────────
+   LOGO
+───────────────────────────────────────────── */
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  cursor: pointer;
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.headerScrolled .logoLink {
+  transform: scale(0.85);
+}
+
+.logoImage {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logoBrand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logoName {
+  font-family: var(--font-space-grotesk);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #061D40;
+  text-transform: uppercase;
+}
+
+.logoSub {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: #62748A;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* ─────────────────────────────────────────────
+   PILL NAV
+───────────────────────────────────────────── */
+.pillNav {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .pillNav {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.pillList {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem 0.45rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  box-shadow: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.headerScrolled .pillList {
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.pillItem {
+  position: relative;
+}
+
+.pillBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1.15rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #62748A;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  letter-spacing: 0.3px;
+  position: relative;
+}
+
+.pillBtn:hover {
+  color: #061D40;
+  background: rgba(10, 10, 10, 0.05);
+}
+
+.pillActive {
+  color: #FFFFFF !important;
+  background: #000812 !important;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pillBtn:focus-visible {
+  outline: 2px solid #000812;
+  outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   CAREERS DROPDOWN
+───────────────────────────────────────────── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  min-width: 280px;
+  padding: 0.5rem;
+  background: #FFFFFF;
+  border: 1px solid #DCE7F3;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(6, 29, 64, 0.08);
+  z-index: 200;
+}
+
+.dropdownLabel {
+  padding: 0.5rem 0.75rem 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #62748A;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.18s ease;
+}
+
+.dropdownItem:hover {
+  background: rgba(16, 39, 70, 0.04);
+}
+
+.dropdownItemActive {
+  background: rgba(16, 39, 70, 0.06);
+}
+
+.dropdownItemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdownItemTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #102746;
+  letter-spacing: 0.2px;
+}
+
+.dropdownItemDesc {
+  font-size: 0.75rem;
+  color: #62748A;
+}
+
+.dropdownArrow {
+  color: #62748A;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.dropdownItem:hover .dropdownArrow {
+  color: #102746;
+}
+
+/* ─────────────────────────────────────────────
+   RIGHT ACTIONS (Search + Contact)
+───────────────────────────────────────────── */
+.rightActions {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1200px) {
+  .rightActions {
+    display: flex;
+  }
+}
+
+/* Search — ghost text */
+.searchTrigger {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: none;
+  border: none;
+  color: #62748A;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  margin-right: 20px;
+}
+
+.searchTrigger svg {
+  color: #62748A;
+  transition: color 0.2s ease;
+}
+
+.searchTrigger:hover {
+  color: #102746;
+}
+
+.searchTrigger:hover svg {
+  color: #102746;
+}
+
+.searchTrigger:focus-visible {
+  outline: 2px solid #102746;
+  outline-offset: 2px;
+}
+
+/* Contact — filled pill CTA */
+.contactBtn {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: #000812;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.contactBtn:hover {
+  opacity: 0.88;
+}
+
+.contactBtn:focus-visible {
+  outline: 2px solid #102746;
+  outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   HAMBURGER (MOBILE)
+───────────────────────────────────────────── */
+.hamburger {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #102746;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  transform-origin: center;
+}
+
+.barTop { transform: translateY(7px) rotate(45deg); }
+.barMid { opacity: 0; transform: scaleX(0); }
+.barBot { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─────────────────────────────────────────────
+   MOBILE MENU
+───────────────────────────────────────────── */
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid #DCE7F3;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem 2rem;
+  max-height: calc(100dvh - 140px);
+  overflow-y: auto;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(6, 29, 64, 0.05);
+}
+
+@media (min-width: 1200px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileLink {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #102746;
+  text-decoration: none;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #DCE7F3;
+  transition: color 0.2s ease;
+}
+
+.mobileLink:hover,
+.mobileLinkActive {
+  color: #102746;
+  font-weight: 700;
+}
+
+.mobileSubLink {
+  font-size: 0.9rem;
+  color: #62748A;
+  text-decoration: none;
+  padding: 0.6rem 0 0.6rem 1rem;
+  border-bottom: 1px solid #DCE7F3;
+  transition: color 0.2s ease;
+}
+
+.mobileSubLink:hover {
+  color: #102746;
+}
+
+/* ─────────────────────────────────────────────
+   SEARCH OVERLAY
+───────────────────────────────────────────── */
+.searchBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 29, 64, 0.35);
+  backdrop-filter: blur(4px);
+  z-index: 1100;
+}
+
+.searchModal {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(640px, calc(100vw - 2rem));
+  background: #FFFFFF;
+  border: 1px solid #DCE7F3;
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(6, 29, 64, 0.12);
+  z-index: 1200;
+  overflow: hidden;
+}
+
+.searchLabel {
+  display: block;
+  padding: 1rem 1.25rem 0;
+  color: #102746;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.searchInputRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #DCE7F3;
+}
+
+.searchIcon {
+  color: #62748A;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #102746;
+  font-family: inherit;
+  caret-color: #102746;
+}
+
+.searchInput::placeholder {
+  color: #62748A;
+}
+
+.searchEsc {
+  min-width: 44px;
+  min-height: 32px;
+  font-size: 0.7rem;
+  color: #102746;
+  border: 1px solid #DCE7F3;
+  background-color: #EFF7FF;
+  padding: 2px 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  font-family: inherit;
+}
+
+.searchResults {
+  display: flex;
+  flex-direction: column;
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.searchHint {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchResultItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+  cursor: pointer;
+}
+
+.searchResultItem:hover {
+  background: #EFF7FF;
+}
+
+.searchResultTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #102746;
+}
+
+.searchResultDesc {
+  font-size: 0.78rem;
+  color: #62748A;
+  margin-top: 2px;
+}
+
+.searchResultArrow {
+  color: #62748A;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.searchResultItem:hover .searchResultArrow {
+  color: #102746;
+}
+
+.searchEmpty {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: #62748A;
+  font-size: 0.9rem;
+}
+
+.searchEmpty strong {
+  color: #102746;
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 1rem 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .headerScrolled {
+    padding: 0.45rem 0.75rem;
+  }
+
+  .logoLink {
+    gap: 0.5rem;
+  }
+
+  .logoImage {
+    width: 44px;
+    height: 44px;
+  }
+
+  .logoName {
+    font-size: clamp(1.1rem, 4.8vw, 1.4rem);
+    letter-spacing: 3px;
+  }
+
+  .logoSub {
+    font-size: 0.6rem;
+    letter-spacing: 3.5px;
+  }
+}

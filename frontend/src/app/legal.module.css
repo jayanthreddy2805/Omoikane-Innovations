@@ -1,0 +1,81 @@
+.page {
+  background: var(--color-white);
+  color: var(--color-ink);
+  min-height: 65vh;
+  padding: clamp(7rem, 11vw, 10rem) 1.5rem var(--space-section);
+}
+
+.inner {
+  width: min(100%, 850px);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  color: var(--color-blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.lead {
+  color: var(--color-muted);
+  font-size: var(--type-lead);
+  max-width: var(--measure-copy);
+}
+
+.updated {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+}
+
+.sections {
+  border-top: 1px solid var(--color-border);
+  margin-top: clamp(2.75rem, 5vw, 4rem);
+}
+
+.section {
+  border-bottom: 1px solid var(--color-border);
+  padding: 2rem 0;
+}
+
+.section h2 {
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.9rem;
+}
+
+.section p,
+.section li {
+  max-width: var(--measure-copy);
+  line-height: 1.75;
+}
+
+.section p + p,
+.section p + ul,
+.section ul + p {
+  margin-top: 0.85rem;
+}
+
+.section ul {
+  padding-left: 1.3rem;
+}
+
+.section li + li {
+  margin-top: 0.5rem;
+}
+
+.section a {
+  color: var(--color-blue);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}

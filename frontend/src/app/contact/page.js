@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef, useState } from 'react';
+import { Suspense, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import ContactForm from '@/components/contact/ContactForm';
-import FormSuccessState from '@/components/common/FormSuccessState';
+import ContactForm from '@/components/features/contact/ContactForm';
+import FormSuccessState from '@/components/shared/FormSuccessState';
 import styles from './page.module.css';
 
 /* ── Shared easing ── */
@@ -60,8 +60,8 @@ export default function ContactPage() {
             <>
               <div className={styles.contactHeroWrapper}>
                 <h1 className={styles.letsConnectTitle}>
-                  <span className={styles.textWhite}>LET’S</span>
-                  <span className={styles.textGrey}>CONNECT</span>
+                  <span>LET’S</span>
+                  <span>CONNECT</span>
                 </h1>
                 <div className={styles.drawingWrapper}>
                    <Image 
@@ -96,7 +96,9 @@ export default function ContactPage() {
                 </FadeUp>
                 <FadeUp delay={0.18}>
                   <div className={styles.formWrapper}>
-                    <ContactForm onSuccess={() => setIsSubmitted(true)} />
+                    <Suspense fallback={<div>Loading form…</div>}>
+                      <ContactForm onSuccess={() => setIsSubmitted(true)} />
+                    </Suspense>
                   </div>
                 </FadeUp>
               </div>

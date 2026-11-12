@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  background-color: #000812;
+  background-color: var(--color-footer, #000812);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,6 +57,19 @@
   margin: 0;
   letter-spacing: 0.02em;
 }
+
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.action {
+  color: #FFFFFF;
+  font: 600 12px/1 var(--font-inter, sans-serif);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 11px 14px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 4px;
+}
+.action:hover, .action:focus-visible { background: rgba(255,255,255,0.1); }
 
 @media (max-width: 600px) {
   .inner {

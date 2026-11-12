@@ -1,0 +1,122 @@
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  background: #FFFFFF;
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  border: none;
+}
+
+/* Pure white gradient edge fades for seamless entrance and exit */
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Continuous marquee track - smooth infinite glide with no hover-stop */
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: scroll 38s linear infinite;
+}
+
+/* Individual track groups for 100% seamless mathematical loop */
+.marqueeGroup {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  padding-right: 52px;
+  flex-shrink: 0;
+}
+
+/* Individual Logo Card - pure floating logo on clean white background */
+.logoCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  padding: 0 12px;
+  background: transparent;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* Responsive logo images */
+.toolLogo {
+  display: block;
+  max-height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Perfect infinite seamless loop */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Accessibility: respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+  .marqueeGroup {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .marqueeContainer {
+    padding: 14px 0;
+    margin: 0;
+  }
+
+  .marqueeGroup {
+    gap: 28px;
+    padding-right: 28px;
+  }
+
+  .logoCard {
+    height: 44px;
+    padding: 0 8px;
+  }
+
+  .toolLogo {
+    max-height: 28px;
+  }
+
+  .marqueeContainer::before,
+  .marqueeContainer::after {
+    width: 50px;
+  }
+}

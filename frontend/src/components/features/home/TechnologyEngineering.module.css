@@ -1,0 +1,233 @@
+/* ─────────────────────────────────────────────────────────
+   TECHNOLOGY & ENGINEERING (DARK EDITORIAL CAPABILITY MATRIX)
+   Palette:
+   - Unified footer background: var(--color-footer, #000812)
+   - Ice white: #F7FBFF
+   - Luminous sky blue accent: #7DBDFF
+   - Subtle Dividers: rgba(255, 255, 255, 0.12)
+   - Muted secondary text: #B6C8DE
+───────────────────────────────────────────────────────── */
+
+.section {
+  width: 100%;
+  background-color: var(--color-footer, #000812);
+  /* Smooth ambient lighting gradient with zero dot noise */
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30, 98, 196, 0.20), transparent 70%);
+  color: var(--color-on-dark, #F7FBFF);
+  padding: clamp(3.9rem, 6.6vh, 5.7rem) clamp(1.5rem, 5vw, 4.5rem);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ─────────────────────────────────────────────────────────
+   1. UPPER-LEFT INTRODUCTION
+───────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: clamp(2.1rem, 3.9vh, 3.3rem);
+}
+
+.headline {
+  font-family: var(--font-cormorant-garamond), Garamond, Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.6rem, 4.2vw, 3.8rem); /* 52–60px desktop */
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--color-on-dark, #F7FBFF);
+  margin: 0 0 0.5rem 0;
+  text-align: left;
+}
+
+.subheadline {
+  font-family: var(--font-cormorant-garamond), Garamond, Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.35rem, 1.85vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: #7DBDFF;
+  margin: 0 0 0.9rem 0;
+}
+
+.supportingCopy {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.65;
+  color: var(--color-on-dark-muted, #B6C8DE);
+  max-width: min(100%, var(--measure-copy));
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────
+   2. PRECISE 3-COLUMN × 2-ROW CAPABILITY MATRIX
+   Created strictly with 1px divider lines; no cards, no boxes.
+───────────────────────────────────────────────────────── */
+.matrixGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cell {
+  position: relative;
+  min-height: clamp(100px, 12vh, 118px); /* Compact vertical scale */
+  padding: clamp(1.5rem, 2.1vw, 2.1rem) clamp(2rem, 2.8vw, 2.75rem);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 200ms ease;
+  user-select: none;
+}
+
+/* Desktop Grid Dividers */
+@media (min-width: 861px) {
+  /* Right divider line for columns 1 and 2 in each row */
+  .cell:not(:nth-child(3n)) {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  /* Bottom divider line for the top row (01, 02, 03) */
+  .cell:nth-child(-n+3) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* Small two-digit number positioned above the name */
+.number {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--color-on-dark-subtle, #8FA6C0);
+  margin-bottom: 0.9rem;
+  display: block;
+}
+
+/* Lower-left text container: stacked grid so both name & description occupy identical area */
+.textContainer {
+  display: grid;
+  grid-template-areas: "content";
+  align-items: end;
+  justify-items: start;
+  width: 100%;
+}
+
+/* Capability Name (Default State: Visible, Active Color) */
+.name {
+  grid-area: content;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(1.2rem, 1.4vw, 1.45rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.28;
+  color: #7DBDFF;
+  margin: 0;
+  opacity: 1;
+  transition: opacity 200ms ease;
+  will-change: opacity;
+}
+
+/* Description (Default State: Hidden, Fades into exact same position on hover) */
+.description {
+  grid-area: content;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.6;
+  color: var(--color-on-dark, #F7FBFF);
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+  will-change: opacity;
+}
+
+/* ── HOVER INTERACTION (Desktop / Devices supporting hover) ── */
+@media (hover: hover) {
+  .cell:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .cell:hover .name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .cell:hover .description {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* ── TOUCH / ACTIVE STATE INTERACTION (Mobile & Keyboard) ── */
+.cellActive {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.cellActive .name {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.cellActive .description {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.cell:focus-visible {
+  outline: 1px solid rgba(22, 136, 248, 0.5);
+  outline-offset: -1px;
+}
+
+/* ─────────────────────────────────────────────────────────
+   3. MOBILE COMPOSITION (ONE COLUMN WITH HORIZONTAL SEPARATORS)
+───────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .section {
+    padding: 2.7rem 1.25rem 2.4rem 1.25rem;
+  }
+
+  .header {
+    margin-bottom: 1.8rem;
+  }
+
+  .matrixGrid {
+    grid-template-columns: 1fr;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: none;
+  }
+
+  .cell {
+    width: 100%;
+    min-height: 88px;
+    padding: 1.2rem 0.5rem;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .name,
+  .description,
+  .cell {
+    transition: none !important;
+  }
+}
