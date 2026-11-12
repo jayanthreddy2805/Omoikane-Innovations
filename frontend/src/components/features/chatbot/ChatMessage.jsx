@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { User } from 'lucide-react';
 import SourceLink from './SourceLink';
+import ProductCard, { detectProductInText } from './ProductCard';
 import styles from './ChatbotWidget.module.css';
 
 /**
@@ -78,6 +79,7 @@ function renderFormattedContent(text) {
 
 export default function ChatMessage({ message, onSelectSuggestion }) {
   const isBot = message.sender === 'bot';
+  const detectedProduct = isBot ? detectProductInText(message.text) : null;
 
   return (
     <div className={`${styles.messageRow} ${isBot ? styles.botRow : styles.userRow}`}>
@@ -101,6 +103,14 @@ export default function ChatMessage({ message, onSelectSuggestion }) {
           <div className={styles.bubbleContent}>
             {renderFormattedContent(message.text)}
           </div>
+
+          {/* Interactive Product Showcase Card (OFC-X, OESC, OGN-X, OCOM-X) */}
+          {isBot && detectedProduct && (
+            <ProductCard
+              product={detectedProduct}
+              onSelectAction={onSelectSuggestion}
+            />
+          )}
 
           {/* Source Link */}
           {isBot && message.source && (

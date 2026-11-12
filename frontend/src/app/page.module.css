@@ -42,7 +42,7 @@
 
 /* ─────────────────────────────────────────────────────────
    RESERVED HERO AREA
-   Royal-blue background (#314CDB) & Premium Editorial Typography
+   Client-approved blue background & editorial typography
    Exact visual layout matching BeGlobe composition on right side.
 ───────────────────────────────────────────────────────── */
 .heroSection {
@@ -52,7 +52,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #314CDB;
+  background-color: var(--color-blue);
   color: #FFFFFF;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
@@ -124,7 +124,7 @@
 
 .heroHeadline {
   font-family: var(--font-cormorant-garamond), Georgia, "Times New Roman", serif;
-  font-size: clamp(2.6rem, 4.4vw, 4.25rem);
+  font-size: clamp(2.1rem, 4.2vw, 4.25rem);
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.08;
@@ -140,19 +140,6 @@
   color: rgba(255, 255, 255, 0.86);
   margin: 0 0 clamp(2rem, 3.5vh, 2.75rem) 0;
   max-width: 580px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.heroPhilosophyLine {
-  display: block;
-}
-
-.heroPhilosophyStandard {
-  display: block;
-  color: #FFFFFF;
-  font-weight: 500;
 }
 
 .heroActions {
