@@ -112,7 +112,7 @@ export default function CallToAction() {
 
           <motion.div variants={itemVariants} style={{ marginTop: "1rem" }}>
             <Link href="/contact" className={styles.ctaButtonPill}>
-              <Sparkles size={14} strokeWidth={2.5} />
+              <Sparkles size={16} strokeWidth={2.5} />
               Contact OMOIKANE
             </Link>
           </motion.div>
