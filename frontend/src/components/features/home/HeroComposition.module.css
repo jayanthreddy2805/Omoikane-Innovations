@@ -59,10 +59,10 @@
 
 /* Central Rocket (Dominant center element, ~25 deg above horizontal) */
 .itemRocket {
-  left: 6.5%;
-  top: 13.5%;
-  width: 68%;
-  height: 69.5%;
+  left: 8.2%;
+  top: 15.24%;
+  width: 64.6%;
+  height: 66.025%;
   transform: rotate(19.25deg);
   z-index: 10;
 }
