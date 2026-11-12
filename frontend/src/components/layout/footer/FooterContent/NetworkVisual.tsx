@@ -11,14 +11,13 @@ interface NetworkVisualProps {
   fillContainer?: boolean;
 }
 
-// Omoikane Innovations brand color palette:
-// Radiant Gold, Deep Amber, Burnt Orange, Deep Mahogany, Metallic Bronze
+// Footer connected-particles color palette: #00A1CE accent
 const OMOIKANE_PALETTE = [
-  new THREE.Color(0xffd700), // Radiant Gold
-  new THREE.Color(0xff8c00), // Deep Amber
-  new THREE.Color(0xcc5500), // Burnt Orange
-  new THREE.Color(0x8b0000), // Deep Mahogany
-  new THREE.Color(0xcd7f32), // Metallic Bronze
+  new THREE.Color(0x00a1ce), // #00A1CE Cyan Primary
+  new THREE.Color(0x1ac2ee), // Bright Cyan
+  new THREE.Color(0x008bb2), // Deep Cyan
+  new THREE.Color(0x006c8a), // Dark Cyan
+  new THREE.Color(0x33b8dd), // Soft Cyan
 ];
 
 const noiseFunctions = `
@@ -137,11 +136,11 @@ const nodeShader = {
 
         // Subtle white highlight strictly on central hub nodes (vNodeType < 0.5)
         if (vNodeType < 0.5) {
-            finalColor = mix(baseColor * 1.35, vec3(1.0, 0.9, 0.6), core * 0.75);
+            finalColor = mix(baseColor * 1.35, vec3(0.9, 0.98, 1.0), core * 0.75);
             finalColor *= 1.25;
         } else {
-            // Peripheral nodes become rich warm amber/crimson
-            finalColor = mix(baseColor, vec3(0.8, 0.2, 0.05), innerGlow * 0.45);
+            // Peripheral nodes use deep #00A1CE tone
+            finalColor = mix(baseColor, vec3(0.0, 0.35, 0.55), innerGlow * 0.45);
         }
 
         if (vPulseIntensity > 0.0) {
@@ -236,12 +235,12 @@ const connectionShader = {
         float flowPattern = sin(vPathPosition * 18.0 - uTime * 3.0) * 0.5 + 0.5;
         float packet = pow(flowPattern, 3.8);
 
-        // Controlled gold/amber pulse glow along wire
-        vec3 packetGlow = vec3(0.95, 0.4, 0.1) * (packet * 0.85);
+        // Controlled #00A1CE pulse glow along wire
+        vec3 packetGlow = vec3(0.0, 0.631, 0.808) * (packet * 0.85);
         vec3 finalColor = baseColor + packetGlow;
 
         if (vPulseIntensity > 0.0) {
-            vec3 pulseColor = mix(vec3(0.95, 0.4, 0.1), uPulseColors[0], 0.3);
+            vec3 pulseColor = mix(vec3(0.0, 0.631, 0.808), uPulseColors[0], 0.3);
             finalColor = mix(finalColor, pulseColor * 1.7, vPulseIntensity);
         }
 
@@ -432,9 +431,9 @@ function createStarfield() {
   const colors: number[] = [];
 
   const starColors = [
-    new THREE.Color(0xffd700), // Radiant Gold
-    new THREE.Color(0x8b0000), // Deep Mahogany
-    new THREE.Color(0xff4500), // Orange Red
+    new THREE.Color(0x00a1ce), // #00A1CE Cyan
+    new THREE.Color(0x005e78), // Deep Cyan
+    new THREE.Color(0x33b8dd), // Light Cyan
   ];
 
   for (let i = 0; i < count; i++) {
@@ -576,9 +575,9 @@ export default function NetworkVisual({
         uPulseTimes: { value: [-1e3, -1e3, -1e3] },
         uPulseColors: {
           value: [
-            new THREE.Color(0xffd700),
-            new THREE.Color(0xff4500),
-            new THREE.Color(0xcc5500),
+            new THREE.Color(0x00a1ce),
+            new THREE.Color(0x33b8dd),
+            new THREE.Color(0x008bb2),
           ],
         },
         uPulseSpeed: { value: 16.0 },
@@ -717,7 +716,7 @@ export default function NetworkVisual({
         const originNode = network.nodes[originIndex] || network.rootNode;
         const pulsePos = originNode.position.clone();
 
-        const pulseColor = Math.random() > 0.5 ? new THREE.Color(0xffd700) : new THREE.Color(0xff4500);
+        const pulseColor = Math.random() > 0.5 ? new THREE.Color(0x00a1ce) : new THREE.Color(0x33b8dd);
 
         const nMat = nodesMesh.material as THREE.ShaderMaterial;
         nMat.uniforms.uPulsePositions.value[lastPulseIndex].copy(pulsePos);
