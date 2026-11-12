@@ -8,13 +8,17 @@ export default function ChatMessageList({
   messages,
   isTyping,
   onSelectSuggestion,
-  onSelectQuickAction
+  onSelectQuickAction,
+  contextData
 }) {
   const scrollRef = useRef(null);
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isTyping]);
+
+  const greetingText = contextData?.greeting || "Hi there! 👋 Welcome to Omoikane Innovations. I’m your company assistant. I can help you explore our technologies, engineering capabilities, career information, and contact details. How can I help you today?";
+  const quickQuestions = contextData?.quickQuestions;
 
   return (
     <div className={styles.chatScrollArea}>
@@ -33,10 +37,13 @@ export default function ChatMessageList({
           </div>
           <h3 className={styles.welcomeHeading}>Omoikane Innovations</h3>
           <p className={styles.welcomeGreeting}>
-            Hi there! 👋 Welcome to Omoikane Innovations. I’m your company assistant. I can help you explore our technologies, engineering capabilities, career information, and contact details. How can I help you today?
+            {greetingText}
           </p>
 
-          <QuickQuestions onSelectQuestion={onSelectQuickAction} />
+          <QuickQuestions
+            onSelectQuestion={onSelectQuickAction}
+            questions={quickQuestions}
+          />
         </div>
       ) : (
         /* 2. Message History Stream */

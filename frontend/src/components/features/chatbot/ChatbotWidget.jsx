@@ -1,20 +1,25 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import ChatbotLauncher from './ChatbotLauncher';
 import dynamic from 'next/dynamic';
 const ChatbotHeader = dynamic(() => import('./ChatbotHeader'), { ssr: false });
 const ChatMessageList = dynamic(() => import('./ChatMessageList'), { ssr: false });
 const ChatInput = dynamic(() => import('./ChatInput'), { ssr: false });
+import { getPageContextData } from './pageContext';
 import styles from './ChatbotWidget.module.css';
 
 export default function ChatbotWidget({ initiallyOpen = false }) {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(initiallyOpen);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const dialogRef = useRef(null);
+
+  const contextData = getPageContextData(pathname);
 
   useEffect(() => {
     if (!isOpen || isMinimized) return;
@@ -57,7 +62,7 @@ export default function ChatbotWidget({ initiallyOpen = false }) {
 
     const userText = rawText ? rawText.trim() : '';
     const displayText = attachedFile
-      ? (userText ? `Attached resume: **${attachedFile.name}**\n${userText}` : `Attached resume: **${attachedFile.name}**`)
+      ? (userText ? `📎 Attached Resume: **${attachedFile.name}**\n${userText}` : `📎 Attached Resume: **${attachedFile.name}**`)
       : userText;
 
     const userMsg = {
@@ -99,7 +104,7 @@ export default function ChatbotWidget({ initiallyOpen = false }) {
         botResponse = {
           text: "I'm having trouble connecting right now. Please try again, or contact Omoikane Innovations directly at **info@omoikaneinnovations.com** or call **+91-8861035848**.",
           suggestions: ["Contact Us", "About Omoikane", "Career Opportunities"],
-          source: { label: "Contact Us", url: "https://www.omoikaneinnovations.com/contact" }
+          source: { label: "Contact Us", url: "/contact" }
         };
       }
 
@@ -118,9 +123,9 @@ export default function ChatbotWidget({ initiallyOpen = false }) {
       const fallbackMsg = {
         id: `bot-err-${Date.now()}`,
         sender: 'bot',
-        text: "I'm having trouble connecting right now. Please try again in a moment, or contact us at **info@omoikaneinnovations.com**, **+91-8861035848**, or **https://www.omoikaneinnovations.com/contact**.",
+        text: "I'm having trouble connecting right now. Please try again in a moment, or reach out directly:\n\n📧 **info@omoikaneinnovations.com**\n📞 **+91-8861035848**",
         timestamp: getTimestamp(),
-        source: { label: "Contact Us", url: "https://www.omoikaneinnovations.com/contact" },
+        source: { label: "Contact Us", url: "/contact" },
         suggestions: ["About Omoikane", "Explore Technologies", "Contact the Company"]
       };
       setMessages((prev) => [...prev, fallbackMsg]);
@@ -149,7 +154,6 @@ export default function ChatbotWidget({ initiallyOpen = false }) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            id="company-assistant-dialog"
             ref={dialogRef}
             className={`${styles.widgetPanel} ${isMinimized ? styles.widgetPanelMinimized : ''}`}
             initial={{ opacity: 0, y: 24, scale: 0.96 }}
@@ -180,6 +184,7 @@ export default function ChatbotWidget({ initiallyOpen = false }) {
                   isTyping={isTyping}
                   onSelectSuggestion={(sugg) => handleSendMessage(sugg)}
                   onSelectQuickAction={(act) => handleSendMessage(act)}
+                  contextData={contextData}
                 />
                 <ChatInput
                   onSendMessage={handleSendMessage}

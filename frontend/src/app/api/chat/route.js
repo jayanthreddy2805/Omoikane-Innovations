@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { ragRetriever } from '@/services/ragRetriever';
 import { omiAssistantService } from '@/services/omiAssistantService';
+import { queryAnalyticsService } from '@/services/queryAnalyticsService';
 import { OFFICIAL_KNOWLEDGE_BASE } from '@/data/omoikaneKnowledge';
 
 /**
@@ -231,6 +232,13 @@ End with JSON:
 
     // Step B: Handle unsupported/off-topic questions with strict evidence check
     if (!retrieval.hasVerifiedEvidence && retrievedPassages.length === 0) {
+      queryAnalyticsService.logQuery({
+        query: trimmed,
+        hasVerifiedEvidence: false,
+        responseSource: "Unanswered / Off-topic",
+        isUnanswered: true
+      });
+
       return NextResponse.json(
         {
           text: "I couldn't find verified information about that in the official Omoikane Innovations documentation.\n\nFor official confirmation or specific queries, please reach out directly to the company at **info@omoikaneinnovations.com** or call **+91-8861035848**.",
@@ -280,6 +288,14 @@ Answer the user's question using ONLY the evidence passages above. If the eviden
 
       if (ollamaRawResponse && ollamaRawResponse.trim()) {
         const parsed = parseModelOutput(ollamaRawResponse, retrieval.primarySource);
+
+        queryAnalyticsService.logQuery({
+          query: trimmed,
+          hasVerifiedEvidence: true,
+          responseSource: parsed.source?.label || "Verified Documents",
+          isFallback: false
+        });
+
         return NextResponse.json(
           {
             ...parsed,
@@ -294,6 +310,14 @@ Answer the user's question using ONLY the evidence passages above. If the eviden
 
       // Local deterministic fallback (pure in-memory rule engine) if Ollama is temporarily busy
       const fallbackResponse = await omiAssistantService.processMessage(trimmed);
+
+      queryAnalyticsService.logQuery({
+        query: trimmed,
+        hasVerifiedEvidence: true,
+        responseSource: fallbackResponse.source?.label || "Internal Knowledge Base",
+        isFallback: true
+      });
+
       return NextResponse.json(
         {
           ...fallbackResponse,
