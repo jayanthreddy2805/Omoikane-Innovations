@@ -1,21 +1,20 @@
 /* ─────────────────────────────────────────────────────────
    TECHNOLOGY & ENGINEERING (DARK EDITORIAL CAPABILITY MATRIX)
    Palette:
-   - Unified deep navy: #000812
+   - Unified footer background: var(--color-footer, #000812)
    - Ice white: #F7FBFF
-   - Technical blue: #1688F8
-   - Subtle Dividers: rgba(255, 255, 255, 0.08)
+   - Luminous sky blue accent: #7DBDFF
+   - Subtle Dividers: rgba(255, 255, 255, 0.12)
    - Muted secondary text: #B6C8DE
 ───────────────────────────────────────────────────────── */
 
 .section {
   width: 100%;
-  background-color: #000812;
-  /* Very subtle technical micro-texture */
-  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 0);
-  background-size: 24px 24px;
+  background-color: var(--color-footer, #000812);
+  /* Smooth ambient lighting gradient with zero dot noise */
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30, 98, 196, 0.20), transparent 70%);
   color: var(--color-on-dark, #F7FBFF);
-  padding: clamp(6.5rem, 11vh, 9.5rem) clamp(1.5rem, 5vw, 4.5rem);
+  padding: clamp(3.9rem, 6.6vh, 5.7rem) clamp(1.5rem, 5vw, 4.5rem);
   box-sizing: border-box;
   position: relative;
   z-index: 2;
@@ -35,7 +34,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: clamp(3.5rem, 6.5vh, 5.5rem);
+  margin-bottom: clamp(2.1rem, 3.9vh, 3.3rem);
 }
 
 .headline {
@@ -45,7 +44,7 @@
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--color-on-dark, #F7FBFF);
-  margin: 0 0 0.85rem 0;
+  margin: 0 0 0.5rem 0;
   text-align: left;
 }
 
@@ -56,8 +55,8 @@
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.3;
-  color: var(--color-blue-bright, #1688F8);
-  margin: 0 0 1.5rem 0;
+  color: #7DBDFF;
+  margin: 0 0 0.9rem 0;
 }
 
 .supportingCopy {
@@ -76,16 +75,16 @@
 .matrixGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   width: 100%;
   box-sizing: border-box;
 }
 
 .cell {
   position: relative;
-  min-height: clamp(165px, 20vh, 195px); /* 150–180px min-height */
-  padding: clamp(2.5rem, 3.5vw, 3.5rem) clamp(2rem, 2.8vw, 2.75rem);
+  min-height: clamp(100px, 12vh, 118px); /* Compact vertical scale */
+  padding: clamp(1.5rem, 2.1vw, 2.1rem) clamp(2rem, 2.8vw, 2.75rem);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -102,12 +101,12 @@
 @media (min-width: 861px) {
   /* Right divider line for columns 1 and 2 in each row */
   .cell:not(:nth-child(3n)) {
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   /* Bottom divider line for the top row (01, 02, 03) */
   .cell:nth-child(-n+3) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 }
 
@@ -118,7 +117,7 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   color: var(--color-on-dark-subtle, #8FA6C0);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.9rem;
   display: block;
 }
 
@@ -139,7 +138,7 @@
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.28;
-  color: var(--color-blue-bright, #1688F8);
+  color: #7DBDFF;
   margin: 0;
   opacity: 1;
   transition: opacity 200ms ease;
@@ -163,7 +162,7 @@
 /* ── HOVER INTERACTION (Desktop / Devices supporting hover) ── */
 @media (hover: hover) {
   .cell:hover {
-    background-color: rgba(255, 255, 255, 0.024);
+    background-color: rgba(255, 255, 255, 0.04);
   }
 
   .cell:hover .name {
@@ -179,7 +178,7 @@
 
 /* ── TOUCH / ACTIVE STATE INTERACTION (Mobile & Keyboard) ── */
 .cellActive {
-  background-color: rgba(255, 255, 255, 0.024);
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 .cellActive .name {
@@ -202,11 +201,11 @@
 ───────────────────────────────────────────────────────── */
 @media (max-width: 860px) {
   .section {
-    padding: 4.5rem 1.25rem 4rem 1.25rem;
+    padding: 2.7rem 1.25rem 2.4rem 1.25rem;
   }
 
   .header {
-    margin-bottom: 3rem;
+    margin-bottom: 1.8rem;
   }
 
   .matrixGrid {
@@ -217,8 +216,8 @@
 
   .cell {
     width: 100%;
-    min-height: 145px;
-    padding: 2rem 0.5rem;
+    min-height: 88px;
+    padding: 1.2rem 0.5rem;
     border-right: none !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
   }

@@ -10,7 +10,8 @@ import styles from "./Header.module.css";
 const SEARCH_INDEX = [
   { title: "Home", desc: "Omoikane Innovations — Aerospace, Defense & Embedded Systems", href: "/" },
   { title: "About Us", desc: "Learn about Omoikane Innovations, our mission and history", href: "/about" },
-  { title: "Technologies", desc: "Our advanced technology stack and engineering capabilities", href: "/expertise" },
+  { title: "Technology", desc: "Our advanced technology stack and engineering capabilities", href: "/expertise" },
+  { title: "Products", desc: "Mission-critical flight controllers, ESCs, GNSS, and tactical communications", href: "/work" },
   { title: "Projects", desc: "Real-world projects and deployments by Omoikane", href: "/projects" },
   { title: "Industries", desc: "Industries we serve: Defense, Agriculture, Aerospace", href: "/expertise" },
   { title: "Leadership", desc: "Meet the leadership team at Omoikane Innovations", href: "/leadership" },
@@ -23,8 +24,8 @@ const SEARCH_INDEX = [
 
 const NAV_LINKS = [
   { label: "About Us", href: "/about" },
-  { label: "Expertise", href: "/expertise" },
-  { label: "Our Work", href: "/work" },
+  { label: "Technology", href: "/expertise" },
+  { label: "Products", href: "/work" },
   { label: "Leadership", href: "/leadership" },
   {
     label: "Careers",

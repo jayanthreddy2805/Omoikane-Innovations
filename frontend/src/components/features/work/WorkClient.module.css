@@ -358,7 +358,7 @@
   overflow: hidden;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(10, 10, 10, 0.08);
-  background-color: #000812;
+  background-color: var(--color-footer, #000812);
   z-index: 1;
 }
 
@@ -373,7 +373,7 @@
   overflow: hidden;
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.15);
   border: 3px solid #FFFFFF;
-  background-color: #000812;
+  background-color: var(--color-footer, #000812);
   z-index: 3;
   transform: rotate(3deg);
 }
@@ -389,7 +389,7 @@
   overflow: hidden;
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.15);
   border: 3px solid #FFFFFF;
-  background-color: #000812;
+  background-color: var(--color-footer, #000812);
   z-index: 4;
   transform: rotate(-3.5deg);
 }

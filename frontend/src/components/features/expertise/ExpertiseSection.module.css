@@ -1,5 +1,5 @@
 .section {
-  --black: #000812;
+  --black: var(--color-footer, #000812);
   --paper: #F7FBFF;
   --grid: rgba(7, 87, 200, 0.08);
   --muted: #8FA6C0;

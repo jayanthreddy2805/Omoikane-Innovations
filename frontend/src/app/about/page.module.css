@@ -1125,7 +1125,7 @@
 .credSpotlight {
   position: absolute;
   inset: 0;
-  background: #000812;
+  background: var(--color-footer, #000812);
   --color-text-primary: #F7FBFF;
   --color-text-secondary: #B6C8DE;
   --color-text-muted: #8FA6C0;
@@ -1263,7 +1263,7 @@
   position: relative;
   width: 100%;
   padding: 3.5rem 0; /* Reduced padding for a tighter stripe */
-  background: #000812; /* Full horizontal footer navy background */
+  background: var(--color-footer, #000812); /* Full horizontal footer navy background */
   --text-primary: #F7FBFF;
   --text-secondary: #B6C8DE;
   --color-text-primary: #F7FBFF;
@@ -1944,7 +1944,7 @@
   align-items: center;
   padding: clamp(5rem, 8vh, 7rem) 0 clamp(6rem, 10vh, 8.5rem);
   overflow: hidden;
-  background-color: #000812;
+  background-color: var(--color-footer, #000812);
 }
 
 .testiContainer {

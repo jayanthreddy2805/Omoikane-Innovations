@@ -392,7 +392,7 @@
 }
 
 .userBubble {
-  background-color: #000812;
+  background-color: var(--color-footer, #000812);
   color: #FFFFFF;
   border-bottom-right-radius: 4px;
   align-self: flex-end;
@@ -689,7 +689,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background-color: #000812;
+  background-color: var(--color-footer, #000812);
   color: #FFFFFF;
   border: none;
   cursor: pointer;

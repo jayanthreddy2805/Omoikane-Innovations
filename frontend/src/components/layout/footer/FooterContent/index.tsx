@@ -16,8 +16,8 @@ export default function FooterContent() {
           <h3 className={styles.colHeader}>NAVIGATE</h3>
           <ul className={styles.linkList}>
             <li><Link href="/about">About Us</Link></li>
-            <li><Link href="/expertise">Expertise</Link></li>
-            <li><Link href="/work">Our Work</Link></li>
+            <li><Link href="/expertise">Technology</Link></li>
+            <li><Link href="/work">Products</Link></li>
             <li><Link href="/leadership">Leadership</Link></li>
             <li><Link href="/contact">Contact Us</Link></li>
           </ul>

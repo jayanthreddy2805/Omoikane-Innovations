@@ -16,6 +16,7 @@ export default function InternationalPhoneInput({
   id, 
   required, 
   disabled,
+  placeholder = '',
   variant = 'default', // 'default' | 'career'
   className = '' 
 }) {
@@ -182,7 +183,7 @@ export default function InternationalPhoneInput({
           value={localValue}
           onChange={handleInputChange}
           onBlur={handleBlur}
-          placeholder="Phone number"
+          placeholder={placeholder}
           required={required}
           disabled={disabled}
           autoComplete="tel-national"

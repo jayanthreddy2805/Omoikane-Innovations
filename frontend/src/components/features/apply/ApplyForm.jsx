@@ -171,7 +171,6 @@ export default function ApplyForm({ onSuccess }) {
             type="text"
             id="af-name"
             className={styles.input}
-            placeholder="Enter name"
             required
           />
         </div>
@@ -182,7 +181,6 @@ export default function ApplyForm({ onSuccess }) {
             type="email"
             id="af-email"
             className={styles.input}
-            placeholder="Enter email@gmail.com"
             required
           />
         </div>

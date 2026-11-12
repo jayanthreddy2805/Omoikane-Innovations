@@ -35,6 +35,8 @@ const nextConfig = {
       { source: "/electronics", destination: "/careers/electronics", permanent: true },
       { source: "/mechanical", destination: "/careers/mechanical", permanent: true },
       { source: "/services", destination: "/expertise", permanent: true },
+      { source: "/technology", destination: "/expertise", permanent: true },
+      { source: "/products", destination: "/work", permanent: true },
       { source: "/products.html", has: [{ type: "query", key: "product", value: "ofc-x" }], destination: "/work#ofc-x", permanent: true },
       { source: "/products.html", has: [{ type: "query", key: "product", value: "oesc" }], destination: "/work#oesc", permanent: true },
       { source: "/products.html", has: [{ type: "query", key: "product", value: "ogn-x" }], destination: "/work#ogn-x", permanent: true },

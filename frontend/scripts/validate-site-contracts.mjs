@@ -6,7 +6,7 @@ const checks = [
   ["src/components/features/leadership/LeadershipGallery.js", ["aria-haspopup=\"dialog\"", "aria-modal=\"true\"", "Close profile"]],
   ["src/components/shared/CustomSelect.jsx", ["aria-labelledby", "aria-activedescendant"]],
   ["src/components/shared/InternationalPhoneInput.jsx", ["role=\"listbox\"", "aria-label=\"Countries\""]],
-  ["src/app/expertise/layout.tsx", ["Expertise | Omoikane Innovations"]],
+  ["src/app/expertise/layout.tsx", ["Technology | Omoikane Innovations"]],
   ["src/app/contact/layout.js", ["Contact | Omoikane Innovations"]],
   ["next.config.mjs", ["/about-us", "/contact-us", "/software-development", "/products.html"]],
 ];

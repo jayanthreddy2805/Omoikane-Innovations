@@ -316,7 +316,7 @@
 
 /* --- CONTACT DETAILS BLOCK --- */
 .contactDetailsBlock {
-  background-color: #000812;
+  background-color: var(--color-footer, #000812);
   border-radius: 12px;
   padding: 2.5rem;
   color: var(--color-on-dark, #F7FBFF);

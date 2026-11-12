@@ -91,7 +91,6 @@ export default function ContactForm({ onSuccess }) {
             type="text" 
             id="cf-name" 
             className={styles.input} 
-            placeholder="Enter name"
             required 
           />
         </div>
@@ -102,7 +101,6 @@ export default function ContactForm({ onSuccess }) {
             type="email" 
             id="cf-email" 
             className={styles.input} 
-            placeholder="Enter email@gmail.com"
             required 
           />
         </div>
@@ -113,7 +111,6 @@ export default function ContactForm({ onSuccess }) {
             type="text" 
             id="cf-company" 
             className={styles.input} 
-            placeholder="Enter company"
           />
         </div>
 

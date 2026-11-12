@@ -19,7 +19,7 @@
   min-height: 220px;
   display: flex;
   align-items: center;
-  background: #000812;
+  background: var(--color-footer, #000812);
 }
 
 /* Dark radial gradient overlay — Stealth Titanium sheen */
@@ -28,7 +28,7 @@
   inset: 0;
   background:
     radial-gradient(ellipse 60% 80% at 50% -20%, rgba(148, 163, 184, 0.22), transparent),
-    #000812;
+    var(--color-footer, #000812);
   z-index: 0;
 }
 
