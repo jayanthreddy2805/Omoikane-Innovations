@@ -10,24 +10,26 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 2.5rem;
-  background-color: #FFFFFF;
-  position: sticky;
+  background-color: transparent;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  border-bottom: 1px solid #DCE7F3;
+  border-bottom: 1px solid transparent;
   gap: 1.5rem;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
   border-radius: 0;
-  box-shadow: 0 1px 4px rgba(6, 29, 64, 0.05);
+  box-shadow: none;
   transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-radius 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-radius 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .headerScrolled {
@@ -40,6 +42,70 @@
   border-radius: 999px;
   border: 1px solid rgba(10, 10, 10, 0.08);
   box-shadow: 0 10px 40px rgba(6, 29, 64, 0.12);
+}
+
+/* ─────────────────────────────────────────────
+   UNSCROLLED ON DARK HERO (e.g. HOME PAGE)
+───────────────────────────────────────────── */
+.headerOnDark .logoName {
+  color: #FFFFFF;
+}
+
+.headerOnDark .logoSub {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.headerOnDark .pillBtn {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.headerOnDark .pillBtn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.headerOnDark .pillActive {
+  color: #061D40 !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.headerOnDark .searchTrigger {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.headerOnDark .searchTrigger svg {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.headerOnDark .searchTrigger:hover,
+.headerOnDark .searchTrigger:hover svg {
+  color: #FFFFFF;
+}
+
+.headerOnDark .contactBtn {
+  background: #FFFFFF;
+  color: #061D40;
+}
+
+.headerOnDark .bar {
+  background: #FFFFFF;
+}
+
+.headerMobileOpen {
+  background-color: #FFFFFF !important;
+}
+
+.headerMobileOpen .logoName {
+  color: #061D40 !important;
+}
+
+.headerMobileOpen .logoSub {
+  color: #62748A !important;
+}
+
+.headerMobileOpen .bar {
+  background: #102746 !important;
 }
 
 /* ─────────────────────────────────────────────
@@ -347,9 +413,18 @@
   transform-origin: center;
 }
 
-.barTop { transform: translateY(7px) rotate(45deg); }
-.barMid { opacity: 0; transform: scaleX(0); }
-.barBot { transform: translateY(-7px) rotate(-45deg); }
+.barTop {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.barMid {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.barBot {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 /* ─────────────────────────────────────────────
    MOBILE MENU

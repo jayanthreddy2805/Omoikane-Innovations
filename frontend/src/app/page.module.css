@@ -56,7 +56,7 @@
   color: #FFFFFF;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
-  padding: clamp(3rem, 6vh, 5rem) clamp(1.25rem, 3.5vw, 3rem);
+  padding: clamp(6.5rem, 12vh, 8.5rem) clamp(1.25rem, 3.5vw, 3rem) clamp(3.5rem, 6vh, 5rem);
   box-sizing: border-box;
 }
 
@@ -423,12 +423,13 @@
 }
 
 @media (max-width: 680px) {
+
   .bentoCardHorizontal,
   .bentoCardWide {
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .bentoCardHorizontal .bentoImgWrapper,
   .bentoCardWide .bentoImgWrapper {
     width: 100%;
@@ -597,6 +598,7 @@
    REDUCED MOTION
 ───────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+
   .bentoCard,
   .bentoCardImg,
   .whyCard,
@@ -605,4 +607,3 @@
     transform: none !important;
   }
 }
-

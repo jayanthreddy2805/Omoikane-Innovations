@@ -8,6 +8,7 @@
   align-items: flex-start;
   width: 100%;
   min-height: 100vh;
+  padding-top: clamp(6.5rem, 10vh, 8rem);
   padding-left: 10vw;
   padding-right: 10vw;
   position: relative;

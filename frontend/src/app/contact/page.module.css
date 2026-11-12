@@ -11,8 +11,7 @@
   min-height: 100vh;
   background: var(--gradient-surface);
   color: var(--text-primary);
-  margin-top: -104px;
-  padding-top: 204px;
+  padding-top: clamp(7.5rem, 12vh, 9.5rem);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -25,7 +24,7 @@
   left: 10%;
   width: 150vw;
   height: 150vh;
-  background: 
+  background:
     radial-gradient(circle at 30% 40%, rgba(220, 231, 243, 0.38) 0%, transparent 60%),
     radial-gradient(circle at 70% 60%, rgba(239, 247, 255, 0.72) 0%, transparent 60%);
   filter: blur(120px);
@@ -348,7 +347,9 @@
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .heroGrid, .enquiryGrid {
+
+  .heroGrid,
+  .enquiryGrid {
     grid-template-columns: 1fr;
     gap: 64px;
   }
@@ -358,8 +359,10 @@
   .container {
     padding: 0 24px;
   }
-  
-  .heroSection, .enquirySection, .presenceSection {
+
+  .heroSection,
+  .enquirySection,
+  .presenceSection {
     padding: 80px 0;
   }
 

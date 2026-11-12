@@ -182,10 +182,12 @@ export default function Header() {
     }
   };
 
+  const isDarkHero = pathname === "/";
+
   return (
     <>
-      <motion.header 
-        className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}
+      <motion.header
+        className={`${styles.header} ${isScrolled ? styles.headerScrolled : (isDarkHero ? styles.headerOnDark : "")} ${mobileOpen ? styles.headerMobileOpen : ""}`}
         animate={{ y: isHidden ? "-100%" : (isScrolled ? 16 : 0), opacity: isHidden ? 0 : 1 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
@@ -331,33 +333,33 @@ export default function Header() {
           <span className={`${styles.bar} ${mobileOpen ? styles.barMid : ""}`} />
           <span className={`${styles.bar} ${mobileOpen ? styles.barBot : ""}`} />
         </button>
-      {/* ── MOBILE MENU ── */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.nav
-            id="mobile-navigation"
-            aria-label="Mobile navigation"
-            className={styles.mobileMenu}
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {NAV_LINKS.map((item) => (
-              <React.Fragment key={item.label}>
-                <Link href={item.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileLink} ${pathname?.startsWith(item.activePath || item.href) && item.href !== "/" ? styles.mobileLinkActive : pathname === "/" && item.href === "/" ? styles.mobileLinkActive : ""}`}>
-                  {item.label}
-                </Link>
-                {item.dropdown && item.dropdown.map((opt) => (
-                  <Link key={opt.href} href={opt.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileSubLink} ${pathname === opt.href ? styles.mobileLinkActive : ""}`}>
-                    — {opt.title}
+        {/* ── MOBILE MENU ── */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.nav
+              id="mobile-navigation"
+              aria-label="Mobile navigation"
+              className={styles.mobileMenu}
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {NAV_LINKS.map((item) => (
+                <React.Fragment key={item.label}>
+                  <Link href={item.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileLink} ${pathname?.startsWith(item.activePath || item.href) && item.href !== "/" ? styles.mobileLinkActive : pathname === "/" && item.href === "/" ? styles.mobileLinkActive : ""}`}>
+                    {item.label}
                   </Link>
-                ))}
-              </React.Fragment>
-            ))}
-          </motion.nav>
-        )}
-      </AnimatePresence>
+                  {item.dropdown && item.dropdown.map((opt) => (
+                    <Link key={opt.href} href={opt.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileSubLink} ${pathname === opt.href ? styles.mobileLinkActive : ""}`}>
+                      — {opt.title}
+                    </Link>
+                  ))}
+                </React.Fragment>
+              ))}
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </motion.header>
 
       {/* ── SEARCH OVERLAY ── */}

@@ -11,8 +11,7 @@
   min-height: 100vh;
   background: var(--gradient-surface);
   color: var(--text-primary);
-  margin-top: -104px;
-  padding-top: 204px;
+  padding-top: clamp(7.5rem, 12vh, 9.5rem);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -25,7 +24,7 @@
   left: 10%;
   width: 150vw;
   height: 150vh;
-  background: 
+  background:
     radial-gradient(circle at 30% 40%, rgba(220, 231, 243, 0.38) 0%, transparent 60%),
     radial-gradient(circle at 70% 60%, rgba(239, 247, 255, 0.72) 0%, transparent 60%);
   filter: blur(120px);
@@ -245,9 +244,12 @@
   left: 50%;
   top: 50%;
   transform: translateY(-50%);
-  margin-left: max(160px, 16vw); /* Anchors to the right of the text */
-  height: clamp(60px, 12vw, 150px); /* Exactly 1.5x the text clamp */
-  aspect-ratio: 238 / 267; /* Original image ratio */
+  margin-left: max(160px, 16vw);
+  /* Anchors to the right of the text */
+  height: clamp(60px, 12vw, 150px);
+  /* Exactly 1.5x the text clamp */
+  aspect-ratio: 238 / 267;
+  /* Original image ratio */
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 0;
@@ -321,7 +323,7 @@
   padding: 2.5rem;
   color: var(--color-on-dark, #F7FBFF);
   margin-top: 1rem;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   width: calc(100% + 40px);
   max-width: none;
 }
@@ -330,7 +332,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 1.5rem;
   margin-bottom: 2.5rem;
 }
@@ -383,6 +385,7 @@
   .contactDetailsGrid {
     grid-template-columns: 1fr;
   }
+
   .contactDetailsBlock {
     width: 100%;
   }
@@ -416,10 +419,13 @@
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .heroGrid, .enquiryGrid {
+
+  .heroGrid,
+  .enquiryGrid {
     grid-template-columns: 1fr;
     gap: 64px;
   }
+
   .contactDetailsBlock {
     width: 100%;
   }
@@ -429,8 +435,10 @@
   .container {
     padding: 0 24px;
   }
-  
-  .heroSection, .enquirySection, .presenceSection {
+
+  .heroSection,
+  .enquirySection,
+  .presenceSection {
     padding: 80px 0;
   }
 }
