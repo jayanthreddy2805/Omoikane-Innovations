@@ -9,12 +9,14 @@ const SUGGESTED_QUESTIONS = [
   { label: "Contact the Company", query: "How can I contact Omoikane Innovations?" }
 ];
 
-export default function QuickQuestions({ onSelectQuestion }) {
+export default function QuickQuestions({ onSelectQuestion, questions = SUGGESTED_QUESTIONS }) {
+  const activeQuestions = Array.isArray(questions) && questions.length > 0 ? questions : SUGGESTED_QUESTIONS;
+
   return (
     <div className={styles.quickQuestionsSection}>
       <span className={styles.quickQuestionsLabel}>Suggested Questions:</span>
       <div className={styles.quickQuestionsGrid}>
-        {SUGGESTED_QUESTIONS.map((item, idx) => (
+        {activeQuestions.map((item, idx) => (
           <button
             key={idx}
             type="button"
