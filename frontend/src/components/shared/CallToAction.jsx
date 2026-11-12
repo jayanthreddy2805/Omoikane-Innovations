@@ -103,16 +103,16 @@ export default function CallToAction() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2 className={styles.ctaTitleCentered} variants={itemVariants}>
-            Ready to deploy your next <em>mission?</em>
+            Ready to deploy your next <em>mission</em>
           </motion.h2>
 
           <motion.p className={styles.ctaTagline} variants={itemVariants}>
             From Sky to Soil, We Power Possibilities
           </motion.p>
 
-          <motion.div variants={itemVariants} style={{ marginTop: "1.25rem" }}>
+          <motion.div variants={itemVariants} style={{ marginTop: "1rem" }}>
             <Link href="/contact" className={styles.ctaButtonPill}>
-              <Sparkles size={16} strokeWidth={2.5} />
+              <Sparkles size={14} strokeWidth={2.5} />
               Contact OMOIKANE
             </Link>
           </motion.div>
