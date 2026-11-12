@@ -92,6 +92,51 @@
   background: #FFFFFF;
 }
 
+/* ─────────────────────────────────────────────
+   UNSCROLLED ON BEIGE HERO (TECHNOLOGY / EXPERTISE PAGE)
+───────────────────────────────────────────── */
+.headerBeige {
+  background-color: #F4F3EE !important;
+}
+
+.headerBeige .logoName {
+  color: #061D40;
+}
+
+.headerBeige .logoSub {
+  color: #62748A;
+}
+
+.headerBeige .pillBtn {
+  color: #061D40;
+}
+
+.headerBeige .pillBtn:hover {
+  background: rgba(6, 29, 64, 0.05);
+}
+
+.headerBeige .pillActive {
+  background: #000812 !important;
+  color: #FFFFFF !important;
+}
+
+.headerBeige .searchTrigger {
+  color: #061D40;
+}
+
+.headerBeige .searchTrigger svg {
+  color: #061D40;
+}
+
+.headerBeige .contactBtn {
+  background: #000812;
+  color: #FFFFFF;
+}
+
+.headerBeige .bar {
+  background: #061D40;
+}
+
 .headerMobileOpen {
   background-color: #FFFFFF !important;
 }

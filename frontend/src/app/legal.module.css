@@ -2,7 +2,7 @@
   background: var(--color-white);
   color: var(--color-ink);
   min-height: 65vh;
-  padding: clamp(7rem, 11vw, 10rem) 1.5rem var(--space-section);
+  padding: var(--header-clearance) 1.5rem var(--space-section);
 }
 
 .inner {

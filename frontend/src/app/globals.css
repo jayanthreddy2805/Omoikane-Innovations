@@ -22,6 +22,9 @@
   --measure-copy: 65ch;
   --space-section: clamp(5rem, 8vw, 8rem);
 
+  /* Fixed-header clearance: header height (~96px) + standard gap (~56px) */
+  --header-clearance: clamp(9rem, 14vh, 11rem);
+
   /* Legacy mappings */
   --bg-primary: #FFFFFF;
   --bg-secondary: #EFF7FF;

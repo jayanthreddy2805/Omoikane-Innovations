@@ -183,11 +183,12 @@ export default function Header() {
   };
 
   const isDarkHero = pathname === "/";
+  const isBeigeHero = pathname === "/expertise";
 
   return (
     <>
       <motion.header
-        className={`${styles.header} ${isScrolled ? styles.headerScrolled : (isDarkHero ? styles.headerOnDark : "")} ${mobileOpen ? styles.headerMobileOpen : ""}`}
+        className={`${styles.header} ${isScrolled ? styles.headerScrolled : (isDarkHero ? styles.headerOnDark : (isBeigeHero ? styles.headerBeige : ""))} ${mobileOpen ? styles.headerMobileOpen : ""}`}
         animate={{ y: isHidden ? "-100%" : (isScrolled ? 16 : 0), opacity: isHidden ? 0 : 1 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >

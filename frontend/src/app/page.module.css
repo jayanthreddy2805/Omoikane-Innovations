@@ -47,7 +47,7 @@
 ───────────────────────────────────────────────────────── */
 .heroSection {
   width: 100%;
-  min-height: clamp(600px, 80vh, 840px);
+  min-height: clamp(660px, 86vh, 900px);
   position: relative;
   display: flex;
   align-items: center;
@@ -56,7 +56,7 @@
   color: #FFFFFF;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
-  padding: clamp(6.5rem, 12vh, 8.5rem) clamp(1.25rem, 3.5vw, 3rem) clamp(3.5rem, 6vh, 5rem);
+  padding: var(--header-clearance) clamp(1.25rem, 3.5vw, 3rem) clamp(3.5rem, 6vh, 5rem);
   box-sizing: border-box;
 }
 

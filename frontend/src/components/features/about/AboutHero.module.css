@@ -14,7 +14,7 @@
   background: var(--color-white, #FFFFFF);
   background-color: var(--color-white, #FFFFFF);
   color: var(--about-ink);
-  padding: clamp(6.5rem, 10vh, 8rem) clamp(1.25rem, 5.55vw, 5.5rem) 2px;
+  padding: var(--header-clearance) clamp(1.25rem, 5.55vw, 5.5rem) 2px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -212,7 +212,7 @@
     height: auto;
     min-height: auto;
     max-height: none;
-    padding-top: 1rem;
+    padding-top: var(--header-clearance);
     padding-bottom: 2rem;
   }
 

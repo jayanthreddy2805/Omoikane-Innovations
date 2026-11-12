@@ -14,6 +14,7 @@
   background: var(--paper);
   overflow: hidden;
   isolation: isolate;
+  padding-top: clamp(4.5rem, 8vh, 5.5rem);
 }
 
 /* ---------------------------------------------------------
@@ -21,7 +22,8 @@
 --------------------------------------------------------- */
 .canvas {
   position: relative;
-  min-height: calc(min(81vh, 680px) - 100px);
+  min-height: clamp(520px, 66vh, 660px);
+  overflow: hidden;
 }
 
 
@@ -116,7 +118,7 @@
 --------------------------------------------------------- */
 .visualStage {
   position: absolute;
-  inset: 8% 9% 16% 9%;
+  inset: 12px 24px 8px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,18 +126,19 @@
 
 .visualPlaceholder {
   position: relative;
-  width: min(139.5vw, 1935px);
-  height: min(110.25vh, 945px);
+  width: 100%;
+  height: 100%;
+  max-width: 1550px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(1.5);
+  transform: scale(1.1);
 }
 
 .placeholderBody {
   position: relative;
-  width: 78%;
-  height: 54%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,10 +179,10 @@
 .placeholderCorner::before { width: 12px; height: 1px; }
 .placeholderCorner::after { width: 1px; height: 12px; }
 
-.topLeft { top: calc(23% - 6px); left: calc(11% - 6px); }
-.topRight { top: calc(23% - 6px); right: calc(11% - 6px); }
-.bottomLeft { bottom: calc(23% - 6px); left: calc(11% - 6px); }
-.bottomRight { bottom: calc(23% - 6px); right: calc(11% - 6px); }
+.topLeft { top: 0; left: 0; }
+.topRight { top: 0; right: 0; }
+.bottomLeft { bottom: 0; left: 0; }
+.bottomRight { bottom: 0; right: 0; }
 
 /* ---------------------------------------------------------
    ISSUE / TOOLTIP PLACEHOLDER

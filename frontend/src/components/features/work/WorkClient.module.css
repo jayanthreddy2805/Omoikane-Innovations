@@ -24,13 +24,13 @@
 ───────────────────────────────────────────────────────── */
 .heroSection {
   width: 100%;
-  min-height: clamp(660px, 88vh, 920px);
+  min-height: 100svh;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: var(--gradient-surface);
-  padding: clamp(6.5rem, 11vh, 9rem) clamp(1.5rem, 5vw, 4.5rem) clamp(2.5rem, 5vh, 4rem);
+  padding: var(--header-clearance) clamp(1.5rem, 5vw, 4.5rem) clamp(2.5rem, 5vh, 4rem);
   box-sizing: border-box;
   overflow: hidden;
   border-bottom: 1px solid var(--color-border, #DCE7F3);

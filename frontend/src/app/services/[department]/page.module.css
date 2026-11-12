@@ -1,7 +1,7 @@
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: clamp(7.5rem, 12vh, 9.5rem) 2rem 4rem;
+  padding: var(--header-clearance) 2rem 4rem;
   min-height: 80vh;
   background: var(--gradient-surface);
 }

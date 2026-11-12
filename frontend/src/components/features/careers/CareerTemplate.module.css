@@ -29,7 +29,7 @@
 
 /* SECTION A: HERO */
 .heroSection {
-  padding: 10rem 5% 5rem 5%;
+  padding: var(--header-clearance) 5% 5rem 5%;
   max-width: 1600px;
   margin: 0 auto;
   display: grid;

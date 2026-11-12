@@ -11,7 +11,7 @@
   min-height: 100vh;
   background: var(--gradient-surface);
   color: var(--text-primary);
-  padding-top: clamp(7.5rem, 12vh, 9.5rem);
+  padding-top: var(--header-clearance);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -217,8 +217,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 120px;
-  margin-top: -40px;
+  margin-bottom: clamp(3.5rem, 7vh, 6.5rem);
+  margin-top: 0;
 }
 
 .letsConnectTitle {
