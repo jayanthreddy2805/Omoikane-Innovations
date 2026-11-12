@@ -1,0 +1,123 @@
+/* ─────────────────────────────────────────────────────────────
+   HERO COMPOSITION — EXACT REFERENCE RECREATION
+   Reference dimensions: 440px x 430px (aspect ratio: 440 / 430 = 1.023)
+   - Dominant central rocket (rocket.png) tilted to upper-right (~25 deg above horizontal)
+   - Surrounding vintage B&W sticker illustrations:
+       mech.png (gears, upper-left)
+       bulb.png (lightbulb, top-center)
+       book.png (open book, top-right)
+       globe.png (desk globe, lower-left)
+       robo.png (retro robot, bottom-center)
+       computer.png (retro terminal, lower-right)
+   - SVG orbital graphics with solid and dashed orbital paths and 4 starbursts
+───────────────────────────────────────────────────────────── */
+
+.compositionRoot {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  aspect-ratio: 440 / 430;
+  margin: 0 auto;
+  user-select: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   1. ORBITAL DECORATIVE GRAPHICS (SVG LAYER)
+───────────────────────────────────────────────────────────── */
+.svgLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2. SHARED ILLUSTRATION CONTAINER STYLES
+───────────────────────────────────────────────────────────── */
+.illustrationItem {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgContain {
+  object-fit: contain;
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22));
+}
+
+/* ─────────────────────────────────────────────────────────────
+   3. INDIVIDUAL ILLUSTRATION POSITIONS & LAYERING
+   Measured from target reference (1024x529 -> 440x430 collage box)
+───────────────────────────────────────────────────────────── */
+
+/* Central Rocket (Dominant center element, ~25 deg above horizontal) */
+.itemRocket {
+  left: 6.5%;
+  top: 13.5%;
+  width: 68%;
+  height: 69.5%;
+  transform: rotate(19.25deg);
+  z-index: 10;
+}
+
+/* Mechanical Gears (Upper-Left, sits behind rocket fin) */
+.itemMech {
+  left: 6.4%;
+  top: 10.2%;
+  width: 23.5%;
+  height: 33.7%;
+  z-index: 4;
+}
+
+/* Light Bulb (Top-Center, above rocket nose) */
+.itemBulb {
+  left: 37.5%;
+  top: 2.3%;
+  width: 17%;
+  height: 22%;
+  z-index: 6;
+}
+
+/* Open Book (Top-Right, tilted slightly) */
+.itemBook {
+  left: 63.6%;
+  top: 6.3%;
+  width: 25.5%;
+  height: 19%;
+  transform: rotate(-6deg);
+  z-index: 6;
+}
+
+/* Desk Globe (Lower-Left, below rocket tail/fin) */
+.itemGlobe {
+  left: 4.3%;
+  top: 60.5%;
+  width: 25.5%;
+  height: 37%;
+  z-index: 5;
+}
+
+/* Robot (Bottom-Center, between globe and computer) */
+.itemRobo {
+  left: 40.5%;
+  top: 66%;
+  width: 15.5%;
+  height: 20%;
+  z-index: 7;
+}
+
+/* Retro Computer (Lower-Right) */
+.itemComputer {
+  left: 63.6%;
+  top: 39.5%;
+  width: 31.6%;
+  height: 30%;
+  z-index: 8;
+}

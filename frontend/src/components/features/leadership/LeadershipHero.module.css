@@ -235,7 +235,7 @@
   padding: 20px 24px;
 }
 .actualTitle {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-space-grotesk), sans-serif;
   font-size: var(--type-section);
   font-weight: 700;
   line-height: 1;
