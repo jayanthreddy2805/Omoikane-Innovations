@@ -52,7 +52,7 @@
 }
 
 .eyebrow {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.9rem;
   letter-spacing: 2px;
   color: var(--text-muted);
@@ -147,7 +147,7 @@
 }
 
 .sectionHeader h2 {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.9rem;
   letter-spacing: 2px;
   color: var(--text-muted);
@@ -174,7 +174,7 @@
 }
 
 .wwbItem h3 {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 1rem;
   letter-spacing: 1px;
   color: var(--text-primary);
@@ -223,7 +223,7 @@
 
 .navHeader {
   display: block;
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.8rem;
   letter-spacing: 2px;
   color: var(--text-muted);
@@ -290,7 +290,7 @@
 }
 
 .navNumber {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.85rem;
   margin-top: 0.2rem;
 }
@@ -335,7 +335,7 @@
 }
 
 .roleEyebrow {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -346,7 +346,7 @@
 }
 
 .roleHeader h2 {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 500;
   letter-spacing: -0.5px;
@@ -412,7 +412,7 @@
 
 .editorialCol h3,
 .fullSkillsSection h3 {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.8rem;
   letter-spacing: 2px;
   color: var(--text-muted);
@@ -455,7 +455,7 @@
 }
 
 .workNum {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--theme-accent);
@@ -520,7 +520,7 @@
 }
 
 .skillGroup h4 {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.75rem;
   letter-spacing: 1.5px;
   color: var(--text-muted);
@@ -571,7 +571,7 @@
   color: var(--text-primary);
   border: 1px solid rgba(10, 10, 10, 0.25);
   padding: 1rem 2rem;
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 2px;
@@ -603,7 +603,7 @@
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
   padding: 1.15rem 2.25rem;
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 1.5px;
@@ -692,7 +692,7 @@
 }
 
 .applyText h2 {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: var(--type-section);
   font-weight: 500;
   letter-spacing: -1px;
@@ -727,7 +727,7 @@
 }
 
 .contactIndexTitle {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -742,7 +742,7 @@
 }
 
 .contactGroup h4 {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 1px;
@@ -780,7 +780,7 @@
   align-items: center;
   gap: 0.5rem;
   color: var(--text-primary);
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -809,7 +809,7 @@
   align-items: center;
   gap: 0.5rem;
   color: var(--text-primary);
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -860,7 +860,7 @@
 }
 
 .inputGroup label {
-  font-family: var(--font-inter);
+  font-family: var(--font-space-grotesk);
   font-size: 0.95rem;
   letter-spacing: 1px;
   color: var(--text-muted);

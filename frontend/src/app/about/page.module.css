@@ -19,7 +19,7 @@
 }
 
 .sectionLabelIndex {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.25em;
@@ -34,7 +34,7 @@
 }
 
 .sectionLabelText {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -167,7 +167,7 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 3rem;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   letter-spacing: 0.25em;
   color: var(--color-border-subtle);
@@ -185,7 +185,7 @@
 }
 
 .heroH1Solid {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(5rem, 10vw, 10rem);
   font-weight: 700;
   letter-spacing: -0.05em;
@@ -195,7 +195,7 @@
 }
 
 .heroH1Stroke {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(5rem, 10vw, 10rem);
   font-weight: 700;
   letter-spacing: -0.05em;
@@ -222,7 +222,7 @@
 }
 
 .heroDomainTag {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   color: var(--color-border-subtle);
@@ -245,7 +245,7 @@
 }
 
 .heroScrollHint span {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.62rem;
   letter-spacing: 0.22em;
   color: var(--color-text-muted);
@@ -267,14 +267,14 @@
 }
 
 .heroMetaLabel {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.58rem;
   letter-spacing: 0.22em;
   color: var(--color-text-muted);
 }
 
 .heroMetaValue {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -285,7 +285,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   color: var(--color-text-primary);
@@ -333,7 +333,7 @@
 }
 
 .annotationLabel {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.58rem;
   letter-spacing: 0.2em;
   color: var(--color-border-subtle);
@@ -360,7 +360,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.6rem;
   letter-spacing: 0.18em;
   color: var(--color-text-muted);
@@ -446,7 +446,7 @@
 }
 
 .visionHeading {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.85rem;
   letter-spacing: 0.3em;
   color: var(--color-text-muted);
@@ -461,7 +461,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(8rem, 20vw, 24rem);
   font-weight: 700;
   color: var(--color-blue, #0757C8);
@@ -480,7 +480,7 @@
 }
 
 .visionText {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(1.5rem, 3.5vw, 2.8rem);
   line-height: 1.25;
   font-weight: 400;
@@ -515,7 +515,7 @@
 }
 
 .editorialIndex {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.85rem;
   color: var(--color-text-primary);
   font-weight: 600;
@@ -526,7 +526,7 @@
 }
 
 .editorialLabel {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   color: var(--color-text-muted);
@@ -543,7 +543,7 @@
 }
 
 .editorialHeading {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(3rem, 5.5vw, 5.2rem);
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -607,7 +607,7 @@
 }
 
 .editorialCardIndex {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -616,7 +616,7 @@
 }
 
 .editorialCardTitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -664,7 +664,7 @@
 }
 
 .editorialFooterLink {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -720,7 +720,7 @@
 }
 
 .domainsHeading {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -817,7 +817,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.6rem;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
@@ -862,7 +862,7 @@
 }
 
 .domainTabIndex {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -873,7 +873,7 @@
 }
 
 .domainTabLabel {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -941,7 +941,7 @@
 }
 
 .domainPanelIndex {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   letter-spacing: 0.25em;
   color: rgba(255, 255, 255, 0.5);
@@ -950,7 +950,7 @@
 }
 
 .domainPanelLabel {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(2.75rem, 4.5vw, 4rem); /* Reduced by ~10% */
   font-weight: 600;
   letter-spacing: -0.04em;
@@ -1016,7 +1016,7 @@
 }
 
 .domainStatusText {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.6rem;
   letter-spacing: 0.22em;
   color: var(--color-text-muted);
@@ -1041,7 +1041,7 @@
 }
 
 .credHeading {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(2.2rem, 4vw, 3.8rem);
   font-weight: 700;
   letter-spacing: -0.035em;
@@ -1101,7 +1101,7 @@
 }
 
 .credListCode {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(3rem, 5vw, 5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -1157,7 +1157,7 @@
 }
 
 .credSpotlightLabel {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   letter-spacing: 0.25em;
   color: var(--color-text-primary);
@@ -1202,7 +1202,7 @@
 }
 
 .sealText {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-text-primary);
@@ -1210,7 +1210,7 @@
 }
 
 .credSpotlightTitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--color-text-primary);
@@ -1241,7 +1241,7 @@
 
 .credMetaKey {
   display: block;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.55rem;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
@@ -1250,7 +1250,7 @@
 
 .credMetaVal {
   display: block;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   color: var(--color-text-primary);
@@ -1340,7 +1340,7 @@
 }
 
 .impactCardValue {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(4.5rem, 6vw, 5.5rem);
   font-weight: 500;
   color: var(--color-on-dark, #F7FBFF);
@@ -1379,7 +1379,7 @@
 }
 
 .impactReadoutTitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.55rem;
   letter-spacing: 0.25em;
   color: var(--color-text-muted);
@@ -1396,7 +1396,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   color: var(--color-text-muted);
@@ -1432,7 +1432,7 @@
 }
 
 .faqHeading {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: var(--type-section);
   font-weight: 700;
   line-height: 1.1;
@@ -1596,7 +1596,7 @@
 }
 
 .finaleH2 {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(3.5rem, 8vw, 8.5rem);
   font-weight: 700;
   letter-spacing: -0.05em;
@@ -1632,7 +1632,7 @@
   gap: 10px;
   background: var(--color-text-primary);
   color: var(--color-bg);
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.55rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -1656,7 +1656,7 @@
 }
 
 .finaleCtaSecondary {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.52rem;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
@@ -1676,7 +1676,7 @@
   align-items: center;
   gap: 16px;
   margin-top: 6rem;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.6rem;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
@@ -1785,7 +1785,7 @@
 }
 
 .credLabel {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1794,7 +1794,7 @@
 }
 
 .credHeading {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: var(--type-section);
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -1868,7 +1868,7 @@
 }
 
 .credTitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: clamp(1.4rem, 1.75vw, 1.75rem);
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -2003,7 +2003,7 @@
   font-size: var(--type-section);
   font-weight: 700;
   color: var(--color-on-dark, #F7FBFF);
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   line-height: 1.1;
   margin: 0;
   text-wrap: balance;
@@ -2100,7 +2100,7 @@
   background: rgba(22, 136, 248, 0.16);
   border: 1px solid rgba(22, 136, 248, 0.3);
   color: #F7FBFF;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-space-grotesk, sans-serif);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;

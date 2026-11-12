@@ -2,6 +2,7 @@
 
 import styles from "./LeadershipHero.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function LeadershipHero() {
@@ -25,7 +26,12 @@ export default function LeadershipHero() {
         {/* Tiny technical coordinate placeholder removed */}
 
         {/* Central visual Stage */}
-        <div className={styles.visualStage}>
+        <motion.div 
+          className={styles.visualStage}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className={styles.visualPlaceholder}>
             <span className={`${styles.placeholderCorner} ${styles.topLeft}`} />
             <span className={`${styles.placeholderCorner} ${styles.topRight}`} />
@@ -39,12 +45,11 @@ export default function LeadershipHero() {
                   fill 
                   style={{ objectFit: 'contain', padding: '10px' }} 
                   priority
-                  fetchPriority="high"
-                  sizes="(max-width: 760px) 100vw, 82vw"
+                  unoptimized={true}
                />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Interaction/issue tooltip removed */}
       </section>
