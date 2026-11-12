@@ -99,8 +99,7 @@ export default function HomeClient() {
             >
               Flight control,<br />
               embedded electronics<br />
-              and autonomous<br />
-              systems
+              and autonomous&nbsp;systems
             </motion.h1>
 
             <motion.p
@@ -109,8 +108,7 @@ export default function HomeClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className={styles.heroPhilosophyLine}>We design and develop products for OEMs, UAV manufacturers, system integrators and engineering teams.</span>
-              <span className={styles.heroPhilosophyStandard}>We align hardware with system requirements, interfaces and operating conditions for dependable integration.</span>
+              We design and develop products for OEMs, UAV manufacturers, system integrators and engineering teams, tailored to their platform and operating requirements.
             </motion.p>
 
             <motion.div
