@@ -25,19 +25,27 @@ function useReducedMotion() {
   return reduced;
 }
 
-function MergedRailwayVideo({ reducedMotion }: { reducedMotion: boolean }) {
+function MergedRailwayVideo({ active, reducedMotion }: { active: boolean; reducedMotion: boolean }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const v1 = useRef<HTMLVideoElement>(null);
   const v2 = useRef<HTMLVideoElement>(null);
 
+  useEffect(() => {
+    v1.current?.pause();
+    v2.current?.pause();
+    if (!active || reducedMotion) return;
+    const current = activeIdx === 0 ? v1.current : v2.current;
+    current?.play().catch(() => {});
+  }, [active, activeIdx, reducedMotion]);
+
   const handleEnd = (idx: number) => {
     const nextIdx = idx === 0 ? 1 : 0;
     setActiveIdx(nextIdx);
-    if (nextIdx === 0 && v1.current) {
+    if (active && !reducedMotion && nextIdx === 0 && v1.current) {
       v1.current.currentTime = 0;
       v1.current.play().catch(() => {});
     }
-    if (nextIdx === 1 && v2.current) {
+    if (active && !reducedMotion && nextIdx === 1 && v2.current) {
       v2.current.currentTime = 0;
       v2.current.play().catch(() => {});
     }
@@ -48,8 +56,8 @@ function MergedRailwayVideo({ reducedMotion }: { reducedMotion: boolean }) {
       <div style={{ position: 'relative', width: '100%', maxWidth: '640px', aspectRatio: '4 / 3', borderRadius: '12px', background: 'transparent', boxShadow: '0 15px 40px rgba(0, 0, 0, 0.19)', overflow: 'hidden' }}>
         <video
           ref={v1}
-          src="/videos/expertise/railway-inspection-part1.mp4"
-          autoPlay={!reducedMotion}
+          src={active ? "/videos/expertise/railway-inspection-part1.mp4" : undefined}
+          preload={active && reducedMotion ? "metadata" : "none"}
           muted
           playsInline
           onEnded={reducedMotion ? undefined : () => handleEnd(0)}
@@ -57,7 +65,8 @@ function MergedRailwayVideo({ reducedMotion }: { reducedMotion: boolean }) {
         />
         <video
           ref={v2}
-          src="/videos/expertise/railway-inspection-part2.mp4"
+          src={active ? "/videos/expertise/railway-inspection-part2.mp4" : undefined}
+          preload="none"
           muted
           playsInline
           onEnded={reducedMotion ? undefined : () => handleEnd(1)}
@@ -363,8 +372,9 @@ export function ExpertiseSection() {
                         node.playbackRate = 1.75;
                       }
                     }}
-                    src="/videos/expertise/automotive-turbocharger.mp4"
-                    autoPlay={!reducedMotion}
+                    src={activeIndex === index ? "/videos/expertise/automotive-turbocharger.mp4" : undefined}
+                    autoPlay={activeIndex === index && !reducedMotion}
+                    preload={activeIndex === index && reducedMotion ? "metadata" : "none"}
                     muted
                     loop
                     playsInline
@@ -373,7 +383,7 @@ export function ExpertiseSection() {
                 </div>
               </div>
             ) : item.id === "railways" ? (
-              <MergedRailwayVideo reducedMotion={reducedMotion} />
+              <MergedRailwayVideo active={activeIndex === index} reducedMotion={reducedMotion} />
             ) : (
               <div className={`${styles.sceneCanvas} ${styles[`sceneCanvas${index}`]}`}>
                 <div className={styles.sceneIndex}>{String(index + 1).padStart(2, "0")}</div>
