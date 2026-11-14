@@ -1,12 +1,10 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--header-clearance) 0 clamp(2.5rem, 5vh, 4rem);
+  padding: clamp(2.5rem, 5vh, 4rem) 0;
   background: var(--color-white, #FFFFFF);
   color: var(--color-ink, #102746);
   box-sizing: border-box;
@@ -46,7 +44,7 @@
 
 .title {
   font-family: var(--font-inter), sans-serif;
-  font-size: 29px !important;
+  font-size: 25px !important;
   line-height: 1.15 !important;
   letter-spacing: -0.02em !important;
   font-weight: 700 !important;
@@ -100,8 +98,8 @@
   position: relative;
   isolation: isolate;
   width: 100%;
-  min-height: clamp(380px, 52vh, 560px);
-  max-height: clamp(420px, 58vh, 600px);
+  min-height: clamp(300px, 42vh, 460px);
+  max-height: clamp(340px, 48vh, 500px);
   margin: 0;
   overflow: hidden;
   background: #061D40;
@@ -117,6 +115,7 @@
   object-fit: cover;
   object-position: center;
 }
+
 .soundToggle {
   position: absolute;
   right: clamp(14px, 2.2vw, 24px);
@@ -160,9 +159,7 @@
 
 @media (max-width: 1024px) {
   .hero {
-    min-height: auto;
-    padding-top: calc(var(--header-clearance) + 1rem);
-    padding-bottom: 4rem;
+    padding: 3rem 0;
   }
 
   .split {
@@ -171,22 +168,21 @@
   }
 
   .film {
-    min-height: 340px;
+    min-height: 300px;
   }
 }
 
 @media (max-width: 680px) {
   .hero {
-    padding-top: calc(var(--header-clearance) + 0.5rem);
-    padding-bottom: 3rem;
+    padding: 2rem 0;
   }
 
   .title {
-    font-size: 24px !important;
+    font-size: 22px !important;
   }
 
   .film {
-    min-height: 240px;
+    min-height: 220px;
     border-radius: 14px;
   }
 }
