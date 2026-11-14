@@ -313,7 +313,6 @@ export function ExpertiseSection() {
     <section ref={sectionRef} className={styles.section} aria-label="Omoikane expertise">
       <aside className={styles.leftRail} aria-label="Expertise navigation">
         <div className={styles.leftInner}>
-          <div className={styles.eyebrow}>EXPERTISE</div>
 
           <div className={styles.copy} aria-live="polite">
             <h2 ref={headingRef} className={styles.title} key={`title-${active.id}`}>
