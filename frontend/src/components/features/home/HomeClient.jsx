@@ -11,14 +11,12 @@ import {
   Activity,
   Layers,
   Zap,
-  ArrowDown,
-  ArrowUpRight,
 } from "lucide-react";
 import styles from "@/app/page.module.css";
 import CallToAction from "@/components/shared/CallToAction";
 import SelectedWork from "@/components/features/home/SelectedWork";
 import HomeCareers from "@/components/features/home/HomeCareers";
-import HeroComposition from "@/components/features/home/HeroComposition";
+import { ClientHomeHero } from "@/components/shared/ClientReferenceHero";
 
 
 // ─── Why Our Products Stand Out ───────────────────────────────────
@@ -75,70 +73,7 @@ export default function HomeClient() {
       {/* ─────────────────────────────────────────────────────────
           1. HERO SECTION
       ───────────────────────────────────────────────────────── */}
-      <section className={styles.heroSection} id="hero" aria-labelledby="hero-headline">
-        <div className={styles.heroGrid}>
-          {/* Left Column: Premium Editorial Typography & CTAs */}
-          <div className={styles.heroLeftCol}>
-            <motion.div
-              className={styles.heroEyebrowBadge}
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <span className={styles.heroEyebrowText}>INDIGENOUS TECHNOLOGY</span>
-              <span className={styles.heroEyebrowDivider} aria-hidden="true">|</span>
-              <span className={styles.heroEyebrowText}>GLOBAL STANDARDS</span>
-            </motion.div>
-
-            <motion.h1
-              id="hero-headline"
-              className={styles.heroHeadline}
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            >
-              Flight control,<br />
-              embedded electronics<br />
-              and autonomous&nbsp;systems
-            </motion.h1>
-
-            <motion.p
-              className={styles.heroPhilosophy}
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            >
-              We design and develop products for OEMs, UAV manufacturers, system integrators and engineering teams, tailored to their platform and operating requirements.
-            </motion.p>
-
-            <motion.div
-              className={styles.heroActions}
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <Link href="#selected-work" className={styles.heroBtnPrimary}>
-                <span>EXPLORE OUR WORK</span>
-                <ArrowDown size={14} aria-hidden="true" />
-              </Link>
-              <Link href="/contact#contact-form" className={styles.heroBtnSecondary}>
-                <span>CONTACT US</span>
-                <ArrowUpRight size={15} aria-hidden="true" />
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Right Column: BeGlobe Reference Visual Composition (Without Images) */}
-          <motion.div
-            className={styles.heroRightCol}
-            initial={false}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <HeroComposition />
-          </motion.div>
-        </div>
-      </section>
+      <ClientHomeHero />
 
       {/* ─────────────────────────────────────────────────────────
           2. PROJECTS & FOCUSED PRODUCTION AREAS (CORE EXPERTISE)

@@ -279,3 +279,7 @@
     transition: none;
   }
 }
+/* Preserve the existing company film and copy below the client title band. */
+.hero { padding: 34px max(22px, calc((100% - 1180px) / 2)) 2px; }
+.container { max-width: 1180px; }
+@media (max-width: 720px) { .hero { padding: 27px 15px 2px; } }

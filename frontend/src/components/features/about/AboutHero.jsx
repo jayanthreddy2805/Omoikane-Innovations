@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect, useSyncExternalStore } from "react";
 import styles from "./AboutHero.module.css";
+import { ClientPageHero } from "@/components/shared/ClientReferenceHero";
 
 const COMPANY_VIDEO = "/videos/about/omoikane.mp4";
 const COMPANY_VIDEO_POSTER = "/images/about/omoikane-film-poster.jpg";
@@ -45,15 +46,16 @@ export default function AboutHero() {
 
   return (
     <>
-      <section className={styles.hero} aria-labelledby="about-hero-title">
+      <ClientPageHero title="About Omoikane" />
+      <section className={styles.hero} aria-labelledby="about-intro-title">
         <div className={styles.container}>
           <header className={styles.intro}>
-            <h1 id="about-hero-title" className={styles.headline}>
+            <h2 id="about-intro-title" className={styles.headline}>
               <span className={styles.headlineLine}>Advanced systems.</span>
               <span className={`${styles.headlineLine} ${styles.headlineLineSecondary}`}>
                 Built for the real world.
               </span>
-            </h1>
+            </h2>
           </header>
 
           <figure className={styles.film}>
