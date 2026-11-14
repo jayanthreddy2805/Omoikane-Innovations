@@ -2,7 +2,7 @@
 .container { width: min(1180px, calc(100% - 44px)); margin-inline: auto; }
 .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; align-items: stretch; }
 .copy { padding: 25px 30px; }
-.kicker { font-size: 12px; line-height: 1.6; letter-spacing: .12em; font-weight: 700; text-transform: uppercase; color: #5d7898; margin-bottom: 6px; }
+.kicker { font-size: 0.875rem; line-height: 1.6; letter-spacing: .12em; font-weight: 700; text-transform: uppercase; color: #5d7898; margin-bottom: 6px; }
 .copy h2 { font-size: 23px; line-height: 1.2; color: #102d51; margin: 0; }
 .copy p { color: #60738a; margin: 1em 0; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #0757c8; color: #fff; border: 1px solid #0757c8; border-radius: 24px; padding: 12px 22px; font-size: 14px; font-weight: 750; box-shadow: 0 6px 16px #0757c822; }

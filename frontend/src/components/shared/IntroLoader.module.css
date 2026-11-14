@@ -29,7 +29,7 @@
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   letter-spacing: 0.22em;
   color: var(--text-tertiary, #62748A);
   text-transform: uppercase;

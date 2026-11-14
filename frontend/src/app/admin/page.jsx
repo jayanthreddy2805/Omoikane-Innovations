@@ -581,13 +581,13 @@ export default function AdminDashboardPage() {
                               <span>⬇</span>
                               <span>{app.resumeFilename}</span>
                               {app.resumeSize > 0 && (
-                                <span style={{ opacity: 0.7, fontSize: '11px' }}>
+                                <span style={{ opacity: 0.7, fontSize: '14px' }}>
                                   ({formatFileSize(app.resumeSize)})
                                 </span>
                               )}
                             </button>
                           ) : (
-                            <span style={{ color: '#94a3b8', fontSize: '13px' }}>None attached</span>
+                            <span style={{ color: '#94a3b8', fontSize: '14px' }}>None attached</span>
                           )}
                         </td>
                         <td>

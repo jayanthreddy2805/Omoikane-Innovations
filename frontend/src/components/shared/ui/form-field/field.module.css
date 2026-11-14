@@ -22,14 +22,14 @@
 }
 
 .description {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #62748A;
   font-family: var(--font-inter, sans-serif);
   margin-top: 0.15rem;
 }
 
 .error {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #f87171;
   font-family: var(--font-inter, sans-serif);
   margin-top: 0.1rem;

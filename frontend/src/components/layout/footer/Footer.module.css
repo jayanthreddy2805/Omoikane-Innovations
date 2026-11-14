@@ -57,7 +57,7 @@
 
 /* TYPOGRAPHY */
 .colHeader {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 2.5px;
   color: var(--text-subtle);
@@ -174,7 +174,7 @@
   align-items: center;
   gap: 1.5rem;
   padding-top: 1.25rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--text-subtle);
   border-top: none; /* No border here on APSLOCK */
 }
@@ -303,7 +303,7 @@
   align-items: center;
   gap: 0.6rem;
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 2.5px;
   color: var(--text-secondary);
@@ -402,7 +402,7 @@
 
 .heroBrandSub {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+  font-size: clamp(0.875rem, 1.1vw, 0.95rem);
   font-weight: 600;
   letter-spacing: 4px;
   color: var(--text-secondary);
