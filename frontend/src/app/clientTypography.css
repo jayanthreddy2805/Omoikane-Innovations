@@ -2,19 +2,21 @@
 :is(#main-content, footer), :is(#main-content, footer) * {
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 }
-#main-content { --type-section: 25px; --type-lead: 15px; --type-body: 13px; line-height: 1.6; }
+#main-content { --type-section: 25px; --type-lead: 15px; --type-body: 15px; --type-label: 12px; line-height: 1.6; }
 #main-content :is(h1,h2,h3,h4,h5,h6,em) { font-style: normal !important; }
 #main-content h1:not([data-client-hero-heading]) { font-size: 29px !important; line-height: 1.1 !important; letter-spacing: normal !important; font-weight: 700 !important; }
 #main-content h2 { font-size: 25px !important; line-height: 1.15 !important; letter-spacing: -.03em !important; font-weight: 700 !important; }
-#main-content h3 { font-size: 17px !important; line-height: 1.6 !important; font-weight: 700 !important; }
-#main-content p:not([data-client-hero-copy]) { font-size: 13px !important; line-height: 1.6 !important; letter-spacing: normal !important; }
-#main-content :is(input,textarea,select) { font-size: 13px; }
-#main-content label { font-size: 12px; font-weight: 800; }
-footer p { font-size: 10px !important; line-height: 1.6 !important; }
-footer :is(h3,h4) { font-size: 11px !important; font-weight: 700 !important; }
-footer a { font-size: 10px; }
+#main-content :is(h4,h5,h6) { font-size: 16px !important; line-height: 1.4 !important; font-weight: 700 !important; }
+#main-content :is(h1,h2,h3,h4,h5,h6) :is(span,em,strong) { font-size: inherit !important; line-height: inherit !important; font-style: normal !important; }
+#main-content h3 { font-size: 18px !important; line-height: 1.6 !important; font-weight: 700 !important; }
+#main-content p:not([data-client-hero-copy]) { font-size: 15px !important; line-height: 1.6 !important; letter-spacing: normal !important; }
+#main-content :is(input,textarea,select) { font-size: 15px; }
+#main-content label { font-size: 14px; font-weight: 600; }
+footer p { font-size: 14px !important; line-height: 1.6 !important; }
+footer :is(h3,h4) { font-size: 15px !important; font-weight: 700 !important; }
+footer a { font-size: 14px; }
 @media(max-width:680px) {
   #main-content h1:not([data-client-hero-heading]) { font-size: 24px !important; }
   #main-content h2 { font-size: 22px !important; }
-  #main-content p:not([data-client-hero-copy]) { font-size: 12px !important; }
+  #main-content p:not([data-client-hero-copy]) { font-size: 14px !important; }
 }

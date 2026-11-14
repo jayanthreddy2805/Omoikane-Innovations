@@ -1,91 +1,14 @@
-.hero,
-.summarySection {
-  --about-paper: var(--color-white, #FFFFFF);
-  --about-ink: var(--color-navy, #061D40);
-  --about-muted: var(--color-muted, #62748A);
-  --about-rule: var(--color-border, #DCE7F3);
-  --about-accent: var(--color-blue, #0757C8);
-  --about-accent-dark: #061D40;
-}
-
-.hero {
-  width: 100%;
-  height: auto;
-  background: var(--color-white, #FFFFFF);
-  background-color: var(--color-white, #FFFFFF);
-  color: var(--about-ink);
-  padding: var(--header-clearance) clamp(1.25rem, 5.55vw, 5.5rem) 2px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-}
-
-.container {
-  width: 100%;
-  max-width: 1720px;
-  margin-inline: auto;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-.intro {
-  flex-shrink: 0;
-  padding-top: 0;
-  padding-bottom: clamp(0.75rem, 1.6vh, 1.5rem);
-}
-
-.headline {
-  margin: 0;
-  color: var(--about-ink);
-  font-family: var(--font-space-grotesk, sans-serif);
-  font-size: clamp(2.5rem, min(4.5vw, 6.8vh), 4.75rem);
-  font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  text-transform: none;
-}
-
-.headlineLine {
-  display: block;
-}
-
-.headlineLineSecondary {
-  margin-top: 0.035em;
-  color: var(--color-muted, #62748A);
-  font-weight: 400;
-  letter-spacing: -0.05em;
-}
-
-.film {
-  position: relative;
-  isolation: isolate;
-  width: 100%;
-  height: clamp(380px, 48vh, 500px);
-  margin-inline: auto;
-  overflow: hidden;
-  background: transparent;
-  border: none;
-  border-radius: 4px;
-}
-
-.filmVideo {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 34%;
-  background: transparent;
-  border: none;
-  outline: none;
-}
-
-/* ─────────────────────────────────────────────────────────
-   SOUND TOGGLE (Bottom-Right of Hero Film)
-───────────────────────────────────────────────────────── */
+.hero { padding: 34px 0; background: #fff; color: #102746; }
+.container { width: min(1180px, calc(100% - 44px)); margin-inline: auto; }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; align-items: stretch; }
+.copy { padding: 25px 30px; }
+.kicker { font-size: 12px; line-height: 1.6; letter-spacing: .12em; font-weight: 700; text-transform: uppercase; color: #5d7898; margin-bottom: 6px; }
+.copy h2 { font-size: 23px; line-height: 1.2; color: #102d51; margin: 0; }
+.copy p { color: #60738a; margin: 1em 0; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #0757c8; color: #fff; border: 1px solid #0757c8; border-radius: 24px; padding: 12px 22px; font-size: 14px; font-weight: 750; box-shadow: 0 6px 16px #0757c822; }
+.button:hover { background: #0348a8; }
+.film { position: relative; isolation: isolate; min-height: 230px; margin: 0; overflow: hidden; background: #dce9f8; border-radius: 18px; }
+.filmVideo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 34%; }
 .soundToggle {
   position: absolute;
   right: clamp(14px, 2.2vw, 24px);
@@ -126,160 +49,15 @@
   display: block;
 }
 
-/* ─────────────────────────────────────────────────────────
-   SUMMARY SECTION (Normal document flow below hero)
-───────────────────────────────────────────────────────── */
-.summarySection {
-  width: 100%;
-  background: var(--color-white, #FFFFFF);
-  background-color: var(--color-white, #FFFFFF);
-  color: var(--about-ink);
-  padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.25rem, 5.55vw, 5.5rem) clamp(2rem, 3.5vw, 3.5rem);
-  box-sizing: border-box;
+
+@media(max-width:720px) {
+  .container { width: min(calc(100% - 30px), 540px); }
+  .split { grid-template-columns: 1fr; }
+  .film { min-height: 240px; }
 }
-
-.summarySection .container {
-  height: auto;
-  display: block;
+@media(max-width:680px) {
+  .hero { padding: 27px 0; }
+  .copy { padding: 22px 18px; }
+  .film { min-height: 0; height: auto; aspect-ratio: 16 / 9; max-height: 200px; }
 }
-
-.summary {
-  display: grid;
-  grid-template-columns: minmax(130px, 0.75fr) minmax(0, 3fr);
-  align-items: start;
-  gap: clamp(1.25rem, 3.2vw, 3.5rem);
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.summaryLabel {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.7rem;
-  color: var(--about-muted);
-  font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.66rem;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.summaryNumber {
-  color: var(--about-accent);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-}
-
-.summaryCopy {
-  max-width: 72ch;
-  margin: 0;
-  color: var(--color-ink, #102746);
-  font-family: var(--font-inter, sans-serif);
-  font-size: clamp(0.95rem, 1.12vw, 1.08rem);
-  font-weight: 400;
-  line-height: 1.7;
-}
-
-/* ─────────────────────────────────────────────────────────
-   RESPONSIVE
-───────────────────────────────────────────────────────── */
-@media (max-width: 1080px) {
-  .hero {
-    height: auto;
-    min-height: auto;
-    max-height: none;
-    padding-inline: clamp(1.25rem, 4vw, 2rem);
-  }
-
-  .film {
-    width: 100%;
-    max-width: none;
-    aspect-ratio: 16 / 9;
-    max-height: none;
-    margin-inline: 0;
-  }
-
-  .summary {
-    grid-template-columns: minmax(110px, 0.65fr) minmax(0, 2fr);
-    row-gap: 1.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero {
-    height: auto;
-    min-height: auto;
-    max-height: none;
-    padding-top: var(--header-clearance);
-    padding-bottom: 2rem;
-  }
-
-  .intro {
-    padding-top: 0;
-    padding-bottom: 1.25rem;
-  }
-
-  .headline {
-    font-size: clamp(2.35rem, 9.5vw, 3.5rem);
-    line-height: 1;
-    letter-spacing: -0.05em;
-  }
-
-  .film {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    height: auto;
-    min-height: 200px;
-    max-height: none;
-  }
-
-  .filmVideo {
-    object-position: center;
-  }
-
-  .summarySection {
-    padding-inline: 1.25rem;
-  }
-
-  .summary {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding-top: 1.4rem;
-    padding-bottom: 1.5rem;
-  }
-
-  .summaryLabel {
-    flex-direction: row;
-    align-items: center;
-    gap: 0.65rem;
-  }
-
-  .summaryCopy {
-    font-size: 0.95rem;
-    line-height: 1.65;
-  }
-
-  .soundToggle {
-    right: 12px;
-    bottom: 12px;
-    width: 34px;
-    height: 34px;
-  }
-
-  .soundIcon {
-    width: 15px;
-    height: 15px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .soundToggle {
-    transition: none;
-  }
-}
-/* Preserve the existing company film and copy below the client title band. */
-.hero { padding: 34px max(22px, calc((100% - 1180px) / 2)) 2px; }
-.container { max-width: 1180px; }
-@media (max-width: 720px) { .hero { padding: 27px 15px 2px; } }
+@media(prefers-reduced-motion:reduce) { .soundToggle { transition: none; } }

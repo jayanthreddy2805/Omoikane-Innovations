@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect, useSyncExternalStore } from "react";
 import styles from "./AboutHero.module.css";
+import Link from "next/link";
 import { ClientPageHero } from "@/components/shared/ClientReferenceHero";
 
 const COMPANY_VIDEO = "/videos/about/omoikane.mp4";
@@ -48,15 +49,14 @@ export default function AboutHero() {
     <>
       <ClientPageHero title="About Omoikane" />
       <section className={styles.hero} aria-labelledby="about-intro-title">
-        <div className={styles.container}>
-          <header className={styles.intro}>
-            <h2 id="about-intro-title" className={styles.headline}>
-              <span className={styles.headlineLine}>Advanced systems.</span>
-              <span className={`${styles.headlineLine} ${styles.headlineLineSecondary}`}>
-                Built for the real world.
-              </span>
-            </h2>
-          </header>
+        <div className={`${styles.container} ${styles.split}`}>
+          <div className={styles.copy}>
+            <div className={styles.kicker}>Who we are</div>
+            <h2 id="about-intro-title">Indigenous engineering. Global ambition.</h2>
+            <p>Omoikane Innovations Pvt. Ltd. is a Bengaluru-based technology company focused on indigenous design and development of electronic hardware and autonomous systems for aerospace, defense, UAV and industrial applications.</p>
+            <p>We bring together engineering thinking, product development discipline and a commitment to reducing import dependence through locally designed technology.</p>
+            <Link className={styles.button} href="/contact">Start a conversation →</Link>
+          </div>
 
           <figure className={styles.film}>
             <video
@@ -120,24 +120,7 @@ export default function AboutHero() {
             )}
           </figure>
         </div>
-      </section>
 
-      <section className={styles.summarySection}>
-        <div className={styles.container}>
-          <div className={styles.summary}>
-            <div className={styles.summaryLabel}>
-              <span className={styles.summaryNumber}>01</span>
-              <span>What we build</span>
-            </div>
-
-            <p className={styles.summaryCopy}>
-              Omoikane Innovations is a product-focused technology company developing
-              advanced embedded systems, autonomous platforms, and defense-grade
-              solutions for aerospace, defense, and industrial applications. Its
-              products are engineered for reliability, scalability, and real-world deployment.
-            </p>
-          </div>
-        </div>
       </section>
     </>
   );
