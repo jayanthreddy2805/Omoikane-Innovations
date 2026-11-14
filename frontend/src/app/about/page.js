@@ -186,6 +186,7 @@ const DOMAINS = [
 
 function MissionDomainExplorer() {
   const [active, setActive] = useState('defense');
+  const [imageStatus, setImageStatus] = useState({});
   const activeDomain = DOMAINS.find((d) => d.id === active);
 
   return (
@@ -206,8 +207,8 @@ function MissionDomainExplorer() {
 
         {/* Full-bleed cinematic image + overlay panel */}
         <FadeUp delay={0.1}>
-          <div className={styles.domainStage}>
-            {/* Image layer — all four stacked, crossfade between them */}
+          <div className={styles.domainStage} aria-busy={!imageStatus[active]}>
+            {/* Image layer — photos are revealed only after loading successfully */}
             <div className={styles.domainImageStack}>
               {DOMAINS.map((d) => (
                 <div
@@ -217,6 +218,10 @@ function MissionDomainExplorer() {
                   <Image
                     src={d.image}
                     alt={d.imageAlt}
+                    className={`${styles.domainPhoto} ${imageStatus[d.id] === 'ready' ? styles.domainPhotoReady : ''}`}
+                    onLoad={() => setImageStatus((current) => ({ ...current, [d.id]: 'ready' }))}
+                    onError={() => setImageStatus((current) => ({ ...current, [d.id]: 'error' }))}
+                    loading={d.id === 'defense' ? 'eager' : 'lazy'}
                     fill
                     sizes="(max-width: 768px) 100vw, 70vw"
                     style={{
