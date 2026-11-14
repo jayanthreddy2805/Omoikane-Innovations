@@ -6,6 +6,7 @@ import ConsentAwareAnalytics from "@/components/features/privacy/ConsentAwareAna
 import CookiePreferences from "@/components/features/privacy/CookiePreferences";
 import MotionPreferences from "@/components/layout/motion/MotionPreferences";
 import "./globals.css";
+import "./clientTypography.css";
 
 const inter = Inter({
   variable: "--font-inter",

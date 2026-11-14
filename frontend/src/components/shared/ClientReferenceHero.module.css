@@ -1,0 +1,48 @@
+/* Values from the final cascade in the client's omoikane-website/styles.css. */
+.homeFrame { padding-top: 96px; background: #061d40; }
+.pageFrame { padding-top: 96px; background: #fff; }
+.container { width: min(1180px, calc(100% - 44px)); margin: auto; }
+.homeHero {
+  position: relative;
+  min-height: 270px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(242,249,255,.99) 0%, rgba(242,249,255,.95) 31%, rgba(242,249,255,.24) 60%, rgba(4,32,68,.08) 100%), url('/images/reference/home-drone-desktop.jpg') center 48% / cover;
+  color: #102746;
+}
+.homeHero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(125deg, transparent 70%, rgba(0,103,230,.35)); pointer-events: none; }
+.heroContent { position: relative; z-index: 1; max-width: 565px; padding: 38px 0; }
+.eyebrow { text-transform: uppercase; font-size: 11px; line-height: 1.6; letter-spacing: .19em; font-weight: 850; color: #244c76; margin-bottom: 15px; }
+.homeHero h1 { font-size: clamp(31px,3.3vw,43px); line-height: 1.12; letter-spacing: -.025em; margin: 0 0 13px; font-weight: 850; color: #09284d; }
+.homeHero h1 span { color: #0757c8; }
+.homeHero p { font-size: 13px; line-height: 1.6; max-width: 450px; color: #425a73; margin: 0 0 18px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #0757c8; color: #fff; border: 1px solid #0757c8; border-radius: 24px; padding: 12px 22px; font-size: 13px; line-height: 1.6; font-weight: 750; box-shadow: 0 6px 16px #0757c822; transition: .2s; }
+.button:hover { background: #0348a8; transform: translateY(-1px); }
+.button.outline { color: #0757c8; border-color: #0757c8; background: rgba(255,255,255,.65); box-shadow: none; }
+.pageHero { height: 145px; background: #0a2f5e; color: white; padding: 58px 0; }
+.pageHero .eyebrow { color: #d5e8fa; }
+.pageHero h1 { font-size: 29px; font-weight: 700; line-height: 1.1; letter-spacing: normal; margin: 0 0 8px; }
+.breadcrumbs { font-size: 10px; line-height: 1.6; color: #d7e8fb; }
+@media (max-width: 1000px) { .homeHero { min-height: 400px; } }
+@media (max-width: 950px) { .homeHero { min-height: 285px; } }
+@media (max-width: 720px) {
+  .container { width: min(100% - 30px,540px); }
+  .homeHero { min-height: 500px; background-position: 58% center; }
+  .homeHero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(3,24,54,.92),rgba(3,24,54,.42)); }
+  .heroContent { padding: 56px 0; }
+  .homeHero h1 { font-size: 37px; }
+  .homeHero p { font-size: 14px; }
+  .pageHero { padding: 42px 0; }
+}
+@media (max-width: 680px) {
+  .homeFrame, .pageFrame { padding-top: 80px; }
+  .homeHero { min-height: 420px; background: linear-gradient(0deg,rgba(242,249,255,.99) 0%,rgba(242,249,255,.94) 40%,rgba(242,249,255,.16) 78%),url('/images/reference/home-drone-mobile.jpg') 58% top / auto 68% no-repeat,#eaf5ff; align-items: flex-end; }
+  .heroContent { padding: 26px 0 30px; }
+  .homeHero h1 { font-size: 32px; }
+  .homeHero p { font-size: 12px; }
+  .homeHero .button { font-size: 11px; padding: 10px 15px; }
+  .pageHero { height: 128px; }
+  .pageHero h1 { font-size: 24px; }
+}
