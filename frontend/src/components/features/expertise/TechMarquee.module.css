@@ -120,3 +120,8 @@
     width: 50px;
   }
 }
+
+.brandUnit { display: flex; align-items: center; gap: 20px; flex-shrink: 0; padding-block: 8px; }
+.companyName { font-size: 18px; font-weight: 700; color: #061D40; white-space: nowrap; }
+.quote { font-size: 16px; color: #62748A; white-space: nowrap; }
+@media (max-width: 680px) { .brandUnit { gap: 14px; } .companyName { font-size: 16px; } .quote { font-size: 14px; } }
