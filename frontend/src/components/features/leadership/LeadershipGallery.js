@@ -1,4 +1,5 @@
 "use client";
+import { LoadAwarePhoto } from "@/components/shared/LoadAwareImage";
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
@@ -329,8 +330,7 @@ export default function LeadershipGallery() {
                 <div 
                   className={styles.imageContainer} 
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={profile.image} loading="lazy" alt={profile.topTitle} />
+                  <LoadAwarePhoto src={profile.image} loading="lazy" alt={profile.topTitle} />
                 </div>
                 <div className={styles.cardNameOverlay}>
                   <h3>{profile.topTitle.toUpperCase()}</h3>
@@ -357,8 +357,7 @@ export default function LeadershipGallery() {
           >
             <div className={styles.contentWrapper} ref={el => contentWrappers.current[i] = el}>
               <div className={styles.imageContainer} aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={profile.image} loading="lazy" alt="" />
+                <LoadAwarePhoto src={profile.image} loading="lazy" alt="" />
               </div>
               <button
                 ref={openIndex === i ? closeButtonRef : undefined}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "@/components/shared/IntentLink";
-import Image from "next/image";
+import Image from "@/components/shared/LoadAwareImage";
 import { m as motion } from "framer-motion";
 import {
   Navigation,

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, Suspense } from 'react';
-import Image from 'next/image';
+import Image from '@/components/shared/LoadAwareImage';
 import { motion, useInView } from 'framer-motion';
 import { Building2, MapPin, Mail, Phone, ArrowRight } from 'lucide-react';
 import ApplyForm from '@/components/features/apply/ApplyForm';

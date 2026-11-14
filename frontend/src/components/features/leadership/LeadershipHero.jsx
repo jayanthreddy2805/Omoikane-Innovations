@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./LeadershipHero.module.css";
-import Image from "next/image";
+import Image from "@/components/shared/LoadAwareImage";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
