@@ -494,6 +494,27 @@ function CredentialsArchive() {
               </p>
             </div>
           </motion.div>
+          {[
+            { name: "Startup India", src: "/images/certifications/startup-india.png", width: 300, height: 82, description: "Government of India initiative supporting the startup ecosystem." },
+            { name: "Startup Karnataka", src: "/images/certifications/startup-karnataka.svg", width: 343, height: 149, description: "Government of Karnataka initiative supporting innovation and startups." },
+          ].map((program) => (
+            <motion.div
+              key={program.name}
+              className={styles.credCard}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className={styles.credCardLogo}>
+                <Image src={program.src} alt={`${program.name} logo mark`} width={program.width} height={program.height} className={styles.credImageStartup} />
+              </div>
+              <div className={styles.credCardContent}>
+                <h3 className={styles.credTitle}>{program.name}</h3>
+                <p className={styles.credDesc}>{program.description}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
