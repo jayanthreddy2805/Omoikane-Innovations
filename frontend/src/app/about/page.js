@@ -58,7 +58,7 @@ function AboutVision() {
         <div className={styles.visionWatermark}>VISION</div>
         <div className={styles.visionDivider}></div>
         <FadeUp delay={0.2}>
-          <p className={styles.visionText}>
+          <p className={styles.visionText} data-client-hero-copy>
             To become a global leader in indigenous defense and embedded technologies, building high-performance systems that are reliable, scalable, and ready for real-world deployment.
           </p>
         </FadeUp>
