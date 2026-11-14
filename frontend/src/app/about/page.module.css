@@ -742,7 +742,7 @@
   width: 100%;
   min-height: 75vh;
   max-height: 720px;
-  background: var(--color-bg);
+  background: var(--color-footer, #000812);
   overflow: hidden;
   display: flex;
   align-items: flex-start; /* Changed from center to flex-start */
@@ -2166,3 +2166,10 @@
 
 .credImageStartup { display: block; width: 170px; max-width: 100%; height: auto; max-height: 90px; object-fit: contain; }
 @media (max-width: 540px) { .credImageStartup { width: 165px; } }
+
+/* Keep pending/failed image paint (including browser alt text) off the stage. */
+.domainPhoto { opacity: 0; transition: opacity 300ms ease; }
+.domainPhotoReady { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .domainPhoto, .domainImageLayer { transition: none; }
+}
