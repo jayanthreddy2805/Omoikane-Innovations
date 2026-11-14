@@ -171,7 +171,7 @@
 }
 
 .headerStatusText {
-  font-size: 0.74rem;
+  font-size: 0.875rem;
   color: #62748A;
   font-weight: 500;
 }
@@ -299,7 +299,7 @@
 }
 
 .quickQuestionsLabel {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -318,7 +318,7 @@
   border: 1px solid #DCE7F3;
   color: #102746;
   font-family: var(--font-inter, sans-serif);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 500;
   padding: 6px 12px;
   border-radius: 20px;
@@ -435,7 +435,7 @@
 }
 
 .messageTimestamp {
-  font-size: 0.68rem;
+  font-size: 0.875rem;
   color: #8FA6C0;
   margin-top: 6px;
   display: block;
@@ -454,7 +454,7 @@
   margin-top: 8px;
   padding-top: 8px;
   border-top: 1px solid #EFF7FF;
-  font-size: 0.74rem;
+  font-size: 0.875rem;
 }
 
 .sourceLabel {
@@ -497,7 +497,7 @@
   background-color: #FFFFFF;
   border: 1px solid #DCE7F3;
   color: #102746;
-  font-size: 0.76rem;
+  font-size: 0.875rem;
   font-weight: 500;
   padding: 5px 11px;
   border-radius: 14px;
@@ -557,7 +557,7 @@
   background-color: #FEF2F2;
   border: 1px solid #FECACA;
   color: #B91C1C;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   padding: 6px 10px;
   border-radius: 8px;
 }
@@ -573,7 +573,7 @@
   background-color: #EFF7FF;
   border: 1px solid #DCE7F3;
   color: #102746;
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   padding: 4px 10px;
   border-radius: 8px;
   max-width: 100%;

@@ -34,7 +34,7 @@
 
 .label {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 11px;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   color: #061D40;
@@ -78,7 +78,7 @@
   max-width: 62ch;
   margin: -8px 0 0;
   color: #445B75;
-  font: 0.82rem/1.6 var(--font-inter, sans-serif);
+  font: 0.875rem/1.6 var(--font-inter, sans-serif);
 }
 
 .formNotice a {

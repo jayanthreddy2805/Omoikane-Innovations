@@ -108,7 +108,7 @@
   color: #0757C8;
   padding: 6px 14px;
   border-radius: 100px;
-  font-size: 11px;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -157,7 +157,7 @@
 }
 
 .formLabel {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #061D40;
   text-transform: uppercase;
@@ -240,7 +240,7 @@
   color: #B91C1C;
   padding: 12px 16px;
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 0.875rem;
   text-align: left;
   display: flex;
   align-items: center;
@@ -269,7 +269,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -314,7 +314,7 @@
   border: 1px solid #DCE7F3;
   padding: 8px 14px;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #102746;
 }
@@ -333,7 +333,7 @@
   color: #102746;
   padding: 8px 16px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -363,7 +363,7 @@
   color: #DC2626;
   padding: 8px 16px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -411,7 +411,7 @@
 }
 
 .kpiLabel {
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #62748A;
   text-transform: uppercase;
@@ -429,7 +429,7 @@
 }
 
 .kpiMeta {
-  font-size: 12px;
+  font-size: 0.875rem;
   color: #16A34A;
   font-weight: 500;
 }
@@ -505,7 +505,7 @@
 .tabCounter {
   background: rgba(255, 255, 255, 0.2);
   color: inherit;
-  font-size: 12px;
+  font-size: 0.875rem;
   padding: 2px 8px;
   border-radius: 100px;
   font-weight: 700;
@@ -528,7 +528,7 @@
   background: #F7FBFF;
   border: 1px solid #DCE7F3;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 500;
   color: #102746;
   outline: none;
@@ -550,7 +550,7 @@
   top: 50%;
   transform: translateY(-50%);
   color: #62748A;
-  font-size: 13px;
+  font-size: 0.875rem;
   pointer-events: none;
 }
 
@@ -560,7 +560,7 @@
   background: #F7FBFF;
   border: 1px solid #DCE7F3;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 0.875rem;
   color: #102746;
   outline: none;
   transition: all 0.2s;
@@ -617,7 +617,7 @@
 }
 
 .recordCountBadge {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
   color: #62748A;
 }
@@ -637,7 +637,7 @@
   padding: 14px 20px;
   background: #F7FBFF;
   border-bottom: 1px solid #DCE7F3;
-  font-size: 11px;
+  font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.8px;
@@ -676,7 +676,7 @@
   border-radius: 50%;
   background: linear-gradient(135deg, #061D40, #0757C8);
   color: #FFFFFF;
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -691,7 +691,7 @@
 }
 
 .recordId {
-  font-size: 11px;
+  font-size: 0.875rem;
   color: #62748A;
   font-family: monospace;
   margin-top: 2px;
@@ -702,7 +702,7 @@
   align-items: center;
   padding: 3px 10px;
   border-radius: 100px;
-  font-size: 11px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.3px;
 }
@@ -758,7 +758,7 @@
   border: none;
   color: #62748A;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 0.875rem;
   padding: 2px 4px;
   border-radius: 4px;
   transition: all 0.2s;
@@ -770,7 +770,7 @@
 }
 
 .phoneText {
-  font-size: 12px;
+  font-size: 0.875rem;
   color: #62748A;
   display: inline-flex;
   align-items: center;
@@ -778,7 +778,7 @@
 }
 
 .dateText {
-  font-size: 13px;
+  font-size: 0.875rem;
   color: #475569;
   white-space: nowrap;
 }
@@ -789,7 +789,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #62748A;
-  font-size: 13px;
+  font-size: 0.875rem;
 }
 
 /* Resume Pill */
@@ -804,7 +804,7 @@
   color: #0757C8;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -842,7 +842,7 @@
   color: #061D40;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -860,7 +860,7 @@
   color: #DC2626;
   padding: 6px 10px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -976,7 +976,7 @@
   padding: 12px;
   margin-bottom: 24px;
   text-align: left;
-  font-size: 13px;
+  font-size: 0.875rem;
 }
 
 .targetEntityRow {
@@ -1121,7 +1121,7 @@
 }
 
 .detailFieldLabel {
-  font-size: 11px;
+  font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
   color: #62748A;
@@ -1173,7 +1173,7 @@
   color: #FFFFFF;
   padding: 10px 18px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
@@ -1193,7 +1193,7 @@
   color: #FFFFFF;
   padding: 10px 18px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;

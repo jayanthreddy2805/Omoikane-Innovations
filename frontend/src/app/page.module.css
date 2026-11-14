@@ -64,7 +64,7 @@
 .sectionTag {
   display: inline-block;
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -276,7 +276,7 @@
   border: 1px solid var(--color-blue);
   background-color: var(--color-white);
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -319,7 +319,7 @@
 .whyEyebrow {
   display: inline-block;
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;

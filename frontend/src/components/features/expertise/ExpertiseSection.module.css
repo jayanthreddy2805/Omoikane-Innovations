@@ -93,7 +93,7 @@
 
 .systemsLabel {
   margin: 0 0 10px;
-  font: 600 12px/1.4 var(--font-inter, sans-serif);
+  font: 600 0.875rem/1.4 var(--font-inter, sans-serif);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-on-dark-subtle, #8FA6C0);
@@ -259,7 +259,7 @@
   position: absolute;
   z-index: 2;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 12px;
+  font-size: 0.875rem;
   line-height: 1;
   letter-spacing: .08em;
 }

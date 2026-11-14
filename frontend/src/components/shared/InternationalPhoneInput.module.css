@@ -311,7 +311,7 @@
 .countryDialCode {
   color: #62748A;
   font-variant-numeric: tabular-nums;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
 }
 
 .noResults {
@@ -323,7 +323,7 @@
 
 .errorText {
   color: #f85149;
-  font-size: 13px;
+  font-size: 0.875rem;
   font-family: var(--font-inter, sans-serif);
   margin-top: 4px;
 }
@@ -446,7 +446,7 @@
 .countryDialCodeCareer {
   color: #62748A;
   font-variant-numeric: tabular-nums;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
 }
 
 .noResultsCareer {

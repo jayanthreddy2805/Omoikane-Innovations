@@ -14,7 +14,7 @@
 .eyebrow {
   margin: 0 0 1rem;
   color: var(--color-blue, #0757C8);
-  font: 600 12px/1.2 var(--font-space-grotesk, sans-serif);
+  font: 600 0.875rem/1.2 var(--font-space-grotesk, sans-serif);
   letter-spacing: 0.16em;
 }
 
@@ -167,7 +167,7 @@
 .input:focus~.floatingLabel,
 .input:not(:placeholder-shown)~.floatingLabel {
   top: 0.75rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--color-blue, #0757C8);
 }
 

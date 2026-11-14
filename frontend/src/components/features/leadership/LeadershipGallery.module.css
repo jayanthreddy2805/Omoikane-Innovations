@@ -133,7 +133,7 @@
   padding: 0.7rem 1rem;
   background: #FFFFFF;
   color: #061D40;
-  font: 600 0.76rem/1 var(--font-inter, sans-serif);
+  font: 600 0.875rem/1 var(--font-inter, sans-serif);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;

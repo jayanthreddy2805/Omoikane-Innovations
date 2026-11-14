@@ -20,7 +20,7 @@
 
 .sectionLabelIndex {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.25em;
   color: var(--color-text-primary);
@@ -35,7 +35,7 @@
 
 .sectionLabelText {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
@@ -168,7 +168,7 @@
   gap: 10px;
   margin-bottom: 3rem;
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   letter-spacing: 0.25em;
   color: var(--color-border-subtle);
 }
@@ -223,7 +223,7 @@
 
 .heroDomainTag {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   letter-spacing: 0.2em;
   color: var(--color-border-subtle);
   border: 1px solid var(--border);
@@ -246,7 +246,7 @@
 
 .heroScrollHint span {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.62rem;
+  font-size: 0.875rem;
   letter-spacing: 0.22em;
   color: var(--color-text-muted);
 }
@@ -268,7 +268,7 @@
 
 .heroMetaLabel {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.58rem;
+  font-size: 0.875rem;
   letter-spacing: 0.22em;
   color: var(--color-text-muted);
 }
@@ -286,7 +286,7 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   letter-spacing: 0.15em;
   color: var(--color-text-primary);
 }
@@ -334,7 +334,7 @@
 
 .annotationLabel {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.58rem;
+  font-size: 0.875rem;
   letter-spacing: 0.2em;
   color: var(--color-border-subtle);
   transition: color 0.3s ease;
@@ -361,7 +361,7 @@
   align-items: center;
   gap: 16px;
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.6rem;
+  font-size: 0.875rem;
   letter-spacing: 0.18em;
   color: var(--color-text-muted);
 }
@@ -447,7 +447,7 @@
 
 .visionHeading {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   letter-spacing: 0.3em;
   color: var(--color-text-muted);
   text-transform: uppercase;
@@ -516,7 +516,7 @@
 
 .editorialIndex {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--color-text-primary);
   font-weight: 600;
 }
@@ -527,7 +527,7 @@
 
 .editorialLabel {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   letter-spacing: 0.15em;
   color: var(--color-text-muted);
   text-transform: uppercase;
@@ -608,7 +608,7 @@
 
 .editorialCardIndex {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--color-text-primary);
@@ -665,7 +665,7 @@
 
 .editorialFooterLink {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--color-text-primary);
@@ -818,7 +818,7 @@
   align-items: center;
   gap: 12px;
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.6rem;
+  font-size: 0.875rem;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
 }
@@ -863,7 +863,7 @@
 
 .domainTabIndex {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.4);
@@ -874,7 +874,7 @@
 
 .domainTabLabel {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.4);
@@ -942,7 +942,7 @@
 
 .domainPanelIndex {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   letter-spacing: 0.25em;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 1rem;
@@ -992,7 +992,7 @@
 
 .domainPanelTag {
   font-family: var(--font-inter, sans-serif);
-  font-size: 0.6rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.6);
@@ -1017,7 +1017,7 @@
 
 .domainStatusText {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.6rem;
+  font-size: 0.875rem;
   letter-spacing: 0.22em;
   color: var(--color-text-muted);
 }
@@ -1158,7 +1158,7 @@
 
 .credSpotlightLabel {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   letter-spacing: 0.25em;
   color: var(--color-text-primary);
 }
@@ -1242,7 +1242,7 @@
 .credMetaKey {
   display: block;
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.55rem;
+  font-size: 0.875rem;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
   margin-bottom: 4px;
@@ -1251,7 +1251,7 @@
 .credMetaVal {
   display: block;
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   letter-spacing: 0.1em;
   color: var(--color-text-primary);
 }
@@ -1380,7 +1380,7 @@
 
 .impactReadoutTitle {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.55rem;
+  font-size: 0.875rem;
   letter-spacing: 0.25em;
   color: var(--color-text-muted);
   margin-bottom: 1.5rem;
@@ -1397,7 +1397,7 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   letter-spacing: 0.15em;
   color: var(--color-text-muted);
 }
@@ -1633,7 +1633,7 @@
   background: var(--color-text-primary);
   color: var(--color-bg);
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.55rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   padding: 0.8rem 1.75rem;
@@ -1657,7 +1657,7 @@
 
 .finaleCtaSecondary {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.52rem;
+  font-size: 0.875rem;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
   border-bottom: 1px solid var(--color-text-muted);
@@ -1677,7 +1677,7 @@
   gap: 16px;
   margin-top: 6rem;
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.6rem;
+  font-size: 0.875rem;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
 }
@@ -1786,7 +1786,7 @@
 
 .credLabel {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 10px;
+  font-size: 0.875rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-muted, #62748A);
@@ -1992,7 +1992,7 @@
   color: var(--color-on-dark-muted, #B6C8DE);
   padding: 0.25rem 1rem;
   border-radius: 9999px;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-family: var(--font-space-mono, monospace);
@@ -2101,7 +2101,7 @@
   border: 1px solid rgba(22, 136, 248, 0.3);
   color: #F7FBFF;
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
 }
@@ -2121,7 +2121,7 @@
 .testiRole {
   color: var(--color-on-dark-subtle, #8FA6C0);
   letter-spacing: -0.025em;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   margin-top: 0.125rem;
 }
 

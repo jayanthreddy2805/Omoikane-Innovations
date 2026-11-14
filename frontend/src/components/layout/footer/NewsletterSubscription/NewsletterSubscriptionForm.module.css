@@ -41,7 +41,7 @@
   border-radius: 0.45rem;
   background: var(--text-primary);
   color: var(--bg-primary);
-  font-size: 0.825rem;
+  font-size: 0.875rem;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -56,7 +56,7 @@
   align-items: flex-start;
   gap: 0.55rem;
   color: var(--text-subtle);
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   line-height: 1.45;
 }
 
@@ -67,7 +67,7 @@
 
 .privacyNote {
   color: var(--text-subtle);
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   line-height: 1.45;
 }
 
@@ -80,7 +80,7 @@
 .successMessage,
 .errorMessage {
   margin: 0;
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   line-height: 1.45;
 }
 
