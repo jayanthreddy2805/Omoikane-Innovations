@@ -986,3 +986,6 @@
 .submitBtn:hover {
   opacity: 0.8;
 }
+
+/* Preserve contrast before career imagery has loaded. */
+.heroVisual, .roleVisualFull { background: var(--color-footer, #000812); }

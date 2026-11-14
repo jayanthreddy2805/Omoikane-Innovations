@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import Image from "@/components/shared/LoadAwareImage";
 import Link from "@/components/shared/IntentLink";
 import styles from "./SelectedWork.module.css";
 

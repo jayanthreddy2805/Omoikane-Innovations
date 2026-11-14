@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "@/components/shared/LoadAwareImage";
 import Link from "next/link";
 
 import styles from "./WorkClient.module.css";

@@ -8,7 +8,7 @@ import {
   useInView,
   AnimatePresence,
 } from 'framer-motion';
-import Image from 'next/image';
+import Image from '@/components/shared/LoadAwareImage';
 import Link from 'next/link';
 import styles from './page.module.css';
 import { AnimatedNumberBg } from "@/components/shared/ui/AnimatedNumberBg";

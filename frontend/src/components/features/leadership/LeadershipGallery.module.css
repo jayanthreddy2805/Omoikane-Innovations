@@ -287,3 +287,6 @@
   margin: 0;
   text-transform: uppercase;
 }
+
+/* Stable surface while gallery photos load or if a request fails. */
+.imageContainer { background: var(--color-footer, #000812); }

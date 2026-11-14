@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Upload, Building, MapPin, Mail, Phone } from 'lucide-react';
-import Image from 'next/image';
+import Image from '@/components/shared/LoadAwareImage';
 import Link from 'next/link';
 import styles from './CareerTemplate.module.css';
 import { Field, FieldDescription, FieldError, FieldLabel } from '@/components/shared/ui/form-field/field';
