@@ -2163,3 +2163,6 @@
 @media (prefers-reduced-motion: reduce) {
   .testiScroll { animation: none; }
 }
+
+.credImageStartup { display: block; width: 170px; max-width: 100%; height: auto; max-height: 90px; object-fit: contain; }
+@media (max-width: 540px) { .credImageStartup { width: 165px; } }
