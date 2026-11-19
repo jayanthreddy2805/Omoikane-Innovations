@@ -12,6 +12,7 @@ import Image from '@/components/shared/LoadAwareImage';
 import Link from 'next/link';
 import styles from './page.module.css';
 import AboutHero from '@/components/features/about/AboutHero';
+import AboutMetrics from '@/components/features/about/AboutMetrics';
 import CallToAction from '@/components/shared/CallToAction';
 function FadeUp({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
@@ -398,6 +399,7 @@ export default function AboutPage() {
       <AboutHero />
       <AboutVision />
       <OmoikaneSystemArchitecture />
+      <AboutMetrics />
       <CredentialsArchive />
       <MissionDomainExplorer />
       <FaqSection />

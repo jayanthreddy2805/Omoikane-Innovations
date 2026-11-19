@@ -1,4 +1,4 @@
-import styles from "./HomeMetrics.module.css";
+import styles from "./AboutMetrics.module.css";
 
 const figures = [
   { label: "Years of experience", value: "10+" },
@@ -7,20 +7,17 @@ const figures = [
   { label: "Client retention", value: "98%" },
 ];
 
-export default function HomeMetrics() {
+export default function AboutMetrics() {
   return (
-    <section className={styles.section} aria-labelledby="home-metrics-heading">
+    <section className={styles.section} aria-labelledby="about-metrics-heading">
       <div className={styles.inner}>
-        <div className={styles.intro}>
-          <h2 id="home-metrics-heading" className={styles.heading}>
-            Omoikane in numbers
-          </h2>
-          <span className={styles.accent} aria-hidden="true" />
-        </div>
+        <h2 id="about-metrics-heading" className={styles.heading}>
+          Omoikane in numbers
+        </h2>
 
-        <dl className={styles.list}>
+        <dl className={styles.rail}>
           {figures.map(({ label, value }) => (
-            <div className={styles.row} key={label}>
+            <div className={styles.item} key={label}>
               <dt className={styles.label}>{label}</dt>
               <dd className={styles.value}>{value}</dd>
             </div>
