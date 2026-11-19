@@ -394,9 +394,9 @@
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(10, 10, 10, 0.08);
-  background-color: var(--color-footer, #000812);
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
   z-index: 1;
 }
 

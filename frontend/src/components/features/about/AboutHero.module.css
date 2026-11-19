@@ -114,9 +114,10 @@
   aspect-ratio: 16 / 9;
   margin: 0;
   overflow: hidden;
-  background: #061D40;
+  background: transparent;
   border-radius: 14px;
-  border: 1px solid rgba(6, 29, 64, 0.08);
+  border: none;
+  outline: none;
   box-shadow: none;
 }
 
@@ -128,6 +129,8 @@
   object-fit: cover;
   object-position: center;
   display: block;
+  border: none;
+  outline: none;
 }
 
 .soundToggle {

@@ -53,7 +53,7 @@ function MergedRailwayVideo({ active, reducedMotion }: { active: boolean; reduce
 
   return (
     <div style={{ width: '100%', minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div style={{ position: 'relative', width: '100%', maxWidth: '640px', aspectRatio: '4 / 3', borderRadius: '12px', background: 'transparent', boxShadow: '0 15px 40px rgba(0, 0, 0, 0.19)', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', width: '100%', maxWidth: '640px', aspectRatio: '4 / 3', borderRadius: '12px', background: 'transparent', boxShadow: 'none', border: 'none', overflow: 'hidden' }}>
         <video
           ref={v1}
           src={active ? "/videos/expertise/railway-inspection-part1.mp4" : undefined}
@@ -373,7 +373,7 @@ export function ExpertiseSection() {
               <AerospaceVideoSequence active={activeIndex === index} reducedMotion={reducedMotion} />
             ) : item.id === "automotive" ? (
               <div style={{ width: '100%', minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ position: 'relative', width: '100%', maxWidth: '640px', aspectRatio: '4 / 3', borderRadius: '12px', background: 'transparent', boxShadow: '0 15px 40px rgba(0, 0, 0, 0.19)', overflow: 'hidden' }}>
+                <div style={{ position: 'relative', width: '100%', maxWidth: '640px', aspectRatio: '4 / 3', borderRadius: '12px', background: 'transparent', boxShadow: 'none', border: 'none', overflow: 'hidden' }}>
                   <video
                     ref={(node) => {
                       if (node) {

@@ -25,7 +25,7 @@
   border-radius: 12px;
   background: transparent;
   border: none;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.19);
+  box-shadow: none;
   overflow: hidden;
   opacity: 1;
   visibility: hidden;
