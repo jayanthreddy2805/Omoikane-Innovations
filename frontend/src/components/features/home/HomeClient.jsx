@@ -15,6 +15,7 @@ import {
 import styles from "@/app/page.module.css";
 import CallToAction from "@/components/shared/CallToAction";
 import SelectedWork from "@/components/features/home/SelectedWork";
+import HomeMetrics from "@/components/features/home/HomeMetrics";
 import HomeCareers from "@/components/features/home/HomeCareers";
 import { ClientHomeHero } from "@/components/shared/ClientReferenceHero";
 
@@ -271,6 +272,8 @@ export default function HomeClient() {
           </motion.div>
         </div>
       </section>
+
+      <HomeMetrics />
 
       {/* ─────────────────────────────────────────────────────────
           2.5. SELECTED WORK (EDITORIAL PROJECT INDEX)
