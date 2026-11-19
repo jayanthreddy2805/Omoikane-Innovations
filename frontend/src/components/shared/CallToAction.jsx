@@ -88,7 +88,7 @@ export default function CallToAction() {
   };
 
   return (
-    <section className={styles.ctaSection} id="contact" aria-label="Ready to deploy your next mission">
+    <section className={styles.ctaSection} id="contact" aria-label="From Sky to Soil, We Power Possibilities">
       <div className={styles.ctaCard}>
         {/* Dark base + purple radial glow — our CTA bg colors */}
         <div className={styles.ctaHeroBg} />
@@ -103,14 +103,10 @@ export default function CallToAction() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2 className={styles.ctaTitleCentered} variants={itemVariants}>
-            Ready to deploy your next <em>mission</em>
+            From Sky to Soil, We Power Possibilities
           </motion.h2>
 
-          <motion.p className={styles.ctaTagline} variants={itemVariants}>
-            From Sky to Soil, We Power Possibilities
-          </motion.p>
-
-          <motion.div variants={itemVariants} style={{ marginTop: "1rem" }}>
+          <motion.div variants={itemVariants} style={{ marginTop: "1.5rem" }}>
             <Link href="/contact" className={styles.ctaButtonPill}>
               <Sparkles size={16} strokeWidth={2.5} />
               Contact OMOIKANE

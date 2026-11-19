@@ -239,12 +239,20 @@
 }
 .actualTitle {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: var(--type-section);
+  font-size: var(--type-section, clamp(2.25rem, 4vw, 3.5rem));
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
   margin: 0;
   color: var(--ink);
+}
+
+.actualTitle em,
+.actualTitle span[data-italic] {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-style: italic !important;
+  text-transform: lowercase !important;
+  font-weight: 400 !important;
 }
 
 /* ---------------------------------------------------------

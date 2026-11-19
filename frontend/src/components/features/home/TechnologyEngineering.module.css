@@ -10,7 +10,7 @@
 
 .section {
   width: 100%;
-  background-color: var(--color-footer, #000812);
+  background-color: #0a2f5e;
   /* Smooth ambient lighting gradient with zero dot noise */
   background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30, 98, 196, 0.20), transparent 70%);
   color: var(--color-on-dark, #F7FBFF);
@@ -39,7 +39,8 @@
 
 .headline {
   font-family: var(--font-cormorant-garamond), Garamond, Georgia, 'Times New Roman', serif;
-  font-size: clamp(2.6rem, 4.2vw, 3.8rem); /* 52–60px desktop */
+  font-size: clamp(2.6rem, 4.2vw, 3.8rem);
+  /* 52–60px desktop */
   font-weight: 600;
   line-height: 1.08;
   letter-spacing: -0.015em;
@@ -83,7 +84,8 @@
 
 .cell {
   position: relative;
-  min-height: clamp(100px, 12vh, 118px); /* Compact vertical scale */
+  min-height: clamp(100px, 12vh, 118px);
+  /* Compact vertical scale */
   padding: clamp(1.5rem, 2.1vw, 2.1rem) clamp(2rem, 2.8vw, 2.75rem);
   box-sizing: border-box;
   display: flex;
@@ -99,6 +101,7 @@
 
 /* Desktop Grid Dividers */
 @media (min-width: 861px) {
+
   /* Right divider line for columns 1 and 2 in each row */
   .cell:not(:nth-child(3n)) {
     border-right: 1px solid rgba(255, 255, 255, 0.12);
@@ -225,6 +228,7 @@
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+
   .name,
   .description,
   .cell {

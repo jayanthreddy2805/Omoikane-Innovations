@@ -324,7 +324,16 @@ export function ExpertiseSection() {
             <div className={styles.systems} key={`systems-${active.id}`}>
               <h3 className={styles.systemsLabel}>Engineering focus</h3>
               <ul className={styles.systemsList}>
-                {active.systems.map((system) => <li key={system}>{system}</li>)}
+                {active.systems.map((system) => (
+                  <li key={system} className={styles.systemsItem}>
+                    <span className={styles.systemMarker} aria-hidden="true">
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="5,1 9,5 5,9 1,5" stroke="currentColor" strokeWidth="1.2" fill="currentColor" fillOpacity="0.25" />
+                      </svg>
+                    </span>
+                    <span>{system}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

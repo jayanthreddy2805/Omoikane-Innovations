@@ -46,7 +46,7 @@
 
 .ctaTitleCentered {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.6rem, 5.85vw, 4.95rem);
   font-weight: 700;
   color: var(--color-on-dark, #F7FBFF);
   /* white fading gradient matching dark-mode HeroSection h2 */
@@ -55,6 +55,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: -0.02em;
+  max-width: 1000px;
   margin-bottom: 0.6rem;
 }
 

@@ -93,48 +93,54 @@
 }
 
 /* ─────────────────────────────────────────────
-   UNSCROLLED ON BEIGE HERO (TECHNOLOGY / EXPERTISE PAGE)
+   UNSCROLLED ON TECHNOLOGY / EXPERTISE PAGE
+   - Navbar background: #FFFFFF
+   - No dividing line
 ───────────────────────────────────────────── */
-.headerBeige {
-  background-color: #F4F3EE !important;
+.headerWhite {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
-.headerBeige .logoName {
-  color: #061D40;
+.headerWhite .logoName {
+  color: #061D40 !important;
 }
 
-.headerBeige .logoSub {
-  color: #62748A;
+.headerWhite .logoSub {
+  color: #62748A !important;
 }
 
-.headerBeige .pillBtn {
-  color: #061D40;
+.headerWhite .pillBtn {
+  color: #061D40 !important;
 }
 
-.headerBeige .pillBtn:hover {
-  background: rgba(6, 29, 64, 0.05);
+.headerWhite .pillBtn:hover {
+  background: rgba(6, 29, 64, 0.05) !important;
 }
 
-.headerBeige .pillActive {
+.headerWhite .pillActive {
   background: #000812 !important;
   color: #FFFFFF !important;
 }
 
-.headerBeige .searchTrigger {
-  color: #061D40;
+.headerWhite .searchTrigger {
+  color: #061D40 !important;
 }
 
-.headerBeige .searchTrigger svg {
-  color: #061D40;
+.headerWhite .searchTrigger svg {
+  color: #061D40 !important;
 }
 
-.headerBeige .contactBtn {
-  background: #000812;
-  color: #FFFFFF;
+.headerWhite .contactBtn {
+  background: #000812 !important;
+  color: #FFFFFF !important;
 }
 
-.headerBeige .bar {
-  background: #061D40;
+.headerWhite .bar {
+  background: #061D40 !important;
 }
 
 .headerMobileOpen {

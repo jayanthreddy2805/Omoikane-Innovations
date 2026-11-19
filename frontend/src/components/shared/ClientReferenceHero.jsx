@@ -23,14 +23,12 @@ export function ClientHomeHero() {
   );
 }
 
-export function ClientPageHero({ title, breadcrumb = title }) {
+export function ClientPageHero({ title }) {
   return (
     <div className={styles.pageFrame}>
       <section className={styles.pageHero} aria-labelledby="client-page-title">
         <div className={styles.container}>
-          <div className={styles.eyebrow}>Indigenous technology · Global standards</div>
           <h1 id="client-page-title" data-client-hero-heading>{title}</h1>
-          <div className={styles.breadcrumbs}><Link href="/">Home</Link> &nbsp;›&nbsp; {breadcrumb}</div>
         </div>
       </section>
     </div>

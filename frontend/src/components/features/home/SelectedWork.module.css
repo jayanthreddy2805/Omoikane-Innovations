@@ -16,12 +16,12 @@
   width: 100%;
   background-color: #FFFFFF;
   color: #102746;
-  padding: var(--space-section) 0;
+  padding: var(--space-section) 0 0 0;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
   border-top: 1px solid #DCE7F3;
-  border-bottom: 1px solid #DCE7F3;
+  border-bottom: none;
 }
 
 /* ─────────────────────────────────────────────────────────

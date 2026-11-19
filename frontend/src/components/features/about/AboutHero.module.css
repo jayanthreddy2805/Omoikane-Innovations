@@ -1,10 +1,12 @@
 .hero {
   position: relative;
   width: 100%;
+  min-height: calc(100vh - 170px);
+  min-height: calc(100dvh - 170px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(2.5rem, 5vh, 4rem) 0;
+  padding: clamp(2rem, 3.5vh, 3rem) 0;
   background: var(--color-white, #FFFFFF);
   color: var(--color-ink, #102746);
   box-sizing: border-box;
@@ -13,15 +15,21 @@
 }
 
 .container {
-  width: min(1360px, calc(100% - clamp(2rem, 5vw, 5rem)));
+  width: min(1320px, calc(100% - clamp(2.5rem, 5vw, 5rem)));
   margin-inline: auto;
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .split {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: clamp(2.5rem, 4.5vw, 4.5rem);
+  grid-template-columns: 42fr 58fr;
+  gap: clamp(48px, 4vw, 64px);
   align-items: center;
+  flex: 1;
 }
 
 .copy {
@@ -33,9 +41,9 @@
 
 .kicker {
   font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
-  line-height: 1.6;
-  letter-spacing: 0.16em;
+  font-size: 13.5px;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-blue, #0757C8);
@@ -44,26 +52,31 @@
 
 .title {
   font-family: var(--font-inter), sans-serif;
-  font-size: 25px !important;
-  line-height: 1.15 !important;
+  font-size: clamp(28px, 2.2vw, 32px) !important;
+  line-height: 1.2 !important;
   letter-spacing: -0.02em !important;
   font-weight: 700 !important;
   color: #061D40 !important;
-  margin: 0 0 16px 0 !important;
+  margin: 0 0 18px 0 !important;
 }
 
 .lead {
-  font-size: 15px !important;
-  line-height: 1.6 !important;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16.5px !important;
+  line-height: 1.62 !important;
   color: #102746 !important;
   font-weight: 500 !important;
-  margin: 0 0 14px 0 !important;
+  max-width: 60ch;
+  margin: 0 0 16px 0 !important;
 }
 
 .desc {
-  font-size: 15px !important;
-  line-height: 1.6 !important;
-  color: #60738A !important;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px !important;
+  line-height: 1.62 !important;
+  color: #556B82 !important;
+  font-weight: 400 !important;
+  max-width: 60ch;
   margin: 0 0 24px 0 !important;
 }
 
@@ -73,17 +86,17 @@
   justify-content: center;
   gap: 8px;
   align-self: flex-start;
-  background: #000812;
+  background: #061D40;
   color: #FFFFFF;
-  border: 1px solid #000812;
+  border: 1px solid #061D40;
   border-radius: 999px;
-  padding: 12px 24px;
+  padding: 12px 26px;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-decoration: none;
   transition: all 0.25s ease;
-  box-shadow: 0 6px 18px rgba(0, 8, 18, 0.1);
+  box-shadow: 0 4px 12px rgba(6, 29, 64, 0.08);
 }
 
 .button:hover {
@@ -91,20 +104,20 @@
   border-color: #0757C8;
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(7, 87, 200, 0.22);
+  box-shadow: 0 8px 20px rgba(7, 87, 200, 0.22);
 }
 
 .film {
   position: relative;
   isolation: isolate;
   width: 100%;
-  min-height: clamp(300px, 42vh, 460px);
-  max-height: clamp(340px, 48vh, 500px);
+  aspect-ratio: 16 / 9;
   margin: 0;
   overflow: hidden;
   background: #061D40;
-  border-radius: 20px;
-  box-shadow: 0 24px 60px -12px rgba(6, 29, 64, 0.16), 0 0 0 1px rgba(6, 29, 64, 0.06);
+  border-radius: 14px;
+  border: 1px solid rgba(6, 29, 64, 0.08);
+  box-shadow: none;
 }
 
 .filmVideo {
@@ -114,6 +127,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
 }
 
 .soundToggle {
@@ -157,33 +171,61 @@
   display: block;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .hero {
-    padding: 3rem 0;
+    padding: clamp(2.5rem, 4vh, 3.5rem) 0;
+  }
+
+  .container {
+    width: 100%;
+    padding-inline: clamp(20px, 5vw, 24px);
   }
 
   .split {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2.25rem;
   }
 
   .film {
-    min-height: 300px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
   }
 }
 
 @media (max-width: 680px) {
   .hero {
-    padding: 2rem 0;
+    padding: 2rem 0 2.5rem;
+  }
+
+  .container {
+    padding-inline: clamp(20px, 5vw, 24px);
+  }
+
+  .split {
+    gap: 1.75rem;
   }
 
   .title {
-    font-size: 22px !important;
+    font-size: 24px !important;
+    line-height: 1.22 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .lead {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .desc {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 20px !important;
   }
 
   .film {
-    min-height: 220px;
-    border-radius: 14px;
+    border-radius: 12px;
   }
 }
 

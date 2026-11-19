@@ -1,6 +1,13 @@
 .container {
-  background-color: #F4F3EE;
+  background-color: #FFFFFF;
   color: var(--text-primary);
   width: 100%;
   font-family: var(--font-inter), sans-serif;
+  padding-top: 96px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 76px;
+  }
 }

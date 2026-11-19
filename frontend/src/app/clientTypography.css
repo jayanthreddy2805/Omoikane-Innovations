@@ -20,3 +20,55 @@ footer a { font-size: 14px; }
   #main-content h2 { font-size: 22px !important; }
   #main-content p:not([data-client-hero-copy]) { font-size: 16px !important; }
 }
+
+/* Exemptions to undo/preserve original typography */
+:is(#main-content, footer) :is([class*="visionText"], [class*="LeadershipHero"], [class*="actualTitle"], [class*="actualTitle"] *, [class*="ExpertiseHero_heading"], [class*="WorkClient_mainHeadline"], [class*="WorkClient_mainHeadline"] *) {
+  font-family: var(--font-space-grotesk), sans-serif !important;
+}
+:is(#main-content, footer) [class*="ExpertiseHero_heading"] {
+  font-size: clamp(44px, 5.5vw, 74px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.03em !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+  text-transform: uppercase !important;
+}
+:is(#main-content, footer) :is([class*="WorkClient_mainHeadline"], [class*="WorkClient_mainHeadline"] *) {
+  font-size: clamp(41px, 5.17vw, 70px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.03em !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+  text-transform: uppercase !important;
+}
+:is(#main-content, footer) [class*="ExpertiseHero_description"] {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: clamp(17.5px, 1.25vw, 19.5px) !important;
+  line-height: 1.6 !important;
+  font-weight: 500 !important;
+  color: #102746 !important;
+}
+:is(#main-content, footer) [class*="WorkClient_copyParagraph"] {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: clamp(16.5px, 1.18vw, 18.3px) !important;
+  line-height: 1.6 !important;
+  font-weight: 500 !important;
+  color: #102746 !important;
+}
+:is(#main-content, footer) [class*="visionText"] {
+  font-size: clamp(1.5rem, 3.5vw, 2.8rem) !important;
+  line-height: 1.25 !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+}
+:is(#main-content, footer) [class*="actualTitle"] {
+  font-size: clamp(2.25rem, 4vw, 3.5rem) !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+}
+:is(#main-content, footer) [class*="actualTitle"] :is(em, [data-italic]) {
+  font-style: italic !important;
+  text-transform: lowercase !important;
+  font-weight: 400 !important;
+}

@@ -120,7 +120,7 @@
 }
 
 .bentoCard:hover {
-  border-color: var(--color-blue);
+  border-color: var(--color-border);
   background-color: var(--color-white);
   box-shadow: none;
 }

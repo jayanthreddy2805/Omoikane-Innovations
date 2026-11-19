@@ -169,7 +169,7 @@ const FOCUS_AREAS = [
     href: "/work#oesc",
     icon: (
       <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+        <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
       </svg>
     ),
   },
@@ -181,19 +181,18 @@ export default function WorkClient() {
       {/* ── 1. OUR WORK EDITORIAL INTRO SECTION ── */}
       <section className={styles.heroSection} aria-labelledby="work-page-heading">
         <div className={styles.heroContentWrapper}>
-          {/* Main Headline: Sans uppercase line 1 + Italic serif line 2 */}
-          <h1 id="work-page-heading" className={styles.mainHeadline}>
+          {/* Main Headline */}
+          <h1 id="work-page-heading" className={styles.mainHeadline} data-client-hero-heading>
             <span className={styles.headlineSans}>FROM SYSTEM DESIGN</span>
-            <span className={styles.headlineSerif}>TO TESTED HARDWARE.</span>
+            <span className={styles.headlineSerif}>TO TESTED HARDWARE</span>
           </h1>
 
           {/* Supporting Copy */}
           <div className={styles.supportingCopy}>
-            <p className={styles.copyParagraph}>
-              We work with OEMs, UAV manufacturers, system integrators and engineering teams to align hardware design with platform requirements.
-            </p>
-            <p className={styles.copyParagraph}>
-              We design and develop high-performance electronics and autonomous systems for a safer, smarter and more self-reliant future.
+            <p className={styles.copyParagraph} data-client-hero-copy>
+              We work with OEMs, UAV manufacturers, system integrators and engineering teams to align<br className={styles.desktopBreak} />
+              hardware design with platform requirements. We design and develop high-performance<br className={styles.desktopBreak} />
+              electronics and autonomous systems for a safer, smarter and more self-reliant future.
             </p>
           </div>
         </div>
@@ -247,27 +246,7 @@ export default function WorkClient() {
                     />
                   </div>
 
-                  {/* Top-Right Overlapping Card */}
-                  <div className={styles.topCard}>
-                    <Image
-                      src={system.images.top}
-                      alt=""
-                      fill
-                      className={styles.cardImage}
-                      sizes="(max-width: 960px) 50vw, 20vw"
-                    />
-                  </div>
 
-                  {/* Bottom-Left Overlapping Card */}
-                  <div className={styles.bottomCard}>
-                    <Image
-                      src={system.images.bottom}
-                      alt=""
-                      fill
-                      className={styles.cardImage}
-                      sizes="(max-width: 960px) 50vw, 20vw"
-                    />
-                  </div>
                 </div>
               </div>
 

@@ -64,7 +64,7 @@ export default function LeadershipHero() {
         >
           <h1 className={styles.actualTitle}>
             LEADERSHIP BUILT ON <br/>
-            <span style={{ fontStyle: 'italic', textTransform: 'lowercase', fontWeight: 400 }}>vision</span> & <span style={{ fontStyle: 'italic', textTransform: 'lowercase', fontWeight: 400 }}>precision</span>
+            <em data-italic>vision</em> & <em data-italic>precision</em>
           </h1>
         </motion.div>
 

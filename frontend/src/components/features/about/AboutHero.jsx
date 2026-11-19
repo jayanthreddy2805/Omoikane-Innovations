@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ClientPageHero } from "@/components/shared/ClientReferenceHero";
 
 const COMPANY_VIDEO = "/videos/about/omoikane.mp4";
-const COMPANY_VIDEO_POSTER = "/images/about/omoikane-film-poster.jpg";
+const COMPANY_VIDEO_POSTER = "/images/about/domain-air.jpg";
 
 const subscribeToMotion = (notify) => {
   const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
