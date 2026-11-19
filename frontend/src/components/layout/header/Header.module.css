@@ -117,7 +117,7 @@
   color: #061D40 !important;
 }
 
-.headerWhite .pillBtn:hover {
+.headerWhite .pillBtn:not(.pillActive):hover {
   background: rgba(6, 29, 64, 0.05) !important;
 }
 

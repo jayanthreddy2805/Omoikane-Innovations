@@ -35,7 +35,7 @@
 .button.outline { color: #0757c8; border-color: #0757c8; background: rgba(255,255,255,.65); box-shadow: none; }
 .pageHero {
   min-height: auto;
-  background: #0a2f5e;
+  background: #041943;
   color: white;
   padding: clamp(14px, 2vh, 20px) 0;
   display: flex;
