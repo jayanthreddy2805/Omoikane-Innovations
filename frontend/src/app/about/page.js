@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import {
   motion,
   useScroll,
@@ -11,8 +11,8 @@ import {
 import Image from '@/components/shared/LoadAwareImage';
 import Link from 'next/link';
 import styles from './page.module.css';
-import { AnimatedNumberBg } from "@/components/shared/ui/AnimatedNumberBg";
 import AboutHero from '@/components/features/about/AboutHero';
+import AboutMetrics from '@/components/features/about/AboutMetrics';
 import CallToAction from '@/components/shared/CallToAction';
 function FadeUp({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
@@ -296,22 +296,6 @@ function MissionDomainExplorer() {
 
 
 /* ─────────────────────────────────────────────────────────
-
-
-/* ─────────────────────────────────────────────────────────
-   SECTION 06 — IMPACT
-   Company figures verified by the client. Confirm reporting definitions before adding detail.
-───────────────────────────────────────────────────────── */
-const METRICS = [
-  { value: '10', suffix: '+', label: 'Years of experience' },
-  { value: '98', suffix: '%', label: 'Client retention' },
-  { value: '50', suffix: '+', label: 'Global clients' },
-  { value: '80', suffix: '+', label: 'Delivered projects' },
-];
-
-
-
-/* ─────────────────────────────────────────────────────────
    SECTION 06 — FAQS
 ───────────────────────────────────────────────────────── */
 const FAQS = [
@@ -415,7 +399,7 @@ export default function AboutPage() {
       <AboutHero />
       <AboutVision />
       <OmoikaneSystemArchitecture />
-      <Testimonials />
+      <AboutMetrics />
       <CredentialsArchive />
       <MissionDomainExplorer />
       <FaqSection />
@@ -525,161 +509,3 @@ function CredentialsArchive() {
     </section>
   );
 }
-
-/* ─────────────────────────────────────────────────────────
-   TESTIMONIALS
-───────────────────────────────────────────────────────── */
-const testimonials = [
-  {
-    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
-    name: "Briana Patton",
-    role: "Operations Manager",
-  },
-  {
-    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
-    name: "Bilal Ahmed",
-    role: "IT Manager",
-  },
-  {
-    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
-    name: "Saman Malik",
-    role: "Customer Support Lead",
-  },
-  {
-    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
-    name: "Omar Raza",
-    role: "CEO",
-  },
-  {
-    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
-    name: "Zainab Hussain",
-    role: "Project Manager",
-  },
-  {
-    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
-    name: "Aliza Khan",
-    role: "Business Analyst",
-  },
-  {
-    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
-    name: "Farhan Siddiqui",
-    role: "Marketing Director",
-  },
-  {
-    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
-    name: "Sana Sheikh",
-    role: "Sales Manager",
-  },
-  {
-    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
-    name: "Hassan Ali",
-    role: "E-commerce Manager",
-  },
-];
-
-const firstColumn = testimonials.slice(0, 3);
-const secondColumn = testimonials.slice(3, 6);
-const thirdColumn = testimonials.slice(6, 9);
-
-const TestimonialsColumn = (props) => {
-  return (
-    <div className={props.className}>
-      <div
-        className={`${styles.testiCol} ${styles.testiScroll}`}
-        style={{ animationDuration: `${props.duration || 10}s` }}
-      >
-        {[
-          ...new Array(2).fill(0).map((_, index) => (
-            <React.Fragment key={index}>
-              {props.testimonials.map(({ text, name, role }, i) => {
-                return (
-                  <motion.div 
-                    className={styles.testiCard} 
-                    key={i}
-                  >
-                    <div className={styles.testiIndex}>
-                      0{i + 1}
-                    </div>
-                    
-                    <div className={styles.testiText}>{text}</div>
-                    <div className={styles.testiProfile}>
-                      <span className={styles.testiAvatar} aria-hidden="true">
-                        {name.split(' ').map(part => part[0]).join('').slice(0, 2)}
-                      </span>
-                      <div className={styles.testiMeta}>
-                        <div className={styles.testiName}>{name}</div>
-                        <div className={styles.testiRole}>{role}</div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </React.Fragment>
-          )),
-        ]}
-      </div>
-    </div>
-  );
-};
-
-const Testimonials = () => {
-  const ref = useRef(null);
-
-  return (
-    <section className={styles.testiSection} ref={ref}>
-      <div className={styles.testiContainer}>
-        <div className={styles.testiSplitLayout}>
-          {/* Left Column: Testimonials */}
-          <div className={styles.testiLeft}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true, margin: "-100px" }}
-              className={styles.testiHeader}
-            >
-              <h2 className={styles.testiHeading}>
-                What our clients say
-              </h2>
-            </motion.div>
-
-            <div className={styles.testiGrid}>
-              <TestimonialsColumn 
-                testimonials={firstColumn} 
-                duration={15} 
-              />
-              <TestimonialsColumn 
-                testimonials={secondColumn} 
-                duration={19} 
-              />
-            </div>
-          </div>
-
-          {/* Right Column: Numbers of our site */}
-          <div className={styles.testiRight} style={{ position: "relative", overflow: "hidden", padding: "3rem", borderRadius: "24px" }}>
-            <AnimatedNumberBg />
-            <div className={styles.impactGrid2x2} style={{ borderLeft: "none", paddingLeft: 0 }}>
-              {METRICS.map((m, i) => (
-                <motion.div
-                  key={m.label}
-                  className={styles.impactCard}
-                  initial={{ opacity: 0, y: 6 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-15%' }}
-                  transition={{ duration: 0.5, delay: 0.1 * i, ease: "easeOut" }}
-                >
-                  <div className={styles.impactCardValue}>
-                    {m.value}{m.suffix}
-                  </div>
-                  <div className={styles.impactCardLabel}>
-                    {m.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
