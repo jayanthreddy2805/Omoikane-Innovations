@@ -9,12 +9,8 @@ const figures = [
 
 export default function AboutMetrics() {
   return (
-    <section className={styles.section} aria-labelledby="about-metrics-heading">
+    <section className={styles.section} aria-label="Company figures">
       <div className={styles.inner}>
-        <h2 id="about-metrics-heading" className={styles.heading}>
-          Omoikane in numbers
-        </h2>
-
         <dl className={styles.rail}>
           {figures.map(({ label, value }) => (
             <div className={styles.item} key={label}>
