@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────────────────────
    TECHNOLOGY & ENGINEERING (DARK EDITORIAL CAPABILITY MATRIX)
    Palette:
-   - Unified footer background: var(--color-footer, #000812)
+   - About title-band navy: #0A2F5E (client ZIP)
    - Ice white: #F7FBFF
    - Luminous sky blue accent: #7DBDFF
    - Subtle Dividers: rgba(255, 255, 255, 0.12)
@@ -11,8 +11,6 @@
 .section {
   width: 100%;
   background-color: #0a2f5e;
-  /* Smooth ambient lighting gradient with zero dot noise */
-  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30, 98, 196, 0.20), transparent 70%);
   color: var(--color-on-dark, #F7FBFF);
   padding: clamp(3.9rem, 6.6vh, 5.7rem) clamp(1.5rem, 5vw, 4.5rem);
   box-sizing: border-box;
