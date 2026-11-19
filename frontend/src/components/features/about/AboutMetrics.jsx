@@ -1,10 +1,10 @@
 import styles from "./AboutMetrics.module.css";
 
 const figures = [
-  { label: "Years of experience", value: "10+" },
-  { label: "Delivered projects", value: "80+" },
-  { label: "Global clients", value: "50+" },
-  { label: "Client retention", value: "98%" },
+  { label: "Engineering Projects Delivered", value: "10+" },
+  { label: "Skilled Engineers & Developers", value: "15+" },
+  { label: "Industry Deployments", value: "5+" },
+  { label: "Engineering Experience", value: "10+" },
 ];
 
 export default function AboutMetrics() {
