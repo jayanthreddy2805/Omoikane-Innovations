@@ -151,7 +151,7 @@ const DOMAINS = [
     imageAlt: 'Autonomous aerial platform representing Omoikane air systems capabilities.',
     imagePosition: 'center 30%',
     gradient: 'linear-gradient(90deg, rgba(10,12,16,0.9) 0%, rgba(10,12,16,0.6) 30%, rgba(10,12,16,0.1) 60%, transparent 80%)',
-    tags: ['UAV SYSTEMS', 'FLIGHT CONTROL', 'AERIAL SENSING', 'NAVIGATION'],
+    tags: [],
     align: 'left',
   },
   {
@@ -165,7 +165,7 @@ const DOMAINS = [
     imageAlt: 'Precision robotic actuator machinery representing Omoikane industrial automation capabilities.',
     imagePosition: 'center center',
     gradient: 'linear-gradient(90deg, rgba(10,12,16,0.98) 0%, rgba(10,12,16,0.85) 25%, rgba(10,12,16,0.4) 55%, transparent 80%)',
-    tags: ['PROCESS AUTOMATION', 'PRECISION ROBOTICS', 'EMBEDDED CONTROL', 'INDUSTRIAL IoT'],
+    tags: [],
     align: 'left',
   },
   {
@@ -252,7 +252,6 @@ function MissionDomainExplorer() {
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
-                  <span className={styles.domainTabIndex}>{d.index}</span>
                   <span className={styles.domainTabLabel}>{d.label}</span>
                 </button>
               ))}
@@ -269,9 +268,6 @@ function MissionDomainExplorer() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 
-                <div className={styles.domainPanelIndex}>
-                  {activeDomain.index} / {activeDomain.label}
-                </div>
                 <h3 className={styles.domainPanelLabel}>{activeDomain.label}</h3>
                 <p className={styles.domainPanelFocus}>{activeDomain.focus}</p>
                 <div className={styles.domainPanelDivider} />
@@ -397,7 +393,6 @@ export default function AboutPage() {
   return (
     <div className={styles.page}>
       <AboutHero />
-      <AboutVision />
       <OmoikaneSystemArchitecture />
       <AboutMetrics />
       <CredentialsArchive />
