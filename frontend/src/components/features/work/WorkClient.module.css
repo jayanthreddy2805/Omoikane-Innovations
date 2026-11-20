@@ -179,7 +179,7 @@
 
 .focusStripTrack {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   width: 100%;
   box-sizing: border-box;
 }
@@ -187,6 +187,7 @@
 .focusStripItem {
   display: flex;
   align-items: center;
+  min-width: 0;
   gap: 1.15rem;
   padding: 1.6rem 1.4rem;
   text-decoration: none;
@@ -256,13 +257,7 @@
   color: var(--color-muted, #62748A);
   line-height: 1.35;
   margin: 0;
-  white-space: nowrap;
-}
-
-@media (max-width: 1140px) {
-  .focusSubtitle {
-    white-space: normal;
-  }
+  white-space: normal;
 }
 
 @media (max-width: 900px) {
