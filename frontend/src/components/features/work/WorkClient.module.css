@@ -382,6 +382,18 @@
   height: clamp(300px, 36vw, 460px);
 }
 
+@media (max-width: 600px) {
+  .collageCol {
+    padding: 0;
+  }
+
+  .collageCanvas {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
 /* Base Primary Card — full canvas, no overlay cards */
 .baseCard {
   width: 100%;
