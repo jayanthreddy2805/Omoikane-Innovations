@@ -1,5 +1,5 @@
-/* Client ZIP type system, scoped away from the existing navigation. */
-:is(#main-content, footer), :is(#main-content, footer) * {
+/* Client ZIP type system, scoped to main content. Navigation and footer keep their own typography. */
+#main-content, #main-content * {
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 }
 #main-content { --type-section: 25px; --type-lead: 16px; --type-body: 16px; --type-label: 14px; line-height: 1.6; }
@@ -12,9 +12,6 @@
 #main-content p:not([data-client-hero-copy]) { font-size: 16px !important; line-height: 1.6 !important; letter-spacing: normal !important; }
 #main-content :is(input,textarea,select) { font-size: 16px; }
 #main-content label { font-size: 14px; font-weight: 600; }
-footer p { font-size: 14px !important; line-height: 1.6 !important; }
-footer :is(h3,h4) { font-size: 16px !important; font-weight: 700 !important; }
-footer a { font-size: 14px; }
 @media(max-width:680px) {
   #main-content h1:not([data-client-hero-heading]) { font-size: 24px !important; }
   #main-content h2 { font-size: 22px !important; }
@@ -22,10 +19,10 @@ footer a { font-size: 14px; }
 }
 
 /* Exemptions to undo/preserve original typography */
-:is(#main-content, footer) :is([class*="visionText"], [class*="LeadershipHero"], [class*="actualTitle"], [class*="actualTitle"] *, [class*="ExpertiseHero_heading"], [class*="WorkClient_mainHeadline"], [class*="WorkClient_mainHeadline"] *) {
+#main-content :is([class*="visionText"], [class*="LeadershipHero"], [class*="actualTitle"], [class*="actualTitle"] *, [class*="ExpertiseHero_heading"], [class*="WorkClient_mainHeadline"], [class*="WorkClient_mainHeadline"] *) {
   font-family: var(--font-space-grotesk), sans-serif !important;
 }
-:is(#main-content, footer) [class*="ExpertiseHero_heading"] {
+#main-content [class*="ExpertiseHero_heading"] {
   font-size: clamp(44px, 5.5vw, 74px) !important;
   line-height: 1.05 !important;
   letter-spacing: -0.03em !important;
@@ -33,7 +30,7 @@ footer a { font-size: 14px; }
   font-style: normal !important;
   text-transform: uppercase !important;
 }
-:is(#main-content, footer) :is([class*="WorkClient_mainHeadline"], [class*="WorkClient_mainHeadline"] *) {
+#main-content :is([class*="WorkClient_mainHeadline"], [class*="WorkClient_mainHeadline"] *) {
   font-size: clamp(41px, 5.17vw, 70px) !important;
   line-height: 1.05 !important;
   letter-spacing: -0.03em !important;
@@ -41,33 +38,33 @@ footer a { font-size: 14px; }
   font-style: normal !important;
   text-transform: uppercase !important;
 }
-:is(#main-content, footer) [class*="ExpertiseHero_description"] {
+#main-content [class*="ExpertiseHero_description"] {
   font-family: var(--font-inter), sans-serif !important;
   font-size: clamp(17.5px, 1.25vw, 19.5px) !important;
   line-height: 1.6 !important;
   font-weight: 500 !important;
   color: #102746 !important;
 }
-:is(#main-content, footer) [class*="WorkClient_copyParagraph"] {
+#main-content [class*="WorkClient_copyParagraph"] {
   font-family: var(--font-inter), sans-serif !important;
   font-size: clamp(16.5px, 1.18vw, 18.3px) !important;
   line-height: 1.6 !important;
   font-weight: 500 !important;
   color: #102746 !important;
 }
-:is(#main-content, footer) [class*="visionText"] {
+#main-content [class*="visionText"] {
   font-size: clamp(1.5rem, 3.5vw, 2.8rem) !important;
   line-height: 1.25 !important;
   font-weight: 400 !important;
   letter-spacing: -0.02em !important;
 }
-:is(#main-content, footer) [class*="actualTitle"] {
+#main-content [class*="actualTitle"] {
   font-size: clamp(2.25rem, 4vw, 3.5rem) !important;
   line-height: 1 !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
 }
-:is(#main-content, footer) [class*="actualTitle"] :is(em, [data-italic]) {
+#main-content [class*="actualTitle"] :is(em, [data-italic]) {
   font-style: italic !important;
   text-transform: lowercase !important;
   font-weight: 400 !important;
