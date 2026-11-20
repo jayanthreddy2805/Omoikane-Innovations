@@ -191,8 +191,8 @@ export default function WorkClient() {
           <div className={styles.supportingCopy}>
             <p className={styles.copyParagraph} data-client-hero-copy>
               We work with OEMs, UAV manufacturers, system integrators and engineering teams to align<br className={styles.desktopBreak} />
-              hardware design with platform requirements. We design and develop high-performance<br className={styles.desktopBreak} />
-              electronics and autonomous systems for a safer, smarter and more self-reliant future.
+              {" "}hardware design with platform requirements. We design and develop high-performance<br className={styles.desktopBreak} />
+              {" "}electronics and autonomous systems for a safer, smarter and more self-reliant future.
             </p>
           </div>
         </div>
