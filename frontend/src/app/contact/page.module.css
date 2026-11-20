@@ -385,7 +385,7 @@
     gap: 28px;
   }
 
-  .enquiryVisualWrapper {
-    min-height: 220px;
+  .enquiryVisualContainer {
+    display: none;
   }
 }
