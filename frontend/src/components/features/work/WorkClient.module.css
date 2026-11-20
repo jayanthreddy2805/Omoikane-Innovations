@@ -171,9 +171,10 @@
   transform: translateY(-60px) !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .focusStripContainer {
-    transform: translateY(-30px) !important;
+    margin-top: 32px;
+    transform: none !important;
   }
 }
 
@@ -380,6 +381,18 @@
   position: relative;
   width: clamp(300px, 36vw, 460px);
   height: clamp(300px, 36vw, 460px);
+}
+
+@media (max-width: 600px) {
+  .collageCol {
+    padding: 0;
+  }
+
+  .collageCanvas {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
 }
 
 /* Base Primary Card — full canvas, no overlay cards */

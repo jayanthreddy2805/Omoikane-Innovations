@@ -371,3 +371,21 @@
     margin-top: -10px;
   }
 }
+
+@media (max-width: 600px) {
+  .enquirySection {
+    padding: 48px 0 64px;
+  }
+
+  .contactHeroWrapper {
+    margin: 0 0 28px;
+  }
+
+  .enquiryGrid {
+    gap: 28px;
+  }
+
+  .enquiryVisualContainer {
+    display: none;
+  }
+}

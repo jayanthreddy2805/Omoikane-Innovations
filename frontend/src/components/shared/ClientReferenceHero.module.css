@@ -57,7 +57,9 @@
 }
 @media (max-width: 680px) {
   .homeFrame, .pageFrame { padding-top: 80px; }
-  .homeHero { min-height: 420px; background: linear-gradient(0deg,rgba(242,249,255,.99) 0%,rgba(242,249,255,.94) 40%,rgba(242,249,255,.16) 78%),url('/images/reference/home-drone-mobile.jpg') 58% top / auto 68% no-repeat,#eaf5ff; align-items: flex-end; }
+  .homeHero { min-height: 620px; background: linear-gradient(180deg,#f2f9ff 0%,#f2f9ff 56%,rgba(242,249,255,.88) 66%,rgba(242,249,255,0) 84%),url('/images/reference/home-drone-mobile.jpg') 58% bottom / auto 42% no-repeat,#eaf5ff; align-items: flex-start; }
+  .homeHero::before { display: none; }
+  .homeHero::after { background: none; }
   .heroContent { padding: 26px 0 30px; }
   .homeHero h1 { font-size: 32px; }
   .homeHero p { font-size: 1rem; }

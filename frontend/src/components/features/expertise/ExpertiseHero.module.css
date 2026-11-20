@@ -110,6 +110,18 @@
   }
 }
 
+@media (max-width: 600px) {
+  .hero {
+    min-height: max(580px, calc(100dvh - 76px));
+  }
+
+  .imageLayer {
+    background-image: url('/images/expertise/herom.png');
+    background-size: cover;
+    background-position: center top;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero *,
   .hero *::before,

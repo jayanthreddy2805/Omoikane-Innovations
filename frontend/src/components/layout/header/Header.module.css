@@ -442,6 +442,10 @@
   flex-shrink: 0;
   flex-direction: column;
   gap: 5px;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
   padding: 6px;
   background: none;
   border: none;
@@ -489,8 +493,8 @@
   border-bottom: 1px solid #DCE7F3;
   display: flex;
   flex-direction: column;
-  padding: 1rem 2rem 2rem;
-  max-height: calc(100dvh - 140px);
+  padding: 0.5rem clamp(1.25rem, 5vw, 2rem) max(1.5rem, env(safe-area-inset-bottom));
+  max-height: calc(100dvh - 80px);
   overflow-y: auto;
   z-index: 999;
   box-shadow: 0 10px 30px rgba(6, 29, 64, 0.05);
@@ -503,13 +507,39 @@
 }
 
 .mobileLink {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
   font-size: 1.05rem;
   font-weight: 600;
   color: #102746;
   text-decoration: none;
-  padding: 0.85rem 0;
-  border-bottom: 1px solid #DCE7F3;
+  padding: 0.5rem 0;
   transition: color 0.2s ease;
+}
+
+.mobileLinkRow {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #DCE7F3;
+}
+
+.mobileDisclosure {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  color: #102746;
+  font-size: 1.5rem;
+}
+
+.mobileSubMenu {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0 0.75rem;
+  border-bottom: 1px solid #DCE7F3;
 }
 
 .mobileLink:hover,
@@ -529,6 +559,28 @@
 
 .mobileSubLink:hover {
   color: #102746;
+}
+
+.mobileSearchButton {
+  min-height: 48px;
+  text-align: left;
+  color: #102746;
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid #DCE7F3;
+}
+
+.mobileContactLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 1.25rem;
+  border-radius: 999px;
+  background: #000812;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 /* ─────────────────────────────────────────────

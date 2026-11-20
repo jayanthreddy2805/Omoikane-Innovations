@@ -61,6 +61,7 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState("");
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileCareersOpen, setMobileCareersOpen] = React.useState(false);
   const [isHidden, setIsHidden] = React.useState(false);
 
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -105,6 +106,7 @@ export default function Header() {
 
   const searchInputRef = React.useRef(null);
   const searchButtonRef = React.useRef(null);
+  const searchOpenerRef = React.useRef(null);
   const searchDialogRef = React.useRef(null);
   const mobileButtonRef = React.useRef(null);
   const careersRef = React.useRef(null);
@@ -116,6 +118,7 @@ export default function Header() {
       setCareersOpen(false);
       setSearchOpen(false);
       setMobileOpen(false);
+      setMobileCareersOpen(false);
       setSearchQuery("");
     });
 
@@ -125,7 +128,7 @@ export default function Header() {
   // Search is a modal: focus its input, then return to its opener on close.
   React.useEffect(() => {
     if (!searchOpen) return;
-    const opener = searchButtonRef.current;
+    const opener = searchOpenerRef.current || searchButtonRef.current;
     const frame = requestAnimationFrame(() => searchInputRef.current?.focus());
     return () => {
       cancelAnimationFrame(frame);
@@ -156,6 +159,7 @@ export default function Header() {
         setSearchOpen(false);
         setCareersOpen(false);
         setMobileOpen(false);
+        setMobileCareersOpen(false);
       }
     }
     document.addEventListener("keydown", onKey);
@@ -203,7 +207,7 @@ export default function Header() {
     <>
       <motion.header
         className={`${styles.header} ${isScrolled ? styles.headerScrolled : (isDarkHero ? styles.headerOnDark : (isWhiteNav ? styles.headerWhite : ""))} ${mobileOpen ? styles.headerMobileOpen : ""}`}
-        animate={{ y: isHidden ? "-100%" : (isScrolled ? 16 : 0), opacity: isHidden ? 0 : 1 }}
+        animate={{ y: !mobileOpen && !searchOpen && isHidden ? "-100%" : (isScrolled ? 16 : 0), opacity: !mobileOpen && !searchOpen && isHidden ? 0 : 1 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         {/* ── LOGO ── */}
@@ -316,7 +320,10 @@ export default function Header() {
           <button
             ref={searchButtonRef}
             className={styles.searchTrigger}
-            onClick={() => setSearchOpen(true)}
+            onClick={() => {
+              searchOpenerRef.current = searchButtonRef.current;
+              setSearchOpen(true);
+            }}
             aria-label="Search"
             aria-haspopup="dialog"
             aria-expanded={searchOpen}
@@ -362,16 +369,48 @@ export default function Header() {
             >
               {NAV_LINKS.map((item) => (
                 <React.Fragment key={item.label}>
-                  <Link href={item.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileLink} ${pathname?.startsWith(item.activePath || item.href) && item.href !== "/" ? styles.mobileLinkActive : pathname === "/" && item.href === "/" ? styles.mobileLinkActive : ""}`}>
-                    {item.label}
-                  </Link>
-                  {item.dropdown && item.dropdown.map((opt) => (
-                    <Link key={opt.href} href={opt.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileSubLink} ${pathname === opt.href ? styles.mobileLinkActive : ""}`}>
-                      — {opt.title}
+                  <div className={styles.mobileLinkRow}>
+                    <Link href={item.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileLink} ${pathname?.startsWith(item.activePath || item.href) && item.href !== "/" ? styles.mobileLinkActive : pathname === "/" && item.href === "/" ? styles.mobileLinkActive : ""}`}>
+                      {item.label}
                     </Link>
-                  ))}
+                    {item.dropdown && (
+                      <button
+                        type="button"
+                        className={styles.mobileDisclosure}
+                        onClick={() => setMobileCareersOpen((open) => !open)}
+                        aria-label="Show career categories"
+                        aria-expanded={mobileCareersOpen}
+                        aria-controls="mobile-career-categories"
+                      >
+                        <span aria-hidden="true">{mobileCareersOpen ? "−" : "+"}</span>
+                      </button>
+                    )}
+                  </div>
+                  {item.dropdown && mobileCareersOpen && (
+                    <div id="mobile-career-categories" className={styles.mobileSubMenu}>
+                      {item.dropdown.map((opt) => (
+                        <Link key={opt.href} href={opt.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileSubLink} ${pathname === opt.href ? styles.mobileLinkActive : ""}`}>
+                          {opt.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </React.Fragment>
               ))}
+              <button
+                type="button"
+                className={styles.mobileSearchButton}
+                onClick={() => {
+                  searchOpenerRef.current = mobileButtonRef.current;
+                  setMobileOpen(false);
+                  setSearchOpen(true);
+                }}
+              >
+                Search this website
+              </button>
+              <Link href="/contact" className={styles.mobileContactLink} onClick={() => setMobileOpen(false)}>
+                Contact us
+              </Link>
             </motion.nav>
           )}
         </AnimatePresence>
