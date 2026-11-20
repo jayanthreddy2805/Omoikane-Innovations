@@ -21,6 +21,9 @@ const contentSecurityPolicy = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
+  experimental: {
+    agentUpgrade: "security",
+  },
   productionBrowserSourceMaps: true,
   images: {
     formats: ["image/avif", "image/webp"],

@@ -52,11 +52,13 @@
   font-weight: 500 !important;
   color: #102746 !important;
 }
-#main-content [class*="visionText"] {
-  font-size: clamp(1.5rem, 3.5vw, 2.8rem) !important;
-  line-height: 1.25 !important;
+#main-content :is(p, div, span)[class*="visionText"] {
+  font-family: var(--font-space-grotesk), sans-serif !important;
+  font-size: clamp(1.03rem, 2.39vw, 1.92rem) !important;
+  line-height: 1.4 !important;
   font-weight: 400 !important;
   letter-spacing: -0.02em !important;
+  text-align: center !important;
 }
 #main-content [class*="actualTitle"] {
   font-size: clamp(2.25rem, 4vw, 3.5rem) !important;

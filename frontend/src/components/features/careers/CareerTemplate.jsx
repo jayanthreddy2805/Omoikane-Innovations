@@ -69,9 +69,6 @@ export default function CareerTemplate({ data }) {
       {/* A. HERO */}
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
-          <FadeUp delay={0.05}>
-            <span className={styles.eyebrow}>{eyebrow}</span>
-          </FadeUp>
           <RevealLine delay={0.12}>
             <h1 className={styles.headline}><TextLines text={headline} /></h1>
           </RevealLine>
@@ -116,7 +113,6 @@ export default function CareerTemplate({ data }) {
                       <span className={styles.navNumber}>{role.number}</span>
                       <div className={styles.navText}>
                         <span className={styles.navTitle}>{role.title}</span>
-                        <span className={styles.navSubtitle}>{role.subtitle}</span>
                         {role.specialization && <span className={styles.navSpec}>{role.specialization}</span>}
                       </div>
                   </button>

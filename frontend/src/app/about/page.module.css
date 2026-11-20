@@ -114,7 +114,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0.72) 45%, transparent 100%),
+    linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.72) 45%, transparent 100%),
     linear-gradient(0deg, #FFFFFF 0%, transparent 20%);
 }
 
@@ -426,8 +426,9 @@
 
 .visionInner {
   position: relative;
-  z-index: 3; /* Keep above noise, watermark, and blobs */
-  max-width: 1000px;
+  z-index: 3;
+  /* Keep above noise, watermark, and blobs */
+  max-width: 1180px;
   width: 100%;
   text-align: center;
   display: flex;
@@ -468,7 +469,8 @@
   opacity: 0.04;
   mix-blend-mode: overlay;
   pointer-events: none;
-  z-index: 1; /* Above blobs, below noise and text */
+  z-index: 1;
+  /* Above blobs, below noise and text */
   white-space: nowrap;
 }
 
@@ -480,18 +482,33 @@
 }
 
 .visionText {
-  font-family: var(--font-space-grotesk, sans-serif);
-  font-size: clamp(1.5rem, 3.5vw, 2.8rem);
-  line-height: 1.25;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 17.1px !important;
+  line-height: 1.5 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
   color: var(--color-text-primary);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center !important;
+}
+
+.visionBreak {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .visionBreak {
+    display: inline;
+  }
 }
 
 .system {
   background: var(--color-bg);
   border-top: 1px solid var(--border);
-  padding: 8rem 5% 6rem; /* Enhanced top breathing room, balanced bottom */
+  padding: 8rem 5% 6rem;
+  /* Enhanced top breathing room, balanced bottom */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -596,9 +613,11 @@
   .editorialCard:not(:nth-child(3n))::after {
     content: '';
     position: absolute;
-    right: -1.5rem; /* Center in the 3rem horizontal gap */
+    right: -1.5rem;
+    /* Center in the 3rem horizontal gap */
     top: 0;
-    bottom: 0; /* Exactly card height, creating a gap between rows */
+    bottom: 0;
+    /* Exactly card height, creating a gap between rows */
     width: 1px;
     background: linear-gradient(to bottom, var(--color-border-subtle) 0%, var(--color-border-subtle) 50%, transparent 100%);
   }
@@ -690,10 +709,12 @@
     padding-bottom: 2.5rem;
     border-bottom: 1px solid var(--border);
   }
+
   .editorialCard:last-child {
     border-bottom: none;
     padding-bottom: 0;
   }
+
   .editorialFooterContent {
     flex-direction: column;
     align-items: flex-start;
@@ -715,8 +736,10 @@
 }
 
 .domainsHeader {
-  margin-bottom: 72px; /* Generous breathing room */
-  padding-top: 64px; /* Space below header */
+  margin-bottom: 72px;
+  /* Generous breathing room */
+  padding-top: 64px;
+  /* Space below header */
 }
 
 .domainsHeading {
@@ -740,18 +763,19 @@
 .domainStage {
   position: relative;
   width: 100%;
-  min-height: 75vh;
-  max-height: 720px;
+  min-height: 44.8vh;
+  max-height: 426px;
   background: var(--color-footer, #000812);
   overflow: hidden;
   display: flex;
-  align-items: flex-start; /* Changed from center to flex-start */
+  align-items: flex-start;
+  /* Changed from center to flex-start */
 }
 
 @media (max-width: 900px) {
   .domainStage {
     height: auto;
-    min-height: 700px;
+    min-height: 403px;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -780,7 +804,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(90deg, rgba(0,8,18,0.95) 0%, rgba(0,8,18,0.7) 25%, rgba(0,8,18,0.2) 50%, transparent 75%);
+  background: linear-gradient(90deg, rgba(0, 8, 18, 0.95) 0%, rgba(0, 8, 18, 0.7) 25%, rgba(0, 8, 18, 0.2) 50%, transparent 75%);
 }
 
 /* Technical Overlays */
@@ -791,9 +815,11 @@
   width: 20px;
   height: 20px;
 }
+
 .domainCornerBR {
   position: absolute;
-  bottom: 5.5rem; /* above tabs */
+  bottom: 5.5rem;
+  /* above tabs */
   right: 1.5rem;
   width: 20px;
   height: 20px;
@@ -834,7 +860,8 @@
 .domainTabs {
   position: absolute;
   bottom: 2rem;
-  left: 3.5rem; /* Match text block left padding */
+  left: 3.5rem;
+  /* Match text block left padding */
   z-index: 10;
   display: flex;
   align-items: center;
@@ -902,13 +929,17 @@
     flex-wrap: wrap;
     height: 8rem;
   }
+
   .domainTab {
     flex: 0 0 50%;
     height: 4rem;
   }
-  .domainTab:nth-child(1), .domainTab:nth-child(2) {
+
+  .domainTab:nth-child(1),
+  .domainTab:nth-child(2) {
     border-bottom: 1px solid var(--border);
   }
+
   .domainTab:nth-child(2) {
     border-right: none;
   }
@@ -918,12 +949,15 @@
 .domainPanel {
   position: relative;
   z-index: 2;
-  margin-left: 3.5rem; /* ~56px left padding */
+  margin-left: 3.5rem;
+  /* ~56px left padding */
   margin-right: auto;
-  margin-bottom: 7rem; /* Leave room for navigation */
+  margin-bottom: 7rem;
+  /* Leave room for navigation */
   width: 45%;
   max-width: 440px;
-  padding: 3.5rem 0; /* ~56px top padding */
+  padding: 3.5rem 0;
+  /* ~56px top padding */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -951,11 +985,13 @@
 
 .domainPanelLabel {
   font-family: var(--font-space-grotesk, sans-serif);
-  font-size: clamp(2.75rem, 4.5vw, 4rem); /* Reduced by ~10% */
+  font-size: clamp(2.75rem, 4.5vw, 4rem);
+  /* Reduced by ~10% */
   font-weight: 600;
   letter-spacing: -0.04em;
   color: #FFFFFF;
-  margin-bottom: 1.5rem; /* ~24px spacing to description */
+  margin-bottom: 1.5rem;
+  /* ~24px spacing to description */
 }
 
 .domainPanelFocus {
@@ -963,7 +999,8 @@
   font-size: 1.125rem;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 2rem; /* ~32px spacing to divider */
+  margin-bottom: 2rem;
+  /* ~32px spacing to divider */
   max-width: 420px;
 }
 
@@ -971,7 +1008,8 @@
   width: 60px;
   height: 1px;
   background: rgba(255, 255, 255, 0.2);
-  margin-bottom: 2rem; /* ~32px spacing to detail */
+  margin-bottom: 2rem;
+  /* ~32px spacing to detail */
 }
 
 .domainPanelDetail {
@@ -979,7 +1017,8 @@
   font-size: 1rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 1.75rem; /* ~28px spacing to tags */
+  margin-bottom: 1.75rem;
+  /* ~28px spacing to tags */
   max-width: 410px;
 }
 
@@ -1065,7 +1104,9 @@
 }
 
 @media (max-width: 1024px) {
-  .credLayout { grid-template-columns: 1fr; }
+  .credLayout {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Left Side: Massive Interactive List */
@@ -1276,7 +1317,8 @@
 
 .faqHeader {
   text-align: left;
-  margin-bottom: 4rem; /* 64px approx to list */
+  margin-bottom: 4rem;
+  /* 64px approx to list */
 }
 
 .faqHeading {
@@ -1286,7 +1328,8 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--color-text-primary);
-  margin-bottom: 1.25rem; /* 20px gap to sub */
+  margin-bottom: 1.25rem;
+  /* 20px gap to sub */
 }
 
 .faqSub {
@@ -1343,7 +1386,8 @@
 
 .faqQuestion {
   font-family: var(--font-inter, sans-serif);
-  font-size: 1.15rem; /* Closer to the screenshot */
+  font-size: 1.15rem;
+  /* Closer to the screenshot */
   font-weight: 500;
   color: var(--color-text-primary);
   flex: 1;
@@ -1367,7 +1411,8 @@
 
 .faqAnswer {
   font-family: var(--font-inter, sans-serif);
-  font-size: 1.1rem; /* Approx 18px */
+  font-size: 1.1rem;
+  /* Approx 18px */
   line-height: 1.6;
   color: #445B75;
   padding: 1.5rem 0 0.5rem 0;
@@ -1379,6 +1424,7 @@
   .faqContainer {
     width: 90%;
   }
+
   .faqAnswer {
     width: 85%;
   }
@@ -1388,12 +1434,15 @@
   .faqSection {
     padding: 5rem 5%;
   }
+
   .faqQuestionRow {
     gap: 1rem;
   }
+
   .faqQuestion {
     font-size: 1.1rem;
   }
+
   .faqAnswer {
     width: 100%;
     margin-left: 0;
@@ -1489,6 +1538,7 @@
   transition: background 0.2s ease;
   border-radius: 4px;
 }
+
 .finaleCtaPrimary:hover {
   background: var(--color-text-secondary);
   color: var(--color-bg);
@@ -1562,11 +1612,17 @@
 }
 
 @media (max-width: 768px) {
-  .heroH1Solid, .heroH1Stroke {
+
+  .heroH1Solid,
+  .heroH1Stroke {
     font-size: clamp(3.5rem, 14vw, 5.5rem);
   }
 
-  .system, .domains, .credentials, .techDomains, .finale {
+  .system,
+  .domains,
+  .credentials,
+  .techDomains,
+  .finale {
     padding-left: 5%;
     padding-right: 5%;
   }
@@ -1594,6 +1650,7 @@
    REDUCED MOTION
 ═══════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
+
   .heroScrollLine,
   .heroMetaPulse,
   .telemetryPulse,
@@ -1610,7 +1667,6 @@
 .credSection {
   background: #FFFFFF;
   padding: clamp(8rem, 15vh, 12rem) clamp(1.25rem, 5.55vw, 5.5rem) clamp(5rem, 9vh, 7.5rem);
-  border-top: 1px solid var(--color-border, #DCE7F3);
   color: var(--color-ink, #102746);
   overflow: hidden;
   box-sizing: border-box;
@@ -1778,12 +1834,35 @@
   }
 }
 
-.credImageStartup { display: block; width: 170px; max-width: 100%; height: auto; max-height: 90px; object-fit: contain; }
-@media (max-width: 540px) { .credImageStartup { width: 165px; } }
+.credImageStartup {
+  display: block;
+  width: 170px;
+  max-width: 100%;
+  height: auto;
+  max-height: 90px;
+  object-fit: contain;
+}
+
+@media (max-width: 540px) {
+  .credImageStartup {
+    width: 165px;
+  }
+}
 
 /* Keep pending/failed image paint (including browser alt text) off the stage. */
-.domainPhoto { opacity: 0; transition: opacity 300ms ease; }
-.domainPhotoReady { opacity: 1; }
+.domainPhoto {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.domainPhotoReady {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .domainPhoto, .domainImageLayer { transition: none; }
+
+  .domainPhoto,
+  .domainImageLayer {
+    transition: none;
+  }
 }
