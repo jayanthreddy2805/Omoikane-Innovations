@@ -17,15 +17,22 @@ function TextLines({ text }) {
   ));
 }
 
+function HeroSubLines({ text }) {
+  return text.split(/<br\s*\/?\s*>/i).map((line, index, arr) => (
+    <span key={index} className={styles.heroSubLine}>
+      {line}
+      {index < arr.length - 1 && <span className={styles.heroSubSpace}> </span>}
+      {index < arr.length - 1 && <br className={styles.heroSubBreak} />}
+    </span>
+  ));
+}
+
 function FadeUp({ children, delay = 0, style = {} }) {
-  const r = useRef(null);
-  const inV = useInView(r, { once: true, margin: '-40px' });
   return (
     <motion.div
-      ref={r}
       style={style}
-      initial={{ opacity: 0, y: 28 }}
-      animate={inV ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.75, ease: EASE, delay }}
     >
       {children}
@@ -34,13 +41,11 @@ function FadeUp({ children, delay = 0, style = {} }) {
 }
 
 function RevealLine({ children, delay = 0 }) {
-  const r = useRef(null);
-  const inV = useInView(r, { once: true, margin: '-40px' });
   return (
-    <div ref={r} style={{ overflow: 'hidden', width: '100%', maxWidth: '100%' }}>
+    <div style={{ overflow: 'hidden', width: '100%', maxWidth: '100%' }}>
       <motion.div
         initial={{ y: '105%', opacity: 0 }}
-        animate={inV ? { y: 0, opacity: 1 } : {}}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, ease: EASE, delay }}
         style={{ width: '100%', maxWidth: '100%' }}
       >
@@ -88,7 +93,7 @@ export default function CareerTemplate({ data }) {
             <h1 className={styles.headline} data-client-hero-heading><TextLines text={headline} /></h1>
           </RevealLine>
           <FadeUp delay={0.3}>
-            <p className={styles.heroSub}><TextLines text={heroSub} /></p>
+            <p className={styles.heroSub}><HeroSubLines text={heroSub} /></p>
           </FadeUp>
           <FadeUp delay={0.42}>
             <div className={styles.heroCtas}>

@@ -158,6 +158,26 @@
 }
 
 @media (max-width: 768px) {
+  .actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .homeHero .button {
+    flex: 1 1 auto !important;
+    font-size: clamp(0.72rem, 3.1vw, 0.825rem) !important;
+    padding: 10px clamp(8px, 2.4vw, 14px) !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    justify-content: center !important;
+    letter-spacing: -0.01em !important;
+  }
+
   .homeFrame {
     padding-top: 80px;
     min-height: 100dvh;
@@ -269,9 +289,24 @@
     font-size: 1rem;
   }
 
+  .actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
   .homeHero .button {
-    font-size: 0.875rem;
-    padding: 10px 15px;
+    flex: 1 1 auto !important;
+    font-size: clamp(0.72rem, 3.1vw, 0.825rem) !important;
+    padding: 10px clamp(8px, 2.4vw, 14px) !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    justify-content: center !important;
+    letter-spacing: -0.01em !important;
   }
 
   .pageHero {

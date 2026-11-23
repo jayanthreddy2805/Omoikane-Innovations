@@ -88,6 +88,18 @@
   max-width: var(--measure-copy);
 }
 
+.heroSubLine {
+  display: inline;
+}
+
+.heroSubBreak {
+  display: block;
+}
+
+.heroSubSpace {
+  display: none;
+}
+
 .heroCtas {
   display: flex;
   gap: 2rem;
@@ -1087,10 +1099,13 @@
 
 @media (max-width: 768px) {
   .heroSection {
+    display: flex !important;
+    flex-direction: column !important;
     padding: calc(96px + 15px) 5% 2.5rem 5% !important;
     gap: 2rem !important;
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
   }
@@ -1098,31 +1113,52 @@
   .heroContent {
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .headline,
   :global(#main-content) .headline {
     font-size: clamp(1.2rem, 5.2vw, 1.65rem) !important;
-    line-height: 1.15 !important;
+    line-height: 1.18 !important;
     margin-bottom: 1.25rem !important;
     width: 100% !important;
     max-width: 100% !important;
     overflow: hidden !important;
+    word-break: break-word !important;
   }
 
   .headlineLine {
     display: block !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
     max-width: 100% !important;
   }
 
   .heroSub {
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
     line-height: 1.55 !important;
     margin-bottom: 1.75rem !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .heroSubLine {
+    display: inline !important;
+    white-space: normal !important;
+  }
+
+  .heroSubBreak {
+    display: none !important;
+  }
+
+  .heroSubSpace {
+    display: inline !important;
   }
 
   .heroCtas {
@@ -1131,9 +1167,13 @@
   }
 
   .heroVisual {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
     aspect-ratio: 16/9 !important;
     border-radius: 16px !important;
-    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .roleExplorerSection {

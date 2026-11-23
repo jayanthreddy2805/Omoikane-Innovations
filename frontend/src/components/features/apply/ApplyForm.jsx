@@ -43,6 +43,7 @@ const DEFAULT_ROLES = [
   ...ROLES_BY_DEPT.electronics
 ];
 
+// Contact page UI design applied for mobile filling bars
 export default function ApplyForm({ onSuccess }) {
   const searchParams = useSearchParams();
   const urlDept = searchParams.get('dept');

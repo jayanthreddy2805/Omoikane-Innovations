@@ -187,8 +187,11 @@
     gap: 20px;
   }
 
-  /* Contact page UI design for filling bars on mobile */
-  .input, .textarea {
+  /* Contact page UI design for filling bars on mobile - Applied to all form inputs */
+  .input, 
+  .textarea,
+  .formContainer input:not([type="file"]),
+  .formContainer textarea {
     background-color: #FFFFFF !important;
     border: 1px solid #DCE7F3 !important;
     border-radius: 4px !important;
@@ -201,19 +204,112 @@
     width: 100% !important;
   }
 
-  .textarea {
+  .textarea,
+  .formContainer textarea {
     resize: vertical !important;
     min-height: 140px !important;
   }
 
-  .input::placeholder, .textarea::placeholder {
+  .input::placeholder, 
+  .textarea::placeholder,
+  .formContainer input::placeholder,
+  .formContainer textarea::placeholder {
     color: #62748A !important;
   }
 
-  .input:focus, .textarea:focus {
+  .input:focus, 
+  .textarea:focus,
+  .formContainer input:focus,
+  .formContainer textarea:focus {
     outline: none !important;
     background-color: #FFFFFF !important;
     border-color: #0757C8 !important;
     box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.12) !important;
+  }
+
+  /* Role selector dropdown filling bar */
+  .selectWrapper button,
+  .selectWrapper [class*="selectTrigger"] {
+    background-color: #FFFFFF !important;
+    border: 1px solid #DCE7F3 !important;
+    border-radius: 4px !important;
+    padding: 14px 16px !important;
+    min-height: 52px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .selectWrapper button:hover,
+  .selectWrapper button:focus-visible,
+  .selectWrapper [class*="selectTrigger"]:hover,
+  .selectWrapper [class*="selectTrigger"]:focus-visible,
+  .selectWrapper [class*="open"] {
+    border-color: #0757C8 !important;
+    box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.12) !important;
+  }
+
+  /* Phone input filling bar */
+  .formContainer [class*="inputGroupLine"],
+  .formContainer [class*="InternationalPhoneInput_inputGroup"] {
+    background-color: #FFFFFF !important;
+    border: 1px solid #DCE7F3 !important;
+    border-radius: 4px !important;
+    height: 52px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .formContainer [class*="inputGroupLine"]:focus-within,
+  .formContainer [class*="InternationalPhoneInput_inputGroup"]:focus-within {
+    border-color: #0757C8 !important;
+    box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.12) !important;
+  }
+
+  .formContainer [class*="countrySelectBtn"] {
+    border-right: 1px solid #DCE7F3 !important;
+    padding: 0 12px !important;
+    margin-right: 0 !important;
+    height: 100% !important;
+    background: transparent !important;
+  }
+
+  .formContainer [class*="phoneInput"] {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 16px !important;
+    height: 100% !important;
+    color: #102746 !important;
+  }
+
+  /* File upload filling bar */
+  .formContainer [class*="FileUpload_container"],
+  .formContainer [class*="fieldContainer"] > div[role="button"] {
+    background-color: #FFFFFF !important;
+    border: 1px solid #DCE7F3 !important;
+    border-radius: 4px !important;
+    padding: 14px 16px !important;
+    min-height: 52px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .formContainer [class*="FileUpload_container"]:hover,
+  .formContainer [class*="FileUpload_container"]:focus-visible,
+  .formContainer [class*="fieldContainer"] > div[role="button"]:hover,
+  .formContainer [class*="fieldContainer"] > div[role="button"]:focus-visible {
+    border-color: #0757C8 !important;
+    box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.12) !important;
+  }
+
+  .formContainer [class*="emptyContent"] {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 }
