@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "@/components/shared/IntentLink";
 import Image from "@/components/shared/LoadAwareImage";
 import { m as motion } from "framer-motion";
@@ -11,6 +12,8 @@ import {
   Activity,
   Layers,
   Zap,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import styles from "@/app/page.module.css";
 import CallToAction from "@/components/shared/CallToAction";
@@ -18,6 +21,54 @@ import SelectedWork from "@/components/features/home/SelectedWork";
 import HomeCareers from "@/components/features/home/HomeCareers";
 import { ClientHomeHero } from "@/components/shared/ClientReferenceHero";
 
+
+// ─── Mobile Expertise Carousel Slides ─────────────────────────────
+const EXPERTISE_SLIDES = [
+  {
+    title: "Aerospace",
+    items: [
+      { icon: <Navigation size={16} />, label: "Autonomous UAV Platforms" },
+      { icon: <Cpu size={16} />, label: "Flight Control Systems" },
+      { icon: <Radio size={16} />, label: "RF Telemetry & Avionics" },
+    ],
+    image: "/images/about/domain-air.jpg",
+    alt: "Aerospace and autonomous flight platform",
+    href: "/expertise#aerospace",
+  },
+  {
+    title: "Defense",
+    items: [
+      { icon: <Shield size={16} />, label: "Secure Tactical Datalinks" },
+      { icon: <Activity size={16} />, label: "Real-Time Surveillance" },
+      { icon: <Radio size={16} />, label: "Rugged Defense Electronics" },
+    ],
+    image: "/images/about/domain-ground.jpg",
+    alt: "Defense technologies and tactical platforms",
+    href: "/expertise#defense",
+  },
+  {
+    title: "Automotive",
+    items: [
+      { icon: <Cpu size={16} />, label: "Intelligent ECU Solutions" },
+      { icon: <Zap size={16} />, label: "Real-Time Embedded Systems" },
+      { icon: <Layers size={16} />, label: "Vehicle Automation" },
+    ],
+    image: "/images/careers/electronics/embedded-pcb.jpg",
+    alt: "Intelligent automotive electronics and ECUs",
+    href: "/expertise#automotive",
+  },
+  {
+    title: "Railways",
+    items: [
+      { icon: <Activity size={16} />, label: "Predictive Maintenance Systems" },
+      { icon: <Layers size={16} />, label: "Industrial Process Automation" },
+      { icon: <Shield size={16} />, label: "Intelligent Control at Scale" },
+    ],
+    image: "/images/about/domain-industrial.jpg",
+    alt: "Railway automation and industrial systems",
+    href: "/expertise#railways",
+  },
+];
 
 // ─── Why Our Products Stand Out ───────────────────────────────────
 const WHY_US_PILLARS = [
@@ -68,6 +119,22 @@ const cardVariants = {
 };
 
 export default function HomeClient() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const prevSlide = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentSlide((prev) => (prev === 0 ? EXPERTISE_SLIDES.length - 1 : prev - 1));
+  };
+
+  const nextSlide = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentSlide((prev) => (prev === EXPERTISE_SLIDES.length - 1 ? 0 : prev + 1));
+  };
+
+  const activeExpertise = EXPERTISE_SLIDES[currentSlide];
+
   return (
     <div className={styles.pageContainer}>
       {/* ─────────────────────────────────────────────────────────
@@ -89,7 +156,7 @@ export default function HomeClient() {
           >
             <h2 className={styles.sectionTitle}>CORE EXPERTISE</h2>
             <p className={styles.sectionSubtitle}>
-              We primarily design and build advanced products for Aerospace and Defense applications, where performance, precision, and reliability are mission-critical. Our capabilities also extend to selected industrial domains.
+              We build advanced products for mission-critical Aerospace and Defense systems, extending to selected industrial domains.
             </p>
           </motion.header>
 
@@ -257,18 +324,57 @@ export default function HomeClient() {
             </motion.div>
           </div>
 
-          <motion.div
-            className={styles.sectionFooterLink}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Link href="/work" className={styles.outlineButton}>
-              <span>View All Products &amp; Solutions</span>
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </motion.div>
+          {/* ── Mobile Expertise Carousel (<= 768px) ── */}
+          <div className={styles.expertiseCarousel}>
+            <div className={styles.carouselHeader}>
+              <h3 className={styles.carouselTitle}>{activeExpertise.title}</h3>
+              <div className={styles.bentoMetaList}>
+                {activeExpertise.items.map((item) => (
+                  <div key={item.label} className={styles.bentoMetaItem}>
+                    <span className={styles.bentoMetaIcon}>{item.icon}</span>
+                    <span>{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.carouselVisualWrapper}>
+              <Image
+                src={activeExpertise.image}
+                alt={activeExpertise.alt}
+                fill
+                className={styles.bentoCardImg}
+                sizes="calc(100vw - 3rem)"
+              />
+              <button
+                type="button"
+                className={`${styles.carouselArrowBtn} ${styles.carouselArrowLeft}`}
+                onClick={prevSlide}
+                aria-label="Previous slide"
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <button
+                type="button"
+                className={`${styles.carouselArrowBtn} ${styles.carouselArrowRight}`}
+                onClick={nextSlide}
+                aria-label="Next slide"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+
+            <div className={styles.carouselFooter}>
+              <Link href={activeExpertise.href} className={styles.carouselExploreLink}>
+                Explore possibilities &rarr;
+              </Link>
+              <div className={styles.carouselCounter}>
+                <strong>{currentSlide + 1}</strong> / {EXPERTISE_SLIDES.length}
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </section>
 
@@ -316,7 +422,9 @@ export default function HomeClient() {
                     className={styles.whyCardImg}
                   />
                 </div>
-                <h3 className={styles.whyCardTitle}>{pillar.title}</h3>
+                <h3 className={`${styles.whyCardTitle} ${pillar.code === "IPD" ? styles.whyCardTitleSingleLine : ""}`}>
+                  {pillar.title}
+                </h3>
                 <p className={styles.whyCardDesc}>{pillar.description}</p>
               </motion.div>
             ))}

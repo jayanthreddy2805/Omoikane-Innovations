@@ -202,25 +202,117 @@
 ───────────────────────────────────────────────────────── */
 @media (max-width: 860px) {
   .section {
-    padding: 2.7rem 1.25rem 2.4rem 1.25rem;
+    padding: clamp(3.5rem, 8vh, 4.5rem) clamp(1.25rem, 5vw, 1.75rem);
   }
 
   .header {
-    margin-bottom: 1.8rem;
+    margin-bottom: 2.75rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .headline {
+    font-size: 26px;
+    line-height: 1.15;
+    text-align: left;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .subheadline {
+    font-size: 18px;
+    line-height: 1.3;
+    text-align: left;
+    margin: 0 0 0.9rem 0;
+  }
+
+  .supportingCopy {
+    font-size: 16px;
+    line-height: 1.65;
+    text-align: left;
+    margin: 0;
   }
 
   .matrixGrid {
-    grid-template-columns: 1fr;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    border-bottom: none;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-bottom: none !important;
   }
 
   .cell {
-    width: 100%;
-    min-height: 88px;
-    padding: 1.2rem 0.5rem;
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 2.25rem 0 !important;
     border-right: none !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    background: transparent !important;
+    cursor: default;
+  }
+
+  .cellActive {
+    background: transparent !important;
+  }
+
+  .cellActive .name {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .cellActive .description {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .number {
+    display: none !important;
+  }
+
+  .textContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+  }
+
+  .name {
+    position: static !important;
+    grid-area: auto !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    align-self: flex-start !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #7DBDFF !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .description {
+    position: static !important;
+    grid-area: auto !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    align-self: flex-start !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+    color: var(--color-on-dark-muted, #B6C8DE) !important;
   }
 }
 

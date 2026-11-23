@@ -247,6 +247,7 @@
 
 /* Left Visual Column (~30-32%) */
 .heroVisualCol {
+  display: none;
   width: 100%;
   height: 280px;
   position: relative;
@@ -256,6 +257,7 @@
 
 @media (min-width: 768px) {
   .heroVisualCol {
+    display: block;
     width: 32%;
     height: auto;
     min-height: 360px;

@@ -20,7 +20,7 @@
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
-  border-top: 1px solid #DCE7F3;
+  border-top: 1px solid rgba(6, 29, 64, 0.06);
   border-bottom: none;
 }
 
@@ -68,13 +68,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--home-border, #DCE7F3);
+  border-top: 1px solid rgba(6, 29, 64, 0.06);
 }
 
 .row {
   width: 100%;
   position: relative;
-  border-bottom: 1px solid var(--home-border, #DCE7F3);
+  border-bottom: 1px solid rgba(6, 29, 64, 0.06);
   background-color: transparent;
   border-radius: 0;
   overflow: hidden;
@@ -96,7 +96,7 @@
 /* Active Row: Pale blue gradient with royal-blue active indicator line */
 .rowActive {
   background: var(--gradient-surface) !important;
-  border-color: #DCE7F3 !important;
+  border-color: rgba(6, 29, 64, 0.08) !important;
   color: #102746;
   border-radius: 0 !important;
   box-shadow: none;
@@ -157,12 +157,20 @@
 .projectNumber {
   font-family: var(--font-space-grotesk), sans-serif;
   font-size: clamp(0.9rem, 1.15vw, 1.05rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--home-blue, #0757C8);
+  color: rgba(16, 39, 70, 0.25);
   width: 2.5rem;
   flex-shrink: 0;
   transition: color 200ms ease;
+}
+
+.rowActive .projectNumber {
+  color: rgba(16, 39, 70, 0.5);
+}
+
+.rowCollapsed:hover .projectNumber {
+  color: rgba(16, 39, 70, 0.45);
 }
 
 .titleGroup {

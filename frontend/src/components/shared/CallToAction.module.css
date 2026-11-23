@@ -161,10 +161,25 @@
   }
 }
 
+@media (max-width: 768px) {
+  .ctaBottomSection {
+    display: none;
+  }
+
+  .ctaTitle {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .ctaSubtitle {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
 @media (max-width: 580px) {
   .ctaBottomSection {
-    margin-top: 2.8rem;
-    padding-top: 1.6rem;
+    display: none;
   }
 
   .ctaPartnersList {

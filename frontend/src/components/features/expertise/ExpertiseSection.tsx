@@ -35,7 +35,7 @@ function MergedRailwayVideo({ active, reducedMotion }: { active: boolean; reduce
     v2.current?.pause();
     if (!active || reducedMotion) return;
     const current = activeIdx === 0 ? v1.current : v2.current;
-    current?.play().catch(() => {});
+    current?.play().catch(() => { });
   }, [active, activeIdx, reducedMotion]);
 
   const handleEnd = (idx: number) => {
@@ -43,11 +43,11 @@ function MergedRailwayVideo({ active, reducedMotion }: { active: boolean; reduce
     setActiveIdx(nextIdx);
     if (active && !reducedMotion && nextIdx === 0 && v1.current) {
       v1.current.currentTime = 0;
-      v1.current.play().catch(() => {});
+      v1.current.play().catch(() => { });
     }
     if (active && !reducedMotion && nextIdx === 1 && v2.current) {
       v2.current.currentTime = 0;
-      v2.current.play().catch(() => {});
+      v2.current.play().catch(() => { });
     }
   };
 
@@ -301,10 +301,13 @@ export function ExpertiseSection() {
   }, [activeIndex, reducedMotion]);
 
   const jumpTo = (index: number) => {
-    sceneRefs.current[index]?.scrollIntoView({
-      behavior: reducedMotion ? "auto" : "smooth",
-      block: "center",
-    });
+    changeActive(index);
+    if (typeof window !== "undefined" && window.innerWidth > 1000) {
+      sceneRefs.current[index]?.scrollIntoView({
+        behavior: reducedMotion ? "auto" : "smooth",
+        block: "center",
+      });
+    }
   };
 
   const active = expertise[activeIndex];
@@ -335,6 +338,39 @@ export function ExpertiseSection() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Mobile Video / Visual embedded directly in the dark container */}
+            <div className={styles.mobileVisual}>
+              {active.id === "aerospace" ? (
+                <AerospaceVideoSequence active={true} reducedMotion={reducedMotion} />
+              ) : active.id === "automotive" ? (
+                <div style={{ width: '100%', minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div style={{ position: 'relative', width: '100%', maxWidth: '640px', aspectRatio: '4 / 3', borderRadius: '12px', background: 'transparent', boxShadow: 'none', border: 'none', overflow: 'hidden' }}>
+                    <video
+                      ref={(node) => {
+                        if (node) {
+                          node.playbackRate = 1.75;
+                        }
+                      }}
+                      src="/videos/expertise/automotive-turbocharger.mp4"
+                      autoPlay={!reducedMotion}
+                      preload={reducedMotion ? "metadata" : "none"}
+                      muted
+                      loop
+                      playsInline
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: 'block' }}
+                    />
+                  </div>
+                </div>
+              ) : active.id === "railways" ? (
+                <MergedRailwayVideo active={true} reducedMotion={reducedMotion} />
+              ) : (
+                <div className={`${styles.sceneCanvas} ${styles[`sceneCanvas${activeIndex}`]}`}>
+                  <div className={styles.sceneIndex}>{String(activeIndex + 1).padStart(2, "0")}</div>
+                  <div className={styles.sceneHint}>{active.title.toUpperCase()}</div>
+                </div>
+              )}
             </div>
           </div>
 

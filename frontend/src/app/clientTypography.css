@@ -12,11 +12,6 @@
 #main-content p:not([data-client-hero-copy]) { font-size: 16px !important; line-height: 1.6 !important; letter-spacing: normal !important; }
 #main-content :is(input,textarea,select) { font-size: 16px; }
 #main-content label { font-size: 14px; font-weight: 600; }
-@media(max-width:680px) {
-  #main-content h1:not([data-client-hero-heading]) { font-size: 24px !important; }
-  #main-content h2 { font-size: 22px !important; }
-  #main-content p:not([data-client-hero-copy]) { font-size: 16px !important; }
-}
 
 /* Exemptions to undo/preserve original typography */
 #main-content :is([class*="visionText"], [class*="LeadershipHero"], [class*="actualTitle"], [class*="actualTitle"] *, [class*="ExpertiseHero_heading"], [class*="WorkClient_mainHeadline"], [class*="WorkClient_mainHeadline"] *) {
@@ -70,4 +65,43 @@
   font-style: italic !important;
   text-transform: lowercase !important;
   font-weight: 400 !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MOBILE UNIFIED TYPOGRAPHY (<= 768px)
+   Placed at the bottom to guarantee override of desktop clamp exemptions
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #main-content {
+    --type-section: 22px;
+    --type-lead: 16px;
+    --type-body: 16px;
+    --type-label: 14px;
+  }
+  #main-content :is(h1, [data-client-hero-heading], [class*="homeHero"] h1, [class*="pageHero"] h1, [class*="ExpertiseHero_heading"], [class*="WorkClient_mainHeadline"], [class*="actualTitle"], [class*="actualTitle"] *) {
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+  }
+  #main-content :is(h2, [class*="sectionTitle"], [class*="whyHeadline"], [class*="ctaTitle"]) {
+    font-size: 22px !important;
+    line-height: 1.2 !important;
+  }
+  #main-content :is(h3, [class*="whyCardTitle"], [class*="bentoTitle"]) {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+  }
+  #main-content :is(h4, h5, h6) {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+  #main-content :is(p, [data-client-hero-copy], [class*="copyParagraph"], [class*="ExpertiseHero_description"], [class*="WorkClient_copyParagraph"], [class*="sectionSubtitle"], [class*="lead"], [class*="desc"], [class*="ctaSubtitle"]) {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+  #main-content :is(label, [class*="eyebrow"], [class*="sectionTag"], [class*="whyEyebrow"], [class*="tag"]) {
+    font-size: 13px !important;
+  }
+  #main-content :is(button, [class*="button"], [class*="exploreLink"], [class*="ctaButton"]) {
+    font-size: 14px !important;
+  }
 }
