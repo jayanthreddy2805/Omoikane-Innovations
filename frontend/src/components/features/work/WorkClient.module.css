@@ -626,13 +626,13 @@
     gap: 1.75rem !important;
   }
 
-  /* Completely remove the large gap above and below "Discuss this product", and remove bottom line */
+  /* Minimal gap above "Discuss this product" equal to bottom spacing */
   .featuresGrid {
     margin-bottom: 0 !important;
   }
 
   .productEnquiry {
-    margin-top: 0.35rem !important;
+    margin-top: 1.25rem !important;
     margin-bottom: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;

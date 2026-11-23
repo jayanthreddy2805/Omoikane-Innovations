@@ -475,22 +475,18 @@
 
   .enquiryGrid {
     grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
+    gap: 1.5rem !important;
     width: 100% !important;
     max-width: 100% !important;
   }
 
+  .enquiryText {
+    margin-bottom: 0 !important;
+  }
+
+  /* Image 1: remove Contact Our Team card on mobile */
   .contactDetailsBlock {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 1.5rem 1.25rem !important;
-    box-sizing: border-box !important;
-    margin-top: 1.5rem !important;
-  }
-
-  .contactDetailsGrid {
-    grid-template-columns: 1fr !important;
-    row-gap: 1.5rem !important;
+    display: none !important;
   }
 }
 

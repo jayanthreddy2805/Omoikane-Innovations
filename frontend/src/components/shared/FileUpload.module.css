@@ -215,3 +215,31 @@
     padding-right: 0;
   }
 }
+
+/* Mobile-only Contact Page UI design for filling bars */
+@media (max-width: 768px) {
+  .container {
+    background-color: #FFFFFF !important;
+    border: 1px solid #DCE7F3 !important;
+    border-radius: 4px !important;
+    padding: 14px 16px !important;
+    min-height: 52px !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .container:hover,
+  .container:focus-visible {
+    border-color: #0757C8 !important;
+    box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.12) !important;
+  }
+
+  .isDragging {
+    border-color: #0757C8 !important;
+    background-color: rgba(7, 87, 200, 0.05) !important;
+  }
+
+  .hasError {
+    border-color: #f85149 !important;
+  }
+}

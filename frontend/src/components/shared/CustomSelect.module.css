@@ -135,3 +135,23 @@
   color: #0757C8;
   flex-shrink: 0;
 }
+
+/* Mobile-only Contact Page UI design for filling bars */
+@media (max-width: 768px) {
+  .selectTrigger {
+    background-color: #FFFFFF !important;
+    border: 1px solid #DCE7F3 !important;
+    border-radius: 4px !important;
+    padding: 14px 16px !important;
+    min-height: 52px !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .selectTrigger:hover,
+  .selectTrigger:focus-visible,
+  .selectTrigger.open {
+    border-color: #0757C8 !important;
+    box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.12) !important;
+  }
+}

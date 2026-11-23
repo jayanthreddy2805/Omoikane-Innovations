@@ -456,3 +456,33 @@
   font-family: var(--font-inter, sans-serif);
 }
 /* ── END CAREER DROPDOWN ── */
+
+/* Mobile-only Contact Page UI design for line variant (Apply form) */
+@media (max-width: 768px) {
+  .inputGroupLine {
+    background-color: #FFFFFF !important;
+    border: 1px solid #DCE7F3 !important;
+    border-radius: 4px !important;
+    height: 52px !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .inputGroupLine:focus-within {
+    border-color: #0757C8 !important;
+    box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.12) !important;
+  }
+
+  .countrySelectBtnLine {
+    border-right: 1px solid #DCE7F3 !important;
+    padding: 0 12px !important;
+    margin-right: 0 !important;
+    height: 100% !important;
+  }
+
+  .inputGroupLine .phoneInput {
+    padding: 0 16px !important;
+    height: 100% !important;
+  }
+}

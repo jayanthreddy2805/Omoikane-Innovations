@@ -181,9 +181,39 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .formGrid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  /* Contact page UI design for filling bars on mobile */
+  .input, .textarea {
+    background-color: #FFFFFF !important;
+    border: 1px solid #DCE7F3 !important;
+    border-radius: 4px !important;
+    padding: 16px !important;
+    font-family: var(--font-inter, sans-serif) !important;
+    font-size: var(--type-body) !important;
+    color: #102746 !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .textarea {
+    resize: vertical !important;
+    min-height: 140px !important;
+  }
+
+  .input::placeholder, .textarea::placeholder {
+    color: #62748A !important;
+  }
+
+  .input:focus, .textarea:focus {
+    outline: none !important;
+    background-color: #FFFFFF !important;
+    border-color: #0757C8 !important;
+    box-shadow: 0 0 0 3px rgba(7, 87, 200, 0.12) !important;
   }
 }
