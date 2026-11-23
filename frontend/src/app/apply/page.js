@@ -50,7 +50,7 @@ export default function ApplyPage() {
           {!isSubmitted ? (
             <>
               <div className={styles.contactHeroWrapper}>
-                <h1 className={styles.letsConnectTitle}>
+                <h1 className={styles.letsConnectTitle} data-client-hero-heading>
                   <span className={styles.textWhite}>WORK WITH</span>{' '}
                   <span className={styles.textGrey}>US</span>
                 </h1>

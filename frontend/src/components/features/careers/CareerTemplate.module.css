@@ -1008,6 +1008,8 @@
   .roleNav {
     position: static !important;
     width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
     margin-bottom: 1rem !important;
   }
 
@@ -1022,14 +1024,10 @@
     scrollbar-width: none !important;
     -webkit-overflow-scrolling: touch !important;
     scroll-behavior: smooth !important;
-    scroll-padding-left: 5% !important;
-    scroll-padding-right: 5% !important;
-    scroll-snap-type: x proximity !important;
     gap: 0.65rem !important;
-    padding: 4px 2px 10px 2px !important;
-    margin: 0 -5% !important;
-    padding-left: 5% !important;
-    padding-right: 5% !important;
+    padding: 4px 0 10px 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .navList::-webkit-scrollbar {
@@ -1047,7 +1045,6 @@
     color: var(--text-primary, #061D40) !important;
     width: auto !important;
     flex-shrink: 0 !important;
-    scroll-snap-align: start !important;
     transition: all 0.2s ease !important;
   }
 
@@ -1092,17 +1089,34 @@
   .heroSection {
     padding: calc(96px + 15px) 5% 2.5rem 5% !important;
     gap: 2rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
-  .headline {
-    font-size: clamp(1.4rem, 5.2vw, 1.95rem) !important;
+  .heroContent {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .headline,
+  :global(#main-content) .headline {
+    font-size: clamp(1.2rem, 5.2vw, 1.65rem) !important;
     line-height: 1.15 !important;
     margin-bottom: 1.25rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
 
   .headlineLine {
     display: block !important;
     white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
   }
 
   .heroSub {
@@ -1119,14 +1133,23 @@
   .heroVisual {
     aspect-ratio: 16/9 !important;
     border-radius: 16px !important;
+    max-width: 100% !important;
   }
 
   .roleExplorerSection {
     padding: 3rem 5% 4rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .explorerLayout {
     gap: 2rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .roleHeader {

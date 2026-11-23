@@ -356,6 +356,11 @@
 }
 
 @media (max-width: 768px) {
+  /* 15px gap between navbar and hero section, matching products hero page */
+  .pageWrapper {
+    padding-top: calc(96px + 15px) !important;
+  }
+
   .container {
     padding: 0 24px;
   }
@@ -363,22 +368,24 @@
   .heroSection,
   .enquirySection,
   .presenceSection {
-    padding: 80px 0;
+    padding-top: 0 !important;
+    padding-bottom: 80px;
   }
 
   .contactHeroWrapper {
-    margin-bottom: 50px;
-    margin-top: -10px;
+    margin-bottom: 32px;
+    margin-top: 0 !important;
   }
 }
 
 @media (max-width: 600px) {
   .enquirySection {
-    padding: 48px 0 64px;
+    padding-top: 0 !important;
+    padding-bottom: 64px;
   }
 
   .contactHeroWrapper {
-    margin: 0 0 28px;
+    margin: 0 0 24px !important;
   }
 
   .enquiryGrid {
@@ -387,5 +394,11 @@
 
   .enquiryVisualContainer {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageWrapper {
+    padding-top: calc(76px + 15px) !important;
   }
 }

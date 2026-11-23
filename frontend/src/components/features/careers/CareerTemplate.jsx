@@ -37,11 +37,12 @@ function RevealLine({ children, delay = 0 }) {
   const r = useRef(null);
   const inV = useInView(r, { once: true, margin: '-40px' });
   return (
-    <div ref={r} style={{ overflow: 'hidden' }}>
+    <div ref={r} style={{ overflow: 'hidden', width: '100%', maxWidth: '100%' }}>
       <motion.div
         initial={{ y: '105%', opacity: 0 }}
         animate={inV ? { y: 0, opacity: 1 } : {}}
         transition={{ duration: 0.9, ease: EASE, delay }}
+        style={{ width: '100%', maxWidth: '100%' }}
       >
         {children}
       </motion.div>
@@ -84,7 +85,7 @@ export default function CareerTemplate({ data }) {
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
           <RevealLine delay={0.12}>
-            <h1 className={styles.headline}><TextLines text={headline} /></h1>
+            <h1 className={styles.headline} data-client-hero-heading><TextLines text={headline} /></h1>
           </RevealLine>
           <FadeUp delay={0.3}>
             <p className={styles.heroSub}><TextLines text={heroSub} /></p>
@@ -102,8 +103,8 @@ export default function CareerTemplate({ data }) {
         </div>
         <motion.div
           className={styles.heroVisual}
-          initial={{ opacity: 0, x: 40, scale: 0.97 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.1, ease: EASE, delay: 0.15 }}
         >
           <Image src={heroVisual} alt={`${categoryLabel} Engineering`} fill className={styles.heroImg} priority />
