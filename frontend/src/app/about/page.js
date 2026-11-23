@@ -73,9 +73,24 @@ function AboutVision() {
    SECTION 02 — THE OMOIKANE SYSTEM
 ───────────────────────────────────────────────────────── */
 const SYSTEM_NODES = [
-  { id: 'embedded', label: 'EMBEDDED &\nCONTROL SYSTEMS', desc: 'Advanced embedded electronics, flight control, RF communications, and real-time processing engineered for precision and reliability.' },
-  { id: 'autonomous', label: 'AUTONOMOUS &\nROBOTIC PLATFORMS', desc: 'UAVs, autonomous ground platforms, and intelligent robotic systems for surveillance, monitoring, and industrial operations.' },
-  { id: 'defense', label: 'DEFENSE ELECTRONICS\n& AI', desc: 'High-performance electronics integrated with AI for decision support, tracking, sensing, and mission-critical operations.' },
+  {
+    id: 'embedded',
+    label: 'EMBEDDED &\nCONTROL SYSTEMS',
+    title: 'Embedded & Control Systems',
+    desc: 'Advanced embedded electronics, flight control, RF communications, and real-time processing engineered for precision and reliability.',
+  },
+  {
+    id: 'autonomous',
+    label: 'AUTONOMOUS &\nROBOTIC PLATFORMS',
+    title: 'Autonomous & Robotic Platforms',
+    desc: 'UAVs, autonomous ground platforms, and intelligent robotic systems for surveillance, monitoring, and industrial operations.',
+  },
+  {
+    id: 'defense',
+    label: 'DEFENSE ELECTRONICS\n& AI',
+    title: 'Defense Electronics & AI',
+    desc: 'High-performance electronics integrated with AI for decision support, tracking, sensing, and mission-critical operations.',
+  },
 ];
 
 function OmoikaneSystemArchitecture() {
@@ -112,7 +127,11 @@ function OmoikaneSystemArchitecture() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 + (i * 0.1), duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h3 className={styles.editorialCardTitle}>{node.label.replace('\n', ' ')}</h3>
+              <h3 className={styles.editorialCardTitle}>
+                <span className={styles.titleDesktop}>{node.label.replace('\n', ' ')}</span>
+                <span className={styles.titleMobile}>{node.title}</span>
+              </h3>
+              <div className={styles.editorialCardDivider} />
               <p className={styles.editorialCardDesc}>{node.desc}</p>
             </motion.div>
           ))}
@@ -334,26 +353,29 @@ function FaqSection() {
           </FadeUp>
         </div>
 
-        <div className={`${styles.faqList} ${activeFaq !== null ? styles.faqListHasActive : ''}`}>
+        <div className={styles.faqList}>
           {FAQS.map((faq, idx) => {
             const isActive = activeFaq === idx;
             return (
-              <FadeUp key={idx} delay={0.1 + idx * 0.05}>
+              <FadeUp key={idx} delay={0.08 + idx * 0.04}>
                 <div className={`${styles.faqItem} ${isActive ? styles.faqItemActive : ''}`}>
                   <h3 className={styles.faqQuestion}>
                     <button type="button" className={styles.faqQuestionRow}
                       aria-expanded={isActive} aria-controls={`faq-answer-${idx}`}
                       onClick={() => setActiveFaq(isActive ? null : idx)}>
-                      <span>{faq.q}</span>
+                      <div className={styles.faqQuestionLeft}>
+                        <span className={styles.faqNumber}>{(idx + 1).toString().padStart(2, '0')}</span>
+                        <span className={styles.faqText}>{faq.q}</span>
+                      </div>
                       <span className={styles.faqIcon} aria-hidden="true">
-                      <motion.div
-                        animate={{ rotate: isActive ? 45 : 0 }}
-                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                      >
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                          <path d="M12 5v14M5 12h14" />
-                        </svg>
-                      </motion.div>
+                        <motion.div
+                          animate={{ rotate: isActive ? 45 : 0 }}
+                          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M12 5v14M5 12h14" />
+                          </svg>
+                        </motion.div>
                       </span>
                     </button>
                   </h3>
@@ -363,7 +385,7 @@ function FaqSection() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className={styles.faqAnswerWrapper}
                         id={`faq-answer-${idx}`}
                       >

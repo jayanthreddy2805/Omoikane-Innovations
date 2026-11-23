@@ -83,7 +83,7 @@ const mechanicalRoles = [
 export default function MechanicalCareers() {
   const mechanicalData = {
     eyebrow: "MECHANICAL ENGINEERING",
-    headline: "ENGINEERED<br />TO MOVE.",
+    headline: "PRECISION STRUCTURES<br />BUILT TO ENDURE.",
     heroSub: "We design structures, assemblies and physical systems<br />for drones, autonomous platforms and real-world products.",
     heroVisual: "/images/careers/mechanical/hero.jpg",
     roles: mechanicalRoles,

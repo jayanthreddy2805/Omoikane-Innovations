@@ -13,7 +13,7 @@ const EASE = [0.16, 1, 0.3, 1];
 
 function TextLines({ text }) {
   return text.split(/<br\s*\/?\s*>/i).map((line, index) => (
-    <span key={index}>{index > 0 && <br />}{line}</span>
+    <span key={index} className={styles.headlineLine}>{line}</span>
   ));
 }
 
@@ -61,6 +61,20 @@ export default function CareerTemplate({ data }) {
   } = data;
 
   const [activeRole, setActiveRole] = useState(roles[0]);
+  const navListRef = useRef(null);
+
+  const handleSelectRole = (role, e) => {
+    setActiveRole(role);
+    if (e?.currentTarget && navListRef.current) {
+      const container = navListRef.current;
+      const item = e.currentTarget;
+      const itemOffset = item.offsetLeft - container.offsetLeft;
+      container.scrollTo({
+        left: Math.max(0, itemOffset - 12),
+        behavior: 'smooth',
+      });
+    }
+  };
 
 
   return (
@@ -103,12 +117,12 @@ export default function CareerTemplate({ data }) {
           
           {/* Left Nav */}
           <nav className={styles.roleNav}>
-            <ul className={styles.navList}>
+            <ul ref={navListRef} className={styles.navList}>
               {roles.map((role) => (
                 <li key={role.id}>
                   <button
                     className={`${styles.navItem} ${activeRole.id === role.id ? styles.navItemActive : ''}`}
-                    onClick={() => setActiveRole(role)}
+                    onClick={(e) => handleSelectRole(role, e)}
                   >
                       <span className={styles.navNumber}>{role.number}</span>
                       <div className={styles.navText}>

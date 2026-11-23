@@ -15,7 +15,7 @@ const WORK_SYSTEMS = [
       "High-performance, reliable and flexible flight control for autonomous platforms.",
     engineering:
       "Omoikane develops flight controller configurations around MCU options, sensor and I/O interfaces, and the platform's operating conditions.",
-    considerationsHeading: "Technical and integration considerations",
+    considerationsHeading: "Technical Considerations",
     considerationsCol1: [
       "STM32 / AT32 MCU options",
       "Multiple I/O and sensor interfaces",
@@ -41,7 +41,7 @@ const WORK_SYSTEMS = [
       "High-efficiency, high-current ESC platform for multirotor propulsion systems.",
     engineering:
       "The 4-in-1 controller is developed with 60A / 100A variants, 6S–12S platform options, and current and thermal protection in scope.",
-    considerationsHeading: "Technical and integration considerations",
+    considerationsHeading: "Technical Considerations",
     considerationsCol1: [
       "60A / 100A variants",
       "6S–12S platform options",
@@ -67,7 +67,7 @@ const WORK_SYSTEMS = [
       "Precision positioning architecture for autonomous navigation and mapping.",
     engineering:
       "The module's engineering scope includes multi-constellation GNSS options, an RTK-ready architecture, and compact integration for the host platform.",
-    considerationsHeading: "Technical and integration considerations",
+    considerationsHeading: "Technical Considerations",
     considerationsCol1: [
       "Multi-constellation GNSS options",
       "RTK-ready architecture",
@@ -93,7 +93,7 @@ const WORK_SYSTEMS = [
       "Reliable communication architecture for connected autonomous systems.",
     engineering:
       "The system is developed around RF / LTE integration options, secure link architecture, and low-power design requirements.",
-    considerationsHeading: "Technical and integration considerations",
+    considerationsHeading: "Technical Considerations",
     considerationsCol1: [
       "RF / LTE integration options",
       "Secure link architecture",
@@ -259,13 +259,12 @@ export default function WorkClient() {
 
                 <div className={styles.editorialBody}>
                   <h2 className={styles.productTitle}>{system.title}</h2>
-                  <h3 className={styles.profileLabel}>Product purpose</h3>
-                  <p className={styles.productDescription}>{system.description}</p>
-                  <h3 className={styles.profileLabel}>Engineering scope</h3>
-                  <p className={styles.productDescription}>{system.engineering}</p>
+                  <p className={styles.productDescription}>
+                    {system.description} {system.engineering}
+                  </p>
 
                   <h3 className={styles.considerationsHeading}>
-                    {system.considerationsHeading}
+                    <span>{system.considerationsHeading}</span>
                   </h3>
 
                   {/* 2-Column Key Design Considerations List with Hairline Rules */}

@@ -12,6 +12,10 @@
   color: var(--text-primary);
   font-family: var(--font-inter);
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -31,6 +35,9 @@
 .heroSection {
   padding: var(--header-clearance) 5% 5rem 5%;
   max-width: 1600px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
@@ -67,6 +74,10 @@
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
   color: var(--text-primary);
+}
+
+.headlineLine {
+  display: block;
 }
 
 .heroSub {
@@ -989,3 +1000,206 @@
 
 /* Preserve contrast before career imagery has loaded. */
 .heroVisual, .roleVisualFull { background: var(--color-footer, #000812); }
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE CAREER PAGES OPTIMIZATION (STRICTLY < 1024px / < 768px)
+───────────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .roleNav {
+    position: static !important;
+    width: 100% !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .navHeader {
+    display: none !important;
+  }
+
+  .navList {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    scroll-padding-left: 5% !important;
+    scroll-padding-right: 5% !important;
+    scroll-snap-type: x proximity !important;
+    gap: 0.65rem !important;
+    padding: 4px 2px 10px 2px !important;
+    margin: 0 -5% !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+
+  .navList::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .navItem {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.6rem 1.15rem !important;
+    border-radius: 9999px !important;
+    background: var(--bg-secondary, #EFF7FF) !important;
+    border: 1px solid var(--border-subtle, #DCE7F3) !important;
+    color: var(--text-primary, #061D40) !important;
+    width: auto !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .navItemActive {
+    background: var(--text-primary, #061D40) !important;
+    color: #FFFFFF !important;
+    border-color: var(--text-primary, #061D40) !important;
+  }
+
+  .navItemActive::before,
+  .navItemHighlighted::after {
+    display: none !important;
+  }
+
+  .navNumber {
+    font-size: 0.75rem !important;
+    opacity: 0.7 !important;
+    margin-top: 0 !important;
+  }
+
+  .navText {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+  }
+
+  .navTitle {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    color: inherit !important;
+  }
+
+  .navSubtitle,
+  .navSpec {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: calc(96px + 15px) 5% 2.5rem 5% !important;
+    gap: 2rem !important;
+  }
+
+  .headline {
+    font-size: clamp(1.4rem, 5.2vw, 1.95rem) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .headlineLine {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+
+  .heroSub {
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .heroCtas {
+    gap: 1.25rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .heroVisual {
+    aspect-ratio: 16/9 !important;
+    border-radius: 16px !important;
+  }
+
+  .roleExplorerSection {
+    padding: 3rem 5% 4rem !important;
+  }
+
+  .explorerLayout {
+    gap: 2rem !important;
+  }
+
+  .roleHeader {
+    margin-bottom: 1rem !important;
+  }
+
+  .roleHeader h2 {
+    font-size: clamp(1.75rem, 5.5vw, 2.25rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .roleSubtitle {
+    font-size: 0.875rem !important;
+  }
+
+  .roleDesc {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .roleVisualFull {
+    border-radius: 16px !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .roleContentEditorial {
+    gap: 2rem !important;
+    margin-bottom: 2.25rem !important;
+  }
+
+  .editorialCol h3,
+  .fullSkillsSection h3 {
+    font-size: 0.8125rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .editorialWorkList {
+    gap: 1.25rem !important;
+  }
+
+  .editorialTechList {
+    gap: 0.75rem 2rem !important;
+  }
+
+  .editorialTechList li {
+    font-size: 0.92rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  .roleFooterActions {
+    width: 100% !important;
+  }
+
+  .roleApplyAction {
+    width: 100% !important;
+  }
+
+  .premiumApplyBtn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.95rem 1.5rem !important;
+    font-size: 0.8125rem !important;
+    letter-spacing: 1.5px !important;
+    background: var(--text-primary, #061D40) !important;
+    color: #FFFFFF !important;
+    border-color: var(--text-primary, #061D40) !important;
+    border-radius: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding-top: calc(76px + 15px) !important;
+  }
+}

@@ -106,7 +106,7 @@ const electronicsRoles = [
 export default function ElectronicsCareers() {
   const electronicsData = {
     eyebrow: "ELECTRONICS ENGINEERING",
-    headline: "POWERING<br />INTELLIGENCE.",
+    headline: "MISSION ELECTRONICS<br />POWERING AUTONOMY.",
     heroSub: "We design the circuits, boards, and RF systems<br />that bring autonomous platforms to life.",
     heroVisual: "/images/careers/electronics/hero.jpg",
     roles: electronicsRoles,

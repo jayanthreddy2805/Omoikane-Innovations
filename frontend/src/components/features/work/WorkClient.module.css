@@ -383,15 +383,20 @@
   height: clamp(300px, 36vw, 460px);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 960px) {
   .collageCol {
     padding: 0;
+    width: 100%;
   }
 
   .collageCanvas {
     width: 100%;
     height: auto;
-    aspect-ratio: 1;
+    aspect-ratio: 289 / 202;
+  }
+
+  .baseCard {
+    border-radius: 12px;
   }
 }
 
@@ -474,15 +479,31 @@
   margin: 0 0 0.5rem;
 }
 
-/* Key design considerations header */
+/* Key design considerations header (Line heading) */
 .considerationsHeading {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-navy, #061D40);
-  margin: 0 0 0.85rem 0;
+  margin: 1.75rem 0 0.85rem 0;
+  white-space: nowrap !important;
+}
+
+.considerationsHeading span {
+  white-space: nowrap !important;
+  flex-shrink: 0;
+}
+
+.considerationsHeading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border, #DCE7F3);
 }
 
 /* ── 2-COLUMN CHECKMARK CAPABILITIES TABLE ── */
@@ -561,6 +582,74 @@
 .learnMoreLink:hover {
   opacity: 0.8;
   color: var(--color-navy, #061D40);
+}
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE OPTIMIZATIONS (STRICTLY <= 768px ONLY)
+───────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* 15px gap between navbar and hero section */
+  .heroSection {
+    padding-top: calc(96px + 15px) !important;
+  }
+
+  .productDescription {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 5 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .considerationsHeading {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.08em !important;
+    gap: 0.75rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+  }
+
+  .considerationsHeading span {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .showcaseContainer {
+    gap: 2.5rem !important;
+  }
+
+  .productRow {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    gap: 1.75rem !important;
+  }
+
+  /* Completely remove the large gap above and below "Discuss this product", and remove bottom line */
+  .featuresGrid {
+    margin-bottom: 0 !important;
+  }
+
+  .productEnquiry {
+    margin-top: 0.35rem !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+    text-decoration: none !important;
+  }
+
+  .productEnquiry:hover,
+  .productEnquiry:focus-visible {
+    text-decoration: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding-top: calc(76px + 15px) !important;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────

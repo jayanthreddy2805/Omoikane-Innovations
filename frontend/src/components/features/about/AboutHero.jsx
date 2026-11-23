@@ -47,7 +47,7 @@ export default function AboutHero() {
 
   return (
     <>
-      <ClientPageHero title="About Omoikane" />
+      <ClientPageHero title="About Omoikane Innovations" />
       <section className={styles.hero} aria-labelledby="about-intro-title">
         <div className={`${styles.container} ${styles.split}`}>
           <div className={styles.copy}>
