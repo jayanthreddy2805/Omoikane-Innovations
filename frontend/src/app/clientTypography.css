@@ -86,27 +86,18 @@
     line-height: 1.15 !important;
   }
   #main-content [class*="homeHero"] h1 {
-    font-size: clamp(25px, calc(25px + (36 - 25) * ((100vw - 320px) / (381 - 320))), 36px) !important;
+    font-size: 36px !important;
     line-height: 1.12 !important;
   }
   #main-content [class*="homeHero"] p {
-    font-size: clamp(13px, calc(13px + (16 - 13) * ((100vw - 320px) / (381 - 320))), 16px) !important;
-    line-height: 1.5 !important;
     transform: translateY(10px);
   }
   #main-content [class*="homeHero"] [class*="actions"] {
     transform: translateY(42px);
-    gap: clamp(6px, 1.8vw, 8px) !important;
-  }
-  #main-content [class*="homeHero"] [class*="actions"] [class*="button"] {
-    font-size: clamp(10px, calc(10px + (13 - 10) * ((100vw - 320px) / (381 - 320))), 13px) !important;
-    padding: 10px clamp(6px, 2vw, 14px) !important;
-    white-space: nowrap !important;
   }
   #main-content [class*="homeHero"] [class*="eyebrow"] {
-    font-size: clamp(9.5px, calc(9.5px + (13 - 9.5) * ((100vw - 320px) / (381 - 320))), 13px) !important;
-    letter-spacing: clamp(0.01em, calc(0.01em + 0.03em * ((100vw - 320px) / 61)), 0.04em) !important;
-    white-space: nowrap !important;
+    font-size: 13px !important;
+    letter-spacing: 0.04em !important;
     height: 16.8px !important;
     overflow: visible !important;
     transform: translateY(-30px);

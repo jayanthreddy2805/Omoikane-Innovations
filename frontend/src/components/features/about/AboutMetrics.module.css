@@ -69,23 +69,3 @@
     border-top: 1px solid #DCE7F3;
   }
 }
-
-@media (max-width: 480px) {
-  .section {
-    padding: 2rem 1.25rem;
-  }
-
-  .item {
-    padding: 1.25rem 0.75rem;
-  }
-
-  .value {
-    font-size: clamp(1.85rem, 8vw, 2.25rem);
-    margin-bottom: 0.4rem;
-  }
-
-  .label {
-    font-size: 0.85rem;
-    line-height: 1.35;
-  }
-}
