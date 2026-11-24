@@ -26,8 +26,8 @@ const SEARCH_INDEX = [
   { title: "Automotive Systems", desc: "ECU solutions, real-time embedded systems, vehicle automation", href: "/expertise#automotive" },
   { title: "Railways Infrastructure", desc: "Predictive maintenance, industrial control, smart railway automation", href: "/expertise#railways" },
   { title: "Software Careers", desc: "React, Next.js, Python, AI Developer, Embedded Firmware roles", href: "/careers/software" },
-  { title: "Mechanical Careers", desc: "CAD, structural analysis, assembly engineering roles", href: "/careers/mechanical" },
-  { title: "Electronics Careers", desc: "Hardware, RF & embedded systems engineering roles", href: "/careers/electronics" },
+  { title: "Mechanical Engineering Careers", desc: "CAD, structural analysis, assembly engineering roles", href: "/careers/mechanical" },
+  { title: "Electrical Engineering Careers", desc: "Hardware, RF & embedded systems engineering roles", href: "/careers/electronics" },
   { title: "Careers", desc: "Join the Omoikane engineering team", href: "/#careers" },
   { title: "Apply", desc: "Submit your application and resume to Omoikane Innovations", href: "/apply" },
   { title: "FAQ", desc: "Frequently asked questions about engineering, products and standards", href: "/about#faq" },
@@ -47,8 +47,8 @@ const NAV_LINKS = [
     activePath: "/careers",
     dropdown: [
       { title: "Software Development", desc: "Software, AI & real-time systems", href: "/careers/software" },
-      { title: "Mechanical", desc: "Product, structures & integration", href: "/careers/mechanical" },
-      { title: "Electronics", desc: "Hardware, RF & embedded systems", href: "/careers/electronics" },
+      { title: "Mechanical Engineering", desc: "Product, structures & integration", href: "/careers/mechanical" },
+      { title: "Electrical Engineering", desc: "Hardware, RF & embedded systems", href: "/careers/electronics" },
     ],
   },
 ];
@@ -369,23 +369,39 @@ export default function Header() {
             >
               {NAV_LINKS.map((item) => (
                 <React.Fragment key={item.label}>
-                  <div className={styles.mobileLinkRow}>
-                    <Link href={item.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileLink} ${pathname?.startsWith(item.activePath || item.href) && item.href !== "/" ? styles.mobileLinkActive : pathname === "/" && item.href === "/" ? styles.mobileLinkActive : ""}`}>
-                      {item.label}
-                    </Link>
-                    {item.dropdown && (
-                      <button
-                        type="button"
+                  {item.dropdown ? (
+                    <div
+                      className={styles.mobileLinkRow}
+                      onClick={() => setMobileCareersOpen((open) => !open)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          setMobileCareersOpen((open) => !open);
+                        }
+                      }}
+                      aria-expanded={mobileCareersOpen}
+                      aria-controls="mobile-career-categories"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <span className={`${styles.mobileLink} ${pathname?.startsWith(item.activePath || item.href) ? styles.mobileLinkActive : ""}`}>
+                        {item.label}
+                      </span>
+                      <span
                         className={styles.mobileDisclosure}
-                        onClick={() => setMobileCareersOpen((open) => !open)}
-                        aria-label="Show career categories"
-                        aria-expanded={mobileCareersOpen}
-                        aria-controls="mobile-career-categories"
+                        aria-hidden="true"
                       >
-                        <span aria-hidden="true">{mobileCareersOpen ? "−" : "+"}</span>
-                      </button>
-                    )}
-                  </div>
+                        {mobileCareersOpen ? "−" : "+"}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className={styles.mobileLinkRow}>
+                      <Link href={item.href} onClick={() => setMobileOpen(false)} className={`${styles.mobileLink} ${pathname?.startsWith(item.activePath || item.href) && item.href !== "/" ? styles.mobileLinkActive : pathname === "/" && item.href === "/" ? styles.mobileLinkActive : ""}`}>
+                        {item.label}
+                      </Link>
+                    </div>
+                  )}
                   {item.dropdown && mobileCareersOpen && (
                     <div id="mobile-career-categories" className={styles.mobileSubMenu}>
                       {item.dropdown.map((opt) => (

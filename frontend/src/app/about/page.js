@@ -59,8 +59,8 @@ function AboutVision() {
         <div className={styles.visionDivider}></div>
         <FadeUp delay={0.2}>
           <p className={styles.visionText} data-client-hero-copy>
-            To become a global leader in indigenous defense<br className={styles.visionBreak} />
-            and embedded technologies, building high-performance systems<br className={styles.visionBreak} />
+            To become a global leader in indigenous defense <br className={styles.visionBreak} />
+            and embedded technologies, building high-performance systems <br className={styles.visionBreak} />
             that are reliable, scalable, and ready for real-world deployment.
           </p>
         </FadeUp>

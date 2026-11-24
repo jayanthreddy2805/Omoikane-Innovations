@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Mechanical Careers | Omoikane Innovations",
+  title: "Mechanical Engineering Careers | Omoikane Innovations",
   description: "Explore mechanical design and integration roles at Omoikane Innovations in Bengaluru.",
 };
 

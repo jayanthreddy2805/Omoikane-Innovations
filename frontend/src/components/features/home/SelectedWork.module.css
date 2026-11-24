@@ -90,7 +90,7 @@
 }
 
 .rowCollapsed:hover {
-  background-color: #F7FBFF;
+  background-color: #FFFFFF;
 }
 
 /* Active Row: Pale blue gradient with royal-blue active indicator line */
@@ -157,7 +157,7 @@
 .projectNumber {
   font-family: var(--font-space-grotesk), sans-serif;
   font-size: clamp(0.9rem, 1.15vw, 1.05rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.1em;
   color: rgba(16, 39, 70, 0.25);
   width: 2.5rem;
@@ -167,10 +167,6 @@
 
 .rowActive .projectNumber {
   color: rgba(16, 39, 70, 0.5);
-}
-
-.rowCollapsed:hover .projectNumber {
-  color: rgba(16, 39, 70, 0.45);
 }
 
 .titleGroup {
@@ -193,10 +189,6 @@
 }
 
 .rowActive .projectTitle {
-  color: var(--home-navy, #061D40);
-}
-
-.rowCollapsed:hover .projectTitle {
   color: var(--home-navy, #061D40);
 }
 
@@ -233,11 +225,6 @@
 
 .toggleIconOpen {
   transform: rotate(180deg);
-}
-
-.rowCollapsed:hover .toggleIcon {
-  background-color: #E2F0FD;
-  color: var(--home-navy, #061D40);
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -414,7 +401,7 @@
 ───────────────────────────────────────────────────────── */
 @media (max-width: 860px) {
   .section {
-    padding: 4.5rem 0;
+    padding: 4.5rem 0 0 0;
   }
 
   .introContainer {

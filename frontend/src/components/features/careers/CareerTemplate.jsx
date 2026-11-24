@@ -90,7 +90,7 @@ export default function CareerTemplate({ data }) {
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
           <RevealLine delay={0.12}>
-            <h1 className={styles.headline} data-client-hero-heading><TextLines text={headline} /></h1>
+            <h1 className={styles.headline}><TextLines text={headline} /></h1>
           </RevealLine>
           <FadeUp delay={0.3}>
             <p className={styles.heroSub}><HeroSubLines text={heroSub} /></p>

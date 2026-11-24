@@ -489,9 +489,11 @@
   letter-spacing: -0.02em !important;
   color: var(--color-text-primary);
   max-width: 1200px;
-  width: 100%;
+  width: fit-content;
   margin: 0 auto;
-  text-align: center !important;
+  text-align: justify !important;
+  text-align-last: center !important;
+  text-justify: inter-word;
 }
 
 .visionBreak {
@@ -520,15 +522,19 @@
   }
 
   .visionText {
-    font-size: clamp(1.15rem, 4.8vw, 1.35rem) !important;
-    line-height: 1.5 !important;
+    font-size: 1.08rem !important;
+    line-height: 1.55 !important;
     font-weight: 600 !important;
-    max-width: 440px;
-    text-wrap: balance;
+    max-width: 330px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: justify !important;
+    text-align-last: center !important;
+    text-justify: inter-word;
   }
 
   .visionBreak {
-    display: inline;
+    display: none !important;
   }
 }
 
@@ -1501,21 +1507,21 @@
 }
 
 .faqHeading {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-family: var(--font-space-grotesk, sans-serif);
+  font-size: var(--type-section);
   font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  color: #061D40;
-  margin: 0 0 0.75rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 1.25rem;
 }
 
 .faqSub {
-  font-family: var(--font-inter), sans-serif;
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
-  color: #556B82;
-  line-height: 1.6;
-  max-width: 680px;
+  font-family: var(--font-inter, sans-serif);
+  font-size: var(--type-lead);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  max-width: var(--measure-copy);
   margin: 0;
 }
 
@@ -1891,12 +1897,20 @@
   }
 
   .system,
-  .domains,
   .credentials,
   .techDomains,
   .finale {
     padding-left: 5%;
     padding-right: 5%;
+  }
+
+  .domains {
+    padding: clamp(3.5rem, 8vh, 5rem) 5%;
+  }
+
+  .domainsHeader {
+    padding-top: 0;
+    margin-bottom: 2rem;
   }
 
   .domainContentGrid {
@@ -2080,6 +2094,16 @@
   .credImageMsme {
     width: 190px;
     max-height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .credSection {
+    padding: clamp(3.5rem, 8vh, 5rem) 5%;
+  }
+
+  .credHeader {
+    margin-bottom: 2rem;
   }
 }
 

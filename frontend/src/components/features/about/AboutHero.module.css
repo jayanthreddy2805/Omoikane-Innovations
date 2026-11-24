@@ -37,6 +37,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transform: translateY(30px);
 }
 
 .kicker {
@@ -204,7 +205,8 @@
   .film {
     order: -1;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10.62;
+    margin-top: -10.125%;
     border-radius: 14px;
   }
 }

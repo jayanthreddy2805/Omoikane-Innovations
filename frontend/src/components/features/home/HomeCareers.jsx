@@ -12,15 +12,15 @@ const DISCIPLINES = [
   },
   {
     number: "02",
-    title: "Electronics Engineering",
-    description: "Avionics, PCB architecture, RF systems, and product validation.",
-    href: "/careers/electronics",
-  },
-  {
-    number: "03",
     title: "Mechanical Engineering",
     description: "Airframes, rugged enclosures, system integration, and structural analysis.",
     href: "/careers/mechanical",
+  },
+  {
+    number: "03",
+    title: "Electrical Engineering",
+    description: "Avionics, PCB architecture, RF systems, and product validation.",
+    href: "/careers/electronics",
   },
 ];
 
@@ -38,7 +38,7 @@ export default function HomeCareers() {
             CAREERS AT OMOIKANE
           </h2>
           <p className={styles.description}>
-            We are hiring across software, electronics and mechanical engineering to develop embedded and autonomous systems for aerospace, defense and industrial applications.
+            We are hiring across software, mechanical and electrical engineering to develop embedded and autonomous systems for aerospace, defense and industrial applications.
           </p>
         </div>
 

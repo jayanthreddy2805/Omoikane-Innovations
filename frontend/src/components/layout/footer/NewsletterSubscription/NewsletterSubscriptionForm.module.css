@@ -43,8 +43,8 @@
   border: none;
   background: transparent;
   color: var(--text-secondary);
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.825rem;
+  font-weight: 600;
   padding: 0.65rem 1rem;
   cursor: pointer;
   white-space: nowrap;
