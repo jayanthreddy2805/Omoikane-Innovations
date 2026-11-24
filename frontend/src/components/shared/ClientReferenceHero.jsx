@@ -9,7 +9,11 @@ export function ClientHomeHero() {
           <div className={styles.heroContent}>
             <div className={styles.eyebrow}>Indigenous technology &nbsp;|&nbsp; Global standards</div>
             <h1 id="hero-headline" data-client-hero-heading>
-              Advanced <span>Defense Aerospace &amp;</span> Embedded Systems
+              <span className={styles.lineBreakGroup}>Advanced <span className={styles.heroAccent}>Defense</span></span>{' '}
+              <br className={styles.mobileBreak} />
+              <span className={styles.lineBreakGroup}><span className={styles.heroAccent}>Aerospace &amp;</span></span>{' '}
+              <br className={styles.mobileBreak} />
+              <span className={styles.lineBreakGroup}>Embedded Systems</span>
             </h1>
             <p data-client-hero-copy>We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.</p>
             <div className={styles.actions}>
