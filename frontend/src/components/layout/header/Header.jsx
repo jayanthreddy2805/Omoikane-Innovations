@@ -65,7 +65,17 @@ export default function Header() {
   const [isHidden, setIsHidden] = React.useState(false);
 
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
   const scrollBounds = React.useRef({ height: 0, viewport: 0 });
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile, { passive: true });
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   React.useEffect(() => {
     const measure = () => {
@@ -120,6 +130,8 @@ export default function Header() {
       setMobileOpen(false);
       setMobileCareersOpen(false);
       setSearchQuery("");
+      setIsScrolled(false);
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     });
 
     return () => window.cancelAnimationFrame(frame);
@@ -207,7 +219,10 @@ export default function Header() {
     <>
       <motion.header
         className={`${styles.header} ${isScrolled ? styles.headerScrolled : (isDarkHero ? styles.headerOnDark : (isWhiteNav ? styles.headerWhite : ""))} ${mobileOpen ? styles.headerMobileOpen : ""}`}
-        animate={{ y: !mobileOpen && !searchOpen && isHidden ? "-100%" : (isScrolled ? 16 : 0), opacity: !mobileOpen && !searchOpen && isHidden ? 0 : 1 }}
+        animate={{
+          y: !mobileOpen && !searchOpen && isHidden ? "-100%" : (isScrolled ? (isMobile ? 0 : 16) : 0),
+          opacity: !mobileOpen && !searchOpen && isHidden ? 0 : 1
+        }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         {/* ── LOGO ── */}

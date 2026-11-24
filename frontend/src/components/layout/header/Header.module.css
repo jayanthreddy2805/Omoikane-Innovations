@@ -722,6 +722,24 @@
   color: #102746;
 }
 
+@media (max-width: 768px) {
+  .headerScrolled {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: 1px solid rgba(10, 10, 10, 0.08) !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0.65rem 1.25rem !important;
+    box-shadow: 0 4px 20px rgba(6, 29, 64, 0.08) !important;
+  }
+}
+
 @media (max-width: 480px) {
   .header {
     padding: 1rem 1.25rem;
