@@ -20,3 +20,7 @@ ORDER BY next_attempt_at;
 ```
 
 The owner must include delivery-job metadata in the retention policy. The existing opt-in form-retention job does not choose a new retention period for this table. Database record deletion also cannot delete attachments already delivered through email or copies in backups.
+
+### Lease recovery verification
+
+Claims now use skip-locked row selection, so a worker does not wait behind another claimant. Completion updates match the job ID, attempt number and PROCESSING state atomically. A late worker from an expired lease cannot mark a recovered attempt SENT or reschedule it. PostgreSQL integration checks cover this claim path; the standard suite covers stale-attempt completion. Provider delivery remains at least once, subject to the idempotency limits above.
