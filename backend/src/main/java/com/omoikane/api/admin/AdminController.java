@@ -91,9 +91,9 @@ public class AdminController {
     public ResponseEntity<List<CareerApplicationSummary>> getCareers(
             @RequestHeader(value = "X-Admin-Key", required = false) String headerKey) {
         authenticate(headerKey);
-        List<CareerApplicationSummary> summaries = careerRepository.findAllByOrderByCreatedAtDesc()
+        List<CareerApplicationSummary> summaries = careerRepository.findApplicationSummaries()
                 .stream()
-                .map(CareerApplicationSummary::fromEntity)
+                .map(CareerApplicationSummary::fromProjection)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(summaries);
     }

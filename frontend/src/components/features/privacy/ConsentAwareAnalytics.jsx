@@ -36,5 +36,5 @@ export default function ConsentAwareAnalytics() {
 
   if (!enabled) return null;
 
-  return <Analytics beforeSend={removeSensitiveUrlData} />;
+  return <Analytics scriptSrc="/_vercel/insights/script.js" endpoint="/_vercel/insights" beforeSend={removeSensitiveUrlData} />;
 }

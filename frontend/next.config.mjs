@@ -1,5 +1,5 @@
 const isDevelopment = process.env.NODE_ENV === "development";
-const apiOrigin = new URL(process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8080").origin;
+const apiOrigin = new URL(process.env.NEXT_PUBLIC_API_BASE_URL || (isDevelopment ? "http://localhost:8080" : "https://omoikane-api.onrender.com")).origin;
 // Static rendering needs Next's inline hydration scripts. Restrict their sources,
 // disable inline event handlers, and block embedding/objects without opting every route into SSR.
 const contentSecurityPolicy = [
@@ -24,8 +24,9 @@ const nextConfig = {
   experimental: {
     agentUpgrade: "security",
   },
-  productionBrowserSourceMaps: true,
+  productionBrowserSourceMaps: false,
   images: {
+    deviceSizes: [375, 640, 750, 828, 1080, 1200, 1600, 1920],
     formats: ["image/avif", "image/webp"],
     imageSizes: [32, 48, 64, 96, 128, 192, 256, 384, 512],
     minimumCacheTTL: 86400,

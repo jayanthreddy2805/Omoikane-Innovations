@@ -32,7 +32,7 @@ export default function ChatMessageList({
               width={48}
               height={48}
               className={styles.welcomeLogoImage}
-              priority
+
             />
           </div>
           <h3 className={styles.welcomeHeading}>Omoikane Innovations</h3>
@@ -66,7 +66,7 @@ export default function ChatMessageList({
                   width={24}
                   height={24}
                   className={styles.botAvatarLogo}
-                  priority
+
                 />
               </div>
               <div className={styles.bubbleCol}>

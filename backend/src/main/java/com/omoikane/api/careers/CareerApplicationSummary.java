@@ -24,21 +24,21 @@ public class CareerApplicationSummary {
 
     public CareerApplicationSummary() {}
 
-    public static CareerApplicationSummary fromEntity(CareerApplication entity) {
+    public static CareerApplicationSummary fromProjection(CareerApplicationListItem row) {
         CareerApplicationSummary dto = new CareerApplicationSummary();
-        dto.setId(entity.getId());
-        dto.setName(entity.getName());
-        dto.setEmail(entity.getEmail());
-        dto.setPhone(entity.getPhone());
-        dto.setDepartment(entity.getDepartment());
-        dto.setRoleId(entity.getRoleId());
-        dto.setRoleTitle(entity.getRoleTitle());
-        dto.setMessage(entity.getMessage());
-        dto.setResumeFilename(entity.getResumeFilename());
-        dto.setResumeContentType(entity.getResumeContentType());
-        dto.setResumeSize(entity.getResumeData() != null ? entity.getResumeData().length : 0);
-        dto.setStatus(entity.getStatus());
-        dto.setCreatedAt(entity.getCreatedAt());
+        dto.setId(row.getId());
+        dto.setName(row.getName());
+        dto.setEmail(row.getEmail());
+        dto.setPhone(row.getPhone());
+        dto.setDepartment(row.getDepartment());
+        dto.setRoleId(row.getRoleId());
+        dto.setRoleTitle(row.getRoleTitle());
+        dto.setMessage(row.getMessage());
+        dto.setResumeFilename(row.getResumeFilename());
+        dto.setResumeContentType(row.getResumeContentType());
+        dto.setResumeSize(row.getResumeSize());
+        dto.setStatus(row.getStatus());
+        dto.setCreatedAt(row.getCreatedAt());
         return dto;
     }
 

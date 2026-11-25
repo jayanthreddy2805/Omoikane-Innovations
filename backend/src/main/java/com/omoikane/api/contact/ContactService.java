@@ -1,6 +1,7 @@
 package com.omoikane.api.contact;
 
-import com.omoikane.api.email.ResendEmailService;
+import com.omoikane.api.email.EmailOutbox;
+import org.springframework.transaction.annotation.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -14,21 +15,23 @@ public class ContactService {
     private static final Logger log = LoggerFactory.getLogger(ContactService.class);
 
     private final ContactSubmissionRepository repository;
-    private final ResendEmailService emailService;
+    private final EmailOutbox emailOutbox;
 
     public ContactService(ContactSubmissionRepository repository,
-                          ResendEmailService emailService) {
+                          EmailOutbox emailOutbox) {
         this.repository = repository;
-        this.emailService = emailService;
+        this.emailOutbox = emailOutbox;
     }
 
     /**
-     * Persists the contact submission, then attempts email delivery.
-     * Email failure does NOT roll back the saved record.
+     * Persists the contact submission and email jobs atomically.
+     * Delivery happens in the background after this transaction commits.
      *
      * @return the saved entity
      */
+    @Transactional
     public ContactSubmission processContactRequest(ContactRequest request, String clientIp) {
+        if (request.getWebsite() != null && !request.getWebsite().isBlank()) throw new IllegalArgumentException("Invalid submission.");
         String email = request.getEmail().trim().toLowerCase(Locale.ROOT);
         String phone = request.getPhone() == null ? "" : request.getPhone().trim();
         if (repository.existsByContactDetails(email, phone)) {
@@ -50,32 +53,14 @@ public class ContactService {
         } catch (DataIntegrityViolationException exception) {
             // Only translate a duplicate of these contact details. Other database
             // constraints must still surface as operational errors.
-            if (repository.existsByContactDetails(email, phone)) {
+            if (exception.getMostSpecificCause().getMessage() != null && exception.getMostSpecificCause().getMessage().contains("uq_contact_submissions_contact_details")) {
                 throw new DuplicateContactException();
             }
             throw exception;
         }
         log.info("Contact submission saved [id={}]", submission.getId());
 
-        // Attempt confirmation email (fire-and-forget style)
-        try {
-            boolean sent = emailService.sendConfirmation(submission);
-            if (sent) {
-                submission.setEmailSent(true);
-                repository.save(submission);
-                log.info("Confirmation email sent for submission [id={}]", submission.getId());
-            }
-        } catch (Exception e) {
-            log.warn("Email delivery failed for submission [id={}]: {}", submission.getId(), e.getMessage());
-            // Record stays saved — email failure is non-fatal
-        }
-
-        // Notify admin/manager email
-        try {
-            emailService.sendAdminContactAlert(submission);
-        } catch (Exception e) {
-            log.warn("Admin notification email failed for submission [id={}]: {}", submission.getId(), e.getMessage());
-        }
+        emailOutbox.enqueueContact(submission.getId());
 
         return submission;
     }

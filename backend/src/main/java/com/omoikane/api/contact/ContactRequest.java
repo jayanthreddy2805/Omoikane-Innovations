@@ -8,6 +8,10 @@ import jakarta.validation.constraints.Size;
  * DTO matching the frontend contact form fields.
  */
 public class ContactRequest {
+    private String website;
+    public String getWebsite() { return website; }
+    public void setWebsite(String website) { this.website = website; }
+
 
     @NotBlank(message = "Name is required")
     @Size(max = 255, message = "Name must not exceed 255 characters")

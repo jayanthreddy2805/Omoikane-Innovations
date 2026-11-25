@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Check } from 'lucide-react';
 import styles from './CustomSelect.module.css';
 

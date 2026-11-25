@@ -1,0 +1,48 @@
+{
+  "baseline": "original audit branch before follow-up",
+  "assets": [
+    {
+      "path": "frontend/src/app/icon.png",
+      "beforeBytes": 2002852,
+      "afterBytes": 20648,
+      "reductionPercent": 99.0
+    },
+    {
+      "path": "frontend/public/videos/about/omoikane.mp4",
+      "beforeBytes": 23600414,
+      "afterBytes": 10700085,
+      "reductionPercent": 54.7
+    },
+    {
+      "path": "frontend/public/videos/expertise/01-uav-flight.mp4",
+      "beforeBytes": 4691237,
+      "afterBytes": 924597,
+      "reductionPercent": 80.3
+    },
+    {
+      "path": "frontend/public/videos/expertise/02-flight-control.mp4",
+      "beforeBytes": 4077095,
+      "afterBytes": 598968,
+      "reductionPercent": 85.3
+    },
+    {
+      "path": "frontend/public/videos/expertise/03-airframe-assembly.mp4",
+      "beforeBytes": 4739537,
+      "afterBytes": 1034730,
+      "reductionPercent": 78.2
+    },
+    {
+      "path": "frontend/public/videos/expertise/04-rf-communications.mp4",
+      "beforeBytes": 4156837,
+      "afterBytes": 916980,
+      "reductionPercent": 77.9
+    },
+    {
+      "path": "frontend/public/videos/expertise/05-uav-field-operations.mp4",
+      "beforeBytes": 4825369,
+      "afterBytes": 992552,
+      "reductionPercent": 79.4
+    }
+  ],
+  "aboutWebmBytes": 8103595
+}

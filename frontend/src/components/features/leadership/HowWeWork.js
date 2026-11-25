@@ -29,7 +29,7 @@ export default function HowWeWork() {
     <section className={styles.section} aria-labelledby="how-we-work-heading">
       <div className={styles.container}>
         <header className={styles.header}>
-          <span className={styles.eyebrow}>HOW WE WORK</span>
+          <span className={styles.eyebrow} data-type-role="eyebrow">HOW WE WORK</span>
           <h2 id="how-we-work-heading" className={styles.headline}>
             Engineering beyond<br />the expected.
           </h2>

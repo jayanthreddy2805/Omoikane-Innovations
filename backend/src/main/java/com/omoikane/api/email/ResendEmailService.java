@@ -218,6 +218,7 @@ public class ResendEmailService {
                     .uri(URI.create(RESEND_API_URL))
                     .header("Authorization", "Bearer " + apiKey)
                     .header("Content-Type", "application/json")
+                    .header("Idempotency-Key", contextType.replaceAll("[^a-zA-Z0-9]", "-") + "-" + entityId)
                     .POST(HttpRequest.BodyPublishers.ofString(jsonPayload))
                     .timeout(Duration.ofSeconds(20))
                     .build();
@@ -228,16 +229,21 @@ public class ResendEmailService {
                 log.info("Resend API accepted {} email for [id={}]", contextType, entityId);
                 return true;
             } else {
-                log.warn("Resend API returned status {} for {} [id={}]: {}",
-                        response.statusCode(), contextType, entityId, response.body());
+                if (response.statusCode() == 429 || response.statusCode() >= 500) throw new EmailDeliveryException();
+                log.warn("Resend API returned status {} for {} [id={}]",
+                        response.statusCode(), contextType, entityId);
                 return false;
             }
+        } catch (EmailDeliveryException e) {
+            throw e;
+        } catch (java.io.IOException e) {
+            throw new EmailDeliveryException();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             log.warn("Email send interrupted for {} [id={}]", contextType, entityId);
-            return false;
+            throw new EmailDeliveryException();
         } catch (Exception e) {
-            log.warn("Email send failed for {} [id={}]: {}", contextType, entityId, e.getMessage());
+            log.warn("Email send failed for {} [id={}, type={}]", contextType, entityId, e.getClass().getSimpleName());
             return false;
         }
     }
@@ -251,7 +257,7 @@ public class ResendEmailService {
             Map<String, Object> payload = new LinkedHashMap<>();
             payload.put("from", getFromHeader());
             payload.put("to", List.of(toEmail));
-            payload.put("subject", subject);
+            payload.put("subject", subject.replaceAll("[\\r\\n]", " "));
             payload.put("html", html);
             if (attachments != null && !attachments.isEmpty()) {
                 payload.put("attachments", attachments);

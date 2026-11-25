@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import SubmitButton from '@/components/shared/SubmitButton';
 import InternationalPhoneInput from '@/components/shared/InternationalPhoneInput';
@@ -12,11 +11,10 @@ import styles from './ContactForm.module.css';
  * defaults to localhost:8080 for local development.
  */
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ||
-  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : null);
+  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://omoikane-api.onrender.com');
 
-export default function ContactForm({ onSuccess }) {
-  const searchParams = useSearchParams();
-  const enquirySubject = searchParams.get('subject')?.trim().slice(0, 120) || '';
+export default function ContactForm({ onSuccess, query = {} }) {
+  const enquirySubject = (typeof query.subject === 'string' ? query.subject : '').trim().slice(0, 120) || '';
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('');
   const [phone, setPhone] = useState('');
@@ -24,7 +22,7 @@ export default function ContactForm({ onSuccess }) {
 
   if (!API_BASE_URL) {
     return (
-      <div id="contact-form" className={styles.formUnavailable}>
+      <div className={styles.formUnavailable}>
         <h2>Contact our team</h2>
         <p>The online enquiry form is unavailable at the moment. Please email your enquiry directly.</p>
         <a href={`mailto:info@omoikaneinnovations.com?subject=${encodeURIComponent(enquirySubject || 'Website enquiry')}`}>
@@ -46,6 +44,7 @@ export default function ContactForm({ onSuccess }) {
 
     const form = formRef.current;
     const payload = {
+      website: form.elements.website.value,
       name: form.elements['cf-name'].value.trim(),
       email: form.elements['cf-email'].value.trim(),
       company: form.elements['cf-company'].value.trim() || undefined,
@@ -82,8 +81,9 @@ export default function ContactForm({ onSuccess }) {
   };
 
   return (
-    <form id="contact-form" aria-label="Contact Omoikane" tabIndex={-1} className={styles.formContainer} onSubmit={handleSubmit} ref={formRef}>
+    <form aria-label="Contact Omoikane" tabIndex={-1} className={styles.formContainer} onSubmit={handleSubmit} ref={formRef}>
       {enquirySubject && <p className={styles.enquirySubject}>Enquiry about <strong>{enquirySubject}</strong></p>}
+      <div aria-hidden="true" style={{position: 'absolute', left: '-10000px'}}><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
       <div className={styles.formGrid}>
         <div className={styles.inputGroup}>
           <label htmlFor="cf-name" className={styles.label}>Name</label>

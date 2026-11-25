@@ -1,52 +1,12 @@
 "use client";
 
+import { products } from "@/data/products";
 import { useState } from "react";
 import Image from "@/components/shared/LoadAwareImage";
 import Link from "@/components/shared/IntentLink";
 import styles from "./SelectedWork.module.css";
 
-const PROJECTS = [
-  {
-    number: "01",
-    name: "OFC-X",
-    type: "Flight Controller",
-    description:
-      "High-performance, reliable and flexible flight control for autonomous platforms. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
-    image: "/images/projects/flight-controller.webp",
-    alt: "OFC-X Flight Controller for autonomous platforms",
-    href: "/work#ofc-x",
-  },
-  {
-    number: "02",
-    name: "OESC-60 / OESC-100",
-    type: "4-in-1 Electronic Speed Controller",
-    description:
-      "High-efficiency, high-current ESC platform for multirotor propulsion systems. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
-    image: "/images/careers/electronics/embedded-pcb.jpg",
-    alt: "OESC-60 / OESC-100 4-in-1 Electronic Speed Controller platform",
-    href: "/work#oesc",
-  },
-  {
-    number: "03",
-    name: "OCOM-X",
-    type: "Communication System",
-    description:
-      "Reliable communication architecture for connected autonomous systems. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
-    image: "/images/projects/tactical-datalink.webp",
-    alt: "OCOM-X Communication System for connected autonomous systems",
-    href: "/work#ocom-x",
-  },
-  {
-    number: "04",
-    name: "OGN-X",
-    type: "GNSS / GPS Module",
-    description:
-      "Precision positioning architecture for autonomous navigation and mapping. Omoikane product configurations are developed around system-level requirements, interfaces, operating conditions and integration constraints.",
-    image: "/images/projects/ground-platform.webp",
-    alt: "OGN-X GNSS / GPS Module for autonomous navigation and mapping",
-    href: "/work#ogn-x",
-  },
-];
+const PROJECTS = products.map(product => ({number: product.number, name: product.title.split(' — ')[0], type: product.title.split(' — ')[1], description: product.description, image: product.images.main, alt: product.images.alt, href: `/work#${product.id}`}));
 
 export default function SelectedWork() {
   const [activeIndex, setActiveIndex] = useState(0);

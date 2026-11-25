@@ -1,6 +1,6 @@
 package com.omoikane.api.contact;
 
-import com.omoikane.api.email.ResendEmailService;
+import com.omoikane.api.email.EmailOutbox;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,13 +19,13 @@ class ContactServiceTest {
     private ContactSubmissionRepository repository;
 
     @Mock
-    private ResendEmailService emailService;
+    private EmailOutbox emailOutbox;
 
     private ContactService contactService;
 
     @BeforeEach
     void setUp() {
-        contactService = new ContactService(repository, emailService);
+        contactService = new ContactService(repository, emailOutbox);
     }
 
     @Test
@@ -37,7 +37,6 @@ class ContactServiceTest {
 
         when(repository.saveAndFlush(any(ContactSubmission.class)))
                 .thenAnswer(inv -> inv.getArgument(0));
-        when(emailService.sendConfirmation(any())).thenReturn(false);
 
         ContactSubmission result = contactService.processContactRequest(req, "127.0.0.1");
 
@@ -51,41 +50,16 @@ class ContactServiceTest {
     }
 
     @Test
-    void processContactRequest_emailSuccess_setsFlag() {
-        ContactRequest req = new ContactRequest();
-        req.setName("Bob");
-        req.setEmail("bob@example.com");
-        req.setMessage("Test");
-
-        when(repository.saveAndFlush(any(ContactSubmission.class)))
-                .thenAnswer(inv -> inv.getArgument(0));
-        when(emailService.sendConfirmation(any())).thenReturn(true);
-
-        ContactSubmission result = contactService.processContactRequest(req, "10.0.0.1");
-
-        assertTrue(result.isEmailSent());
-        verify(repository).saveAndFlush(any(ContactSubmission.class));
-        verify(repository).save(any(ContactSubmission.class));
-    }
-
-    @Test
-    void processContactRequest_emailFailure_preservesRecord() {
-        ContactRequest req = new ContactRequest();
-        req.setName("Carol");
-        req.setEmail("carol@example.com");
-        req.setMessage("Test");
-
-        when(repository.saveAndFlush(any(ContactSubmission.class)))
-                .thenAnswer(inv -> inv.getArgument(0));
-        when(emailService.sendConfirmation(any()))
-                .thenThrow(new RuntimeException("SMTP timeout"));
-
-        ContactSubmission result = contactService.processContactRequest(req, "192.168.1.1");
-
-        assertNotNull(result);
-        assertEquals("Carol", result.getName());
-        assertFalse(result.isEmailSent());
-        verify(repository).saveAndFlush(any(ContactSubmission.class));
+    void processContactRequest_enqueuesAfterSaving() {
+        ContactRequest req=new ContactRequest();req.setName("Alice");req.setEmail("alice@example.com");req.setMessage("Hello");
+        when(repository.saveAndFlush(any())).thenAnswer(inv -> {
+            ContactSubmission contact=inv.getArgument(0);
+            var field=ContactSubmission.class.getDeclaredField("id");field.setAccessible(true);field.set(contact,123L);return contact;
+        });
+        contactService.processContactRequest(req,"127.0.0.1");
+        var order=inOrder(repository,emailOutbox);
+        order.verify(repository).existsByContactDetails("alice@example.com","");
+        order.verify(repository).saveAndFlush(any());order.verify(emailOutbox).enqueueContact(123L);
     }
 
     @Test
@@ -99,32 +73,11 @@ class ContactServiceTest {
 
         when(repository.saveAndFlush(any(ContactSubmission.class)))
                 .thenAnswer(inv -> inv.getArgument(0));
-        when(emailService.sendConfirmation(any())).thenReturn(false);
 
         ContactSubmission result = contactService.processContactRequest(req, "10.0.0.2");
 
         assertEquals("Acme", result.getCompany());
         assertEquals("+1234567890", result.getPhone());
-    }
-
-    @Test
-    void processContactRequest_sendsEmailToSubmittedAddress() {
-        ContactRequest req = new ContactRequest();
-        req.setName("Contact Submitter");
-        req.setEmail("submitter@example.com");
-        req.setMessage("Enquiry message");
-
-        when(repository.saveAndFlush(any(ContactSubmission.class)))
-                .thenAnswer(inv -> inv.getArgument(0));
-        when(emailService.sendConfirmation(any())).thenReturn(true);
-
-        contactService.processContactRequest(req, "10.0.0.3");
-
-        verify(emailService, times(1)).sendConfirmation(argThat(sub ->
-                sub != null
-                        && "submitter@example.com".equals(sub.getEmail())
-                        && "Contact Submitter".equals(sub.getName())
-        ));
     }
 
     @Test
@@ -138,7 +91,7 @@ class ContactServiceTest {
 
         assertThrows(DuplicateContactException.class, () -> contactService.processContactRequest(req, "127.0.0.1"));
         verify(repository, never()).saveAndFlush(any());
-        verifyNoInteractions(emailService);
+        verifyNoInteractions(emailOutbox);
     }
 
     @Test
@@ -165,12 +118,12 @@ class ContactServiceTest {
         req.setPhone(" +1 555 0100 ");
         req.setMessage("Enquiry");
         when(repository.saveAndFlush(any(ContactSubmission.class)))
-                .thenThrow(new DataIntegrityViolationException("unique contact details"));
+                .thenThrow(new DataIntegrityViolationException("uq_contact_submissions_contact_details"));
         when(repository.existsByContactDetails("alice@example.com", "+1 555 0100"))
-                .thenReturn(false, true);
+                .thenReturn(false);
 
         assertThrows(DuplicateContactException.class, () -> contactService.processContactRequest(req, "127.0.0.1"));
-        verifyNoInteractions(emailService);
+        verifyNoInteractions(emailOutbox);
     }
 
     @Test
@@ -184,6 +137,6 @@ class ContactServiceTest {
 
         assertThrows(DataIntegrityViolationException.class,
                 () -> contactService.processContactRequest(req, "127.0.0.1"));
-        verifyNoInteractions(emailService);
+        verifyNoInteractions(emailOutbox);
     }
 }

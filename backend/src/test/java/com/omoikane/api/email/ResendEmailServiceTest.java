@@ -176,4 +176,30 @@ class ResendEmailServiceTest {
         assertTrue(html.contains("Alice Cooper"), "Must display applicant name");
         assertTrue(html.contains("alice_cv.pdf (Attached to this email)"), "Must indicate resume is attached");
     }
+
+    @Test
+    void emailSubjectRemovesLineBreaks() throws Exception {
+        String json = new ResendEmailService("", "sender@example.com").buildEmailJson("candidate@example.com", "Role\r\nBcc: injected@example.com", "<p>Hello</p>");
+        String subject = new com.fasterxml.jackson.databind.ObjectMapper().readTree(json).get("subject").asText();
+        org.junit.jupiter.api.Assertions.assertFalse(subject.contains("\r"));
+        org.junit.jupiter.api.Assertions.assertFalse(subject.contains("\n"));
+    }
+
+    @Test
+    void transientProviderFailureUsesStableIdempotencyKey() throws Exception {
+        var service=new ResendEmailService("test-key","sender@example.com");
+        var client=org.mockito.Mockito.mock(java.net.http.HttpClient.class);
+        java.net.http.HttpResponse<String> response=org.mockito.Mockito.mock(java.net.http.HttpResponse.class);
+        org.springframework.test.util.ReflectionTestUtils.setField(service,"httpClient",client);
+        org.mockito.Mockito.when(response.statusCode()).thenReturn(503);
+        org.mockito.Mockito.when(client.send(org.mockito.ArgumentMatchers.any(java.net.http.HttpRequest.class),org.mockito.ArgumentMatchers.<java.net.http.HttpResponse.BodyHandler<String>>any())).thenReturn(response);
+        var contact=new ContactSubmission();contact.setName("Test");contact.setEmail("test@example.com");contact.setMessage("Hello");
+        org.springframework.test.util.ReflectionTestUtils.setField(contact,"id",42L);
+        assertThrows(EmailDeliveryException.class,()->service.sendConfirmation(contact));
+        assertThrows(EmailDeliveryException.class,()->service.sendConfirmation(contact));
+        var request=org.mockito.ArgumentCaptor.forClass(java.net.http.HttpRequest.class);
+        org.mockito.Mockito.verify(client,org.mockito.Mockito.times(2)).send(request.capture(),org.mockito.ArgumentMatchers.<java.net.http.HttpResponse.BodyHandler<String>>any());
+        var keys=request.getAllValues().stream().map(r->r.headers().firstValue("Idempotency-Key").orElseThrow()).toList();
+        assertEquals(keys.getFirst(),keys.getLast());assertTrue(keys.getFirst().endsWith("42"));
+    }
 }

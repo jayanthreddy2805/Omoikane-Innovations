@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import SubmitButton from '@/components/shared/SubmitButton';
 import InternationalPhoneInput from '@/components/shared/InternationalPhoneInput';
@@ -10,7 +9,7 @@ import FileUpload from '@/components/shared/FileUpload';
 import styles from './ApplyForm.module.css';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ||
-  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : null);
+  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://omoikane-api.onrender.com');
 
 const ROLES_BY_DEPT = {
   software: [
@@ -44,10 +43,9 @@ const DEFAULT_ROLES = [
 ];
 
 // Contact page UI design applied for mobile filling bars
-export default function ApplyForm({ onSuccess }) {
-  const searchParams = useSearchParams();
-  const urlDept = searchParams.get('dept');
-  const urlRole = searchParams.get('role');
+export default function ApplyForm({ onSuccess, query = {} }) {
+  const urlDept = typeof query.dept === 'string' && Object.hasOwn(ROLES_BY_DEPT, query.dept) ? query.dept : '';
+  const urlRole = typeof query.role === 'string' ? query.role : '';
   const availableRoles = urlDept && ROLES_BY_DEPT[urlDept]
     ? ROLES_BY_DEPT[urlDept]
     : DEFAULT_ROLES;
@@ -77,7 +75,8 @@ export default function ApplyForm({ onSuccess }) {
 
   const handleRoleChange = (selectedRole) => {
     setRole(selectedRole);
-    // Automatically infer department if not already selected
+    if (selectedRole === 'other') return;
+    // Infer department from the unique role.
     for (const [deptKey, rolesList] of Object.entries(ROLES_BY_DEPT)) {
       if (rolesList.some(r => r.id === selectedRole)) {
         setDepartment(deptKey);
@@ -121,6 +120,7 @@ export default function ApplyForm({ onSuccess }) {
     }
 
     const formData = new FormData();
+    formData.append('website', form.elements.website.value);
     formData.append('name', nameVal);
     formData.append('email', emailVal);
     if (phone.trim()) {
@@ -165,6 +165,7 @@ export default function ApplyForm({ onSuccess }) {
 
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit} ref={formRef}>
+      <div aria-hidden="true" style={{position: 'absolute', left: '-10000px'}}><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
       <div className={styles.formGrid}>
         <div className={styles.inputGroup}>
           <label htmlFor="af-name" className={styles.label}>Name</label>

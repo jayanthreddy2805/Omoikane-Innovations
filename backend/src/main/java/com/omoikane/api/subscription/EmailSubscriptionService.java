@@ -28,6 +28,7 @@ public class EmailSubscriptionService {
     }
 
     public Result subscribe(SubscriptionRequest request, String clientIp) {
+        if (request.getWebsite() != null && !request.getWebsite().isBlank()) throw new IllegalArgumentException("Invalid submission.");
         String normalizedEmail = normalizeEmail(request.getEmail());
 
         return repository.findByEmailIgnoreCase(normalizedEmail)

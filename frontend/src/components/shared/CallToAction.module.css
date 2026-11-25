@@ -191,3 +191,7 @@
     font-size: 0.875rem;
   }
 }
+
+.gradientEffect { position:absolute; inset:-10%; pointer-events:none; background:radial-gradient(ellipse at 25% 40%,#334155aa,transparent 65%),radial-gradient(ellipse at 75% 65%,#47556999,transparent 60%),#000812; animation:ctaDrift 24s ease-in-out infinite alternate; }
+@keyframes ctaDrift { to { transform:translate3d(3%,-3%,0) scale(1.04); } }
+@media(prefers-reduced-motion:reduce) { .gradientEffect { animation:none; } }

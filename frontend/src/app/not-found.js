@@ -12,7 +12,7 @@ export default function NotFound() {
         <div className={styles.textBlock}>
           <h1 className={styles.heading}>PAGE NOT FOUND</h1>
           <p className={styles.sub}>The requested page does not exist or has moved.</p>
-          <div className={styles.actions}>
+          <div className={styles.actions} data-type-role="actions">
             <Link href="/" className={styles.action}>Home</Link>
             <Link href="/work" className={styles.action}>View our work</Link>
             <Link href="/contact" className={styles.action}>Contact us</Link>

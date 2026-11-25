@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(90deg, rgba(242, 249, 255, .99) 0%, rgba(242, 249, 255, .95) 31%, rgba(242, 249, 255, .24) 60%, rgba(4, 32, 68, .08) 100%), url('/images/reference/home-drone-desktop.jpg') center 48% / cover;
+  background: #eaf5ff;
   color: #102746;
 }
 
@@ -288,7 +288,7 @@
 
   .homeHero {
     min-height: calc(100dvh - 80px);
-    background: linear-gradient(180deg, #f2f9ff 0%, #f2f9ff 56%, rgba(242, 249, 255, .88) 66%, rgba(242, 249, 255, 0) 84%), url('/images/reference/home-drone-mobile.jpg') 58% bottom / auto 42% no-repeat, #eaf5ff;
+    background: #eaf5ff;
     align-items: flex-start;
   }
 
@@ -376,4 +376,12 @@
   .pageFrame {
     padding-top: 89px !important;
   }
+}
+.homeBackdrop { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.homeBackdropImage { object-fit: cover; object-position: center 48%; }
+.homeBackdrop::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(242,249,255,.99) 0%, rgba(242,249,255,.95) 31%, rgba(242,249,255,.24) 60%, rgba(4,32,68,.08) 100%); }
+@media (min-width:681px) and (max-width:768px) { .homeBackdropImage { object-position: 58% center; } }
+@media (max-width:680px) {
+  .homeBackdropImage { top: auto !important; height: 42% !important; object-position: 58% bottom; }
+  .homeBackdrop::after { background: linear-gradient(180deg,#f2f9ff 0%,#f2f9ff 56%,rgba(242,249,255,.88) 66%,rgba(242,249,255,0) 84%); }
 }

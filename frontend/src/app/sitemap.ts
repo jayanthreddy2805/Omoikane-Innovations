@@ -1,0 +1,2 @@
+import { SITE_URL, isIndexable } from "@/lib/siteMetadata";
+export default function sitemap() { return isIndexable ? ["/", "/about", "/work", "/expertise", "/contact", "/apply", "/careers", "/careers/software", "/careers/mechanical", "/careers/electronics", "/services/software", "/services/mechanical", "/services/electronics", "/privacy", "/terms"].map(path => ({url: `${SITE_URL}${path}`})) : []; }

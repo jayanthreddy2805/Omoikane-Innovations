@@ -1,20 +1,17 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/siteMetadata";
 import Link from "next/link";
 import styles from "../legal.module.css";
 
-export const metadata: Metadata = {
-  title: "Website Terms | Omoikane Innovations",
-  description: "Terms for using the Omoikane Innovations public website.",
-};
+export const metadata = pageMetadata("/terms", "Website Terms | Omoikane Innovations", "Terms for using the Omoikane Innovations public website.");
 
 export default function TermsPage() {
   return (
     <div className={styles.page}>
       <article className={styles.inner}>
         <header>
-          <p className={styles.eyebrow}>Website information</p>
+          <p className={styles.eyebrow} data-type-role="eyebrow">Website information</p>
           <h1 className={styles.title}>Website Terms</h1>
-          <p className={styles.lead}>
+          <p className={styles.lead} data-type-role="lead">
             These terms cover use of the public Omoikane Innovations website. Product sales,
             engineering work, and employment are subject to separate written arrangements.
           </p>

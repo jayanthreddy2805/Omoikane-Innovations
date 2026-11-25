@@ -15,7 +15,8 @@ export function readCookieConsent() {
 
   if (!entry) return null;
 
-  const value = decodeURIComponent(entry.slice(COOKIE_CONSENT_NAME.length + 1));
+  let value;
+  try { value = decodeURIComponent(entry.slice(COOKIE_CONSENT_NAME.length + 1)); } catch { return null; }
   if (value === ANALYTICS_VALUE) return { analytics: true };
   if (value === ESSENTIAL_VALUE) return { analytics: false };
   return null;

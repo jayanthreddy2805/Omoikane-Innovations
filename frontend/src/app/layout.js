@@ -1,3 +1,5 @@
+import { socialLinks } from "@/lib/socialLinks";
+import { pageMetadata, SITE_URL } from "@/lib/siteMetadata";
 import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer";
@@ -25,38 +27,7 @@ const cormorantGaramond = Cormorant_Garamond({
   preload: false,
 });
 
-export const metadata = {
-  metadataBase: new URL("https://www.omoikaneinnovations.com"),
-  title: "Omoikane Innovations",
-  description: "Advanced UAVs, embedded electronics, autonomous platforms and defense technologies engineered for real-world deployment.",
-  icons: {
-    icon: "/omoikane-logo.png",
-    shortcut: "/omoikane-logo.png",
-    apple: "/omoikane-logo.png",
-  },
-  openGraph: {
-    title: "Omoikane Innovations",
-    description: "Advanced UAVs, embedded electronics, autonomous platforms and defense technologies engineered for real-world deployment.",
-    url: "https://omoikaneinnovations.com",
-    siteName: "Omoikane Innovations",
-    images: [
-      {
-        url: "/omoikane-logo.png",
-        width: 1080,
-        height: 1080,
-        alt: "Omoikane Innovations Logo",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary",
-    title: "Omoikane Innovations",
-    description: "Advanced UAVs, embedded electronics, autonomous platforms and defense technologies engineered for real-world deployment.",
-    images: ["/omoikane-logo.png"],
-  },
-};
+export const metadata = { ...pageMetadata("/", "Omoikane Innovations", "Advanced UAVs, embedded electronics, autonomous platforms and defense technologies engineered for real-world deployment."), metadataBase: new URL(SITE_URL), icons: { icon: "/omoikane-logo.png" } };
 
 export default function RootLayout({ children }) {
   return (
@@ -68,9 +39,11 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         <a href="#main-content" className="skipLink">Skip to main content</a>
         <MotionPreferences>
+          <span id="header-top-threshold" aria-hidden="true" style={{position:'absolute',top:20,left:0,width:1,height:1,pointerEvents:'none'}} />
           <Header />
           <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
+          <span id="header-bottom-threshold" aria-hidden="true" style={{display:'block',height:1,marginTop:-1,pointerEvents:'none'}} />
           <ChatbotMount />
           <CookiePreferences />
           <ConsentAwareAnalytics />
@@ -82,7 +55,7 @@ export default function RootLayout({ children }) {
           name: "Omoikane Innovations",
           url: "https://www.omoikaneinnovations.com",
           logo: "https://www.omoikaneinnovations.com/omoikane-logo.png",
-          sameAs: ["https://in.linkedin.com/company/omoikane-innovations"],
+          sameAs: [socialLinks.linkedin],
         })}</script>
       </body>
     </html>

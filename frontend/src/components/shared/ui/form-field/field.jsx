@@ -22,7 +22,7 @@ export function FieldLabel({ children, htmlFor }) {
 
 export function FieldDescription({ children }) {
   return (
-    <p className={styles.description}>{children}</p>
+    <p className={styles.description} data-type-role="desc">{children}</p>
   );
 }
 

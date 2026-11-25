@@ -20,7 +20,7 @@ export default function ChatbotHeader({
             width={34}
             height={34}
             className={styles.headerLogoImage}
-            priority
+
           />
           <span className={styles.headerActiveIndicator} />
         </div>

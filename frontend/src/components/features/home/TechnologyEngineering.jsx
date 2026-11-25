@@ -88,7 +88,7 @@ export default function TechnologyEngineering() {
 
                 <div className={styles.textContainer}>
                   <h3 className={styles.name}>{discipline.name}</h3>
-                  <p className={styles.description}>{discipline.description}</p>
+                  <p className={styles.description} data-type-role="desc">{discipline.description}</p>
                 </div>
               </div>
             );
