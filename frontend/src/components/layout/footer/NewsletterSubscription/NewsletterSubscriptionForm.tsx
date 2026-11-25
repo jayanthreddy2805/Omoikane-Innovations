@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "./NewsletterSubscriptionForm.module.css";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, "") ||
-  (process.env.NODE_ENV === "development" ? "http://localhost:8080" : null);
+  (process.env.NODE_ENV === "development" ? "http://localhost:8080" : "https://omoikane-api.onrender.com");
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -38,7 +38,7 @@ export default function NewsletterSubscriptionForm() {
       const response = await fetch(`${API_BASE_URL}/api/subscriptions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, consent }),
+        body: JSON.stringify({ email, consent, website: String(formData.get("website") || "") }),
       });
       const data = await response.json().catch(() => null);
 
@@ -67,6 +67,7 @@ export default function NewsletterSubscriptionForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} aria-label="Subscribe to company updates">
+      <div aria-hidden="true" style={{position: "absolute", left: "-10000px"}}><label>Website<input name="website" autoComplete="off" tabIndex={-1} /></label></div>
       <div className={styles.inputRow}>
         <label className={styles.srOnly} htmlFor="footer-subscription-email">
           Email address

@@ -1,5 +1,5 @@
 const isDevelopment = process.env.NODE_ENV === "development";
-const apiOrigin = new URL(process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8080").origin;
+const apiOrigin = new URL(process.env.NEXT_PUBLIC_API_BASE_URL || (isDevelopment ? "http://localhost:8080" : "https://omoikane-api.onrender.com")).origin;
 // Static rendering needs Next's inline hydration scripts. Restrict their sources,
 // disable inline event handlers, and block embedding/objects without opting every route into SSR.
 const contentSecurityPolicy = [

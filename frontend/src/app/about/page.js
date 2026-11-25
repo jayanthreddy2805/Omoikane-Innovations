@@ -127,8 +127,8 @@ function OmoikaneSystemArchitecture() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 + (i * 0.1), duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h3 className={styles.editorialCardTitle}>
-                <span className={styles.titleDesktop}>{node.label.replace('\n', ' ')}</span>
+              <h3 aria-label={node.title} className={styles.editorialCardTitle}>
+                <span aria-hidden="true" className={styles.titleDesktop}>{node.label.replace('\n', ' ')}</span>
                 <span aria-hidden="true" className={styles.titleMobile}>{node.title}</span>
               </h3>
               <div className={styles.editorialCardDivider} />

@@ -1,3 +1,4 @@
+// OWNER TODO: attach dated evidence and approval fields listed in CLAIMS_TO_VERIFY.md.
 export const products = [
   {
     id: "ofc-x",

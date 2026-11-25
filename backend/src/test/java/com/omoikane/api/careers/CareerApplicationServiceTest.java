@@ -26,7 +26,20 @@ class CareerApplicationServiceTest {
     private CareerApplicationService service;
 
     private static final byte[] VALID_PDF_BYTES = new byte[]{'%', 'P', 'D', 'F', '-', '1', '.', '4', 0x0a};
-    private static final byte[] VALID_DOCX_BYTES = new byte[]{0x50, 0x4B, 0x03, 0x04, 0x00, 0x00};
+    private static final byte[] VALID_DOCX_BYTES = docxBytes();
+    private static byte[] docxBytes() {
+        try {
+            var bytes = new java.io.ByteArrayOutputStream();
+            try (var zip = new java.util.zip.ZipOutputStream(bytes)) {
+                for (String name : new String[]{"[Content_Types].xml", "word/document.xml"}) {
+                    zip.putNextEntry(new java.util.zip.ZipEntry(name));
+                    zip.write("<document/>".getBytes(java.nio.charset.StandardCharsets.UTF_8));
+                    zip.closeEntry();
+                }
+            }
+            return bytes.toByteArray();
+        } catch (java.io.IOException exception) { throw new java.io.UncheckedIOException(exception); }
+    }
     private static final byte[] VALID_DOC_BYTES = new byte[]{(byte) 0xD0, (byte) 0xCF, 0x11, (byte) 0xE0, 0x00, 0x00};
 
     @BeforeEach
@@ -307,5 +320,23 @@ class CareerApplicationServiceTest {
 
         CareerApplication result = noEmailService.processApplication(req);
         assertNotNull(result);
+    }
+
+    @Test
+    void rejectsOversizedMessageBeforePersistence() {
+        CareerApplicationRequest request = new CareerApplicationRequest();
+        request.setMessage("a".repeat(5001));
+        assertThrows(IllegalArgumentException.class, () -> service.processApplication(request));
+        verifyNoInteractions(repository, emailService);
+    }
+
+    @Test
+    void rejectsHoneypotBeforePersistence() {
+        CareerApplicationRequest request = new CareerApplicationRequest();
+        request.setName("Test Applicant"); request.setEmail("test@example.com");
+        request.setMessage("Application"); request.setDepartment("software"); request.setRole("web-dev");
+        request.setWebsite("spam.example");
+        assertThrows(IllegalArgumentException.class, () -> service.processApplication(request));
+        verifyNoInteractions(repository, emailService);
     }
 }

@@ -176,4 +176,12 @@ class ResendEmailServiceTest {
         assertTrue(html.contains("Alice Cooper"), "Must display applicant name");
         assertTrue(html.contains("alice_cv.pdf (Attached to this email)"), "Must indicate resume is attached");
     }
+
+    @Test
+    void emailSubjectRemovesLineBreaks() throws Exception {
+        String json = new ResendEmailService("", "sender@example.com").buildEmailJson("candidate@example.com", "Role\r\nBcc: injected@example.com", "<p>Hello</p>");
+        String subject = new com.fasterxml.jackson.databind.ObjectMapper().readTree(json).get("subject").asText();
+        org.junit.jupiter.api.Assertions.assertFalse(subject.contains("\r"));
+        org.junit.jupiter.api.Assertions.assertFalse(subject.contains("\n"));
+    }
 }

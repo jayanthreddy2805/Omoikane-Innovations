@@ -29,6 +29,7 @@ public class ContactService {
      * @return the saved entity
      */
     public ContactSubmission processContactRequest(ContactRequest request, String clientIp) {
+        if (request.getWebsite() != null && !request.getWebsite().isBlank()) throw new IllegalArgumentException("Invalid submission.");
         String email = request.getEmail().trim().toLowerCase(Locale.ROOT);
         String phone = request.getPhone() == null ? "" : request.getPhone().trim();
         if (repository.existsByContactDetails(email, phone)) {

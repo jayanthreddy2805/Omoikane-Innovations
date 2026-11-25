@@ -217,7 +217,7 @@ export default function Header() {
             width={56}
             height={56}
             className={styles.logoImage}
-            priority
+
           />
           <div className={styles.logoBrand} aria-label="Omoikane Innovations">
             <span aria-hidden="true" className={styles.logoName}>OMOIKANE</span>

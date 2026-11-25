@@ -92,7 +92,7 @@ export default function ChatMessage({ message, onSelectSuggestion }) {
             width={24}
             height={24}
             className={styles.botAvatarLogo}
-            priority
+
           />
         </div>
       )}

@@ -6,6 +6,10 @@ import org.springframework.web.multipart.MultipartFile;
  * DTO matching the careers application form fields.
  */
 public class CareerApplicationRequest {
+    private String website;
+    public String getWebsite() { return website; }
+    public void setWebsite(String website) { this.website = website; }
+
 
     private String name;
     private String email;

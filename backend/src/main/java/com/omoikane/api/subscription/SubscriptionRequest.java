@@ -9,6 +9,10 @@ import jakarta.validation.constraints.Size;
  * Request body for company-update subscriptions.
  */
 public class SubscriptionRequest {
+    private String website;
+    public String getWebsite() { return website; }
+    public void setWebsite(String website) { this.website = website; }
+
 
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")

@@ -228,8 +228,8 @@ public class ResendEmailService {
                 log.info("Resend API accepted {} email for [id={}]", contextType, entityId);
                 return true;
             } else {
-                log.warn("Resend API returned status {} for {} [id={}]: {}",
-                        response.statusCode(), contextType, entityId, response.body());
+                log.warn("Resend API returned status {} for {} [id={}]",
+                        response.statusCode(), contextType, entityId);
                 return false;
             }
         } catch (InterruptedException e) {
@@ -251,7 +251,7 @@ public class ResendEmailService {
             Map<String, Object> payload = new LinkedHashMap<>();
             payload.put("from", getFromHeader());
             payload.put("to", List.of(toEmail));
-            payload.put("subject", subject);
+            payload.put("subject", subject.replaceAll("[\\r\\n]", " "));
             payload.put("html", html);
             if (attachments != null && !attachments.isEmpty()) {
                 payload.put("attachments", attachments);

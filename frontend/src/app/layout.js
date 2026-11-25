@@ -1,3 +1,4 @@
+import { socialLinks } from "@/lib/socialLinks";
 import { pageMetadata, SITE_URL } from "@/lib/siteMetadata";
 import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/header/Header";
@@ -52,7 +53,7 @@ export default function RootLayout({ children }) {
           name: "Omoikane Innovations",
           url: "https://www.omoikaneinnovations.com",
           logo: "https://www.omoikaneinnovations.com/omoikane-logo.png",
-          sameAs: ["https://in.linkedin.com/company/omoikane-innovations"],
+          sameAs: [socialLinks.linkedin],
         })}</script>
       </body>
     </html>

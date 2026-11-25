@@ -24,52 +24,16 @@ import { ClientHomeHero } from "@/components/shared/ClientReferenceHero";
 
 
 // ─── Mobile Expertise Carousel Slides ─────────────────────────────
-const EXPERTISE_SLIDES = [
-  {
-    title: "Aerospace",
-    items: [
-      { icon: <Navigation size={16} />, label: "Autonomous UAV Platforms" },
-      { icon: <Cpu size={16} />, label: "Flight Control Systems" },
-      { icon: <Radio size={16} />, label: "RF Telemetry & Avionics" },
-    ],
-    image: "/images/about/domain-air.jpg",
-    alt: "Aerospace and autonomous flight platform",
-    href: "/expertise#aerospace",
-  },
-  {
-    title: "Defense",
-    items: [
-      { icon: <Shield size={16} />, label: "Secure Tactical Datalinks" },
-      { icon: <Activity size={16} />, label: "Real-Time Surveillance" },
-      { icon: <Radio size={16} />, label: "Rugged Defense Electronics" },
-    ],
-    image: "/images/about/domain-ground.jpg",
-    alt: "Defense technologies and tactical platforms",
-    href: "/expertise#defense",
-  },
-  {
-    title: "Automotive",
-    items: [
-      { icon: <Cpu size={16} />, label: "Intelligent ECU Solutions" },
-      { icon: <Zap size={16} />, label: "Real-Time Embedded Systems" },
-      { icon: <Layers size={16} />, label: "Vehicle Automation" },
-    ],
-    image: "/images/careers/electronics/embedded-pcb.jpg",
-    alt: "Intelligent automotive electronics and ECUs",
-    href: "/expertise#automotive",
-  },
-  {
-    title: "Railways",
-    items: [
-      { icon: <Activity size={16} />, label: "Predictive Maintenance Systems" },
-      { icon: <Layers size={16} />, label: "Industrial Process Automation" },
-      { icon: <Shield size={16} />, label: "Intelligent Control at Scale" },
-    ],
-    image: "/images/about/domain-industrial.jpg",
-    alt: "Railway automation and industrial systems",
-    href: "/expertise#railways",
-  },
-].map(slide => ({ ...slide, title: expertise.find(item => slide.href.endsWith(`#${item.id}`))?.title || slide.title }));
+const EXPERTISE_VISUALS = {
+  aerospace: {image: '/images/about/domain-air.jpg', alt: 'Aerospace engineering illustration', icons: [Navigation, Cpu, Radio]},
+  defense: {image: '/images/about/domain-ground.jpg', alt: 'Defense engineering illustration', icons: [Shield, Activity, Radio]},
+  automotive: {image: '/images/careers/electronics/embedded-pcb.jpg', alt: 'Automotive electronics illustration', icons: [Cpu, Zap, Layers]},
+  railways: {image: '/images/about/domain-industrial.jpg', alt: 'Industrial engineering illustration', icons: [Activity, Layers, Shield]},
+};
+const EXPERTISE_SLIDES = expertise.map(item => ({
+  title: item.title, href: `/expertise#${item.id}`, ...EXPERTISE_VISUALS[item.id],
+  items: item.systems.map((label, index) => { const Icon = EXPERTISE_VISUALS[item.id].icons[index]; return {icon: <Icon size={16} />, label}; }),
+}));
 
 // ─── Why Our Products Stand Out ───────────────────────────────────
 const WHY_US_PILLARS = [
@@ -119,6 +83,20 @@ const cardVariants = {
   }),
 };
 
+function expertiseCard(id, variant, index) {
+  const item = EXPERTISE_SLIDES.find(slide => slide.href.endsWith(`#${id}`));
+  if (!item) return null;
+  return (<motion.div key={item.href} variants={cardVariants} custom={index} initial="hidden" whileInView="visible" viewport={{once: true, margin: '-40px'}} className={variant === 'wide' ? styles.bentoCardWideWrap : undefined} style={variant === 'horizontal' ? {flex: 1} : undefined}>
+                <Link href={item.href} className={`${styles.bentoCard} ${variant === 'wide' ? styles.bentoCardWide : variant === 'horizontal' ? styles.bentoCardHorizontal : styles.bentoCardTall}`}>
+                  <div className={styles.bentoTextCol}>
+                    <h3 className={styles.bentoTitle}>{item.title}</h3>
+                    <div className={styles.bentoMetaList}>{item.items.map(system => <div key={system.label} className={styles.bentoMetaItem}><span className={styles.bentoMetaIcon}>{system.icon}</span><span>{system.label}</span></div>)}</div>
+                  </div>
+                  <div className={styles.bentoImgWrapper}><Image src={item.image} alt={item.alt} fill className={styles.bentoCardImg} sizes={variant === 'horizontal' ? '(max-width: 680px) calc(100vw - 124px), 190px' : '(max-width: 959px) calc(100vw - 124px), 45vw'} /></div>
+                </Link>
+              </motion.div>);
+}
+
 export default function HomeClient() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -162,167 +140,9 @@ export default function HomeClient() {
           </motion.header>
 
           <div className={styles.bentoGrid}>
-            {/* ── Left Column: Tall Card (Aerospace) ── */}
-            <motion.div
-              variants={cardVariants}
-              custom={0}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-40px" }}
-            >
-              <Link href="/expertise#aerospace" className={`${styles.bentoCard} ${styles.bentoCardTall}`}>
-                <div className={styles.bentoTextCol}>
-                  <h3 className={styles.bentoTitle}>Aerospace</h3>
-                  <div className={styles.bentoMetaList}>
-                    <div className={styles.bentoMetaItem}>
-                      <span className={styles.bentoMetaIcon}><Navigation size={16} /></span>
-                      <span>Autonomous UAV Platforms</span>
-                    </div>
-                    <div className={styles.bentoMetaItem}>
-                      <span className={styles.bentoMetaIcon}><Cpu size={16} /></span>
-                      <span>Flight Control Systems</span>
-                    </div>
-                    <div className={styles.bentoMetaItem}>
-                      <span className={styles.bentoMetaIcon}><Radio size={16} /></span>
-                      <span>RF Telemetry &amp; Avionics</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.bentoImgWrapper}>
-                  <Image
-                    src="/images/about/domain-air.jpg"
-                    alt="Aerospace and autonomous flight platform"
-                    fill
-                    className={styles.bentoCardImg}
-                    sizes="(max-width: 959px) calc(100vw - 124px), (max-width: 1288px) calc(53.5vw - 115px), 574px"
-                  />
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* ── Right Column: Stack of 2 Horizontal Cards ── */}
-            <div className={styles.bentoRightStack}>
-              {/* Defense Card */}
-              <motion.div
-                variants={cardVariants}
-                custom={1}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-                style={{ flex: 1 }}
-              >
-                <Link href="/expertise#defense" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
-                  <div className={styles.bentoTextCol}>
-                    <h3 className={styles.bentoTitle}>Defense</h3>
-                    <div className={styles.bentoMetaList}>
-                      <div className={styles.bentoMetaItem}>
-                        <span className={styles.bentoMetaIcon}><Shield size={16} /></span>
-                        <span>Secure Tactical Datalinks</span>
-                      </div>
-                      <div className={styles.bentoMetaItem}>
-                        <span className={styles.bentoMetaIcon}><Activity size={16} /></span>
-                        <span>Real-Time Surveillance</span>
-                      </div>
-                      <div className={styles.bentoMetaItem}>
-                        <span className={styles.bentoMetaIcon}><Radio size={16} /></span>
-                        <span>Rugged Defense Electronics</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={styles.bentoImgWrapper}>
-                    <Image
-                      src="/images/about/domain-ground.jpg"
-                      alt="Defense technologies and tactical platforms"
-                      fill
-                      className={styles.bentoCardImg}
-                      sizes="(max-width: 680px) calc(100vw - 124px), 190px"
-                    />
-                  </div>
-                </Link>
-              </motion.div>
-
-              {/* Automotive Card */}
-              <motion.div
-                variants={cardVariants}
-                custom={2}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-                style={{ flex: 1 }}
-              >
-                <Link href="/expertise#automotive" className={`${styles.bentoCard} ${styles.bentoCardHorizontal}`}>
-                  <div className={styles.bentoTextCol}>
-                    <h3 className={styles.bentoTitle}>Automotive</h3>
-                    <div className={styles.bentoMetaList}>
-                      <div className={styles.bentoMetaItem}>
-                        <span className={styles.bentoMetaIcon}><Cpu size={16} /></span>
-                        <span>Intelligent ECU Solutions</span>
-                      </div>
-                      <div className={styles.bentoMetaItem}>
-                        <span className={styles.bentoMetaIcon}><Zap size={16} /></span>
-                        <span>Real-Time Embedded Systems</span>
-                      </div>
-                      <div className={styles.bentoMetaItem}>
-                        <span className={styles.bentoMetaIcon}><Layers size={16} /></span>
-                        <span>Vehicle Automation</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={styles.bentoImgWrapper}>
-                    <Image
-                      src="/images/careers/electronics/embedded-pcb.jpg"
-                      alt="Intelligent automotive electronics and ECUs"
-                      fill
-                      className={styles.bentoCardImg}
-                      sizes="(max-width: 680px) calc(100vw - 124px), 190px"
-                    />
-                  </div>
-                </Link>
-              </motion.div>
-            </div>
-
-            {/* ── Wide Card: Railways & Industry (Full Width) ── */}
-            <motion.div
-              variants={cardVariants}
-              custom={3}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-40px" }}
-              className={styles.bentoCardWideWrap}
-            >
-              <Link href="/expertise#railways" className={`${styles.bentoCard} ${styles.bentoCardWide}`}>
-                <div className={styles.bentoTextCol}>
-                  <h3 className={styles.bentoTitle}>Railways</h3>
-                  <div className={styles.bentoMetaList}>
-                    <div className={styles.bentoMetaItem}>
-                      <span className={styles.bentoMetaIcon}><Activity size={16} /></span>
-                      <span>Predictive Maintenance Systems</span>
-                    </div>
-                    <div className={styles.bentoMetaItem}>
-                      <span className={styles.bentoMetaIcon}><Layers size={16} /></span>
-                      <span>Industrial Process Automation</span>
-                    </div>
-                    <div className={styles.bentoMetaItem}>
-                      <span className={styles.bentoMetaIcon}><Shield size={16} /></span>
-                      <span>Intelligent Control at Scale</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.bentoImgWrapper}>
-                  <Image
-                    src="/images/about/domain-industrial.jpg"
-                    alt="Railway automation and industrial systems"
-                    fill
-                    className={styles.bentoCardImg}
-                    sizes="(max-width: 680px) calc(100vw - 124px), 320px"
-                  />
-                </div>
-              </Link>
-            </motion.div>
+            {expertiseCard('aerospace', 'tall', 0)}
+            <div className={styles.bentoRightStack}>{expertiseCard('defense', 'horizontal', 1)}{expertiseCard('automotive', 'horizontal', 2)}</div>
+            {expertiseCard('railways', 'wide', 3)}
           </div>
 
           {/* ── Mobile Expertise Carousel (<= 768px) ── */}

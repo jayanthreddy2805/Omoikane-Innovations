@@ -45,6 +45,7 @@ public class CareerApplicationService {
         electronics.put("pcb-eng", "PCB Layout & Routing");
         electronics.put("rf-eng", "RF & Communications");
         electronics.put("test-eng", "Testing & Integration");
+        electronics.put("prod-eng-elec", "Product Engineer");
         electronics.put("other", "Other");
         VALID_ROLES_BY_DEPT.put("electronics", electronics);
     }
@@ -65,6 +66,7 @@ public class CareerApplicationService {
     @Transactional
     public CareerApplication processApplication(CareerApplicationRequest request) throws IOException {
         validateRequest(request);
+        if (request.getWebsite() != null && !request.getWebsite().isBlank()) throw new IllegalArgumentException("Invalid submission.");
 
         MultipartFile file = request.getResume();
         validateResumeFile(file);
@@ -90,8 +92,8 @@ public class CareerApplicationService {
         application.setMessage(request.getMessage().trim());
 
         String originalFilename = file.getOriginalFilename();
-        application.setResumeFilename(originalFilename != null ? originalFilename : "resume");
-        application.setResumeContentType(file.getContentType() != null ? file.getContentType() : "application/octet-stream");
+        application.setResumeFilename(originalFilename != null ? originalFilename.replaceAll("[\\r\\n\\\\/]", "_") : "resume");
+        application.setResumeContentType(switch (originalFilename.substring(originalFilename.lastIndexOf('.') + 1).toLowerCase(java.util.Locale.ROOT)) { case "pdf" -> "application/pdf"; case "docx" -> "application/vnd.openxmlformats-officedocument.wordprocessingml.document"; default -> "application/msword"; });
         application.setResumeData(file.getBytes());
         application.setStatus("PENDING");
 
@@ -115,6 +117,13 @@ public class CareerApplicationService {
     }
 
     private void validateRequest(CareerApplicationRequest request) {
+        if ((request.getName() != null && request.getName().length() > 255)
+                || (request.getEmail() != null && request.getEmail().length() > 255)
+                || (request.getPhone() != null && request.getPhone().length() > 50)
+                || (request.getMessage() != null && request.getMessage().length() > 5000)
+                || (request.getRoleTitle() != null && request.getRoleTitle().length() > 255)) {
+            throw new IllegalArgumentException("Submission exceeds field length limits.");
+        }
         if (request.getName() == null || request.getName().trim().isEmpty()) {
             throw new IllegalArgumentException("Name is required");
         }
@@ -136,15 +145,15 @@ public class CareerApplicationService {
         String dept = request.getDepartment() != null ? request.getDepartment().trim().toLowerCase() : "";
         if (!dept.isEmpty()) {
             if (!VALID_ROLES_BY_DEPT.containsKey(dept)) {
-                throw new IllegalArgumentException("Invalid department: " + dept);
+                throw new IllegalArgumentException("Invalid department.");
             }
             if (!VALID_ROLES_BY_DEPT.get(dept).containsKey(roleId)) {
-                throw new IllegalArgumentException("Invalid role '" + roleId + "' for department '" + dept + "'");
+                throw new IllegalArgumentException("Invalid role for department.");
             }
         } else {
             // Check if roleId belongs to any known department
             if (findDepartmentForRole(roleId) == null) {
-                throw new IllegalArgumentException("Invalid role: " + roleId);
+                throw new IllegalArgumentException("Invalid role.");
             }
         }
     }
@@ -159,9 +168,6 @@ public class CareerApplicationService {
     }
 
     private String resolveRoleTitle(String dept, String roleId, String providedTitle) {
-        if (providedTitle != null && !providedTitle.trim().isEmpty()) {
-            return providedTitle.trim();
-        }
         if (dept != null && VALID_ROLES_BY_DEPT.containsKey(dept)) {
             return VALID_ROLES_BY_DEPT.get(dept).get(roleId);
         }
@@ -178,7 +184,7 @@ public class CareerApplicationService {
         }
 
         String filename = file.getOriginalFilename();
-        if (filename == null || !filename.contains(".")) {
+        if (filename == null || filename.length() > 255 || !filename.contains(".")) {
             throw new IllegalArgumentException("Resume must have a valid file extension (.pdf, .doc, .docx)");
         }
 
@@ -206,6 +212,26 @@ public class CareerApplicationService {
             if (!(header[0] == 0x50 && header[1] == 0x4B && header[2] == 0x03 && header[3] == 0x04)) {
                 throw new IllegalArgumentException("Invalid DOCX file content");
             }
+            boolean contentTypes = false, document = false;
+            long expanded = 0;
+            int entries = 0;
+            try (var zip = new java.util.zip.ZipInputStream(file.getInputStream())) {
+                java.util.zip.ZipEntry entry;
+                byte[] buffer = new byte[8192];
+                while ((entry = zip.getNextEntry()) != null) {
+                    if (++entries > 1000) throw new IllegalArgumentException("Invalid DOCX archive.");
+                    contentTypes |= "[Content_Types].xml".equals(entry.getName());
+                    document |= "word/document.xml".equals(entry.getName());
+                    int read;
+                    while ((read = zip.read(buffer)) != -1) {
+                        expanded += read;
+                        if (expanded > 20 * 1024 * 1024) throw new IllegalArgumentException("DOCX archive is too large.");
+                    }
+                }
+            } catch (java.util.zip.ZipException exception) {
+                throw new IllegalArgumentException("Invalid DOCX archive.");
+            }
+            if (!contentTypes || !document) throw new IllegalArgumentException("Invalid DOCX document.");
         } else if ("doc".equals(ext)) {
             // DOC (Compound File Binary Format) starts with 0xD0 0xCF 0x11 0xE0
             if (!(header[0] == (byte) 0xD0 && header[1] == (byte) 0xCF && header[2] == 0x11 && header[3] == (byte) 0xE0)) {
