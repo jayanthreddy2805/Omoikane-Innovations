@@ -2,9 +2,20 @@
 
 ## Decision
 
-Candidate changes are ready for code review. **Production release is still gated** by the live CORS configuration, approved V4/V5 rollout/backup, remaining mobile performance gaps and owner policy/content decisions. No production deployment, environment mutation, migration, retention purge or production form submission was performed.
+The backend on combined main has passed isolated revalidation. **Production release is still gated** by an approved recovery point and tested restore, verified JDBC TLS and runtime CORS/provider configuration, the unexplained Render auto-deploy gap, and approval for the exact commit and V4/V5 rollout. No production deployment, environment mutation, migration, retention purge or production form submission was performed.
 
-Based on latest main `135227d93c12a3cad040b169798139b1d4e9c09d` (PR #47). PR #48 remains a separate, open mobile-polish change; it has not been merged into this branch or duplicated. Test the combined result when that work is approved. Chatbot components, APIs, RAG, inference and chatbot analytics were excluded from implementation and functional tests.
+**Task 3 recheck (25 November 2026):** latest main is `994d7c27d2b33249c7a0b3fc0ad8650ccec48bdc`, including merged PRs #48 and #49. This is the exact backend release **candidate, not an approved production commit**. Open mobile PR #50 remains separate. The detailed engineering inventory and first-run evidence below originated with PR #49; the current findings are in this recheck and the updated release procedure. Chatbot components, APIs, RAG, inference and chatbot analytics were excluded from implementation and functional tests.
+
+### Current isolated verification
+
+- Java 21 `./mvnw verify`: **86 tests, no failures/errors/skips**, packaged JAR. The existing disposal harness on PostgreSQL 17.12 passed **six** V3→V5 integration tests: preserved old contact fixture, V4/V5 indexes and Hibernate validation, rollback of Contact/Career plus four outbox jobs, concurrent claim locking, allowed/untrusted CORS, full Admin listing and authenticated résumé bytes. The earlier PR #49 CI also passed its PostgreSQL 18 integration and Docker build; this recheck did not rerun Docker or PostgreSQL 18.
+- Browser → packaged Spring Boot → isolated PostgreSQL: Contact **201** and duplicate **409**; Career **201**; consented Newsletter **201** then duplicate **200**; Admin auth/listings/CV download **200**, with exact synthetic PDF bytes. Provider credentials, worker and retention job were disabled in the harness; no external email was sent.
+- The frontend business-failure browser suite passed at **375px and 1440px**: form validation/limits, duplicate-click control, upload rejection/retry, newsletter consent and duplicate feedback, Admin failed login/dialog/logout, and cookie choice persistence. Its business requests were stubbed; the separate integrated run above exercised the real isolated API.
+- A separate disposable PostgreSQL 17 duplicate fixture deliberately made V4's normalized unique-index migration fail. The transaction left both synthetic rows intact and no partial index. The production read-only duplicate-group aggregate is **zero**; repeat it immediately before release.
+- Render's latest live deploy is still `a87d448aae052a7b40502e8d9a5529a5177bdcd3` (`dep-dbq8ks0m7kps738npu7g`, 11 November). The live `/actuator/health` returned `UP` after a free-instance cold start during this recheck. That checks the old workload only. Render reports branch `main`, `autoDeploy=yes`, `checksPass`, but deploy/event lists show no new deploy after 11 November even though main advanced. Verify the Git linkage and rollout control before release; do not assume a merge will or will not deploy.
+- Neon production still records successful **V1, V2, V3 only**. The V4 index and V5 outbox table are absent. Neon reports a six-hour project history window, **no snapshots and no automatic snapshot schedule**. A durable backup and isolated restore rehearsal are required before migration; neither has been taken here.
+- Source `render.yaml` has the four intended origins. The earlier live public-domain OPTIONS checks were 403, while two Vercel origins passed; preflights were not repeated in this recheck. Runtime CORS, email sender/recipients/API key, admin key, retention flag and `DATABASE_URL` values were not read. Production profile does not enforce a JDBC `sslmode` by itself. The Neon connector's inspection connection is not evidence of Render's TLS mode. Verify the actual Render JDBC connection with hostname validation in the approved release window.
+- Safe API error responses and sanitized log messages were reviewed in source. The Render logs connector returned `INVALID_ARGUMENT`, so current application errors cannot be certified from logs in this review. Inspect recent protected logs during the release without copying request bodies or personal records.
 
 ## Completed engineering work
 
@@ -48,9 +59,9 @@ The projection fix was found by running the packaged application on PostgreSQL, 
 | Render latest live deploy | `a87d448aae052a7b40502e8d9a5529a5177bdcd3` | Candidate backend behavior is not live. |
 | Neon production history | Successful V1, V2, V3 only | Release will execute V4 and V5. |
 | Live `/actuator/health` | 200, UP on the old workload | Does not verify this candidate. |
-| OPTIONS from www and non-www public domains | 403, no allowed-origin header | Public-domain forms remain blocked until the approved environment/release update. |
-| OPTIONS from the two Blueprint Vercel origins | 200 with matching allowed origin | These existing preview origins pass. |
-| OPTIONS from untrusted.example | 403 | Unapproved origin remains blocked. |
+| OPTIONS from www and non-www public domains (earlier audit) | 403, no allowed-origin header | Recheck live CORS after the approved runtime update; this task did not repeat preflights. |
+| OPTIONS from the two Blueprint Vercel origins (earlier audit) | 200 with matching allowed origin | Recheck after release. |
+| OPTIONS from untrusted.example (earlier audit) | 403 | Recheck the rejection after release. |
 
 The source `render.yaml` already has the correct four origins; it was not rewritten. The exact runtime change and release steps are in `backend/PRODUCTION_RELEASE.md`.
 
@@ -67,7 +78,7 @@ Retention is opt-in and disabled by default, with positive explicit cutoffs requ
 ## Outstanding release work
 
 1. Approve and execute the reviewed production environment/release/backup procedure; then verify the actual commit, migrations, public-domain CORS and provider delivery.
-2. Review PR #48 and repeat combined mobile/short-screen checks when approved. It addresses the tall first-visit banner/CTA overlap separately.
-3. Mobile Expertise performance and several mobile LCP results remain above requested targets. No field INP or real-device result is claimed. See `MOBILE_PERFORMANCE_REPORT.md`.
+2. Keep open mobile PR #50 separate. Combined PR #48/#49 mobile checks are in `FINAL_QA_REPORT.md`; a later mobile release is a separate decision.
+3. Several mobile LCP results remain above requested targets. No field INP or real-device result is claimed. See `MOBILE_PERFORMANCE_REPORT.md`.
 4. Complete physical-device Safari/virtual-keyboard and production load/cold-start tests. The current Render free-instance profile has not been load-certified here.
 5. Resolve the company/legal/production-authority items in `OWNER_TODO.md` and the maintained Spring upgrade path described above.
