@@ -33,7 +33,7 @@ export default function CareersPage() {
                 <h2><Link href={`/careers/${slug}`} className={styles.nameLink}>{name}</Link></h2>
               </div>
               <div className={styles.cardActions}>
-                <Link href={`/careers/${slug}`} className={styles.explore} aria-label={`Explore ${name} roles`}>
+                <Link href={`/careers/${slug}`} className={styles.explore} aria-label={`Explore roles in ${name}`}>
                   Explore roles <ArrowUpRight size={16} aria-hidden="true" />
                 </Link>
                 <Link href={`/apply?dept=${slug}`} className={styles.apply} aria-label={`Apply to ${name}`}>

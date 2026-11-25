@@ -76,11 +76,16 @@ export default function AerospaceVideoSequence({
   const activeClipRef = useRef(0);
   const pausedTimeRef = useRef(0);
   const [inView, setInView] = useState(false);
+  const [postersReady, setPostersReady] = useState(false);
 
   useEffect(() => {
     const stage = stageRef.current;
     if (!stage) return;
-    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), {
+    const observer = new IntersectionObserver(([entry]) => {
+      setInView(entry.isIntersecting);
+      // Video posters load despite preload="none"; request them near the sequence.
+      if (entry.isIntersecting) setPostersReady(true);
+    }, {
       rootMargin: "250px 0px", threshold: 0,
     });
     observer.observe(stage);
@@ -230,7 +235,7 @@ export default function AerospaceVideoSequence({
             <video
               ref={(node) => { videoRefs.current[index] = node; }}
               className={styles.video}
-              poster={`/images/video-posters/${clip.id}.jpg`}
+              poster={postersReady ? `/images/video-posters/${clip.id}.jpg` : undefined}
               aria-hidden="true"
               tabIndex={-1}
               muted
