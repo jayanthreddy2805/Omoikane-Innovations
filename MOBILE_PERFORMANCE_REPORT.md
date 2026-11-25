@@ -1,58 +1,34 @@
-# Mobile performance report — 25 November 2026
+# Mobile performance finalization — 25 November 2026
 
-## Measured outcome
+## Method and limits
 
-About's mobile sample improved from **78 / 6.24s LCP** to **93 / 3.25s LCP**. Its film preview transferred **8,125 bytes** through the existing responsive image pipeline instead of **543,894 bytes** for the raw JPEG in the baseline request (98.5% fewer transferred bytes in these samples). No original image or video file was changed or re-encoded. This changes browser delivery of the preview, not the film's source resolution or bitrate.
+The **before** build is combined `main` at `994d7c2` (PRs #48 and #49 already merged). The **after** build changes only when the five Expertise video posters become eligible to load. Both runs used a local Next.js production build, Lighthouse 13.6.0, Chromium 158.0.8127.88, Node 24.22.3, a 412×823 viewport at DPR 1.75, simulated 150 ms RTT / 1638.4 Kbps throughput / 4× CPU slowdown, and default first-visit storage. One sample per route per revision was taken. Raw Lighthouse reports and the baseline Expertise/Apply Chromium traces were retained in the local validation workspace. This is not production field data; the shared executor, image cache and simulation can move scores between runs. Differences on pages whose code did not change are **not attributed** to this fix.
 
-Desktop samples meet the requested 95+ performance target. **Mobile Expertise still misses 90+, and several mobile LCP samples exceed 2.5 seconds.** CLS measured zero throughout. Field INP has not been established and is not inferred from Lighthouse's total blocking time.
-
-## Method
-
-- Lighthouse **13.6.0**, Chromium **158.0.8127.88**, Node **24.22.3**, shared Linux executor, local Next.js production build.
-- URLs: `http://127.0.0.1:3016` plus each path below. These are local candidate-build results, not production CDN, cellular-device or Render cold-start measurements.
-- Mobile: 412×823, device scale factor 1.75, Lighthouse simulated mobile defaults (150ms RTT, 1638.4 Kbps throughput setting, 4× CPU slowdown).
-- Desktop: explicit Lighthouse desktop configuration, 1350×940, scale factor 1, 40ms RTT, 10240 Kbps throughput, 1× CPU.
-- One sample per page/profile; browser storage/cache resets follow Lighthouse defaults. Server/image-transform caches can be warm, and other validation ran on the shared executor. Treat small differences as noise rather than code-attributable improvements.
-- Baseline: candidate before the About/Expertise media adjustments. Before values exist for nine pages only. All 15 public pages received final mobile and desktop samples; no missing baselines were fabricated.
-- Initial consent was unset, reflecting a first visit. In several pages the client-mounted cookie banner becomes the final LCP candidate. PR #48's compact-banner change is separately open and was not duplicated here. The combined release needs another measurement after that work is approved.
-
-## Page results
-
-| Page | Mobile before score / LCP | Mobile after score / LCP | Desktop after score / LCP | CLS after |
+| Route | Combined main before: score / LCP | Candidate after: score / LCP | CLS after | LCP candidate in baseline |
 | --- | --- | --- | --- | --- |
-| `/` | 92 / 3.41s | 92 / 3.41s | 100 / 0.69s | 0.000 |
-| `/about` | 78 / 6.24s | 93 / 3.25s | 100 / 0.72s | 0.000 |
-| `/expertise` | 86 / 4.19s | 87 / 4.07s | 99 / 0.86s | 0.000 |
-| `/work` | 100 / 1.06s | 100 / 1.06s | 100 / 0.30s | 0.000 |
-| `/contact` | 92 / 3.32s | 92 / 3.31s | 99 / 0.95s | 0.000 |
-| `/apply` | 92 / 3.32s | 92 / 3.31s | 99 / 0.90s | 0.000 |
-| `/careers` | 99 / 0.91s | 100 / 0.91s | 100 / 0.25s | 0.000 |
-| `/careers/software` | Not captured | 92 / 3.33s | 100 / 0.67s | 0.000 |
-| `/careers/mechanical` | Not captured | 92 / 3.31s | 100 / 0.67s | 0.000 |
-| `/careers/electronics` | Not captured | 92 / 3.32s | 100 / 0.69s | 0.000 |
-| `/services/software` | 100 / 0.91s | 100 / 1.53s | 100 / 0.25s | 0.000 |
-| `/services/mechanical` | Not captured | 100 / 0.91s | 100 / 0.25s | 0.000 |
-| `/services/electronics` | Not captured | 100 / 0.91s | 100 / 0.25s | 0.000 |
-| `/privacy` | 100 / 0.91s | 100 / 0.91s | 100 / 0.37s | 0.000 |
-| `/terms` | Not captured | 100 / 0.91s | 100 / 0.25s | 0.000 |
+| `/` | 91 / 3.44s | 93 / 3.23s | 0.000 | Home hero image |
+| `/about` | 89 / 3.66s | 95 / 2.87s | 0.000 | Film preview image |
+| `/expertise` | 90 / 3.70s | **94 / 3.09s** | 0.000 | Expertise hero image |
+| `/contact` | 92 / 3.32s | 92 / 3.33s | 0.000 | Enquiry text |
+| `/apply` | 92 / 3.39s | 92 / 3.39s | 0.000 | First-visit cookie-banner text |
+| `/work` | 100 / 1.06s | 100 / 1.06s | 0.000 | Introductory copy |
 
-Final mobile TBT ranged **14.5–68.5ms**; desktop **0.0–14.0ms**. These are lab blocking-time measurements, not INP.
+All six sampled mobile scores now meet 90, but **five of six LCP values exceed 2.5 seconds**. The Expertise difference is one sample on each revision, not a statistically established gain. Mobile TBT after was 7.5–66 ms in these six runs; it is not a substitute for field INP. No field INP was available.
 
-## Implemented and verified
+## Diagnosis
 
-- About preview is a responsive Next image in server HTML, with explicit sizes and high fetch priority. It is replaced after a video frame plays. Reduced-motion users receive the preview and an explicit Play company film action; no video source is fetched automatically in that mode.
-- Expertise's hero background no longer starts with zero opacity. Its zoom remains. A browser with JavaScript disabled verified loaded, visible initial hero images on Home, About and Expertise.
-- Existing verification confirmed one responsive Home expertise tree, one active sequence video source, source transitions and no automatic Expertise sequence fetch with reduced motion. Inactive About clips still pause/release their source; original playback assets remain unchanged.
-- Five-width public QA found no document overflow or browser page errors. Typography regression comparison passed. No broad redesign, font replacement or new runtime dependency was introduced.
+The unthrottled baseline Expertise trace found the hero request at approximately 56 ms and the hero image paint at 206 ms after navigation. Its mobile variant was already discovered in initial HTML, eager, `fetchpriority=high`, responsive at 750w for this device, and transferred 33,931 bytes through Next image optimization. The 1.6 MB original PNG is not sent at full size in this sample. Font requests and route CSS start at about 54–56 ms; Lighthouse lists approximately 30 KB of route/render-blocking CSS and its simulated mobile cost. The trace's longest individual script evaluation was about 26 ms. The image-layer zoom does not hide the image before hydration. These facts do not support lowering image quality, replacing the typography or removing the hero animation as a targeted fix.
 
-## Remaining bottlenecks and limits
+The same first viewport initially fetched **five below-fold video posters totaling 117,173 transferred bytes**, even though the videos had `preload="none"` and no video source was active. Video poster attributes cause image requests independently of video preload. The changed component supplies the same posters only after its existing intersection observer reports that the sequence is within 250px of view, retaining them after first approach. In the after Expertise Lighthouse request list, **zero** video posters were transferred before the first viewport measurement, while the same 33,931-byte hero image was transferred. No source media was replaced or compressed, and no initial video request was added.
 
-1. Expertise's simulated mobile LCP remains around 4.07s with its full-screen illustration, critical stylesheet/font delivery and animation/render work. Its image is discoverable/eager/high-priority and visible before hydration; no smaller source resolution or lower media-quality setting was introduced to inflate the score. Further performance work must preserve the approved visual design and be remeasured.
-2. The first-visit consent banner appears after hydration and is a late LCP candidate on several pages. Review/measure the combined PR #48 result before claiming the 2.5-second target is met. These results do not establish the entire site meets the mobile acceptance target.
-3. Real field INP/p75, physical-device Safari/virtual keyboard, slow production networks, CDN cache behavior and Render free-service cold starts/load still need production or real-device verification after an approved release.
-4. Lighthouse SEO is 69 on the local preview because indexing is intentionally blocked. This is not an instruction to enable indexing on previews. Separate tests verify production metadata, 15-entry sitemap and robots policy; actual deployed production discovery remains a post-release check.
-5. Transient animation timing can affect Lighthouse accessibility samples; the dedicated axe scans used the site's reduced-motion setting after rendering and found zero serious/critical issues. This is not a full manual WCAG certification.
+The first-visit consent banner remains a late LCP candidate on Apply because its visibility depends on consent read after hydration. Contact's LCP is text; the Home and About candidates are their already optimized images. Reworking global consent rendering or critical CSS/font delivery would affect caching, privacy presentation or typography across routes. With no corresponding bottleneck established by these traces, this pass leaves them intact rather than gaming the metric or compromising the design.
 
-## Reproduction
+## Verification and open limits
 
-Build the frontend, install/use Lighthouse as an external audit tool, then run `node scripts/audit-performance.mjs` from frontend. `LIGHTHOUSE_MODULE`, `CHROMIUM_EXECUTABLE`, `AUDIT_OUTPUT_DIR`, `AUDIT_PATHS` and `AUDIT_MODES` configure the tool. The script selects the actual desktop configuration rather than merely labeling a mobile run desktop, saves the configuration and raw LHR data, and fails on Lighthouse runtime errors. No scores are substituted when a page fails to load.
+See `FINAL_QA_REPORT.md` for the seven-width polish check, public route and accessibility scans, responsive animation and consent tests. The existing performance browser test confirms Expertise keeps one active video source on approach and none in reduced motion. The original hero and poster assets, rendering quality and cinematic transitions remain. This pass made no backend or production configuration changes.
+
+Remaining: mobile LCP ≤2.5s on Home, About, Expertise, Contact and Apply; field p75 INP; physical Safari/virtual-keyboard testing; and production-network/CDN measurements after a separately approved deployment. A local Lighthouse SEO score of 69 reflects intentionally blocked preview indexing, not a change to production metadata.
+
+## Reproduce
+
+From `frontend`, run `npm ci && npm run build`, then `node scripts/audit-performance.mjs` with `LIGHTHOUSE_MODULE`, `CHROMIUM_EXECUTABLE`, `AUDIT_OUTPUT_DIR`, `AUDIT_MODES='["mobile"]'` and `AUDIT_PATHS='["/","/about","/expertise","/contact","/apply","/work"]'`. The audit writes one full LHR JSON per route and a summary. Compare builds under the same settings and use more samples and a real-device/field check before treating small differences as causal.
