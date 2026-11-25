@@ -95,8 +95,7 @@ export default function CookiePreferences() {
           <div className={styles.bannerCopy}>
             <h2>Cookie choices</h2>
             <p>
-              Essential cookies keep the website working. Optional, privacy-friendly analytics
-              helps us understand visits and stays off unless you allow it.
+              Essential cookies run this site. Analytics is optional and off by default.
             </p>
           </div>
           <div className={styles.bannerActions}>

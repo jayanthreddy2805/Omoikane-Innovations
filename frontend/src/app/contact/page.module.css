@@ -402,3 +402,12 @@
     padding-top: calc(76px + 15px) !important;
   }
 }
+
+/* Keep clipping from creating a nested scroll area behind the floating header. */
+@media (max-width: 768px) {
+  .pageWrapper, .enquirySection { overflow: clip !important; }
+  .container { width: 100%; max-width: 100%; padding-inline: 20px !important; }
+  .enquiryGrid { grid-template-columns: minmax(0, 1fr) !important; }
+  .enquiryGrid > *, .formWrapper { min-width: 0; }
+  .formWrapper { scroll-margin-top: 144px; }
+}
