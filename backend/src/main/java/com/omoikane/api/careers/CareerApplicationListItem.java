@@ -1,5 +1,4 @@
 package com.omoikane.api.careers;
-import java.time.OffsetDateTime;
 public interface CareerApplicationListItem {
     Long getId();
     String getName();
@@ -13,5 +12,6 @@ public interface CareerApplicationListItem {
     String getResumeContentType();
     long getResumeSize();
     String getStatus();
-    OffsetDateTime getCreatedAt();
+    // Native TIMESTAMPTZ is Instant on PostgreSQL and OffsetDateTime on H2.
+    Object getCreatedAt();
 }

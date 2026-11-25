@@ -48,6 +48,14 @@ class CareerApplicationServiceTest {
     }
 
     @Test
+    void invalidPhoneCannotReachPersistenceOrEmailOutbox() {
+        CareerApplicationRequest request = new CareerApplicationRequest();
+        request.setPhone("not a number");
+        assertThrows(IllegalArgumentException.class, () -> service.processApplication(request));
+        verifyNoInteractions(repository, emailOutbox);
+    }
+
+    @Test
     void processApplication_validRequest_persistsApplication() throws IOException {
         CareerApplicationRequest req = new CareerApplicationRequest();
         req.setName("Jane Doe");

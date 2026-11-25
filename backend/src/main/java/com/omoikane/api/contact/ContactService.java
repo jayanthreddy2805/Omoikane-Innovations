@@ -31,6 +31,7 @@ public class ContactService {
      */
     @Transactional
     public ContactSubmission processContactRequest(ContactRequest request, String clientIp) {
+        com.omoikane.api.common.dto.PhoneNumbers.validateOptional(request.getPhone());
         if (request.getWebsite() != null && !request.getWebsite().isBlank()) throw new IllegalArgumentException("Invalid submission.");
         String email = request.getEmail().trim().toLowerCase(Locale.ROOT);
         String phone = request.getPhone() == null ? "" : request.getPhone().trim();
