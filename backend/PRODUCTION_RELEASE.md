@@ -1,19 +1,20 @@
-# Approved backend release procedure
+# Prepared backend release procedure
 
-Prepared 25 November 2026. This is a procedure, not authorization to execute it.
+Reverified 25 November 2026 against combined main `994d7c27d2b33249c7a0b3fc0ad8650ccec48bdc`. This is a procedure, not authorization to execute it. That commit is the exact **candidate**, not an approved production release. Mobile PR #50 is separate and excluded.
 
 ## Current state and release gate
 
-- Render service `srv-dbpjehei0phs73ac8s0g` in the confirmed My Workspace still reports live commit `a87d448aae052a7b40502e8d9a5529a5177bdcd3`.
+- Render service `srv-dbpjehei0phs73ac8s0g` in the confirmed My Workspace still reports live commit `a87d448aae052a7b40502e8d9a5529a5177bdcd3` (deploy `dep-dbq8ks0m7kps738npu7g`, 11 November). The health endpoint returned UP after a free-instance cold start during this recheck; it verifies the old workload only.
 - Neon production migration history contains V1–V3. This release will apply **both V4 and V5** at startup.
-- The source Blueprint contains the public domains, but live CORS preflights reject both public domain variants with 403. The two configured Vercel origins pass. Health returns 200 for the old workload; this does not verify the candidate release.
-- Obtain explicit approval for the exact reviewed commit, production environment update and migration window. Render tracks main with `checksPass`; a merge can initiate a release. Arrange the approved rollout controls before merging. This work does not change service settings or trigger a deploy.
+- The source Blueprint contains the public domains. The previous live preflight check rejected both public domain variants with 403, while the two configured Vercel origins passed; this recheck did not read runtime environment values or repeat the preflights. Treat production CORS as unverified and blocked pending an approved runtime check/update.
+- Render reports `autoDeploy=yes`, `autoDeployTrigger=checksPass`, branch `main`, but its deploy and event lists show **no new deploy since 11 November** despite later main merges. Confirm the Git integration and approved rollout control in Render before relying on automatic deployment. Do not trigger a deploy to investigate it.
+- Obtain explicit approval for the exact reviewed commit, production environment update and migration window. A future main merge may initiate a release despite the current gap. Arrange the approved rollout controls before merging. This work does not change service settings or trigger a deploy.
 
 ## Before approval
 
-1. Review the PR, test evidence, remaining dependency advisories and mobile/QA reports. Resolve PR #48 separately and test the combined result before releasing both.
-2. Confirm an encrypted backup or recovery branch immediately before the migration and test recovery in isolation. The observed Neon project history window is six hours; do not assume that is a durable backup policy. Never copy applicant data into a public preview or issue.
-3. Use a direct, unpooled PostgreSQL connection for backup/migration administration, with credentials supplied through the secret manager or protected PostgreSQL service/password files outside Git. For example, an operator may run `PGSERVICE=omoikane-backup pg_dump --format=custom --file=<encrypted-backup-location>` after configuring that service securely. Do not print credential-bearing URLs.
+1. Review the test evidence, remaining dependency advisories and mobile/QA reports. PRs #48 and #49 are already in main; PR #50 remains open and must not be merged as part of this backend release. Select and explicitly approve the exact candidate SHA above or a later reviewed commit.
+2. Confirm an encrypted backup or recovery branch immediately before the migration and test recovery in isolation. Neon currently reports **no snapshots and an empty automatic snapshot schedule**, with a six-hour history window. There is no verified durable backup on record. Never copy applicant data into a public preview or issue.
+3. Use a direct, unpooled PostgreSQL connection for backup/migration administration, with credentials supplied through the secret manager or protected PostgreSQL service/password files outside Git. Enforce verified TLS, including hostname validation, for the production JDBC and backup connections. The source production profile accepts `DATABASE_URL` but does not itself require an `sslmode`; the actual Render JDBC URL and its TLS mode were not read. Confirm the selected host, intended Neon branch, certificate trust and mode in a protected operator environment without printing secrets. [PostgreSQL JDBC's SSL documentation](https://jdbc.postgresql.org/documentation/ssl/) explains that `sslmode=require` encrypts without validating the server certificate; prefer `verify-full` with a trusted CA where supported.
 4. Re-run these read-only preflight queries:
 
    ```sql
@@ -33,6 +34,15 @@ Prepared 25 November 2026. This is a procedure, not authorization to execute it.
    ```
 
    These are exact origins, not wildcard preview access. Add any newly approved preview origin explicitly. Confirm `NEXT_PUBLIC_API_BASE_URL` at frontend build time matches the approved API and CSP origin.
+
+## Backup and recovery rehearsal after approval, before migration
+
+1. In an access-controlled operator environment, capture a named Neon recovery point or take a custom-format `pg_dump` using the direct production endpoint (for example `PGSERVICE=omoikane-backup pg_dump --format=custom --no-owner --file=<protected-temporary-path>` after configuring that service securely). Keep credentials outside command output and Git. Encrypt the dump immediately in approved storage, restrict readers and record its creation time, checksum, PostgreSQL version, source branch, and Flyway V1–V3 history. Do not leave plaintext applicant records in shared temporary directories.
+2. Restore a copy into a **new, isolated and access-restricted** database or branch, never into production: decrypt securely, inspect the archive with `pg_restore --list`, and restore into an empty target with `pg_restore --exit-on-error --no-owner --dbname=<isolated-target> <protected-dump>`. Do not use `--clean` against production. Apply access and retention controls to this copy because it contains real applicant data.
+3. Validate the restored schema, Flyway history/checksums, and aggregate table counts (including résumé byte counts) without opening personal records. Confirm the isolated application starts and health is UP. Document the restore time and recovery point. Delete the isolated copy later only under the approved data-handling procedure.
+4. Re-run the duplicate preflight immediately before migration. Stop if any duplicate group is found, the backup/rehearsal fails, the JDBC TLS mode is unverified, or the Render/Git deploy trigger remains unexplained. Do not deploy or run `repair` to bypass a failed check.
+
+The backup, restore rehearsal and recovery-point creation above are **prepared steps only**; none was executed against production during this review.
 
 ## Migration and deploy after approval
 
