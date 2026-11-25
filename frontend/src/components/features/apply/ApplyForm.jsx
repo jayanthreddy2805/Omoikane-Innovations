@@ -164,7 +164,7 @@ export default function ApplyForm({ onSuccess, query = {} }) {
   };
 
   return (
-    <form className={styles.formContainer} onSubmit={handleSubmit} ref={formRef}>
+    <form aria-label="Apply to Omoikane" className={styles.formContainer} onSubmit={handleSubmit} ref={formRef}>
       <div aria-hidden="true" style={{position: 'absolute', left: '-10000px'}}><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
       <div className={styles.formGrid}>
         <div className={styles.inputGroup}>
@@ -172,6 +172,7 @@ export default function ApplyForm({ onSuccess, query = {} }) {
           <input
             type="text"
             id="af-name"
+            maxLength={255}
             className={styles.input}
             required
           />
@@ -182,6 +183,7 @@ export default function ApplyForm({ onSuccess, query = {} }) {
           <input
             type="email"
             id="af-email"
+            maxLength={255}
             className={styles.input}
             required
           />
@@ -224,6 +226,7 @@ export default function ApplyForm({ onSuccess, query = {} }) {
           <label htmlFor="af-message" className={styles.label}>Cover Letter / Message</label>
           <textarea
             id="af-message"
+            maxLength={5000}
             className={styles.textarea}
             placeholder="Tell us why you'd be a great fit..."
             rows={5}

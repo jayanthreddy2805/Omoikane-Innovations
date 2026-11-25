@@ -21,8 +21,9 @@ public class EmailOutbox {
         job.claim();return jobs.saveAndFlush(job);
     }
     @Transactional(propagation=Propagation.REQUIRES_NEW)
-    public void finish(Long id,String status,boolean retryable){
-        var job=jobs.findById(id).orElseThrow();
-        if(retryable && job.getAttempts()<4)job.retry();else job.finish(status);
+    public void finish(EmailDeliveryJob claim,String status,boolean retryable){
+        boolean retry=retryable && claim.getAttempts()<4;
+        var next=retry?OffsetDateTime.now().plusSeconds(Math.min(300,5L << Math.min(claim.getAttempts(),5))):claim.getNextAttemptAt();
+        jobs.finishClaim(claim.getId(),claim.getAttempts(),retry?"PENDING":status,next);
     }
 }

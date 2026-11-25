@@ -11,8 +11,8 @@ export function ExpertiseHero() {
       <motion.div
         className={styles.imageLayer}
         aria-hidden="true"
-        initial={{ opacity: 0, scale: 1.05 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ scale: 1.05 }}
+        animate={{ scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
         <picture>

@@ -15,6 +15,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ||
 
 export default function ContactForm({ onSuccess, query = {} }) {
   const enquirySubject = (typeof query.subject === 'string' ? query.subject : '').trim().slice(0, 120) || '';
+  const enquiryPrefix = enquirySubject ? `[Enquiry: ${enquirySubject}]\n` : '';
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('');
   const [phone, setPhone] = useState('');
@@ -49,7 +50,7 @@ export default function ContactForm({ onSuccess, query = {} }) {
       email: form.elements['cf-email'].value.trim(),
       company: form.elements['cf-company'].value.trim() || undefined,
       phone: phone.trim() || undefined,
-      message: `${enquirySubject ? `[Enquiry: ${enquirySubject}]\n` : ''}${form.elements['cf-message'].value.trim()}`,
+      message: `${enquiryPrefix}${form.elements['cf-message'].value.trim()}`,
     };
 
     try {
@@ -89,7 +90,8 @@ export default function ContactForm({ onSuccess, query = {} }) {
           <label htmlFor="cf-name" className={styles.label}>Name</label>
           <input 
             type="text" 
-            id="cf-name" 
+            id="cf-name"
+            maxLength={255}
             className={styles.input} 
             required 
           />
@@ -99,7 +101,8 @@ export default function ContactForm({ onSuccess, query = {} }) {
           <label htmlFor="cf-email" className={styles.label}>Email</label>
           <input 
             type="email" 
-            id="cf-email" 
+            id="cf-email"
+            maxLength={255}
             className={styles.input} 
             required 
           />
@@ -109,7 +112,8 @@ export default function ContactForm({ onSuccess, query = {} }) {
           <label htmlFor="cf-company" className={styles.label}>Company</label>
           <input 
             type="text" 
-            id="cf-company" 
+            id="cf-company"
+            maxLength={255}
             className={styles.input} 
           />
         </div>
@@ -126,7 +130,8 @@ export default function ContactForm({ onSuccess, query = {} }) {
         <div className={`${styles.inputGroup} ${styles.fullWidth}`}>
           <label htmlFor="cf-message" className={styles.label}>Message</label>
           <textarea 
-            id="cf-message" 
+            id="cf-message"
+            maxLength={5000 - enquiryPrefix.length}
             className={styles.textarea} 
             placeholder="Write your message..."
             rows={5}

@@ -5,6 +5,7 @@ import usePageVisible from "@/hooks/usePageVisible";
 import styles from "./AboutHero.module.css";
 import Link from "next/link";
 import { ClientPageHero } from "@/components/shared/ClientReferenceHero";
+import Image from "@/components/shared/LoadAwareImage";
 
 const COMPANY_VIDEO = "/videos/about/omoikane.mp4";
 const COMPANY_VIDEO_POSTER = "/images/about/domain-air.jpg";
@@ -24,6 +25,8 @@ export default function AboutHero() {
   const autoplayEnabled = prefersReducedMotion !== true;
   const videoRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [playRequested, setPlayRequested] = useState(false);
+  const [hasFrame, setHasFrame] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
     if (videoRef.current) observer.observe(videoRef.current);
@@ -32,7 +35,7 @@ export default function AboutHero() {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    if (!visible || !pageVisible) {
+    if (!visible || !pageVisible || (!autoplayEnabled && !playRequested)) {
       resumeTime.current = video.currentTime;
       video.pause();
       if(video.hasAttribute('src')) { video.removeAttribute('src'); video.load(); }
@@ -43,8 +46,8 @@ export default function AboutHero() {
       video.load();
       video.currentTime = resumeTime.current;
     }
-    if(autoplayEnabled) video.play().catch(() => {}); else video.pause();
-  }, [visible, pageVisible, autoplayEnabled]);
+    video.play().catch(() => {});
+  }, [visible, pageVisible, autoplayEnabled, playRequested]);
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
@@ -93,7 +96,6 @@ export default function AboutHero() {
             <video
               ref={videoRef}
               className={styles.filmVideo}
-              poster={COMPANY_VIDEO_POSTER}
               autoPlay={autoplayEnabled && visible}
               muted={isMuted}
               loop
@@ -101,10 +103,18 @@ export default function AboutHero() {
               preload="none"
               controls={!autoplayEnabled}
               onVolumeChange={handleVolumeChange}
+              onPlaying={() => setHasFrame(true)}
+              onEmptied={() => setHasFrame(false)}
               aria-label="Omoikane Innovations company film"
             >
               Your browser does not support HTML video.
             </video>
+
+            {!hasFrame && <Image src={COMPANY_VIDEO_POSTER} alt="" fill
+              sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px"
+              loading="eager" fetchPriority="high" className={styles.filmPoster} />}
+            {!autoplayEnabled && !hasFrame && <button type="button" className={styles.filmPlay}
+              onClick={() => setPlayRequested(true)}>Play company film</button>}
 
             {autoplayEnabled && (
               <button

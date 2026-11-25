@@ -76,7 +76,6 @@ export default function TechnologyEngineering() {
                 onClick={() => handleCellClick(index)}
                 tabIndex={0}
                 role="button"
-                aria-label={`${discipline.name}. ${discipline.description}`}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();

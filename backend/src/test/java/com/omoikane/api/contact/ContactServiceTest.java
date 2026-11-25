@@ -29,6 +29,14 @@ class ContactServiceTest {
     }
 
     @Test
+    void invalidPhoneCannotReachPersistenceOrEmailOutbox() {
+        ContactRequest request = new ContactRequest();
+        request.setPhone("not a number");
+        assertThrows(IllegalArgumentException.class, () -> contactService.processContactRequest(request, "127.0.0.1"));
+        verifyNoInteractions(repository, emailOutbox);
+    }
+
+    @Test
     void processContactRequest_savesRecord() {
         ContactRequest req = new ContactRequest();
         req.setName("Alice");

@@ -21,9 +21,9 @@ public class EmailDeliveryWorker {
         if(!email.isConfigured())return; // Retain pending jobs until configuration is supplied.
         for(int i=0;i<4;i++){
             EmailDeliveryJob job=outbox.claim();if(job==null)return;
-            try {outbox.finish(job.getId(),deliver(job)?"SENT":"SKIPPED",false);}
-            catch(EmailDeliveryException exception){outbox.finish(job.getId(),"FAILED",true);log.warn("Email delivery deferred [jobId={}]",job.getId());}
-            catch(Exception exception){outbox.finish(job.getId(),"FAILED",true);log.error("Email delivery failed [jobId={}, type={}]",job.getId(),exception.getClass().getSimpleName());}
+            try {outbox.finish(job,deliver(job)?"SENT":"SKIPPED",false);}
+            catch(EmailDeliveryException exception){outbox.finish(job,"FAILED",true);log.warn("Email delivery deferred [jobId={}]",job.getId());}
+            catch(Exception exception){outbox.finish(job,"FAILED",true);log.error("Email delivery failed [jobId={}, type={}]",job.getId(),exception.getClass().getSimpleName());}
         }
     }
     boolean deliver(EmailDeliveryJob job){

@@ -118,7 +118,7 @@ function OmoikaneSystemArchitecture() {
         </div>
 
         {/* The 6-Node Editorial Grid */}
-        <div className={styles.editorialGrid}>
+        <div className={styles.editorialGrid} role="region" aria-label="Engineering approach" tabIndex={0}>
           {SYSTEM_NODES.map((node, i) => (
             <motion.div 
               key={node.id}

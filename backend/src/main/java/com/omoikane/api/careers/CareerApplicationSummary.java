@@ -38,7 +38,14 @@ public class CareerApplicationSummary {
         dto.setResumeContentType(row.getResumeContentType());
         dto.setResumeSize(row.getResumeSize());
         dto.setStatus(row.getStatus());
-        dto.setCreatedAt(row.getCreatedAt());
+        Object timestamp = row.getCreatedAt();
+        if (timestamp instanceof OffsetDateTime offset) {
+            dto.setCreatedAt(offset);
+        } else if (timestamp instanceof java.time.Instant instant) {
+            dto.setCreatedAt(instant.atOffset(java.time.ZoneOffset.UTC));
+        } else {
+            throw new IllegalStateException("Unsupported application timestamp representation");
+        }
         return dto;
     }
 

@@ -3,9 +3,10 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { Activity, AlertTriangle, BriefcaseBusiness, Eye, EyeOff, FileText, LockKeyhole, Mail, Phone } from 'lucide-react';
 import styles from './admin.module.css';
+import AccessibleDialog from '@/components/shared/AccessibleDialog';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, '') ||
-  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : null);
+  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://omoikane-api.onrender.com');
 
 export default function AdminDashboardPage() {
   const [adminKey, setAdminKey] = useState('');
@@ -722,10 +723,10 @@ export default function AdminDashboardPage() {
       ───────────────────────────────────────────────────────────── */}
       {deleteTarget && (
         <div className={styles.modalBackdrop} onClick={() => !isDeleting && setDeleteTarget(null)}>
-          <div className={styles.deleteConfirmCard} onClick={(e) => e.stopPropagation()}>
+          <AccessibleDialog className={styles.deleteConfirmCard} labelledBy="delete-record-title" onClose={() => { if (!isDeleting) setDeleteTarget(null); }}>
             <div className={styles.dangerIconBadge}><AlertTriangle aria-hidden="true" /></div>
 
-            <h3 className={styles.deleteModalTitle}>
+            <h3 id="delete-record-title" className={styles.deleteModalTitle}>
               Delete {deleteTarget.type === 'career' ? 'Job Application' : 'Contact Enquiry'}?
             </h3>
 
@@ -777,7 +778,7 @@ export default function AdminDashboardPage() {
                 {isDeleting ? 'Deleting...' : 'Confirm Deletion'}
               </button>
             </div>
-          </div>
+          </AccessibleDialog>
         </div>
       )}
 
@@ -786,12 +787,12 @@ export default function AdminDashboardPage() {
       ───────────────────────────────────────────────────────────── */}
       {selectedDetail && (
         <div className={styles.modalBackdrop} onClick={() => setSelectedDetail(null)}>
-          <div className={styles.detailModalCard} onClick={(e) => e.stopPropagation()}>
+          <AccessibleDialog className={styles.detailModalCard} labelledBy="submission-detail-title" onClose={() => setSelectedDetail(null)}>
             <div className={styles.detailHeader}>
-              <h3 className={styles.detailHeaderTitle}>
+              <h3 id="submission-detail-title" className={styles.detailHeaderTitle}>
                 {selectedDetail.type === 'career' ? 'Candidate Application' : 'Customer Mission Enquiry'} #{selectedDetail.data.id}
               </h3>
-              <button onClick={() => setSelectedDetail(null)} className={styles.modalCloseX}>
+              <button type="button" aria-label="Close submission details" onClick={() => setSelectedDetail(null)} className={styles.modalCloseX}>
                 ✕
               </button>
             </div>
@@ -908,7 +909,7 @@ export default function AdminDashboardPage() {
                 <span>🗑 Delete Record</span>
               </button>
             </div>
-          </div>
+          </AccessibleDialog>
         </div>
       )}
     </div>

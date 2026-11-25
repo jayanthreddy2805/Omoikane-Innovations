@@ -106,6 +106,7 @@ public class CareerApplicationService {
     }
 
     private void validateRequest(CareerApplicationRequest request) {
+        com.omoikane.api.common.dto.PhoneNumbers.validateOptional(request.getPhone());
         if ((request.getName() != null && request.getName().length() > 255)
                 || (request.getEmail() != null && request.getEmail().length() > 255)
                 || (request.getPhone() != null && request.getPhone().length() > 50)
