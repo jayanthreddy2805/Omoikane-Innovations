@@ -1,3 +1,4 @@
+import { pageMetadata, SITE_URL } from "@/lib/siteMetadata";
 import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer";
@@ -25,38 +26,7 @@ const cormorantGaramond = Cormorant_Garamond({
   preload: false,
 });
 
-export const metadata = {
-  metadataBase: new URL("https://www.omoikaneinnovations.com"),
-  title: "Omoikane Innovations",
-  description: "Advanced UAVs, embedded electronics, autonomous platforms and defense technologies engineered for real-world deployment.",
-  icons: {
-    icon: "/omoikane-logo.png",
-    shortcut: "/omoikane-logo.png",
-    apple: "/omoikane-logo.png",
-  },
-  openGraph: {
-    title: "Omoikane Innovations",
-    description: "Advanced UAVs, embedded electronics, autonomous platforms and defense technologies engineered for real-world deployment.",
-    url: "https://omoikaneinnovations.com",
-    siteName: "Omoikane Innovations",
-    images: [
-      {
-        url: "/omoikane-logo.png",
-        width: 1080,
-        height: 1080,
-        alt: "Omoikane Innovations Logo",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary",
-    title: "Omoikane Innovations",
-    description: "Advanced UAVs, embedded electronics, autonomous platforms and defense technologies engineered for real-world deployment.",
-    images: ["/omoikane-logo.png"],
-  },
-};
+export const metadata = { ...pageMetadata("/", "Omoikane Innovations", "Advanced UAVs, embedded electronics, autonomous platforms and defense technologies engineered for real-world deployment."), metadataBase: new URL(SITE_URL), icons: { icon: "/omoikane-logo.png" } };
 
 export default function RootLayout({ children }) {
   return (

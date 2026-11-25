@@ -129,7 +129,7 @@ function OmoikaneSystemArchitecture() {
             >
               <h3 className={styles.editorialCardTitle}>
                 <span className={styles.titleDesktop}>{node.label.replace('\n', ' ')}</span>
-                <span className={styles.titleMobile}>{node.title}</span>
+                <span aria-hidden="true" className={styles.titleMobile}>{node.title}</span>
               </h3>
               <div className={styles.editorialCardDivider} />
               <p className={styles.editorialCardDesc}>{node.desc}</p>
@@ -343,6 +343,7 @@ function FaqSection() {
 
   return (
     <section className={styles.faqSection} id="faq">
+      <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org", "@type":"FAQPage", mainEntity: FAQS.map(faq => ({"@type":"Question", name:faq.q, acceptedAnswer:{"@type":"Answer", text:faq.a}}))})}</script>
       <div className={styles.faqContainer}>
         <div className={styles.faqHeader}>
           <FadeUp>
@@ -379,22 +380,9 @@ function FaqSection() {
                       </span>
                     </button>
                   </h3>
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className={styles.faqAnswerWrapper}
-                        id={`faq-answer-${idx}`}
-                      >
-                        <div className={styles.faqAnswer}>
-                          {faq.a}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div className={styles.faqAnswerWrapper} id={`faq-answer-${idx}`} hidden={!isActive}>
+                    <div className={styles.faqAnswer}>{faq.a}</div>
+                  </div>
                 </div>
               </FadeUp>
             );

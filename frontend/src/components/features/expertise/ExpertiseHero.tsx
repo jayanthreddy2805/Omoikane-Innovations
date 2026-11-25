@@ -23,7 +23,7 @@ export function ExpertiseHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span>BUILT FOR <span style={{ color: '#0757C8' }}>REAL</span></span>
+          <span>BUILT FOR <span style={{ color: '#0757C8' }}>REAL</span></span>{" "}
           <span><span style={{ color: '#0757C8' }}>WORLD</span> SYSTEMS</span>
         </motion.h1>
         <motion.p
@@ -33,7 +33,7 @@ export function ExpertiseHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span>We design and build advanced products for aerospace and defense,</span>
+          <span>We design and build advanced products for aerospace and defense,</span>{" "}
           <span>where performance, precision and reliability are mission-critical.</span>
         </motion.p>
       </div>

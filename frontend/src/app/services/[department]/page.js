@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/siteMetadata";
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import styles from './page.module.css';
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }) {
   const { department } = await params;
   const service = SERVICES[department];
   if (!service) return {};
-  return { title: `${service.title} Services | Omoikane Innovations`, description: service.summary };
+  return pageMetadata(`/services/${department}`, `${service.title} Services | Omoikane Innovations`, service.summary);
 }
 
 export default async function DepartmentService({ params }) {

@@ -1,5 +1,6 @@
 "use client";
 
+import { expertise } from "@/components/features/expertise/expertiseData";
 import { useState } from "react";
 import Link from "@/components/shared/IntentLink";
 import Image from "@/components/shared/LoadAwareImage";
@@ -68,7 +69,7 @@ const EXPERTISE_SLIDES = [
     alt: "Railway automation and industrial systems",
     href: "/expertise#railways",
   },
-];
+].map(slide => ({ ...slide, title: expertise.find(item => slide.href.endsWith(`#${item.id}`))?.title || slide.title }));
 
 // ─── Why Our Products Stand Out ───────────────────────────────────
 const WHY_US_PILLARS = [

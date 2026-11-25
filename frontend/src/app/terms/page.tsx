@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/siteMetadata";
 import Link from "next/link";
 import styles from "../legal.module.css";
 
-export const metadata: Metadata = {
-  title: "Website Terms | Omoikane Innovations",
-  description: "Terms for using the Omoikane Innovations public website.",
-};
+export const metadata = pageMetadata("/terms", "Website Terms | Omoikane Innovations", "Terms for using the Omoikane Innovations public website.");
 
 export default function TermsPage() {
   return (

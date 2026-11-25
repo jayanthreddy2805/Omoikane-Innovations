@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/siteMetadata";
 import Link from "next/link";
 import styles from "../legal.module.css";
 
-export const metadata: Metadata = {
-  title: "Privacy Notice | Omoikane Innovations",
-  description: "How Omoikane Innovations handles information submitted through this website.",
-};
+export const metadata = pageMetadata("/privacy", "Privacy Notice | Omoikane Innovations", "How Omoikane Innovations handles information submitted through this website.");
 
 export default function PrivacyPage() {
   return (

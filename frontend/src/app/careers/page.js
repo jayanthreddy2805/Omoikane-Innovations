@@ -1,5 +1,6 @@
+import { pageMetadata } from "@/lib/siteMetadata";
 import Link from 'next/link';
-export const metadata = { title: 'Careers | Omoikane Innovations', description: 'Explore software, mechanical and electrical engineering careers at Omoikane Innovations.' };
+export const metadata = pageMetadata("/careers", "Careers | Omoikane Innovations", "Explore software, mechanical and electrical engineering careers at Omoikane Innovations.");
 export default function CareersPage() {
   return <section style={{maxWidth: 1000, margin: '0 auto', padding: '160px 24px 80px'}}>
     <h1>Careers</h1><p>Explore our engineering departments and apply for a role.</p>

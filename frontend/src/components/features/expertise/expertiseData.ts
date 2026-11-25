@@ -13,7 +13,6 @@ export const expertise: ExpertiseItem[] = [
       "Engineering for precision, stability and real-time performance in high-reliability aerospace environments.",
     systems: ["UAV platforms and flight control", "Avionics and RF communication", "High-reliability aerospace systems"],
   },
-  /* Temporarily hidden from the Technology presentation.
   {
     id: "railways",
     title: "Railways",
@@ -28,7 +27,6 @@ export const expertise: ExpertiseItem[] = [
       "Electronics and embedded control for next-generation mobility and vehicle automation.",
     systems: ["Automotive ECU solutions", "Real-time embedded systems", "Vehicle automation"],
   },
-  */
   {
     id: "defense",
     title: "Defense",
