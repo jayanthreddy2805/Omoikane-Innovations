@@ -9,9 +9,9 @@ export default function TermsPage() {
     <div className={styles.page}>
       <article className={styles.inner}>
         <header>
-          <p className={styles.eyebrow}>Website information</p>
+          <p className={styles.eyebrow} data-type-role="eyebrow">Website information</p>
           <h1 className={styles.title}>Website Terms</h1>
-          <p className={styles.lead}>
+          <p className={styles.lead} data-type-role="lead">
             These terms cover use of the public Omoikane Innovations website. Product sales,
             engineering work, and employment are subject to separate written arrangements.
           </p>

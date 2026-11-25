@@ -2,9 +2,9 @@
 
 import { useRef, useState } from 'react';
 import {
-  motion,
-  useScroll,
-  useTransform,
+  m as motion,
+  LazyMotion,
+  domMax,
   useInView,
   AnimatePresence,
 } from 'framer-motion';
@@ -58,7 +58,7 @@ function AboutVision() {
         <div className={styles.visionWatermark}>VISION</div>
         <div className={styles.visionDivider}></div>
         <FadeUp delay={0.2}>
-          <p className={styles.visionText} data-client-hero-copy>
+          <p className={styles.visionText} data-type-role="visionText" data-client-hero-copy>
             To become a global leader in indigenous defense <br className={styles.visionBreak} />
             and embedded technologies, building high-performance systems <br className={styles.visionBreak} />
             that are reliable, scalable, and ready for real-world deployment.
@@ -228,7 +228,7 @@ function MissionDomainExplorer() {
 
         {/* Full-bleed cinematic image + overlay panel */}
         <FadeUp delay={0.1}>
-          <div className={styles.domainStage} aria-busy={!imageStatus[active]}>
+          <div className={styles.domainStage} data-type-role="tag" aria-busy={!imageStatus[active]}>
             {/* Image layer — photos are revealed only after loading successfully */}
             <div className={styles.domainImageStack}>
               {DOMAINS.map((d) => (
@@ -409,7 +409,7 @@ export default function AboutPage() {
       <OmoikaneSystemArchitecture />
       <AboutMetrics />
       <CredentialsArchive />
-      <MissionDomainExplorer />
+      <LazyMotion features={domMax}><MissionDomainExplorer /></LazyMotion>
       <FaqSection />
       <CallToAction />
     </div>

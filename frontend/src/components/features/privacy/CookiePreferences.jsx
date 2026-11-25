@@ -132,7 +132,7 @@ export default function CookiePreferences() {
           >
             <div className={styles.dialogHeader}>
               <div>
-                <p className={styles.eyebrow}>Privacy controls</p>
+                <p className={styles.eyebrow} data-type-role="eyebrow">Privacy controls</p>
                 <h2 id="cookie-preferences-title">Cookie preferences</h2>
               </div>
               <button
@@ -148,7 +148,7 @@ export default function CookiePreferences() {
               </button>
             </div>
 
-            <p id="cookie-preferences-description" className={styles.description}>
+            <p id="cookie-preferences-description" className={styles.description} data-type-role="desc">
               Choose whether optional analytics may be used. Your selection is saved for
               six months and can be changed from the footer at any time.
             </p>

@@ -1,9 +1,11 @@
 "use client";
 
+import Image, { getImageProps } from "next/image";
 import styles from "./ExpertiseHero.module.css";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 
 export function ExpertiseHero() {
+  const mobile = getImageProps({src: '/images/expertise/herom.png', alt: '', fill: true, sizes: '100vw'}).props;
   return (
     <section className={styles.hero} aria-labelledby="omk-hero-title">
       <motion.div
@@ -12,12 +14,17 @@ export function ExpertiseHero() {
         initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-      />
+      >
+        <picture>
+          <source media="(max-width: 600px)" srcSet={mobile.srcSet} sizes="100vw" />
+          <Image src="/images/expertise/hero.png" alt="" fill sizes="100vw" loading="eager" fetchPriority="high" className={styles.heroImage} />
+        </picture>
+      </motion.div>
 
       <div className={styles.content}>
         <motion.h1
           id="omk-hero-title"
-          className={styles.heading}
+          className={styles.heading} data-type-role="ExpertiseHero_heading"
           data-client-hero-heading
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,7 +34,7 @@ export function ExpertiseHero() {
           <span><span style={{ color: '#0757C8' }}>WORLD</span> SYSTEMS</span>
         </motion.h1>
         <motion.p
-          className={styles.description}
+          className={styles.description} data-type-role="ExpertiseHero_description desc"
           data-client-hero-copy
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

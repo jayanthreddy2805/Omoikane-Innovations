@@ -21,7 +21,6 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background-image: url('/images/expertise/hero.png');
   background-size: cover;
   background-position: right bottom;
   background-repeat: no-repeat;
@@ -116,7 +115,6 @@
   }
 
   .imageLayer {
-    background-image: url('/images/expertise/herom.png');
     background-size: cover;
     background-position: center top;
   }
@@ -131,3 +129,8 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+.heroImage { object-fit: cover; object-position: right bottom; }
+@media(max-width:1050px) { .heroImage { object-position:65% bottom; } }
+@media(max-width:768px) { .heroImage { object-position:center bottom; } }
+@media(max-width:600px) { .heroImage { object-position:center top; } }

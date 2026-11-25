@@ -737,24 +737,31 @@ export default function NetworkVisual({
       }, 2600);
 
       // 8. Simple slow constant rotation: mesh.rotation.y += 0.001
-      const animate = () => {
+      const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+      const frameInterval = 1000 / (coarsePointer ? 30 : 60);
+      let lastFrame = 0;
+      const animate = (timestamp = performance.now()) => {
         if (!isVisible) {
           animId = null;
           return;
         }
         animId = requestAnimationFrame(animate);
+        const elapsed = timestamp - lastFrame;
+        if (elapsed < frameInterval) return;
+        lastFrame = timestamp - (elapsed % frameInterval);
+        const delta = Math.min(elapsed / (1000 / 60), 3);
         const t = clock.getElapsedTime();
 
         if (nodesMesh) {
           (nodesMesh.material as THREE.ShaderMaterial).uniforms.uTime.value = t;
-          nodesMesh.rotation.y += 0.001;
+          nodesMesh.rotation.y += 0.001 * delta;
         }
         if (connectionsMesh) {
           (connectionsMesh.material as THREE.ShaderMaterial).uniforms.uTime.value = t;
-          connectionsMesh.rotation.y += 0.001;
+          connectionsMesh.rotation.y += 0.001 * delta;
         }
         if (starField) {
-          starField.rotation.y += 0.0003;
+          starField.rotation.y += 0.0003 * delta;
         }
 
         if (renderer) {

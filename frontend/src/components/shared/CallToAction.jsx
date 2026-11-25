@@ -102,12 +102,12 @@ export default function CallToAction() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.h2 className={styles.ctaTitleCentered} variants={itemVariants}>
+          <motion.h2 className={styles.ctaTitleCentered} data-type-role="ctaTitle" variants={itemVariants}>
             From Sky to Soil, We Power Possibilities
           </motion.h2>
 
           <motion.div variants={itemVariants} style={{ marginTop: "1.5rem" }}>
-            <Link href="/contact" className={styles.ctaButtonPill}>
+            <Link href="/contact" className={styles.ctaButtonPill} data-type-role="ctaButton">
               <Sparkles size={16} strokeWidth={2.5} />
               Contact OMOIKANE
             </Link>

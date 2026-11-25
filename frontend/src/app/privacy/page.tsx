@@ -9,9 +9,9 @@ export default function PrivacyPage() {
     <div className={styles.page}>
       <article className={styles.inner}>
         <header>
-          <p className={styles.eyebrow}>Website information</p>
+          <p className={styles.eyebrow} data-type-role="eyebrow">Website information</p>
           <h1 className={styles.title}>Privacy Notice</h1>
-          <p className={styles.lead}>
+          <p className={styles.lead} data-type-role="lead">
             This notice explains what Omoikane Innovations collects when you use this website,
             why we use it, and how to contact us about your information.
           </p>

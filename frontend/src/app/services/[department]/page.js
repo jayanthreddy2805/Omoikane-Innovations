@@ -42,14 +42,14 @@ export default async function DepartmentService({ params }) {
   return (
     <div className={styles.container}>
       <header className={styles.pageHeader}>
-        <p className={styles.eyebrow}>CAPABILITY AREA</p>
+        <p className={styles.eyebrow} data-type-role="eyebrow">CAPABILITY AREA</p>
         <h1 className={styles.title}>{service.title} <span className={styles.accent}>SERVICES</span></h1>
         <div className={styles.divider} />
         <p className={styles.subtitle}>{service.summary}</p>
       </header>
 
       <section className={styles.capabilitySection} aria-labelledby="capability-heading">
-        <h2 id="capability-heading" className={styles.sectionTitle}>Core capability</h2>
+        <h2 id="capability-heading" className={styles.sectionTitle} data-type-role="sectionTitle">Core capability</h2>
         <ul className={styles.capabilityList}>
           {service.capabilities.map((capability) => <li key={capability}>{capability}</li>)}
         </ul>
@@ -57,7 +57,7 @@ export default async function DepartmentService({ params }) {
 
       <div className={styles.contactSection}>
         <div className={styles.formContainer}>
-          <h2 className={styles.sectionTitle}>Discuss your requirement</h2>
+          <h2 className={styles.sectionTitle} data-type-role="sectionTitle">Discuss your requirement</h2>
           <p className={styles.formDesc}>Share the platform, interfaces and operating conditions with our {service.title.toLowerCase()} team.</p>
           <Link href={`/contact?subject=${encodeURIComponent(`${service.title} services`)}#contact-form`} className={styles.submitBtn}>
             Contact the {service.title} team <span aria-hidden="true">→</span>

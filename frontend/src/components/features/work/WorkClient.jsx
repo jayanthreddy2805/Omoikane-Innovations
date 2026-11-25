@@ -77,14 +77,14 @@ export default function WorkClient() {
       <section className={styles.heroSection} aria-labelledby="work-page-heading">
         <div className={styles.heroContentWrapper}>
           {/* Main Headline */}
-          <h1 id="work-page-heading" className={styles.mainHeadline} data-client-hero-heading>
+          <h1 id="work-page-heading" className={styles.mainHeadline} data-type-role="WorkClient_mainHeadline" data-client-hero-heading>
             <span className={styles.headlineSans}>FROM SYSTEM DESIGN</span>{" "}
             <span className={styles.headlineSerif}>TO TESTED HARDWARE</span>
           </h1>
 
           {/* Supporting Copy */}
           <div className={styles.supportingCopy}>
-            <p className={styles.copyParagraph} data-client-hero-copy>
+            <p className={styles.copyParagraph} data-type-role="WorkClient_copyParagraph copyParagraph" data-client-hero-copy>
               We work with OEMs, UAV manufacturers, system integrators and engineering teams to align<br className={styles.desktopBreak} />
               {" "}hardware design with platform requirements. We design and develop high-performance<br className={styles.desktopBreak} />
               {" "}electronics and autonomous systems for a safer, smarter and more self-reliant future.

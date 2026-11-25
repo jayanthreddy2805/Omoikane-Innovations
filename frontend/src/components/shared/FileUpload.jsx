@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Upload, Check, X, AlertCircle, Plus } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { Field, FieldLabel } from "@/components/shared/ui/form-field/field";
 import styles from "./FileUpload.module.css";
 

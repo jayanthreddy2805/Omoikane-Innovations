@@ -1,42 +1,12 @@
-"use client";
-
-import React, { useRef } from 'react';
 import styles from './page.module.css';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import Lenis from 'lenis';
 import { ExpertiseSection } from '@/components/features/expertise/ExpertiseSection';
 import { TechMarquee } from '@/components/features/expertise/TechMarquee';
 import { ExpertiseHero } from '@/components/features/expertise/ExpertiseHero';
 import CallToAction from '@/components/shared/CallToAction';
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function ExpertisePage() {
-  const containerRef = useRef(null);
-
-  useGSAP(() => {
-    // Lenis Smooth Scroll
-    const lenis = new Lenis({
-      lerp: 0.08,
-      smoothWheel: true,
-    });
-    lenis.on('scroll', ScrollTrigger.update);
-    const tick = (time: number) => lenis.raf(time * 1000);
-    gsap.ticker.add(tick);
-    gsap.ticker.lagSmoothing(0);
-
-
-
-    return () => {
-      lenis.destroy();
-      gsap.ticker.remove(tick);
-    };
-  }, { scope: containerRef });
-
   return (
-    <div className={styles.container} ref={containerRef}>
+    <div className={styles.container}>
       
       {/* Ultra Clean Hero */}
       <ExpertiseHero />

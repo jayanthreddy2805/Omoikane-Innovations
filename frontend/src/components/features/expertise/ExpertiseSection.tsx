@@ -73,11 +73,10 @@ export function ExpertiseSection() {
 
       copyTimeline.current = gsap.timeline({ defaults: { overwrite: "auto" } });
       copyTimeline.current
-        .set([heading, description], { y: direction * 18, autoAlpha: 0, filter: "blur(6px)" })
+        .set([heading, description], { y: direction * 18, autoAlpha: 0 })
         .to(heading, {
           y: 0,
           autoAlpha: 1,
-          filter: "blur(0px)",
           duration: 0.62,
           ease: "expo.out",
         })
@@ -86,8 +85,7 @@ export function ExpertiseSection() {
           {
             y: 0,
             autoAlpha: 1,
-            filter: "blur(0px)",
-            duration: 0.68,
+              duration: 0.68,
             ease: "expo.out",
           },
           "-=0.47",
@@ -218,7 +216,7 @@ export function ExpertiseSection() {
           ease: "expo.out",
         });
         gsap.to(text, {
-          letterSpacing: "0.045em",
+          x: 2,
           duration: 0.45,
           ease: "power2.out",
         });
@@ -227,7 +225,7 @@ export function ExpertiseSection() {
       const leave = () => {
         gsap.to(button, { x: 0, duration: 0.7, ease: "expo.out" });
         gsap.to(arrow, { x: 0, duration: 0.7, ease: "expo.out" });
-        gsap.to(text, { letterSpacing: "0.02em", duration: 0.5, ease: "power2.out" });
+        gsap.to(text, { x: 0, duration: 0.5, ease: "power2.out" });
       };
 
       button.addEventListener("pointerenter", enter);
@@ -278,7 +276,7 @@ export function ExpertiseSection() {
             <h2 ref={headingRef} className={styles.title} key={`title-${active.id}`}>
               {active.title}
             </h2>
-            <p ref={descriptionRef} className={styles.description} key={`description-${active.id}`}>
+            <p ref={descriptionRef} className={styles.description} data-type-role="desc" key={`description-${active.id}`}>
               {active.description}
             </p>
             <div className={styles.systems} key={`systems-${active.id}`}>

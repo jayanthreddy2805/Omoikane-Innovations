@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect, useSyncExternalStore } from "react";
+import usePageVisible from "@/hooks/usePageVisible";
 import styles from "./AboutHero.module.css";
 import Link from "next/link";
 import { ClientPageHero } from "@/components/shared/ClientReferenceHero";
@@ -18,6 +19,8 @@ const getServerMotionPreference = () => true;
 
 export default function AboutHero() {
   const prefersReducedMotion = useSyncExternalStore(subscribeToMotion, getMotionPreference, getServerMotionPreference);
+  const pageVisible = usePageVisible();
+  const resumeTime = useRef(0);
   const autoplayEnabled = prefersReducedMotion !== true;
   const videoRef = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -27,9 +30,21 @@ export default function AboutHero() {
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    if (!visible) videoRef.current?.pause();
-    else if (autoplayEnabled) videoRef.current?.play().catch(() => {});
-  }, [visible, autoplayEnabled]);
+    const video = videoRef.current;
+    if (!video) return;
+    if (!visible || !pageVisible) {
+      resumeTime.current = video.currentTime;
+      video.pause();
+      if(video.hasAttribute('src')) { video.removeAttribute('src'); video.load(); }
+      return;
+    }
+    if(!video.hasAttribute('src')) {
+      video.src = video.canPlayType('video/webm') ? '/videos/about/omoikane.webm' : COMPANY_VIDEO;
+      video.load();
+      video.currentTime = resumeTime.current;
+    }
+    if(autoplayEnabled) video.play().catch(() => {}); else video.pause();
+  }, [visible, pageVisible, autoplayEnabled]);
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
@@ -65,20 +80,19 @@ export default function AboutHero() {
             <h2 id="about-intro-title" className={styles.title}>
               Indigenous engineering.<br />Global ambition.
             </h2>
-            <p className={styles.lead}>
+            <p className={styles.lead} data-type-role="lead">
               Omoikane Innovations Pvt. Ltd. is a Bengaluru-based technology company focused on indigenous design and development of electronic hardware and autonomous systems for aerospace, defense, UAV and industrial applications.
             </p>
-            <p className={styles.desc}>
+            <p className={styles.desc} data-type-role="desc">
               We bring together engineering thinking, product development discipline and a commitment to reducing import dependence through locally designed technology.
             </p>
-            <Link className={styles.button} href="/contact">Start a conversation →</Link>
+            <Link className={styles.button} data-type-role="button" href="/contact">Start a conversation →</Link>
           </div>
 
           <figure className={styles.film}>
             <video
               ref={videoRef}
               className={styles.filmVideo}
-              src={visible ? COMPANY_VIDEO : undefined}
               poster={COMPANY_VIDEO_POSTER}
               autoPlay={autoplayEnabled && visible}
               muted={isMuted}

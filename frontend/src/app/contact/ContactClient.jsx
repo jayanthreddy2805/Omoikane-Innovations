@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from '@/components/shared/LoadAwareImage';
-import { motion, useInView } from 'framer-motion';
+import { m as motion, useInView } from 'framer-motion';
 import ContactForm from '@/components/features/contact/ContactForm';
 import FormSuccessState from '@/components/shared/FormSuccessState';
 import styles from './page.module.css';

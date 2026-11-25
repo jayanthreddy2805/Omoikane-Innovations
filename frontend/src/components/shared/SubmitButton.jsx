@@ -7,7 +7,7 @@ export default function SubmitButton({ status = "idle" }) {
   return (
     <button
       type="submit"
-      className={`${styles.button} ${styles[status]}`}
+      className={`${styles.button} ${styles[status]}`} data-type-role="button"
       disabled={status === "submitting" || status === "success"}
     >
       <span className={styles.content}>

@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { getCountries, getCountryCallingCode, AsYouType, parsePhoneNumberFromString } from 'libphonenumber-js/min';
-import * as Flags from 'country-flag-icons/react/3x2';
+import Image from 'next/image';
 import { ChevronDown, Search } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import styles from './InternationalPhoneInput.module.css';
 
 const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
@@ -150,7 +150,7 @@ export default function InternationalPhoneInput({
   };
 
   const isCareer = variant === 'career';
-  const SelectedFlag = Flags[country];
+
 
   return (
     <div className={`${styles.container} ${className}`} ref={containerRef}>
@@ -170,7 +170,7 @@ export default function InternationalPhoneInput({
           aria-label="Select country"
           disabled={disabled}
         >
-          {SelectedFlag ? <SelectedFlag className={styles.flagIcon} /> : <div className={styles.flagIcon} />}
+          <Image src={`/flags/${country}`} alt="" width={24} height={16} unoptimized className={styles.flagIcon} />
           <span className={isCareer ? styles.dialCodeCareer : styles.dialCode}>+{getCountryCallingCode(country)}</span>
           <ChevronDown size={14} className={isCareer ? styles.chevronCareer : styles.chevron} />
         </button>
@@ -227,7 +227,6 @@ export default function InternationalPhoneInput({
               <div id={`${id}-country-list`} role="listbox" aria-label="Countries" className={isCareer ? styles.dropdownListCareer : styles.dropdownList}>
                 {filteredCountries.length > 0 ? (
                   filteredCountries.map((c) => {
-                    const Flag = Flags[c.code];
                     return (
                         <button key={c.code}
                           type="button"
@@ -236,7 +235,7 @@ export default function InternationalPhoneInput({
                           role="option"
                           aria-selected={country === c.code}
                         >
-                          {Flag ? <Flag className={styles.flagIcon} /> : <div className={styles.flagIcon} />}
+                          <Image src={`/flags/${c.code}`} alt="" width={24} height={16} unoptimized className={styles.flagIcon} />
                           <span className={isCareer ? styles.countryNameCareer : styles.countryName}>{c.name}</span>
                           <span className={isCareer ? styles.countryDialCodeCareer : styles.countryDialCode}>{c.dialCode}</span>
                         </button>

@@ -37,7 +37,7 @@ export default function HomeCareers() {
           <h2 id="home-careers-heading" className={styles.heading}>
             CAREERS AT OMOIKANE
           </h2>
-          <p className={styles.description}>
+          <p className={styles.description} data-type-role="desc">
             We are hiring across software, mechanical and electrical engineering to develop embedded and autonomous systems for aerospace, defense and industrial applications.
           </p>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { expertise } from "@/components/features/expertise/expertiseData";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { useState } from "react";
 import Link from "@/components/shared/IntentLink";
 import Image from "@/components/shared/LoadAwareImage";
@@ -89,7 +90,7 @@ function expertiseCard(id, variant, index) {
   return (<motion.div key={item.href} variants={cardVariants} custom={index} initial="hidden" whileInView="visible" viewport={{once: true, margin: '-40px'}} className={variant === 'wide' ? styles.bentoCardWideWrap : undefined} style={variant === 'horizontal' ? {flex: 1} : undefined}>
                 <Link href={item.href} className={`${styles.bentoCard} ${variant === 'wide' ? styles.bentoCardWide : variant === 'horizontal' ? styles.bentoCardHorizontal : styles.bentoCardTall}`}>
                   <div className={styles.bentoTextCol}>
-                    <h3 className={styles.bentoTitle}>{item.title}</h3>
+                    <h3 className={styles.bentoTitle} data-type-role="bentoTitle">{item.title}</h3>
                     <div className={styles.bentoMetaList}>{item.items.map(system => <div key={system.label} className={styles.bentoMetaItem}><span className={styles.bentoMetaIcon}>{system.icon}</span><span>{system.label}</span></div>)}</div>
                   </div>
                   <div className={styles.bentoImgWrapper}><Image src={item.image} alt={item.alt} fill className={styles.bentoCardImg} sizes={variant === 'horizontal' ? '(max-width: 680px) calc(100vw - 124px), 190px' : '(max-width: 959px) calc(100vw - 124px), 45vw'} /></div>
@@ -98,6 +99,7 @@ function expertiseCard(id, variant, index) {
 }
 
 export default function HomeClient() {
+  const mobile = useMediaQuery("(max-width: 768px)");
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const prevSlide = (e) => {
@@ -133,20 +135,20 @@ export default function HomeClient() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
           >
-            <h2 className={styles.sectionTitle}>CORE EXPERTISE</h2>
-            <p className={styles.sectionSubtitle}>
+            <h2 className={styles.sectionTitle} data-type-role="sectionTitle">CORE EXPERTISE</h2>
+            <p className={styles.sectionSubtitle} data-type-role="sectionSubtitle">
               We build advanced products for mission-critical Aerospace and Defense systems, extending to selected industrial domains.
             </p>
           </motion.header>
 
-          <div className={styles.bentoGrid}>
+          {!mobile && <div className={styles.bentoGrid}>
             {expertiseCard('aerospace', 'tall', 0)}
             <div className={styles.bentoRightStack}>{expertiseCard('defense', 'horizontal', 1)}{expertiseCard('automotive', 'horizontal', 2)}</div>
             {expertiseCard('railways', 'wide', 3)}
-          </div>
+          </div>}
 
           {/* ── Mobile Expertise Carousel (<= 768px) ── */}
-          <div className={styles.expertiseCarousel}>
+          {mobile && <div className={styles.expertiseCarousel}>
             <div className={styles.carouselHeader}>
               <h3 className={styles.carouselTitle}>{activeExpertise.title}</h3>
               <div className={styles.bentoMetaList}>
@@ -193,7 +195,7 @@ export default function HomeClient() {
                 <strong>{currentSlide + 1}</strong> / {EXPERTISE_SLIDES.length}
               </div>
             </div>
-          </div>
+          </div>}
 
 
         </div>
@@ -216,7 +218,7 @@ export default function HomeClient() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
           >
-            <h2 className={styles.whyHeadline}>Why Our Products Stand Out</h2>
+            <h2 className={styles.whyHeadline} data-type-role="whyHeadline">Why Our Products Stand Out</h2>
             <p className={styles.whySubtitle}>
               Engineered for absolute reliability, indigenous ownership, and high performance across Aerospace, Defense, and Industrial applications.
             </p>
@@ -243,7 +245,7 @@ export default function HomeClient() {
                     className={styles.whyCardImg}
                   />
                 </div>
-                <h3 className={`${styles.whyCardTitle} ${pillar.code === "IPD" ? styles.whyCardTitleSingleLine : ""}`}>
+                <h3 className={`${styles.whyCardTitle} ${pillar.code === "IPD" ? styles.whyCardTitleSingleLine : ""}`} data-type-role="whyCardTitle">
                   {pillar.title}
                 </h3>
                 <p className={styles.whyCardDesc}>{pillar.description}</p>

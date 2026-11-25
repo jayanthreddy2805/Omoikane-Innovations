@@ -39,9 +39,11 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         <a href="#main-content" className="skipLink">Skip to main content</a>
         <MotionPreferences>
+          <span id="header-top-threshold" aria-hidden="true" style={{position:'absolute',top:20,left:0,width:1,height:1,pointerEvents:'none'}} />
           <Header />
           <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
+          <span id="header-bottom-threshold" aria-hidden="true" style={{display:'block',height:1,marginTop:-1,pointerEvents:'none'}} />
           <ChatbotMount />
           <CookiePreferences />
           <ConsentAwareAnalytics />

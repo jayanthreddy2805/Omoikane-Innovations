@@ -64,43 +64,14 @@ export default function Header() {
   const [isHidden, setIsHidden] = React.useState(false);
 
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const scrollBounds = React.useRef({ height: 0, viewport: 0 });
-
   React.useEffect(() => {
-    const measure = () => {
-      scrollBounds.current = {
-        height: document.documentElement.scrollHeight,
-        viewport: window.innerHeight,
-      };
-    };
-    const observer = new ResizeObserver(measure);
-    observer.observe(document.body);
-    window.addEventListener("resize", measure);
-    measure();
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", measure);
-    };
-  }, []);
-
-  React.useEffect(() => {
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const latest = window.scrollY;
-      const { height, viewport } = scrollBounds.current;
-      setIsHidden(height - (latest + viewport) < 200);
-      setIsScrolled(previous => latest > 20 ? true : latest <= 10 ? false : previous);
-    };
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(frame);
-    };
+    const top = document.getElementById('header-top-threshold');
+    const bottom = document.getElementById('header-bottom-threshold');
+    const topObserver = new IntersectionObserver(([entry]) => setIsScrolled(entry.boundingClientRect.top < 0));
+    const bottomObserver = new IntersectionObserver(([entry]) => setIsHidden(entry.isIntersecting), {rootMargin: '0px 0px 200px 0px'});
+    if (top) topObserver.observe(top);
+    if (bottom) bottomObserver.observe(bottom);
+    return () => { topObserver.disconnect(); bottomObserver.disconnect(); };
   }, []);
 
   const searchInputRef = React.useRef(null);

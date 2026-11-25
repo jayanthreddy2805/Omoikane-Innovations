@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { m as motion, AnimatePresence, useInView } from 'framer-motion';
 import { Upload, Building, MapPin, Mail, Phone } from 'lucide-react';
 import Image from '@/components/shared/LoadAwareImage';
 import Link from 'next/link';
