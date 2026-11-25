@@ -29,74 +29,6 @@
 
 
 /* ---------------------------------------------------------
-   CORNER CROSSES
---------------------------------------------------------- */
-.cross {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  z-index: 4;
-}
-.cross::before,
-.cross::after {
-  content: "";
-  position: absolute;
-  background: var(--ink);
-  opacity: 0.75;
-}
-.cross::before { top: 5px; left: 0; width: 12px; height: 1px; }
-.cross::after { top: 0; left: 5px; width: 1px; height: 12px; }
-
-.crossTopLeft { top: 7px; left: 7px; }
-.crossTopRight { top: 7px; right: 7px; }
-.crossBottomLeft { bottom: 7px; left: 7px; }
-.crossBottomRight { bottom: 7px; right: 7px; }
-
-/* ---------------------------------------------------------
-   RULER TICKS
---------------------------------------------------------- */
-.topTicks,
-.bottomTicks {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  height: 8px;
-  background:
-    repeating-linear-gradient(
-      to right,
-      rgba(7, 87, 200, 0.16) 0,
-      rgba(7, 87, 200, 0.16) 1px,
-      transparent 1px,
-      transparent 7px
-    );
-  opacity: 0.5;
-  pointer-events: none;
-}
-.topTicks { top: 7px; }
-.bottomTicks { bottom: 7px; }
-
-.leftTicks,
-.rightTicks {
-  position: absolute;
-  top: 18px;
-  bottom: 18px;
-  width: 8px;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(7, 87, 200, 0.16) 0,
-      rgba(7, 87, 200, 0.16) 1px,
-      transparent 1px,
-      transparent 7px
-    );
-  opacity: 0.5;
-  pointer-events: none;
-}
-.leftTicks { left: 7px; }
-.rightTicks { right: 7px; }
-
-
-/* ---------------------------------------------------------
    COORDINATE UI
 --------------------------------------------------------- */
 .coordinate {
@@ -145,6 +77,14 @@
   overflow: hidden;
 }
 
+.desktopBlueprint {
+  display: block;
+}
+
+.mobileBlueprint {
+  display: none !important;
+}
+
 
 .placeholderTag {
   position: absolute;
@@ -160,29 +100,6 @@
   background: rgba(255,255,255,0.72);
   z-index: 10;
 }
-
-/* ---------------------------------------------------------
-   IMAGE PLACEHOLDER CORNERS
---------------------------------------------------------- */
-.placeholderCorner {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  z-index: 2;
-}
-.placeholderCorner::before,
-.placeholderCorner::after {
-  content: "";
-  position: absolute;
-  background: rgba(7, 87, 200, 0.42);
-}
-.placeholderCorner::before { width: 12px; height: 1px; }
-.placeholderCorner::after { width: 1px; height: 12px; }
-
-.topLeft { top: 0; left: 0; }
-.topRight { top: 0; right: 0; }
-.bottomLeft { bottom: 0; left: 0; }
-.bottomRight { bottom: 0; right: 0; }
 
 /* ---------------------------------------------------------
    ISSUE / TOOLTIP PLACEHOLDER
@@ -335,25 +252,77 @@
 }
 
 @media (max-width: 760px) {
+  .page {
+    padding-top: 107px;
+    height: 100svh;
+    height: 100dvh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
   .canvas {
-    min-height: 460px;
+    flex: 1 1 0;
+    min-height: 0;
+    position: relative;
+    padding: 0;
     background-size: 54px 54px, 54px 54px;
   }
-  .visualStage { inset: 12% 3% 14% 3%; }
-  .visualPlaceholder { width: 100%; height: 360px; }
-  .placeholderBody { width: 90%; height: 55%; }
+  .visualStage {
+    position: absolute;
+    inset: 0 0 6px 0;
+    width: 100%;
+    height: calc(100% - 6px);
+  }
+  .visualPlaceholder {
+    width: 100%;
+    height: 100%;
+    transform: none;
+  }
+  .placeholderBody {
+    width: 100%;
+    height: 100%;
+  }
+  .desktopBlueprint {
+    display: none !important;
+  }
+  .mobileBlueprint {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
   .issueTooltip { left: auto; right: 5%; top: 15%; }
-  .infoBand { grid-template-columns: 1fr; }
-  .descriptionContainer { min-height: 120px; border-top: 1px solid var(--border); border-left: 0; }
+  .infoBand { min-height: auto; flex-shrink: 0; grid-template-columns: 1fr; }
+  .headlineContainer { padding: 10px 18px; }
+  .descriptionContainer {
+    display: block;
+    min-height: auto;
+    padding: 10px 18px 18px;
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+  .actualDesc {
+    display: inline;
+    max-width: 100%;
+    margin: 0;
+  }
+  .actualDesc + .actualDesc::before {
+    content: " ";
+  }
   .actionPlaceholder { min-height: 70px; border-top: 1px solid var(--border); border-left: 0; }
   .metaStrip { position: static; grid-column: 1; border-top: 1px solid var(--border); }
 }
 
 @media (max-width: 480px) {
-  .canvas { min-height: 370px; }
-  .topTicks, .bottomTicks, .leftTicks, .rightTicks { opacity: 0.28; }
-  .visualPlaceholder { width: 115%; }
-  .placeholderBody { width: 84%; }
+  .page { padding-top: 87px; }
+  .canvas { padding: 0; }
   .issueTooltip { transform: scale(0.9); transform-origin: top right; }
-  .headlineContainer { padding: 18px; }
+  .headlineContainer { padding: 10px 16px; }
+  .descriptionContainer { padding: 10px 16px 18px; }
 }

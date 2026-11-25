@@ -204,23 +204,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border-radius: 0;
   color: var(--home-blue, #0757C8);
-  background-color: #EFF7FF;
-  border: 1px solid #DCE7F3;
+  background-color: transparent;
+  border: none;
   transition:
     transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 200ms ease,
-    color 200ms ease,
-    border-color 200ms ease;
+    color 200ms ease;
 }
 
 .rowActive .toggleIcon {
-  background-color: var(--home-blue, #0757C8);
-  color: #FFFFFF;
-  border-color: var(--home-blue, #0757C8);
+  background-color: transparent;
+  color: var(--home-blue, #0757C8);
+  border-color: transparent;
 }
 
 .toggleIconOpen {

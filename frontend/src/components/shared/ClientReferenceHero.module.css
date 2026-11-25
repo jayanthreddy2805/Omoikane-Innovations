@@ -203,7 +203,7 @@
   }
 
   .pageFrame {
-    padding-top: 96px !important;
+    padding-top: 109px !important;
   }
 
   .container {
@@ -283,7 +283,7 @@
   }
 
   .pageFrame {
-    padding-top: 96px !important;
+    padding-top: 109px !important;
   }
 
   .homeHero {
@@ -369,5 +369,11 @@
     text-align: center !important;
     margin: 0 auto !important;
     letter-spacing: -0.01em;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageFrame {
+    padding-top: 89px !important;
   }
 }

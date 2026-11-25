@@ -200,6 +200,11 @@
     line-height: 1.6 !important;
   }
 
+  #main-content [class*="LeadershipHero"] [class*="actualDesc"] {
+    font-size: clamp(11px, 3.45vw, 14.5px) !important;
+    line-height: 1.44 !important;
+  }
+
   #main-content [class*="visionText"] {
     font-size: 1.08rem !important;
     line-height: 1.55 !important;

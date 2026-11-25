@@ -290,3 +290,131 @@
 
 /* Stable surface while gallery photos load or if a request fails. */
 .imageContainer { background: var(--color-footer, #000812); }
+
+/* Mobile vertical stack (no horizontal scroll for Board of Directors) */
+@media (max-width: 768px) {
+  .scrollWrapper {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+    padding: 3rem 1.25rem 3.5rem;
+    box-sizing: border-box;
+  }
+
+  .galleryHeader {
+    padding: 0 0 1.75rem 0;
+  }
+
+  .editorialHeading {
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .scrollContent {
+    display: block;
+    width: 100%;
+    padding: 0;
+    flex: none;
+  }
+
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2.25rem;
+    width: 100%;
+    height: auto;
+  }
+
+  .galleryImage,
+  .galleryImage:nth-child(odd),
+  .galleryImage:nth-child(even) {
+    transform: none !important;
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .galleryImage .imageContainer {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 10px;
+  }
+
+  .cardNameOverlay {
+    position: static;
+    width: 100%;
+    padding-top: 0.85rem;
+  }
+
+  .cardNameOverlay h3 {
+    letter-spacing: 0.14em;
+  }
+
+  /* Responsive profile modal on mobile */
+  .sectionContent {
+    padding: 1.25rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  .content {
+    height: auto;
+    min-height: 100%;
+    padding: 3.5rem 0 2rem;
+    box-sizing: border-box;
+  }
+
+  .contentWrapper {
+    width: min(100%, 420px);
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contentWrapper .imageContainer {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+
+  .closeButton {
+    top: -3rem;
+    right: 0;
+  }
+
+  .contentTitleTop,
+  .contentTitleBottom {
+    position: static;
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+    mix-blend-mode: normal;
+    color: var(--text-primary);
+  }
+
+  .titleBig {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.1;
+    color: var(--text-primary);
+  }
+
+  .contentTextLeft,
+  .contentTextRight {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 0 0;
+    text-align: left;
+    align-items: flex-start;
+  }
+}

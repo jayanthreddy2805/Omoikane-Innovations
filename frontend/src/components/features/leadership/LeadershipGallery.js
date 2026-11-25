@@ -62,7 +62,7 @@ export default function LeadershipGallery() {
   const scrollContentRef = useRef(null);
   const sectionContentRef = useRef(null);
   const lenisRef = useRef(null);
-  
+
   // Keep refs for elements we need to animate dynamically
   const contentWrappers = useRef([]);
   const contents = useRef([]);
@@ -70,7 +70,7 @@ export default function LeadershipGallery() {
   const closeButtonRef = useRef(null);
   const profileAnimationRef = useRef(null);
   const listOfSplits = useRef([]);
-  
+
   const [error, setError] = useState('');
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -78,42 +78,54 @@ export default function LeadershipGallery() {
     if (!containerRef.current || !scrollWrapperRef.current || !scrollContentRef.current) return;
 
     try {
-      // Initialize vertical Lenis
-      lenisRef.current = new Lenis({
-        lerp: 0.05,
-        smoothWheel: true,
-        smoothTouch: true,
-      });
-
-      let rafId;
-      function raf(time) {
-        lenisRef.current.raf(time);
-        ScrollTrigger.update();
-        rafId = requestAnimationFrame(raf);
-      }
-      rafId = requestAnimationFrame(raf);
-
-      // Setup Horizontal ScrollTrigger
-      gsap.to(scrollContentRef.current, {
-        x: () => -(scrollContentRef.current.scrollWidth - window.innerWidth),
-        ease: "none",
-        scrollTrigger: {
-          trigger: scrollWrapperRef.current,
-          pin: true,
-          scrub: 1,
-          end: () => "+=" + (scrollContentRef.current.scrollWidth - window.innerWidth),
-          invalidateOnRefresh: true,
-        }
-      });
-
       // Show scroll wrapper
       scrollWrapperRef.current.classList.remove(styles.isHidden);
+
+      const mm = gsap.matchMedia();
+
+      mm.add("(min-width: 769px)", () => {
+        // Initialize vertical Lenis on desktop only
+        lenisRef.current = new Lenis({
+          lerp: 0.05,
+          smoothWheel: true,
+          smoothTouch: true,
+        });
+
+        let rafId;
+        function raf(time) {
+          lenisRef.current?.raf(time);
+          ScrollTrigger.update();
+          rafId = requestAnimationFrame(raf);
+        }
+        rafId = requestAnimationFrame(raf);
+
+        // Setup Horizontal ScrollTrigger on desktop only
+        gsap.to(scrollContentRef.current, {
+          x: () => -(scrollContentRef.current.scrollWidth - window.innerWidth),
+          ease: "none",
+          scrollTrigger: {
+            trigger: scrollWrapperRef.current,
+            pin: true,
+            scrub: 1,
+            end: () => "+=" + (scrollContentRef.current.scrollWidth - window.innerWidth),
+            invalidateOnRefresh: true,
+          }
+        });
+
+        return () => {
+          if (rafId) cancelAnimationFrame(rafId);
+          if (lenisRef.current) {
+            lenisRef.current.destroy();
+            lenisRef.current = null;
+          }
+        };
+      });
 
       // Initialize SplitType for all content blocks
       contents.current.forEach((content, index) => {
         if (!content) return;
         content.classList.add(styles.isHidden);
-        
+
         const contentTitleTop = content.querySelectorAll('[data-content="text-top"] div');
         const contentTitleBottom = content.querySelectorAll('[data-content="text-bottom"] div');
         const contentTextLeft = content.querySelectorAll('[data-content="text-left"] div');
@@ -152,8 +164,11 @@ export default function LeadershipGallery() {
       });
 
       return () => {
-        if (rafId) cancelAnimationFrame(rafId);
-        if (lenisRef.current) lenisRef.current.destroy();
+        mm.revert();
+        if (lenisRef.current) {
+          lenisRef.current.destroy();
+          lenisRef.current = null;
+        }
         profileAnimationRef.current?.kill();
       };
     } catch (e) {
@@ -166,10 +181,10 @@ export default function LeadershipGallery() {
     if (openIndex !== null) return;
 
     profileAnimationRef.current?.kill();
-    
+
     setOpenIndex(index);
     contents.current[index].classList.remove(styles.isHidden);
-    
+
     const currentWrapper = contentWrappers.current[index];
     const splits = listOfSplits.current[index];
 
@@ -233,10 +248,10 @@ export default function LeadershipGallery() {
     if (openIndex !== index) return;
 
     profileAnimationRef.current?.kill();
-    
+
     const currentWrapper = contentWrappers.current[index];
     const splits = listOfSplits.current[index];
-    
+
     if (lenisRef.current) lenisRef.current.start();
     scrollWrapperRef.current.classList.remove(styles.isHidden);
 
@@ -302,7 +317,7 @@ export default function LeadershipGallery() {
   }, [hideContent, openIndex]);
 
   if (error) {
-    return <div style={{position:'fixed', zIndex:9999, top:100, left:0, color:'red', background:'white', padding:'2rem', width:'100%', height:'100%'}}>{error}</div>;
+    return <div style={{ position: 'fixed', zIndex: 9999, top: 100, left: 0, color: 'red', background: 'white', padding: '2rem', width: '100%', height: '100%' }}>{error}</div>;
   }
 
   return (
@@ -318,8 +333,8 @@ export default function LeadershipGallery() {
             {PROFILES.map((profile, i) => (
               <button
                 type="button"
-                key={profile.id} 
-                className={styles.galleryImage} 
+                key={profile.id}
+                className={styles.galleryImage}
                 ref={el => {
                   openerRefs.current[i] = el;
                 }}
@@ -327,8 +342,8 @@ export default function LeadershipGallery() {
                 aria-haspopup="dialog"
                 aria-label={`Open profile for ${profile.topTitle}, ${profile.bottomTitle}`}
               >
-                <div 
-                  className={styles.imageContainer} 
+                <div
+                  className={styles.imageContainer}
                 >
                   <LoadAwarePhoto src={profile.image} loading="lazy" alt={profile.topTitle} />
                 </div>
@@ -343,9 +358,9 @@ export default function LeadershipGallery() {
 
       <section className={`${styles.sectionContent} ${styles.isHidden}`} ref={sectionContentRef}>
         {PROFILES.map((profile, i) => (
-          <div 
-            key={profile.id} 
-            className={`${styles.content} ${styles.isHidden}`} 
+          <div
+            key={profile.id}
+            className={`${styles.content} ${styles.isHidden}`}
             ref={el => contents.current[i] = el}
             role="dialog"
             aria-modal="true"

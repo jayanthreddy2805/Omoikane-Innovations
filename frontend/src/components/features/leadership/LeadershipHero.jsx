@@ -9,22 +9,6 @@ export default function LeadershipHero() {
   return (
     <div className={styles.page}>
       <section className={styles.canvas}>
-        {/* Engineering canvas controls */}
-        <span className={`${styles.cross} ${styles.crossTopLeft}`} />
-        <span className={`${styles.cross} ${styles.crossTopRight}`} />
-        <span className={`${styles.cross} ${styles.crossBottomLeft}`} />
-        <span className={`${styles.cross} ${styles.crossBottomRight}`} />
-
-        <span className={styles.topTicks} />
-        <span className={styles.bottomTicks} />
-
-        <span className={styles.leftTicks} />
-        <span className={styles.rightTicks} />
-
-
-
-        {/* Tiny technical coordinate placeholder removed */}
-
         {/* Central visual Stage */}
         <motion.div 
           className={styles.visualStage}
@@ -33,19 +17,25 @@ export default function LeadershipHero() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className={styles.visualPlaceholder}>
-            <span className={`${styles.placeholderCorner} ${styles.topLeft}`} />
-            <span className={`${styles.placeholderCorner} ${styles.topRight}`} />
-            <span className={`${styles.placeholderCorner} ${styles.bottomLeft}`} />
-            <span className={`${styles.placeholderCorner} ${styles.bottomRight}`} />
-
             <div className={styles.placeholderBody} style={{ border: 'none', background: 'transparent' }}>
                <Image 
                   src="/images/leadership/uav-architecture-blueprint.png" 
                   alt="UAV Architecture" 
                   fill 
+                  className={styles.desktopBlueprint}
                   style={{ objectFit: 'contain', padding: '10px' }} 
                   priority
-                  sizes="(max-width: 768px) 100vw, 75vw"
+                  sizes="(min-width: 761px) 75vw, 100vw"
+               />
+               <Image 
+                  src="/images/leadership/mobile uav-architecture-blueprint.png" 
+                  alt="UAV Architecture" 
+                  width={1080}
+                  height={1350}
+                  className={styles.mobileBlueprint}
+                  style={{ objectFit: 'contain' }} 
+                  priority
+                  sizes="100vw"
                />
             </div>
           </div>
