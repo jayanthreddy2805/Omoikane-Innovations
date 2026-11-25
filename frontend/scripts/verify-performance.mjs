@@ -32,7 +32,9 @@ try {
     assert.equal(await page.locator('video[src]').count(),1,'one source after sequence transition');
    }
    const changes=await page.evaluate(oldCSS=>{
-    const nodes=[...document.querySelectorAll('#main-content :is(h1,h2,h3,p,span,em,strong,dd,dt,li,small,label,button,a,div)')].filter(e=>[...e.childNodes].some(n=>n.nodeType===3 && n.textContent.trim()));
+    const nodes=[...document.querySelectorAll('#main-content :is(h1,h2,h3,p,span,em,strong,dd,dt,li,small,label,button,a,div)')].filter(e=>[...e.childNodes].some(n=>n.nodeType===3 && n.textContent.trim()))
+      // Mobile hero action text is intentionally larger in the mobile polish pass.
+      .filter(e=>!(innerWidth<=768 && e.closest('[data-type-role~="homeHero"] [data-type-role~="actions"]')));
     const sample=()=>nodes.map(e=>{const s=getComputedStyle(e);return [s.fontFamily,s.fontSize,s.fontWeight,s.lineHeight,s.letterSpacing].join('|')});
     const actual=sample();
     const clear=sheet=>{try{for(let i=sheet.cssRules.length-1;i>=0;i--){const r=sheet.cssRules[i];if(r.selectorText?.startsWith('#main-content'))sheet.deleteRule(i);else if(r.cssRules)clear(r)}}catch{}};

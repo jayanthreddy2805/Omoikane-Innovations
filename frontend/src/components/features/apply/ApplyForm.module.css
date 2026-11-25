@@ -313,3 +313,14 @@
     min-width: 0 !important;
   }
 }
+
+@media (max-width: 768px) {
+  .formContainer { min-width: 0; scroll-margin-top: 144px; }
+  .formGrid { grid-template-columns: minmax(0, 1fr); min-width: 0; }
+  .inputGroup { min-width: 0; }
+  .input, .textarea { width: 100%; min-width: 0; box-sizing: border-box; }
+  .formContainer :is(input, textarea, button) {
+    scroll-margin-top: 144px;
+    scroll-margin-bottom: 32px;
+  }
+}

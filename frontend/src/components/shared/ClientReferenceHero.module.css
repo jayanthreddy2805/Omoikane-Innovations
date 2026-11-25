@@ -385,3 +385,15 @@
   .homeBackdropImage { top: auto !important; height: 42% !important; object-position: 58% bottom; }
   .homeBackdrop::after { background: linear-gradient(180deg,#f2f9ff 0%,#f2f9ff 56%,rgba(242,249,255,.88) 66%,rgba(242,249,255,0) 84%); }
 }
+
+/* Keep the first actions comfortable to tap, including short phone screens. */
+@media (max-width: 768px) {
+  .homeHero .button { min-height: 48px; line-height: 1.25; }
+}
+@media (max-width: 768px) and (max-height: 700px) {
+  .heroContent { display: flex; flex-direction: column; transform: none; }
+  .heroContent .eyebrow,
+  .heroContent h1 { order: 0; }
+  .heroContent .actions { order: 1; transform: none; }
+  .heroContent p { order: 2; margin-top: 16px; transform: none; }
+}
