@@ -1,5 +1,20 @@
 # Final QA report — 25 November 2026
 
+## Mobile performance finalization on combined main `994d7c2`
+
+This section records the later Task 2 pass; the sections below describe the earlier PR #49 readiness audit and its separate baseline. No live backend, production database, deployment or environment setting was changed. Chatbot/RAG/Ollama functionality and chatbot analytics were excluded.
+
+| Check | Result |
+| --- | --- |
+| `npm ci`, `npm run lint`, `npx tsc --noEmit`, `SITE_AUDIT_EXCLUDE_CHATBOT=1 npm test`, `npm run build` | Passed on the branch; lint/type/site/build repeated after the Careers accessible-name correction |
+| Mobile Lighthouse, six major routes, combined main vs candidate | Six first-visit runs per revision; scores and LCP in `MOBILE_PERFORMANCE_REPORT.md`; after scores Home 93, About 95, Expertise 94, Contact 92, Apply 92, Work 100; CLS zero; five LCP values remain above 2.5s |
+| `node scripts/verify-mobile-polish.mjs` | Passed 320, 375, 390, 414, 768, 960, 1440px: initial consent banner positioning and choices, Home actions, Careers cards, form gutters and scroll clearance; saved consent checked on subsequent pages |
+| `node scripts/verify-performance.mjs` | Passed four widths (375, 768, 960, 1440), responsive tree, typography, browser errors/overflow, flags, one active sequence video after scroll and no automatic video in reduced motion |
+| `node scripts/verify-public-pages.mjs` | 15 routes × five widths = 75 statuses/H1/anchors/overflow/browser-error checks passed; mobile navigation, desktop search and reduced-motion company film passed. The 30 axe scans found one pre-existing serious label-content-name mismatch on the three Careers Explore links at 390 and 1440; corrected afterward. The script therefore exited nonzero on that first run. |
+| Focused post-fix browser check | Passed Careers axe at 390 and 1440 with no serious/critical issues; confirmed saved consent hides banner, 320px Expertise/About/Contact/Apply lack document overflow, and Expertise requests 0 posters before approach then the same 5 posters near view with 0 automatic video requests under reduced motion. The full 75-case suite was not repeated after the one-line link-label correction. |
+
+No physical Safari or software-keyboard run, field INP, production cellular/CDN performance, or manual WCAG certification was obtained. The two Lighthouse samples per route are lab observations, not proof of a persistent speed gain; the unchanged routes' score movement is sampling noise. Original visual assets, font choices, hero geometry, animation and consent options were retained.
+
 ## Test environment and boundaries
 
 Local Next production build on Node 24.22.3 and Chromium 158.0.8127.88. Java 21.0.13.1 with packaged Spring Boot API; isolated PostgreSQL 17.12 initialized from V3 synthetic fixtures. Backend integration CI additionally targets PostgreSQL 18. Tests never submit to a live business API: failure-state tests stub business endpoints, and integrated tests forward only business endpoints to an explicitly guarded loopback API. Chatbot functionality was excluded.
