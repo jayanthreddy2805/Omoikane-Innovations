@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   OPEN_COOKIE_PREFERENCES_EVENT,
   readCookieConsent,
@@ -40,15 +40,14 @@ export default function CookiePreferences() {
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!preferencesOpen) return undefined;
 
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const frame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+    closeButtonRef.current?.focus();
 
     return () => {
-      window.cancelAnimationFrame(frame);
       document.body.style.overflow = originalOverflow;
       returnFocusRef.current?.focus?.();
     };

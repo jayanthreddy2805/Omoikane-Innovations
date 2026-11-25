@@ -94,24 +94,23 @@ export default function WorkClient() {
 
         {/* Focus Areas Horizontal Strip */}
         <div className={styles.focusStripContainer}>
-          <div className={styles.focusStripTrack} role="list" aria-label="Work focus areas">
+          <nav className={styles.focusStripTrack} aria-label="Work focus areas">
             {FOCUS_AREAS.map((item) => (
               <Link
                 key={item.id}
                 href={item.href}
                 className={styles.focusStripItem}
-                role="listitem"
               >
                 <div className={styles.focusIconBox}>
                   {item.icon}
                 </div>
                 <div className={styles.focusTextBox}>
-                  <h3 className={styles.focusTitle}>{item.title}</h3>
+                  <p className={styles.focusTitle}>{item.title}</p>
                   <p className={styles.focusSubtitle}>{item.subtitle}</p>
                 </div>
               </Link>
             ))}
-          </div>
+          </nav>
         </div>
       </section>
 

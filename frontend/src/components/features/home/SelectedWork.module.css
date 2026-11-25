@@ -159,14 +159,14 @@
   font-size: clamp(0.9rem, 1.15vw, 1.05rem);
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: rgba(16, 39, 70, 0.25);
+  color: #62748A;
   width: 2.5rem;
   flex-shrink: 0;
   transition: color 200ms ease;
 }
 
 .rowActive .projectNumber {
-  color: rgba(16, 39, 70, 0.5);
+  color: #62748A;
 }
 
 .titleGroup {

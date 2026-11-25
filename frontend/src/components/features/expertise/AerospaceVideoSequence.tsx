@@ -219,7 +219,7 @@ export default function AerospaceVideoSequence({
 
   return (
     <div className={styles.frame}>
-      <div className={styles.stage} data-type-role="tag" ref={stageRef} aria-label="Five-video aerospace sequence">
+      <div className={styles.stage} data-type-role="tag" ref={stageRef} role="group" aria-label="Five-video aerospace sequence">
         {CLIPS.map((clip, index) => (
           <div
             className={styles.tile}

@@ -36,6 +36,12 @@ export default function InternationalPhoneInput({
   const searchInputRef = useRef(null);
   const inputRef = useRef(null);
 
+  // Native form validity must agree with the number shown in this control.
+  useEffect(() => {
+    const parsed = localValue ? parsePhoneNumberFromString(localValue, country) : null;
+    inputRef.current?.setCustomValidity(!localValue || parsed?.isValid() ? '' : 'Enter a valid phone number.');
+  }, [localValue, country]);
+
   // Initialize all countries on mount
   const allCountries = useMemo(() => {
     return getCountries().map(code => {
@@ -167,7 +173,7 @@ export default function InternationalPhoneInput({
           aria-expanded={isDropdownOpen}
           aria-haspopup="listbox"
           aria-controls={`${id}-country-list`}
-          aria-label="Select country"
+          aria-label={`Select country +${getCountryCallingCode(country)}`}
           disabled={disabled}
         >
           <Image src={`/flags/${country}`} alt="" width={24} height={16} unoptimized className={styles.flagIcon} />
@@ -178,6 +184,7 @@ export default function InternationalPhoneInput({
         <input
           ref={inputRef}
           id={id}
+          maxLength={50}
           type="tel"
           className={isCareer ? styles.phoneInputCareer : styles.phoneInput}
           value={localValue}

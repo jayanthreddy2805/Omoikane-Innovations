@@ -337,7 +337,7 @@
   margin-bottom: 2.5rem;
 }
 
-.contactDetailsHeader h3 {
+.contactDetailsHeader p {
   font-family: var(--font-inter, sans-serif);
   font-size: 0.875rem;
   font-weight: 700;

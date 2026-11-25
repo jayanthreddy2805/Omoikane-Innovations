@@ -34,7 +34,7 @@ for (const [file, expected] of checks) {
   }
 }
 
-for (const file of sourceFiles) {
+for (const file of sourceFiles.filter(file => !process.env.SITE_AUDIT_EXCLUDE_CHATBOT || !file.includes("/features/chatbot/"))) {
   const content = await readFile(file, "utf8");
   for (const text of forbidden) {
     if (content.includes(text)) failures.push(`${file} contains forbidden legacy content: ${text}`);

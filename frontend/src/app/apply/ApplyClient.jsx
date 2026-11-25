@@ -36,7 +36,7 @@ export default function ApplyPage({ query }) {
                   
                   <div className={styles.contactDetailsBlock}>
                     <div className={styles.contactDetailsHeader}>
-                      <h3>CONTACT OUR TEAM</h3>
+                      <p>CONTACT OUR TEAM</p>
                       <ArrowRight size={16} />
                     </div>
                     

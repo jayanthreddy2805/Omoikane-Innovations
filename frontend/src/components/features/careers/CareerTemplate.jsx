@@ -122,7 +122,7 @@ export default function CareerTemplate({ data }) {
         <div className={styles.explorerLayout}>
           
           {/* Left Nav */}
-          <nav className={styles.roleNav}>
+          <nav className={styles.roleNav} aria-label="Career roles">
             <ul ref={navListRef} className={styles.navList}>
               {roles.map((role) => (
                 <li key={role.id}>

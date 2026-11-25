@@ -39,18 +39,10 @@ export default function FileUpload({ id = "cv", required = false, onChange, file
       return false;
     }
 
-    const validTypes = [
-      'application/pdf', 
-      'application/msword', 
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-    ];
-    
-    // Also accept by extension if MIME type is missing or generic
+    // Extensions match the backend allow-list; generic/missing MIME is common on phones.
     const extension = selectedFile.name.split('.').pop().toLowerCase();
-    const validExtensions = ['pdf', 'doc', 'docx'];
-    
-    if (!validTypes.includes(selectedFile.type) && !validExtensions.includes(extension)) {
-      setError("Please upload a valid PDF or Word document.");
+    if (!['pdf', 'doc', 'docx'].includes(extension) || selectedFile.size === 0) {
+      setError("Please upload a non-empty PDF or Word document.");
       return false;
     }
 
@@ -96,6 +88,9 @@ export default function FileUpload({ id = "cv", required = false, onChange, file
         const dataTransfer = new DataTransfer();
         dataTransfer.items.add(droppedFile);
         if (inputRef.current) inputRef.current.files = dataTransfer.files;
+      } else {
+        updateFile(null);
+        if (inputRef.current) inputRef.current.value = "";
       }
     }
   };
@@ -116,6 +111,8 @@ export default function FileUpload({ id = "cv", required = false, onChange, file
         id={id}
         required={required && !file}
         accept=".pdf,.doc,.docx"
+        aria-describedby={error ? `${id}-error` : undefined}
+        aria-invalid={Boolean(error)}
         className={styles.hiddenInput}
         onChange={handleFileChange}
         tabIndex={-1}
@@ -133,9 +130,9 @@ export default function FileUpload({ id = "cv", required = false, onChange, file
         onDragOver={onDragOver}
         onDragLeave={onDragLeave}
         onDrop={onDrop}
-        tabIndex={0}
-        role="button"
-        aria-label="Upload resume file"
+        tabIndex={file ? -1 : 0}
+        role={file ? "group" : "button"}
+        aria-label={file ? "Selected resume" : undefined}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -200,6 +197,8 @@ export default function FileUpload({ id = "cv", required = false, onChange, file
               initial={{ opacity: 0, height: 0, marginTop: 0 }}
               animate={{ opacity: 1, height: "auto", marginTop: 4 }}
               exit={{ opacity: 0, height: 0, marginTop: 0 }}
+              id={`${id}-error`}
+              role="alert"
               className={styles.errorText}
             >
               <AlertCircle size={14} strokeWidth={2.5} />
