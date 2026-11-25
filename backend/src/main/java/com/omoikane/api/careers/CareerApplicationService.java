@@ -1,6 +1,6 @@
 package com.omoikane.api.careers;
 
-import com.omoikane.api.email.ResendEmailService;
+import com.omoikane.api.email.EmailOutbox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,12 +51,12 @@ public class CareerApplicationService {
     }
 
     private final CareerApplicationRepository repository;
-    private final ResendEmailService emailService;
+    private final EmailOutbox emailOutbox;
 
     @Autowired
-    public CareerApplicationService(CareerApplicationRepository repository, ResendEmailService emailService) {
+    public CareerApplicationService(CareerApplicationRepository repository, EmailOutbox emailOutbox) {
         this.repository = repository;
-        this.emailService = emailService;
+        this.emailOutbox = emailOutbox;
     }
 
     public CareerApplicationService(CareerApplicationRepository repository) {
@@ -100,18 +100,7 @@ public class CareerApplicationService {
         CareerApplication saved = repository.save(application);
         log.info("Career application saved successfully [id={}, roleId={}]", saved.getId(), saved.getRoleId());
 
-        if (emailService != null) {
-            try {
-                emailService.sendCareerConfirmation(saved);
-            } catch (Exception e) {
-                log.warn("Email delivery failed for career application [id={}]: {}", saved.getId(), e.getMessage());
-            }
-            try {
-                emailService.sendAdminCareerAlert(saved);
-            } catch (Exception e) {
-                log.warn("Admin notification email failed for career application [id={}]: {}", saved.getId(), e.getMessage());
-            }
-        }
+        if (emailOutbox != null) emailOutbox.enqueueCareer(saved.getId());
 
         return saved;
     }
