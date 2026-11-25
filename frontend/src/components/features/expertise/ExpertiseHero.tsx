@@ -24,7 +24,7 @@ export function ExpertiseHero() {
       <div className={styles.content}>
         <motion.h1
           id="omk-hero-title"
-          className={styles.heading} data-type-role="ExpertiseHero_heading"
+          className={styles.heading}
           data-client-hero-heading
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export function ExpertiseHero() {
           <span><span style={{ color: '#0757C8' }}>WORLD</span> SYSTEMS</span>
         </motion.h1>
         <motion.p
-          className={styles.description} data-type-role="ExpertiseHero_description desc"
+          className={styles.description} data-type-role="desc"
           data-client-hero-copy
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

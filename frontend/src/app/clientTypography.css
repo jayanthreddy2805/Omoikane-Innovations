@@ -1,6 +1,6 @@
 /* Client ZIP type system, scoped to main content. Navigation and footer keep their own typography. */
 #main-content,
-#main-content :is(h1,h2,h3,h4,h5,h6,p,a,button,input,textarea,select,label) {
+#main-content :is(h1,h2,h3,h4,h5,h6,p,a,button,input,textarea,select,label,span,em,strong,div,dd,dt,li,small,legend,summary,option) {
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 }
 

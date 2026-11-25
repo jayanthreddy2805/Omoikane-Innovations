@@ -41,3 +41,7 @@ Paths below are relative to frontend/src unless marked backend or frontend.
 - Backend: 80 tests, 0 failures, 0 errors, 0 skipped. Runtime needed a Java 21 JDK, system certificate trust store, and an explicitly loaded Byte Buddy agent due sandbox self-attach restrictions. No tests were disabled.
 - npm audit: 0 vulnerabilities after compatible transitive updates.
 - Render deployment metadata checked; runtime logs unavailable (503). Neon schema checked read-only. Railway lists no projects. Current live behavior is not claimed to contain this review branch.
+
+## Performance follow-up (chatbots excluded)
+
+See PERFORMANCE_FOLLOWUP.md and PERFORMANCE_ASSETS.json for the additional media, rendering, typography, SQL projection and durable email-delivery work. Backend validation now totals 83 passing tests. V5 is prepared for review and has not been applied to production. Chatbot/RAG/inference findings are deliberately outside this follow-up.
