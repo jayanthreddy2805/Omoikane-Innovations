@@ -20,6 +20,16 @@ export default function AboutHero() {
   const prefersReducedMotion = useSyncExternalStore(subscribeToMotion, getMotionPreference, getServerMotionPreference);
   const autoplayEnabled = prefersReducedMotion !== true;
   const videoRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
+    if (videoRef.current) observer.observe(videoRef.current);
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!visible) videoRef.current?.pause();
+    else if (autoplayEnabled) videoRef.current?.play().catch(() => {});
+  }, [visible, autoplayEnabled]);
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
@@ -68,13 +78,13 @@ export default function AboutHero() {
             <video
               ref={videoRef}
               className={styles.filmVideo}
-              src={COMPANY_VIDEO}
+              src={visible ? COMPANY_VIDEO : undefined}
               poster={COMPANY_VIDEO_POSTER}
-              autoPlay={autoplayEnabled}
+              autoPlay={autoplayEnabled && visible}
               muted={isMuted}
               loop
               playsInline
-              preload={autoplayEnabled ? "metadata" : "none"}
+              preload="none"
               controls={!autoplayEnabled}
               onVolumeChange={handleVolumeChange}
               aria-label="Omoikane Innovations company film"

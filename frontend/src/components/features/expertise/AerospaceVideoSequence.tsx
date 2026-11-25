@@ -172,7 +172,7 @@ export default function AerospaceVideoSequence({
 
   // 2. Trigger playback when active becomes true
   useEffect(() => {
-    if (!active || !inView) {
+    if (!active || !inView || reducedMotion) {
       timelineRef.current?.pause();
       pausedVideoRef.current = videoRefs.current.find(video => video && !video.paused) || pausedVideoRef.current;
       videoRefs.current.forEach((video) => video?.pause());
@@ -207,12 +207,15 @@ export default function AerospaceVideoSequence({
             <video
               ref={(node) => { videoRefs.current[index] = node; }}
               className={styles.video}
-              src={clip.src}
+              poster={`/images/video-posters/${clip.id}.jpg`}
+              aria-hidden="true"
+              tabIndex={-1}
               muted
               playsInline
               preload="none"
-              aria-label={clip.alt}
-            />
+            >
+              {inView && active && !reducedMotion && <><source src={clip.src.replace('.mp4', '.webm')} type="video/webm" /><source src={clip.src} type="video/mp4" /></>}
+            </video>
           </div>
         ))}
       </div>

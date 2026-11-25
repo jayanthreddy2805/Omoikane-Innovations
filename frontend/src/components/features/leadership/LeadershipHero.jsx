@@ -28,7 +28,7 @@ export default function LeadershipHero() {
                   sizes="(min-width: 761px) 75vw, 100vw"
                />
                <Image 
-                  src="/images/leadership/mobile uav-architecture-blueprint.png" 
+                  src="/images/leadership/uav-architecture-blueprint-mobile.png" 
                   alt="UAV Architecture" 
                   width={1080}
                   height={1350}
