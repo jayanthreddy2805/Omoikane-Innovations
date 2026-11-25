@@ -2,7 +2,7 @@
 import * as React from "react";
 import Link from "@/components/shared/IntentLink";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { m as motion, AnimatePresence } from "framer-motion";
 import styles from "./Header.module.css";
 
@@ -12,7 +12,6 @@ const SEARCH_INDEX = [
   { title: "Technology", desc: "Our advanced technology stack and engineering capabilities", href: "/expertise" },
   { title: "Products", desc: "Mission-critical flight controllers, ESCs, GNSS, and tactical communications", href: "/work" },
   { title: "About Us", desc: "Learn about Omoikane Innovations, our mission and history", href: "/about" },
-  { title: "Leadership", desc: "Meet the leadership team at Omoikane Innovations", href: "/leadership" },
   { title: "Contact", desc: "Get in touch with the Omoikane team", href: "/contact" },
   { title: "Software Development", desc: "Full-stack web, distributed systems, AI & cloud platforms", href: "/services/software" },
   { title: "Electronics Engineering", desc: "Hardware, PCB design, RF & embedded systems", href: "/services/electronics" },
@@ -28,7 +27,7 @@ const SEARCH_INDEX = [
   { title: "Software Careers", desc: "React, Next.js, Python, AI Developer, Embedded Firmware roles", href: "/careers/software" },
   { title: "Mechanical Engineering Careers", desc: "CAD, structural analysis, assembly engineering roles", href: "/careers/mechanical" },
   { title: "Electrical Engineering Careers", desc: "Hardware, RF & embedded systems engineering roles", href: "/careers/electronics" },
-  { title: "Careers", desc: "Join the Omoikane engineering team", href: "/#careers" },
+  { title: "Careers", desc: "Join the Omoikane engineering team", href: "/careers" },
   { title: "Apply", desc: "Submit your application and resume to Omoikane Innovations", href: "/apply" },
   { title: "FAQ", desc: "Frequently asked questions about engineering, products and standards", href: "/about#faq" },
   { title: "Privacy Policy", desc: "Privacy policy and data handling principles", href: "/privacy" },
@@ -40,12 +39,11 @@ const NAV_LINKS = [
   { label: "Technology", href: "/expertise" },
   { label: "Products", href: "/work" },
   { label: "About Us", href: "/about" },
-  { label: "Leadership", href: "/leadership" },
   {
     label: "Careers",
-    href: "/#careers",
+    href: "/careers",
     activePath: "/careers",
-    dropdown: [
+    departmentLinks: [
       { title: "Software Development", desc: "Software, AI & real-time systems", href: "/careers/software" },
       { title: "Mechanical Engineering", desc: "Product, structures & integration", href: "/careers/mechanical" },
       { title: "Electrical Engineering", desc: "Hardware, RF & embedded systems", href: "/careers/electronics" },
@@ -55,6 +53,7 @@ const NAV_LINKS = [
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
 
 
   const [careersOpen, setCareersOpen] = React.useState(false);
@@ -220,9 +219,9 @@ export default function Header() {
             className={styles.logoImage}
             priority
           />
-          <div className={styles.logoBrand}>
-            <span className={styles.logoName}>OMOIKANE</span>
-            <span className={styles.logoSub}>INNOVATIONS</span>
+          <div className={styles.logoBrand} aria-label="Omoikane Innovations">
+            <span aria-hidden="true" className={styles.logoName}>OMOIKANE</span>
+            <span aria-hidden="true" className={styles.logoSub}>INNOVATIONS</span>
           </div>
         </Link>
 
@@ -474,7 +473,7 @@ export default function Header() {
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && searchResults.length > 0) {
                       if (typeof window !== "undefined") {
-                        window.location.href = searchResults[0].href;
+                        router.push(searchResults[0].href);
                       }
                       setSearchOpen(false);
                     }

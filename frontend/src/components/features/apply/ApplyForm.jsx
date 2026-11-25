@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import SubmitButton from '@/components/shared/SubmitButton';
 import InternationalPhoneInput from '@/components/shared/InternationalPhoneInput';
@@ -44,10 +43,9 @@ const DEFAULT_ROLES = [
 ];
 
 // Contact page UI design applied for mobile filling bars
-export default function ApplyForm({ onSuccess }) {
-  const searchParams = useSearchParams();
-  const urlDept = searchParams.get('dept');
-  const urlRole = searchParams.get('role');
+export default function ApplyForm({ onSuccess, query = {} }) {
+  const urlDept = typeof query.dept === 'string' && Object.hasOwn(ROLES_BY_DEPT, query.dept) ? query.dept : '';
+  const urlRole = typeof query.role === 'string' ? query.role : '';
   const availableRoles = urlDept && ROLES_BY_DEPT[urlDept]
     ? ROLES_BY_DEPT[urlDept]
     : DEFAULT_ROLES;
