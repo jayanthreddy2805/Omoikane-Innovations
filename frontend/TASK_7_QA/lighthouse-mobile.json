@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-26",
+  "environment": "local production build, preview noindex; simulated mobile 412x823, 4x CPU, 150ms RTT, 1638kbps throughput; single run per route",
+  "results": [
+    {
+      "path": "/",
+      "performance": 91,
+      "accessibility": 100,
+      "seo": 69,
+      "lcpMs": 3438,
+      "cls": 0,
+      "tbtMs": 22,
+      "lcpElement": "<img alt=\"\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" class=\"gSJs6a_homeBackdropImage\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px;\" sizes=\""
+    },
+    {
+      "path": "/about",
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 69,
+      "lcpMs": 1062,
+      "cls": 0,
+      "tbtMs": 42,
+      "lcpElement": "<p class=\"_0PHxIW_lead\" data-type-role=\"lead\">"
+    },
+    {
+      "path": "/expertise",
+      "performance": 94,
+      "accessibility": 100,
+      "seo": 69,
+      "lcpMs": 3093,
+      "cls": 0,
+      "tbtMs": 58,
+      "lcpElement": "<img alt=\"\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" class=\"tvv4dG_heroImage\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px;\" sizes=\"100vw\" s"
+    },
+    {
+      "path": "/work",
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 69,
+      "lcpMs": 1070,
+      "cls": 0,
+      "tbtMs": 55,
+      "lcpElement": "<p class=\"r1doha_copyParagraph\" data-type-role=\"copyParagraph\" data-client-hero-copy=\"true\">"
+    },
+    {
+      "path": "/careers/software",
+      "performance": 92,
+      "accessibility": 100,
+      "seo": 69,
+      "lcpMs": 3264,
+      "cls": 0,
+      "tbtMs": 115,
+      "lcpElement": "<img alt=\"SOFTWARE Engineering\" decoding=\"async\" data-nimg=\"fill\" class=\"vHOIsa_heroImg\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px;\" sizes=\"(max-width: 768px) 100vw, 5"
+    },
+    {
+      "path": "/contact",
+      "performance": 93,
+      "accessibility": 100,
+      "seo": 69,
+      "lcpMs": 3241,
+      "cls": 0,
+      "tbtMs": 13,
+      "lcpElement": "<p class=\"OSLHOG_enquiryText\">"
+    },
+    {
+      "path": "/apply",
+      "performance": 92,
+      "accessibility": 100,
+      "seo": 69,
+      "lcpMs": 3391,
+      "cls": 0,
+      "tbtMs": 15,
+      "lcpElement": "<p>"
+    }
+  ]
+}
