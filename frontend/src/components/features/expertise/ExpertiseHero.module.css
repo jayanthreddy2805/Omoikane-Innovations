@@ -145,3 +145,77 @@
 @media(max-width:1050px) { .heroImage { object-position:65% bottom; } }
 @media(max-width:768px) { .heroImage { object-position:center bottom; } }
 @media(max-width:600px) { .heroImage { object-position:center bottom; } }
+
+/* Responsive image composition: the 1760×893 desktop artwork occupies a
+   dedicated visual area instead of covering the headline. */
+@media (min-width: 769px) {
+  .imageLayer {
+    inset: 0 0 0 43%;
+  }
+
+  .heroImage {
+    object-fit: contain;
+    object-position: right bottom;
+  }
+
+  .content {
+    max-width: min(49%, 670px);
+  }
+
+  .description {
+    max-width: 100%;
+  }
+}
+
+/* At narrow tablet sizes, retain readable copy beside the artwork rather
+   than placing both in the same image region. */
+@media (min-width: 769px) and (max-width: 1050px) {
+  .heading {
+    font-size: clamp(36px, 5.2vw, 54px);
+  }
+
+  .heading > span {
+    white-space: normal;
+  }
+}
+
+/* Tablet portrait: use a separate artwork row to avoid headline collisions. */
+@media (min-width: 601px) and (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 0;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .imageLayer {
+    order: 2;
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    width: calc(100% + 40px);
+    margin: 24px -20px 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .heroImage {
+    object-fit: contain;
+    object-position: center bottom;
+  }
+}
+
+/* The actual mobile art is 941×1672, not 941×882. Preserve much more of
+   the portrait framing without making the page one giant image. */
+@media (max-width: 600px) {
+  .imageLayer {
+    margin-top: clamp(24px, 7vw, 36px);
+    aspect-ratio: 4 / 5;
+  }
+
+  .heroImage {
+    object-fit: cover;
+    object-position: center 58%;
+  }
+}

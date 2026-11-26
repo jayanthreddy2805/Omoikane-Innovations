@@ -450,3 +450,25 @@
     transform: none;
   }
 }
+
+/* Preserve the approved layered mobile hero while giving the portrait
+   aircraft crop enough height on short and tall phones alike. */
+@media (max-width: 680px) {
+  .homeBackdropImage {
+    height: clamp(240px, 46%, 460px) !important;
+    object-fit: cover;
+    object-position: 58% bottom;
+  }
+}
+
+/* On compact landscape/tablet widths the hero's media remains visible
+   without pushing the copy beyond its available width. */
+@media (min-width: 681px) and (max-width: 1024px) {
+  .homeBackdropImage {
+    object-position: 62% center;
+  }
+
+  .heroContent {
+    max-width: min(54%, 565px);
+  }
+}
