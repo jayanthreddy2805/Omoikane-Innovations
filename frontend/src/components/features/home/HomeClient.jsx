@@ -31,8 +31,22 @@ const EXPERTISE_VISUALS = {
   automotive: {image: '/images/careers/electronics/embedded-pcb.jpg', alt: 'Automotive electronics illustration', icons: [Cpu, Zap, Layers]},
   railways: {image: '/images/about/domain-industrial.jpg', alt: 'Industrial engineering illustration', icons: [Activity, Layers, Shield]},
 };
-const EXPERTISE_SLIDES = expertise.map(item => ({
-  title: item.title, href: `/expertise#${item.id}`, ...EXPERTISE_VISUALS[item.id],
+// The home overview includes industrial sectors that do not have Technology detail sections.
+const HOME_EXPERTISE = [
+  ...expertise,
+  {
+    id: 'automotive', title: 'Automotive',
+    systems: ['Automotive ECU solutions', 'Real-time embedded systems', 'Vehicle automation'],
+  },
+  {
+    id: 'railways', title: 'Railways',
+    systems: ['Predictive maintenance', 'Industrial automation', 'Intelligent control systems'],
+  },
+];
+const EXPERTISE_SLIDES = HOME_EXPERTISE.map(item => ({
+  id: item.id, title: item.title,
+  href: item.id === 'automotive' || item.id === 'railways' ? '/contact' : `/expertise#${item.id}`,
+  ...EXPERTISE_VISUALS[item.id],
   items: item.systems.map((label, index) => { const Icon = EXPERTISE_VISUALS[item.id].icons[index]; return {icon: <Icon size={16} />, label}; }),
 }));
 
@@ -85,7 +99,7 @@ const cardVariants = {
 };
 
 function expertiseCard(id, variant, index) {
-  const item = EXPERTISE_SLIDES.find(slide => slide.href.endsWith(`#${id}`));
+  const item = EXPERTISE_SLIDES.find(slide => slide.id === id);
   if (!item) return null;
   return (<motion.div key={item.href} variants={cardVariants} custom={index} initial="hidden" whileInView="visible" viewport={{once: true, margin: '-40px'}} className={variant === 'wide' ? styles.bentoCardWideWrap : undefined} style={variant === 'horizontal' ? {flex: 1} : undefined}>
                 <Link href={item.href} className={`${styles.bentoCard} ${variant === 'wide' ? styles.bentoCardWide : variant === 'horizontal' ? styles.bentoCardHorizontal : styles.bentoCardTall}`}>
