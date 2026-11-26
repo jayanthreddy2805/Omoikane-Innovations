@@ -186,7 +186,7 @@
   font-family: var(--font-inter), sans-serif;
   font-size: var(--type-body);
   line-height: 1.65;
-  color: var(--muted);
+  color: #5F7187;
   max-width: min(90%, var(--measure-copy));
   margin: 0;
   margin-bottom: 0.5rem;

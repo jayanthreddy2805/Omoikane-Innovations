@@ -178,7 +178,7 @@ export default function Header() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         {/* ── LOGO ── */}
-        <Link href="/" scroll={true} className={styles.logoLink} onClick={handleLogoClick} aria-label="Omoikane Innovations, home">
+        <Link href="/" scroll={true} className={styles.logoLink} onClick={handleLogoClick} aria-label="Omoikane Innovations">
           <Image
             src="/images/shared/omoikane-logo.png"
             alt=""
@@ -187,9 +187,9 @@ export default function Header() {
             className={styles.logoImage}
 
           />
-          <div className={styles.logoBrand} aria-label="Omoikane Innovations">
-            <span aria-hidden="true" className={styles.logoName}>OMOIKANE</span>
-            <span aria-hidden="true" className={styles.logoSub}>INNOVATIONS</span>
+          <div className={styles.logoBrand}>
+            <span className={styles.logoName}>OMOIKANE </span>
+            <span className={styles.logoSub}>INNOVATIONS</span>
           </div>
         </Link>
 

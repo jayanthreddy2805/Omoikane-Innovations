@@ -1,0 +1,26 @@
+{
+  "observedDate": "2026-11-26",
+  "requestedUrl": "https://omoikaneinnovations.com/",
+  "browserFinalUrl": "https://www.omoikaneinnovations.com/",
+  "browserHome": {
+    "generator": "WordPress 7.0.9",
+    "nextScripts": 0,
+    "wordpressAssets": 47,
+    "canonical": "https://www.omoikaneinnovations.com/",
+    "navigationIncludes": ["/about-us/", "/services/", "/contact-us/"]
+  },
+  "browserTechnology": {
+    "url": "https://www.omoikaneinnovations.com/expertise",
+    "title": "Page not found – Omoikane Innovations",
+    "visibleText": "It looks like nothing was found at this location.",
+    "numericHttpStatusCaptured": false
+  },
+  "connectedVercel": {
+    "deploymentId": "dpl_9cfVna691HBE4z6gcK37P5hJoiHJ",
+    "state": "READY",
+    "gitSha": "f28df64bd2636bd0bfe8ebf9b3f7d21409874665",
+    "workingAlias": "https://omoikane-innovations-3h7t.vercel.app",
+    "projectDomainListContainsRequestedHost": false
+  },
+  "scope": "Read-only browser and deployment metadata. Production QA blocked by hostname mismatch."
+}

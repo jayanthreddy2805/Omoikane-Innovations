@@ -1,0 +1,41 @@
+{
+  "source": "Local QA-branch production build, NOT public custom domain",
+  "method": "One cold mobile Lighthouse 13.6.0 run per route; 412x823, 4x CPU, simulated 150ms RTT/1638kbps",
+  "rows": [
+    {
+      "path": "/",
+      "performanceScore": 92,
+      "accessibilityScore": 100,
+      "lcpMs": 3414,
+      "cls": 0
+    },
+    {
+      "path": "/expertise",
+      "performanceScore": 94,
+      "accessibilityScore": 100,
+      "lcpMs": 3024,
+      "cls": 0
+    },
+    {
+      "path": "/careers/software",
+      "performanceScore": 93,
+      "accessibilityScore": 100,
+      "lcpMs": 3243,
+      "cls": 0
+    },
+    {
+      "path": "/contact",
+      "performanceScore": 92,
+      "accessibilityScore": 100,
+      "lcpMs": 3314,
+      "cls": 0
+    },
+    {
+      "path": "/apply",
+      "performanceScore": 92,
+      "accessibilityScore": 100,
+      "lcpMs": 3391,
+      "cls": 0
+    }
+  ]
+}
