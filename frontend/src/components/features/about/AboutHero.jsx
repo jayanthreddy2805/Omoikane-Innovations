@@ -5,8 +5,10 @@ import usePageVisible from "@/hooks/usePageVisible";
 import styles from "./AboutHero.module.css";
 import Link from "next/link";
 import { ClientPageHero } from "@/components/shared/ClientReferenceHero";
+import Image from "@/components/shared/LoadAwareImage";
 
 const COMPANY_VIDEO = "/videos/about/omoikane.mp4";
+const COMPANY_VIDEO_POSTER = "/images/about/domain-air.jpg";
 
 const subscribeToMotion = (notify) => {
   const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -108,6 +110,9 @@ export default function AboutHero() {
               Your browser does not support HTML video.
             </video>
 
+            {!hasFrame && <Image src={COMPANY_VIDEO_POSTER} alt="" fill
+              sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px"
+              loading="eager" fetchPriority="high" className={styles.filmPoster} />}
             {!autoplayEnabled && !hasFrame && <button type="button" className={styles.filmPlay}
               onClick={() => setPlayRequested(true)}>Play company film</button>}
 
