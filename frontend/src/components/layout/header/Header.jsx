@@ -178,7 +178,7 @@ export default function Header() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         {/* ── LOGO ── */}
-        <Link href="/" scroll={true} className={styles.logoLink} onClick={handleLogoClick}>
+        <Link href="/" scroll={true} className={styles.logoLink} onClick={handleLogoClick} aria-label="Omoikane Innovations, home">
           <Image
             src="/images/shared/omoikane-logo.png"
             alt=""
