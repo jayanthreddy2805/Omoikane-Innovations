@@ -5,7 +5,7 @@ const checks = [
   ["src/app/not-found.js", ["PAGE NOT FOUND", "View our work", "Contact us"]],
   ["src/components/features/leadership/LeadershipGallery.js", ["aria-haspopup=\"dialog\"", "aria-modal=\"true\"", "Close profile"]],
   ["src/components/shared/CustomSelect.jsx", ["aria-labelledby", "aria-activedescendant"]],
-  ["src/components/layout/header/Header.jsx", ['aria-label="Omoikane Innovations, home"']],
+  ["src/components/layout/header/Header.jsx", ['aria-label="Omoikane Innovations"', 'className={styles.logoName}>OMOIKANE </span>']],
   ["src/components/features/careers/CareerTemplate.jsx", ["role=${activeRole?.id || 'other'}"]],
   ["src/components/shared/InternationalPhoneInput.jsx", ["role=\"listbox\"", "aria-label=\"Countries\""]],
   ["src/app/expertise/layout.tsx", ["Technology | Omoikane Innovations"]],

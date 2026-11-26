@@ -346,7 +346,7 @@ export default function LeadershipGallery() {
                 <div
                   className={styles.imageContainer}
                 >
-                  <LoadAwarePhoto src={profile.image} loading="lazy" alt={profile.topTitle} />
+                  <LoadAwarePhoto src={profile.image} loading="lazy" alt="" />
                 </div>
                 <div className={styles.cardNameOverlay}>
                   <h3>{profile.topTitle.toUpperCase()}</h3>
