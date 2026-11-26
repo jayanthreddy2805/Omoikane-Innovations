@@ -1,0 +1,7 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> frontend@0.1.0 test
+> node scripts/validate-site-contracts.mjs && node scripts/verify-about-film-only.mjs
+
+Site contracts verified.
+PASS About video only; existing player controls and layout remain unchanged

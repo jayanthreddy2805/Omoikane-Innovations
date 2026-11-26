@@ -1,0 +1,55 @@
+{
+  "rows": [
+    {
+      "width": 390,
+      "route": "/expertise#defense",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 390,
+      "route": "/expertise#aerospace",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 768,
+      "route": "/expertise#defense",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 768,
+      "route": "/expertise#aerospace",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 820,
+      "route": "/expertise#defense",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 820,
+      "route": "/expertise#aerospace",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 1024,
+      "route": "/expertise#defense",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 1024,
+      "route": "/expertise#aerospace",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 1440,
+      "route": "/expertise#defense",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 1440,
+      "route": "/expertise#aerospace",
+      "categoryLink": "passed"
+    }
+  ],
+  "failures": []
+}

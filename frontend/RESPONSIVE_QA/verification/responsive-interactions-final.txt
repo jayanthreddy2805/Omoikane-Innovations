@@ -1,0 +1,2 @@
+PASS protected interactions 375px: four sectors, Technology, Leadership, Careers, About
+PASS protected interactions 1440px: four sectors, Technology, Leadership, Careers, About

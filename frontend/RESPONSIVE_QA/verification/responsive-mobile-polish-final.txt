@@ -1,0 +1,13 @@
+PASS 320x568: banner 192px; actions, Careers, form gutters and header clearance
+PASS 360x740: banner 192px; actions, Careers, form gutters and header clearance
+PASS 375x667: banner 192px; actions, Careers, form gutters and header clearance
+PASS 390x844: banner 192px; actions, Careers, form gutters and header clearance
+PASS 414x896: banner 192px; actions, Careers, form gutters and header clearance
+PASS 430x932: banner 192px; actions, Careers, form gutters and header clearance
+PASS 768x1024: banner 158px; actions, Careers, form gutters and header clearance
+PASS 820x1180: banner 158px; actions, Careers, form gutters and header clearance
+PASS 1024x1366: banner 122px; actions, Careers, form gutters and header clearance
+PASS 1025x900: banner 122px; actions, Careers, form gutters and header clearance
+PASS 1280x800: banner 98px; actions, Careers, form gutters and header clearance
+PASS 1440x900: banner 98px; actions, Careers, form gutters and header clearance
+PASS 1920x1080: banner 98px; actions, Careers, form gutters and header clearance

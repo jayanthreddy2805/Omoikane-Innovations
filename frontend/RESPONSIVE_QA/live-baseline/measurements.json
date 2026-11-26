@@ -1,0 +1,3829 @@
+[
+  {
+    "route": "/",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 5561,
+    "headings": [
+      {
+        "text": "Advanced Defense Aerospace & Embedded Systems",
+        "x": 130,
+        "y": 171,
+        "w": 565,
+        "h": 144,
+        "font": "43px",
+        "line": "48.16px"
+      },
+      {
+        "text": "CORE EXPERTISE",
+        "x": 100,
+        "y": 625,
+        "w": 1240,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Aerospace",
+        "x": 137,
+        "y": 814,
+        "w": 574,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Defense",
+        "x": 813,
+        "y": 817,
+        "w": 276,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Automotive",
+        "x": 813,
+        "y": 1119,
+        "w": 276,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Railways",
+        "x": 137,
+        "y": 1411,
+        "w": 814,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Selected Work / Projects",
+        "x": 330,
+        "y": 1892,
+        "w": 780,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "OFC-X",
+        "x": 230,
+        "y": 2082,
+        "w": 55,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "OESC-60 / OESC-100",
+        "x": 230,
+        "y": 2550,
+        "w": 182,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "OGN-X",
+        "x": 230,
+        "y": 2658,
+        "w": 60,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "OCOM-X",
+        "x": 230,
+        "y": 2765,
+        "w": 75,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Why Our Products Stand Out",
+        "x": 550,
+        "y": 2949,
+        "w": 340,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Mission-Critical Engineering",
+        "x": 130,
+        "y": 3269,
+        "w": 249,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Indigenous Product Development",
+        "x": 552,
+        "y": 3269,
+        "w": 292,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Advanced Embedded & AI Systems",
+        "x": 975,
+        "y": 3269,
+        "w": 309,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "CAREERS AT OMOIKANE",
+        "x": 100,
+        "y": 3681,
+        "w": 820,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Software Development",
+        "x": 118,
+        "y": 3978,
+        "w": 341,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Mechanical Engineering",
+        "x": 551,
+        "y": 3978,
+        "w": 341,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Electrical Engineering",
+        "x": 983,
+        "y": 3978,
+        "w": 341,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "From Sky to Soil, We Power Possibilities",
+        "x": 489,
+        "y": 4295,
+        "w": 463,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "hero",
+        "y": 96,
+        "h": 414,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      },
+      {
+        "label": "Focused Production Areas and Products",
+        "y": 510,
+        "h": 1266,
+        "paddingTop": "115.2px",
+        "paddingBottom": "115.2px"
+      },
+      {
+        "label": "selected-work",
+        "y": 1776,
+        "h": 1058,
+        "paddingTop": "115.2px",
+        "paddingBottom": "0px"
+      },
+      {
+        "label": "Why Our Products Stand Out",
+        "y": 2834,
+        "h": 731,
+        "paddingTop": "115.2px",
+        "paddingBottom": "115.2px"
+      },
+      {
+        "label": "careers",
+        "y": 3565,
+        "h": 641,
+        "paddingTop": "115.2px",
+        "paddingBottom": "115.2px"
+      },
+      {
+        "label": "From Sky to Soil, We Power Possibilities",
+        "y": 4207,
+        "h": 440,
+        "paddingTop": "51.2px",
+        "paddingBottom": "51.2px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "",
+        "w": 1440,
+        "h": 414,
+        "natural": [
+          1440,
+          959
+        ],
+        "fit": "cover",
+        "position": "50% 48%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1600&q=75"
+      },
+      {
+        "alt": "Aerospace engineering illustration",
+        "w": 572,
+        "h": 298,
+        "natural": [
+          648,
+          434
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fdomain-air.jpg&w=750&q=75"
+      },
+      {
+        "alt": "Defense engineering illustration",
+        "w": 188,
+        "h": 173,
+        "natural": [
+          190,
+          127
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fdomain-ground.jpg&w=192&q=75"
+      },
+      {
+        "alt": "Automotive electronics illustration",
+        "w": 188,
+        "h": 173,
+        "natural": [
+          190,
+          105
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Felectronics%2Fembedded-pcb.jpg&w=192&q=75"
+      },
+      {
+        "alt": "Industrial engineering illustration",
+        "w": 318,
+        "h": 178,
+        "natural": [
+          648,
+          434
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fdomain-industrial.jpg&w=750&q=75"
+      },
+      {
+        "alt": "Illustrative flight-controller engineering image; product photograph pending owner verification",
+        "w": 488,
+        "h": 304,
+        "natural": [
+          559,
+          699
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fprojects%2Fflight-controller.webp&w=640&q=75"
+      },
+      {
+        "alt": "",
+        "w": 110,
+        "h": 110,
+        "natural": [
+          142,
+          142
+        ],
+        "fit": "contain",
+        "position": "0% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fwhy-us%2Fmission-critical.jpg&w=192&q=75"
+      },
+      {
+        "alt": "",
+        "w": 110,
+        "h": 110,
+        "natural": [
+          142,
+          142
+        ],
+        "fit": "contain",
+        "position": "0% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fwhy-us%2Findigenous-tech.jpg&w=192&q=75"
+      },
+      {
+        "alt": "",
+        "w": 110,
+        "h": 110,
+        "natural": [
+          142,
+          142
+        ],
+        "fit": "contain",
+        "position": "0% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fwhy-us%2Fembedded-ai.jpg&w=192&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/about",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 6295,
+    "headings": [
+      {
+        "text": "About Omoikane Innovations",
+        "x": 60,
+        "y": 114,
+        "w": 1320,
+        "h": 37,
+        "font": "32px",
+        "line": "36.8px"
+      },
+      {
+        "text": "Indigenous engineering.Global ambition.",
+        "x": 60,
+        "y": 408,
+        "w": 530,
+        "h": 58,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "OUR VISION",
+        "x": 649,
+        "y": 1012,
+        "w": 142,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Capabilities built for complex missions.",
+        "x": 72,
+        "y": 1651,
+        "w": 820,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "EMBEDDED & CONTROL SYSTEMSEmbedded & Control Systems",
+        "x": 72,
+        "y": 1876,
+        "w": 400,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "AUTONOMOUS & ROBOTIC PLATFORMSAutonomous & Robotic Platforms",
+        "x": 520,
+        "y": 1876,
+        "w": 400,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "DEFENSE ELECTRONICS & AIDefense Electronics & AI",
+        "x": 968,
+        "y": 1876,
+        "w": 400,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "CERTIFICATIONS",
+        "x": 80,
+        "y": 2711,
+        "w": 1280,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "ISO 9001:2015",
+        "x": 347,
+        "y": 2888,
+        "w": 308,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "MSME",
+        "x": 1065,
+        "y": 2876,
+        "w": 248,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Startup India",
+        "x": 347,
+        "y": 3153,
+        "w": 308,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Startup Karnataka",
+        "x": 1005,
+        "y": 3153,
+        "w": 308,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "MISSION DOMAINS",
+        "x": 125,
+        "y": 3534,
+        "w": 1190,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "DEFENSE",
+        "x": 181,
+        "y": 3734,
+        "w": 440,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "FREQUENTLY ASKED QUESTIONS",
+        "x": 100,
+        "y": 4282,
+        "w": 1240,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "01What is the core mission of Omoikane Innovations?",
+        "x": 100,
+        "y": 4428,
+        "w": 1240,
+        "h": 32,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "02How do your autonomous systems integrate with existing infrastructure?",
+        "x": 100,
+        "y": 4520,
+        "w": 1240,
+        "h": 32,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "03What makes your robotic platforms suitable for extreme environments?",
+        "x": 100,
+        "y": 4612,
+        "w": 1240,
+        "h": 32,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "04Do you offer custom engineering for specialized mission requirements?",
+        "x": 100,
+        "y": 4704,
+        "w": 1240,
+        "h": 32,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "05How does Omoikane ensure the security and resilience of communications?",
+        "x": 100,
+        "y": 4796,
+        "w": 1240,
+        "h": 32,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "From Sky to Soil, We Power Possibilities",
+        "x": 489,
+        "y": 5029,
+        "w": 463,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "About Omoikane Innovations",
+        "y": 96,
+        "h": 73,
+        "paddingTop": "18px",
+        "paddingBottom": "18px"
+      },
+      {
+        "label": "Indigenous engineering.Global ambition.",
+        "y": 169,
+        "h": 730,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "OUR VISION",
+        "y": 899,
+        "h": 535,
+        "paddingTop": "112px",
+        "paddingBottom": "96px"
+      },
+      {
+        "label": "Capabilities built for complex missions.",
+        "y": 1434,
+        "h": 900,
+        "paddingTop": "128px",
+        "paddingBottom": "96px"
+      },
+      {
+        "label": "Company figures",
+        "y": 2334,
+        "h": 242,
+        "paddingTop": "50.4px",
+        "paddingBottom": "50.4px"
+      },
+      {
+        "label": "CERTIFICATIONS",
+        "y": 2576,
+        "h": 814,
+        "paddingTop": "135px",
+        "paddingBottom": "81px"
+      },
+      {
+        "label": "MISSION DOMAINS",
+        "y": 3389,
+        "h": 811,
+        "paddingTop": "112px",
+        "paddingBottom": "96px"
+      },
+      {
+        "label": "faq",
+        "y": 4200,
+        "h": 740,
+        "paddingTop": "81px",
+        "paddingBottom": "81px"
+      },
+      {
+        "label": "From Sky to Soil, We Power Possibilities",
+        "y": 4940,
+        "h": 440,
+        "paddingTop": "51.2px",
+        "paddingBottom": "51.2px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "ISO 9001:2015 Quality Management System mark",
+        "w": 135,
+        "h": 135,
+        "natural": [
+          720,
+          640
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcertifications%2Fiso-9001.png&w=750&q=75"
+      },
+      {
+        "alt": "MSME Micro, Small & Medium Enterprise mark",
+        "w": 230,
+        "h": 79,
+        "natural": [
+          720,
+          247
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcertifications%2Fmsme.png&w=750&q=75"
+      },
+      {
+        "alt": "Startup India logo mark",
+        "w": 170,
+        "h": 46,
+        "natural": [
+          288,
+          78
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcertifications%2Fstartup-india.png&w=750&q=75"
+      },
+      {
+        "alt": "Startup Karnataka logo mark",
+        "w": 170,
+        "h": 74,
+        "natural": [
+          343,
+          149
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/images/certifications/startup-karnataka.svg"
+      },
+      {
+        "alt": "Autonomous aerial platform representing Omoikane air systems capabilities.",
+        "w": 1190,
+        "h": 426,
+        "natural": [
+          1008,
+          676
+        ],
+        "fit": "cover",
+        "position": "50% 30%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fdomain-air.jpg&w=1080&q=75"
+      },
+      {
+        "alt": "Precision robotic actuator machinery representing Omoikane industrial automation capabilities.",
+        "w": 1190,
+        "h": 426,
+        "natural": [
+          1008,
+          676
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fdomain-industrial.jpg&w=1080&q=75"
+      },
+      {
+        "alt": "Rugged mission electronics representing Omoikane defense technology capabilities.",
+        "w": 1190,
+        "h": 426,
+        "natural": [
+          1008,
+          676
+        ],
+        "fit": "cover",
+        "position": "50% 40%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fdomain-ground.jpg&w=1080&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/expertise",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 4151,
+    "headings": [
+      {
+        "text": "BUILT FOR REAL WORLD SYSTEMS",
+        "x": 64,
+        "y": 180,
+        "w": 1207,
+        "h": 155,
+        "font": "74px",
+        "line": "77.7px"
+      },
+      {
+        "text": "Defense",
+        "x": 150,
+        "y": 2085,
+        "w": 504,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Engineering focus",
+        "x": 150,
+        "y": 2232,
+        "w": 504,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "From Sky to Soil, We Power Possibilities",
+        "x": 489,
+        "y": 2885,
+        "w": 463,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "BUILT FOR REAL WORLD SYSTEMS",
+        "y": 96,
+        "h": 804,
+        "paddingTop": "45px",
+        "paddingBottom": "45px"
+      },
+      {
+        "label": "Omoikane Innovations — Innovation is not our goal; it’s our standard.",
+        "y": 900,
+        "h": 96,
+        "paddingTop": "18px",
+        "paddingBottom": "18px"
+      },
+      {
+        "label": "Omoikane expertise",
+        "y": 996,
+        "h": 1800,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      },
+      {
+        "label": "From Sky to Soil, We Power Possibilities",
+        "y": 2796,
+        "h": 440,
+        "paddingTop": "51.2px",
+        "paddingBottom": "51.2px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "",
+        "w": 1440,
+        "h": 804,
+        "natural": [
+          1440,
+          730
+        ],
+        "fit": "cover",
+        "position": "100% 100%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fexpertise%2Fhero.png&w=1600&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=48&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=48&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=48&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=48&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=48&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=48&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/work",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 5871,
+    "headings": [
+      {
+        "text": "FROM SYSTEM DESIGN TO TESTED HARDWARE",
+        "x": 72,
+        "y": 144,
+        "w": 780,
+        "h": 153,
+        "font": "70px",
+        "line": "73.5px"
+      },
+      {
+        "text": "TECHNOLOGY & ENGINEERING",
+        "x": 72,
+        "y": 962,
+        "w": 357,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Hardware Design",
+        "x": 112,
+        "y": 1225,
+        "w": 152,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Embedded Platforms",
+        "x": 544,
+        "y": 1225,
+        "w": 184,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "RF & GNSS",
+        "x": 976,
+        "y": 1225,
+        "w": 93,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "System Integration",
+        "x": 112,
+        "y": 1374,
+        "w": 168,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Power Electronics",
+        "x": 544,
+        "y": 1374,
+        "w": 158,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Prototyping & Validation",
+        "x": 976,
+        "y": 1374,
+        "w": 212,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "OFC-X — Flight Controller",
+        "x": 723,
+        "y": 1657,
+        "w": 617,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Technical Considerations",
+        "x": 723,
+        "y": 1830,
+        "w": 617,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "OESC-60 / OESC-100 — 4-in-1 Electronic Speed Controller",
+        "x": 100,
+        "y": 2392,
+        "w": 617,
+        "h": 58,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Technical Considerations",
+        "x": 100,
+        "y": 2595,
+        "w": 617,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "OGN-X — GNSS / GPS Module",
+        "x": 723,
+        "y": 3167,
+        "w": 617,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Technical Considerations",
+        "x": 723,
+        "y": 3340,
+        "w": 617,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "OCOM-X — Communication System",
+        "x": 100,
+        "y": 3916,
+        "w": 617,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Technical Considerations",
+        "x": 100,
+        "y": 4090,
+        "w": 617,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "From Sky to Soil, We Power Possibilities",
+        "x": 489,
+        "y": 4606,
+        "w": 463,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "FROM SYSTEM DESIGN TO TESTED HARDWARE",
+        "y": 0,
+        "h": 900,
+        "paddingTop": "144px",
+        "paddingBottom": "45px"
+      },
+      {
+        "label": "technology-engineering",
+        "y": 900,
+        "h": 597,
+        "paddingTop": "62.4px",
+        "paddingBottom": "62.4px"
+      },
+      {
+        "label": "Product configurations",
+        "y": 1497,
+        "h": 3020,
+        "paddingTop": "115.2px",
+        "paddingBottom": "115.2px"
+      },
+      {
+        "label": "From Sky to Soil, We Power Possibilities",
+        "y": 4516,
+        "h": 440,
+        "paddingTop": "51.2px",
+        "paddingBottom": "51.2px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "Illustrative flight-controller engineering image; product photograph pending owner verification",
+        "w": 460,
+        "h": 460,
+        "natural": [
+          503,
+          629
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fprojects%2Fflight-controller.webp&w=512&q=75"
+      },
+      {
+        "alt": "Electronics imagery accompanying the OESC controller profile",
+        "w": 460,
+        "h": 460,
+        "natural": [
+          503,
+          281
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Felectronics%2Fembedded-pcb.jpg&w=512&q=75"
+      },
+      {
+        "alt": "Autonomous platform imagery accompanying the OGN-X navigation profile",
+        "w": 460,
+        "h": 460,
+        "natural": [
+          503,
+          629
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fprojects%2Fground-platform.webp&w=512&q=75"
+      },
+      {
+        "alt": "Communication and platform imagery accompanying the OCOM-X profile",
+        "w": 460,
+        "h": 460,
+        "natural": [
+          503,
+          629
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fprojects%2Ftactical-datalink.webp&w=512&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/leadership",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 3910,
+    "headings": [
+      {
+        "text": "LEADERSHIP BUILT ON vision & precision",
+        "x": 24,
+        "y": 742,
+        "w": 784,
+        "h": 64,
+        "font": "29px",
+        "line": "31.9px"
+      },
+      {
+        "text": "Engineering beyondthe expected.",
+        "x": 80,
+        "y": 1040,
+        "w": 860,
+        "h": 58,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "BUILD FOR THE REAL WORLD",
+        "x": 80,
+        "y": 1228,
+        "w": 285,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "WORK ACROSS DISCIPLINES",
+        "x": 412,
+        "y": 1228,
+        "w": 285,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "OWN THE ENTIRE PROCESS",
+        "x": 743,
+        "y": 1228,
+        "w": 285,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "SOLVE DIFFICULT PROBLEMS",
+        "x": 1075,
+        "y": 1228,
+        "w": 285,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "Leadership profiles",
+        "x": 144,
+        "y": 2131,
+        "w": 1152,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "PROFILE 01",
+        "x": -415,
+        "y": 2909,
+        "w": 128,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "PROFILE 02",
+        "x": 70,
+        "y": 2682,
+        "w": 131,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "PROFILE 03",
+        "x": 555,
+        "y": 2909,
+        "w": 132,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "PROFILE 04",
+        "x": 1041,
+        "y": 2682,
+        "w": 132,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      }
+    ],
+    "sections": [
+      {
+        "y": 72,
+        "h": 594,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      },
+      {
+        "label": "LEADERSHIP BUILT ON vision & precision",
+        "y": 666,
+        "h": 216,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      },
+      {
+        "label": "Engineering beyondthe expected.",
+        "y": 882,
+        "h": 530,
+        "paddingTop": "115.2px",
+        "paddingBottom": "64px"
+      },
+      {
+        "y": 2186,
+        "h": 810,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      },
+      {
+        "y": 3010,
+        "h": 900,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "UAV Architecture",
+        "w": 1531,
+        "h": 631,
+        "natural": [
+          1080,
+          410
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fuav-architecture-blueprint.png&w=1080&q=75"
+      },
+      {
+        "alt": "",
+        "w": 378,
+        "h": 378,
+        "natural": [
+          1024,
+          1024
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fconfidence.jpg&w=1080&q=75"
+      },
+      {
+        "alt": "",
+        "w": 378,
+        "h": 378,
+        "natural": [
+          1024,
+          1024
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fwisdom.jpg&w=1080&q=75"
+      },
+      {
+        "alt": "",
+        "w": 378,
+        "h": 378,
+        "natural": [
+          1024,
+          1024
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fkindness.jpg&w=1080&q=75"
+      },
+      {
+        "alt": "",
+        "w": 378,
+        "h": 378,
+        "natural": [
+          1024,
+          1024
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fcreativity.jpg&w=1080&q=75"
+      },
+      {
+        "alt": "",
+        "w": 720,
+        "h": 405,
+        "natural": [
+          1024,
+          1024
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fconfidence.jpg&w=1080&q=75"
+      },
+      {
+        "alt": "",
+        "w": 720,
+        "h": 405,
+        "natural": [
+          1024,
+          1024
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fwisdom.jpg&w=1080&q=75"
+      },
+      {
+        "alt": "",
+        "w": 720,
+        "h": 405,
+        "natural": [
+          1024,
+          1024
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fkindness.jpg&w=1080&q=75"
+      },
+      {
+        "alt": "",
+        "w": 720,
+        "h": 405,
+        "natural": [
+          1024,
+          1024
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fcreativity.jpg&w=1080&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/careers/software",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 2945,
+    "headings": [
+      {
+        "text": "SOFTWARE THATMEETS THE REAL WORLD.",
+        "x": 72,
+        "y": 265,
+        "w": 616,
+        "h": 64,
+        "font": "29px",
+        "line": "31.9px"
+      },
+      {
+        "text": "WEB DEVELOPER",
+        "x": 520,
+        "y": 766,
+        "w": 848,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "CORE SKILLS",
+        "x": 520,
+        "y": 1357,
+        "w": 848,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "SOFTWARE THATMEETS THE REAL WORLD.",
+        "y": 0,
+        "h": 686,
+        "paddingTop": "144px",
+        "paddingBottom": "80px"
+      },
+      {
+        "label": "roles",
+        "y": 686,
+        "h": 1344,
+        "paddingTop": "80px",
+        "paddingBottom": "80px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "SOFTWARE Engineering",
+        "w": 616,
+        "h": 462,
+        "natural": [
+          720,
+          482
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Fsoftware%2Fhero.jpg&w=750&q=75"
+      },
+      {
+        "alt": "WEB DEVELOPER",
+        "w": 848,
+        "h": 363,
+        "natural": [
+          720,
+          402
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Fsoftware%2Fweb-dev-dashboard.jpg&w=750&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/careers/mechanical",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 2828,
+    "headings": [
+      {
+        "text": "PRECISION STRUCTURESBUILT TO ENDURE.",
+        "x": 72,
+        "y": 265,
+        "w": 616,
+        "h": 64,
+        "font": "29px",
+        "line": "31.9px"
+      },
+      {
+        "text": "3D & 2D MECHANICAL DESIGN ENGINEER",
+        "x": 520,
+        "y": 766,
+        "w": 848,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "CORE SKILLS",
+        "x": 520,
+        "y": 1357,
+        "w": 848,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "PRECISION STRUCTURESBUILT TO ENDURE.",
+        "y": 0,
+        "h": 686,
+        "paddingTop": "144px",
+        "paddingBottom": "80px"
+      },
+      {
+        "label": "roles",
+        "y": 686,
+        "h": 1227,
+        "paddingTop": "80px",
+        "paddingBottom": "80px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "MECHANICAL Engineering",
+        "w": 616,
+        "h": 462,
+        "natural": [
+          720,
+          482
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Fmechanical%2Fhero.jpg&w=750&q=75"
+      },
+      {
+        "alt": "3D & 2D MECHANICAL DESIGN ENGINEER",
+        "w": 848,
+        "h": 363,
+        "natural": [
+          720,
+          402
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Fmechanical%2Fmech-design.jpg&w=750&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/careers/electronics",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 3073,
+    "headings": [
+      {
+        "text": "MISSION ELECTRONICSPOWERING AUTONOMY.",
+        "x": 72,
+        "y": 265,
+        "w": 616,
+        "h": 64,
+        "font": "29px",
+        "line": "31.9px"
+      },
+      {
+        "text": "HARDWARE DESIGN ENGINEER",
+        "x": 520,
+        "y": 766,
+        "w": 848,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "CORE SKILLS",
+        "x": 520,
+        "y": 1383,
+        "w": 848,
+        "h": 29,
+        "font": "18px",
+        "line": "28.8px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "MISSION ELECTRONICSPOWERING AUTONOMY.",
+        "y": 0,
+        "h": 686,
+        "paddingTop": "144px",
+        "paddingBottom": "80px"
+      },
+      {
+        "label": "roles",
+        "y": 686,
+        "h": 1472,
+        "paddingTop": "80px",
+        "paddingBottom": "80px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "ELECTRICAL Engineering",
+        "w": 616,
+        "h": 462,
+        "natural": [
+          720,
+          482
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Felectronics%2Fhero.jpg&w=750&q=75"
+      },
+      {
+        "alt": "HARDWARE DESIGN ENGINEER",
+        "w": 848,
+        "h": 363,
+        "natural": [
+          720,
+          402
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Felectronics%2Fembedded-pcb.jpg&w=750&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/contact",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 1875,
+    "headings": [
+      {
+        "text": "LET’S CONNECT",
+        "x": 540,
+        "y": 183,
+        "w": 255,
+        "h": 32,
+        "font": "29px",
+        "line": "31.9px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "LET’S CONNECT",
+        "y": 144,
+        "h": 816,
+        "paddingTop": "0px",
+        "paddingBottom": "90px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "Aeronautical Drawing",
+        "w": 98,
+        "h": 110,
+        "natural": [
+          205,
+          230
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcontact%2Faeronautical-drawing-sketch.png&w=750&q=75"
+      },
+      {
+        "alt": "Strategic blueprint",
+        "w": 421,
+        "h": 420,
+        "natural": [
+          475,
+          594
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcontact%2Fenquiry-visual.png&w=512&q=75"
+      },
+      {
+        "alt": "",
+        "w": 20,
+        "h": 15,
+        "natural": [
+          225,
+          150
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/flags/IN"
+      }
+    ]
+  },
+  {
+    "route": "/apply",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 1930,
+    "headings": [
+      {
+        "text": "WORK WITH US",
+        "x": 608,
+        "y": 144,
+        "w": 224,
+        "h": 32,
+        "font": "29px",
+        "line": "31.9px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "WORK WITH US",
+        "y": 144,
+        "h": 871,
+        "paddingTop": "0px",
+        "paddingBottom": "90px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "",
+        "w": 20,
+        "h": 15,
+        "natural": [
+          225,
+          150
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/flags/IN"
+      }
+    ]
+  },
+  {
+    "route": "/privacy",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 3033,
+    "headings": [
+      {
+        "text": "Privacy Notice",
+        "x": 295,
+        "y": 182,
+        "w": 850,
+        "h": 32,
+        "font": "29px",
+        "line": "31.9px"
+      },
+      {
+        "text": "Information you give us",
+        "x": 295,
+        "y": 431,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "How we use it",
+        "x": 295,
+        "y": 788,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Cookies and analytics",
+        "x": 295,
+        "y": 1063,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Service providers and storage",
+        "x": 295,
+        "y": 1313,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Your choices and requests",
+        "x": 295,
+        "y": 1614,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Changes and contact",
+        "x": 295,
+        "y": 1825,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "Information you give us",
+        "y": 399,
+        "h": 357,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "How we use it",
+        "y": 756,
+        "h": 275,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Cookies and analytics",
+        "y": 1031,
+        "h": 250,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Service providers and storage",
+        "y": 1281,
+        "h": 301,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Your choices and requests",
+        "y": 1582,
+        "h": 211,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Changes and contact",
+        "y": 1793,
+        "h": 211,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      }
+    ],
+    "images": []
+  },
+  {
+    "route": "/terms",
+    "width": 1440,
+    "height": 900,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 2680,
+    "headings": [
+      {
+        "text": "Website Terms",
+        "x": 295,
+        "y": 182,
+        "w": 850,
+        "h": 32,
+        "font": "29px",
+        "line": "31.9px"
+      },
+      {
+        "text": "Using this website",
+        "x": 295,
+        "y": 431,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Product and capability information",
+        "x": 295,
+        "y": 616,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Information you send",
+        "x": 295,
+        "y": 852,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Website content",
+        "x": 295,
+        "y": 1128,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "External websites and updates",
+        "x": 295,
+        "y": 1338,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      },
+      {
+        "text": "Contact",
+        "x": 295,
+        "y": 1523,
+        "w": 850,
+        "h": 29,
+        "font": "25px",
+        "line": "28.75px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "Using this website",
+        "y": 399,
+        "h": 185,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Product and capability information",
+        "y": 584,
+        "h": 236,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Information you send",
+        "y": 820,
+        "h": 275,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Website content",
+        "y": 1096,
+        "h": 211,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "External websites and updates",
+        "y": 1306,
+        "h": 185,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Contact",
+        "y": 1491,
+        "h": 159,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      }
+    ],
+    "images": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 6345,
+    "headings": [
+      {
+        "text": "Advanced Defense Aerospace & Embedded Systems",
+        "x": 15,
+        "y": 204,
+        "w": 360,
+        "h": 121,
+        "font": "36px",
+        "line": "40.32px"
+      },
+      {
+        "text": "CORE EXPERTISE",
+        "x": 24,
+        "y": 908,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Aerospace",
+        "x": 24,
+        "y": 1083,
+        "w": 342,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Selected Work / Projects",
+        "x": 20,
+        "y": 1683,
+        "w": 350,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "OFC-X",
+        "x": 70,
+        "y": 1841,
+        "w": 55,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "OESC-60 / OESC-100",
+        "x": 70,
+        "y": 2338,
+        "w": 182,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "OGN-X",
+        "x": 70,
+        "y": 2410,
+        "w": 60,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "OCOM-X",
+        "x": 70,
+        "y": 2483,
+        "w": 75,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Why Our Products Stand Out",
+        "x": 52,
+        "y": 2579,
+        "w": 287,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Mission-Critical Engineering",
+        "x": 49,
+        "y": 2924,
+        "w": 249,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Indigenous Product Development",
+        "x": 49,
+        "y": 3304,
+        "w": 292,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Advanced Embedded & AI Systems",
+        "x": 49,
+        "y": 3659,
+        "w": 292,
+        "h": 47,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "CAREERS AT OMOIKANE",
+        "x": 24,
+        "y": 3947,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Software Development",
+        "x": 42,
+        "y": 4253,
+        "w": 308,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Mechanical Engineering",
+        "x": 42,
+        "y": 4458,
+        "w": 308,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Electrical Engineering",
+        "x": 42,
+        "y": 4663,
+        "w": 308,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "From Sky to Soil, We Power Possibilities",
+        "x": 53,
+        "y": 4906,
+        "w": 285,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "hero",
+        "y": 96,
+        "h": 764,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      },
+      {
+        "label": "Focused Production Areas and Products",
+        "y": 860,
+        "h": 750,
+        "paddingTop": "48px",
+        "paddingBottom": "48px"
+      },
+      {
+        "label": "selected-work",
+        "y": 1610,
+        "h": 921,
+        "paddingTop": "72px",
+        "paddingBottom": "0px"
+      },
+      {
+        "label": "Why Our Products Stand Out",
+        "y": 2531,
+        "h": 1367,
+        "paddingTop": "48px",
+        "paddingBottom": "48px"
+      },
+      {
+        "label": "careers",
+        "y": 3898,
+        "h": 920,
+        "paddingTop": "48px",
+        "paddingBottom": "48px"
+      },
+      {
+        "label": "From Sky to Soil, We Power Possibilities",
+        "y": 4818,
+        "h": 313,
+        "paddingTop": "51.2px",
+        "paddingBottom": "51.2px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "",
+        "w": 390,
+        "h": 321,
+        "natural": [
+          325,
+          216
+        ],
+        "fit": "cover",
+        "position": "58% 100%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Freference%2Fhome-drone-mobile.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "Aerospace engineering illustration",
+        "w": 342,
+        "h": 239,
+        "natural": [
+          342,
+          229
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fdomain-air.jpg&w=1080&q=75"
+      },
+      {
+        "alt": "Illustrative flight-controller engineering image; product photograph pending owner verification",
+        "w": 348,
+        "h": 218,
+        "natural": [
+          311,
+          388
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fprojects%2Fflight-controller.webp&w=1080&q=75"
+      },
+      {
+        "alt": "",
+        "w": 110,
+        "h": 110,
+        "natural": [
+          142,
+          142
+        ],
+        "fit": "contain",
+        "position": "0% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fwhy-us%2Fmission-critical.jpg&w=512&q=75"
+      },
+      {
+        "alt": "",
+        "w": 110,
+        "h": 110,
+        "natural": [
+          142,
+          142
+        ],
+        "fit": "contain",
+        "position": "0% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fwhy-us%2Findigenous-tech.jpg&w=512&q=75"
+      },
+      {
+        "alt": "",
+        "w": 110,
+        "h": 110,
+        "natural": [
+          142,
+          142
+        ],
+        "fit": "contain",
+        "position": "0% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fwhy-us%2Fembedded-ai.jpg&w=512&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/about",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 6667,
+    "headings": [
+      {
+        "text": "About Omoikane Innovations",
+        "x": 71,
+        "y": 103,
+        "w": 248,
+        "h": 20,
+        "font": "17.16px",
+        "line": "19.734px"
+      },
+      {
+        "text": "Indigenous engineering.Global ambition.",
+        "x": 18,
+        "y": 411,
+        "w": 355,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "OUR VISION",
+        "x": 135,
+        "y": 918,
+        "w": 120,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Capabilities built for complex missions.",
+        "x": 20,
+        "y": 1278,
+        "w": 351,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "EMBEDDED & CONTROL SYSTEMSEmbedded & Control Systems",
+        "x": 45,
+        "y": 1526,
+        "w": 264,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "AUTONOMOUS & ROBOTIC PLATFORMSAutonomous & Robotic Platforms",
+        "x": 377,
+        "y": 1526,
+        "w": 264,
+        "h": 47,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "DEFENSE ELECTRONICS & AIDefense Electronics & AI",
+        "x": 709,
+        "y": 1527,
+        "w": 264,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "CERTIFICATIONS",
+        "x": 20,
+        "y": 2478,
+        "w": 351,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "ISO 9001:2015",
+        "x": 45,
+        "y": 2753,
+        "w": 301,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "MSME",
+        "x": 45,
+        "y": 3008,
+        "w": 301,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Startup India",
+        "x": 45,
+        "y": 3252,
+        "w": 301,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Startup Karnataka",
+        "x": 45,
+        "y": 3522,
+        "w": 301,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "MISSION DOMAINS",
+        "x": 20,
+        "y": 3776,
+        "w": 351,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "DEFENSE",
+        "x": 40,
+        "y": 4172,
+        "w": 311,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "FREQUENTLY ASKED QUESTIONS",
+        "x": 20,
+        "y": 4531,
+        "w": 351,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "01What is the core mission of Omoikane Innovations?",
+        "x": 20,
+        "y": 4691,
+        "w": 351,
+        "h": 36,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "02How do your autonomous systems integrate with existing infrastructure?",
+        "x": 20,
+        "y": 4772,
+        "w": 351,
+        "h": 36,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "03What makes your robotic platforms suitable for extreme environments?",
+        "x": 20,
+        "y": 4853,
+        "w": 351,
+        "h": 36,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "04Do you offer custom engineering for specialized mission requirements?",
+        "x": 20,
+        "y": 4933,
+        "w": 351,
+        "h": 36,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "05How does Omoikane ensure the security and resilience of communications?",
+        "x": 20,
+        "y": 5014,
+        "w": 351,
+        "h": 36,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "From Sky to Soil, We Power Possibilities",
+        "x": 53,
+        "y": 5228,
+        "w": 285,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "About Omoikane Innovations",
+        "y": 89,
+        "h": 48,
+        "paddingTop": "14px",
+        "paddingBottom": "14px"
+      },
+      {
+        "label": "Indigenous engineering.Global ambition.",
+        "y": 137,
+        "h": 712,
+        "paddingTop": "24px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "OUR VISION",
+        "y": 849,
+        "h": 361,
+        "paddingTop": "67.52px",
+        "paddingBottom": "67.52px"
+      },
+      {
+        "label": "Capabilities built for complex missions.",
+        "y": 1210,
+        "h": 846,
+        "paddingTop": "67.52px",
+        "paddingBottom": "67.52px"
+      },
+      {
+        "label": "Company figures",
+        "y": 2056,
+        "h": 355,
+        "paddingTop": "36px",
+        "paddingBottom": "36px"
+      },
+      {
+        "label": "CERTIFICATIONS",
+        "y": 2411,
+        "h": 1296,
+        "paddingTop": "67.52px",
+        "paddingBottom": "67.52px"
+      },
+      {
+        "label": "MISSION DOMAINS",
+        "y": 3707,
+        "h": 755,
+        "paddingTop": "67.52px",
+        "paddingBottom": "67.52px"
+      },
+      {
+        "label": "faq",
+        "y": 4463,
+        "h": 677,
+        "paddingTop": "67.52px",
+        "paddingBottom": "67.52px"
+      },
+      {
+        "label": "From Sky to Soil, We Power Possibilities",
+        "y": 5140,
+        "h": 313,
+        "paddingTop": "51.2px",
+        "paddingBottom": "51.2px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "ISO 9001:2015 Quality Management System mark",
+        "w": 95,
+        "h": 95,
+        "natural": [
+          332,
+          295
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcertifications%2Fiso-9001.png&w=1200&q=75"
+      },
+      {
+        "alt": "MSME Micro, Small & Medium Enterprise mark",
+        "w": 165,
+        "h": 57,
+        "natural": [
+          332,
+          114
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcertifications%2Fmsme.png&w=1200&q=75"
+      },
+      {
+        "alt": "Startup India logo mark",
+        "w": 165,
+        "h": 45,
+        "natural": [
+          97,
+          26
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcertifications%2Fstartup-india.png&w=1200&q=75"
+      },
+      {
+        "alt": "Startup Karnataka logo mark",
+        "w": 165,
+        "h": 72,
+        "natural": [
+          343,
+          149
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/images/certifications/startup-karnataka.svg"
+      },
+      {
+        "alt": "Autonomous aerial platform representing Omoikane air systems capabilities.",
+        "w": 351,
+        "h": 468,
+        "natural": [
+          390,
+          261
+        ],
+        "fit": "cover",
+        "position": "50% 30%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fdomain-air.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "Precision robotic actuator machinery representing Omoikane industrial automation capabilities.",
+        "w": 351,
+        "h": 468,
+        "natural": [
+          390,
+          261
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fdomain-industrial.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "Rugged mission electronics representing Omoikane defense technology capabilities.",
+        "w": 351,
+        "h": 468,
+        "natural": [
+          390,
+          261
+        ],
+        "fit": "cover",
+        "position": "50% 40%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fdomain-ground.jpg&w=1200&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/expertise",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 3150,
+    "headings": [
+      {
+        "text": "BUILT FOR REAL WORLD SYSTEMS",
+        "x": 20,
+        "y": 96,
+        "w": 322,
+        "h": 60,
+        "font": "26px",
+        "line": "29.9px"
+      },
+      {
+        "text": "Aerospace",
+        "x": 16,
+        "y": 858,
+        "w": 358,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Engineering focus",
+        "x": 16,
+        "y": 1028,
+        "w": 358,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "From Sky to Soil, We Power Possibilities",
+        "x": 53,
+        "y": 1711,
+        "w": 285,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "BUILT FOR REAL WORLD SYSTEMS",
+        "y": 76,
+        "h": 646,
+        "paddingTop": "20px",
+        "paddingBottom": "12px"
+      },
+      {
+        "label": "Omoikane Innovations — Innovation is not our goal; it’s our standard.",
+        "y": 722,
+        "h": 88,
+        "paddingTop": "14px",
+        "paddingBottom": "14px"
+      },
+      {
+        "label": "Omoikane expertise",
+        "y": 810,
+        "h": 814,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      },
+      {
+        "label": "From Sky to Soil, We Power Possibilities",
+        "y": 1623,
+        "h": 313,
+        "paddingTop": "51.2px",
+        "paddingBottom": "51.2px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "",
+        "w": 390,
+        "h": 366,
+        "natural": [
+          305,
+          543
+        ],
+        "fit": "cover",
+        "position": "50% 100%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fexpertise%2Fherom.png&w=1200&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=96&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=96&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=96&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=96&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=96&q=75"
+      },
+      {
+        "alt": "",
+        "w": 44,
+        "h": 44,
+        "natural": [
+          48,
+          48
+        ],
+        "fit": "fill",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fshared%2Fomoikane-logo.png&w=96&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/work",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 7179,
+    "headings": [
+      {
+        "text": "FROM SYSTEM DESIGN TO TESTED HARDWARE",
+        "x": 24,
+        "y": 91,
+        "w": 289,
+        "h": 62,
+        "font": "26px",
+        "line": "29.9px"
+      },
+      {
+        "text": "TECHNOLOGY & ENGINEERING",
+        "x": 20,
+        "y": 928,
+        "w": 306,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Hardware Design",
+        "x": 20,
+        "y": 1184,
+        "w": 350,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Embedded Platforms",
+        "x": 20,
+        "y": 1343,
+        "w": 350,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "RF & GNSS",
+        "x": 20,
+        "y": 1503,
+        "w": 350,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "System Integration",
+        "x": 20,
+        "y": 1663,
+        "w": 350,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Power Electronics",
+        "x": 20,
+        "y": 1822,
+        "w": 350,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Prototyping & Validation",
+        "x": 20,
+        "y": 1982,
+        "w": 350,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "OFC-X — Flight Controller",
+        "x": 24,
+        "y": 2488,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Technical Considerations",
+        "x": 24,
+        "y": 2706,
+        "w": 342,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "OESC-60 / OESC-100 — 4-in-1 Electronic Speed Controller",
+        "x": 24,
+        "y": 3336,
+        "w": 342,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Technical Considerations",
+        "x": 24,
+        "y": 3580,
+        "w": 342,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "OGN-X — GNSS / GPS Module",
+        "x": 24,
+        "y": 4189,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Technical Considerations",
+        "x": 24,
+        "y": 4408,
+        "w": 342,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "OCOM-X — Communication System",
+        "x": 24,
+        "y": 5037,
+        "w": 342,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Technical Considerations",
+        "x": 24,
+        "y": 5282,
+        "w": 342,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "From Sky to Soil, We Power Possibilities",
+        "x": 53,
+        "y": 5740,
+        "w": 285,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "FROM SYSTEM DESIGN TO TESTED HARDWARE",
+        "y": 0,
+        "h": 861,
+        "paddingTop": "91px",
+        "paddingBottom": "42.2px"
+      },
+      {
+        "label": "technology-engineering",
+        "y": 861,
+        "h": 1312,
+        "paddingTop": "67.52px",
+        "paddingBottom": "67.52px"
+      },
+      {
+        "label": "Product configurations",
+        "y": 2173,
+        "h": 3479,
+        "paddingTop": "48px",
+        "paddingBottom": "48px"
+      },
+      {
+        "label": "From Sky to Soil, We Power Possibilities",
+        "y": 5652,
+        "h": 313,
+        "paddingTop": "51.2px",
+        "paddingBottom": "51.2px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "Illustrative flight-controller engineering image; product photograph pending owner verification",
+        "w": 342,
+        "h": 239,
+        "natural": [
+          312,
+          390
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fprojects%2Fflight-controller.webp&w=1200&q=75"
+      },
+      {
+        "alt": "Electronics imagery accompanying the OESC controller profile",
+        "w": 342,
+        "h": 239,
+        "natural": [
+          390,
+          217
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Felectronics%2Fembedded-pcb.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "Autonomous platform imagery accompanying the OGN-X navigation profile",
+        "w": 342,
+        "h": 239,
+        "natural": [
+          312,
+          390
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fprojects%2Fground-platform.webp&w=1200&q=75"
+      },
+      {
+        "alt": "Communication and platform imagery accompanying the OCOM-X profile",
+        "w": 342,
+        "h": 239,
+        "natural": [
+          312,
+          390
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fprojects%2Ftactical-datalink.webp&w=1200&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/leadership",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 4882,
+    "headings": [
+      {
+        "text": "LEADERSHIP BUILT ON vision & precision",
+        "x": 16,
+        "y": 591,
+        "w": 358,
+        "h": 60,
+        "font": "26px",
+        "line": "29.9px"
+      },
+      {
+        "text": "Engineering beyondthe expected.",
+        "x": 20,
+        "y": 950,
+        "w": 350,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "BUILD FOR THE REAL WORLD",
+        "x": 20,
+        "y": 1102,
+        "w": 350,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "WORK ACROSS DISCIPLINES",
+        "x": 20,
+        "y": 1298,
+        "w": 350,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "OWN THE ENTIRE PROCESS",
+        "x": 20,
+        "y": 1494,
+        "w": 350,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "SOLVE DIFFICULT PROBLEMS",
+        "x": 20,
+        "y": 1690,
+        "w": 350,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "Leadership profiles",
+        "x": 20,
+        "y": 1850,
+        "w": 350,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "PROFILE 01",
+        "x": 133,
+        "y": 2320,
+        "w": 123,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "PROFILE 02",
+        "x": 132,
+        "y": 2743,
+        "w": 126,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "PROFILE 03",
+        "x": 131,
+        "y": 3166,
+        "w": 127,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      },
+      {
+        "text": "PROFILE 04",
+        "x": 131,
+        "y": 3589,
+        "w": 127,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      }
+    ],
+    "sections": [
+      {
+        "y": 87,
+        "h": 493,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      },
+      {
+        "label": "LEADERSHIP BUILT ON vision & precision",
+        "y": 580,
+        "h": 264,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      },
+      {
+        "label": "Engineering beyondthe expected.",
+        "y": 844,
+        "h": 974,
+        "paddingTop": "64px",
+        "paddingBottom": "40px"
+      },
+      {
+        "y": 1956,
+        "h": 1656,
+        "paddingTop": "0px",
+        "paddingBottom": "0px"
+      },
+      {
+        "y": 3931,
+        "h": 844,
+        "paddingTop": "20px",
+        "paddingBottom": "20px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "UAV Architecture",
+        "w": 390,
+        "h": 487,
+        "natural": [
+          306,
+          388
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fuav-architecture-blueprint-mobile.png&w=1200&q=75"
+      },
+      {
+        "alt": "",
+        "w": 350,
+        "h": 350,
+        "natural": [
+          332,
+          332
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fconfidence.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "",
+        "w": 350,
+        "h": 350,
+        "natural": [
+          332,
+          332
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fwisdom.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "",
+        "w": 350,
+        "h": 350,
+        "natural": [
+          332,
+          332
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fkindness.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "",
+        "w": 350,
+        "h": 350,
+        "natural": [
+          332,
+          332
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fcreativity.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "",
+        "w": 390,
+        "h": 293,
+        "natural": [
+          332,
+          332
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fconfidence.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "",
+        "w": 390,
+        "h": 293,
+        "natural": [
+          332,
+          332
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fwisdom.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "",
+        "w": 390,
+        "h": 293,
+        "natural": [
+          332,
+          332
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fkindness.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "",
+        "w": 390,
+        "h": 293,
+        "natural": [
+          332,
+          332
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fcreativity.jpg&w=1200&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/careers/software",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 3150,
+    "headings": [
+      {
+        "text": "SOFTWARE THATMEETS THE REAL WORLD.",
+        "x": 20,
+        "y": 91,
+        "w": 351,
+        "h": 60,
+        "font": "26px",
+        "line": "29.9px"
+      },
+      {
+        "text": "WEB DEVELOPER",
+        "x": 20,
+        "y": 717,
+        "w": 351,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "CORE SKILLS",
+        "x": 20,
+        "y": 1097,
+        "w": 351,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "SOFTWARE THATMEETS THE REAL WORLD.",
+        "y": 0,
+        "h": 569,
+        "paddingTop": "91px",
+        "paddingBottom": "40px"
+      },
+      {
+        "label": "roles",
+        "y": 569,
+        "h": 1367,
+        "paddingTop": "48px",
+        "paddingBottom": "64px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "SOFTWARE Engineering",
+        "w": 351,
+        "h": 197,
+        "natural": [
+          390,
+          261
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Fsoftware%2Fhero.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "WEB DEVELOPER",
+        "w": 351,
+        "h": 197,
+        "natural": [
+          390,
+          217
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Fsoftware%2Fweb-dev-dashboard.jpg&w=1200&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/careers/mechanical",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 3078,
+    "headings": [
+      {
+        "text": "PRECISION STRUCTURESBUILT TO ENDURE.",
+        "x": 20,
+        "y": 91,
+        "w": 351,
+        "h": 60,
+        "font": "26px",
+        "line": "29.9px"
+      },
+      {
+        "text": "3D & 2D MECHANICAL DESIGN ENGINEER",
+        "x": 20,
+        "y": 717,
+        "w": 351,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "CORE SKILLS",
+        "x": 20,
+        "y": 1124,
+        "w": 351,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "PRECISION STRUCTURESBUILT TO ENDURE.",
+        "y": 0,
+        "h": 569,
+        "paddingTop": "91px",
+        "paddingBottom": "40px"
+      },
+      {
+        "label": "roles",
+        "y": 569,
+        "h": 1295,
+        "paddingTop": "48px",
+        "paddingBottom": "64px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "MECHANICAL Engineering",
+        "w": 351,
+        "h": 197,
+        "natural": [
+          390,
+          261
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Fmechanical%2Fhero.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "3D & 2D MECHANICAL DESIGN ENGINEER",
+        "w": 351,
+        "h": 197,
+        "natural": [
+          390,
+          217
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Fmechanical%2Fmech-design.jpg&w=1200&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/careers/electronics",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 3294,
+    "headings": [
+      {
+        "text": "MISSION ELECTRONICSPOWERING AUTONOMY.",
+        "x": 20,
+        "y": 91,
+        "w": 351,
+        "h": 60,
+        "font": "26px",
+        "line": "29.9px"
+      },
+      {
+        "text": "HARDWARE DESIGN ENGINEER",
+        "x": 20,
+        "y": 717,
+        "w": 351,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "CORE SKILLS",
+        "x": 20,
+        "y": 1123,
+        "w": 351,
+        "h": 23,
+        "font": "18px",
+        "line": "23.4px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "MISSION ELECTRONICSPOWERING AUTONOMY.",
+        "y": 0,
+        "h": 569,
+        "paddingTop": "91px",
+        "paddingBottom": "40px"
+      },
+      {
+        "label": "roles",
+        "y": 569,
+        "h": 1510,
+        "paddingTop": "48px",
+        "paddingBottom": "64px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "ELECTRICAL Engineering",
+        "w": 351,
+        "h": 197,
+        "natural": [
+          390,
+          261
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Felectronics%2Fhero.jpg&w=1200&q=75"
+      },
+      {
+        "alt": "HARDWARE DESIGN ENGINEER",
+        "w": 351,
+        "h": 197,
+        "natural": [
+          390,
+          217
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcareers%2Felectronics%2Fembedded-pcb.jpg&w=1200&q=75"
+      }
+    ]
+  },
+  {
+    "route": "/contact",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 2374,
+    "headings": [
+      {
+        "text": "LET’S CONNECT",
+        "x": 54,
+        "y": 107,
+        "w": 220,
+        "h": 30,
+        "font": "26px",
+        "line": "29.9px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "LET’S CONNECT",
+        "y": 91,
+        "h": 1070,
+        "paddingTop": "0px",
+        "paddingBottom": "64px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "Aeronautical Drawing",
+        "w": 55,
+        "h": 62,
+        "natural": [
+          77,
+          86
+        ],
+        "fit": "contain",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fcontact%2Faeronautical-drawing-sketch.png&w=1200&q=75"
+      },
+      {
+        "alt": "Strategic blueprint",
+        "w": 0,
+        "h": 0,
+        "natural": [
+          0,
+          0
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": ""
+      },
+      {
+        "alt": "",
+        "w": 20,
+        "h": 15,
+        "natural": [
+          225,
+          150
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/flags/IN"
+      }
+    ]
+  },
+  {
+    "route": "/apply",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 2419,
+    "headings": [
+      {
+        "text": "WORK WITH US",
+        "x": 94,
+        "y": 91,
+        "w": 203,
+        "h": 30,
+        "font": "26px",
+        "line": "29.9px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "WORK WITH US",
+        "y": 91,
+        "h": 1114,
+        "paddingTop": "0px",
+        "paddingBottom": "56px"
+      }
+    ],
+    "images": [
+      {
+        "alt": "",
+        "w": 20,
+        "h": 15,
+        "natural": [
+          225,
+          150
+        ],
+        "fit": "cover",
+        "position": "50% 50%",
+        "src": "https://omoikane-innovations-3h7t.vercel.app/flags/IN"
+      }
+    ]
+  },
+  {
+    "route": "/privacy",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 4032,
+    "headings": [
+      {
+        "text": "Privacy Notice",
+        "x": 24,
+        "y": 182,
+        "w": 342,
+        "h": 30,
+        "font": "26px",
+        "line": "29.9px"
+      },
+      {
+        "text": "Information you give us",
+        "x": 24,
+        "y": 460,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "How we use it",
+        "x": 24,
+        "y": 953,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Cookies and analytics",
+        "x": 24,
+        "y": 1379,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Service providers and storage",
+        "x": 24,
+        "y": 1754,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Your choices and requests",
+        "x": 24,
+        "y": 2232,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Changes and contact",
+        "x": 24,
+        "y": 2517,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "Information you give us",
+        "y": 428,
+        "h": 492,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "How we use it",
+        "y": 921,
+        "h": 427,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Cookies and analytics",
+        "y": 1347,
+        "h": 375,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Service providers and storage",
+        "y": 1722,
+        "h": 478,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Your choices and requests",
+        "y": 2200,
+        "h": 285,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Changes and contact",
+        "y": 2485,
+        "h": 285,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      }
+    ],
+    "images": []
+  },
+  {
+    "route": "/terms",
+    "width": 390,
+    "height": 844,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "bodyHeight": 3440,
+    "headings": [
+      {
+        "text": "Website Terms",
+        "x": 24,
+        "y": 182,
+        "w": 342,
+        "h": 30,
+        "font": "26px",
+        "line": "29.9px"
+      },
+      {
+        "text": "Using this website",
+        "x": 24,
+        "y": 486,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Product and capability information",
+        "x": 24,
+        "y": 720,
+        "w": 342,
+        "h": 53,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Information you send",
+        "x": 24,
+        "y": 1108,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Website content",
+        "x": 24,
+        "y": 1483,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "External websites and updates",
+        "x": 24,
+        "y": 1768,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      },
+      {
+        "text": "Contact",
+        "x": 24,
+        "y": 2028,
+        "w": 342,
+        "h": 26,
+        "font": "22px",
+        "line": "26.4px"
+      }
+    ],
+    "sections": [
+      {
+        "label": "Using this website",
+        "y": 454,
+        "h": 234,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Product and capability information",
+        "y": 688,
+        "h": 388,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Information you send",
+        "y": 1076,
+        "h": 375,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Website content",
+        "y": 1451,
+        "h": 285,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "External websites and updates",
+        "y": 1736,
+        "h": 259,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      },
+      {
+        "label": "Contact",
+        "y": 1996,
+        "h": 183,
+        "paddingTop": "32px",
+        "paddingBottom": "32px"
+      }
+    ],
+    "images": []
+  }
+]
