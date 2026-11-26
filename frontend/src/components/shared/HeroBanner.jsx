@@ -1,8 +1,8 @@
 import Image, { getImageProps } from "next/image";
 import Link from "next/link";
-import styles from "./ClientReferenceHero.module.css";
+import styles from "./HeroBanner.module.css";
 
-export function ClientHomeHero() {
+export function HomeHeroBanner() {
   const mobile = getImageProps({ src: '/images/reference/home-drone-mobile.jpg', alt: '', fill: true, sizes: '100vw' }).props;
   return (
     <div className={styles.homeFrame}>
@@ -33,7 +33,7 @@ export function ClientHomeHero() {
   );
 }
 
-export function ClientPageHero({ title }) {
+export function PageHeroBanner({ title }) {
   return (
     <div className={styles.pageFrame}>
       <section className={styles.pageHero} data-type-role="pageHero" aria-labelledby="client-page-title">

@@ -1,6 +1,6 @@
 import CareerTemplate from '@/components/features/careers/CareerTemplate';
 
-const electronicsRoles = [
+const electricalRoles = [
   {
     id: "hardware-eng",
     number: "01",
@@ -103,16 +103,16 @@ const electronicsRoles = [
   }
 ];
 
-export default function ElectronicsCareers() {
-  const electronicsData = {
+export default function ElectricalCareers() {
+  const electricalData = {
     eyebrow: "ELECTRICAL ENGINEERING",
     headline: "MISSION ELECTRONICS<br />POWERING AUTONOMY.",
     heroSub: "We design the circuits, boards, and RF systems<br />that bring autonomous platforms to life.",
     heroVisual: "/images/careers/electronics/hero.jpg",
-    roles: electronicsRoles,
+    roles: electricalRoles,
     categoryLabel: "ELECTRICAL",
     theme: "electronics"
   };
 
-  return <CareerTemplate data={electronicsData} />;
+  return <CareerTemplate data={electricalData} />;
 }

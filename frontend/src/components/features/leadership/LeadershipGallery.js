@@ -5,8 +5,6 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import SplitType from 'split-type';
-import Lenis from 'lenis';
 import styles from './LeadershipGallery.module.css';
 
 if (typeof window !== 'undefined') {
@@ -61,7 +59,6 @@ export default function LeadershipGallery() {
   const scrollWrapperRef = useRef(null);
   const scrollContentRef = useRef(null);
   const sectionContentRef = useRef(null);
-  const lenisRef = useRef(null);
 
   // Keep refs for elements we need to animate dynamically
   const contentWrappers = useRef([]);
@@ -69,10 +66,17 @@ export default function LeadershipGallery() {
   const openerRefs = useRef([]);
   const closeButtonRef = useRef(null);
   const profileAnimationRef = useRef(null);
-  const listOfSplits = useRef([]);
+  const profileTextRefs = useRef([]);
 
   const [error, setError] = useState('');
   const [openIndex, setOpenIndex] = useState(null);
+
+  const setTextRef = (index, key) => (el) => {
+    if (!profileTextRefs.current[index]) {
+      profileTextRefs.current[index] = {};
+    }
+    profileTextRefs.current[index][key] = el;
+  };
 
   useGSAP(() => {
     if (!containerRef.current || !scrollWrapperRef.current || !scrollContentRef.current) return;
@@ -84,22 +88,7 @@ export default function LeadershipGallery() {
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 769px)", () => {
-        // Initialize vertical Lenis on desktop only
-        lenisRef.current = new Lenis({
-          lerp: 0.05,
-          smoothWheel: true,
-          smoothTouch: true,
-        });
-
-        let rafId;
-        function raf(time) {
-          lenisRef.current?.raf(time);
-          ScrollTrigger.update();
-          rafId = requestAnimationFrame(raf);
-        }
-        rafId = requestAnimationFrame(raf);
-
-        // Setup Horizontal ScrollTrigger on desktop only
+        // Horizontal ScrollTrigger pinned gallery on desktop using native scroll
         gsap.to(scrollContentRef.current, {
           x: () => -(scrollContentRef.current.scrollWidth - window.innerWidth),
           ease: "none",
@@ -111,64 +100,15 @@ export default function LeadershipGallery() {
             invalidateOnRefresh: true,
           }
         });
-
-        return () => {
-          if (rafId) cancelAnimationFrame(rafId);
-          if (lenisRef.current) {
-            lenisRef.current.destroy();
-            lenisRef.current = null;
-          }
-        };
       });
 
-      // Initialize SplitType for all content blocks
-      contents.current.forEach((content, index) => {
+      contents.current.forEach((content) => {
         if (!content) return;
         content.classList.add(styles.isHidden);
-
-        const contentTitleTop = content.querySelectorAll('[data-content="text-top"] div');
-        const contentTitleBottom = content.querySelectorAll('[data-content="text-bottom"] div');
-        const contentTextLeft = content.querySelectorAll('[data-content="text-left"] div');
-        const contentTextRight = content.querySelectorAll('[data-content="text-right"] div');
-
-        const titleTopSplits = Array.from(contentTitleTop, n => new SplitType(n, { types: 'chars' }));
-        const titleBottomSplits = Array.from(contentTitleBottom, n => new SplitType(n, { types: 'chars' }));
-
-        titleTopSplits[0]?.chars?.forEach(char => {
-          const wrapper = document.createElement('div');
-          wrapper.classList.add(styles.charWrap); // Using CSS module class for char-wrap
-          char.parentNode.insertBefore(wrapper, char);
-          wrapper.appendChild(char);
-        });
-
-        const textLeftSplits = Array.from(contentTextLeft, n => new SplitType(n, { types: 'lines' }));
-        const textRightSplits = Array.from(contentTextRight, n => new SplitType(n, { types: 'lines' }));
-
-        [textLeftSplits, textRightSplits].forEach(splits => {
-          splits.forEach(split => {
-            split.lines?.forEach(line => {
-              const wrapper = document.createElement('div');
-              wrapper.classList.add(styles.lineWrap); // Using CSS module class for line-wrap
-              line.parentNode.insertBefore(wrapper, line);
-              wrapper.appendChild(line);
-            });
-          });
-        });
-
-        listOfSplits.current[index] = {
-          titleTopSplits,
-          titleBottomSplits,
-          textLeftSplits,
-          textRightSplits,
-        };
       });
 
       return () => {
         mm.revert();
-        if (lenisRef.current) {
-          lenisRef.current.destroy();
-          lenisRef.current = null;
-        }
         profileAnimationRef.current?.kill();
       };
     } catch (e) {
@@ -186,25 +126,19 @@ export default function LeadershipGallery() {
     contents.current[index].classList.remove(styles.isHidden);
 
     const currentWrapper = contentWrappers.current[index];
-    const splits = listOfSplits.current[index];
-
-    splits.titleTopSplits[0]?.chars?.forEach(char => {
-      char.style.willChange = 'transform, clip-path';
-    });
+    const refs = profileTextRefs.current[index] || {};
+    const titleEls = [refs.titleTop, refs.titleBottom].filter(Boolean);
+    const bodyEls = [refs.leftSubtitle, refs.leftText, refs.rightSubtitle, refs.rightText].filter(Boolean);
+    const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const d = (seconds) => (reduced ? 0 : seconds);
 
     const currentAnimation = gsap.timeline({
-      duration: 1.25,
-      ease: 'power4.inOut',
       onStart: () => {
         sectionContentRef.current.classList.remove(styles.isHidden);
       },
       onComplete: () => {
         if (profileAnimationRef.current !== currentAnimation) return;
-        if (lenisRef.current) lenisRef.current.stop();
         scrollWrapperRef.current.classList.add(styles.isHidden);
-        splits.titleTopSplits[0]?.chars?.forEach(char => {
-          char.style.willChange = 'auto';
-        });
         closeButtonRef.current?.focus();
         profileAnimationRef.current = null;
       },
@@ -216,30 +150,21 @@ export default function LeadershipGallery() {
       .addLabel('start', 0)
       .fromTo(
         currentWrapper,
-        { opacity: 0, scale: 0.96 },
-        { opacity: 1, scale: 1, duration: 0.65, ease: 'power3.out' },
+        { opacity: 0, scale: reduced ? 1 : 0.96 },
+        { opacity: 1, scale: 1, duration: d(0.65), ease: 'power3.out' },
         'start'
       )
       .fromTo(
-        [splits.titleTopSplits[0].elements, splits.titleBottomSplits[0].elements],
-        { xPercent: 15 },
-        { xPercent: 0, duration: 0.75, ease: 'power3.out' },
-        'start+=0.15'
+        titleEls,
+        { xPercent: reduced ? 0 : 12, yPercent: reduced ? 0 : 100, opacity: 0 },
+        { xPercent: 0, yPercent: 0, opacity: 1, duration: d(0.65), ease: 'power3.out' },
+        reduced ? 'start' : 'start+=0.15'
       )
       .fromTo(
-        [splits.titleTopSplits[0].chars, splits.titleBottomSplits[0].chars],
-        { clipPath: 'inset(0 100% 0 0)', xPercent: 10 },
-        { clipPath: 'inset(0 0% 0 0)', xPercent: 0, duration: 0.6, ease: 'power3.out' },
-        'start+=0.15'
-      )
-      .fromTo(
-        [
-          ...splits.textLeftSplits.flatMap(split => split.lines),
-          ...splits.textRightSplits.flatMap(split => split.lines),
-        ],
-        { yPercent: 100, opacity: 0 },
-        { yPercent: 0, opacity: 1, stagger: 0.025 },
-        'start+=0.2'
+        bodyEls,
+        { yPercent: reduced ? 0 : 100, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: d(0.55), stagger: reduced ? 0 : 0.04, ease: 'power3.out' },
+        reduced ? 'start' : 'start+=0.2'
       );
   };
 
@@ -250,14 +175,15 @@ export default function LeadershipGallery() {
     profileAnimationRef.current?.kill();
 
     const currentWrapper = contentWrappers.current[index];
-    const splits = listOfSplits.current[index];
+    const refs = profileTextRefs.current[index] || {};
+    const titleEls = [refs.titleTop, refs.titleBottom].filter(Boolean);
+    const bodyEls = [refs.leftSubtitle, refs.leftText, refs.rightSubtitle, refs.rightText].filter(Boolean);
+    const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const d = (seconds) => (reduced ? 0 : seconds);
 
-    if (lenisRef.current) lenisRef.current.start();
     scrollWrapperRef.current.classList.remove(styles.isHidden);
 
     const currentAnimation = gsap.timeline({
-      duration: 1.25,
-      ease: 'power4.inOut',
       onComplete: () => {
         if (profileAnimationRef.current !== currentAnimation) return;
         setOpenIndex(null);
@@ -273,30 +199,20 @@ export default function LeadershipGallery() {
 
     currentAnimation
       .addLabel('start', 0)
-      .fromTo(
-        [splits.titleTopSplits[0].elements, splits.titleBottomSplits[0].elements],
-        { xPercent: 0 },
-        { xPercent: 10, ease: 'power3.out', duration: 1 },
-        'start'
-      )
-      .fromTo(
-        [splits.titleTopSplits[0].chars, splits.titleBottomSplits[0].chars],
-        { clipPath: 'inset(0 0% 0 0)', xPercent: 0 },
-        { clipPath: 'inset(0 100% 0 0)', xPercent: 10, ease: 'power3.out', duration: 0.75 },
+      .to(
+        titleEls,
+        { xPercent: reduced ? 0 : 10, yPercent: reduced ? 0 : -100, opacity: 0, ease: 'power3.out', duration: d(0.5) },
         'start'
       )
       .to(
-        [
-          ...splits.textLeftSplits.flatMap(split => split.lines),
-          ...splits.textRightSplits.flatMap(split => split.lines),
-        ],
-        { yPercent: 100, stagger: 0.025, duration: 0.75 },
+        bodyEls,
+        { yPercent: reduced ? 0 : 100, opacity: 0, stagger: reduced ? 0 : 0.03, duration: d(0.45), ease: 'power3.out' },
         'start'
       )
       .to(
         currentWrapper,
-        { opacity: 0, scale: 0.96, duration: 0.45, ease: 'power3.inOut' },
-        'start+=0.15'
+        { opacity: 0, scale: reduced ? 1 : 0.96, duration: d(0.45), ease: 'power3.inOut' },
+        reduced ? 'start' : 'start+=0.1'
       );
   }, [openIndex]);
 
@@ -385,18 +301,30 @@ export default function LeadershipGallery() {
                 Close <span aria-hidden="true">×</span>
               </button>
               <div className={styles.contentTitleTop} data-content="text-top">
-                <div id={`leadership-profile-${profile.id}`} className={styles.titleBig}>{profile.topTitle}</div>
+                <div className={styles.textMask}>
+                  <div ref={setTextRef(i, 'titleTop')} id={`leadership-profile-${profile.id}`} className={styles.titleBig}>{profile.topTitle}</div>
+                </div>
               </div>
               <div className={styles.contentTitleBottom} data-content="text-bottom">
-                <div className={styles.titleBig}>{profile.bottomTitle}</div>
+                <div className={styles.textMask}>
+                  <div ref={setTextRef(i, 'titleBottom')} className={styles.titleBig}>{profile.bottomTitle}</div>
+                </div>
               </div>
               <div className={styles.contentTextLeft} data-content="text-left">
-                <div className={styles.titleSmall}>{profile.leftSubtitle}</div>
-                <div className={styles.paragraph}>{profile.leftText}</div>
+                <div className={styles.textMask}>
+                  <div ref={setTextRef(i, 'leftSubtitle')} className={styles.titleSmall}>{profile.leftSubtitle}</div>
+                </div>
+                <div className={styles.textMask}>
+                  <div ref={setTextRef(i, 'leftText')} className={styles.paragraph}>{profile.leftText}</div>
+                </div>
               </div>
               <div className={styles.contentTextRight} data-content="text-right">
-                <div className={styles.titleSmall}>{profile.rightSubtitle}</div>
-                <div className={styles.paragraph}>{profile.rightText}</div>
+                <div className={styles.textMask}>
+                  <div ref={setTextRef(i, 'rightSubtitle')} className={styles.titleSmall}>{profile.rightSubtitle}</div>
+                </div>
+                <div className={styles.textMask}>
+                  <div ref={setTextRef(i, 'rightText')} className={styles.paragraph}>{profile.rightText}</div>
+                </div>
               </div>
             </div>
           </div>

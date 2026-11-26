@@ -83,14 +83,19 @@
   .hero {
     min-height: calc(100vh - 76px);
     min-height: calc(100dvh - 76px);
-    padding: 24px 20px 48px;
+    padding: 20px 20px 48px;
   }
 
   .imageLayer {
     background-position: center bottom;
   }
 
+  .content {
+    margin-top: 0;
+  }
+
   .heading {
+    margin-top: 0;
     font-size: clamp(32px, 8vw, 46px);
     line-height: 1.1;
   }
@@ -111,12 +116,18 @@
 
 @media (max-width: 600px) {
   .hero {
-    min-height: max(580px, calc(100dvh - 76px));
+    min-height: auto;
+    padding: 20px 20px 12px;
   }
 
   .imageLayer {
-    background-size: cover;
-    background-position: center top;
+    order: 2;
+    position: relative;
+    inset: auto;
+    width: calc(100% + 40px);
+    margin: 66px -20px 0;
+    aspect-ratio: 941 / 882;
+    overflow: hidden;
   }
 }
 
@@ -133,4 +144,4 @@
 .heroImage { object-fit: cover; object-position: right bottom; }
 @media(max-width:1050px) { .heroImage { object-position:65% bottom; } }
 @media(max-width:768px) { .heroImage { object-position:center bottom; } }
-@media(max-width:600px) { .heroImage { object-position:center top; } }
+@media(max-width:600px) { .heroImage { object-position:center bottom; } }

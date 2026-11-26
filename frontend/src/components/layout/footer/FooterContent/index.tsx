@@ -31,7 +31,7 @@ export default function FooterContent() {
           <ul className={styles.linkList}>
             <li><Link href="/services/software">Software Development</Link></li>
             <li><Link href="/services/electronics">Electrical Engineering</Link></li>
-            <li><Link href="/services/mechanical">Mechanical</Link></li>
+            <li><Link href="/services/mechanical">Mechanical Engineering</Link></li>
             <li><Link href="/about#faq">FAQ</Link></li>
           </ul>
         </div>

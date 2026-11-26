@@ -193,7 +193,16 @@ export function ExpertiseSection() {
   }, [reducedMotion, mobile]);
 
   useEffect(() => {
-    if (reducedMotion) return;
+    if (reducedMotion || mobile) {
+      navRefs.current.forEach((button) => {
+        if (!button) return;
+        const arrow = button.querySelector<HTMLElement>(`.${styles.navArrow}`);
+        const text = button.querySelector<HTMLElement>(`.${styles.navText}`);
+        gsap.killTweensOf([button, arrow, text].filter(Boolean));
+        gsap.set([button, arrow, text].filter(Boolean), { clearProps: "x" });
+      });
+      return;
+    }
 
     const cleanups: Array<() => void> = [];
 

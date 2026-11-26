@@ -21,15 +21,15 @@ import styles from "@/app/page.module.css";
 import CallToAction from "@/components/shared/CallToAction";
 import SelectedWork from "@/components/features/home/SelectedWork";
 import HomeCareers from "@/components/features/home/HomeCareers";
-import { ClientHomeHero } from "@/components/shared/ClientReferenceHero";
+import { HomeHeroBanner } from "@/components/shared/HeroBanner";
 
 
 // ─── Mobile Expertise Carousel Slides ─────────────────────────────
 const EXPERTISE_VISUALS = {
-  aerospace: {image: '/images/about/domain-air.jpg', alt: 'Aerospace engineering illustration', icons: [Navigation, Cpu, Radio]},
-  defense: {image: '/images/about/domain-ground.jpg', alt: 'Defense engineering illustration', icons: [Shield, Activity, Radio]},
-  automotive: {image: '/images/careers/electronics/embedded-pcb.jpg', alt: 'Automotive electronics illustration', icons: [Cpu, Zap, Layers]},
-  railways: {image: '/images/about/domain-industrial.jpg', alt: 'Industrial engineering illustration', icons: [Activity, Layers, Shield]},
+  aerospace: { image: '/images/about/domain-air.jpg', alt: 'Aerospace engineering illustration', icons: [Navigation, Cpu, Radio] },
+  defense: { image: '/images/about/domain-ground.jpg', alt: 'Defense engineering illustration', icons: [Shield, Activity, Radio] },
+  automotive: { image: '/images/careers/electronics/embedded-pcb.jpg', alt: 'Automotive electronics illustration', icons: [Cpu, Zap, Layers] },
+  railways: { image: '/images/about/domain-industrial.jpg', alt: 'Industrial engineering illustration', icons: [Activity, Layers, Shield] },
 };
 // The home overview includes industrial sectors that do not have Technology detail sections.
 const HOME_EXPERTISE = [
@@ -47,7 +47,7 @@ const EXPERTISE_SLIDES = HOME_EXPERTISE.map(item => ({
   id: item.id, title: item.title,
   href: item.id === 'automotive' || item.id === 'railways' ? '/contact' : `/expertise#${item.id}`,
   ...EXPERTISE_VISUALS[item.id],
-  items: item.systems.map((label, index) => { const Icon = EXPERTISE_VISUALS[item.id].icons[index]; return {icon: <Icon size={16} />, label}; }),
+  items: item.systems.map((label, index) => { const Icon = EXPERTISE_VISUALS[item.id].icons[index]; return { icon: <Icon size={16} />, label }; }),
 }));
 
 // ─── Why Our Products Stand Out ───────────────────────────────────
@@ -101,15 +101,15 @@ const cardVariants = {
 function expertiseCard(id, variant, index) {
   const item = EXPERTISE_SLIDES.find(slide => slide.id === id);
   if (!item) return null;
-  return (<motion.div key={item.href} variants={cardVariants} custom={index} initial="hidden" whileInView="visible" viewport={{once: true, margin: '-40px'}} className={variant === 'wide' ? styles.bentoCardWideWrap : undefined} style={variant === 'horizontal' ? {flex: 1} : undefined}>
-                <Link href={item.href} className={`${styles.bentoCard} ${variant === 'wide' ? styles.bentoCardWide : variant === 'horizontal' ? styles.bentoCardHorizontal : styles.bentoCardTall}`}>
-                  <div className={styles.bentoTextCol}>
-                    <h3 className={styles.bentoTitle} data-type-role="bentoTitle">{item.title}</h3>
-                    <div className={styles.bentoMetaList}>{item.items.map(system => <div key={system.label} className={styles.bentoMetaItem}><span className={styles.bentoMetaIcon}>{system.icon}</span><span>{system.label}</span></div>)}</div>
-                  </div>
-                  <div className={styles.bentoImgWrapper}><Image src={item.image} alt={item.alt} fill className={styles.bentoCardImg} sizes={variant === 'horizontal' ? '(max-width: 680px) calc(100vw - 124px), 190px' : '(max-width: 959px) calc(100vw - 124px), 45vw'} /></div>
-                </Link>
-              </motion.div>);
+  return (<motion.div key={item.href} variants={cardVariants} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-40px' }} className={variant === 'wide' ? styles.bentoCardWideWrap : undefined} style={variant === 'horizontal' ? { flex: 1 } : undefined}>
+    <Link href={item.href} className={`${styles.bentoCard} ${variant === 'wide' ? styles.bentoCardWide : variant === 'horizontal' ? styles.bentoCardHorizontal : styles.bentoCardTall}`}>
+      <div className={styles.bentoTextCol}>
+        <h3 className={styles.bentoTitle} data-type-role="bentoTitle">{item.title}</h3>
+        <div className={styles.bentoMetaList}>{item.items.map(system => <div key={system.label} className={styles.bentoMetaItem}><span className={styles.bentoMetaIcon}>{system.icon}</span><span>{system.label}</span></div>)}</div>
+      </div>
+      <div className={styles.bentoImgWrapper}><Image src={item.image} alt={item.alt} fill className={styles.bentoCardImg} sizes={variant === 'horizontal' ? '(max-width: 680px) calc(100vw - 124px), 190px' : '(max-width: 959px) calc(100vw - 124px), 45vw'} /></div>
+    </Link>
+  </motion.div>);
 }
 
 export default function HomeClient() {
@@ -135,7 +135,7 @@ export default function HomeClient() {
       {/* ─────────────────────────────────────────────────────────
           1. HERO SECTION
       ───────────────────────────────────────────────────────── */}
-      <ClientHomeHero />
+      <HomeHeroBanner />
 
       {/* ─────────────────────────────────────────────────────────
           2. PROJECTS & FOCUSED PRODUCTION AREAS (CORE EXPERTISE)

@@ -11,8 +11,8 @@
 	<groupId>com.omoikane</groupId>
 	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api</name>
-	<description>Backend API for Omoikane</description>
+	<name>omoikane-api</name>
+	<description>Backend API for Omoikane Innovations</description>
 
 	<properties>
 		<java.version>21</java.version>

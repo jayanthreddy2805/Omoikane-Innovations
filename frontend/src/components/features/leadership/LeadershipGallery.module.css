@@ -1,46 +1,38 @@
-.lenis {
-  height: auto;
-}
-.lenisSmooth {
-  scroll-behavior: auto !important;
-}
-.lenisStopped {
-  overflow: clip;
+.galleryImage:nth-child(odd) {
+  transform: translateY(30%);
 }
 
-.galleryImage:nth-child(odd){
-  transform: translateY(30%);
-}	
-.galleryImage:nth-child(even){
+.galleryImage:nth-child(even) {
   transform: translateY(-30%);
 }
-.paragraph{
+
+.paragraph {
   width: 100%;
   display: block;
   white-space: normal;
   color: var(--text-secondary);
 }
 
-.charWrap {
-  display: inline-block;
+.textMask {
+  display: block;
   overflow: hidden;
-}
-.lineWrap {
-  display: inline-block;
-  overflow: hidden;
+  max-width: 100%;
 }
 
 .content:nth-child(even) .contentTitleTop {
   justify-content: flex-end;
 }
+
 .content:nth-child(even) .contentTitleBottom {
-  justify-content: flex-start;  
+  justify-content: flex-start;
 }
-.content:nth-child(even) .contentTextLeft {   
-  justify-content: flex-start;  
-}  
+
+.content:nth-child(even) .contentTextLeft {
+  justify-content: flex-start;
+}
+
 .content:nth-child(even) .contentTextRight {
-  justify-content: flex-end;  
+  justify-content: flex-end;
 }
 
 .sectionContent {
@@ -60,6 +52,7 @@
 .sectionContent.isHidden {
   z-index: 0;
 }
+
 .isHidden {
   visibility: hidden;
 }
@@ -139,7 +132,10 @@
   cursor: pointer;
 }
 
-.closeButton:focus-visible { outline: 3px solid rgba(7, 87, 200, 0.35); outline-offset: 3px; }
+.closeButton:focus-visible {
+  outline: 3px solid rgba(7, 87, 200, 0.35);
+  outline-offset: 3px;
+}
 
 .scrollWrapper {
   position: relative;
@@ -289,7 +285,9 @@
 }
 
 /* Stable surface while gallery photos load or if a request fails. */
-.imageContainer { background: var(--color-footer, #000812); }
+.imageContainer {
+  background: var(--color-footer, #000812);
+}
 
 /* Mobile vertical stack (no horizontal scroll for Board of Directors) */
 @media (max-width: 768px) {

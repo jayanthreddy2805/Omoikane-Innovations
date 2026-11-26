@@ -7,8 +7,7 @@ import styles from "../Footer.module.css";
 
 /**
  * FooterHero
- * Premium engineering top footer section inspired by the APSLOCK reference design.
- * Features a 30% visual panel on the left and a 70% content + CTA area on the right.
+ * Two-column footer hero featuring the interactive network visual panel alongside the primary CTA.
  */
 export default function FooterHero() {
   return (

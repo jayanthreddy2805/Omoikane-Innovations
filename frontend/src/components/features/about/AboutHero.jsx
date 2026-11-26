@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect, useSyncExternalStore } from "react"
 import usePageVisible from "@/hooks/usePageVisible";
 import styles from "./AboutHero.module.css";
 import Link from "next/link";
-import { ClientPageHero } from "@/components/shared/ClientReferenceHero";
+import { PageHeroBanner } from "@/components/shared/HeroBanner";
 
 const COMPANY_VIDEO = "/videos/about/omoikane.mp4";
 
@@ -36,15 +36,15 @@ export default function AboutHero() {
     if (!visible || !pageVisible || (!autoplayEnabled && !playRequested)) {
       resumeTime.current = video.currentTime;
       video.pause();
-      if(video.hasAttribute('src')) { video.removeAttribute('src'); video.load(); }
+      if (video.hasAttribute('src')) { video.removeAttribute('src'); video.load(); }
       return;
     }
-    if(!video.hasAttribute('src')) {
+    if (!video.hasAttribute('src')) {
       video.src = video.canPlayType('video/webm') ? '/videos/about/omoikane.webm' : COMPANY_VIDEO;
       video.load();
       video.currentTime = resumeTime.current;
     }
-    video.play().catch(() => {});
+    video.play().catch(() => { });
   }, [visible, pageVisible, autoplayEnabled, playRequested]);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -73,7 +73,7 @@ export default function AboutHero() {
 
   return (
     <>
-      <ClientPageHero title="About Omoikane Innovations" />
+      <PageHeroBanner title="About Omoikane Innovations" />
       <section className={styles.hero} aria-labelledby="about-intro-title">
         <div className={`${styles.container} ${styles.split}`}>
           <div className={styles.copy}>

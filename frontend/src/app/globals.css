@@ -34,7 +34,7 @@
   --accent: #0757C8;
   --accent-hover: #1688F8;
   --border: #DCE7F3;
-  
+
   --color-bg: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
   --color-text-primary: var(--text-primary);
@@ -75,7 +75,12 @@ body {
   line-height: 1.65;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-space-grotesk), sans-serif;
   font-weight: 700;
 }
@@ -110,10 +115,15 @@ button {
   transform: translateY(-200%);
 }
 
-.skipLink:focus { transform: translateY(0); }
+.skipLink:focus {
+  transform: translateY(0);
+}
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -122,30 +132,27 @@ button {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.3; transform: scale(0.5); }
-}
 
-@keyframes premiumBlobMorph {
-  0% { 
-    transform: translate(0, 0) scale(1) rotate(0deg); 
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  }
-  33% {
-    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
-  }
-  66% {
-    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-  }
+  0%,
   100% {
-    transform: translate(15%, -10%) scale(1.15) rotate(180deg);
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(0.5);
   }
 }
 
 @keyframes driftAtmosphere {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(15%, 5%) scale(1.15); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(15%, 5%) scale(1.15);
+  }
 }
 
 @keyframes metricsShine {
@@ -154,4 +161,6 @@ button {
   }
 }
 
-[id] { scroll-margin-top: 120px; }
+[id] {
+  scroll-margin-top: 120px;
+}

@@ -73,7 +73,7 @@ const FOCUS_AREAS = [
 export default function WorkClient() {
   return (
     <div className={styles.pageContainer}>
-      {/* ── 1. OUR WORK EDITORIAL INTRO SECTION ── */}
+      {/* ── 1. PRODUCTS EDITORIAL INTRO SECTION ── */}
       <section className={styles.heroSection} aria-labelledby="work-page-heading">
         <div className={styles.heroContentWrapper}>
           {/* Main Headline */}
@@ -94,7 +94,7 @@ export default function WorkClient() {
 
         {/* Focus Areas Horizontal Strip */}
         <div className={styles.focusStripContainer}>
-          <nav className={styles.focusStripTrack} aria-label="Work focus areas">
+          <nav className={styles.focusStripTrack} aria-label="Product focus areas">
             {FOCUS_AREAS.map((item) => (
               <Link
                 key={item.id}
@@ -118,7 +118,7 @@ export default function WorkClient() {
       <TechnologyEngineering />
 
       {/* ── 3. PRODUCT PROFILES ── */}
-      <section className={styles.showcaseSection} aria-label="Our Work Product Configurations">
+      <section className={styles.showcaseSection} aria-label="Product configurations">
         <div className={styles.showcaseContainer}>
           {WORK_SYSTEMS.map((system, index) => (
             <article

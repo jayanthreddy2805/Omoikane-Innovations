@@ -562,8 +562,13 @@ public class ResendEmailService {
 
     static String formatDepartment(String department) {
         if (department == null || department.isBlank()) return "";
-        String trimmed = department.trim();
-        return Character.toUpperCase(trimmed.charAt(0)) + trimmed.substring(1).toLowerCase();
+        String trimmed = department.trim().toLowerCase(java.util.Locale.ROOT);
+        return switch (trimmed) {
+            case "software" -> "Software Development";
+            case "electronics" -> "Electrical Engineering";
+            case "mechanical" -> "Mechanical Engineering";
+            default -> Character.toUpperCase(trimmed.charAt(0)) + trimmed.substring(1);
+        };
     }
 
     static String escapeHtml(String input) {
