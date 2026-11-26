@@ -5,6 +5,11 @@ registerHooks({resolve(specifier,context,next){
  if(specifier==='@/lib/siteMetadata')return next(new URL(`../src/lib/siteMetadata.ts?audit=${environment}`,import.meta.url).href,context);
  return next(specifier,context);
 }});
+const { metadata: adminMetadata } = await import('../src/app/admin/layout.js');
+assert.equal(adminMetadata.title, 'Operations Console | Omoikane Innovations');
+assert.equal(adminMetadata.robots.index, false);
+assert.equal(adminMetadata.robots.follow, false);
+assert.equal(adminMetadata.alternates.canonical, null);
 const previous=process.env.VERCEL_ENV;
 try {
  for(environment of ['preview','production']){
@@ -21,7 +26,8 @@ try {
    assert.ok(map.every(row=>row.url.startsWith('https://www.omoikaneinnovations.com/')));
    assert.ok(map.every(row=>!row.url.includes('/admin')&&!row.url.includes('/leadership')&&!row.url.endsWith('/careers')));
    assert.equal(rules.rules.allow,'/');assert.deepEqual(rules.rules.disallow,['/admin','/api/']);
-  }else{assert.deepEqual(map,[]);assert.equal(rules.rules.disallow,'/');}
+   assert.equal(rules.sitemap,'https://www.omoikaneinnovations.com/sitemap.xml');
+  }else{assert.deepEqual(map,[]);assert.equal(rules.rules.disallow,'/');assert.equal(rules.sitemap,undefined);}
   console.log('PASS canonical metadata, robots and sitemap',environment);
  }
 }finally{if(previous===undefined)delete process.env.VERCEL_ENV;else process.env.VERCEL_ENV=previous;}
