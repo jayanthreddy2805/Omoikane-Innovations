@@ -106,14 +106,9 @@ export default function CareerTemplate({ data }) {
             </div>
           </FadeUp>
         </div>
-        <motion.div
-          className={styles.heroVisual}
-          initial={{ opacity: 0, y: 24, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.1, ease: EASE, delay: 0.15 }}
-        >
-          <Image src={heroVisual} alt={`${categoryLabel} Engineering`} fill className={styles.heroImg} priority />
-        </motion.div>
+        <div className={styles.heroVisual}>
+          <Image src={heroVisual} alt={`${categoryLabel} Engineering`} fill className={styles.heroImg} priority sizes="(min-width: 1024px) 50vw, 100vw" />
+        </div>
       </section>
 
 

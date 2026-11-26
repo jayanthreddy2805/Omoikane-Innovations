@@ -1,0 +1,210 @@
+{
+  "methodology": "Lighthouse 13.6.0, local Next.js production build, 412x823 mobile, 4x CPU, simulated 150ms RTT and 1638kbps down, three cold first-visit audits per route per phase. Reported LCP is the simulated audit value; observed trace timings are separately shown.",
+  "pages": [
+    {
+      "page": "home",
+      "baseline": {
+        "lcpMs": [
+          3417,
+          3433,
+          3275
+        ],
+        "medianLcpMs": 3417,
+        "performance": [
+          92,
+          92,
+          92
+        ],
+        "cls": [
+          0,
+          0,
+          0
+        ],
+        "lcpElement": "<img alt=\"\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" class=\"gSJs6a_homeBackdropImage\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px"
+      },
+      "after": {
+        "lcpMs": [
+          3419,
+          3412,
+          3412
+        ],
+        "medianLcpMs": 3412,
+        "performance": [
+          92,
+          92,
+          92
+        ],
+        "cls": [
+          0,
+          0,
+          0
+        ],
+        "lcpElement": "<img alt=\"\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" class=\"gSJs6a_homeBackdropImage\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px"
+      }
+    },
+    {
+      "page": "expertise",
+      "baseline": {
+        "lcpMs": [
+          3471,
+          3510,
+          3532
+        ],
+        "medianLcpMs": 3510,
+        "performance": [
+          91,
+          91,
+          90
+        ],
+        "cls": [
+          0,
+          0,
+          0
+        ],
+        "lcpElement": "<img alt=\"\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" class=\"tvv4dG_heroImage\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px;\" sizes"
+      },
+      "after": {
+        "lcpMs": [
+          3162,
+          3095,
+          3515
+        ],
+        "medianLcpMs": 3162,
+        "performance": [
+          93,
+          94,
+          91
+        ],
+        "cls": [
+          0,
+          0,
+          0
+        ],
+        "lcpElement": "<img alt=\"\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" class=\"tvv4dG_heroImage\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px;\" sizes"
+      }
+    },
+    {
+      "page": "careers-software",
+      "baseline": {
+        "lcpMs": [
+          3414,
+          3331,
+          3310
+        ],
+        "medianLcpMs": 3331,
+        "performance": [
+          92,
+          92,
+          92
+        ],
+        "cls": [
+          0,
+          0,
+          0
+        ],
+        "lcpElement": "<img alt=\"SOFTWARE Engineering\" decoding=\"async\" data-nimg=\"fill\" class=\"vHOIsa_heroImg\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px;\" sizes=\"(max-width: 768px"
+      },
+      "after": {
+        "lcpMs": [
+          3362,
+          3319,
+          3323
+        ],
+        "medianLcpMs": 3323,
+        "performance": [
+          92,
+          92,
+          92
+        ],
+        "cls": [
+          0,
+          0,
+          0
+        ],
+        "lcpElement": "<p class=\"vHOIsa_heroSub\">"
+      }
+    },
+    {
+      "page": "contact",
+      "baseline": {
+        "lcpMs": [
+          3319,
+          3319,
+          3239
+        ],
+        "medianLcpMs": 3319,
+        "performance": [
+          92,
+          92,
+          93
+        ],
+        "cls": [
+          0,
+          0,
+          0
+        ],
+        "lcpElement": "<p class=\"OSLHOG_enquiryText\">"
+      },
+      "after": {
+        "lcpMs": [
+          3248,
+          3314,
+          3336
+        ],
+        "medianLcpMs": 3314,
+        "performance": [
+          93,
+          92,
+          92
+        ],
+        "cls": [
+          0,
+          0,
+          0
+        ],
+        "lcpElement": "<p>"
+      }
+    },
+    {
+      "page": "apply",
+      "baseline": {
+        "lcpMs": [
+          3389,
+          3394,
+          3389
+        ],
+        "medianLcpMs": 3389,
+        "performance": [
+          92,
+          92,
+          92
+        ],
+        "cls": [
+          0,
+          0,
+          0
+        ],
+        "lcpElement": "<p>"
+      },
+      "after": {
+        "lcpMs": [
+          3391,
+          3316,
+          3392
+        ],
+        "medianLcpMs": 3391,
+        "performance": [
+          92,
+          92,
+          92
+        ],
+        "cls": [
+          0,
+          0,
+          0
+        ],
+        "lcpElement": "<p>"
+      }
+    }
+  ]
+}

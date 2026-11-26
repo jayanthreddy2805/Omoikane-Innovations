@@ -1,0 +1,16 @@
+{
+  "widths": [
+    320,
+    375,
+    390,
+    414,
+    768,
+    960,
+    1440
+  ],
+  "routes": 7,
+  "cases": 49,
+  "axeCases": 10,
+  "seriousAxe": 0,
+  "failures": []
+}

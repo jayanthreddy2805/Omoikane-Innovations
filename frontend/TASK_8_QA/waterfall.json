@@ -1,0 +1,586 @@
+{
+  "methodology": "Single cold Chromium CDP pass at 412x823, DPR 1, 4x CPU, 150ms RTT and 1638kbps down. Resource times use PerformanceResourceTiming relative to navigation start. Observed LCP is a single-run browser value and not the Lighthouse modeled LCP.",
+  "pages": [
+    {
+      "path": "/",
+      "baseline": {
+        "observedLcpMs": 880,
+        "lcpElement": "<img alt=\"\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" class=\"gSJs6a_homeBackdropImage\" style=\"position:absolute;height:100%;width:100%;left:0;top:0;right:0;",
+        "heroImage": [
+          {
+            "url": "/_next/image?url=%2Fimages%2Freference%2Fhome-drone-mobile.jpg&w=512&q=75",
+            "startMs": 261,
+            "durationMs": 528
+          }
+        ],
+        "fontDurationsMs": [
+          1116,
+          821
+        ],
+        "firstRequests": [
+          {
+            "url": "/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2",
+            "startMs": 254,
+            "durationMs": 1116
+          },
+          {
+            "url": "/_next/static/media/237858b39a32779d-s.p.2cyn07wtgehh0.woff2",
+            "startMs": 255,
+            "durationMs": 821
+          },
+          {
+            "url": "/_next/static/chunks/2nxky4asa6m56.css",
+            "startMs": 255,
+            "durationMs": 248
+          },
+          {
+            "url": "/_next/static/chunks/22t7uls3d9-i2.css",
+            "startMs": 255,
+            "durationMs": 334
+          },
+          {
+            "url": "/_next/static/chunks/1hl4x5m0vs688.css",
+            "startMs": 256,
+            "durationMs": 211
+          },
+          {
+            "url": "/_next/static/chunks/30vkvr68fzb3w.css",
+            "startMs": 257,
+            "durationMs": 397
+          },
+          {
+            "url": "/_next/static/chunks/29hv4hkndz6pb.css",
+            "startMs": 260,
+            "durationMs": 187
+          },
+          {
+            "url": "/_next/image?url=%2Fimages%2Freference%2Fhome-drone-mobile.jpg&w=512&q=75",
+            "startMs": 261,
+            "durationMs": 528
+          },
+          {
+            "url": "/_next/static/chunks/2qcar6hz56iq_.css",
+            "startMs": 2580,
+            "durationMs": 176
+          },
+          {
+            "url": "/_next/static/chunks/1zectds3yu2-u.css",
+            "startMs": 2593,
+            "durationMs": 213
+          }
+        ],
+        "pageErrors": []
+      },
+      "after": {
+        "observedLcpMs": 932,
+        "lcpElement": "<img alt=\"\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" class=\"gSJs6a_homeBackdropImage\" style=\"position:absolute;height:100%;width:100%;left:0;top:0;right:0;",
+        "heroImage": [
+          {
+            "url": "/_next/image?url=%2Fimages%2Freference%2Fhome-drone-mobile.jpg&w=512&q=75",
+            "startMs": 223,
+            "durationMs": 544
+          }
+        ],
+        "fontDurationsMs": [
+          1086,
+          597
+        ],
+        "firstRequests": [
+          {
+            "url": "/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2",
+            "startMs": 219,
+            "durationMs": 1086
+          },
+          {
+            "url": "/_next/static/media/237858b39a32779d-s.p.2cyn07wtgehh0.woff2",
+            "startMs": 220,
+            "durationMs": 597
+          },
+          {
+            "url": "/_next/static/chunks/1hl4x5m0vs688.css",
+            "startMs": 220,
+            "durationMs": 225
+          },
+          {
+            "url": "/_next/static/chunks/2nxky4asa6m56.css",
+            "startMs": 220,
+            "durationMs": 261
+          },
+          {
+            "url": "/_next/static/chunks/22t7uls3d9-i2.css",
+            "startMs": 220,
+            "durationMs": 376
+          },
+          {
+            "url": "/_next/static/chunks/30vkvr68fzb3w.css",
+            "startMs": 220,
+            "durationMs": 433
+          },
+          {
+            "url": "/_next/static/chunks/29hv4hkndz6pb.css",
+            "startMs": 223,
+            "durationMs": 402
+          },
+          {
+            "url": "/_next/image?url=%2Fimages%2Freference%2Fhome-drone-mobile.jpg&w=512&q=75",
+            "startMs": 223,
+            "durationMs": 544
+          },
+          {
+            "url": "/_next/static/chunks/2qcar6hz56iq_.css",
+            "startMs": 3361,
+            "durationMs": 176
+          },
+          {
+            "url": "/_next/static/chunks/1zectds3yu2-u.css",
+            "startMs": 3377,
+            "durationMs": 209
+          }
+        ],
+        "pageErrors": []
+      }
+    },
+    {
+      "path": "/expertise",
+      "baseline": {
+        "observedLcpMs": 1044,
+        "lcpElement": "<img alt=\"\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" class=\"tvv4dG_heroImage\" style=\"position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0",
+        "heroImage": [
+          {
+            "url": "/_next/image?url=%2Fimages%2Fexpertise%2Fherom.png&w=512&q=75",
+            "startMs": 242,
+            "durationMs": 776
+          }
+        ],
+        "fontDurationsMs": [
+          1077,
+          604
+        ],
+        "firstRequests": [
+          {
+            "url": "/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2",
+            "startMs": 234,
+            "durationMs": 1077
+          },
+          {
+            "url": "/_next/static/media/237858b39a32779d-s.p.2cyn07wtgehh0.woff2",
+            "startMs": 235,
+            "durationMs": 604
+          },
+          {
+            "url": "/_next/static/chunks/22t7uls3d9-i2.css",
+            "startMs": 235,
+            "durationMs": 389
+          },
+          {
+            "url": "/_next/static/chunks/2nxky4asa6m56.css",
+            "startMs": 236,
+            "durationMs": 259
+          },
+          {
+            "url": "/_next/static/chunks/1zectds3yu2-u.css",
+            "startMs": 237,
+            "durationMs": 266
+          },
+          {
+            "url": "/_next/static/chunks/30vkvr68fzb3w.css",
+            "startMs": 237,
+            "durationMs": 445
+          },
+          {
+            "url": "/_next/static/chunks/29hv4hkndz6pb.css",
+            "startMs": 242,
+            "durationMs": 432
+          },
+          {
+            "url": "/_next/image?url=%2Fimages%2Fexpertise%2Fherom.png&w=512&q=75",
+            "startMs": 242,
+            "durationMs": 776
+          }
+        ],
+        "pageErrors": []
+      },
+      "after": {
+        "observedLcpMs": 1032,
+        "lcpElement": "<img alt=\"\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" class=\"tvv4dG_heroImage\" style=\"position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0",
+        "heroImage": [
+          {
+            "url": "/_next/image?url=%2Fimages%2Fexpertise%2Fherom.png&w=512&q=75",
+            "startMs": 224,
+            "durationMs": 777
+          }
+        ],
+        "fontDurationsMs": [
+          1110,
+          608
+        ],
+        "firstRequests": [
+          {
+            "url": "/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2",
+            "startMs": 221,
+            "durationMs": 1110
+          },
+          {
+            "url": "/_next/static/media/237858b39a32779d-s.p.2cyn07wtgehh0.woff2",
+            "startMs": 221,
+            "durationMs": 608
+          },
+          {
+            "url": "/_next/static/chunks/2nxky4asa6m56.css",
+            "startMs": 222,
+            "durationMs": 257
+          },
+          {
+            "url": "/_next/static/chunks/22t7uls3d9-i2.css",
+            "startMs": 222,
+            "durationMs": 386
+          },
+          {
+            "url": "/_next/static/chunks/1zectds3yu2-u.css",
+            "startMs": 222,
+            "durationMs": 263
+          },
+          {
+            "url": "/_next/static/chunks/30vkvr68fzb3w.css",
+            "startMs": 222,
+            "durationMs": 449
+          },
+          {
+            "url": "/_next/static/chunks/29hv4hkndz6pb.css",
+            "startMs": 223,
+            "durationMs": 434
+          },
+          {
+            "url": "/_next/image?url=%2Fimages%2Fexpertise%2Fherom.png&w=512&q=75",
+            "startMs": 224,
+            "durationMs": 777
+          }
+        ],
+        "pageErrors": []
+      }
+    },
+    {
+      "path": "/careers/software",
+      "baseline": {
+        "observedLcpMs": 3464,
+        "lcpElement": "<img alt=\"SOFTWARE Engineering\" decoding=\"async\" data-nimg=\"fill\" class=\"vHOIsa_heroImg\" style=\"position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent\"",
+        "heroImage": [
+          {
+            "url": "/_next/image?url=%2Fimages%2Fcareers%2Fsoftware%2Fhero.jpg&w=512&q=75",
+            "startMs": 193,
+            "durationMs": 490
+          }
+        ],
+        "fontDurationsMs": [
+          1099,
+          627
+        ],
+        "firstRequests": [
+          {
+            "url": "/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2",
+            "startMs": 192,
+            "durationMs": 1099
+          },
+          {
+            "url": "/_next/static/media/237858b39a32779d-s.p.2cyn07wtgehh0.woff2",
+            "startMs": 193,
+            "durationMs": 627
+          },
+          {
+            "url": "/_next/static/chunks/2nxky4asa6m56.css",
+            "startMs": 193,
+            "durationMs": 262
+          },
+          {
+            "url": "/_next/static/chunks/22t7uls3d9-i2.css",
+            "startMs": 193,
+            "durationMs": 362
+          },
+          {
+            "url": "/_next/image?url=%2Fimages%2Fcareers%2Fsoftware%2Fhero.jpg&w=512&q=75",
+            "startMs": 193,
+            "durationMs": 490
+          },
+          {
+            "url": "/_next/static/chunks/044t2dt8z4hz7.css",
+            "startMs": 194,
+            "durationMs": 354
+          },
+          {
+            "url": "/_next/static/chunks/29hv4hkndz6pb.css",
+            "startMs": 195,
+            "durationMs": 188
+          }
+        ],
+        "pageErrors": []
+      },
+      "after": {
+        "observedLcpMs": 1400,
+        "lcpElement": "<img alt=\"SOFTWARE Engineering\" decoding=\"async\" data-nimg=\"fill\" class=\"vHOIsa_heroImg\" style=\"position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent\"",
+        "heroImage": [
+          {
+            "url": "/_next/image?url=%2Fimages%2Fcareers%2Fsoftware%2Fhero.jpg&w=512&q=75",
+            "startMs": 269,
+            "durationMs": 492
+          }
+        ],
+        "fontDurationsMs": [
+          1094,
+          643
+        ],
+        "firstRequests": [
+          {
+            "url": "/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2",
+            "startMs": 267,
+            "durationMs": 1094
+          },
+          {
+            "url": "/_next/static/media/237858b39a32779d-s.p.2cyn07wtgehh0.woff2",
+            "startMs": 269,
+            "durationMs": 643
+          },
+          {
+            "url": "/_next/image?url=%2Fimages%2Fcareers%2Fsoftware%2Fhero.jpg&w=512&q=75",
+            "startMs": 269,
+            "durationMs": 492
+          },
+          {
+            "url": "/_next/static/chunks/22t7uls3d9-i2.css",
+            "startMs": 270,
+            "durationMs": 369
+          },
+          {
+            "url": "/_next/static/chunks/2nxky4asa6m56.css",
+            "startMs": 270,
+            "durationMs": 249
+          },
+          {
+            "url": "/_next/static/chunks/1v5ag8tclr90e.css",
+            "startMs": 270,
+            "durationMs": 341
+          },
+          {
+            "url": "/_next/static/chunks/29hv4hkndz6pb.css",
+            "startMs": 272,
+            "durationMs": 174
+          }
+        ],
+        "pageErrors": []
+      }
+    },
+    {
+      "path": "/contact",
+      "baseline": {
+        "observedLcpMs": 3188,
+        "lcpElement": "<p class=\"OSLHOG_enquiryText\">Connect with the minds behind Omoikane. Whether it’s a technical deep-dive or a strategic partnership, let’s start the conversation.</p>",
+        "heroImage": [],
+        "fontDurationsMs": [
+          976,
+          560
+        ],
+        "firstRequests": [
+          {
+            "url": "/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2",
+            "startMs": 184,
+            "durationMs": 976
+          },
+          {
+            "url": "/_next/static/media/237858b39a32779d-s.p.2cyn07wtgehh0.woff2",
+            "startMs": 185,
+            "durationMs": 560
+          },
+          {
+            "url": "/_next/static/chunks/2nxky4asa6m56.css",
+            "startMs": 195,
+            "durationMs": 264
+          },
+          {
+            "url": "/_next/static/chunks/22t7uls3d9-i2.css",
+            "startMs": 195,
+            "durationMs": 386
+          },
+          {
+            "url": "/_next/static/chunks/2zlvmo0q0o_qv.css",
+            "startMs": 195,
+            "durationMs": 271
+          },
+          {
+            "url": "/_next/static/chunks/044t2dt8z4hz7.css",
+            "startMs": 195,
+            "durationMs": 364
+          },
+          {
+            "url": "/_next/static/chunks/29hv4hkndz6pb.css",
+            "startMs": 197,
+            "durationMs": 427
+          },
+          {
+            "url": "/_next/static/chunks/01xfh048mikln.css",
+            "startMs": 2473,
+            "durationMs": 154
+          }
+        ],
+        "pageErrors": []
+      },
+      "after": {
+        "observedLcpMs": 1212,
+        "lcpElement": "<p class=\"OSLHOG_enquiryText\">Connect with the minds behind Omoikane. Whether it’s a technical deep-dive or a strategic partnership, let’s start the conversation.</p>",
+        "heroImage": [],
+        "fontDurationsMs": [
+          974,
+          566
+        ],
+        "firstRequests": [
+          {
+            "url": "/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2",
+            "startMs": 181,
+            "durationMs": 974
+          },
+          {
+            "url": "/_next/static/media/237858b39a32779d-s.p.2cyn07wtgehh0.woff2",
+            "startMs": 181,
+            "durationMs": 566
+          },
+          {
+            "url": "/_next/static/chunks/22t7uls3d9-i2.css",
+            "startMs": 193,
+            "durationMs": 389
+          },
+          {
+            "url": "/_next/static/chunks/2nxky4asa6m56.css",
+            "startMs": 193,
+            "durationMs": 267
+          },
+          {
+            "url": "/_next/static/chunks/2zlvmo0q0o_qv.css",
+            "startMs": 193,
+            "durationMs": 275
+          },
+          {
+            "url": "/_next/static/chunks/1v5ag8tclr90e.css",
+            "startMs": 193,
+            "durationMs": 368
+          },
+          {
+            "url": "/_next/static/chunks/29hv4hkndz6pb.css",
+            "startMs": 196,
+            "durationMs": 437
+          },
+          {
+            "url": "/_next/static/chunks/01xfh048mikln.css",
+            "startMs": 2565,
+            "durationMs": 158
+          }
+        ],
+        "pageErrors": []
+      }
+    },
+    {
+      "path": "/apply",
+      "baseline": {
+        "observedLcpMs": 2328,
+        "lcpElement": "<p>Essential cookies run this site. Analytics is optional and off by default.</p>",
+        "heroImage": [],
+        "fontDurationsMs": [
+          1049,
+          555
+        ],
+        "firstRequests": [
+          {
+            "url": "/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2",
+            "startMs": 185,
+            "durationMs": 1049
+          },
+          {
+            "url": "/_next/static/media/237858b39a32779d-s.p.2cyn07wtgehh0.woff2",
+            "startMs": 186,
+            "durationMs": 555
+          },
+          {
+            "url": "/_next/static/chunks/2nxky4asa6m56.css",
+            "startMs": 194,
+            "durationMs": 260
+          },
+          {
+            "url": "/_next/static/chunks/22t7uls3d9-i2.css",
+            "startMs": 194,
+            "durationMs": 382
+          },
+          {
+            "url": "/_next/static/chunks/2zlvmo0q0o_qv.css",
+            "startMs": 194,
+            "durationMs": 268
+          },
+          {
+            "url": "/_next/static/chunks/044t2dt8z4hz7.css",
+            "startMs": 194,
+            "durationMs": 360
+          },
+          {
+            "url": "/_next/static/chunks/29hv4hkndz6pb.css",
+            "startMs": 194,
+            "durationMs": 432
+          },
+          {
+            "url": "/_next/static/chunks/01xfh048mikln.css",
+            "startMs": 2466,
+            "durationMs": 156
+          }
+        ],
+        "pageErrors": []
+      },
+      "after": {
+        "observedLcpMs": 2364,
+        "lcpElement": "<p>Essential cookies run this site. Analytics is optional and off by default.</p>",
+        "heroImage": [],
+        "fontDurationsMs": [
+          1035,
+          555
+        ],
+        "firstRequests": [
+          {
+            "url": "/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2",
+            "startMs": 185,
+            "durationMs": 1035
+          },
+          {
+            "url": "/_next/static/media/237858b39a32779d-s.p.2cyn07wtgehh0.woff2",
+            "startMs": 185,
+            "durationMs": 555
+          },
+          {
+            "url": "/_next/static/chunks/22t7uls3d9-i2.css",
+            "startMs": 199,
+            "durationMs": 384
+          },
+          {
+            "url": "/_next/static/chunks/2nxky4asa6m56.css",
+            "startMs": 199,
+            "durationMs": 262
+          },
+          {
+            "url": "/_next/static/chunks/2zlvmo0q0o_qv.css",
+            "startMs": 199,
+            "durationMs": 269
+          },
+          {
+            "url": "/_next/static/chunks/1v5ag8tclr90e.css",
+            "startMs": 199,
+            "durationMs": 362
+          },
+          {
+            "url": "/_next/static/chunks/29hv4hkndz6pb.css",
+            "startMs": 201,
+            "durationMs": 432
+          },
+          {
+            "url": "/_next/static/chunks/01xfh048mikln.css",
+            "startMs": 2512,
+            "durationMs": 153
+          }
+        ],
+        "pageErrors": []
+      }
+    }
+  ]
+}

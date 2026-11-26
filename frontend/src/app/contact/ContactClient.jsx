@@ -80,7 +80,7 @@ export default function ContactPage({ query }) {
               </div>
 
               <div className={styles.enquiryGrid}>
-                <FadeUp delay={0.1}>
+                <div className={styles.introReveal}>
                   <div className={styles.enquiryContext}>
                     <p className={styles.enquiryText}>
                       Connect with the minds behind Omoikane. Whether it’s a technical deep-dive or a strategic partnership, let’s start the conversation.
@@ -97,7 +97,7 @@ export default function ContactPage({ query }) {
                       </div>
                     </div>
                   </div>
-                </FadeUp>
+                </div>
                 <FadeUp delay={0.18}>
                   <div id="contact-form" style={{scrollMarginTop: 120}} className={styles.formWrapper}>
                     
