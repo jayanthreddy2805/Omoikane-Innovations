@@ -47,6 +47,14 @@ public class RateLimitFilter extends OncePerRequestFilter {
             .expireAfterAccess(Duration.ofMinutes(5))
             .maximumSize(100_000)
             .build();
+    // Admin reads/downloads are also protected against unbounded key guessing.
+    // Keep a separate, less restrictive bucket so normal dashboard requests
+    // do not consume the stricter login verification allowance.
+    private static final int ADMIN_REQUESTS_PER_MINUTE = 30;
+    private final Cache<String, Bucket> adminBuckets = Caffeine.newBuilder()
+            .expireAfterAccess(Duration.ofMinutes(5))
+            .maximumSize(100_000)
+            .build();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public RateLimitFilter(@Value("${app.rate-limit.requests-per-minute:5}") int requestsPerMinute) {
@@ -59,6 +67,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
      */
     public void reset() {
         buckets.invalidateAll();
+        adminBuckets.invalidateAll();
     }
 
     @Override
@@ -68,7 +77,11 @@ public class RateLimitFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         String clientIp = request.getRemoteAddr();
-        Bucket bucket = buckets.get(clientIp, this::createBucket);
+        boolean isAdminRequest = request.getRequestURI().startsWith("/api/admin/")
+                && !"/api/admin/auth/verify".equals(request.getRequestURI());
+        Bucket bucket = isAdminRequest
+                ? adminBuckets.get(clientIp, key -> createBucket(ADMIN_REQUESTS_PER_MINUTE))
+                : buckets.get(clientIp, key -> createBucket(requestsPerMinute));
 
         if (bucket.tryConsume(1)) {
             filterChain.doFilter(request, response);
@@ -96,14 +109,15 @@ public class RateLimitFilter extends OncePerRequestFilter {
                 && uri.startsWith("/api/subscriptions/");
         boolean isAdminVerification = "POST".equalsIgnoreCase(request.getMethod())
                 && "/api/admin/auth/verify".equals(uri);
-        return !isPublicSubmission && !isUnsubscribeAttempt && !isAdminVerification;
+        boolean isAdminEndpoint = uri.startsWith("/api/admin/");
+        return !isPublicSubmission && !isUnsubscribeAttempt && !isAdminVerification && !isAdminEndpoint;
     }
 
-    private Bucket createBucket(String key) {
+    private Bucket createBucket(int capacity) {
         return Bucket.builder()
                 .addLimit(Bandwidth.builder()
-                        .capacity(requestsPerMinute)
-                        .refillGreedy(requestsPerMinute, Duration.ofMinutes(1))
+                        .capacity(capacity)
+                        .refillGreedy(capacity, Duration.ofMinutes(1))
                         .build())
                 .build();
     }

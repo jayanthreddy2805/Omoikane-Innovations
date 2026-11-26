@@ -8,7 +8,7 @@
     "build:rag": "node scripts/build_rag_index.js",
     "start": "next start",
     "lint": "eslint",
-    "test": "node scripts/validate-site-contracts.mjs"
+    "test": "node scripts/validate-site-contracts.mjs && node scripts/verify-about-film-only.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
