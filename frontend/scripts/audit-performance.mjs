@@ -10,7 +10,7 @@ const {default:desktopConfig}=await import(new URL('./config/desktop-config.js',
 const {launch}=await import(pathToFileURL(createRequire(lighthousePath).resolve('chrome-launcher')));
 const output=process.env.AUDIT_OUTPUT_DIR || 'performance-results';
 const origin=process.env.SMOKE_ORIGIN || 'http://127.0.0.1:3016';
-const paths=JSON.parse(process.env.AUDIT_PATHS || '["/","/about","/expertise","/work","/contact","/apply","/careers","/careers/software","/careers/mechanical","/careers/electronics","/services/software","/services/mechanical","/services/electronics","/privacy","/terms"]');
+const paths=JSON.parse(process.env.AUDIT_PATHS || '["/","/about","/expertise","/work","/contact","/apply","/careers/software","/careers/mechanical","/careers/electronics","/services/software","/services/mechanical","/services/electronics","/privacy","/terms"]');
 const modes=JSON.parse(process.env.AUDIT_MODES || '["mobile","desktop"]');
 const server=process.env.SMOKE_ORIGIN?null:spawn(process.execPath,['node_modules/next/dist/bin/next','start','-H','127.0.0.1','-p','3016'],{stdio:'ignore'});
 let chrome;

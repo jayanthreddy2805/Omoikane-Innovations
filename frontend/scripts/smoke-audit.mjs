@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 const origin = process.env.SMOKE_ORIGIN || 'http://localhost:3000';
-const paths = ['/', '/work', '/about', '/contact', '/apply', '/careers', '/expertise', '/privacy', '/terms', '/leadership', '/careers/software', '/careers/mechanical', '/careers/electronics', '/services/software', '/services/electronics', '/services/mechanical'];
+const paths = ['/', '/work', '/about', '/contact', '/apply', '/expertise', '/privacy', '/terms', '/leadership', '/careers/software', '/careers/mechanical', '/careers/electronics', '/services/software', '/services/electronics', '/services/mechanical'];
 const titles = new Set();
 for (const path of paths) {
   const response = await fetch(`${origin}${path}`);
@@ -23,6 +23,9 @@ for (const path of paths) {
   }
   console.log(`PASS ${path}`);
 }
+const careers = await fetch(`${origin}/careers`, { redirect: 'manual' });
+assert.equal(careers.status, 308);
+assert.equal(careers.headers.get('location'), '/careers/software');
 const invalid = await (await fetch(`${origin}/apply?dept=invalid&role=invalid`)).text();
 assert.match(invalid, /<form/);
 assert.ok(!invalid.includes('Loading form'));
