@@ -17,42 +17,42 @@ const PROFILES = [
   {
     id: 'alex',
     image: '/images/leadership/confidence.jpg',
-    topTitle: 'ALEX KIM',
-    bottomTitle: 'CEO',
-    leftSubtitle: 'BACKGROUND',
-    rightSubtitle: 'EXPERIENCE',
-    leftText: 'Ex-Google PM. Built and sold two B2B SaaS products.',
-    rightText: '10 yrs in operations and scalable automation.'
+    topTitle: 'PROFILE 01',
+    bottomTitle: 'DETAILS PENDING',
+    leftSubtitle: 'PROFILE',
+    rightSubtitle: 'BACKGROUND',
+    leftText: 'Name and role pending approval.',
+    rightText: 'Biography pending approval.'
   },
   {
     id: 'maya',
     image: '/images/leadership/wisdom.jpg',
-    topTitle: 'MAYA REED',
-    bottomTitle: 'CTO',
-    leftSubtitle: 'BACKGROUND',
-    rightSubtitle: 'ACHIEVEMENTS',
-    leftText: 'Ex-Stripe tech lead. Led infrastructure teams of 30+.',
-    rightText: 'Open-source contributor with over 12K GitHub stars.'
+    topTitle: 'PROFILE 02',
+    bottomTitle: 'DETAILS PENDING',
+    leftSubtitle: 'PROFILE',
+    rightSubtitle: 'BACKGROUND',
+    leftText: 'Name and role pending approval.',
+    rightText: 'Biography pending approval.'
   },
   {
     id: 'jonas',
     image: '/images/leadership/kindness.jpg',
-    topTitle: 'JONAS LEE',
-    bottomTitle: 'GROWTH',
-    leftSubtitle: 'BACKGROUND',
-    rightSubtitle: 'IMPACT',
-    leftText: 'Scaled two products from 0 to $5M ARR.',
-    rightText: 'Previously led growth initiatives at Notion and Linear.'
+    topTitle: 'PROFILE 03',
+    bottomTitle: 'DETAILS PENDING',
+    leftSubtitle: 'PROFILE',
+    rightSubtitle: 'BACKGROUND',
+    leftText: 'Name and role pending approval.',
+    rightText: 'Biography pending approval.'
   },
   {
     id: 'sarah',
     image: '/images/leadership/creativity.jpg',
-    topTitle: 'SARAH CHEN',
-    bottomTitle: 'DESIGN',
-    leftSubtitle: 'BACKGROUND',
-    rightSubtitle: 'VISION',
-    leftText: 'Award-winning product designer focused on minimal interfaces.',
-    rightText: 'Former Design Lead at Airbnb and Apple.'
+    topTitle: 'PROFILE 04',
+    bottomTitle: 'DETAILS PENDING',
+    leftSubtitle: 'PROFILE',
+    rightSubtitle: 'BACKGROUND',
+    leftText: 'Name and role pending approval.',
+    rightText: 'Biography pending approval.'
   }
 ];
 
@@ -325,8 +325,9 @@ export default function LeadershipGallery() {
       <div className={styles.scrollWrapper} data-scroll="wrapper" ref={scrollWrapperRef}>
         <div className={styles.galleryHeader}>
           <h2 className={styles.editorialHeading}>
-            Board of directors
+            Leadership profiles
           </h2>
+          <p>Template profiles. Names, roles and biographies are pending approval.</p>
         </div>
         <section className={styles.scrollContent} data-scroll="content" ref={scrollContentRef}>
           <div className={styles.gallery}>

@@ -20,6 +20,7 @@ export default function FooterContent() {
             <li><Link href="/about">About Us</Link></li>
             <li><Link href="/expertise">Technology</Link></li>
             <li><Link href="/work">Products</Link></li>
+            <li><Link href="/leadership">Leadership</Link></li>
             <li><Link href="/careers">Careers</Link></li>
           </ul>
         </div>

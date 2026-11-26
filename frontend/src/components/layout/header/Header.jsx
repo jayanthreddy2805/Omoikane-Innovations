@@ -12,6 +12,7 @@ const SEARCH_INDEX = [
   { title: "Technology", desc: "Our advanced technology stack and engineering capabilities", href: "/expertise" },
   { title: "Products", desc: "Mission-critical flight controllers, ESCs, GNSS, and tactical communications", href: "/work" },
   { title: "About Us", desc: "Learn about Omoikane Innovations, our mission and history", href: "/about" },
+  { title: "Leadership", desc: "Explore the leadership page template", href: "/leadership" },
   { title: "Contact", desc: "Get in touch with the Omoikane team", href: "/contact" },
   { title: "Software Development", desc: "Full-stack web, distributed systems, AI & cloud platforms", href: "/services/software" },
   { title: "Electronics Engineering", desc: "Hardware, PCB design, RF & embedded systems", href: "/services/electronics" },
@@ -39,6 +40,7 @@ const NAV_LINKS = [
   { label: "Technology", href: "/expertise" },
   { label: "Products", href: "/work" },
   { label: "About Us", href: "/about" },
+  { label: "Leadership", href: "/leadership" },
   {
     label: "Careers",
     href: "/careers",
