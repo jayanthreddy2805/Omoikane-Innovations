@@ -17,9 +17,9 @@ try {
   assert.equal(metadata.robots.index,environment==='production');
   assert.equal(metadata.alternates.canonical,'https://www.omoikaneinnovations.com/work');
   if(environment==='production'){
-   assert.equal(map.length,15);assert.equal(new Set(map.map(row=>row.url)).size,15);
+   assert.equal(map.length,14);assert.equal(new Set(map.map(row=>row.url)).size,14);
    assert.ok(map.every(row=>row.url.startsWith('https://www.omoikaneinnovations.com/')));
-   assert.ok(map.every(row=>!row.url.includes('/admin')&&!row.url.includes('/leadership')));
+   assert.ok(map.every(row=>!row.url.includes('/admin')&&!row.url.includes('/leadership')&&!row.url.endsWith('/careers')));
    assert.equal(rules.rules.allow,'/');assert.deepEqual(rules.rules.disallow,['/admin','/api/']);
   }else{assert.deepEqual(map,[]);assert.equal(rules.rules.disallow,'/');}
   console.log('PASS canonical metadata, robots and sitemap',environment);

@@ -6,6 +6,11 @@
   padding-top: 96px;
 }
 
+/* The page's sticky technology rail must use the viewport as its scroll container. */
+:global(body):has(.container) {
+  overflow-x: clip;
+}
+
 @media (max-width: 768px) {
   .container {
     padding-top: 76px;

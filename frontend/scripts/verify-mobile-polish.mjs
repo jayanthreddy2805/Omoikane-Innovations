@@ -48,16 +48,29 @@ try {
     await dialog.getByRole("button", { name: "Save preferences", exact: true }).click();
     await banner.waitFor({ state: "detached" });
     assert.match(await page.evaluate(() => document.cookie), /v1-essential/);
-    for (const path of ["/careers", "/contact#contact-form", "/apply?dept=electronics&role=prod-eng-elec"]) {
+    for (const path of ["/careers/software", "/contact#contact-form", "/apply?dept=electronics&role=prod-eng-elec"]) {
       await page.goto(origin + path, { waitUntil: "domcontentloaded" });
       await page.waitForTimeout(800);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `Overflow: ${width} ${path}`);
-      if (path === "/careers") {
-        assert.equal(await page.locator("main ul > li").count(), 3);
-        for (const department of ["software", "mechanical", "electronics"]) {
-          const link = page.locator(`main a[href="/apply?dept=${department}"]`);
-          assert.equal(await link.count(), 1, `Department apply destination: ${department}`);
-          assert.ok((await link.boundingBox()).height > 0, "Department apply link visible");
+      if (path === "/careers/software") {
+        assert.equal(await page.locator("main h1").count(), 1);
+        const menu = page.getByRole("button", { name: "Menu", exact: true });
+        if (await menu.isVisible()) {
+          await menu.click();
+          const navigation = page.getByRole("navigation", { name: "Mobile navigation" });
+          await navigation.getByRole("button", { name: "Careers" }).click();
+          for (const department of ["software", "mechanical", "electronics"]) {
+            assert.equal(await navigation.locator(`a[href="/careers/${department}"]`).count(), 1);
+          }
+          await menu.click();
+        } else {
+          const careers = page.getByRole("button", { name: "Careers" });
+          await careers.hover();
+          await careers.click();
+          assert.equal(await careers.getAttribute("aria-expanded"), "true");
+          for (const department of ["software", "mechanical", "electronics"]) {
+            assert.equal(await page.locator(`#careers-dropdown a[href="/careers/${department}"]`).count(), 1);
+          }
         }
       } else {
         const field = page.locator(path.startsWith("/contact") ? "#cf-name" : "#af-name");

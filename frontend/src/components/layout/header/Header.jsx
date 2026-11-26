@@ -23,12 +23,9 @@ const SEARCH_INDEX = [
   { title: "OCOM-X Tactical Radio", desc: "AES-256 encrypted frequency-hopping tactical mesh telemetry", href: "/work#ocom-x" },
   { title: "Aerospace Technology", desc: "UAV platforms, flight control, avionics and RF communication", href: "/expertise#aerospace" },
   { title: "Defense Systems", desc: "Secure communications, autonomous surveillance, rugged electronics", href: "/expertise#defense" },
-  { title: "Automotive Systems", desc: "ECU solutions, real-time embedded systems, vehicle automation", href: "/expertise#automotive" },
-  { title: "Railways Infrastructure", desc: "Predictive maintenance, industrial control, smart railway automation", href: "/expertise#railways" },
   { title: "Software Careers", desc: "React, Next.js, Python, AI Developer, Embedded Firmware roles", href: "/careers/software" },
   { title: "Mechanical Engineering Careers", desc: "CAD, structural analysis, assembly engineering roles", href: "/careers/mechanical" },
   { title: "Electrical Engineering Careers", desc: "Hardware, RF & embedded systems engineering roles", href: "/careers/electronics" },
-  { title: "Careers", desc: "Join the Omoikane engineering team", href: "/careers" },
   { title: "Apply", desc: "Submit your application and resume to Omoikane Innovations", href: "/apply" },
   { title: "FAQ", desc: "Frequently asked questions about engineering, products and standards", href: "/about#faq" },
   { title: "Privacy Policy", desc: "Privacy policy and data handling principles", href: "/privacy" },
@@ -45,7 +42,7 @@ const NAV_LINKS = [
     label: "Careers",
     href: "/careers",
     activePath: "/careers",
-    departmentLinks: [
+    dropdown: [
       { title: "Software Development", desc: "Software, AI & real-time systems", href: "/careers/software" },
       { title: "Mechanical Engineering", desc: "Product, structures & integration", href: "/careers/mechanical" },
       { title: "Electrical Engineering", desc: "Hardware, RF & embedded systems", href: "/careers/electronics" },
@@ -149,8 +146,6 @@ export default function Header() {
     );
   }, [searchQuery]);
 
-  const isCareersActive = pathname?.startsWith("/careers");
-
   const handleLogoClick = (e) => {
     // Allow new tab or special modifier clicks (Cmd, Ctrl, Shift, Alt, middle-click)
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
@@ -222,9 +217,11 @@ export default function Header() {
                     }}
                   >
                     <button
+                      type="button"
                       className={`${styles.pillBtn} ${isActive ? styles.pillActive : ""}`}
-                      onClick={() => setCareersOpen((v) => !v)}
+                      onClick={() => setCareersOpen(true)}
                       aria-expanded={careersOpen}
+                      aria-controls={careersOpen ? "careers-dropdown" : undefined}
                     >
                       {item.label}
                       <motion.svg
@@ -240,6 +237,7 @@ export default function Header() {
                     <AnimatePresence>
                       {careersOpen && (
                         <motion.div
+                          id="careers-dropdown"
                           className={styles.dropdown}
                           initial={{ opacity: 0, x: "-50%", y: 8, scale: 0.97 }}
                           animate={{ opacity: 1, x: "-50%", y: 0, scale: 1 }}
