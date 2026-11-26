@@ -95,6 +95,25 @@ export function ExpertiseSection() {
   );
 
   useEffect(() => {
+    if (!mobile) return;
+    let frame: number | undefined;
+    const followCategoryLink = () => {
+      const index = expertise.findIndex(item => `#${item.id}` === window.location.hash);
+      if (index < 0) return;
+      changeActive(index);
+      frame = window.requestAnimationFrame(() => {
+        sectionRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
+      });
+    };
+    followCategoryLink();
+    window.addEventListener('hashchange', followCategoryLink);
+    return () => {
+      window.removeEventListener('hashchange', followCategoryLink);
+      if (frame !== undefined) window.cancelAnimationFrame(frame);
+    };
+  }, [mobile, changeActive]);
+
+  useEffect(() => {
     const scenes = sceneRefs.current.filter(Boolean) as HTMLElement[];
     if (!scenes.length) return;
 
@@ -277,7 +296,7 @@ export function ExpertiseSection() {
   const active = expertise[activeIndex];
 
   return (
-    <section ref={sectionRef} className={styles.section} aria-label="Omoikane expertise">
+    <section ref={sectionRef} id={mobile ? active.id : undefined} className={styles.section} aria-label="Omoikane expertise">
       <aside className={styles.leftRail} aria-label="Expertise navigation">
         <div className={styles.leftInner}>
 

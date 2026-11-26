@@ -64,7 +64,7 @@ export default function LeadershipGallery() {
   const contentWrappers = useRef([]);
   const contents = useRef([]);
   const openerRefs = useRef([]);
-  const closeButtonRef = useRef(null);
+  const closeButtonRefs = useRef([]);
   const profileAnimationRef = useRef(null);
   const profileTextRefs = useRef([]);
 
@@ -124,6 +124,9 @@ export default function LeadershipGallery() {
 
     setOpenIndex(index);
     contents.current[index].classList.remove(styles.isHidden);
+    // A zero-duration reduced-motion timeline does not run GSAP's onStart.
+    // Visibility must follow the open action for both motion preferences.
+    sectionContentRef.current.classList.remove(styles.isHidden);
 
     const currentWrapper = contentWrappers.current[index];
     const refs = profileTextRefs.current[index] || {};
@@ -132,14 +135,21 @@ export default function LeadershipGallery() {
     const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const d = (seconds) => (reduced ? 0 : seconds);
 
+    if (reduced) {
+      gsap.set([currentWrapper, ...titleEls, ...bodyEls], { opacity: 1, visibility: 'visible', clearProps: 'transform' });
+      scrollWrapperRef.current.classList.add(styles.isHidden);
+      requestAnimationFrame(() => {
+        if (sectionContentRef.current?.classList.contains(styles.isHidden)) return;
+        closeButtonRefs.current[index]?.focus({ preventScroll: true });
+      });
+      return;
+    }
+
     const currentAnimation = gsap.timeline({
-      onStart: () => {
-        sectionContentRef.current.classList.remove(styles.isHidden);
-      },
       onComplete: () => {
         if (profileAnimationRef.current !== currentAnimation) return;
         scrollWrapperRef.current.classList.add(styles.isHidden);
-        closeButtonRef.current?.focus();
+        closeButtonRefs.current[index]?.focus();
         profileAnimationRef.current = null;
       },
     });
@@ -183,6 +193,15 @@ export default function LeadershipGallery() {
 
     scrollWrapperRef.current.classList.remove(styles.isHidden);
 
+    if (reduced) {
+      gsap.set([currentWrapper, ...titleEls, ...bodyEls], { clearProps: 'opacity,transform,visibility' });
+      setOpenIndex(null);
+      sectionContentRef.current.classList.add(styles.isHidden);
+      contents.current[index].classList.add(styles.isHidden);
+      openerRefs.current[index]?.focus({ preventScroll: true });
+      return;
+    }
+
     const currentAnimation = gsap.timeline({
       onComplete: () => {
         if (profileAnimationRef.current !== currentAnimation) return;
@@ -225,11 +244,13 @@ export default function LeadershipGallery() {
       }
       if (event.key === 'Tab') {
         event.preventDefault();
-        closeButtonRef.current?.focus();
+        closeButtonRefs.current[openIndex]?.focus();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [hideContent, openIndex]);
 
   if (error) {
@@ -273,11 +294,11 @@ export default function LeadershipGallery() {
         </section>
       </div>
 
-      <section className={`${styles.sectionContent} ${styles.isHidden}`} ref={sectionContentRef}>
+      <section className={`${styles.sectionContent} ${openIndex === null ? styles.isHidden : ''}`} ref={sectionContentRef}>
         {PROFILES.map((profile, i) => (
           <div
             key={profile.id}
-            className={`${styles.content} ${styles.isHidden}`}
+            className={`${styles.content} ${openIndex !== i ? styles.isHidden : ''}`}
             ref={el => contents.current[i] = el}
             role="dialog"
             aria-modal="true"
@@ -292,7 +313,7 @@ export default function LeadershipGallery() {
                 <LoadAwarePhoto src={profile.image} loading="lazy" alt="" />
               </div>
               <button
-                ref={openIndex === i ? closeButtonRef : undefined}
+                ref={el => { closeButtonRefs.current[i] = el; }}
                 type="button"
                 className={styles.closeButton}
                 onClick={() => hideContent(i)}
