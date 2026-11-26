@@ -1,0 +1,32 @@
+[
+  {
+    "width": 390,
+    "route": "/expertise#defense",
+    "heading": "Defense",
+    "defenseAnchor": true
+  },
+  {
+    "width": 768,
+    "route": "/expertise#defense",
+    "heading": "Defense",
+    "defenseAnchor": true
+  },
+  {
+    "width": 820,
+    "route": "/expertise#defense",
+    "heading": "Defense",
+    "defenseAnchor": true
+  },
+  {
+    "width": 1024,
+    "route": "/expertise#defense",
+    "heading": "Defense",
+    "defenseAnchor": true
+  },
+  {
+    "width": 1440,
+    "route": "/expertise#defense",
+    "heading": "Defense",
+    "defenseAnchor": true
+  }
+]

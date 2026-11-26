@@ -1,0 +1,68 @@
+[
+  {
+    "phase": "before",
+    "width": 320,
+    "height": 568,
+    "heroTop": 96,
+    "eyebrowTop": 92,
+    "eyebrowHeight": 16.796875,
+    "clippedAbove": 4,
+    "font": "9px",
+    "transform": "matrix(1, 0, 0, 1, 0, -30)"
+  },
+  {
+    "phase": "before",
+    "width": 375,
+    "height": 667,
+    "heroTop": 96,
+    "eyebrowTop": 92,
+    "eyebrowHeight": 16.796875,
+    "clippedAbove": 4,
+    "font": "12.1557px",
+    "transform": "matrix(1, 0, 0, 1, 0, -30)"
+  },
+  {
+    "phase": "before",
+    "width": 390,
+    "height": 844,
+    "heroTop": 96,
+    "eyebrowTop": 142,
+    "eyebrowHeight": 16.796875,
+    "clippedAbove": 0,
+    "font": "12.5px",
+    "transform": "matrix(1, 0, 0, 1, 0, -30)"
+  },
+  {
+    "phase": "after",
+    "width": 320,
+    "height": 568,
+    "heroTop": 96,
+    "eyebrowTop": 122,
+    "eyebrowHeight": 16.796875,
+    "clippedAbove": 0,
+    "font": "9px",
+    "transform": "none"
+  },
+  {
+    "phase": "after",
+    "width": 375,
+    "height": 667,
+    "heroTop": 96,
+    "eyebrowTop": 122,
+    "eyebrowHeight": 16.796875,
+    "clippedAbove": 0,
+    "font": "12.1557px",
+    "transform": "none"
+  },
+  {
+    "phase": "after",
+    "width": 390,
+    "height": 844,
+    "heroTop": 96,
+    "eyebrowTop": 142,
+    "eyebrowHeight": 16.796875,
+    "clippedAbove": 0,
+    "font": "12.5px",
+    "transform": "matrix(1, 0, 0, 1, 0, -30)"
+  }
+]

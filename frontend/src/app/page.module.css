@@ -94,14 +94,13 @@
 ───────────────────────────────────────────────────────── */
 .bentoGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.75rem;
-  margin-bottom: 3rem;
 }
 
 @media (min-width: 960px) {
   .bentoGrid {
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   }
 }
 
@@ -205,6 +204,31 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-width: 0;
+}
+
+/* Keep the approved bento at tablet widths without pinching its copy between
+   desktop-sized padding and a fixed 190px photograph. */
+@media (min-width: 960px) and (max-width: 1279px) {
+  .bentoRightStack {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(min-content, 1fr));
+  }
+
+  .bentoRightStack > div {
+    display: flex;
+  }
+
+  .bentoCardHorizontal {
+    padding: clamp(24px, 2.5vw, 32px);
+    gap: 20px;
+  }
+
+  .bentoCardHorizontal .bentoImgWrapper {
+    width: clamp(140px, 15vw, 190px);
+    height: auto;
+    aspect-ratio: 190 / 175;
+  }
 }
 
 .bentoTitle {
@@ -260,7 +284,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 2rem;
   }
 
   .carouselHeader {
@@ -281,7 +304,7 @@
   }
 
   .whyCardTitleSingleLine {
-    white-space: nowrap !important;
+    white-space: normal;
     font-size: clamp(0.92rem, 4.4vw, 1.15rem) !important;
     letter-spacing: -0.02em;
   }
@@ -463,19 +486,20 @@
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.75rem;
   align-items: stretch;
 }
 
 @media (min-width: 768px) {
   .whyGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.75rem;
   }
 }
 
 .whyCard {
+  min-width: 0;
   background: var(--gradient-surface);
   border-radius: 12px;
   padding: clamp(1.75rem, 2.5vw, 2.25rem) clamp(1.5rem, 2vw, 1.85rem);

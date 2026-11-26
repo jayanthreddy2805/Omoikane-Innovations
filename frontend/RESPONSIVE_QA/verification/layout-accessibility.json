@@ -1,0 +1,534 @@
+{
+  "scope": "120 route/viewport checks; 48 axe scans. Dialogs verified separately in dialogs.json.",
+  "rows": [
+    {
+      "width": 320,
+      "route": "/"
+    },
+    {
+      "width": 320,
+      "route": "/about"
+    },
+    {
+      "width": 320,
+      "route": "/expertise"
+    },
+    {
+      "width": 320,
+      "route": "/work"
+    },
+    {
+      "width": 320,
+      "route": "/leadership"
+    },
+    {
+      "width": 320,
+      "route": "/careers/software"
+    },
+    {
+      "width": 320,
+      "route": "/careers/mechanical"
+    },
+    {
+      "width": 320,
+      "route": "/careers/electronics"
+    },
+    {
+      "width": 320,
+      "route": "/contact"
+    },
+    {
+      "width": 320,
+      "route": "/apply"
+    },
+    {
+      "width": 320,
+      "route": "/privacy"
+    },
+    {
+      "width": 320,
+      "route": "/terms"
+    },
+    {
+      "width": 375,
+      "route": "/",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/about",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/expertise",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/work",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/leadership",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/careers/software",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/careers/mechanical",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/careers/electronics",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/contact",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/apply",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/privacy",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "route": "/terms",
+      "axe": []
+    },
+    {
+      "width": 390,
+      "route": "/"
+    },
+    {
+      "width": 390,
+      "route": "/about"
+    },
+    {
+      "width": 390,
+      "route": "/expertise"
+    },
+    {
+      "width": 390,
+      "route": "/work"
+    },
+    {
+      "width": 390,
+      "route": "/leadership"
+    },
+    {
+      "width": 390,
+      "route": "/careers/software"
+    },
+    {
+      "width": 390,
+      "route": "/careers/mechanical"
+    },
+    {
+      "width": 390,
+      "route": "/careers/electronics"
+    },
+    {
+      "width": 390,
+      "route": "/contact"
+    },
+    {
+      "width": 390,
+      "route": "/apply"
+    },
+    {
+      "width": 390,
+      "route": "/privacy"
+    },
+    {
+      "width": 390,
+      "route": "/terms"
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/about",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/expertise",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/work",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/leadership",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/careers/software",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/careers/mechanical",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/careers/electronics",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/contact",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/apply",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/privacy",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/terms",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/"
+    },
+    {
+      "width": 820,
+      "route": "/about"
+    },
+    {
+      "width": 820,
+      "route": "/expertise"
+    },
+    {
+      "width": 820,
+      "route": "/work"
+    },
+    {
+      "width": 820,
+      "route": "/leadership"
+    },
+    {
+      "width": 820,
+      "route": "/careers/software"
+    },
+    {
+      "width": 820,
+      "route": "/careers/mechanical"
+    },
+    {
+      "width": 820,
+      "route": "/careers/electronics"
+    },
+    {
+      "width": 820,
+      "route": "/contact"
+    },
+    {
+      "width": 820,
+      "route": "/apply"
+    },
+    {
+      "width": 820,
+      "route": "/privacy"
+    },
+    {
+      "width": 820,
+      "route": "/terms"
+    },
+    {
+      "width": 1024,
+      "route": "/",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/about",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/expertise",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/work",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/leadership",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/careers/software",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/careers/mechanical",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/careers/electronics",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/contact",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/apply",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/privacy",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/terms",
+      "axe": []
+    },
+    {
+      "width": 1025,
+      "route": "/"
+    },
+    {
+      "width": 1025,
+      "route": "/about"
+    },
+    {
+      "width": 1025,
+      "route": "/expertise"
+    },
+    {
+      "width": 1025,
+      "route": "/work"
+    },
+    {
+      "width": 1025,
+      "route": "/leadership"
+    },
+    {
+      "width": 1025,
+      "route": "/careers/software"
+    },
+    {
+      "width": 1025,
+      "route": "/careers/mechanical"
+    },
+    {
+      "width": 1025,
+      "route": "/careers/electronics"
+    },
+    {
+      "width": 1025,
+      "route": "/contact"
+    },
+    {
+      "width": 1025,
+      "route": "/apply"
+    },
+    {
+      "width": 1025,
+      "route": "/privacy"
+    },
+    {
+      "width": 1025,
+      "route": "/terms"
+    },
+    {
+      "width": 1280,
+      "route": "/"
+    },
+    {
+      "width": 1280,
+      "route": "/about"
+    },
+    {
+      "width": 1280,
+      "route": "/expertise"
+    },
+    {
+      "width": 1280,
+      "route": "/work"
+    },
+    {
+      "width": 1280,
+      "route": "/leadership"
+    },
+    {
+      "width": 1280,
+      "route": "/careers/software"
+    },
+    {
+      "width": 1280,
+      "route": "/careers/mechanical"
+    },
+    {
+      "width": 1280,
+      "route": "/careers/electronics"
+    },
+    {
+      "width": 1280,
+      "route": "/contact"
+    },
+    {
+      "width": 1280,
+      "route": "/apply"
+    },
+    {
+      "width": 1280,
+      "route": "/privacy"
+    },
+    {
+      "width": 1280,
+      "route": "/terms"
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/about",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/expertise",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/work",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/leadership",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/careers/software",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/careers/mechanical",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/careers/electronics",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/contact",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/apply",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/privacy",
+      "axe": []
+    },
+    {
+      "width": 1440,
+      "route": "/terms",
+      "axe": []
+    },
+    {
+      "width": 1920,
+      "route": "/"
+    },
+    {
+      "width": 1920,
+      "route": "/about"
+    },
+    {
+      "width": 1920,
+      "route": "/expertise"
+    },
+    {
+      "width": 1920,
+      "route": "/work"
+    },
+    {
+      "width": 1920,
+      "route": "/leadership"
+    },
+    {
+      "width": 1920,
+      "route": "/careers/software"
+    },
+    {
+      "width": 1920,
+      "route": "/careers/mechanical"
+    },
+    {
+      "width": 1920,
+      "route": "/careers/electronics"
+    },
+    {
+      "width": 1920,
+      "route": "/contact"
+    },
+    {
+      "width": 1920,
+      "route": "/apply"
+    },
+    {
+      "width": 1920,
+      "route": "/privacy"
+    },
+    {
+      "width": 1920,
+      "route": "/terms"
+    }
+  ],
+  "failures": []
+}

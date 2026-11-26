@@ -1,0 +1,16 @@
+[
+  {
+    "reducedMotion": "reduce",
+    "ariaHidden": "false",
+    "visibility": "hidden",
+    "parentVisibility": "hidden",
+    "active": null
+  },
+  {
+    "reducedMotion": "no-preference",
+    "ariaHidden": "false",
+    "visibility": "visible",
+    "parentVisibility": "visible",
+    "active": "Close profile for PROFILE 01"
+  }
+]
