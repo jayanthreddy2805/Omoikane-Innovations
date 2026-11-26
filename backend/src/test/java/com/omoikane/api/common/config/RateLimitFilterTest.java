@@ -26,6 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -103,6 +104,22 @@ class RateLimitFilterTest {
         }
 
         mockMvc.perform(post("/api/admin/auth/verify")
+                        .with(request -> { request.setRemoteAddr(testIp); return request; })
+                        .header("X-Admin-Key", "wrong-key"))
+                .andExpect(status().isTooManyRequests());
+    }
+
+    @Test
+    void unauthenticatedAdminReadsAreAlsoRateLimited() throws Exception {
+        String testIp = "198.51.100.43";
+        for (int i = 0; i < 30; i++) {
+            mockMvc.perform(get("/api/admin/contacts")
+                            .with(request -> { request.setRemoteAddr(testIp); return request; })
+                            .header("X-Admin-Key", "wrong-key"))
+                    .andExpect(status().isUnauthorized());
+        }
+
+        mockMvc.perform(get("/api/admin/contacts")
                         .with(request -> { request.setRemoteAddr(testIp); return request; })
                         .header("X-Admin-Key", "wrong-key"))
                 .andExpect(status().isTooManyRequests());

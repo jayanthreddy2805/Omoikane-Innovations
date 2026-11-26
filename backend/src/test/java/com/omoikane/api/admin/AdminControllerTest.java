@@ -30,6 +30,11 @@ class AdminControllerTest {
                 () -> controller.downloadResume(7L, null));
         assertEquals(HttpStatus.UNAUTHORIZED, unauthorized.getStatusCode());
         verifyNoInteractions(careers);
+        assertEquals(HttpStatus.UNAUTHORIZED, assertThrows(ResponseStatusException.class,
+                () -> controller.downloadResume(7L, "test-secre")).getStatusCode());
+        assertEquals(HttpStatus.UNAUTHORIZED, assertThrows(ResponseStatusException.class,
+                () -> controller.downloadResume(7L, "test-secret-extra")).getStatusCode());
+        verifyNoInteractions(careers);
 
         ResponseEntity<byte[]> response = controller.downloadResume(7L, "test-secret");
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -40,5 +45,7 @@ class AdminControllerTest {
         assertFalse(disposition.contains("../"));
         assertFalse(disposition.contains("\r"));
         assertFalse(disposition.contains("\n"));
+        assertEquals("private, no-store, max-age=0", response.getHeaders().getFirst("Cache-Control"));
+        assertEquals("nosniff", response.getHeaders().getFirst("X-Content-Type-Options"));
     }
 }

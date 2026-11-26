@@ -16,6 +16,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -45,7 +47,7 @@ public class AdminController {
 
     private void authenticate(String headerKey) {
         String key = headerKey != null ? headerKey.trim() : null;
-        if (adminSecretKey.isBlank() || key == null || !adminSecretKey.equals(key)) {
+        if (adminSecretKey.isBlank() || key == null || !MessageDigest.isEqual(adminSecretKey.getBytes(StandardCharsets.UTF_8), key.getBytes(StandardCharsets.UTF_8))) {
             log.warn("Unauthorized attempt to access admin endpoint");
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid admin credentials");
         }
@@ -126,6 +128,8 @@ public class AdminController {
         return ResponseEntity.ok()
                 .contentType(mediaType)
                 .header(HttpHeaders.CONTENT_DISPOSITION, ContentDisposition.attachment().filename(filename).build().toString())
+                .header(HttpHeaders.CACHE_CONTROL, "private, no-store, max-age=0")
+                .header("X-Content-Type-Options", "nosniff")
                 .body(application.getResumeData());
     }
 
