@@ -100,7 +100,7 @@ export default function CareerTemplate({ data }) {
               <button className={styles.primaryCta} onClick={() => document.getElementById('roles').scrollIntoView({ behavior: 'smooth' })}>
                 EXPLORE ROLES ↓
               </button>
-              <Link href={`/apply?dept=${theme}&role=${roles[0]?.id || 'other'}`} className={styles.secondaryCta} style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', justifyContent: 'center' }}>
+              <Link href={`/apply?dept=${theme}&role=${activeRole?.id || 'other'}`} className={styles.secondaryCta} style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', justifyContent: 'center' }}>
                 SEND YOUR CV →
               </Link>
             </div>
