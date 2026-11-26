@@ -222,7 +222,7 @@
 
 /* SECTION C & D: ROLE EXPLORER */
 .roleExplorerSection {
-  padding: 8rem 5%;
+  padding: 5rem 5%;
   max-width: 1600px;
   margin: 0 auto;
   background: var(--color-white, #FFFFFF);

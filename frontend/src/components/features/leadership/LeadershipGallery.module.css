@@ -154,7 +154,7 @@
 
 .galleryHeader {
   width: 100%;
-  padding: 8vh 10vw 0 10vw;
+  padding: 4vh 10vw 0 10vw;
   box-sizing: border-box;
   flex-shrink: 0;
   z-index: 10;
@@ -298,7 +298,7 @@
     height: auto;
     min-height: auto;
     overflow: visible;
-    padding: 3rem 1.25rem 3.5rem;
+    padding: 2rem 1.25rem 3.5rem;
     box-sizing: border-box;
   }
 

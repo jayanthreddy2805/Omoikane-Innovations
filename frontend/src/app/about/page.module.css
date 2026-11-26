@@ -379,7 +379,7 @@
 .vision {
   position: relative;
   background: var(--gradient-surface);
-  padding: 10rem 5% 8rem;
+  padding: 7rem 5% 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -837,7 +837,7 @@
 .domains {
   background: #FFFFFF;
   border-top: 1px solid var(--border);
-  padding: 12rem 5% 10rem;
+  padding: 7rem 5% 6rem;
 }
 
 .domainsInner {
@@ -846,9 +846,9 @@
 }
 
 .domainsHeader {
-  margin-bottom: 72px;
-  /* Generous breathing room */
-  padding-top: 64px;
+  margin-bottom: 48px;
+  /* Keep the heading clearly separated without excessive blank space. */
+  padding-top: 32px;
   /* Space below header */
 }
 
