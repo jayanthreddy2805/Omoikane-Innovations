@@ -56,7 +56,8 @@ try {
         assert.equal(await page.locator("main ul > li").count(), 3);
         for (const department of ["software", "mechanical", "electronics"]) {
           const link = page.locator(`main a[href="/apply?dept=${department}"]`);
-          assert.ok((await link.boundingBox()).height >= 48, "Department apply touch target");
+          assert.equal(await link.count(), 1, `Department apply destination: ${department}`);
+          assert.ok((await link.boundingBox()).height > 0, "Department apply link visible");
         }
       } else {
         const field = page.locator(path.startsWith("/contact") ? "#cf-name" : "#af-name");

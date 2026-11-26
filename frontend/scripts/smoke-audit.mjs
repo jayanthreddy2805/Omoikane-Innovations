@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 const origin = process.env.SMOKE_ORIGIN || 'http://localhost:3000';
-const paths = ['/', '/work', '/about', '/contact', '/apply', '/careers', '/expertise', '/privacy', '/terms', '/careers/software', '/careers/mechanical', '/careers/electronics', '/services/software', '/services/electronics', '/services/mechanical'];
+const paths = ['/', '/work', '/about', '/contact', '/apply', '/careers', '/expertise', '/privacy', '/terms', '/leadership', '/careers/software', '/careers/mechanical', '/careers/electronics', '/services/software', '/services/electronics', '/services/mechanical'];
 const titles = new Set();
 for (const path of paths) {
   const response = await fetch(`${origin}${path}`);
@@ -16,11 +16,15 @@ for (const path of paths) {
   if (path === '/contact' || path === '/apply') assert.match(html, path === '/contact' ? /id="cf-name"/ : /id="af-name"/, `${path}: server form`);
   if (path === '/about') assert.match(html, /Integration depends on the host platform/, 'FAQ answer in server HTML');
   if (path === '/contact') assert.match(html, /id="contact-form"/, 'Static contact hash target');
+  if (path === '/leadership') {
+    assert.match(html, /Template profiles\. Names, roles and biographies are pending approval\./);
+    assert.match(html, /name="robots" content="noindex, nofollow"/);
+    assert.ok(!html.includes('ALEX KIM') && !html.includes('Ex-Google PM'));
+  }
   console.log(`PASS ${path}`);
 }
-assert.equal((await fetch(`${origin}/leadership`)).status, 404);
 const invalid = await (await fetch(`${origin}/apply?dept=invalid&role=invalid`)).text();
 assert.match(invalid, /<form/);
 assert.ok(!invalid.includes('Loading form'));
 assert.match((await fetch(`${origin}/`)).headers.get('x-robots-tag'), /noindex/);
-console.log('PASS removed leadership, malformed application queries and preview indexing');
+console.log('PASS leadership placeholder, malformed application queries and preview indexing');

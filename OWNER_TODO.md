@@ -2,7 +2,7 @@
 
 No company facts or legal terms have been invented. Review this branch before merging.
 
-- **OI-01 / OI-18:** Supply approved leadership names, titles, biographies, credentials and licensed headshots if /leadership should return. It currently returns 404 and is absent from navigation and sitemap.
+- **OI-01 / OI-18:** Supply approved leadership names, titles, biographies, credentials and licensed headshots. The /leadership template is visible in navigation with clearly marked placeholders, but remains noindex and absent from the sitemap until those details are approved.
 - **OI-04:** Supply official X and Instagram profile URLs if these channels exist. Generic homepages have been removed.
 - **OI-11:** Supply approved photographs of OFC-X, OESC, OGN-X and OCOM-X with usage rights. Shared product data preserves existing illustrative imagery; these images are not verified product photography.
 - **OI-12:** Complete CLAIMS_TO_VERIFY.md with evidence and approval dates. No marketing claim has been rewritten as a new company fact.
