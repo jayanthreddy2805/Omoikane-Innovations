@@ -23,8 +23,6 @@ const SEARCH_INDEX = [
   { title: "OCOM-X Tactical Radio", desc: "AES-256 encrypted frequency-hopping tactical mesh telemetry", href: "/work#ocom-x" },
   { title: "Aerospace Technology", desc: "UAV platforms, flight control, avionics and RF communication", href: "/expertise#aerospace" },
   { title: "Defense Systems", desc: "Secure communications, autonomous surveillance, rugged electronics", href: "/expertise#defense" },
-  { title: "Automotive Systems", desc: "ECU solutions, real-time embedded systems, vehicle automation", href: "/expertise#automotive" },
-  { title: "Railways Infrastructure", desc: "Predictive maintenance, industrial control, smart railway automation", href: "/expertise#railways" },
   { title: "Software Careers", desc: "React, Next.js, Python, AI Developer, Embedded Firmware roles", href: "/careers/software" },
   { title: "Mechanical Engineering Careers", desc: "CAD, structural analysis, assembly engineering roles", href: "/careers/mechanical" },
   { title: "Electrical Engineering Careers", desc: "Hardware, RF & embedded systems engineering roles", href: "/careers/electronics" },
