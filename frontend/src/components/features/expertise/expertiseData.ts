@@ -14,20 +14,6 @@ export const expertise: ExpertiseItem[] = [
     systems: ["UAV platforms and flight control", "Avionics and RF communication", "High-reliability aerospace systems"],
   },
   {
-    id: "railways",
-    title: "Railways",
-    description:
-      "Engineering for efficient operation and maintenance across industrial and railway environments.",
-    systems: ["Predictive maintenance", "Industrial automation", "Intelligent control systems"],
-  },
-  {
-    id: "automotive",
-    title: "Automotive",
-    description:
-      "Electronics and embedded control for next-generation mobility and vehicle automation.",
-    systems: ["Automotive ECU solutions", "Real-time embedded systems", "Vehicle automation"],
-  },
-  {
     id: "defense",
     title: "Defense",
     description:

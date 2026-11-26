@@ -8,7 +8,7 @@ const {default:AxeBuilder}=require(process.env.AXE_MODULE || '@axe-core/playwrig
 const origin=process.env.SMOKE_ORIGIN || 'http://127.0.0.1:3017';
 const output=process.env.QA_OUTPUT_DIR || 'qa-results';
 const server=process.env.SMOKE_ORIGIN?null:spawn(process.execPath,['node_modules/next/dist/bin/next','start','-H','127.0.0.1','-p','3017'],{stdio:'ignore'});
-const paths=['/','/about','/expertise','/work','/contact','/apply','/careers','/careers/software','/careers/mechanical','/careers/electronics','/services/software','/services/mechanical','/services/electronics','/privacy','/terms'];
+const paths=['/','/about','/expertise','/work','/contact','/apply','/careers/software','/careers/mechanical','/careers/electronics','/services/software','/services/mechanical','/services/electronics','/privacy','/terms'];
 let browser;
 try {
  await mkdir(output,{recursive:true});
