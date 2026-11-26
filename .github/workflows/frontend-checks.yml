@@ -36,4 +36,5 @@ jobs:
       - run: npx tsc --noEmit
       - run: node scripts/verify-indexing.mjs
       - run: npm test
+      - run: node scripts/verify-protected-ui-decisions.mjs
       - run: npm run build
