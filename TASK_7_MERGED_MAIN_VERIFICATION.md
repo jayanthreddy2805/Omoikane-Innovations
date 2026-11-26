@@ -33,3 +33,24 @@ The existing release checklist predates merging PRs #56–#61 and should be inte
 Render is still on an old commit; Flyway V4/V5 production migration status and durable backup/restore readiness must be freshly verified before any approved release. Preserve explicit owner approval and rollback plan; production Flyway migrations, service deploys, email sends and data deletion are **not authorized by this document**.
 
 **Current decision:** frontend merged-code/CI handoff is ready for owner review; full production end-to-end signoff is **not** established. Proceed to Task 9 planning only after remaining live frontend acceptance evidence is collected or explicitly deferred.
+
+## Live infrastructure read-only recheck — 26 November 2026
+
+This section is direct connected-service evidence, **not** an execution of the release procedure.
+
+| System | Fresh observation | Gate |
+| --- | --- | --- |
+| GitHub | `main=f28df64bd2636bd0bfe8ebf9b3f7d21409874665`; final frontend and backend workflows succeeded; only this PR #62 open | Candidate source and CI are green |
+| Vercel | Latest production deployment `dpl_9cfVna691HBE4z6gcK37P5hJoiHJ` READY with same commit | Frontend deploy metadata matches source; live browser still requires Codex QA |
+| Render | `omoikane-api` still live at deploy `dep-dbq8ks0m7kps738npu7g`, commit `a87d448aae052a7b40502e8d9a5529a5177bdcd3` | **Blocked**; autoDeploy=yes, autoDeployTrigger=checksPass, main branch, yet unchanged since Nov 11 — investigate Git integration before release |
+| Neon production | PostgreSQL 18, default branch `br-plain-brook-aolmdy63`; applied Flyway V1–V3 success only | V4/V5 not applied |
+| V4 preflight | Read-only exact normalized-email/phone duplicate aggregate returned **0 groups** | Positive preflight observation; repeat immediately before approved migration |
+| Recovery | Neon snapshots list **empty**; project history retention **21600 seconds (6 hours)** | **Blocked** pending durable backup and successful isolated restore rehearsal; history is not a verified backup |
+
+### Migration source check
+
+- `backend/src/main/resources/db/migration/V4__unique_contact_details.sql` defines a unique index on `lower(trim(email)), coalesce(trim(phone), '')`. The preflight above uses the same expression.
+- `backend/src/main/resources/db/migration/V5__email_delivery_outbox.sql` creates `email_delivery_jobs` with a unique `(kind, submission_id)` and partial due-job index; migration not run on production.
+- Runtime JDBC TLS, allowed CORS origins, external email provider and complete deployment controls **not verified**; do not print secrets to check them.
+
+**Next owner-controlled steps:** Codex live frontend Playwright acceptance; approve exact backend SHA, verify recovery point and tested restore, verify actual Render deploy settings and runtime environment, repeat duplicate preflight, then separately authorize a controlled release window. No deployment, backup creation, SQL writes or migration performed here.
