@@ -499,3 +499,21 @@
     margin-left: 0 !important;
   }
 }
+/* Compact tablet footer retains desktop groups without copying the five-column row. */
+@media (min-width: 768px) and (max-width: 1100px) {
+  .footerContainer { padding: 40px 32px; }
+  .heroSection { min-height: 220px; padding-bottom: 24px; margin-bottom: 32px; }
+  .heroVisualCol { min-height: 220px; }
+  .heroContentCol { padding-left: 24px; }
+  .heroActionRow { gap: 16px; }
+  .contactHeader { text-align: left; }
+  .socialHeader { margin-left: 0; }
+  .colHeader { margin-bottom: 16px; }
+  .grid { gap: 24px; margin-bottom: 24px; }
+  .footerBottom { padding-top: 16px; }
+}
+@media (min-width: 768px) and (max-width: 959px) {
+  .grid { grid-template-columns: minmax(0, .9fr) minmax(0, .9fr) minmax(0, 1.4fr); }
+  .socialCol { grid-column: 1; }
+  .colSubscribe { grid-column: 2 / -1; }
+}

@@ -2203,3 +2203,13 @@
   .credCardLogo img { max-width: 140px; max-height: 96px; object-fit: contain; }
   .editorialCard:not(:nth-child(3n))::after { display: none; }
 }
+
+/* The owner's follow-up asks for the wide Vision and exact desktop capability grid. */
+@media (min-width: 601px) and (max-width: 768px) {
+  .vision { --vision-copy-width: 704px; --vision-copy-align: center; }
+  .visionWatermark { font-size: clamp(96px, 18vw, 160px); }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+  .editorialGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding-top: 32px; }
+  .editorialCard:not(:nth-child(3n))::after { display: block; right: -16px; }
+}

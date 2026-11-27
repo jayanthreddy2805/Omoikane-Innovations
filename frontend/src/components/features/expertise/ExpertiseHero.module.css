@@ -180,7 +180,7 @@
 }
 
 /* Bound portrait tablet heroes to their content instead of the screen height.
-   Air/Pro keep the landscape artwork; Mini uses the phone artwork below copy. */
+   Mini, Air and Pro use the landscape artwork below copy. */
 @media (min-width: 601px) and (max-width: 1100px) {
   .hero {
     min-height: auto;
@@ -207,20 +207,7 @@
   }
 }
 
-@media (min-width: 601px) and (max-width: 768px) {
-  .imageLayer {
-    width: min(100%, 520px);
-    margin: 24px auto 0;
-    aspect-ratio: 1;
-  }
-
-  .heroImage {
-    object-fit: cover;
-    object-position: center bottom;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1100px) {
+@media (min-width: 601px) and (max-width: 1100px) {
   .hero {
     padding: 32px 32px 0;
   }
