@@ -730,3 +730,8 @@
     transform: none !important;
   }
 }
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .rowReversed .collageCol { order: 2; }
+  .rowReversed .editorialCol { order: 1; }
+}

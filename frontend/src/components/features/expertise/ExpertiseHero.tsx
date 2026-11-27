@@ -16,7 +16,7 @@ export function ExpertiseHero() {
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
         <picture>
-          <source media="(max-width: 768px)" srcSet={mobile.srcSet} sizes="100vw" />
+          <source media="(max-width: 600px)" srcSet={mobile.srcSet} sizes="100vw" />
           <Image src="/images/expertise/hero.png" alt="" fill sizes="100vw" loading="eager" fetchPriority="high" className={styles.heroImage} />
         </picture>
       </motion.div>
