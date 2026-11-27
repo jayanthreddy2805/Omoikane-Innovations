@@ -1,0 +1,1460 @@
+{
+  "liveSha": "8e473350c61f4753a733f7b915b491ce80938310",
+  "implementationSha": "517fbbde95e677aa46d0143053661c0c58a91a09",
+  "before": [
+    {
+      "name": "se-home",
+      "route": "/",
+      "width": 375,
+      "height": 667,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 375,
+          "height": 587,
+          "bottom": 683,
+          "right": 375
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 375,
+          "height": 587,
+          "bottom": 683,
+          "right": 375
+        },
+        "image": {
+          "x": 0,
+          "y": 412.984375,
+          "width": 375,
+          "height": 270.015625,
+          "bottom": 683,
+          "right": 375
+        },
+        "fit": "cover",
+        "natural": [
+          375,
+          250
+        ],
+        "heading": {
+          "x": 15,
+          "y": 153.796875,
+          "width": 345,
+          "height": 117.328125,
+          "bottom": 271.125,
+          "right": 360
+        },
+        "copy": [
+          {
+            "text": "Indigenous technology \u00a0|\u00a0 Global standards",
+            "box": {
+              "x": 15,
+              "y": 122,
+              "width": 345,
+              "height": 16.796875,
+              "bottom": 138.796875,
+              "right": 360
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.",
+            "box": {
+              "x": 15,
+              "y": 348.125,
+              "width": 345,
+              "height": 70.640625,
+              "bottom": 418.765625,
+              "right": 360
+            },
+            "transform": "none",
+            "order": "2"
+          },
+          {
+            "text": "Explore Our Products \u2192Our Technology",
+            "box": {
+              "x": 15,
+              "y": 284.125,
+              "width": 345,
+              "height": 48,
+              "bottom": 332.125,
+              "right": 360
+            },
+            "transform": "none",
+            "order": "1"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "fold-home",
+      "route": "/",
+      "width": 344,
+      "height": 882,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 344,
+          "height": 802,
+          "bottom": 898,
+          "right": 344
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 344,
+          "height": 802,
+          "bottom": 898,
+          "right": 344
+        },
+        "image": {
+          "x": 0,
+          "y": 529.09375,
+          "width": 344,
+          "height": 368.90625,
+          "bottom": 898,
+          "right": 344
+        },
+        "fit": "cover",
+        "natural": [
+          344,
+          229
+        ],
+        "heading": {
+          "x": 15,
+          "y": 203.796875,
+          "width": 314,
+          "height": 98.53125,
+          "bottom": 302.328125,
+          "right": 329
+        },
+        "copy": [
+          {
+            "text": "Indigenous technology \u00a0|\u00a0 Global standards",
+            "box": {
+              "x": 15,
+              "y": 142,
+              "width": 314,
+              "height": 16.796875,
+              "bottom": 158.796875,
+              "right": 329
+            },
+            "transform": "matrix(1, 0, 0, 1, 0, -30)",
+            "order": "0"
+          },
+          {
+            "text": "We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.",
+            "box": {
+              "x": 15,
+              "y": 325.328125,
+              "width": 314,
+              "height": 63.84375,
+              "bottom": 389.171875,
+              "right": 329
+            },
+            "transform": "matrix(1, 0, 0, 1, 0, 10)",
+            "order": "0"
+          },
+          {
+            "text": "Explore Our Products \u2192Our Technology",
+            "box": {
+              "x": 15,
+              "y": 439.171875,
+              "width": 314,
+              "height": 61,
+              "bottom": 500.171875,
+              "right": 329
+            },
+            "transform": "matrix(1, 0, 0, 1, 0, 42)",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "se-mission",
+      "route": "/about",
+      "width": 375,
+      "height": 667,
+      "touch": true,
+      "tabs": {
+        "width": 338,
+        "scrollWidth": 392,
+        "items": [
+          {
+            "label": "AEROSPACE",
+            "x": -3.25,
+            "right": 117.75
+          },
+          {
+            "label": "INDUSTRIAL",
+            "x": 125.75,
+            "right": 248.734375
+          },
+          {
+            "label": "DEFENSE",
+            "x": 256.734375,
+            "right": 356.734375
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "fold-contact",
+      "route": "/contact",
+      "width": 344,
+      "height": 882,
+      "touch": true,
+      "notice": {
+        "rects": [
+          {
+            "x": 20,
+            "y": 455.546875,
+            "width": 111
+          }
+        ],
+        "whiteSpace": "normal"
+      },
+      "overflow": false
+    },
+    {
+      "name": "xr-about",
+      "route": "/about",
+      "width": 414,
+      "height": 896,
+      "touch": true,
+      "gaps": {
+        "footerToFigures": 107.671875,
+        "figuresToCert": 107.671875,
+        "metricsPadding": "36px 22.977px",
+        "systemPadding": "71.68px 20.6875px"
+      },
+      "overflow": false
+    },
+    {
+      "name": "hub-about",
+      "route": "/about",
+      "width": 1280,
+      "height": 800,
+      "touch": true,
+      "gaps": {
+        "footerToFigures": 166.875,
+        "figuresToCert": 172.796875,
+        "metricsPadding": "44.8px 71.04px",
+        "systemPadding": "128px 64px 96px"
+      },
+      "overflow": false
+    },
+    {
+      "name": "air-tech",
+      "route": "/expertise",
+      "width": 1180,
+      "height": 820,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1180,
+          "height": 724,
+          "bottom": 820,
+          "right": 1180
+        },
+        "media": {
+          "x": 236,
+          "y": 313.203125,
+          "width": 944,
+          "height": 506.796875,
+          "bottom": 820,
+          "right": 1180
+        },
+        "image": {
+          "x": 236,
+          "y": 313.203125,
+          "width": 944,
+          "height": 506.796875,
+          "bottom": 820,
+          "right": 1180
+        },
+        "fit": "contain",
+        "natural": [
+          1081,
+          548
+        ],
+        "heading": {
+          "x": 59,
+          "y": 174.390625,
+          "width": 520.375,
+          "height": 136.28125,
+          "bottom": 310.671875,
+          "right": 579.375
+        },
+        "copy": [
+          {
+            "text": "We design and build advanced products for aerospace and defense, where performance, precision and reliability are mission-critical.",
+            "box": {
+              "x": 59,
+              "y": 339.359375,
+              "width": 520.375,
+              "height": 112,
+              "bottom": 451.359375,
+              "right": 579.375
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "hub-apply",
+      "route": "/apply?dept=electronics&role=hardware-eng",
+      "width": 1280,
+      "height": 800,
+      "touch": true,
+      "apply": {
+        "columns": "623px 481px",
+        "children": [
+          {
+            "class": "uLkMPW_enquiryContext",
+            "x": 751,
+            "width": 481,
+            "order": "2"
+          },
+          {
+            "class": "uLkMPW_formWrapper",
+            "x": 48,
+            "width": 623,
+            "order": "1"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "hub-tech",
+      "route": "/expertise",
+      "width": 1280,
+      "height": 800,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1280,
+          "height": 704,
+          "bottom": 800,
+          "right": 1280
+        },
+        "media": {
+          "x": 256,
+          "y": 307.203125,
+          "width": 1024,
+          "height": 492.796875,
+          "bottom": 800,
+          "right": 1280
+        },
+        "image": {
+          "x": 256,
+          "y": 307.203125,
+          "width": 1024,
+          "height": 492.796875,
+          "bottom": 800,
+          "right": 1280
+        },
+        "fit": "contain",
+        "natural": [
+          1173,
+          595
+        ],
+        "heading": {
+          "x": 64,
+          "y": 173,
+          "width": 564.46875,
+          "height": 147.84375,
+          "bottom": 320.84375,
+          "right": 628.46875
+        },
+        "copy": [
+          {
+            "text": "We design and build advanced products for aerospace and defense, where performance, precision and reliability are mission-critical.",
+            "box": {
+              "x": 64,
+              "y": 348.84375,
+              "width": 564.46875,
+              "height": 84,
+              "bottom": 432.84375,
+              "right": 628.46875
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "air-apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1180,
+      "height": 820,
+      "touch": true,
+      "apply": {
+        "columns": "623px 441px",
+        "children": [
+          {
+            "class": "uLkMPW_enquiryContext",
+            "x": 751,
+            "width": 441,
+            "order": "2"
+          },
+          {
+            "class": "uLkMPW_formWrapper",
+            "x": 48,
+            "width": 623,
+            "order": "1"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "pro-apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1366,
+      "height": 1024,
+      "touch": true,
+      "apply": {
+        "columns": "623px 567px",
+        "children": [
+          {
+            "class": "uLkMPW_enquiryContext",
+            "x": 751,
+            "width": 567,
+            "order": "2"
+          },
+          {
+            "class": "uLkMPW_formWrapper",
+            "x": 48,
+            "width": 623,
+            "order": "1"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "hub-search",
+      "route": "/contact",
+      "width": 1280,
+      "height": 800,
+      "touch": true,
+      "search": {
+        "text": "Search this website\nESC\nHome\nTechnology\nProducts\nAbout Us\nLeadership\nContact",
+        "outsideClosed": true
+      },
+      "overflow": false
+    },
+    {
+      "name": "air-home",
+      "route": "/",
+      "width": 1180,
+      "height": 820,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1180,
+          "height": 356.78125,
+          "bottom": 452.78125,
+          "right": 1180
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 1180,
+          "height": 356.78125,
+          "bottom": 452.78125,
+          "right": 1180
+        },
+        "image": {
+          "x": 0,
+          "y": 96,
+          "width": 1180,
+          "height": 356.78125,
+          "bottom": 452.78125,
+          "right": 1180
+        },
+        "fit": "cover",
+        "natural": [
+          1180,
+          786
+        ],
+        "heading": {
+          "x": 22,
+          "y": 171.390625,
+          "width": 565,
+          "height": 87.21875,
+          "bottom": 258.609375,
+          "right": 587
+        },
+        "copy": [
+          {
+            "text": "Indigenous technology \u00a0|\u00a0 Global standards",
+            "box": {
+              "x": 22,
+              "y": 134,
+              "width": 565,
+              "height": 22.390625,
+              "bottom": 156.390625,
+              "right": 587
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.",
+            "box": {
+              "x": 22,
+              "y": 271.609375,
+              "width": 450,
+              "height": 76.78125,
+              "bottom": 348.390625,
+              "right": 472
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "Explore Our Products \u2192Our Technology",
+            "box": {
+              "x": 22,
+              "y": 366.390625,
+              "width": 565,
+              "height": 48.390625,
+              "bottom": 414.78125,
+              "right": 587
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "pro-home",
+      "route": "/",
+      "width": 1366,
+      "height": 1024,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1366,
+          "height": 414.03125,
+          "bottom": 510.03125,
+          "right": 1366
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 1366,
+          "height": 414.03125,
+          "bottom": 510.03125,
+          "right": 1366
+        },
+        "image": {
+          "x": 0,
+          "y": 96,
+          "width": 1366,
+          "height": 414.03125,
+          "bottom": 510.03125,
+          "right": 1366
+        },
+        "fit": "cover",
+        "natural": [
+          1366,
+          910
+        ],
+        "heading": {
+          "x": 93,
+          "y": 171.390625,
+          "width": 565,
+          "height": 144.46875,
+          "bottom": 315.859375,
+          "right": 658
+        },
+        "copy": [
+          {
+            "text": "Indigenous technology \u00a0|\u00a0 Global standards",
+            "box": {
+              "x": 93,
+              "y": 134,
+              "width": 565,
+              "height": 22.390625,
+              "bottom": 156.390625,
+              "right": 658
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.",
+            "box": {
+              "x": 93,
+              "y": 328.859375,
+              "width": 450,
+              "height": 76.78125,
+              "bottom": 405.640625,
+              "right": 543
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "Explore Our Products \u2192Our Technology",
+            "box": {
+              "x": 93,
+              "y": 423.640625,
+              "width": 565,
+              "height": 48.390625,
+              "bottom": 472.03125,
+              "right": 658
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "mini-home",
+      "route": "/",
+      "width": 1024,
+      "height": 768,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1024,
+          "height": 563.1875,
+          "bottom": 659.1875,
+          "right": 1024
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 1024,
+          "height": 563.1875,
+          "bottom": 659.1875,
+          "right": 1024
+        },
+        "image": {
+          "x": 0,
+          "y": 96,
+          "width": 1024,
+          "height": 563.1875,
+          "bottom": 659.1875,
+          "right": 1024
+        },
+        "fit": "cover",
+        "natural": [
+          1024,
+          682
+        ],
+        "heading": {
+          "x": 32,
+          "y": 261.4375,
+          "width": 499.1875,
+          "height": 113.53125,
+          "bottom": 374.96875,
+          "right": 531.1875
+        },
+        "copy": [
+          {
+            "text": "Indigenous technology \u00a0|\u00a0 Global standards",
+            "box": {
+              "x": 32,
+              "y": 224.046875,
+              "width": 499.1875,
+              "height": 22.390625,
+              "bottom": 246.4375,
+              "right": 531.1875
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.",
+            "box": {
+              "x": 32,
+              "y": 387.96875,
+              "width": 450,
+              "height": 76.78125,
+              "bottom": 464.75,
+              "right": 482
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "Explore Our Products \u2192Our Technology",
+            "box": {
+              "x": 32,
+              "y": 482.75,
+              "width": 499.1875,
+              "height": 48.390625,
+              "bottom": 531.140625,
+              "right": 531.1875
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    }
+  ],
+  "after": [
+    {
+      "name": "se-home",
+      "route": "/",
+      "width": 375,
+      "height": 667,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 375,
+          "height": 587,
+          "bottom": 683,
+          "right": 375
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 375,
+          "height": 587,
+          "bottom": 683,
+          "right": 375
+        },
+        "image": {
+          "x": 0,
+          "y": 412.984375,
+          "width": 375,
+          "height": 270.015625,
+          "bottom": 683,
+          "right": 375
+        },
+        "fit": "cover",
+        "natural": [
+          375,
+          250
+        ],
+        "heading": {
+          "x": 15,
+          "y": 159.796875,
+          "width": 345,
+          "height": 117.328125,
+          "bottom": 277.125,
+          "right": 360
+        },
+        "copy": [
+          {
+            "text": "Indigenous technology \u00a0|\u00a0 Global standards",
+            "box": {
+              "x": 15,
+              "y": 128,
+              "width": 345,
+              "height": 16.796875,
+              "bottom": 144.796875,
+              "right": 360
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.",
+            "box": {
+              "x": 15,
+              "y": 290.125,
+              "width": 345,
+              "height": 70.640625,
+              "bottom": 360.765625,
+              "right": 360
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "Explore Our Products \u2192Our Technology",
+            "box": {
+              "x": 15,
+              "y": 380.765625,
+              "width": 345,
+              "height": 48,
+              "bottom": 428.765625,
+              "right": 360
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "fold-home",
+      "route": "/",
+      "width": 344,
+      "height": 882,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 344,
+          "height": 802,
+          "bottom": 898,
+          "right": 344
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 344,
+          "height": 802,
+          "bottom": 898,
+          "right": 344
+        },
+        "image": {
+          "x": 0,
+          "y": 529.09375,
+          "width": 344,
+          "height": 368.90625,
+          "bottom": 898,
+          "right": 344
+        },
+        "fit": "cover",
+        "natural": [
+          344,
+          229
+        ],
+        "heading": {
+          "x": 15,
+          "y": 159.796875,
+          "width": 314,
+          "height": 98.53125,
+          "bottom": 258.328125,
+          "right": 329
+        },
+        "copy": [
+          {
+            "text": "Indigenous technology \u00a0|\u00a0 Global standards",
+            "box": {
+              "x": 15,
+              "y": 128,
+              "width": 314,
+              "height": 16.796875,
+              "bottom": 144.796875,
+              "right": 329
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.",
+            "box": {
+              "x": 15,
+              "y": 271.328125,
+              "width": 314,
+              "height": 63.84375,
+              "bottom": 335.171875,
+              "right": 329
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "Explore Our Products \u2192Our Technology",
+            "box": {
+              "x": 15,
+              "y": 355.171875,
+              "width": 314,
+              "height": 48,
+              "bottom": 403.171875,
+              "right": 329
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "se-mission",
+      "route": "/about",
+      "width": 375,
+      "height": 667,
+      "touch": true,
+      "tabs": {
+        "width": 338,
+        "scrollWidth": 338,
+        "items": [
+          {
+            "label": "AEROSPACE",
+            "x": 30.75,
+            "right": 131.25
+          },
+          {
+            "label": "INDUSTRIAL",
+            "x": 137.25,
+            "right": 237.75
+          },
+          {
+            "label": "DEFENSE",
+            "x": 243.75,
+            "right": 344.25
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "xr-about",
+      "route": "/about",
+      "width": 414,
+      "height": 896,
+      "touch": true,
+      "gaps": {
+        "footerToFigures": 48,
+        "figuresToCert": 48,
+        "metricsPadding": "24px 22.977px",
+        "systemPadding": "71.68px 20.6875px 24px"
+      },
+      "overflow": false
+    },
+    {
+      "name": "hub-about",
+      "route": "/about",
+      "width": 1280,
+      "height": 800,
+      "touch": true,
+      "gaps": {
+        "footerToFigures": 64,
+        "figuresToCert": 64,
+        "metricsPadding": "32px 71.04px",
+        "systemPadding": "128px 64px 32px"
+      },
+      "overflow": false
+    },
+    {
+      "name": "fold-contact",
+      "route": "/contact",
+      "width": 344,
+      "height": 882,
+      "touch": true,
+      "notice": {
+        "rects": [
+          {
+            "x": 20,
+            "y": 455.546875,
+            "width": 111
+          }
+        ],
+        "whiteSpace": "nowrap"
+      },
+      "overflow": false
+    },
+    {
+      "name": "hub-tech",
+      "route": "/expertise",
+      "width": 1280,
+      "height": 800,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1280,
+          "height": 704,
+          "bottom": 800,
+          "right": 1280
+        },
+        "media": {
+          "x": 256,
+          "y": 307.203125,
+          "width": 992,
+          "height": 460.796875,
+          "bottom": 768,
+          "right": 1248
+        },
+        "image": {
+          "x": 256,
+          "y": 307.203125,
+          "width": 992,
+          "height": 460.796875,
+          "bottom": 768,
+          "right": 1248
+        },
+        "fit": "contain",
+        "natural": [
+          1173,
+          595
+        ],
+        "heading": {
+          "x": 64,
+          "y": 173,
+          "width": 564.46875,
+          "height": 147.84375,
+          "bottom": 320.84375,
+          "right": 628.46875
+        },
+        "copy": [
+          {
+            "text": "We design and build advanced products for aerospace and defense, where performance, precision and reliability are mission-critical.",
+            "box": {
+              "x": 64,
+              "y": 348.84375,
+              "width": 564.46875,
+              "height": 84,
+              "bottom": 432.84375,
+              "right": 628.46875
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "air-tech",
+      "route": "/expertise",
+      "width": 1180,
+      "height": 820,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1180,
+          "height": 724,
+          "bottom": 820,
+          "right": 1180
+        },
+        "media": {
+          "x": 236,
+          "y": 313.203125,
+          "width": 912,
+          "height": 474.796875,
+          "bottom": 788,
+          "right": 1148
+        },
+        "image": {
+          "x": 236,
+          "y": 313.203125,
+          "width": 912,
+          "height": 474.796875,
+          "bottom": 788,
+          "right": 1148
+        },
+        "fit": "contain",
+        "natural": [
+          1081,
+          548
+        ],
+        "heading": {
+          "x": 59,
+          "y": 174.390625,
+          "width": 520.375,
+          "height": 136.28125,
+          "bottom": 310.671875,
+          "right": 579.375
+        },
+        "copy": [
+          {
+            "text": "We design and build advanced products for aerospace and defense, where performance, precision and reliability are mission-critical.",
+            "box": {
+              "x": 59,
+              "y": 339.359375,
+              "width": 520.375,
+              "height": 112,
+              "bottom": 451.359375,
+              "right": 579.375
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "hub-apply",
+      "route": "/apply?dept=electronics&role=hardware-eng",
+      "width": 1280,
+      "height": 800,
+      "touch": true,
+      "apply": {
+        "columns": "511.188px 624.812px",
+        "children": [
+          {
+            "class": "AcUQ8W_enquiryContext",
+            "x": 48,
+            "width": 511.1875,
+            "order": "1"
+          },
+          {
+            "class": "AcUQ8W_formWrapper",
+            "x": 607.1875,
+            "width": 624.8125,
+            "order": "2"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "pro-apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1366,
+      "height": 1024,
+      "touch": true,
+      "apply": {
+        "columns": "549.891px 672.109px",
+        "children": [
+          {
+            "class": "AcUQ8W_enquiryContext",
+            "x": 48,
+            "width": 549.890625,
+            "order": "1"
+          },
+          {
+            "class": "AcUQ8W_formWrapper",
+            "x": 645.890625,
+            "width": 672.109375,
+            "order": "2"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "air-apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1180,
+      "height": 820,
+      "touch": true,
+      "apply": {
+        "columns": "466.188px 569.812px",
+        "children": [
+          {
+            "class": "AcUQ8W_enquiryContext",
+            "x": 48,
+            "width": 466.1875,
+            "order": "1"
+          },
+          {
+            "class": "AcUQ8W_formWrapper",
+            "x": 562.1875,
+            "width": 569.8125,
+            "order": "2"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "hub-search",
+      "route": "/contact",
+      "width": 1280,
+      "height": 800,
+      "touch": true,
+      "search": {
+        "text": "Search this website\nHome\nTechnology\nProducts\nAbout Us\nLeadership\nContact",
+        "outsideClosed": true
+      },
+      "overflow": false
+    },
+    {
+      "name": "pro-home",
+      "route": "/",
+      "width": 1366,
+      "height": 1024,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1366,
+          "height": 580,
+          "bottom": 676,
+          "right": 1366
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 1366,
+          "height": 580,
+          "bottom": 676,
+          "right": 1366
+        },
+        "image": {
+          "x": 0,
+          "y": 96,
+          "width": 1366,
+          "height": 580,
+          "bottom": 676,
+          "right": 1366
+        },
+        "fit": "cover",
+        "natural": [
+          1366,
+          910
+        ],
+        "heading": {
+          "x": 93,
+          "y": 254.375,
+          "width": 613.59375,
+          "height": 144.46875,
+          "bottom": 398.84375,
+          "right": 706.59375
+        },
+        "copy": [
+          {
+            "text": "Indigenous technology \u00a0|\u00a0 Global standards",
+            "box": {
+              "x": 93,
+              "y": 216.984375,
+              "width": 613.59375,
+              "height": 22.390625,
+              "bottom": 239.375,
+              "right": 706.59375
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.",
+            "box": {
+              "x": 93,
+              "y": 411.84375,
+              "width": 450,
+              "height": 76.78125,
+              "bottom": 488.625,
+              "right": 543
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "Explore Our Products \u2192Our Technology",
+            "box": {
+              "x": 93,
+              "y": 506.625,
+              "width": 613.59375,
+              "height": 48.390625,
+              "bottom": 555.015625,
+              "right": 706.59375
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "air-home",
+      "route": "/",
+      "width": 1180,
+      "height": 820,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1180,
+          "height": 580,
+          "bottom": 676,
+          "right": 1180
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 1180,
+          "height": 580,
+          "bottom": 676,
+          "right": 1180
+        },
+        "image": {
+          "x": 0,
+          "y": 96,
+          "width": 1180,
+          "height": 580,
+          "bottom": 676,
+          "right": 1180
+        },
+        "fit": "cover",
+        "natural": [
+          1180,
+          786
+        ],
+        "heading": {
+          "x": 32,
+          "y": 261.1875,
+          "width": 580.3125,
+          "height": 130.828125,
+          "bottom": 392.015625,
+          "right": 612.3125
+        },
+        "copy": [
+          {
+            "text": "Indigenous technology \u00a0|\u00a0 Global standards",
+            "box": {
+              "x": 32,
+              "y": 223.796875,
+              "width": 580.3125,
+              "height": 22.390625,
+              "bottom": 246.1875,
+              "right": 612.3125
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.",
+            "box": {
+              "x": 32,
+              "y": 405.015625,
+              "width": 450,
+              "height": 76.78125,
+              "bottom": 481.796875,
+              "right": 482
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "Explore Our Products \u2192Our Technology",
+            "box": {
+              "x": 32,
+              "y": 499.796875,
+              "width": 580.3125,
+              "height": 48.390625,
+              "bottom": 548.1875,
+              "right": 612.3125
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    },
+    {
+      "name": "mini-home",
+      "route": "/",
+      "width": 1024,
+      "height": 768,
+      "touch": true,
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1024,
+          "height": 563.1875,
+          "bottom": 659.1875,
+          "right": 1024
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 1024,
+          "height": 563.1875,
+          "bottom": 659.1875,
+          "right": 1024
+        },
+        "image": {
+          "x": 0,
+          "y": 96,
+          "width": 1024,
+          "height": 563.1875,
+          "bottom": 659.1875,
+          "right": 1024
+        },
+        "fit": "cover",
+        "natural": [
+          1024,
+          682
+        ],
+        "heading": {
+          "x": 32,
+          "y": 261.4375,
+          "width": 499.1875,
+          "height": 113.53125,
+          "bottom": 374.96875,
+          "right": 531.1875
+        },
+        "copy": [
+          {
+            "text": "Indigenous technology \u00a0|\u00a0 Global standards",
+            "box": {
+              "x": 32,
+              "y": 224.046875,
+              "width": 499.1875,
+              "height": 22.390625,
+              "bottom": 246.4375,
+              "right": 531.1875
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "We design and develop high-performance electronics and autonomous systems for a safer, smarter and self-reliant future.",
+            "box": {
+              "x": 32,
+              "y": 387.96875,
+              "width": 450,
+              "height": 76.78125,
+              "bottom": 464.75,
+              "right": 482
+            },
+            "transform": "none",
+            "order": "0"
+          },
+          {
+            "text": "Explore Our Products \u2192Our Technology",
+            "box": {
+              "x": 32,
+              "y": 482.75,
+              "width": 499.1875,
+              "height": 48.390625,
+              "bottom": 531.140625,
+              "right": 531.1875
+            },
+            "transform": "none",
+            "order": "0"
+          }
+        ]
+      },
+      "overflow": false
+    }
+  ]
+}
