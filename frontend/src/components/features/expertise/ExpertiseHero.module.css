@@ -241,3 +241,8 @@
 @media (min-width: 1101px) {
   .imageLayer { inset: auto 0 0 auto; width: 80%; height: 70%; }
 }
+
+/* Leave a visible boundary around the artwork on short landscape displays. */
+@media (min-width: 1101px) and (max-width: 1366px) {
+  .imageLayer { right: 32px; bottom: 32px; width: calc(80% - 32px); height: calc(70% - 32px); }
+}

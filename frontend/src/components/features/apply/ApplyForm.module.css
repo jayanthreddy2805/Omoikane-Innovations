@@ -1,4 +1,5 @@
 .formContainer {
+  min-width: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -8,11 +9,12 @@
 
 .formGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
 .inputGroup {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -72,6 +74,7 @@
 }
 
 .formNotice a {
+  white-space: nowrap;
   color: #0757C8;
   text-decoration: underline;
   text-underline-offset: 0.15em;

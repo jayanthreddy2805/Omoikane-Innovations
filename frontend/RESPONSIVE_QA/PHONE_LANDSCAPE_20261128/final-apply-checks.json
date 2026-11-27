@@ -1,0 +1,146 @@
+{
+  "rows": [
+    {
+      "kind": "apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 390,
+      "height": 844,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1,
+      "apply": {
+        "context": {
+          "x": 20,
+          "y": 559.421875,
+          "right": 370,
+          "width": 350
+        },
+        "form": {
+          "x": 20,
+          "y": -360.109375,
+          "right": 370,
+          "width": 350
+        },
+        "card": {
+          "x": 0,
+          "y": 0,
+          "right": 0,
+          "width": 0
+        }
+      }
+    },
+    {
+      "kind": "apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1180,
+      "height": 820,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 233.28125,
+          "right": 514.1875,
+          "width": 466.1875
+        },
+        "form": {
+          "x": 562.1875,
+          "y": 233.28125,
+          "right": 1132,
+          "width": 569.8125
+        },
+        "card": {
+          "x": 48,
+          "y": 340.46875,
+          "right": 514.1875,
+          "width": 466.1875
+        }
+      }
+    },
+    {
+      "kind": "apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1025,
+      "height": 900,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 238.890625,
+          "right": 444.4375,
+          "width": 396.4375
+        },
+        "form": {
+          "x": 492.4375,
+          "y": 238.890625,
+          "right": 977,
+          "width": 484.5625
+        },
+        "card": {
+          "x": 48,
+          "y": 371.671875,
+          "right": 444.4375,
+          "width": 396.4375
+        }
+      }
+    },
+    {
+      "kind": "apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1366,
+      "height": 1024,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 247.5625,
+          "right": 597.890625,
+          "width": 549.890625
+        },
+        "form": {
+          "x": 645.890625,
+          "y": 247.5625,
+          "right": 1318,
+          "width": 672.109375
+        },
+        "card": {
+          "x": 48,
+          "y": 354.75,
+          "right": 597.890625,
+          "width": 549.890625
+        }
+      }
+    },
+    {
+      "kind": "apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1280,
+      "height": 800,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 213.890625,
+          "right": 559.1875,
+          "width": 511.1875
+        },
+        "form": {
+          "x": 607.1875,
+          "y": 213.890625,
+          "right": 1232,
+          "width": 624.8125
+        },
+        "card": {
+          "x": 48,
+          "y": 321.078125,
+          "right": 559.1875,
+          "width": 511.1875
+        }
+      },
+      "axe": []
+    }
+  ],
+  "failures": []
+}

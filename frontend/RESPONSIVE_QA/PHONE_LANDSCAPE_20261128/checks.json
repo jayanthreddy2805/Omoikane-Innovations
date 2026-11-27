@@ -1,0 +1,723 @@
+{
+  "rows": [
+    {
+      "kind": "phone-home",
+      "route": "/",
+      "width": 344,
+      "height": 882,
+      "reducedMotion": "no-preference",
+      "copy": {
+        "eyebrow": {
+          "top": 128,
+          "bottom": 144.796875,
+          "left": 15,
+          "right": 329
+        },
+        "heading": {
+          "top": 159.796875,
+          "bottom": 258.328125,
+          "left": 15,
+          "right": 329
+        },
+        "description": {
+          "top": 271.328125,
+          "bottom": 335.171875,
+          "left": 15,
+          "right": 329
+        },
+        "actions": {
+          "top": 355.171875,
+          "bottom": 403.171875,
+          "left": 15,
+          "right": 329
+        },
+        "buttons": [
+          {
+            "top": 355.171875,
+            "bottom": 403.171875,
+            "left": 15,
+            "right": 194.25
+          },
+          {
+            "top": 355.171875,
+            "bottom": 403.171875,
+            "left": 200.4375,
+            "right": 329
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-home",
+      "route": "/",
+      "width": 320,
+      "height": 568,
+      "reducedMotion": "no-preference",
+      "copy": {
+        "eyebrow": {
+          "top": 128,
+          "bottom": 144.796875,
+          "left": 15,
+          "right": 305
+        },
+        "heading": {
+          "top": 159.796875,
+          "bottom": 243.796875,
+          "left": 15,
+          "right": 305
+        },
+        "description": {
+          "top": 256.796875,
+          "bottom": 315.296875,
+          "left": 15,
+          "right": 305
+        },
+        "actions": {
+          "top": 335.296875,
+          "bottom": 391.296875,
+          "left": 15,
+          "right": 305
+        },
+        "buttons": [
+          {
+            "top": 335.296875,
+            "bottom": 391.296875,
+            "left": 15,
+            "right": 180.390625
+          },
+          {
+            "top": 335.296875,
+            "bottom": 391.296875,
+            "left": 186.390625,
+            "right": 305
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-home",
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "reducedMotion": "no-preference",
+      "copy": {
+        "eyebrow": {
+          "top": 128,
+          "bottom": 144.796875,
+          "left": 15,
+          "right": 375
+        },
+        "heading": {
+          "top": 159.796875,
+          "bottom": 280.734375,
+          "left": 15,
+          "right": 375
+        },
+        "description": {
+          "top": 293.734375,
+          "bottom": 365.734375,
+          "left": 15,
+          "right": 375
+        },
+        "actions": {
+          "top": 385.734375,
+          "bottom": 433.734375,
+          "left": 15,
+          "right": 375
+        },
+        "buttons": [
+          {
+            "top": 385.734375,
+            "bottom": 433.734375,
+            "left": 15,
+            "right": 218.421875
+          },
+          {
+            "top": 385.734375,
+            "bottom": 433.734375,
+            "left": 225.4375,
+            "right": 375
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-home",
+      "route": "/",
+      "width": 414,
+      "height": 896,
+      "reducedMotion": "no-preference",
+      "copy": {
+        "eyebrow": {
+          "top": 128,
+          "bottom": 144.796875,
+          "left": 15,
+          "right": 399
+        },
+        "heading": {
+          "top": 159.796875,
+          "bottom": 280.734375,
+          "left": 15,
+          "right": 399
+        },
+        "description": {
+          "top": 293.734375,
+          "bottom": 365.734375,
+          "left": 15,
+          "right": 399
+        },
+        "actions": {
+          "top": 385.734375,
+          "bottom": 433.734375,
+          "left": 15,
+          "right": 399
+        },
+        "buttons": [
+          {
+            "top": 385.734375,
+            "bottom": 433.734375,
+            "left": 15,
+            "right": 230.21875
+          },
+          {
+            "top": 385.734375,
+            "bottom": 433.734375,
+            "left": 237.65625,
+            "right": 399
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-home",
+      "route": "/",
+      "width": 375,
+      "height": 667,
+      "reducedMotion": "no-preference",
+      "copy": {
+        "eyebrow": {
+          "top": 128,
+          "bottom": 144.796875,
+          "left": 15,
+          "right": 360
+        },
+        "heading": {
+          "top": 159.796875,
+          "bottom": 277.125,
+          "left": 15,
+          "right": 360
+        },
+        "description": {
+          "top": 290.125,
+          "bottom": 360.765625,
+          "left": 15,
+          "right": 360
+        },
+        "actions": {
+          "top": 380.765625,
+          "bottom": 428.765625,
+          "left": 15,
+          "right": 360
+        },
+        "buttons": [
+          {
+            "top": 380.765625,
+            "bottom": 428.765625,
+            "left": 15,
+            "right": 211.5
+          },
+          {
+            "top": 380.765625,
+            "bottom": 428.765625,
+            "left": 218.25,
+            "right": 360
+          }
+        ]
+      },
+      "axe": []
+    },
+    {
+      "kind": "tablet-home",
+      "route": "/",
+      "width": 1024,
+      "height": 768,
+      "reducedMotion": "no-preference",
+      "lines": [
+        {
+          "top": 259.4375,
+          "right": 337.5
+        },
+        {
+          "top": 297.28125,
+          "right": 233.71875
+        },
+        {
+          "top": 335.125,
+          "right": 353.484375
+        }
+      ]
+    },
+    {
+      "kind": "tablet-home",
+      "route": "/",
+      "width": 1180,
+      "height": 820,
+      "reducedMotion": "no-preference",
+      "lines": [
+        {
+          "top": 259.1875,
+          "right": 382.4375
+        },
+        {
+          "top": 302.796875,
+          "right": 265.296875
+        },
+        {
+          "top": 346.40625,
+          "right": 401.4375
+        }
+      ]
+    },
+    {
+      "kind": "tablet-home",
+      "route": "/",
+      "width": 1366,
+      "height": 1024,
+      "reducedMotion": "no-preference",
+      "lines": [
+        {
+          "top": 252.375,
+          "right": 474.8125
+        },
+        {
+          "top": 300.53125,
+          "right": 345.1875
+        },
+        {
+          "top": 348.6875,
+          "right": 495.8125
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "route": "/about",
+      "width": 320,
+      "height": 568,
+      "reducedMotion": "no-preference",
+      "tabs": [
+        {
+          "left": 28,
+          "right": 112,
+          "stageLeft": 16,
+          "stageRight": 304,
+          "height": 44
+        },
+        {
+          "left": 118,
+          "right": 202,
+          "stageLeft": 16,
+          "stageRight": 304,
+          "height": 44
+        },
+        {
+          "left": 208,
+          "right": 292,
+          "stageLeft": 16,
+          "stageRight": 304,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "route": "/about",
+      "width": 375,
+      "height": 667,
+      "reducedMotion": "no-preference",
+      "tabs": [
+        {
+          "left": 30.75,
+          "right": 131.25,
+          "stageLeft": 18.75,
+          "stageRight": 356.25,
+          "height": 44
+        },
+        {
+          "left": 137.25,
+          "right": 237.75,
+          "stageLeft": 18.75,
+          "stageRight": 356.25,
+          "height": 44
+        },
+        {
+          "left": 243.75,
+          "right": 344.25,
+          "stageLeft": 18.75,
+          "stageRight": 356.25,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "route": "/about",
+      "width": 414,
+      "height": 896,
+      "reducedMotion": "no-preference",
+      "tabs": [
+        {
+          "left": 32.6875,
+          "right": 144.890625,
+          "stageLeft": 20.6875,
+          "stageRight": 393.3125,
+          "height": 44
+        },
+        {
+          "left": 150.890625,
+          "right": 263.09375,
+          "stageLeft": 20.6875,
+          "stageRight": 393.3125,
+          "height": 44
+        },
+        {
+          "left": 269.09375,
+          "right": 381.3125,
+          "stageLeft": 20.6875,
+          "stageRight": 393.3125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "route": "/about",
+      "width": 820,
+      "height": 1180,
+      "reducedMotion": "no-preference",
+      "tabs": [
+        {
+          "left": 44,
+          "right": 284,
+          "stageLeft": 32,
+          "stageRight": 788,
+          "height": 44
+        },
+        {
+          "left": 290,
+          "right": 530,
+          "stageLeft": 32,
+          "stageRight": 788,
+          "height": 44
+        },
+        {
+          "left": 536,
+          "right": 776,
+          "stageLeft": 32,
+          "stageRight": 788,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "route": "/about",
+      "width": 900,
+      "height": 900,
+      "reducedMotion": "no-preference",
+      "tabs": [
+        {
+          "left": 44,
+          "right": 310.65625,
+          "stageLeft": 32,
+          "stageRight": 868,
+          "height": 44
+        },
+        {
+          "left": 316.65625,
+          "right": 583.328125,
+          "stageLeft": 32,
+          "stageRight": 868,
+          "height": 44
+        },
+        {
+          "left": 589.328125,
+          "right": 855.984375,
+          "stageLeft": 32,
+          "stageRight": 868,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "kind": "gaps",
+      "route": "/about",
+      "width": 414,
+      "height": 896,
+      "reducedMotion": "no-preference",
+      "gaps": [
+        47.67333984375,
+        48
+      ],
+      "axe": []
+    },
+    {
+      "kind": "gaps",
+      "route": "/about",
+      "width": 820,
+      "height": 1180,
+      "reducedMotion": "no-preference",
+      "gaps": [
+        63.689910888671875,
+        64
+      ]
+    },
+    {
+      "kind": "gaps",
+      "route": "/about",
+      "width": 1280,
+      "height": 800,
+      "reducedMotion": "no-preference",
+      "gaps": [
+        63.677490234375,
+        64
+      ]
+    },
+    {
+      "kind": "notice",
+      "route": "/contact",
+      "width": 344,
+      "height": 882,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1
+    },
+    {
+      "kind": "notice",
+      "route": "/contact",
+      "width": 375,
+      "height": 667,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1
+    },
+    {
+      "kind": "apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 390,
+      "height": 844,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1,
+      "apply": {
+        "context": {
+          "x": 20,
+          "y": 559.421875,
+          "right": 370,
+          "width": 350
+        },
+        "form": {
+          "x": 20,
+          "y": -360.109375,
+          "right": 370,
+          "width": 350
+        },
+        "card": {
+          "x": 0,
+          "y": 0,
+          "right": 0,
+          "width": 0
+        }
+      }
+    },
+    {
+      "kind": "apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1025,
+      "height": 900,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 238.890625,
+          "right": 444.4375,
+          "width": 396.4375
+        },
+        "form": {
+          "x": 492.4375,
+          "y": 238.890625,
+          "right": 977,
+          "width": 484.5625
+        },
+        "card": {
+          "x": 48,
+          "y": 371.671875,
+          "right": 444.4375,
+          "width": 396.4375
+        }
+      }
+    },
+    {
+      "kind": "apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1180,
+      "height": 820,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 233.28125,
+          "right": 514.1875,
+          "width": 466.1875
+        },
+        "form": {
+          "x": 562.1875,
+          "y": 233.28125,
+          "right": 1132,
+          "width": 569.8125
+        },
+        "card": {
+          "x": 48,
+          "y": 340.46875,
+          "right": 514.1875,
+          "width": 466.1875
+        }
+      }
+    },
+    {
+      "kind": "apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1366,
+      "height": 1024,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 247.5625,
+          "right": 597.890625,
+          "width": 549.890625
+        },
+        "form": {
+          "x": 645.890625,
+          "y": 247.5625,
+          "right": 1318,
+          "width": 672.109375
+        },
+        "card": {
+          "x": 48,
+          "y": 354.75,
+          "right": 597.890625,
+          "width": 549.890625
+        }
+      }
+    },
+    {
+      "kind": "technology",
+      "route": "/expertise",
+      "width": 1180,
+      "height": 820,
+      "reducedMotion": "no-preference",
+      "media": {
+        "right": 32,
+        "bottom": 32,
+        "fit": "contain"
+      }
+    },
+    {
+      "kind": "technology",
+      "route": "/expertise",
+      "width": 1280,
+      "height": 800,
+      "reducedMotion": "no-preference",
+      "media": {
+        "right": 32,
+        "bottom": 32,
+        "fit": "contain"
+      }
+    },
+    {
+      "kind": "apply",
+      "route": "/apply?dept=software&role=web-dev",
+      "width": 1280,
+      "height": 800,
+      "reducedMotion": "no-preference",
+      "noticeLines": 1,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 213.890625,
+          "right": 559.1875,
+          "width": 511.1875
+        },
+        "form": {
+          "x": 607.1875,
+          "y": 213.890625,
+          "right": 1232,
+          "width": 624.8125
+        },
+        "card": {
+          "x": 48,
+          "y": 321.078125,
+          "right": 559.1875,
+          "width": 511.1875
+        }
+      },
+      "axe": []
+    },
+    {
+      "kind": "search",
+      "route": "/contact",
+      "width": 375,
+      "height": 667,
+      "reducedMotion": "no-preference",
+      "axe": [],
+      "dismissal": "X, Escape and outside click passed"
+    },
+    {
+      "kind": "search",
+      "route": "/contact",
+      "width": 1280,
+      "height": 800,
+      "reducedMotion": "no-preference",
+      "axe": [],
+      "dismissal": "X, Escape and outside click passed"
+    },
+    {
+      "kind": "search",
+      "route": "/contact",
+      "width": 820,
+      "height": 1180,
+      "reducedMotion": "no-preference",
+      "axe": [],
+      "dismissal": "X, Escape and outside click passed"
+    },
+    {
+      "kind": "search",
+      "route": "/contact",
+      "width": 375,
+      "height": 667,
+      "reducedMotion": "reduce",
+      "axe": [],
+      "dismissal": "X, Escape and outside click passed"
+    },
+    {
+      "kind": "search",
+      "route": "/contact",
+      "width": 820,
+      "height": 1180,
+      "reducedMotion": "reduce",
+      "axe": [],
+      "dismissal": "X, Escape and outside click passed"
+    },
+    {
+      "kind": "search",
+      "route": "/contact",
+      "width": 1280,
+      "height": 800,
+      "reducedMotion": "reduce",
+      "axe": [],
+      "dismissal": "X, Escape and outside click passed"
+    }
+  ],
+  "failures": []
+}

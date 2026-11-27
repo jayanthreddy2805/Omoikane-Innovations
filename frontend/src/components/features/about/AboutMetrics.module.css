@@ -1,7 +1,11 @@
 .section {
   background: #FFFFFF;
   color: #102746;
-  padding: clamp(2.25rem, 3.5vw, 3.5rem) clamp(1.25rem, 5.55vw, 5.5rem);
+  padding: 32px clamp(1.25rem, 5.55vw, 5.5rem);
+}
+
+@media (max-width: 600px) {
+  .section { padding-block: 24px; }
 }
 
 .inner {

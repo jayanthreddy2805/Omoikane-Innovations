@@ -29,7 +29,7 @@ export default function ApplyPage({ query }) {
               </div>
 
               <div className={styles.enquiryGrid}>
-                <div className={styles.enquiryContext} style={{order: 2}}>
+                <div className={styles.enquiryContext}>
                   <p className={styles.enquiryText}>
                     We are always looking for visionary engineers, designers, and builders. Apply below and show us what you can create.
                   </p>
@@ -83,7 +83,7 @@ export default function ApplyPage({ query }) {
                   </div>
                 </div>
 
-                <div className={styles.formWrapper} style={{order: 1}}>
+                <div className={styles.formWrapper}>
                   <ApplyForm query={query} onSuccess={() => setIsSubmitted(true)} />
                 </div>
               </div>
