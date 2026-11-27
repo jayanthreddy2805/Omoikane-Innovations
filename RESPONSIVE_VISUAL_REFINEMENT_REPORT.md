@@ -1,3 +1,5 @@
+Latest Mini Home correction: [MINI_HOME_HERO_REFINEMENT.md](MINI_HOME_HERO_REFINEMENT.md) restores the Air/Pro composition on Mini with bounded media and clear copy. This supersedes the preceding stacked Mini hero.
+
 Latest document fixes: [CAREERS_CONTACT_TABLET_FIXES.md](CAREERS_CONTACT_TABLET_FIXES.md) covers sticky Air/Pro Careers navigation, the Mini Home hero, and Mini/Air/Pro Contact corrections. Earlier reports below describe preceding revisions.
 
 Latest review: [TABLET_FINAL_LAYOUT_FIXES.md](TABLET_FINAL_LAYOUT_FIXES.md) addresses the newest annotated screenshots. Earlier reports below describe preceding revisions.

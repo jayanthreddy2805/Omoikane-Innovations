@@ -1,0 +1,165 @@
+{
+  "baseline": false,
+  "rows": [
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/",
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 768,
+          "height": 480,
+          "bottom": 576
+        },
+        "copy": {
+          "x": 32,
+          "y": 156.125,
+          "width": 366,
+          "height": 359.734375,
+          "bottom": 515.859375
+        },
+        "media": {
+          "x": 0,
+          "y": 160,
+          "width": 768,
+          "height": 352,
+          "bottom": 512
+        },
+        "actions": {
+          "x": 32,
+          "y": 437.859375,
+          "width": 366,
+          "height": 48,
+          "bottom": 485.859375
+        },
+        "heading": {
+          "x": 32,
+          "y": 213.921875,
+          "width": 366,
+          "height": 120.9375,
+          "bottom": 334.859375
+        },
+        "image": {
+          "paddingLeft": 384,
+          "source": "http://127.0.0.1:3157/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1600&q=75"
+        }
+      },
+      "axe": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "interaction": "Header menu and Careers departments",
+      "result": "passed"
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/",
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 820,
+          "height": 480,
+          "bottom": 576
+        },
+        "copy": {
+          "x": 32,
+          "y": 137.9375,
+          "width": 393.109375,
+          "height": 396.109375,
+          "bottom": 534.046875
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 820,
+          "height": 480,
+          "bottom": 576
+        },
+        "actions": {
+          "x": 32,
+          "y": 447.65625,
+          "width": 393.109375,
+          "height": 48.390625,
+          "bottom": 496.046875
+        },
+        "heading": {
+          "x": 32,
+          "y": 235.71875,
+          "width": 393.109375,
+          "height": 104.15625,
+          "bottom": 339.875
+        },
+        "image": {
+          "paddingLeft": 147.594,
+          "source": "http://127.0.0.1:3157/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1920&q=75"
+        }
+      },
+      "axe": []
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "interaction": "Header menu and Careers departments",
+      "result": "passed"
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/",
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1024,
+          "height": 563.1875,
+          "bottom": 659.1875
+        },
+        "copy": {
+          "x": 32,
+          "y": 186.046875,
+          "width": 499.1875,
+          "height": 383.09375,
+          "bottom": 569.140625
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 1024,
+          "height": 563.1875,
+          "bottom": 659.1875
+        },
+        "actions": {
+          "x": 32,
+          "y": 482.75,
+          "width": 499.1875,
+          "height": 48.390625,
+          "bottom": 531.140625
+        },
+        "heading": {
+          "x": 32,
+          "y": 261.4375,
+          "width": 499.1875,
+          "height": 113.53125,
+          "bottom": 374.96875
+        },
+        "image": {
+          "paddingLeft": 184.312,
+          "source": "http://127.0.0.1:3157/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1920&q=75"
+        }
+      },
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "interaction": "Header menu and Careers departments",
+      "result": "passed"
+    }
+  ],
+  "failures": []
+}

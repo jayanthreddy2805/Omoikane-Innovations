@@ -47,9 +47,14 @@ fs.mkdirSync(out, { recursive: true });
           if (route === '/') {
             row.hero = await page.locator('#hero').evaluate(e => {
               const box = el => { const r = el.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height, bottom: r.bottom }; };
-              return { section: box(e), copy: box(e.querySelector('[class*="heroContent"]')), media: box(e.querySelector('picture')), actions: box(e.querySelector('[data-type-role="actions"]')), heading: box(e.querySelector('h1')) };
+              const image = e.querySelector('img');
+              return { section: box(e), copy: box(e.querySelector('[class*="heroContent"]')), media: box(e.querySelector('picture')), actions: box(e.querySelector('[data-type-role="actions"]')), heading: box(e.querySelector('h1')), image: { paddingLeft: parseFloat(getComputedStyle(image).paddingLeft), source: image.currentSrc } };
             });
-            if (!baseline && width === 768) assert.ok(row.hero.media.y - row.hero.actions.bottom >= 24, 'Mini media starts below the actions');
+            if (!baseline && width === 768) {
+              assert.ok(Math.abs(row.hero.section.height - 480) < 1, 'Mini uses the compact Air/Pro hero');
+              assert.ok(Math.abs(row.hero.media.height - 352) < 1 && Math.abs(row.hero.image.paddingLeft - 384) < 1, 'Aircraft has a bounded frame on the right');
+              assert.ok(row.hero.image.source.includes('home-drone-desktop'), 'Mini uses the Air/Pro source');
+            }
           } else if (route === '/contact') {
             row.contact = await page.locator('main').evaluate(e => {
               const section = e.querySelector('section'), grid = e.querySelector('[class*="enquiryGrid"]');
