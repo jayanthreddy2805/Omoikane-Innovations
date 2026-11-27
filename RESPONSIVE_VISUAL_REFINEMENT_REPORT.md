@@ -1,3 +1,5 @@
+Latest owner-requested DOCX corrections are documented in [DOCX_VISUAL_FIXES.md](DOCX_VISUAL_FIXES.md). The report below describes the preceding revision.
+
 # Responsive visual refinement: tablet correction, 27 November 2026
 
 This report supersedes the acceptance claims in the earlier PR #66 report. PR #66 and PR #67 were already merged when this follow-up began. The live site still had visible sizing and spacing problems. The earlier report remains available in Git history.
