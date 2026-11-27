@@ -480,17 +480,20 @@
   :global(#main-content) .homeHero .heroContent .actions { transform: none; }
 }
 
-/* Mini follows the approved phone composition: copy above the aircraft. */
+/* Mini uses the Air/Pro composition with a smaller aircraft beside clear copy. */
 @media (min-width: 681px) and (max-width: 768px) {
-  .homeHero { min-height: 0; }
-  .homeHero .container { padding-top: 16px; padding-bottom: 320px; }
-  .heroContent { max-width: 540px; }
-  .homeBackdrop { top: auto; height: 320px; }
+  .heroContent { max-width: 366px; }
+  .homeBackdrop {
+    --mini-media-left: calc(50% + (768px - 100vw) * .8);
+    inset: clamp(64px, calc(64px + (768px - 100vw) * .37), 96px) 0;
+    height: auto;
+    mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
+  }
   .homeBackdropImage {
-    padding-left: 0;
-    object-position: center 55%;
+    padding-left: var(--mini-media-left);
+    object-position: center;
   }
   .homeBackdrop::after {
-    background: linear-gradient(180deg, #f2f9ff 0%, rgba(242, 249, 255, 0) 80px);
+    background: linear-gradient(90deg, #f2f9ff 0%, #f2f9ff var(--mini-media-left), rgba(242, 249, 255, 0) calc(var(--mini-media-left) + 16px));
   }
 }
