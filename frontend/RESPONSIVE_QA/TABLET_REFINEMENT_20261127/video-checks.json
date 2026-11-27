@@ -1,0 +1,257 @@
+{
+  "rows": [
+    {
+      "width": 768,
+      "motion": "reduce",
+      "stage": {
+        "x": 144,
+        "y": 370.265625,
+        "width": 480,
+        "height": 360
+      },
+      "videos": [
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/uav-flight.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/flight-control.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/airframe-assembly.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/rf-communications.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/field-operations.jpg"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "motion": "no-preference",
+      "stage": {
+        "x": 144,
+        "y": 370.265625,
+        "width": 480,
+        "height": 360
+      },
+      "videos": [
+        {
+          "state": 4,
+          "paused": false,
+          "time": 2.0733,
+          "poster": "http://127.0.0.1:3151/images/video-posters/uav-flight.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/flight-control.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/airframe-assembly.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/rf-communications.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/field-operations.jpg"
+        }
+      ]
+    },
+    {
+      "width": 820,
+      "motion": "reduce",
+      "stage": {
+        "x": 435,
+        "y": 414.203125,
+        "width": 361,
+        "height": 270.75
+      },
+      "videos": [
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/uav-flight.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/flight-control.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/airframe-assembly.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/rf-communications.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/field-operations.jpg"
+        }
+      ]
+    },
+    {
+      "width": 820,
+      "motion": "no-preference",
+      "stage": {
+        "x": 435,
+        "y": 414.203125,
+        "width": 361,
+        "height": 270.75
+      },
+      "videos": [
+        {
+          "state": 4,
+          "paused": false,
+          "time": 2.1029,
+          "poster": "http://127.0.0.1:3151/images/video-posters/uav-flight.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/flight-control.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/airframe-assembly.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/rf-communications.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/field-operations.jpg"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "motion": "reduce",
+      "stage": {
+        "x": 537,
+        "y": 376.75,
+        "width": 463,
+        "height": 347.25
+      },
+      "videos": [
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/uav-flight.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/flight-control.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/airframe-assembly.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/rf-communications.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/field-operations.jpg"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "motion": "no-preference",
+      "stage": {
+        "x": 537,
+        "y": 376.75,
+        "width": 463,
+        "height": 347.25
+      },
+      "videos": [
+        {
+          "state": 4,
+          "paused": false,
+          "time": 2.098,
+          "poster": "http://127.0.0.1:3151/images/video-posters/uav-flight.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/flight-control.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/airframe-assembly.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/rf-communications.jpg"
+        },
+        {
+          "state": 0,
+          "paused": true,
+          "time": 0,
+          "poster": "http://127.0.0.1:3151/images/video-posters/field-operations.jpg"
+        }
+      ]
+    }
+  ],
+  "failures": []
+}
