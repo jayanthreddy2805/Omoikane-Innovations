@@ -477,3 +477,9 @@
     background: linear-gradient(90deg, #f2f9ff 0%, #f2f9ff 50%, rgba(242, 249, 255, .95) 54%, rgba(242, 249, 255, .24) 72%, rgba(4, 32, 68, .08) 100%);
   }
 }
+
+/* Rotation must not grow the tablet hero with the longer screen edge.
+   Keep Air's 480px composition while giving its copy natural room to grow. */
+@media (min-width: 681px) and (max-width: 1366px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+  .homeHero { min-height: 480px; }
+}

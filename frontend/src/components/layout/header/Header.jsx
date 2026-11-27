@@ -98,10 +98,13 @@ export default function Header() {
   React.useEffect(() => {
     if (!searchOpen) return;
     const opener = searchOpenerRef.current || searchButtonRef.current;
+    const focusTargets = [opener, searchButtonRef.current, mobileButtonRef.current];
     const frame = requestAnimationFrame(() => searchInputRef.current?.focus());
     return () => {
       cancelAnimationFrame(frame);
-      opener?.focus();
+      // Rotation can hide the original opener behind the other header layout.
+      const target = focusTargets.find(element => element?.isConnected && element.getClientRects().length > 0);
+      target?.focus();
     };
   }, [searchOpen]);
 
