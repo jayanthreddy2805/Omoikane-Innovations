@@ -8,7 +8,7 @@ export function HomeHeroBanner() {
     <div className={styles.homeFrame}>
       <section className={styles.homeHero} data-type-role="homeHero" id="hero" aria-labelledby="hero-headline" data-client-home-hero>
         <picture className={styles.homeBackdrop}>
-          <source media="(max-width: 680px)" srcSet={mobile.srcSet} sizes="100vw" />
+          <source media="(max-width: 768px)" srcSet={mobile.srcSet} sizes="100vw" />
           <Image src="/images/reference/home-drone-desktop.jpg" alt="" fill sizes="100vw" loading="eager" fetchPriority="high" className={styles.homeBackdropImage} />
         </picture>
         <div className={styles.container}>

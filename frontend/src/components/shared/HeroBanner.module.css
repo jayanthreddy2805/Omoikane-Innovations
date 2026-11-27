@@ -4,6 +4,7 @@
   background: #061d40;
 }
 
+
 .pageFrame {
   padding-top: 96px;
   background: #fff;
@@ -461,7 +462,7 @@
   }
 }
 
-/* All three tablets use the same landscape media, with the approved three lines. */
+/* Tablets retain the approved three heading lines. */
 @media (min-width: 681px) and (max-width: 1100px) {
   .homeFrame { min-height: 0; }
   .homeHero { min-height: clamp(480px, 55vw, 580px); align-items: center; background: #f2f9ff; }
@@ -477,4 +478,19 @@
   :global(#main-content) .homeHero .heroContent .eyebrow,
   :global(#main-content) .homeHero .heroContent p,
   :global(#main-content) .homeHero .heroContent .actions { transform: none; }
+}
+
+/* Mini follows the approved phone composition: copy above the aircraft. */
+@media (min-width: 681px) and (max-width: 768px) {
+  .homeHero { min-height: 0; }
+  .homeHero .container { padding-top: 16px; padding-bottom: 320px; }
+  .heroContent { max-width: 540px; }
+  .homeBackdrop { top: auto; height: 320px; }
+  .homeBackdropImage {
+    padding-left: 0;
+    object-position: center 55%;
+  }
+  .homeBackdrop::after {
+    background: linear-gradient(180deg, #f2f9ff 0%, rgba(242, 249, 255, 0) 80px);
+  }
 }
