@@ -1,0 +1,68 @@
+[
+  {
+    "route": "/",
+    "device": "ipad-mini",
+    "kind": "hero",
+    "file": "comparisons/home/ipad-mini-hero.jpg"
+  },
+  {
+    "route": "/",
+    "device": "ipad-air",
+    "kind": "hero",
+    "file": "comparisons/home/ipad-air-hero.jpg"
+  },
+  {
+    "route": "/",
+    "device": "ipad-pro",
+    "kind": "hero",
+    "file": "comparisons/home/ipad-pro-hero.jpg"
+  },
+  {
+    "route": "/about",
+    "device": "ipad-air",
+    "kind": "sentence",
+    "file": "comparisons/about/ipad-air-sentence.jpg"
+  },
+  {
+    "route": "/about",
+    "device": "ipad-pro",
+    "kind": "sentence",
+    "file": "comparisons/about/ipad-pro-sentence.jpg"
+  },
+  {
+    "route": "/leadership",
+    "device": "ipad-mini",
+    "kind": "hero",
+    "file": "comparisons/leadership/ipad-mini-hero.jpg"
+  },
+  {
+    "route": "/leadership",
+    "device": "ipad-air",
+    "kind": "gallery",
+    "file": "comparisons/leadership/ipad-air-gallery.jpg"
+  },
+  {
+    "route": "/leadership",
+    "device": "ipad-pro",
+    "kind": "gallery",
+    "file": "comparisons/leadership/ipad-pro-gallery.jpg"
+  },
+  {
+    "route": "/expertise",
+    "device": "ipad-mini",
+    "kind": "controls",
+    "file": "comparisons/expertise/ipad-mini-controls.jpg"
+  },
+  {
+    "route": "/expertise",
+    "device": "ipad-air",
+    "kind": "controls",
+    "file": "comparisons/expertise/ipad-air-controls.jpg"
+  },
+  {
+    "route": "/expertise",
+    "device": "ipad-pro",
+    "kind": "controls",
+    "file": "comparisons/expertise/ipad-pro-controls.jpg"
+  }
+]

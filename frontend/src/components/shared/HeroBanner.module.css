@@ -464,9 +464,10 @@
 /* All three tablets use the same landscape media, with the approved three lines. */
 @media (min-width: 681px) and (max-width: 1100px) {
   .homeFrame { min-height: 0; }
-  .homeHero { min-height: clamp(480px, 55vw, 580px); }
-  .homeBackdrop { inset: 0 0 0 18%; }
-  .homeBackdropImage { object-position: center; }
+  .homeHero { min-height: clamp(480px, 55vw, 580px); align-items: center; background: #f2f9ff; }
+  .homeBackdrop { inset: 0; }
+  .homeBackdropImage { object-position: center; padding-left: 18%; box-sizing: border-box; }
+  .homeBackdrop::after { background: linear-gradient(90deg, #f2f9ff 0%, #f2f9ff 22%, rgba(242, 249, 255, .96) 36%, rgba(242, 249, 255, .24) 66%, rgba(4, 32, 68, .08) 100%); }
   .homeHero::before { display: none; }
   .homeHero::after { background: none; }
   .container { width: calc(100% - 64px); max-width: 1180px; }

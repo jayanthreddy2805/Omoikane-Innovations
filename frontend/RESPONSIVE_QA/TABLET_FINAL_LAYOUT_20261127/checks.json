@@ -1,0 +1,89 @@
+{
+  "rows": [
+    {
+      "width": 768,
+      "footerHeight": 910.296875
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/expertise",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/about",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/leadership",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "footerHeight": 875.109375
+    },
+    {
+      "width": 820,
+      "route": "/",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/expertise",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/about",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/leadership",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "footerHeight": 662.890625
+    },
+    {
+      "width": 1024,
+      "route": "/",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/expertise",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/about",
+      "acceptance": "passed",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/leadership",
+      "acceptance": "passed",
+      "axe": []
+    }
+  ],
+  "failures": []
+}

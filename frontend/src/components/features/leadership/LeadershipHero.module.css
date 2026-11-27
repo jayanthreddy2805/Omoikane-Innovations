@@ -81,6 +81,11 @@
   display: block;
 }
 
+.blueprintImage {
+  object-fit: contain;
+  padding: 10px;
+}
+
 .mobileBlueprint {
   display: none !important;
 }
@@ -379,6 +384,14 @@
     width: min(calc(100% - 64px), 480px);
     aspect-ratio: 942 / 1194;
     margin-inline: auto;
+  }
+
+  .blueprintImage {
+    padding: 0;
+  }
+
+  .visualPlaceholder {
+    transform: scale(1.01);
   }
 
   .headlineContainer,

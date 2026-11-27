@@ -1,3 +1,5 @@
+Latest review: [TABLET_FINAL_LAYOUT_FIXES.md](TABLET_FINAL_LAYOUT_FIXES.md) addresses the newest annotated screenshots. Earlier reports below describe preceding revisions.
+
 Latest owner-requested DOCX corrections are documented in [DOCX_VISUAL_FIXES.md](DOCX_VISUAL_FIXES.md). The report below describes the preceding revision.
 
 # Responsive visual refinement: tablet correction, 27 November 2026

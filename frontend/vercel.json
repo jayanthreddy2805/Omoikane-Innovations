@@ -4,7 +4,8 @@
     "deploymentEnabled": {
       "fix/responsive-visual-refinement-20261127": false,
       "fix/live-responsive-proportions-20261127": false,
-      "fix/docx-tablet-polish-20261127": false
+      "fix/docx-tablet-polish-20261127": false,
+      "fix/tablet-final-layout-20261127": false
     }
   }
 }

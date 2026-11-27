@@ -2213,3 +2213,8 @@
   .editorialGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding-top: 32px; }
   .editorialCard:not(:nth-child(3n))::after { display: block; right: -16px; }
 }
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .editorialFooterStatement { max-width: none; flex-basis: 100%; font-size: 16px; white-space: nowrap; }
+  .editorialFooterContent { gap: 16px; }
+}
