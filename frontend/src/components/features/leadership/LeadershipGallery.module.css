@@ -429,9 +429,15 @@
 }
 
 @media (min-width: 769px) and (max-width: 1100px) {
-  .galleryImage {
-    height: clamp(300px, 36vw, 380px);
-  }
+  .scrollWrapper { width: 100%; height: auto; padding: 48px 32px; box-sizing: border-box; }
+  .galleryHeader { padding: 0 0 32px; }
+  .scrollContent { width: 100%; display: block; padding: 0; }
+  .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px; height: auto; }
+  .galleryImage,
+  .galleryImage:nth-child(odd),
+  .galleryImage:nth-child(even) { width: 100%; height: auto; aspect-ratio: auto; transform: none; display: flex; flex-direction: column; }
+  .galleryImage .imageContainer { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 1; }
+  .cardNameOverlay { position: static; padding-top: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

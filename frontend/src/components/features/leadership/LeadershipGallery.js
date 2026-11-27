@@ -87,7 +87,7 @@ export default function LeadershipGallery() {
 
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 769px)", () => {
+      mm.add("(min-width: 1101px)", () => {
         // Horizontal ScrollTrigger pinned gallery on desktop using native scroll
         gsap.to(scrollContentRef.current, {
           x: () => -(scrollContentRef.current.scrollWidth - window.innerWidth),
