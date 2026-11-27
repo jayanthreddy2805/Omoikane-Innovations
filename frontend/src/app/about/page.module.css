@@ -1581,21 +1581,6 @@
   flex: 1;
 }
 
-.faqNumber {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--color-muted, #62748A);
-  flex-shrink: 0;
-  transition: color 0.2s ease;
-}
-
-.faqItemActive .faqNumber,
-.faqQuestionRow:hover .faqNumber {
-  color: #0757C8;
-}
-
 .faqText {
   font-family: var(--font-inter), sans-serif;
   font-size: clamp(1.08rem, 1.35vw, 1.25rem);
@@ -1614,21 +1599,19 @@
 .faqIcon {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   color: #556B82;
-  border: 1px solid rgba(6, 29, 64, 0.12);
-  background: #F8FAFC;
+  border: none;
+  background: transparent;
   transition: all 0.25s ease;
 }
 
 .faqItemActive .faqIcon {
-  background: #0757C8;
-  color: #FFFFFF;
-  border-color: #0757C8;
+  color: #0757C8;
 }
 
 .faqAnswerWrapper {
@@ -1640,7 +1623,7 @@
   font-size: clamp(0.95rem, 1.1vw, 1.05rem);
   line-height: 1.7;
   color: #4A627E;
-  padding: 1.25rem 0 0.5rem calc(clamp(1.25rem, 2.5vw, 2.5rem) + 1.5rem);
+  padding: 1.25rem 0 0.5rem;
   margin: 0;
   max-width: 860px;
 }
@@ -1678,10 +1661,6 @@
 
   .faqQuestionLeft {
     gap: 0;
-  }
-
-  .faqNumber {
-    display: none !important;
   }
 
   .faqText {

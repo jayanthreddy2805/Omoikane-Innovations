@@ -365,7 +365,6 @@ function FaqSection() {
                       aria-expanded={isActive} aria-controls={`faq-answer-${idx}`}
                       onClick={() => setActiveFaq(isActive ? null : idx)}>
                       <div className={styles.faqQuestionLeft}>
-                        <span className={styles.faqNumber}>{(idx + 1).toString().padStart(2, '0')}</span>
                         <span className={styles.faqText}>{faq.q}</span>
                       </div>
                       <span className={styles.faqIcon} aria-hidden="true">
