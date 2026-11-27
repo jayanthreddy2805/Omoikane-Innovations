@@ -53,3 +53,15 @@ No DNS/WordPress/custom domain action, chatbot/RAG/Ollama/analytics change, clie
 This document updates the stale baseline in `backend/PRODUCTION_RELEASE.md` and `RELEASE_ACCEPTANCE_CHECKLIST.md` **without overriding their owner-approval requirements**. Review this document before using the historical candidate SHAs or old PR statuses in those files.
 
 **Final decision: NO-GO** until verified backup/restore, controlled Render deployment mechanism and runtime configuration are proven, then obtain the owner's separate execution approval.
+
+## Fresh read-only update — 28 November 2026 (IST)
+
+This is a **new verification**, superseding this document's dated baseline only where the live values differ. No release operation or environment setting has been changed.
+
+- **GitHub:** latest `main=047478fa1b61e7ab3cad22ce4a522b7dce6dea86`. Latest frontend workflow succeeded on that SHA. The latest observed **backend tests succeeded** on `7984402b33442283f5f88d743a7d3697882af843`; GitHub compare from that SHA to current main lists **no changed files**. PR #65 is open and documentation-only. Do not use the older `e726be8` baseline as the release candidate without reviewing the actual new main.
+- **Vercel:** the production deploy for `047478fa...` is READY; the active frontend remains the Vercel project, not the unapproved custom domain.
+- **Render:** same live deploy `dep-dbq8ks0m7kps738npu7g` at `a87d448aae052a7b40502e8d9a5529a5177bdcd3`. `main`, `autoDeploy=yes`, `autoDeployTrigger=checksPass`, health path `/actuator/health` remain configured. A fresh event-history query from 10 Nov onward finds no deploy/build attempt later than **11 Nov**. The underlying Git/check-event integration cause is **not yet established**: do not toggle controls or manually deploy just to test it.
+- **Neon:** production branch `br-plain-brook-aolmdy63`, PostgreSQL 18; Flyway V1–V3 success, V4/V5 not yet applied. SELECT-only preflight found **0 duplicate normalized-contact groups**. Neon API lists **0 snapshots**; history retention is **21600 seconds (6 hours)**. No encrypted durable backup and successful isolated restore has been demonstrated.
+- **Live API CORS:** NOT freshly verified in this update. An external preflight request could not establish a connection from the available execution environment; do not interpret that as an API error or a positive CORS check. Confirm allowed origin for `https://omoikane-innovations-3h7t.vercel.app` at release time; custom domains stay out of scope.
+
+**Decision stays NO-GO.** Additional gates required before a separately approved production deployment: verified backup plus restore rehearsal; confirmed operator-controlled Render Git/deploy mechanism; actual runtime TLS/CORS/email/admin configuration review without revealing secrets; agreed exact release SHA and window. Flyway V4/V5 may run at application startup, so do not deploy to bypass these gates. No DNS/custom-domain/WordPress, chatbot, or client content changes are authorized.
