@@ -1,0 +1,209 @@
+{
+  "rows": [
+    {
+      "start": [
+        1024,
+        1366
+      ],
+      "end": [
+        1366,
+        1024
+      ],
+      "motion": "no-preference",
+      "dismiss": "X",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Search",
+        "width": 97.375
+      }
+    },
+    {
+      "start": [
+        1024,
+        1366
+      ],
+      "end": [
+        1366,
+        1024
+      ],
+      "motion": "no-preference",
+      "dismiss": "Escape",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Search",
+        "width": 97.375
+      }
+    },
+    {
+      "start": [
+        1024,
+        1366
+      ],
+      "end": [
+        1366,
+        1024
+      ],
+      "motion": "no-preference",
+      "dismiss": "outside",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Search",
+        "width": 97.375
+      }
+    },
+    {
+      "start": [
+        1366,
+        1024
+      ],
+      "end": [
+        1024,
+        1366
+      ],
+      "motion": "no-preference",
+      "dismiss": "X",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Menu",
+        "width": 44
+      }
+    },
+    {
+      "start": [
+        1366,
+        1024
+      ],
+      "end": [
+        1024,
+        1366
+      ],
+      "motion": "no-preference",
+      "dismiss": "Escape",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Menu",
+        "width": 44
+      }
+    },
+    {
+      "start": [
+        1366,
+        1024
+      ],
+      "end": [
+        1024,
+        1366
+      ],
+      "motion": "no-preference",
+      "dismiss": "outside",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Menu",
+        "width": 44
+      }
+    },
+    {
+      "start": [
+        1024,
+        1366
+      ],
+      "end": [
+        1366,
+        1024
+      ],
+      "motion": "reduce",
+      "dismiss": "X",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Search",
+        "width": 97.375
+      }
+    },
+    {
+      "start": [
+        1024,
+        1366
+      ],
+      "end": [
+        1366,
+        1024
+      ],
+      "motion": "reduce",
+      "dismiss": "Escape",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Search",
+        "width": 97.375
+      }
+    },
+    {
+      "start": [
+        1024,
+        1366
+      ],
+      "end": [
+        1366,
+        1024
+      ],
+      "motion": "reduce",
+      "dismiss": "outside",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Search",
+        "width": 97.375
+      }
+    },
+    {
+      "start": [
+        1366,
+        1024
+      ],
+      "end": [
+        1024,
+        1366
+      ],
+      "motion": "reduce",
+      "dismiss": "X",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Menu",
+        "width": 44
+      }
+    },
+    {
+      "start": [
+        1366,
+        1024
+      ],
+      "end": [
+        1024,
+        1366
+      ],
+      "motion": "reduce",
+      "dismiss": "Escape",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Menu",
+        "width": 44
+      }
+    },
+    {
+      "start": [
+        1366,
+        1024
+      ],
+      "end": [
+        1024,
+        1366
+      ],
+      "motion": "reduce",
+      "dismiss": "outside",
+      "focused": {
+        "tag": "BUTTON",
+        "label": "Menu",
+        "width": 44
+      }
+    }
+  ],
+  "failures": []
+}
