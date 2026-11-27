@@ -1024,9 +1024,9 @@
 .heroVisual, .roleVisualFull { background: var(--color-footer, #000812); }
 
 /* ─────────────────────────────────────────────────────────
-   MOBILE CAREER PAGES OPTIMIZATION (STRICTLY < 1024px / < 768px)
+   MOBILE CAREER ROLE TABS (UP TO MINI WIDTH)
 ───────────────────────────────────────────────────────── */
-@media (max-width: 1023px) {
+@media (max-width: 768px) {
   .roleNav {
     position: static !important;
     width: 100% !important;
@@ -1274,5 +1274,20 @@
 @media (max-width: 480px) {
   .heroSection {
     padding-top: calc(76px + 15px) !important;
+  }
+}
+
+/* The page must not become a separate scroll container around the sticky rail. */
+@media (min-width: 769px) {
+  :global(body):has(.pageContainer) { overflow-x: clip; }
+  .pageContainer { overflow-x: clip; }
+  .roleNav { align-self: start; }
+}
+
+/* Air has room for the same left role rail as Pro; Mini retains its role tabs. */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .explorerLayout {
+    grid-template-columns: minmax(200px, .75fr) minmax(0, 1.75fr);
+    gap: 32px;
   }
 }
