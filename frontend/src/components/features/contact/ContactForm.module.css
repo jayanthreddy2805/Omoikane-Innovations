@@ -82,6 +82,7 @@
 }
 
 .formNotice a {
+  white-space: nowrap;
   color: #0757C8;
   text-decoration: underline;
   text-underline-offset: 0.15em;

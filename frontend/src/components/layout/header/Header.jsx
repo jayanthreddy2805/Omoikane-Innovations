@@ -450,7 +450,9 @@ export default function Header() {
                     }
                   }}
                 />
-                <button type="button" className={styles.searchEsc} aria-label="Close search (Esc)" onClick={() => setSearchOpen(false)}>ESC</button>
+                <button type="button" className={styles.searchClose} aria-label="Close search" onClick={() => setSearchOpen(false)}>
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="m6 6 12 12M6 18 18 6" /></svg>
+                </button>
               </div>
 
               <div className={styles.searchResults}>

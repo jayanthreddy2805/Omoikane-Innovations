@@ -284,6 +284,8 @@
 }
 
 .enquiryContext {
+  order: 2;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -412,7 +414,23 @@
 }
 
 .formWrapper {
+  order: 1;
+  min-width: 0;
   width: 100%;
+}
+
+/* Desktop matches Contact: context on the left, application form on the right. */
+@media (min-width: 1025px) {
+  .enquiryGrid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 48px; }
+  .enquiryContext { order: 1; }
+  .formWrapper { order: 2; }
+  .contactDetailsBlock { position: relative; width: 100%; max-width: 100%; box-sizing: border-box; padding: 32px; }
+  .contactDetailsGrid { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); }
+  .contactDetailItem { min-width: 0; }
+  .contactDetailText { overflow-wrap: anywhere; }
+}
+@media (min-width: 1025px) and (max-width: 1150px) {
+  .contactDetailsGrid { grid-template-columns: minmax(0, 1fr); }
 }
 
 
