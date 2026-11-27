@@ -1,3 +1,5 @@
+Latest in-place rotation review: [ROTATION_DOCX_REVIEW.md](ROTATION_DOCX_REVIEW.md) records the portrait → landscape → portrait corrections and the new review PR based on deployed #75.
+
 Latest phone/landscape DOCX fixes: [PHONE_LANDSCAPE_DOCX_FIXES.md](PHONE_LANDSCAPE_DOCX_FIXES.md) covers the fifteen latest screenshot annotations and the requested push to PR #47’s branch.
 
 Latest screenshot requests: [TABLET_REQUESTED_DETAILS.md](TABLET_REQUESTED_DETAILS.md) covers the Mini Air-style photo, complete Mini/Air CTA, Mini landscape Leadership hero, Air Careers tabs and plain unnumbered FAQ controls.

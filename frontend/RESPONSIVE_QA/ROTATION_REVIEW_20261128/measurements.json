@@ -1,0 +1,25 @@
+{
+  "baseline_sha": "047478fa1b61e7ab3cad22ce4a522b7dce6dea86",
+  "before_landscape": {
+    "ipad-mini": 563.1875,
+    "ipad-air": 580,
+    "ipad-pro": 580
+  },
+  "after": {
+    "ipad-mini": {
+      "portrait": 480,
+      "landscape": 480,
+      "returned": 480
+    },
+    "ipad-air": {
+      "portrait": 480,
+      "landscape": 480,
+      "returned": 480
+    },
+    "ipad-pro": {
+      "portrait": 563.1875,
+      "landscape": 480,
+      "returned": 563.1875
+    }
+  }
+}

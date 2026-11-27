@@ -1,0 +1,32 @@
+[
+  {
+    "start": [
+      1024,
+      1366
+    ],
+    "end": [
+      1366,
+      1024
+    ],
+    "focused": {
+      "tag": "BODY",
+      "label": null,
+      "width": 1366
+    }
+  },
+  {
+    "start": [
+      1366,
+      1024
+    ],
+    "end": [
+      1024,
+      1366
+    ],
+    "focused": {
+      "tag": "BODY",
+      "label": null,
+      "width": 1024
+    }
+  }
+]
