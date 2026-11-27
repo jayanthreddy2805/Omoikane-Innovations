@@ -1,0 +1,434 @@
+{
+  "liveSha": "f1bd58f77ccd60a63ae79240c71616b74f88784b",
+  "implementationSha": "99f6b1d17d8b0db8753863c9ee2c88e0fa9181ac",
+  "before": [
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/",
+      "hero": {
+        "height": 480,
+        "source": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1920&q=75"
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/",
+      "hero": {
+        "height": 480,
+        "source": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1600&q=75"
+      }
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/",
+      "hero": {
+        "height": 563.1875,
+        "source": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1920&q=75"
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/leadership",
+      "hero": {
+        "height": 891.96875,
+        "source": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fuav-architecture-blueprint-mobile.png&w=1080&q=75",
+        "canvas": 608.40625
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/leadership",
+      "hero": {
+        "height": 699.640625,
+        "source": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fuav-architecture-blueprint.png&w=1600&q=75",
+        "canvas": 319.296875
+      }
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/leadership",
+      "hero": {
+        "height": 725.984375,
+        "source": "https://omoikane-innovations-3h7t.vercel.app/_next/image?url=%2Fimages%2Fleadership%2Fuav-architecture-blueprint.png&w=1600&q=75",
+        "canvas": 396.828125
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/about",
+      "cta": {
+        "height": 286.5625,
+        "card": 184.1875,
+        "bottom": "none",
+        "items": [
+          {
+            "text": "UAV Manufacturers",
+            "width": 0,
+            "y": 0
+          },
+          {
+            "text": "Defense & Aerospace",
+            "width": 0,
+            "y": 0
+          },
+          {
+            "text": "Government Agencies",
+            "width": 0,
+            "y": 0
+          },
+          {
+            "text": "Industrial Automation",
+            "width": 0,
+            "y": 0
+          },
+          {
+            "text": "Agriculture & Survey",
+            "width": 0,
+            "y": 0
+          },
+          {
+            "text": "System Integrators",
+            "width": 0,
+            "y": 0
+          }
+        ]
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/about",
+      "cta": {
+        "height": 519.3125,
+        "card": 416.9375,
+        "bottom": "block",
+        "items": [
+          {
+            "text": "UAV Manufacturers",
+            "width": 210.65625,
+            "y": 956.953125
+          },
+          {
+            "text": "Defense & Aerospace",
+            "width": 210.671875,
+            "y": 956.953125
+          },
+          {
+            "text": "Government Agencies",
+            "width": 210.671875,
+            "y": 956.953125
+          },
+          {
+            "text": "Industrial Automation",
+            "width": 210.65625,
+            "y": 1036.453125
+          },
+          {
+            "text": "Agriculture & Survey",
+            "width": 210.671875,
+            "y": 1036.453125
+          },
+          {
+            "text": "System Integrators",
+            "width": 210.671875,
+            "y": 1036.453125
+          }
+        ]
+      }
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/about",
+      "cta": {
+        "height": 457.71875,
+        "card": 355.34375,
+        "bottom": "block",
+        "items": [
+          {
+            "text": "UAV Manufacturers",
+            "width": 121.265625,
+            "y": 1204.46875
+          },
+          {
+            "text": "Defense & Aerospace",
+            "width": 121.28125,
+            "y": 1204.46875
+          },
+          {
+            "text": "Government Agencies",
+            "width": 121.265625,
+            "y": 1204.46875
+          },
+          {
+            "text": "Industrial Automation",
+            "width": 121.28125,
+            "y": 1204.46875
+          },
+          {
+            "text": "Agriculture & Survey",
+            "width": 121.28125,
+            "y": 1204.46875
+          },
+          {
+            "text": "System Integrators",
+            "width": 121.265625,
+            "y": 1204.46875
+          }
+        ]
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/software",
+      "nav": {
+        "position": "sticky",
+        "direction": "column",
+        "width": 211.796875
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/mechanical",
+      "nav": {
+        "position": "sticky",
+        "direction": "column",
+        "width": 211.796875
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/electronics",
+      "nav": {
+        "position": "sticky",
+        "direction": "column",
+        "width": 211.796875
+      }
+    }
+  ],
+  "after": [
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/",
+      "hero": {
+        "height": 563.1875,
+        "source": "http://127.0.0.1:3165/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1920&q=75"
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/",
+      "hero": {
+        "height": 480,
+        "source": "http://127.0.0.1:3165/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1600&q=75"
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/",
+      "hero": {
+        "height": 480,
+        "source": "http://127.0.0.1:3165/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1920&q=75"
+      }
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/leadership",
+      "hero": {
+        "height": 725.984375,
+        "source": "http://127.0.0.1:3165/_next/image?url=%2Fimages%2Fleadership%2Fuav-architecture-blueprint.png&w=1600&q=75",
+        "canvas": 396.828125
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/leadership",
+      "hero": {
+        "height": 699.640625,
+        "source": "http://127.0.0.1:3165/_next/image?url=%2Fimages%2Fleadership%2Fuav-architecture-blueprint.png&w=1600&q=75",
+        "canvas": 319.296875
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/leadership",
+      "hero": {
+        "height": 610.453125,
+        "source": "http://127.0.0.1:3165/_next/image?url=%2Fimages%2Fleadership%2Fuav-architecture-blueprint.png&w=1200&q=75",
+        "canvas": 299.546875
+      }
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/about",
+      "cta": {
+        "height": 457.71875,
+        "card": 355.34375,
+        "bottom": "block",
+        "items": [
+          {
+            "text": "UAV Manufacturers",
+            "width": 121.265625,
+            "y": 1204.46875
+          },
+          {
+            "text": "Defense & Aerospace",
+            "width": 121.28125,
+            "y": 1204.46875
+          },
+          {
+            "text": "Government Agencies",
+            "width": 121.265625,
+            "y": 1204.46875
+          },
+          {
+            "text": "Industrial Automation",
+            "width": 121.28125,
+            "y": 1204.46875
+          },
+          {
+            "text": "Agriculture & Survey",
+            "width": 121.28125,
+            "y": 1204.46875
+          },
+          {
+            "text": "System Integrators",
+            "width": 121.265625,
+            "y": 1204.46875
+          }
+        ]
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/about",
+      "cta": {
+        "height": 452.15625,
+        "card": 349.78125,
+        "bottom": "block",
+        "items": [
+          {
+            "text": "UAV Manufacturers",
+            "width": 93.53125,
+            "y": 862.625
+          },
+          {
+            "text": "Defense & Aerospace",
+            "width": 93.53125,
+            "y": 862.625
+          },
+          {
+            "text": "Government Agencies",
+            "width": 93.546875,
+            "y": 862.625
+          },
+          {
+            "text": "Industrial Automation",
+            "width": 93.53125,
+            "y": 862.625
+          },
+          {
+            "text": "Agriculture & Survey",
+            "width": 93.53125,
+            "y": 862.625
+          },
+          {
+            "text": "System Integrators",
+            "width": 93.546875,
+            "y": 862.625
+          }
+        ]
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/about",
+      "cta": {
+        "height": 457.71875,
+        "card": 355.34375,
+        "bottom": "block",
+        "items": [
+          {
+            "text": "UAV Manufacturers",
+            "width": 100,
+            "y": 1019.359375
+          },
+          {
+            "text": "Defense & Aerospace",
+            "width": 100,
+            "y": 1019.359375
+          },
+          {
+            "text": "Government Agencies",
+            "width": 100,
+            "y": 1019.359375
+          },
+          {
+            "text": "Industrial Automation",
+            "width": 100,
+            "y": 1019.359375
+          },
+          {
+            "text": "Agriculture & Survey",
+            "width": 100,
+            "y": 1019.359375
+          },
+          {
+            "text": "System Integrators",
+            "width": 100,
+            "y": 1019.359375
+          }
+        ]
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/software",
+      "nav": {
+        "position": "static",
+        "direction": "row",
+        "width": 738
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/mechanical",
+      "nav": {
+        "position": "static",
+        "direction": "row",
+        "width": 738
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/electronics",
+      "nav": {
+        "position": "static",
+        "direction": "row",
+        "width": 738
+      }
+    }
+  ]
+}

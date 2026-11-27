@@ -1,3 +1,5 @@
+Latest screenshot requests: [TABLET_REQUESTED_DETAILS.md](TABLET_REQUESTED_DETAILS.md) covers the Mini Air-style photo, complete Mini/Air CTA, Mini landscape Leadership hero, Air Careers tabs and plain unnumbered FAQ controls.
+
 Latest Mini Home correction: [MINI_HOME_HERO_REFINEMENT.md](MINI_HOME_HERO_REFINEMENT.md) restores the Air/Pro composition on Mini with bounded media and clear copy. This supersedes the preceding stacked Mini hero.
 
 Latest document fixes: [CAREERS_CONTACT_TABLET_FIXES.md](CAREERS_CONTACT_TABLET_FIXES.md) covers sticky Air/Pro Careers navigation, the Mini Home hero, and Mini/Air/Pro Contact corrections. Earlier reports below describe preceding revisions.

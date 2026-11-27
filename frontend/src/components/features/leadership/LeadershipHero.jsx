@@ -21,7 +21,7 @@ export default function LeadershipHero() {
           <div className={styles.visualPlaceholder} data-type-role="LeadershipHero">
             <div className={styles.placeholderBody} data-type-role="LeadershipHero" style={{ border: 'none', background: 'transparent' }}>
                <picture>
-                 <source media="(max-width: 768px)" srcSet={mobile.srcSet} sizes="(min-width: 601px) 480px, 100vw" />
+                 <source media="(max-width: 600px)" srcSet={mobile.srcSet} sizes="100vw" />
                  <Image src="/images/leadership/uav-architecture-blueprint.png" alt="UAV Architecture" fill className={styles.blueprintImage} loading="eager" fetchPriority="high" sizes="(min-width:761px) 75vw,100vw" />
                </picture>
             </div>

@@ -52,7 +52,7 @@ fs.mkdirSync(out, { recursive: true });
             });
             if (!baseline && width === 768) {
               assert.ok(Math.abs(row.hero.section.height - 480) < 1, 'Mini uses the compact Air/Pro hero');
-              assert.ok(Math.abs(row.hero.media.height - 352) < 1 && Math.abs(row.hero.image.paddingLeft - 384) < 1, 'Aircraft has a bounded frame on the right');
+              assert.ok(Math.abs(row.hero.media.height - 480) < 1 && Math.abs(row.hero.image.paddingLeft - 184.32) < 1, 'Mini uses Air-style full-height media');
               assert.ok(row.hero.image.source.includes('home-drone-desktop'), 'Mini uses the Air/Pro source');
             }
           } else if (route === '/contact') {
@@ -86,13 +86,13 @@ fs.mkdirSync(out, { recursive: true });
             row.navigation = { first, scrolled: second, layout: await nav.locator('ul').evaluate(e => getComputedStyle(e).flexDirection) };
             await page.screenshot({ path: path.join(out, `${route.slice(1).replaceAll('/', '-')}-${width}-scrolled.jpg`), type: 'jpeg', quality: 65, scale: 'css' });
             if (!baseline) {
-              if (width > 768) {
+              if (width > 900) {
                 assert.ok(first.y >= 127 && Math.abs(second.y - 128) < 2, 'Role rail sticks at 128px after scrolling');
                 await page.evaluate(() => scrollBy(0, 120)); await wait(250);
                 row.navigation.further = await nav.boundingBox();
                 assert.ok(Math.abs(row.navigation.further.y - 128) < 2, 'Role rail stays visible on further scroll');
                 assert.equal(row.navigation.layout, 'column');
-              } else assert.equal(row.navigation.layout, 'row', 'Mini keeps role tabs');
+              } else assert.equal(row.navigation.layout, 'row', 'Mini and Air keep role tabs');
               row.roles = [];
               const buttons = nav.getByRole('button');
               for (let i = 0; i < await buttons.count(); i++) {

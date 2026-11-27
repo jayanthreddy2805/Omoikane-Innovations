@@ -480,20 +480,14 @@
   :global(#main-content) .homeHero .heroContent .actions { transform: none; }
 }
 
-/* Mini uses the Air/Pro composition with a smaller aircraft beside clear copy. */
+/* Mini shares Air's continuous photograph, with a clear reading area on the left. */
 @media (min-width: 681px) and (max-width: 768px) {
   .heroContent { max-width: 366px; }
-  .homeBackdrop {
-    --mini-media-left: calc(50% + (768px - 100vw) * .8);
-    inset: clamp(64px, calc(64px + (768px - 100vw) * .37), 96px) 0;
-    height: auto;
-    mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
-  }
   .homeBackdropImage {
-    padding-left: var(--mini-media-left);
-    object-position: center;
+    padding-left: 24%;
+    object-position: left center;
   }
   .homeBackdrop::after {
-    background: linear-gradient(90deg, #f2f9ff 0%, #f2f9ff var(--mini-media-left), rgba(242, 249, 255, 0) calc(var(--mini-media-left) + 16px));
+    background: linear-gradient(90deg, #f2f9ff 0%, #f2f9ff 50%, rgba(242, 249, 255, .95) 54%, rgba(242, 249, 255, .24) 72%, rgba(4, 32, 68, .08) 100%);
   }
 }
