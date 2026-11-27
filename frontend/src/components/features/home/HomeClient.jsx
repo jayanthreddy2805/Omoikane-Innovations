@@ -181,7 +181,7 @@ export default function HomeClient() {
                 alt={activeExpertise.alt}
                 fill
                 className={styles.bentoCardImg}
-                sizes="calc(100vw - 3rem)"
+                sizes="(min-width: 601px) 480px, calc(100vw - 3rem)"
               />
               <button
                 type="button"

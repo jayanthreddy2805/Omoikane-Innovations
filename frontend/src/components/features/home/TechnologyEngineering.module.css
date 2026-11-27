@@ -98,7 +98,7 @@
 }
 
 /* Desktop Grid Dividers */
-@media (min-width: 861px) {
+@media (min-width: 769px) {
 
   /* Right divider line for columns 1 and 2 in each row */
   .cell:not(:nth-child(3n)) {
@@ -200,7 +200,7 @@
 /* ─────────────────────────────────────────────────────────
    3. MOBILE COMPOSITION (ONE COLUMN WITH HORIZONTAL SEPARATORS)
 ───────────────────────────────────────────────────────── */
-@media (max-width: 860px) {
+@media (max-width: 768px) {
   .section {
     padding: clamp(3.5rem, 8vh, 4.5rem) clamp(1.25rem, 5vw, 1.75rem);
   }
@@ -324,4 +324,7 @@
   .cell {
     transition: none !important;
   }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+  .cell { padding: 24px 20px; }
 }

@@ -241,6 +241,17 @@
   line-height: 1.2;
 }
 
+/* Air retains readable desktop card rows, with bounded photographs. */
+@media (min-width: 769px) and (max-width: 959px) {
+  .bentoCard { padding: 24px; }
+  .bentoCardTall { flex-direction: row; align-items: center; gap: 24px; }
+  .bentoCardTall .bentoImgWrapper {
+    width: 240px; height: 150px; margin-top: 0; flex-shrink: 0;
+  }
+  .bentoCardHorizontal .bentoImgWrapper { width: 190px; height: 175px; }
+  .bentoCardWide .bentoImgWrapper { width: 240px; height: 150px; }
+}
+
 .bentoMetaList {
   display: flex;
   flex-direction: column;
@@ -566,4 +577,19 @@
     transition: none !important;
     transform: none !important;
   }
+}
+
+@media (min-width: 601px) and (max-width: 1100px) {
+  .expertiseSection,
+  .whySection {
+    padding: 64px 32px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 32px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .expertiseCarousel { max-width: 480px; margin-inline: auto; }
 }
