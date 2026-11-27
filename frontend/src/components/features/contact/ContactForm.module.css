@@ -82,6 +82,7 @@
 }
 
 .formNotice a {
+  white-space: nowrap;
   color: #0757C8;
   text-decoration: underline;
   text-underline-offset: 0.15em;
@@ -196,7 +197,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .formContainer { min-width: 0; scroll-margin-top: 144px; }
   .formGrid { grid-template-columns: minmax(0, 1fr); min-width: 0; }
   .inputGroup { min-width: 0; }

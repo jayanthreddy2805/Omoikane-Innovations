@@ -83,14 +83,19 @@
   .hero {
     min-height: calc(100vh - 76px);
     min-height: calc(100dvh - 76px);
-    padding: 24px 20px 48px;
+    padding: 20px 20px 48px;
   }
 
   .imageLayer {
     background-position: center bottom;
   }
 
+  .content {
+    margin-top: 0;
+  }
+
   .heading {
+    margin-top: 0;
     font-size: clamp(32px, 8vw, 46px);
     line-height: 1.1;
   }
@@ -111,12 +116,18 @@
 
 @media (max-width: 600px) {
   .hero {
-    min-height: max(580px, calc(100dvh - 76px));
+    min-height: auto;
+    padding: 20px 20px 12px;
   }
 
   .imageLayer {
-    background-size: cover;
-    background-position: center top;
+    order: 2;
+    position: relative;
+    inset: auto;
+    width: calc(100% + 40px);
+    margin: 66px -20px 0;
+    aspect-ratio: 941 / 882;
+    overflow: hidden;
   }
 }
 
@@ -133,4 +144,105 @@
 .heroImage { object-fit: cover; object-position: right bottom; }
 @media(max-width:1050px) { .heroImage { object-position:65% bottom; } }
 @media(max-width:768px) { .heroImage { object-position:center bottom; } }
-@media(max-width:600px) { .heroImage { object-position:center top; } }
+@media(max-width:600px) { .heroImage { object-position:center bottom; } }
+
+/* Responsive image composition: the 1760×893 desktop artwork occupies a
+   dedicated visual area instead of covering the headline. */
+@media (min-width: 769px) {
+  .imageLayer {
+    inset: 0 0 0 43%;
+  }
+
+  .heroImage {
+    object-fit: contain;
+    object-position: right bottom;
+  }
+
+  .content {
+    max-width: min(49%, 670px);
+  }
+
+  .description {
+    max-width: 100%;
+  }
+}
+
+/* At narrow tablet sizes, retain readable copy beside the artwork rather
+   than placing both in the same image region. */
+@media (min-width: 769px) and (max-width: 1050px) {
+  .heading {
+    font-size: clamp(36px, 5.2vw, 54px);
+  }
+
+  .heading > span {
+    white-space: normal;
+  }
+}
+
+/* Bound portrait tablet heroes to their content instead of the screen height.
+   Mini, Air and Pro use the landscape artwork below copy. */
+@media (min-width: 601px) and (max-width: 1100px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 0;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .imageLayer {
+    order: 2;
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    width: calc(100% + 40px);
+    margin: 24px -20px 0;
+    aspect-ratio: 1760 / 893;
+  }
+
+  .heroImage {
+    object-fit: contain;
+    object-position: center bottom;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1100px) {
+  .hero {
+    padding: 32px 32px 0;
+  }
+
+  .content {
+    max-width: 670px;
+    margin-top: 0;
+  }
+
+  .imageLayer {
+    width: calc(100% + 64px);
+    margin-inline: -32px;
+  }
+}
+
+/* The actual mobile art is 941×1672, not 941×882. Preserve much more of
+   the portrait framing without making the page one giant image. */
+@media (max-width: 600px) {
+  .imageLayer {
+    margin-top: clamp(24px, 7vw, 36px);
+    aspect-ratio: 1;
+  }
+
+  .heroImage {
+    object-fit: cover;
+    object-position: center bottom;
+  }
+}
+
+/* Landscape desktop art keeps its lower-right anchor at a visible scale. */
+@media (min-width: 1101px) {
+  .imageLayer { inset: auto 0 0 auto; width: 80%; height: 70%; }
+}
+
+/* Leave a visible boundary around the artwork on short landscape displays. */
+@media (min-width: 1101px) and (max-width: 1366px) {
+  .imageLayer { right: 32px; bottom: 32px; width: calc(80% - 32px); height: calc(70% - 32px); }
+}

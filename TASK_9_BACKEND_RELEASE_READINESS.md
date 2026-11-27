@@ -1,3 +1,52 @@
+# Task 9 — current verified status (28 November 2026 IST)
+
+This update supersedes the older read-only assessments below. Production release is **not complete**. The owner explicitly approved the named recovery drill only; no production configuration change, deployment, migration, real submission or provider email was executed.
+
+| Workstream | Verified | Still pending |
+|---|---|---|
+| Render | Confirmed workspace; service `srv-dbpjehei0phs73ac8s0g` still on deployment `dep-dbq8ks0m7kps738npu7g`, commit `a87d448aae052a7b40502e8d9a5529a5177bdcd3`. Main/checksPass auto-deploy configured; no later deploy/build attempt observed since Nov 11. | Git/check-event connection and actual TLS/CORS/admin/email settings. Dashboard sign-in was interrupted; the cause is not proven and no setting was toggled. |
+| Neon backup/restore | **Completed with explicit approval.** Snapshot `snap-plain-credit-ao61q7xz` / `omoikane-pre-v4v5-20261128` restored into isolated branch `br-square-recipe-aolpoi1z` / `release-restore-20261128`. | Retain the recovery point through the release window; the restored copy remains in Neon and needs a separate cleanup decision. |
+| V4/V5 | Production V1–V3 successful; zero normalized-contact duplicate groups. Local V3→V5/persistence suite passed 7 tests. | V4/V5 remain unapplied to production **and the restored copy**. Recovery approval expressly excluded migrations. |
+| Contact / Apply / Newsletter | Maven verify passed 88 tests. Seven real PostgreSQL checks cover Contact persistence/duplicates, Career/private résumé bytes, transactions/outbox locking and Newsletter consent/unsubscribe/reactivation. | Production flows are unexecuted. The final local browser run's output could not be retrieved after environment startup failed; the updated CI reruns browser → isolated Spring Boot → PostgreSQL. |
+| Email | Existing tests cover outbox enqueue/rollback, retries, leases, idempotency and provider error paths. Production outbox table is absent because V5 is pending. Connected Resend account listed no verified domains; aggregate totals were 17 sent, 17 delivered, zero failed/bounced. | Those account totals do not identify this backend or verify its credentials/sender/recipients. Actual approved test-recipient delivery is still required. No email or DNS change was made. |
+| Production sign-off | Frontend main is merged #76, `93aa7cc3148cfb6781b4e738774ee298af2884ff`. Backend application source tree `a12a77a1b6bd3bd8370041f184c433022698ff74` is unchanged by this PR. | Separate exact-commit/configuration/window approval after gates pass, then rollout/migrations, health/CORS, production journeys, provider delivery and owner acceptance. |
+
+## Executed Neon recovery drill
+
+Source project `curly-darkness-86465014`, production branch `br-plain-brook-aolmdy63`. Snapshot created **2026-11-27 23:10:43 UTC / 28 Nov 04:40:43 IST**, expires **2026-12-05 00:00 UTC / 5 Dec 05:30 IST**.
+
+Restore used `finalize=false`. Production stayed default; the new branch is non-primary/non-default and reached ready. Read-only migration versions/checksums/success, contact/application/subscriber counts, résumé byte total and aggregate résumé SHA-256 all matched. Source aggregates were stable before/after the snapshot interval.
+
+No record bodies or résumé bytes were exported to the workspace, repository or logs. [Recovery receipt](release-evidence/TASK9_20261128/neon-recovery.json) records resource metadata and comparison booleans. This is an actual Neon recovery drill, distinct from the local synthetic dump/restore test.
+
+## Reviewable verification changes
+
+- `backend/scripts/verify-postgres.sh`: optional `READINESS_RESTORE_REHEARSAL=1` custom-format dump/restore in its newly created loopback-only synthetic cluster. Compare Flyway checksums, counts, résumé SHA-256, index structure and partial-index behavior via `recovery-fingerprint.sql`; clean up the disposable fixture. Equivalent array-cast deparsing is checked semantically.
+- `PostgresReadinessIT`: add real PostgreSQL Newsletter consent, duplicate, unsubscribe, token rotation and reactivation persistence. Higher fixture request limit keeps this database suite independent of dedicated rate-limit tests.
+- Backend CI: rehearse restore on PostgreSQL **18**, then browser business flows against a loopback Spring Boot API and synthetic PostgreSQL. Temporary Playwright tooling is pinned to 1.65.1 outside app dependencies. Fixture admin key is synthetic; email worker/provider and retention are disabled. Keep test diagnostics seven days.
+- Browser verifier blocks all external requests except the explicit business paths redirected to loopback. Fixture API binds to 127.0.0.1. No Neon credentials or real production data enter CI.
+- Vercel deployment is disabled for this review branch. No application/UI/backend production source behavior is changed.
+
+Locally verified before interruption: Maven verify **88 passing**, PostgreSQL **7 passing on PostgreSQL 17**, synthetic custom-format restore comparison, frontend npm ci, lint, TypeScript, site/film-only/protected-UI checks and production build. PostgreSQL 18, container build and final integrated browser output must be confirmed by the updated CI; they are not claimed successful in advance.
+
+Live health/CORS requests timed out from the execution environment; web fetch could not access health either. This is neither a positive check nor proof of an application outage. The execution environment later failed to reconnect, so unfinished browser verification was moved to isolated CI.
+
+## Remaining controlled steps
+
+1. Finish read-only Render Git/check-event and secret-safe runtime verification. Do not issue a deploy or change environment/auto-deploy settings to diagnose it.
+2. Separately approve V4/V5 rehearsal on the restored branch if required. Its recovery authorization included no migrations.
+3. After gates pass, separately approve exact release commit, required configuration changes and window; startup Flyway applies production V4/V5 once.
+4. Approve synthetic identities/recipients for production Contact, Apply/résumé, consent/opt-out, Admin and actual outbox/provider acceptance **and delivery** tests.
+5. Record deployment/live commit, Flyway success, health/CORS and owner sign-off before marking production complete.
+
+No WordPress, DNS/custom domain, chatbot/RAG/Ollama, photographs, claims, leadership or legal-policy changes.
+
+---
+
+## Historical read-only assessments
+
+Older “no snapshot” statements below predate the expressly approved successful drill above.
+
 # Task 9 — backend release readiness / no-production-change review
 
 **Checked:** 26 November 2026. **GitHub main:** `e726be8be0801aaa17bef6cc5dc871f949fbba97`.

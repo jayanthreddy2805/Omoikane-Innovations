@@ -14,6 +14,12 @@ try {
  browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE || undefined,headless:true,args:['--no-sandbox']});
  const context=await browser.newContext({viewport:{width:390,height:844},acceptDownloads:true,reducedMotion:'reduce'});
  await context.addCookies([{name:'omoikane_cookie_consent',value:'v1-essential',url:origin}]);
+ // No browser request may write to or inspect an external service during this drill.
+ // The business-route handler registered next redirects only the listed API paths.
+ await context.route('**/*',route=>{
+  const host=new URL(route.request().url()).hostname;
+  return host==='127.0.0.1'||host==='localhost'?route.continue():route.abort();
+ });
  await context.route(/\/api\/(contact|careers|subscriptions|admin)(\/|[?#]|$)/,async route=>{
   const url=new URL(route.request().url());
   assert.match(url.pathname,/^\/api\/(contact|careers|subscriptions|admin)(\/|$)/);

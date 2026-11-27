@@ -202,4 +202,12 @@ class ResendEmailServiceTest {
         var keys=request.getAllValues().stream().map(r->r.headers().firstValue("Idempotency-Key").orElseThrow()).toList();
         assertEquals(keys.getFirst(),keys.getLast());assertTrue(keys.getFirst().endsWith("42"));
     }
+
+    @Test
+    void formatDepartment_mapsDisplayNamesConsistently() {
+        assertEquals("Software Development", ResendEmailService.formatDepartment("software"));
+        assertEquals("Electrical Engineering", ResendEmailService.formatDepartment("electronics"));
+        assertEquals("Mechanical Engineering", ResendEmailService.formatDepartment("mechanical"));
+        assertEquals("Operations", ResendEmailService.formatDepartment("operations"));
+    }
 }

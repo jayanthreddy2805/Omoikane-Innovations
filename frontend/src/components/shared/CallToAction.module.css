@@ -192,6 +192,17 @@
   }
 }
 
+/* Mini and Air use Pro's complete, single-row audience strip. */
+@media (min-width: 681px) and (max-width: 960px) {
+  .ctaBottomSection { display: block; }
+  .ctaContentCentered { padding-inline: 24px; }
+  .ctaPartnersList {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .ctaPartnerLabel { font-size: clamp(12px, 1.823vw, 14px); }
+}
+
 .gradientEffect { position:absolute; inset:-10%; pointer-events:none; background:radial-gradient(ellipse at 25% 40%,#334155aa,transparent 65%),radial-gradient(ellipse at 75% 65%,#47556999,transparent 60%),#000812; animation:ctaDrift 24s ease-in-out infinite alternate; }
 @keyframes ctaDrift { to { transform:translate3d(3%,-3%,0) scale(1.04); } }
 @media(prefers-reduced-motion:reduce) { .gradientEffect { animation:none; } }

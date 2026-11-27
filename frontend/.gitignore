@@ -43,3 +43,12 @@ next-env.d.ts
 # Generated local audit output
 /performance-results/
 /qa-results/
+
+# Working captures; selected review evidence is committed separately.
+/RESPONSIVE_QA/live-followup/
+
+/RESPONSIVE_QA/docx-followup/
+
+/RESPONSIVE_QA/final-polish/
+
+/RESPONSIVE_QA/careers-contact-working/

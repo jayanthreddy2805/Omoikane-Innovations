@@ -1,0 +1,62 @@
+[
+  {
+    "route": "/",
+    "device": "ipad-mini",
+    "kind": "hero",
+    "file": "comparisons/home/ipad-mini-hero.jpg"
+  },
+  {
+    "route": "/contact",
+    "device": "ipad-mini",
+    "kind": "hero",
+    "file": "comparisons/contact/ipad-mini-hero.jpg"
+  },
+  {
+    "route": "/contact",
+    "device": "ipad-air",
+    "kind": "hero",
+    "file": "comparisons/contact/ipad-air-hero.jpg"
+  },
+  {
+    "route": "/contact",
+    "device": "ipad-pro",
+    "kind": "hero",
+    "file": "comparisons/contact/ipad-pro-hero.jpg"
+  },
+  {
+    "route": "/careers/software",
+    "device": "ipad-air",
+    "kind": "scrolled",
+    "file": "comparisons/careers-software/ipad-air-scrolled.jpg"
+  },
+  {
+    "route": "/careers/software",
+    "device": "ipad-pro",
+    "kind": "scrolled",
+    "file": "comparisons/careers-software/ipad-pro-scrolled.jpg"
+  },
+  {
+    "route": "/",
+    "device": "iphone-12-pro",
+    "kind": "hero",
+    "file": "comparisons/home/iphone-12-pro-hero.jpg"
+  },
+  {
+    "route": "/",
+    "device": "desktop-1440",
+    "kind": "hero",
+    "file": "comparisons/home/desktop-1440-hero.jpg"
+  },
+  {
+    "route": "/contact",
+    "device": "iphone-12-pro",
+    "kind": "hero",
+    "file": "comparisons/contact/iphone-12-pro-hero.jpg"
+  },
+  {
+    "route": "/contact",
+    "device": "desktop-1440",
+    "kind": "hero",
+    "file": "comparisons/contact/desktop-1440-hero.jpg"
+  }
+]

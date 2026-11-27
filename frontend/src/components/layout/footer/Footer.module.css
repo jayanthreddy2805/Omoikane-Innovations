@@ -97,14 +97,16 @@
 
 /* SOCIAL LIST */
 .socialHeader {
-  margin-left: 48px; /* Positions "SOCIAL" directly above Instagram and X logos */
+  margin-left: 48px;
+  /* Positions "SOCIAL" directly above Instagram and X logos */
 }
 
 .socialList {
   display: flex;
   flex-direction: row;
   gap: 0.75rem;
-  padding-top: 0.15rem; /* Align baseline with adjacent link lists */
+  padding-top: 0.15rem;
+  /* Align baseline with adjacent link lists */
 }
 
 .socialIcon {
@@ -113,7 +115,7 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  border-radius: 50%; /* Circle like APSLOCK */
+  border-radius: 50%;
   background-color: var(--bg-secondary);
   color: var(--text-secondary);
   transition: all 0.2s ease;
@@ -138,7 +140,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: var(--text-subtle); /* The icon color */
+  color: var(--text-subtle);
+  /* The icon color */
 }
 
 .iconList li svg {
@@ -230,7 +233,7 @@
 }
 
 /* ==========================================================================
-   FOOTER HERO SECTION (APSLOCK-INSPIRED)
+   FOOTER HERO SECTION
    ========================================================================== */
 
 .heroSection {
@@ -302,7 +305,8 @@
   .heroContentCol {
     width: 68%;
     justify-content: center;
-    padding: 0 0 0 48px; /* 48px left padding on desktop */
+    padding: 0 0 0 48px;
+    /* 48px left padding on desktop */
   }
 }
 
@@ -423,37 +427,48 @@
    MOBILE FOOTER OPTIMIZATIONS (STRICTLY < 768px)
 ───────────────────────────────────────────────────────── */
 @media (max-width: 767px) {
-  /* Remove company name watermark from footer hero and adjust spacing */
-  .heroBrandWatermark {
+
+  /* Remove company name watermark and Start a Conversation CTA from mobile footer hero and adjust spacing */
+  .heroBrandWatermark,
+  .heroCta,
+  .heroActionRow {
     display: none !important;
   }
 
   .heroSection {
     padding-bottom: 1.5rem !important;
-    margin-bottom: 2rem !important;
+    margin-bottom: 1.75rem !important;
   }
 
-  .heroActionRow {
-    gap: 0 !important;
+  .heroContentCol {
+    padding: 0.25rem 0 0 0 !important;
+  }
+
+  .heroHeading {
+    margin-bottom: 0.85rem !important;
+  }
+
+  .heroText {
+    margin-bottom: 0 !important;
   }
 
   .footerContainer {
-    padding: 2.25rem 1.25rem 3.5rem !important;
+    padding: 2rem 1.25rem 2.75rem !important;
   }
 
   .grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 2rem 1.25rem !important;
-    margin-bottom: 2rem !important;
+    gap: 1.75rem 1.25rem !important;
+    margin-bottom: 1.75rem !important;
   }
 
   /* 1. Navigate & 2. Quick Links side by side */
-  .grid > .col:nth-child(1) {
+  .grid>.col:nth-child(1) {
     grid-column: 1 / 2 !important;
     order: 1 !important;
   }
 
-  .grid > .col:nth-child(2) {
+  .grid>.col:nth-child(2) {
     grid-column: 2 / 3 !important;
     order: 2 !important;
   }
@@ -465,7 +480,7 @@
   }
 
   /* 4. Contact below Social */
-  .grid > .col:nth-child(3) {
+  .grid>.col:nth-child(3) {
     grid-column: 1 / -1 !important;
     order: 4 !important;
   }
@@ -483,4 +498,22 @@
   .socialHeader {
     margin-left: 0 !important;
   }
+}
+/* Compact tablet footer retains desktop groups without copying the five-column row. */
+@media (min-width: 768px) and (max-width: 1100px) {
+  .footerContainer { padding: 40px 32px; }
+  .heroSection { min-height: 220px; padding-bottom: 24px; margin-bottom: 32px; }
+  .heroVisualCol { min-height: 220px; }
+  .heroContentCol { padding-left: 24px; }
+  .heroActionRow { gap: 16px; }
+  .contactHeader { text-align: left; }
+  .socialHeader { margin-left: 0; }
+  .colHeader { margin-bottom: 16px; }
+  .grid { gap: 24px; margin-bottom: 24px; }
+  .footerBottom { padding-top: 16px; }
+}
+@media (min-width: 768px) and (max-width: 959px) {
+  .grid { grid-template-columns: minmax(0, .9fr) minmax(0, .9fr) minmax(0, 1.4fr); }
+  .socialCol { grid-column: 1; }
+  .colSubscribe { grid-column: 2 / -1; }
 }

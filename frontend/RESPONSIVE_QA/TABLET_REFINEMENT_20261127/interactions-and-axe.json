@@ -1,0 +1,195 @@
+{
+  "rows": [
+    {
+      "width": 768,
+      "route": "/",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/about",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/expertise",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/work",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/leadership",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/contact",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/about",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/expertise",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/work",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/leadership",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/contact",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/about",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/expertise",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/work",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/leadership",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/contact",
+      "axe": []
+    },
+    {
+      "width": 375,
+      "reducedMotion": "reduce",
+      "dialog": "passed"
+    },
+    {
+      "width": 768,
+      "reducedMotion": "reduce",
+      "dialog": "passed"
+    },
+    {
+      "width": 820,
+      "reducedMotion": "reduce",
+      "dialog": "passed"
+    },
+    {
+      "width": 1024,
+      "reducedMotion": "reduce",
+      "dialog": "passed"
+    },
+    {
+      "width": 1440,
+      "reducedMotion": "reduce",
+      "dialog": "passed"
+    },
+    {
+      "width": 375,
+      "reducedMotion": "no-preference",
+      "dialog": "passed"
+    },
+    {
+      "width": 768,
+      "reducedMotion": "no-preference",
+      "dialog": "passed"
+    },
+    {
+      "width": 820,
+      "reducedMotion": "no-preference",
+      "dialog": "passed"
+    },
+    {
+      "width": 1024,
+      "reducedMotion": "no-preference",
+      "dialog": "passed"
+    },
+    {
+      "width": 1440,
+      "reducedMotion": "no-preference",
+      "dialog": "passed"
+    },
+    {
+      "width": 390,
+      "route": "/expertise#defense",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 390,
+      "route": "/expertise#aerospace",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 768,
+      "route": "/expertise#defense",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 768,
+      "route": "/expertise#aerospace",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 820,
+      "route": "/expertise#defense",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 820,
+      "route": "/expertise#aerospace",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 1024,
+      "route": "/expertise#defense",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 1024,
+      "route": "/expertise#aerospace",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 1440,
+      "route": "/expertise#defense",
+      "categoryLink": "passed"
+    },
+    {
+      "width": 1440,
+      "route": "/expertise#aerospace",
+      "categoryLink": "passed"
+    }
+  ],
+  "failures": []
+}

@@ -62,5 +62,64 @@ jobs:
           READINESS_TEST_DATABASE_USERNAME: postgres
         run: ./mvnw --batch-mode --no-transfer-progress -Dtest=PostgresReadinessIT test
 
+      - name: Rehearse backup and restore on the disposable PostgreSQL 18 fixture
+        env:
+          READINESS_PG_CONTAINER: ${{ job.services.postgres.id }}
+        run: |
+          set -euo pipefail
+          fixture=$(mktemp -d)
+          trap 'rm -rf "$fixture"' EXIT
+          docker exec "$READINESS_PG_CONTAINER" pg_dump -U postgres -d omoikane_readiness -Fc > "$fixture/recovery.dump"
+          docker exec "$READINESS_PG_CONTAINER" createdb -U postgres omoikane_restore
+          docker exec -i "$READINESS_PG_CONTAINER" pg_restore -U postgres --exit-on-error --single-transaction --no-owner --no-acl -d omoikane_restore < "$fixture/recovery.dump"
+          for db in omoikane_readiness omoikane_restore; do
+            docker exec -i "$READINESS_PG_CONTAINER" psql -U postgres -XAt -v ON_ERROR_STOP=1 -d "$db" < scripts/recovery-fingerprint.sql > "$fixture/$db.json"
+          done
+          cmp "$fixture/omoikane_readiness.json" "$fixture/omoikane_restore.json"
+
+      - name: Set up Node for isolated browser integration
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Prepare isolated browser tooling and frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+          npm install --prefix "$RUNNER_TEMP/omoikane-browser" --no-save playwright@1.65.1
+          "$RUNNER_TEMP/omoikane-browser/node_modules/.bin/playwright" install --with-deps chromium
+
+      - name: Verify browser forms against disposable API and PostgreSQL
+        working-directory: frontend
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/omoikane-browser/node_modules/playwright
+        run: |
+          set -euo pipefail
+          java -jar ../backend/target/api-0.0.1-SNAPSHOT.jar \
+            --spring.profiles.active=prod --spring.config.import= \
+            --spring.datasource.url=jdbc:postgresql://127.0.0.1:55432/omoikane_readiness \
+            --spring.datasource.username=postgres --spring.datasource.password= \
+            --app.admin.secret-key=readiness-test-only --app.cors.allowed-origins=http://127.0.0.1:3019 \
+            --app.resend.api-key= --app.resend.from-email= --app.resend.admin-email= \
+            --app.retention.enabled=false --app.email.worker-enabled=false \
+            --app.rate-limit.requests-per-minute=1000 --server.address=127.0.0.1 --server.port=18080 \
+            > "$RUNNER_TEMP/omoikane-fixture-api.log" 2>&1 &
+          api_pid=$!
+          trap 'kill "$api_pid" 2>/dev/null || true' EXIT
+          BUSINESS_API_ORIGIN=http://127.0.0.1:18080 node scripts/verify-integrated-api.mjs
+
+      - name: Retain fixture diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: isolated-backend-readiness
+          path: |
+            backend/target/surefire-reports/
+            ${{ runner.temp }}/omoikane-fixture-api.log
+          retention-days: 7
+
       - name: Build deployable container
         run: docker build --file Dockerfile --tag omoikane-api:ci .

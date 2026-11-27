@@ -1,0 +1,423 @@
+{
+  "baseline": false,
+  "rows": [
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/careers/software",
+      "navigation": {
+        "first": {
+          "x": 38.390625,
+          "y": 176.078125,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "scrolled": {
+          "x": 38.390625,
+          "y": -173.921875,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "layout": "row"
+      },
+      "roles": [
+        {
+          "title": "WEB DEVELOPER",
+          "href": "/apply?dept=software&role=web-dev"
+        },
+        {
+          "title": "PYTHON DEVELOPER",
+          "href": "/apply?dept=software&role=python-dev"
+        },
+        {
+          "title": "AI DEVELOPER",
+          "href": "/apply?dept=software&role=ai-dev"
+        },
+        {
+          "title": "EMBEDDED FIRMWARE",
+          "href": "/apply?dept=software&role=firmware-eng"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/careers/mechanical",
+      "navigation": {
+        "first": {
+          "x": 38.390625,
+          "y": 176.078125,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "scrolled": {
+          "x": 38.390625,
+          "y": -173.921875,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "layout": "row"
+      },
+      "roles": [
+        {
+          "title": "3D & 2D MECHANICAL DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-design"
+        },
+        {
+          "title": "ENCLOSURE & PRODUCT DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=prod-eng"
+        },
+        {
+          "title": "MECHANICAL ASSEMBLY & INTEGRATION ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-assembly"
+        },
+        {
+          "title": "STRUCTURAL & THERMAL ANALYSIS ENGINEER",
+          "href": "/apply?dept=mechanical&role=struct-therm"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/careers/electronics",
+      "navigation": {
+        "first": {
+          "x": 38.390625,
+          "y": 176.484375,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "scrolled": {
+          "x": 38.390625,
+          "y": -173.515625,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "layout": "row"
+      },
+      "roles": [
+        {
+          "title": "HARDWARE DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=hardware-eng"
+        },
+        {
+          "title": "PCB DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=pcb-eng"
+        },
+        {
+          "title": "RF SYSTEM DESIGNER",
+          "href": "/apply?dept=electronics&role=rf-eng"
+        },
+        {
+          "title": "TEST ENGINEER",
+          "href": "/apply?dept=electronics&role=test-eng"
+        },
+        {
+          "title": "PRODUCT ENGINEER",
+          "href": "/apply?dept=electronics&role=prod-eng-elec"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "interaction": "Header menu and Careers departments",
+      "result": "passed"
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/software",
+      "navigation": {
+        "first": {
+          "x": 41,
+          "y": 207.96875,
+          "width": 211.796875,
+          "height": 222
+        },
+        "scrolled": {
+          "x": 41,
+          "y": 128,
+          "width": 211.796875,
+          "height": 222
+        },
+        "layout": "column",
+        "further": {
+          "x": 41,
+          "y": 128,
+          "width": 211.796875,
+          "height": 222
+        }
+      },
+      "roles": [
+        {
+          "title": "WEB DEVELOPER",
+          "href": "/apply?dept=software&role=web-dev"
+        },
+        {
+          "title": "PYTHON DEVELOPER",
+          "href": "/apply?dept=software&role=python-dev"
+        },
+        {
+          "title": "AI DEVELOPER",
+          "href": "/apply?dept=software&role=ai-dev"
+        },
+        {
+          "title": "EMBEDDED FIRMWARE",
+          "href": "/apply?dept=software&role=firmware-eng"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/mechanical",
+      "navigation": {
+        "first": {
+          "x": 41,
+          "y": 207.96875,
+          "width": 211.796875,
+          "height": 390
+        },
+        "scrolled": {
+          "x": 41,
+          "y": 128,
+          "width": 211.796875,
+          "height": 390
+        },
+        "layout": "column",
+        "further": {
+          "x": 41,
+          "y": 128,
+          "width": 211.796875,
+          "height": 390
+        }
+      },
+      "roles": [
+        {
+          "title": "3D & 2D MECHANICAL DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-design"
+        },
+        {
+          "title": "ENCLOSURE & PRODUCT DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=prod-eng"
+        },
+        {
+          "title": "MECHANICAL ASSEMBLY & INTEGRATION ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-assembly"
+        },
+        {
+          "title": "STRUCTURAL & THERMAL ANALYSIS ENGINEER",
+          "href": "/apply?dept=mechanical&role=struct-therm"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/electronics",
+      "navigation": {
+        "first": {
+          "x": 41,
+          "y": 207.96875,
+          "width": 211.796875,
+          "height": 317
+        },
+        "scrolled": {
+          "x": 41,
+          "y": 128,
+          "width": 211.796875,
+          "height": 317
+        },
+        "layout": "column",
+        "further": {
+          "x": 41,
+          "y": 128,
+          "width": 211.796875,
+          "height": 317
+        }
+      },
+      "roles": [
+        {
+          "title": "HARDWARE DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=hardware-eng"
+        },
+        {
+          "title": "PCB DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=pcb-eng"
+        },
+        {
+          "title": "RF SYSTEM DESIGNER",
+          "href": "/apply?dept=electronics&role=rf-eng"
+        },
+        {
+          "title": "TEST ENGINEER",
+          "href": "/apply?dept=electronics&role=test-eng"
+        },
+        {
+          "title": "PRODUCT ENGINEER",
+          "href": "/apply?dept=electronics&role=prod-eng-elec"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "interaction": "Header menu and Careers departments",
+      "result": "passed"
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/careers/software",
+      "navigation": {
+        "first": {
+          "x": 51.1875,
+          "y": 207.609375,
+          "width": 320,
+          "height": 180
+        },
+        "scrolled": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 180
+        },
+        "layout": "column",
+        "further": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 180
+        }
+      },
+      "roles": [
+        {
+          "title": "WEB DEVELOPER",
+          "href": "/apply?dept=software&role=web-dev"
+        },
+        {
+          "title": "PYTHON DEVELOPER",
+          "href": "/apply?dept=software&role=python-dev"
+        },
+        {
+          "title": "AI DEVELOPER",
+          "href": "/apply?dept=software&role=ai-dev"
+        },
+        {
+          "title": "EMBEDDED FIRMWARE",
+          "href": "/apply?dept=software&role=firmware-eng"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/careers/mechanical",
+      "navigation": {
+        "first": {
+          "x": 51.1875,
+          "y": 207.609375,
+          "width": 320,
+          "height": 264
+        },
+        "scrolled": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 264
+        },
+        "layout": "column",
+        "further": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 264
+        }
+      },
+      "roles": [
+        {
+          "title": "3D & 2D MECHANICAL DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-design"
+        },
+        {
+          "title": "ENCLOSURE & PRODUCT DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=prod-eng"
+        },
+        {
+          "title": "MECHANICAL ASSEMBLY & INTEGRATION ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-assembly"
+        },
+        {
+          "title": "STRUCTURAL & THERMAL ANALYSIS ENGINEER",
+          "href": "/apply?dept=mechanical&role=struct-therm"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/careers/electronics",
+      "navigation": {
+        "first": {
+          "x": 51.1875,
+          "y": 207.609375,
+          "width": 320,
+          "height": 233
+        },
+        "scrolled": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 233
+        },
+        "layout": "column",
+        "further": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 233
+        }
+      },
+      "roles": [
+        {
+          "title": "HARDWARE DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=hardware-eng"
+        },
+        {
+          "title": "PCB DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=pcb-eng"
+        },
+        {
+          "title": "RF SYSTEM DESIGNER",
+          "href": "/apply?dept=electronics&role=rf-eng"
+        },
+        {
+          "title": "TEST ENGINEER",
+          "href": "/apply?dept=electronics&role=test-eng"
+        },
+        {
+          "title": "PRODUCT ENGINEER",
+          "href": "/apply?dept=electronics&role=prod-eng-elec"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "interaction": "Header menu and Careers departments",
+      "result": "passed"
+    }
+  ],
+  "failures": []
+}

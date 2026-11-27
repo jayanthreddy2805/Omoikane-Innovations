@@ -12,24 +12,24 @@ const SEARCH_INDEX = [
   { title: "Technology", desc: "Our advanced technology stack and engineering capabilities", href: "/expertise" },
   { title: "Products", desc: "Mission-critical flight controllers, ESCs, GNSS, and tactical communications", href: "/work" },
   { title: "About Us", desc: "Learn about Omoikane Innovations, our mission and history", href: "/about" },
-  { title: "Leadership", desc: "Explore the leadership page template", href: "/leadership" },
+  { title: "Leadership", desc: "Leadership philosophy, engineering teams, and operational approach", href: "/leadership" },
   { title: "Contact", desc: "Get in touch with the Omoikane team", href: "/contact" },
   { title: "Software Development", desc: "Full-stack web, distributed systems, AI & cloud platforms", href: "/services/software" },
-  { title: "Electronics Engineering", desc: "Hardware, PCB design, RF & embedded systems", href: "/services/electronics" },
+  { title: "Electrical Engineering", desc: "Hardware, PCB design, RF & embedded systems", href: "/services/electronics" },
   { title: "Mechanical Engineering", desc: "CAD design, structural analysis, simulation & thermal engineering", href: "/services/mechanical" },
-  { title: "OFC-X Flight Controller", desc: "Triple-redundant IMU, STM32H7 processor, aerospace flight control", href: "/work#ofc-x" },
-  { title: "OESC Motor Controller", desc: "128kHz PWM switching, telemetry feedback, heavy-lift UAV ESC", href: "/work#oesc" },
-  { title: "OGN-X Positioning", desc: "Centimeter-accurate multi-band RTK GNSS receiver module", href: "/work#ogn-x" },
-  { title: "OCOM-X Tactical Radio", desc: "AES-256 encrypted frequency-hopping tactical mesh telemetry", href: "/work#ocom-x" },
+  { title: "OFC-X Flight Controller", desc: "STM32 / AT32 MCU flight control platform for autonomous UAVs", href: "/work#ofc-x" },
+  { title: "OESC-60 / OESC-100 Motor Controller", desc: "60A / 100A 4-in-1 electronic speed controller platform for multirotor propulsion", href: "/work#oesc" },
+  { title: "OGN-X GNSS / GPS Module", desc: "Multi-constellation GNSS / GPS navigation module with RTK-ready architecture", href: "/work#ogn-x" },
+  { title: "OCOM-X Communication System", desc: "RF / LTE secure link communication architecture for connected systems", href: "/work#ocom-x" },
   { title: "Aerospace Technology", desc: "UAV platforms, flight control, avionics and RF communication", href: "/expertise#aerospace" },
   { title: "Defense Systems", desc: "Secure communications, autonomous surveillance, rugged electronics", href: "/expertise#defense" },
-  { title: "Software Careers", desc: "React, Next.js, Python, AI Developer, Embedded Firmware roles", href: "/careers/software" },
+  { title: "Software Development Careers", desc: "React, Next.js, Python, AI Developer, Embedded Firmware roles", href: "/careers/software" },
   { title: "Mechanical Engineering Careers", desc: "CAD, structural analysis, assembly engineering roles", href: "/careers/mechanical" },
   { title: "Electrical Engineering Careers", desc: "Hardware, RF & embedded systems engineering roles", href: "/careers/electronics" },
   { title: "Apply", desc: "Submit your application and resume to Omoikane Innovations", href: "/apply" },
   { title: "FAQ", desc: "Frequently asked questions about engineering, products and standards", href: "/about#faq" },
-  { title: "Privacy Policy", desc: "Privacy policy and data handling principles", href: "/privacy" },
-  { title: "Terms of Service", desc: "Terms of service and website usage terms", href: "/terms" },
+  { title: "Privacy Notice", desc: "How Omoikane Innovations handles website information", href: "/privacy" },
+  { title: "Website Terms", desc: "Terms for using the Omoikane Innovations public website", href: "/terms" },
 ];
 
 const NAV_LINKS = [
@@ -67,7 +67,7 @@ export default function Header() {
     const top = document.getElementById('header-top-threshold');
     const bottom = document.getElementById('header-bottom-threshold');
     const topObserver = new IntersectionObserver(([entry]) => setIsScrolled(entry.boundingClientRect.top < 0));
-    const bottomObserver = new IntersectionObserver(([entry]) => setIsHidden(entry.isIntersecting), {rootMargin: '0px 0px 200px 0px'});
+    const bottomObserver = new IntersectionObserver(([entry]) => setIsHidden(entry.isIntersecting), { rootMargin: '0px 0px 200px 0px' });
     if (top) topObserver.observe(top);
     if (bottom) bottomObserver.observe(bottom);
     return () => { topObserver.disconnect(); bottomObserver.disconnect(); };
@@ -98,10 +98,13 @@ export default function Header() {
   React.useEffect(() => {
     if (!searchOpen) return;
     const opener = searchOpenerRef.current || searchButtonRef.current;
+    const focusTargets = [opener, searchButtonRef.current, mobileButtonRef.current];
     const frame = requestAnimationFrame(() => searchInputRef.current?.focus());
     return () => {
       cancelAnimationFrame(frame);
-      opener?.focus();
+      // Rotation can hide the original opener behind the other header layout.
+      const target = focusTargets.find(element => element?.isConnected && element.getClientRects().length > 0);
+      target?.focus();
     };
   }, [searchOpen]);
 
@@ -450,7 +453,9 @@ export default function Header() {
                     }
                   }}
                 />
-                <button type="button" className={styles.searchEsc} aria-label="Close search (Esc)" onClick={() => setSearchOpen(false)}>ESC</button>
+                <button type="button" className={styles.searchClose} aria-label="Close search" onClick={() => setSearchOpen(false)}>
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="m6 6 12 12M6 18 18 6" /></svg>
+                </button>
               </div>
 
               <div className={styles.searchResults}>

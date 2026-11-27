@@ -21,7 +21,6 @@ export default function FooterContent() {
             <li><Link href="/expertise">Technology</Link></li>
             <li><Link href="/work">Products</Link></li>
             <li><Link href="/leadership">Leadership</Link></li>
-            <li><Link href="/careers/software">Careers</Link></li>
           </ul>
         </div>
 
@@ -31,7 +30,7 @@ export default function FooterContent() {
           <ul className={styles.linkList}>
             <li><Link href="/services/software">Software Development</Link></li>
             <li><Link href="/services/electronics">Electrical Engineering</Link></li>
-            <li><Link href="/services/mechanical">Mechanical</Link></li>
+            <li><Link href="/services/mechanical">Mechanical Engineering</Link></li>
             <li><Link href="/about#faq">FAQ</Link></li>
           </ul>
         </div>

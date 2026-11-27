@@ -26,11 +26,11 @@ function useReducedMotion() {
 }
 
 const subscribeViewport = (notify: () => void) => {
-  const media = window.matchMedia('(max-width: 1000px)');
+  const media = window.matchMedia('(max-width: 1100px)');
   media.addEventListener('change', notify);
   return () => media.removeEventListener('change', notify);
 };
-const mobileSnapshot = () => window.matchMedia('(max-width: 1000px)').matches;
+const mobileSnapshot = () => window.matchMedia('(max-width: 1100px)').matches;
 const serverSnapshot = () => false;
 
 export function ExpertiseSection() {
@@ -93,6 +93,25 @@ export function ExpertiseSection() {
     },
     [reducedMotion],
   );
+
+  useEffect(() => {
+    if (!mobile) return;
+    let frame: number | undefined;
+    const followCategoryLink = () => {
+      const index = expertise.findIndex(item => `#${item.id}` === window.location.hash);
+      if (index < 0) return;
+      changeActive(index);
+      frame = window.requestAnimationFrame(() => {
+        sectionRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
+      });
+    };
+    followCategoryLink();
+    window.addEventListener('hashchange', followCategoryLink);
+    return () => {
+      window.removeEventListener('hashchange', followCategoryLink);
+      if (frame !== undefined) window.cancelAnimationFrame(frame);
+    };
+  }, [mobile, changeActive]);
 
   useEffect(() => {
     const scenes = sceneRefs.current.filter(Boolean) as HTMLElement[];
@@ -193,7 +212,16 @@ export function ExpertiseSection() {
   }, [reducedMotion, mobile]);
 
   useEffect(() => {
-    if (reducedMotion) return;
+    if (reducedMotion || mobile) {
+      navRefs.current.forEach((button) => {
+        if (!button) return;
+        const arrow = button.querySelector<HTMLElement>(`.${styles.navArrow}`);
+        const text = button.querySelector<HTMLElement>(`.${styles.navText}`);
+        gsap.killTweensOf([button, arrow, text].filter(Boolean));
+        gsap.set([button, arrow, text].filter(Boolean), { clearProps: "x" });
+      });
+      return;
+    }
 
     const cleanups: Array<() => void> = [];
 
@@ -257,7 +285,7 @@ export function ExpertiseSection() {
 
   const jumpTo = (index: number) => {
     changeActive(index);
-    if (typeof window !== "undefined" && window.innerWidth > 1000) {
+    if (typeof window !== "undefined" && window.innerWidth > 1100) {
       sceneRefs.current[index]?.scrollIntoView({
         behavior: reducedMotion ? "auto" : "smooth",
         block: "center",
@@ -268,7 +296,7 @@ export function ExpertiseSection() {
   const active = expertise[activeIndex];
 
   return (
-    <section ref={sectionRef} className={styles.section} aria-label="Omoikane expertise">
+    <section ref={sectionRef} id={mobile ? active.id : undefined} className={styles.section} aria-label="Omoikane expertise">
       <aside className={styles.leftRail} aria-label="Expertise navigation">
         <div className={styles.leftInner}>
 

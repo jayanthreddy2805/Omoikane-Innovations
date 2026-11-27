@@ -1,0 +1,3343 @@
+{
+  "rows": [
+    {
+      "device": "ipad-mini",
+      "route": "/work",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 768,
+          "bottom": 576,
+          "width": 768,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 213.921875,
+          "right": 398,
+          "bottom": 334.859375,
+          "width": 366,
+          "height": 120.9375
+        },
+        "description": {
+          "x": 32,
+          "y": 347.859375,
+          "right": 398,
+          "bottom": 419.859375,
+          "width": 366,
+          "height": 72
+        },
+        "actions": {
+          "x": 32,
+          "y": 437.859375,
+          "right": 398,
+          "bottom": 485.859375,
+          "width": 366,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 211.921875,
+            "right": 361.609375,
+            "bottom": 255.921875,
+            "width": 329.609375,
+            "height": 44
+          },
+          {
+            "x": 32,
+            "y": 252.234375,
+            "right": 250.109375,
+            "bottom": 296.234375,
+            "width": 218.109375,
+            "height": 44
+          },
+          {
+            "x": 32,
+            "y": 292.546875,
+            "right": 378.609375,
+            "bottom": 336.546875,
+            "width": 346.609375,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/expertise",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 768,
+        "height": 389.671875,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/work",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/work",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 1024,
+          "bottom": 576,
+          "width": 1024,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 219.84375,
+          "right": 531.1875,
+          "bottom": 333.375,
+          "width": 499.1875,
+          "height": 113.53125
+        },
+        "description": {
+          "x": 32,
+          "y": 346.375,
+          "right": 482,
+          "bottom": 423.15625,
+          "width": 450,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 441.15625,
+          "right": 531.1875,
+          "bottom": 489.546875,
+          "width": 499.1875,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 217.84375,
+            "right": 337.5,
+            "bottom": 258.84375,
+            "width": 305.5,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 255.6875,
+            "right": 233.71875,
+            "bottom": 296.6875,
+            "width": 201.71875,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 293.53125,
+            "right": 353.484375,
+            "bottom": 334.53125,
+            "width": 321.484375,
+            "height": 41
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/leadership",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 768,
+          "bottom": 576,
+          "width": 768,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 213.921875,
+          "right": 398,
+          "bottom": 334.859375,
+          "width": 366,
+          "height": 120.9375
+        },
+        "description": {
+          "x": 32,
+          "y": 347.859375,
+          "right": 398,
+          "bottom": 419.859375,
+          "width": 366,
+          "height": 72
+        },
+        "actions": {
+          "x": 32,
+          "y": 437.859375,
+          "right": 398,
+          "bottom": 485.859375,
+          "width": 366,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 211.921875,
+            "right": 361.609375,
+            "bottom": 255.921875,
+            "width": 329.609375,
+            "height": 44
+          },
+          {
+            "x": 32,
+            "y": 252.234375,
+            "right": 250.109375,
+            "bottom": 296.234375,
+            "width": 218.109375,
+            "height": 44
+          },
+          {
+            "x": 32,
+            "y": 292.546875,
+            "right": 378.609375,
+            "bottom": 336.546875,
+            "width": 346.609375,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/expertise",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 1024,
+        "height": 519.5625,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/leadership",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/about",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/leadership",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/expertise",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 768,
+        "height": 389.671875,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/careers/software",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/about",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/about",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/careers/software",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/careers/software",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/careers/mechanical",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 20,
+          "y": 1064.828125,
+          "width": 728,
+          "right": 748
+        },
+        "form": {
+          "x": 20,
+          "y": 172.890625,
+          "width": 728,
+          "right": 748
+        }
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/careers/electronics",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/careers/mechanical",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/careers/mechanical",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 982.015625,
+          "width": 928,
+          "right": 976
+        },
+        "form": {
+          "x": 48,
+          "y": 231.890625,
+          "width": 928,
+          "right": 976
+        }
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/careers/electronics",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 20,
+          "y": 53.828125,
+          "width": 728,
+          "right": 748
+        },
+        "form": {
+          "x": 20,
+          "y": -838.109375,
+          "width": 728,
+          "right": 748
+        }
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/careers/electronics",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-air",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 820,
+          "bottom": 576,
+          "width": 820,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 235.71875,
+          "right": 425.109375,
+          "bottom": 339.875,
+          "width": 393.109375,
+          "height": 104.15625
+        },
+        "description": {
+          "x": 32,
+          "y": 352.875,
+          "right": 425.109375,
+          "bottom": 429.65625,
+          "width": 393.109375,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 447.65625,
+          "right": 425.109375,
+          "bottom": 496.046875,
+          "width": 393.109375,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 233.71875,
+            "right": 315.609375,
+            "bottom": 270.71875,
+            "width": 283.609375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 268.4375,
+            "right": 219.484375,
+            "bottom": 305.4375,
+            "width": 187.484375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 303.15625,
+            "right": 326.609375,
+            "bottom": 340.15625,
+            "width": 294.609375,
+            "height": 37
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/work",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/expertise",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 820,
+        "height": 416.046875,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/work",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 1180,
+          "bottom": 576,
+          "width": 1180,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 211.1875,
+          "right": 612.3125,
+          "bottom": 342.015625,
+          "width": 580.3125,
+          "height": 130.828125
+        },
+        "description": {
+          "x": 32,
+          "y": 355.015625,
+          "right": 482,
+          "bottom": 431.796875,
+          "width": 450,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 449.796875,
+          "right": 612.3125,
+          "bottom": 498.1875,
+          "width": 580.3125,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 209.1875,
+            "right": 382.4375,
+            "bottom": 256.1875,
+            "width": 350.4375,
+            "height": 47
+          },
+          {
+            "x": 32,
+            "y": 252.796875,
+            "right": 265.296875,
+            "bottom": 299.796875,
+            "width": 233.296875,
+            "height": 47
+          },
+          {
+            "x": 32,
+            "y": 296.40625,
+            "right": 401.4375,
+            "bottom": 343.40625,
+            "width": 369.4375,
+            "height": 47
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/work",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 820,
+          "bottom": 576,
+          "width": 820,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 235.71875,
+          "right": 425.109375,
+          "bottom": 339.875,
+          "width": 393.109375,
+          "height": 104.15625
+        },
+        "description": {
+          "x": 32,
+          "y": 352.875,
+          "right": 425.109375,
+          "bottom": 429.65625,
+          "width": 393.109375,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 447.65625,
+          "right": 425.109375,
+          "bottom": 496.046875,
+          "width": 393.109375,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 233.71875,
+            "right": 315.609375,
+            "bottom": 270.71875,
+            "width": 283.609375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 268.4375,
+            "right": 219.484375,
+            "bottom": 305.4375,
+            "width": 187.484375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 303.15625,
+            "right": 326.609375,
+            "bottom": 340.15625,
+            "width": 294.609375,
+            "height": 37
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/leadership",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/expertise",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2,
+      "art": {
+        "right": 32,
+        "bottom": 32,
+        "width": 912,
+        "height": 474.796875,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/about",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/leadership",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/leadership",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/expertise",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 820,
+        "height": 416.046875,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/about",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/about",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/careers/software",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-air",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/careers/mechanical",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-air",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/careers/software",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-air",
+      "route": "/careers/software",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-air",
+      "route": "/careers/mechanical",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-air",
+      "route": "/careers/mechanical",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-air",
+      "route": "/careers/electronics",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-air",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 1029.796875,
+          "width": 724,
+          "right": 772
+        },
+        "form": {
+          "x": 48,
+          "y": 279.671875,
+          "width": 724,
+          "right": 772
+        }
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 1024,
+          "bottom": 659.1875,
+          "width": 1024,
+          "height": 563.1875
+        },
+        "heading": {
+          "x": 32,
+          "y": 261.4375,
+          "right": 531.1875,
+          "bottom": 374.96875,
+          "width": 499.1875,
+          "height": 113.53125
+        },
+        "description": {
+          "x": 32,
+          "y": 387.96875,
+          "right": 482,
+          "bottom": 464.75,
+          "width": 450,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 482.75,
+          "right": 531.1875,
+          "bottom": 531.140625,
+          "width": 499.1875,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 259.4375,
+            "right": 337.5,
+            "bottom": 300.4375,
+            "width": 305.5,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 297.28125,
+            "right": 233.71875,
+            "bottom": 338.28125,
+            "width": 201.71875,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 335.125,
+            "right": 353.484375,
+            "bottom": 376.125,
+            "width": 321.484375,
+            "height": 41
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/careers/electronics",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-air",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 233.28125,
+          "width": 466.1875,
+          "right": 514.1875
+        },
+        "form": {
+          "x": 562.1875,
+          "y": 233.28125,
+          "width": 569.8125,
+          "right": 1132
+        }
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/careers/electronics",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "roleNav": "row"
+    },
+    {
+      "device": "ipad-air",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": -232.203125,
+          "width": 724,
+          "right": 772
+        },
+        "form": {
+          "x": 48,
+          "y": -982.328125,
+          "width": 724,
+          "right": 772
+        }
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 1366,
+          "bottom": 576,
+          "width": 1366,
+          "height": 480
+        },
+        "heading": {
+          "x": 93,
+          "y": 204.375,
+          "right": 706.59375,
+          "bottom": 348.84375,
+          "width": 613.59375,
+          "height": 144.46875
+        },
+        "description": {
+          "x": 93,
+          "y": 361.84375,
+          "right": 543,
+          "bottom": 438.625,
+          "width": 450,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 93,
+          "y": 456.625,
+          "right": 706.59375,
+          "bottom": 505.015625,
+          "width": 613.59375,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 93,
+            "y": 202.375,
+            "right": 474.8125,
+            "bottom": 254.375,
+            "width": 381.8125,
+            "height": 52
+          },
+          {
+            "x": 93,
+            "y": 250.53125,
+            "right": 345.1875,
+            "bottom": 302.53125,
+            "width": 252.1875,
+            "height": 52
+          },
+          {
+            "x": 93,
+            "y": 298.6875,
+            "right": 495.8125,
+            "bottom": 350.6875,
+            "width": 402.8125,
+            "height": 52
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/work",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 1024,
+          "bottom": 659.1875,
+          "width": 1024,
+          "height": 563.1875
+        },
+        "heading": {
+          "x": 32,
+          "y": 261.4375,
+          "right": 531.1875,
+          "bottom": 374.96875,
+          "width": 499.1875,
+          "height": 113.53125
+        },
+        "description": {
+          "x": 32,
+          "y": 387.96875,
+          "right": 482,
+          "bottom": 464.75,
+          "width": 450,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 482.75,
+          "right": 531.1875,
+          "bottom": 531.140625,
+          "width": 499.1875,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 259.4375,
+            "right": 337.5,
+            "bottom": 300.4375,
+            "width": 305.5,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 297.28125,
+            "right": 233.71875,
+            "bottom": 338.28125,
+            "width": 201.71875,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 335.125,
+            "right": 353.484375,
+            "bottom": 376.125,
+            "width": 321.484375,
+            "height": 41
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/expertise",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 1024,
+        "height": 519.5625,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/work",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/work",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/leadership",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/about",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/leadership",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/expertise",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2,
+      "art": {
+        "right": 32,
+        "bottom": 32,
+        "width": 1060.796875,
+        "height": 617.59375,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/leadership",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/about",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/about",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/expertise",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 1024,
+        "height": 519.5625,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/careers/software",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/careers/mechanical",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/careers/software",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/careers/mechanical",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/careers/electronics",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/careers/software",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/careers/mechanical",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 1053.625,
+          "width": 928,
+          "right": 976
+        },
+        "form": {
+          "x": 48,
+          "y": 303.5,
+          "width": 928,
+          "right": 976
+        }
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/careers/electronics",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 768,
+          "bottom": 576,
+          "width": 768,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 213.921875,
+          "right": 398,
+          "bottom": 334.859375,
+          "width": 366,
+          "height": 120.9375
+        },
+        "description": {
+          "x": 32,
+          "y": 347.859375,
+          "right": 398,
+          "bottom": 419.859375,
+          "width": 366,
+          "height": 72
+        },
+        "actions": {
+          "x": 32,
+          "y": 437.859375,
+          "right": 398,
+          "bottom": 485.859375,
+          "width": 366,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 211.921875,
+            "right": 361.609375,
+            "bottom": 255.921875,
+            "width": 329.609375,
+            "height": 44
+          },
+          {
+            "x": 32,
+            "y": 252.234375,
+            "right": 250.109375,
+            "bottom": 296.234375,
+            "width": 218.109375,
+            "height": 44
+          },
+          {
+            "x": 32,
+            "y": 292.546875,
+            "right": 378.609375,
+            "bottom": 336.546875,
+            "width": 346.609375,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/careers/electronics",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "roleNav": "column",
+      "navTop": 128
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 247.5625,
+          "width": 549.890625,
+          "right": 597.890625
+        },
+        "form": {
+          "x": 645.890625,
+          "y": 247.5625,
+          "width": 672.109375,
+          "right": 1318
+        }
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 1024,
+          "bottom": 576,
+          "width": 1024,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 219.84375,
+          "right": 531.1875,
+          "bottom": 333.375,
+          "width": 499.1875,
+          "height": 113.53125
+        },
+        "description": {
+          "x": 32,
+          "y": 346.375,
+          "right": 482,
+          "bottom": 423.15625,
+          "width": 450,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 441.15625,
+          "right": 531.1875,
+          "bottom": 489.546875,
+          "width": 499.1875,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 217.84375,
+            "right": 337.5,
+            "bottom": 258.84375,
+            "width": 305.5,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 255.6875,
+            "right": 233.71875,
+            "bottom": 296.6875,
+            "width": 201.71875,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 293.53125,
+            "right": 353.484375,
+            "bottom": 334.53125,
+            "width": 321.484375,
+            "height": 41
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 304.625,
+          "width": 928,
+          "right": 976
+        },
+        "form": {
+          "x": 48,
+          "y": -445.5,
+          "width": 928,
+          "right": 976
+        }
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 768,
+          "bottom": 576,
+          "width": 768,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 213.921875,
+          "right": 398,
+          "bottom": 334.859375,
+          "width": 366,
+          "height": 120.9375
+        },
+        "description": {
+          "x": 32,
+          "y": 347.859375,
+          "right": 398,
+          "bottom": 419.859375,
+          "width": 366,
+          "height": 72
+        },
+        "actions": {
+          "x": 32,
+          "y": 437.859375,
+          "right": 398,
+          "bottom": 485.859375,
+          "width": 366,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 211.921875,
+            "right": 361.609375,
+            "bottom": 255.921875,
+            "width": 329.609375,
+            "height": 44
+          },
+          {
+            "x": 32,
+            "y": 252.234375,
+            "right": 250.109375,
+            "bottom": 296.234375,
+            "width": 218.109375,
+            "height": 44
+          },
+          {
+            "x": 32,
+            "y": 292.546875,
+            "right": 378.609375,
+            "bottom": 336.546875,
+            "width": 346.609375,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/leadership",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/expertise",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 768,
+        "height": 389.671875,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/leadership",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 20,
+          "y": 1064.828125,
+          "width": 728,
+          "right": 748
+        },
+        "form": {
+          "x": 20,
+          "y": 172.890625,
+          "width": 728,
+          "right": 748
+        }
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/leadership",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 982.015625,
+          "width": 928,
+          "right": 976
+        },
+        "form": {
+          "x": 48,
+          "y": 231.890625,
+          "width": 928,
+          "right": 976
+        }
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/expertise",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1024,
+      "height": 768,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 1024,
+        "height": 519.5625,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 20,
+          "y": 1064.828125,
+          "width": 728,
+          "right": 748
+        },
+        "form": {
+          "x": 20,
+          "y": 172.890625,
+          "width": 728,
+          "right": 748
+        }
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 820,
+          "bottom": 576,
+          "width": 820,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 235.71875,
+          "right": 425.109375,
+          "bottom": 339.875,
+          "width": 393.109375,
+          "height": 104.15625
+        },
+        "description": {
+          "x": 32,
+          "y": 352.875,
+          "right": 425.109375,
+          "bottom": 429.65625,
+          "width": 393.109375,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 447.65625,
+          "right": 425.109375,
+          "bottom": 496.046875,
+          "width": 393.109375,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 233.71875,
+            "right": 315.609375,
+            "bottom": 270.71875,
+            "width": 283.609375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 268.4375,
+            "right": 219.484375,
+            "bottom": 305.4375,
+            "width": 187.484375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 303.15625,
+            "right": 326.609375,
+            "bottom": 340.15625,
+            "width": 294.609375,
+            "height": 37
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "route": "/expertise",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 768,
+      "height": 1024,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 768,
+        "height": 389.671875,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 1180,
+          "bottom": 576,
+          "width": 1180,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 211.1875,
+          "right": 612.3125,
+          "bottom": 342.015625,
+          "width": 580.3125,
+          "height": 130.828125
+        },
+        "description": {
+          "x": 32,
+          "y": 355.015625,
+          "right": 482,
+          "bottom": 431.796875,
+          "width": 450,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 449.796875,
+          "right": 612.3125,
+          "bottom": 498.1875,
+          "width": 580.3125,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 209.1875,
+            "right": 382.4375,
+            "bottom": 256.1875,
+            "width": 350.4375,
+            "height": 47
+          },
+          {
+            "x": 32,
+            "y": 252.796875,
+            "right": 265.296875,
+            "bottom": 299.796875,
+            "width": 233.296875,
+            "height": 47
+          },
+          {
+            "x": 32,
+            "y": 296.40625,
+            "right": 401.4375,
+            "bottom": 343.40625,
+            "width": 369.4375,
+            "height": 47
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/expertise",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 820,
+        "height": 416.046875,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/leadership",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/leadership",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 820,
+          "bottom": 576,
+          "width": 820,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 235.71875,
+          "right": 425.109375,
+          "bottom": 339.875,
+          "width": 393.109375,
+          "height": 104.15625
+        },
+        "description": {
+          "x": 32,
+          "y": 352.875,
+          "right": 425.109375,
+          "bottom": 429.65625,
+          "width": 393.109375,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 447.65625,
+          "right": 425.109375,
+          "bottom": 496.046875,
+          "width": 393.109375,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 233.71875,
+            "right": 315.609375,
+            "bottom": 270.71875,
+            "width": 283.609375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 268.4375,
+            "right": 219.484375,
+            "bottom": 305.4375,
+            "width": 187.484375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 303.15625,
+            "right": 326.609375,
+            "bottom": 340.15625,
+            "width": 294.609375,
+            "height": 37
+          }
+        ]
+      },
+      "axe": []
+    },
+    {
+      "device": "ipad-air",
+      "route": "/leadership",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-air",
+      "route": "/expertise",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2,
+      "art": {
+        "right": 32,
+        "bottom": 32,
+        "width": 912,
+        "height": 474.796875,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 1029.796875,
+          "width": 724,
+          "right": 772
+        },
+        "form": {
+          "x": 48,
+          "y": 279.671875,
+          "width": 724,
+          "right": 772
+        }
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1180,
+      "height": 820,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 233.28125,
+          "width": 466.1875,
+          "right": 514.1875
+        },
+        "form": {
+          "x": 562.1875,
+          "y": 233.28125,
+          "width": 569.8125,
+          "right": 1132
+        }
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 1024,
+          "bottom": 659.1875,
+          "width": 1024,
+          "height": 563.1875
+        },
+        "heading": {
+          "x": 32,
+          "y": 261.4375,
+          "right": 531.1875,
+          "bottom": 374.96875,
+          "width": 499.1875,
+          "height": 113.53125
+        },
+        "description": {
+          "x": 32,
+          "y": 387.96875,
+          "right": 482,
+          "bottom": 464.75,
+          "width": 450,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 482.75,
+          "right": 531.1875,
+          "bottom": 531.140625,
+          "width": 499.1875,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 259.4375,
+            "right": 337.5,
+            "bottom": 300.4375,
+            "width": 305.5,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 297.28125,
+            "right": 233.71875,
+            "bottom": 338.28125,
+            "width": 201.71875,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 335.125,
+            "right": 353.484375,
+            "bottom": 376.125,
+            "width": 321.484375,
+            "height": 41
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/expertise",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 820,
+        "height": 416.046875,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-air",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 820,
+      "height": 1180,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 1029.796875,
+          "width": 724,
+          "right": 772
+        },
+        "form": {
+          "x": 48,
+          "y": 279.671875,
+          "width": 724,
+          "right": 772
+        }
+      },
+      "axe": []
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 1366,
+          "bottom": 576,
+          "width": 1366,
+          "height": 480
+        },
+        "heading": {
+          "x": 93,
+          "y": 204.375,
+          "right": 706.59375,
+          "bottom": 348.84375,
+          "width": 613.59375,
+          "height": 144.46875
+        },
+        "description": {
+          "x": 93,
+          "y": 361.84375,
+          "right": 543,
+          "bottom": 438.625,
+          "width": 450,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 93,
+          "y": 456.625,
+          "right": 706.59375,
+          "bottom": 505.015625,
+          "width": 613.59375,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 93,
+            "y": 202.375,
+            "right": 474.8125,
+            "bottom": 254.375,
+            "width": 381.8125,
+            "height": 52
+          },
+          {
+            "x": 93,
+            "y": 250.53125,
+            "right": 345.1875,
+            "bottom": 302.53125,
+            "width": 252.1875,
+            "height": 52
+          },
+          {
+            "x": 93,
+            "y": 298.6875,
+            "right": 495.8125,
+            "bottom": 350.6875,
+            "width": 402.8125,
+            "height": 52
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/leadership",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 1024,
+          "bottom": 659.1875,
+          "width": 1024,
+          "height": 563.1875
+        },
+        "heading": {
+          "x": 32,
+          "y": 261.4375,
+          "right": 531.1875,
+          "bottom": 374.96875,
+          "width": 499.1875,
+          "height": 113.53125
+        },
+        "description": {
+          "x": 32,
+          "y": 387.96875,
+          "right": 482,
+          "bottom": 464.75,
+          "width": 450,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 482.75,
+          "right": 531.1875,
+          "bottom": 531.140625,
+          "width": 499.1875,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 259.4375,
+            "right": 337.5,
+            "bottom": 300.4375,
+            "width": 305.5,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 297.28125,
+            "right": 233.71875,
+            "bottom": 338.28125,
+            "width": 201.71875,
+            "height": 41
+          },
+          {
+            "x": 32,
+            "y": 335.125,
+            "right": 353.484375,
+            "bottom": 376.125,
+            "width": 321.484375,
+            "height": 41
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/leadership",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/expertise",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 1024,
+        "height": 519.5625,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/leadership",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "reduce",
+      "state": "portrait",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 1053.625,
+          "width": 928,
+          "right": 976
+        },
+        "form": {
+          "x": 48,
+          "y": 303.5,
+          "width": 928,
+          "right": 976
+        }
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 247.5625,
+          "width": 549.890625,
+          "right": 597.890625
+        },
+        "form": {
+          "x": 645.890625,
+          "y": 247.5625,
+          "width": 672.109375,
+          "right": 1318
+        }
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/apply?dept=software&role=web-dev",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "apply": {
+        "context": {
+          "x": 48,
+          "y": 1053.625,
+          "width": 928,
+          "right": 976
+        },
+        "form": {
+          "x": 48,
+          "y": 303.5,
+          "width": 928,
+          "right": 976
+        }
+      }
+    },
+    {
+      "device": "iphone-se",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 375,
+      "height": 667,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 375,
+          "bottom": 683,
+          "width": 375,
+          "height": 587
+        },
+        "heading": {
+          "x": 15,
+          "y": 159.796875,
+          "right": 360,
+          "bottom": 277.125,
+          "width": 345,
+          "height": 117.328125
+        },
+        "description": {
+          "x": 15,
+          "y": 290.125,
+          "right": 360,
+          "bottom": 360.765625,
+          "width": 345,
+          "height": 70.640625
+        },
+        "actions": {
+          "x": 15,
+          "y": 380.765625,
+          "right": 360,
+          "bottom": 428.765625,
+          "width": 345,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 15,
+            "y": 157.796875,
+            "right": 332.046875,
+            "bottom": 199.796875,
+            "width": 317.046875,
+            "height": 42
+          },
+          {
+            "x": 15,
+            "y": 196.90625,
+            "right": 225.40625,
+            "bottom": 238.90625,
+            "width": 210.40625,
+            "height": 42
+          },
+          {
+            "x": 15,
+            "y": 236.015625,
+            "right": 347.046875,
+            "bottom": 278.015625,
+            "width": 332.046875,
+            "height": 42
+          }
+        ]
+      }
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/expertise",
+      "motion": "reduce",
+      "state": "landscape",
+      "width": 1366,
+      "height": 1024,
+      "dpr": 2,
+      "art": {
+        "right": 32,
+        "bottom": 32,
+        "width": 1060.796875,
+        "height": 617.59375,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "iphone-se",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 375,
+      "height": 667,
+      "dpr": 2
+    },
+    {
+      "device": "ipad-pro",
+      "route": "/expertise",
+      "motion": "reduce",
+      "state": "returned",
+      "width": 1024,
+      "height": 1366,
+      "dpr": 2,
+      "art": {
+        "right": 0,
+        "bottom": 0,
+        "width": 1024,
+        "height": 519.5625,
+        "fit": "contain"
+      }
+    },
+    {
+      "device": "iphone-se",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 667,
+      "height": 375,
+      "dpr": 2
+    },
+    {
+      "device": "iphone-se",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 667,
+      "height": 375,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 667,
+          "bottom": 457.734375,
+          "width": 667,
+          "height": 361.734375
+        },
+        "heading": {
+          "x": 63.5,
+          "y": 159.796875,
+          "right": 603.5,
+          "bottom": 280.734375,
+          "width": 540,
+          "height": 120.9375
+        },
+        "description": {
+          "x": 63.5,
+          "y": 293.734375,
+          "right": 513.5,
+          "bottom": 365.734375,
+          "width": 450,
+          "height": 72
+        },
+        "actions": {
+          "x": 63.5,
+          "y": 385.734375,
+          "right": 603.5,
+          "bottom": 433.734375,
+          "width": 540,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 63.5,
+            "y": 157.796875,
+            "right": 393.109375,
+            "bottom": 201.796875,
+            "width": 329.609375,
+            "height": 44
+          },
+          {
+            "x": 63.5,
+            "y": 198.109375,
+            "right": 281.609375,
+            "bottom": 242.109375,
+            "width": 218.109375,
+            "height": 44
+          },
+          {
+            "x": 63.5,
+            "y": 238.421875,
+            "right": 410.109375,
+            "bottom": 282.421875,
+            "width": 346.609375,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "device": "iphone-se",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 375,
+      "height": 667,
+      "dpr": 2
+    },
+    {
+      "device": "iphone-xr",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 414,
+      "height": 896,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 414,
+          "bottom": 912,
+          "width": 414,
+          "height": 816
+        },
+        "heading": {
+          "x": 15,
+          "y": 159.796875,
+          "right": 399,
+          "bottom": 280.734375,
+          "width": 384,
+          "height": 120.9375
+        },
+        "description": {
+          "x": 15,
+          "y": 293.734375,
+          "right": 399,
+          "bottom": 365.734375,
+          "width": 384,
+          "height": 72
+        },
+        "actions": {
+          "x": 15,
+          "y": 385.734375,
+          "right": 399,
+          "bottom": 433.734375,
+          "width": 384,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 15,
+            "y": 157.796875,
+            "right": 344.609375,
+            "bottom": 201.796875,
+            "width": 329.609375,
+            "height": 44
+          },
+          {
+            "x": 15,
+            "y": 198.109375,
+            "right": 233.109375,
+            "bottom": 242.109375,
+            "width": 218.109375,
+            "height": 44
+          },
+          {
+            "x": 15,
+            "y": 238.421875,
+            "right": 361.609375,
+            "bottom": 282.421875,
+            "width": 346.609375,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "device": "iphone-se",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 375,
+      "height": 667,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 375,
+          "bottom": 683,
+          "width": 375,
+          "height": 587
+        },
+        "heading": {
+          "x": 15,
+          "y": 159.796875,
+          "right": 360,
+          "bottom": 277.125,
+          "width": 345,
+          "height": 117.328125
+        },
+        "description": {
+          "x": 15,
+          "y": 290.125,
+          "right": 360,
+          "bottom": 360.765625,
+          "width": 345,
+          "height": 70.640625
+        },
+        "actions": {
+          "x": 15,
+          "y": 380.765625,
+          "right": 360,
+          "bottom": 428.765625,
+          "width": 345,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 15,
+            "y": 157.796875,
+            "right": 332.046875,
+            "bottom": 199.796875,
+            "width": 317.046875,
+            "height": 42
+          },
+          {
+            "x": 15,
+            "y": 196.90625,
+            "right": 225.40625,
+            "bottom": 238.90625,
+            "width": 210.40625,
+            "height": 42
+          },
+          {
+            "x": 15,
+            "y": 236.015625,
+            "right": 347.046875,
+            "bottom": 278.015625,
+            "width": 332.046875,
+            "height": 42
+          }
+        ]
+      }
+    },
+    {
+      "device": "iphone-xr",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 414,
+      "height": 896,
+      "dpr": 2
+    },
+    {
+      "device": "fold-5",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 344,
+      "height": 882,
+      "dpr": 2.625,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 344,
+          "bottom": 898,
+          "width": 344,
+          "height": 802
+        },
+        "heading": {
+          "x": 15,
+          "y": 159.796875,
+          "right": 329,
+          "bottom": 258.328125,
+          "width": 314,
+          "height": 98.53125
+        },
+        "description": {
+          "x": 15,
+          "y": 271.328125,
+          "right": 329,
+          "bottom": 335.171875,
+          "width": 314,
+          "height": 63.84375
+        },
+        "actions": {
+          "x": 15,
+          "y": 355.171875,
+          "right": 329,
+          "bottom": 403.171875,
+          "width": 314,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 15,
+            "y": 157.796875,
+            "right": 287.28125,
+            "bottom": 192.796875,
+            "width": 272.28125,
+            "height": 35
+          },
+          {
+            "x": 15,
+            "y": 190.640625,
+            "right": 193.9375,
+            "bottom": 225.640625,
+            "width": 178.9375,
+            "height": 35
+          },
+          {
+            "x": 15,
+            "y": 223.484375,
+            "right": 296.28125,
+            "bottom": 258.484375,
+            "width": 281.28125,
+            "height": 35
+          }
+        ]
+      }
+    },
+    {
+      "device": "iphone-xr",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 896,
+      "height": 414,
+      "dpr": 2
+    },
+    {
+      "device": "iphone-xr",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 896,
+      "height": 414,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 896,
+          "bottom": 576,
+          "width": 896,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 235.71875,
+          "right": 464.625,
+          "bottom": 339.875,
+          "width": 432.625,
+          "height": 104.15625
+        },
+        "description": {
+          "x": 32,
+          "y": 352.875,
+          "right": 464.625,
+          "bottom": 429.65625,
+          "width": 432.625,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 447.65625,
+          "right": 464.625,
+          "bottom": 496.046875,
+          "width": 432.625,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 233.71875,
+            "right": 315.609375,
+            "bottom": 270.71875,
+            "width": 283.609375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 268.4375,
+            "right": 219.484375,
+            "bottom": 305.4375,
+            "width": 187.484375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 303.15625,
+            "right": 326.609375,
+            "bottom": 340.15625,
+            "width": 294.609375,
+            "height": 37
+          }
+        ]
+      }
+    },
+    {
+      "device": "iphone-xr",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 414,
+      "height": 896,
+      "dpr": 2
+    },
+    {
+      "device": "iphone-xr",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 414,
+      "height": 896,
+      "dpr": 2,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 414,
+          "bottom": 912,
+          "width": 414,
+          "height": 816
+        },
+        "heading": {
+          "x": 15,
+          "y": 159.796875,
+          "right": 399,
+          "bottom": 280.734375,
+          "width": 384,
+          "height": 120.9375
+        },
+        "description": {
+          "x": 15,
+          "y": 293.734375,
+          "right": 399,
+          "bottom": 365.734375,
+          "width": 384,
+          "height": 72
+        },
+        "actions": {
+          "x": 15,
+          "y": 385.734375,
+          "right": 399,
+          "bottom": 433.734375,
+          "width": 384,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 15,
+            "y": 157.796875,
+            "right": 344.609375,
+            "bottom": 201.796875,
+            "width": 329.609375,
+            "height": 44
+          },
+          {
+            "x": 15,
+            "y": 198.109375,
+            "right": 233.109375,
+            "bottom": 242.109375,
+            "width": 218.109375,
+            "height": 44
+          },
+          {
+            "x": 15,
+            "y": 238.421875,
+            "right": 361.609375,
+            "bottom": 282.421875,
+            "width": 346.609375,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "device": "fold-5",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "portrait",
+      "width": 344,
+      "height": 882,
+      "dpr": 2.625
+    },
+    {
+      "device": "fold-5",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 882,
+      "height": 344,
+      "dpr": 2.625,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 882,
+          "bottom": 576,
+          "width": 882,
+          "height": 480
+        },
+        "heading": {
+          "x": 32,
+          "y": 235.71875,
+          "right": 457.359375,
+          "bottom": 339.875,
+          "width": 425.359375,
+          "height": 104.15625
+        },
+        "description": {
+          "x": 32,
+          "y": 352.875,
+          "right": 457.359375,
+          "bottom": 429.65625,
+          "width": 425.359375,
+          "height": 76.78125
+        },
+        "actions": {
+          "x": 32,
+          "y": 447.65625,
+          "right": 457.359375,
+          "bottom": 496.046875,
+          "width": 425.359375,
+          "height": 48.390625
+        },
+        "lines": [
+          {
+            "x": 32,
+            "y": 233.71875,
+            "right": 315.609375,
+            "bottom": 270.71875,
+            "width": 283.609375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 268.4375,
+            "right": 219.484375,
+            "bottom": 305.4375,
+            "width": 187.484375,
+            "height": 37
+          },
+          {
+            "x": 32,
+            "y": 303.15625,
+            "right": 326.609375,
+            "bottom": 340.15625,
+            "width": 294.609375,
+            "height": 37
+          }
+        ]
+      }
+    },
+    {
+      "device": "fold-5",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "landscape",
+      "width": 882,
+      "height": 344,
+      "dpr": 2.625
+    },
+    {
+      "device": "fold-5",
+      "route": "/",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 344,
+      "height": 882,
+      "dpr": 2.625,
+      "hero": {
+        "frame": {
+          "x": 0,
+          "y": 96,
+          "right": 344,
+          "bottom": 898,
+          "width": 344,
+          "height": 802
+        },
+        "heading": {
+          "x": 15,
+          "y": 159.796875,
+          "right": 329,
+          "bottom": 258.328125,
+          "width": 314,
+          "height": 98.53125
+        },
+        "description": {
+          "x": 15,
+          "y": 271.328125,
+          "right": 329,
+          "bottom": 335.171875,
+          "width": 314,
+          "height": 63.84375
+        },
+        "actions": {
+          "x": 15,
+          "y": 355.171875,
+          "right": 329,
+          "bottom": 403.171875,
+          "width": 314,
+          "height": 48
+        },
+        "lines": [
+          {
+            "x": 15,
+            "y": 157.796875,
+            "right": 287.28125,
+            "bottom": 192.796875,
+            "width": 272.28125,
+            "height": 35
+          },
+          {
+            "x": 15,
+            "y": 190.640625,
+            "right": 193.9375,
+            "bottom": 225.640625,
+            "width": 178.9375,
+            "height": 35
+          },
+          {
+            "x": 15,
+            "y": 223.484375,
+            "right": 296.28125,
+            "bottom": 258.484375,
+            "width": 281.28125,
+            "height": 35
+          }
+        ]
+      }
+    },
+    {
+      "device": "fold-5",
+      "route": "/contact",
+      "motion": "no-preference",
+      "state": "returned",
+      "width": 344,
+      "height": 882,
+      "dpr": 2.625
+    }
+  ],
+  "failures": []
+}

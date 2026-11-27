@@ -1,0 +1,107 @@
+[
+  {
+    "name": "se-home",
+    "route": "/",
+    "width": 375,
+    "height": 667,
+    "file": "comparisons/home/se-home-375x667.jpg"
+  },
+  {
+    "name": "fold-home",
+    "route": "/",
+    "width": 344,
+    "height": 882,
+    "file": "comparisons/home/fold-home-344x882.jpg"
+  },
+  {
+    "name": "se-mission",
+    "route": "/about",
+    "width": 375,
+    "height": 667,
+    "file": "comparisons/about/se-mission-375x667.jpg"
+  },
+  {
+    "name": "fold-contact",
+    "route": "/contact",
+    "width": 344,
+    "height": 882,
+    "file": "comparisons/contact/fold-contact-344x882.jpg"
+  },
+  {
+    "name": "xr-about",
+    "route": "/about",
+    "width": 414,
+    "height": 896,
+    "file": "comparisons/about/xr-about-414x896.jpg"
+  },
+  {
+    "name": "hub-about",
+    "route": "/about",
+    "width": 1280,
+    "height": 800,
+    "file": "comparisons/about/hub-about-1280x800.jpg"
+  },
+  {
+    "name": "air-tech",
+    "route": "/expertise",
+    "width": 1180,
+    "height": 820,
+    "file": "comparisons/expertise/air-tech-1180x820.jpg"
+  },
+  {
+    "name": "hub-apply",
+    "route": "/apply?dept=electronics&role=hardware-eng",
+    "width": 1280,
+    "height": 800,
+    "file": "comparisons/apply/hub-apply-1280x800.jpg"
+  },
+  {
+    "name": "hub-tech",
+    "route": "/expertise",
+    "width": 1280,
+    "height": 800,
+    "file": "comparisons/expertise/hub-tech-1280x800.jpg"
+  },
+  {
+    "name": "air-apply",
+    "route": "/apply?dept=software&role=web-dev",
+    "width": 1180,
+    "height": 820,
+    "file": "comparisons/apply/air-apply-1180x820.jpg"
+  },
+  {
+    "name": "pro-apply",
+    "route": "/apply?dept=software&role=web-dev",
+    "width": 1366,
+    "height": 1024,
+    "file": "comparisons/apply/pro-apply-1366x1024.jpg"
+  },
+  {
+    "name": "hub-search",
+    "route": "/contact",
+    "width": 1280,
+    "height": 800,
+    "file": "comparisons/contact/hub-search-1280x800.jpg"
+  },
+  {
+    "name": "air-home",
+    "route": "/",
+    "width": 1180,
+    "height": 820,
+    "file": "comparisons/home/air-home-1180x820.jpg"
+  },
+  {
+    "name": "pro-home",
+    "route": "/",
+    "width": 1366,
+    "height": 1024,
+    "file": "comparisons/home/pro-home-1366x1024.jpg"
+  },
+  {
+    "name": "mini-home",
+    "route": "/",
+    "width": 1024,
+    "height": 768,
+    "file": "comparisons/home/mini-home-1024x768.jpg"
+  }
+]

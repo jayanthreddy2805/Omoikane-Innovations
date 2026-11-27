@@ -1024,9 +1024,9 @@
 .heroVisual, .roleVisualFull { background: var(--color-footer, #000812); }
 
 /* ─────────────────────────────────────────────────────────
-   MOBILE CAREER PAGES OPTIMIZATION (STRICTLY < 1024px / < 768px)
+   MOBILE AND AIR CAREER ROLE TABS
 ───────────────────────────────────────────────────────── */
-@media (max-width: 1023px) {
+@media (max-width: 900px) {
   .roleNav {
     position: static !important;
     width: 100% !important;
@@ -1274,5 +1274,20 @@
 @media (max-width: 480px) {
   .heroSection {
     padding-top: calc(76px + 15px) !important;
+  }
+}
+
+/* The page must not become a separate scroll container around the sticky rail. */
+@media (min-width: 901px) {
+  :global(body):has(.pageContainer) { overflow-x: clip; }
+  .pageContainer { overflow-x: clip; }
+  .roleNav { align-self: start; }
+}
+
+/* Wider tablets retain the sticky Pro role rail. */
+@media (min-width: 901px) and (max-width: 1023px) {
+  .explorerLayout {
+    grid-template-columns: minmax(200px, .75fr) minmax(0, 1.75fr);
+    gap: 32px;
   }
 }

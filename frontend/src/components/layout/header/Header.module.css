@@ -645,9 +645,12 @@
   color: #62748A;
 }
 
-.searchEsc {
+.searchClose {
   min-width: 44px;
-  min-height: 32px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.7rem;
   color: #102746;
   border: 1px solid #DCE7F3;

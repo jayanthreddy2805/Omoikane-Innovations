@@ -1,6 +1,6 @@
 import { pageMetadata } from "@/lib/siteMetadata";
 export const metadata = {
-  ...pageMetadata("/leadership", "Leadership | Omoikane Innovations", "Explore the leadership page template and how teams at Omoikane Innovations work."),
+  ...pageMetadata("/leadership", "Leadership | Omoikane Innovations", "Leadership oversight, engineering teams, and operational approach at Omoikane Innovations."),
   robots: { index: false, follow: false },
 };
 

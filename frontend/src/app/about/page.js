@@ -100,7 +100,7 @@ function OmoikaneSystemArchitecture() {
   return (
     <section className={styles.system} ref={ref}>
       <div className={styles.systemInner}>
-        
+
 
 
         {/* Editorial Hero */}
@@ -117,10 +117,10 @@ function OmoikaneSystemArchitecture() {
           </FadeUp>
         </div>
 
-        {/* The 6-Node Editorial Grid */}
+        {/* 3-Node Editorial Grid */}
         <div className={styles.editorialGrid} role="region" aria-label="Engineering approach" tabIndex={0}>
           {SYSTEM_NODES.map((node, i) => (
-            <motion.div 
+            <motion.div
               key={node.id}
               className={styles.editorialCard}
               initial={{ opacity: 0, y: 20 }}
@@ -136,7 +136,7 @@ function OmoikaneSystemArchitecture() {
             </motion.div>
           ))}
         </div>
-        
+
         {/* Strong Section Ending */}
         <FadeUp delay={0.5}>
           <div className={styles.editorialFooter}>
@@ -151,7 +151,7 @@ function OmoikaneSystemArchitecture() {
             </div>
           </div>
         </FadeUp>
-        
+
       </div>
     </section>
   );
@@ -250,9 +250,9 @@ function MissionDomainExplorer() {
                       objectPosition: d.imagePosition,
                     }}
                   />
-                  <div 
-                    className={styles.domainImageGrad} 
-                    style={{ background: d.gradient }} 
+                  <div
+                    className={styles.domainImageGrad}
+                    style={{ background: d.gradient }}
                   />
                 </div>
               ))}
@@ -288,7 +288,7 @@ function MissionDomainExplorer() {
                 exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                
+
                 <h3 className={styles.domainPanelLabel}>{activeDomain.label}</h3>
                 <p className={styles.domainPanelFocus}>{activeDomain.focus}</p>
                 <div className={styles.domainPanelDivider} />
@@ -343,7 +343,7 @@ function FaqSection() {
 
   return (
     <section className={styles.faqSection} id="faq">
-      <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org", "@type":"FAQPage", mainEntity: FAQS.map(faq => ({"@type":"Question", name:faq.q, acceptedAnswer:{"@type":"Answer", text:faq.a}}))})}</script>
+      <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQS.map(faq => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })) })}</script>
       <div className={styles.faqContainer}>
         <div className={styles.faqHeader}>
           <FadeUp>
@@ -365,7 +365,6 @@ function FaqSection() {
                       aria-expanded={isActive} aria-controls={`faq-answer-${idx}`}
                       onClick={() => setActiveFaq(isActive ? null : idx)}>
                       <div className={styles.faqQuestionLeft}>
-                        <span className={styles.faqNumber}>{(idx + 1).toString().padStart(2, '0')}</span>
                         <span className={styles.faqText}>{faq.q}</span>
                       </div>
                       <span className={styles.faqIcon} aria-hidden="true">
@@ -424,7 +423,7 @@ function CredentialsArchive() {
     <section className={styles.credSection}>
       <div className={styles.credContainer}>
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           className={styles.credHeader}
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -441,7 +440,7 @@ function CredentialsArchive() {
 
         <div className={styles.credGrid}>
           {/* Card 01 - ISO 9001:2015 */}
-          <motion.div 
+          <motion.div
             className={styles.credCard}
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -449,8 +448,8 @@ function CredentialsArchive() {
             transition={{ duration: 0.5 }}
           >
             <div className={styles.credCardLogo}>
-              <Image 
-                src="/images/certifications/iso-9001.png" 
+              <Image
+                src="/images/certifications/iso-9001.png"
                 alt="ISO 9001:2015 Quality Management System mark"
                 width={240}
                 height={240}
@@ -467,7 +466,7 @@ function CredentialsArchive() {
           </motion.div>
 
           {/* Card 02 - MSME */}
-          <motion.div 
+          <motion.div
             className={styles.credCard}
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -475,8 +474,8 @@ function CredentialsArchive() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div className={styles.credCardLogo}>
-              <Image 
-                src="/images/certifications/msme.png" 
+              <Image
+                src="/images/certifications/msme.png"
                 alt="MSME Micro, Small & Medium Enterprise mark"
                 width={340}
                 height={140}

@@ -1,0 +1,59 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> frontend@0.1.0 build
+> next build
+
+▲ Next.js 16.4.6 (Turbopack)
+✓ Running next.config.mjs took 10ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1160ms
+  Running TypeScript ...
+  Finished TypeScript in 1987ms ...
+  Collecting page data using 8 workers ...
+  Generating static pages using 8 workers (0/271) ...
+  Generating static pages using 8 workers (67/271)
+  Generating static pages using 8 workers (135/271)
+  Generating static pages using 8 workers (203/271)
+✓ Generating static pages using 8 workers (271/271) in 287ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /admin
+├ ƒ /api/chat
+├ ƒ /api/chat/analytics
+├ ƒ /apply
+├ ○ /careers
+├ ○ /careers/electronics
+├ ○ /careers/mechanical
+├ ○ /careers/software
+├ ƒ /contact
+├ ○ /expertise
+├   /flags/[code]
+│ ├ ● /flags/AC
+│ ├ ● /flags/AD
+│ ├ ● /flags/AE
+│ └ ● [+242 more paths]
+├ ○ /icon.png
+├ ○ /leadership
+├ ○ /opengraph-image.png
+├ ○ /privacy
+├ ○ /projects
+├ ○ /robots.txt
+├   /services/[department]
+│ ├ ● /services/software
+│ ├ ● /services/electronics
+│ └ ● /services/mechanical
+├ ○ /sitemap.xml
+├ ○ /terms
+└ ○ /work
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand

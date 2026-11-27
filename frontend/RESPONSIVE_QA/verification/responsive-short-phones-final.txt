@@ -1,0 +1,3 @@
+PASS 320x568: banner 192px; actions, Careers, form gutters and header clearance
+PASS 375x667: banner 192px; actions, Careers, form gutters and header clearance
+PASS 390x844: banner 192px; actions, Careers, form gutters and header clearance

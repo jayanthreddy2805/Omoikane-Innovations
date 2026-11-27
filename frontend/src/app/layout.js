@@ -27,7 +27,16 @@ const cormorantGaramond = Cormorant_Garamond({
   preload: false,
 });
 
-export const metadata = { ...pageMetadata("/", "Omoikane Innovations", "Advanced UAVs, embedded electronics, autonomous platforms and defense technologies engineered for real-world deployment."), metadataBase: new URL(SITE_URL), icons: { icon: "/omoikane-logo.png" } };
+export const metadata = {
+  ...pageMetadata(
+    "/",
+    "Omoikane Innovations",
+    "Designing and developing mission-critical products, autonomous systems, and embedded solutions for aerospace, defense, and industrial applications."
+  ),
+  applicationName: "Omoikane Innovations",
+  metadataBase: new URL(SITE_URL),
+  icons: { icon: "/omoikane-logo.png" },
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -39,11 +48,11 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         <a href="#main-content" className="skipLink">Skip to main content</a>
         <MotionPreferences>
-          <span id="header-top-threshold" aria-hidden="true" style={{position:'absolute',top:20,left:0,width:1,height:1,pointerEvents:'none'}} />
+          <span id="header-top-threshold" aria-hidden="true" style={{ position: 'absolute', top: 20, left: 0, width: 1, height: 1, pointerEvents: 'none' }} />
           <Header />
           <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
-          <span id="header-bottom-threshold" aria-hidden="true" style={{display:'block',height:1,marginTop:-1,pointerEvents:'none'}} />
+          <span id="header-bottom-threshold" aria-hidden="true" style={{ display: 'block', height: 1, marginTop: -1, pointerEvents: 'none' }} />
           <ChatbotMount />
           <CookiePreferences />
           <ConsentAwareAnalytics />

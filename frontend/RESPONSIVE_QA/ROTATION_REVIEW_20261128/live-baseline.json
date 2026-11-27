@@ -1,0 +1,1753 @@
+[
+  {
+    "device": "mini",
+    "route": "/",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      768,
+      1024
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 768,
+      "height": 480,
+      "right": 768,
+      "bottom": 576
+    },
+    "heading": {
+      "x": 32,
+      "y": 213.921875,
+      "width": 366,
+      "height": 120.9375,
+      "right": 398,
+      "bottom": 334.859375
+    },
+    "copy": {
+      "x": 32,
+      "y": 347.859375,
+      "width": 366,
+      "height": 72,
+      "right": 398,
+      "bottom": 419.859375
+    },
+    "actions": {
+      "x": 32,
+      "y": 437.859375,
+      "width": 366,
+      "height": 48,
+      "right": 398,
+      "bottom": 485.859375
+    },
+    "image": null,
+    "apply": [],
+    "sectors": [
+      {
+        "width": 176,
+        "scroll": 176
+      }
+    ]
+  },
+  {
+    "device": "mini",
+    "route": "/",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      768
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 1024,
+      "height": 563.1875,
+      "right": 1024,
+      "bottom": 659.1875
+    },
+    "heading": {
+      "x": 32,
+      "y": 261.4375,
+      "width": 499.1875,
+      "height": 113.53125,
+      "right": 531.1875,
+      "bottom": 374.96875
+    },
+    "copy": {
+      "x": 32,
+      "y": 387.96875,
+      "width": 450,
+      "height": 76.78125,
+      "right": 482,
+      "bottom": 464.75
+    },
+    "actions": {
+      "x": 32,
+      "y": 482.75,
+      "width": 499.1875,
+      "height": 48.390625,
+      "right": 531.1875,
+      "bottom": 531.140625
+    },
+    "image": null,
+    "apply": [],
+    "sectors": [
+      {
+        "text": "Aerospace",
+        "width": 498.5,
+        "scroll": 497,
+        "img": {
+          "x": 70,
+          "y": 545,
+          "width": 422.5,
+          "height": 298,
+          "top": 545,
+          "right": 492.5,
+          "bottom": 843,
+          "left": 70
+        }
+      },
+      {
+        "text": "Defense",
+        "width": 433.484375,
+        "scroll": 431,
+        "img": {
+          "x": 812.796875,
+          "y": 377.609375,
+          "width": 151.59375,
+          "height": 139.453125,
+          "top": 377.609375,
+          "right": 964.390625,
+          "bottom": 517.0625,
+          "left": 812.796875
+        }
+      },
+      {
+        "text": "Automotive",
+        "width": 433.484375,
+        "scroll": 431,
+        "img": {
+          "x": 812.796875,
+          "y": 676.046875,
+          "width": 151.59375,
+          "height": 139.453125,
+          "top": 676.046875,
+          "right": 964.390625,
+          "bottom": 815.5,
+          "left": 812.796875
+        }
+      },
+      {
+        "text": "Railways",
+        "width": 959.984375,
+        "scroll": 958,
+        "img": {
+          "x": 635.984375,
+          "y": 969,
+          "width": 318,
+          "height": 178,
+          "top": 969,
+          "right": 953.984375,
+          "bottom": 1147,
+          "left": 635.984375
+        }
+      }
+    ]
+  },
+  {
+    "device": "mini",
+    "route": "/",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      768,
+      1024
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 768,
+      "height": 480,
+      "right": 768,
+      "bottom": 576
+    },
+    "heading": {
+      "x": 32,
+      "y": 213.921875,
+      "width": 366,
+      "height": 120.9375,
+      "right": 398,
+      "bottom": 334.859375
+    },
+    "copy": {
+      "x": 32,
+      "y": 347.859375,
+      "width": 366,
+      "height": 72,
+      "right": 398,
+      "bottom": 419.859375
+    },
+    "actions": {
+      "x": 32,
+      "y": 437.859375,
+      "width": 366,
+      "height": 48,
+      "right": 398,
+      "bottom": 485.859375
+    },
+    "image": null,
+    "apply": [],
+    "sectors": [
+      {
+        "width": 176,
+        "scroll": 176
+      }
+    ]
+  },
+  {
+    "device": "mini",
+    "route": "/expertise",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      768,
+      1024
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 32,
+      "y": 128,
+      "width": 670,
+      "height": 59.78125,
+      "right": 702,
+      "bottom": 187.78125
+    },
+    "copy": null,
+    "actions": null,
+    "image": {
+      "x": 0,
+      "y": 282.96875,
+      "width": 768,
+      "height": 389.671875,
+      "right": 768,
+      "bottom": 672.640625
+    },
+    "apply": []
+  },
+  {
+    "device": "mini",
+    "route": "/expertise",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      768
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 32,
+      "y": 149,
+      "width": 670,
+      "height": 111.8125,
+      "right": 702,
+      "bottom": 260.8125
+    },
+    "copy": null,
+    "actions": null,
+    "image": {
+      "x": 0,
+      "y": 367.6875,
+      "width": 1024,
+      "height": 519.5625,
+      "right": 1024,
+      "bottom": 887.25
+    },
+    "apply": []
+  },
+  {
+    "device": "mini",
+    "route": "/expertise",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      768,
+      1024
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 32,
+      "y": 128,
+      "width": 670,
+      "height": 59.78125,
+      "right": 702,
+      "bottom": 187.78125
+    },
+    "copy": null,
+    "actions": null,
+    "image": {
+      "x": 0,
+      "y": 282.96875,
+      "width": 768,
+      "height": 389.671875,
+      "right": 768,
+      "bottom": 672.640625
+    },
+    "apply": []
+  },
+  {
+    "device": "mini",
+    "route": "/apply",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      768,
+      1024
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 282.5,
+      "y": 111,
+      "width": 203,
+      "height": 29.890625,
+      "right": 485.5,
+      "bottom": 140.890625
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": [
+      {
+        "x": 20,
+        "y": 1064.828125,
+        "width": 728,
+        "height": 51.1875,
+        "right": 748,
+        "bottom": 1116.015625
+      },
+      {
+        "x": 20,
+        "y": 172.890625,
+        "width": 728,
+        "height": 867.9375,
+        "right": 748,
+        "bottom": 1040.828125
+      }
+    ]
+  },
+  {
+    "device": "mini",
+    "route": "/apply",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      768
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 400,
+      "y": 144,
+      "width": 224,
+      "height": 31.890625,
+      "right": 624,
+      "bottom": 175.890625
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": [
+      {
+        "x": 48,
+        "y": 982.015625,
+        "width": 928,
+        "height": 483.8125,
+        "right": 976,
+        "bottom": 1465.828125
+      },
+      {
+        "x": 48,
+        "y": 231.890625,
+        "width": 928,
+        "height": 686.125,
+        "right": 976,
+        "bottom": 918.015625
+      }
+    ]
+  },
+  {
+    "device": "mini",
+    "route": "/apply",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      768,
+      1024
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 282.5,
+      "y": 111,
+      "width": 203,
+      "height": 29.890625,
+      "right": 485.5,
+      "bottom": 140.890625
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": [
+      {
+        "x": 20,
+        "y": 1064.828125,
+        "width": 728,
+        "height": 51.1875,
+        "right": 748,
+        "bottom": 1116.015625
+      },
+      {
+        "x": 20,
+        "y": 172.890625,
+        "width": 728,
+        "height": 867.9375,
+        "right": 748,
+        "bottom": 1040.828125
+      }
+    ]
+  },
+  {
+    "device": "mini",
+    "route": "/leadership",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      768,
+      1024
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 24,
+      "y": 466.0625,
+      "width": 370.90625,
+      "height": 59.78125,
+      "right": 394.90625,
+      "bottom": 525.84375
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": []
+  },
+  {
+    "device": "mini",
+    "route": "/leadership",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      768
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 24,
+      "y": 557.515625,
+      "width": 510.53125,
+      "height": 63.78125,
+      "right": 534.53125,
+      "bottom": 621.296875
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": []
+  },
+  {
+    "device": "mini",
+    "route": "/leadership",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      768,
+      1024
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 24,
+      "y": 466.0625,
+      "width": 370.90625,
+      "height": 59.78125,
+      "right": 394.90625,
+      "bottom": 525.84375
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": []
+  },
+  {
+    "device": "air",
+    "route": "/",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      820,
+      1180
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 820,
+      "height": 480,
+      "right": 820,
+      "bottom": 576
+    },
+    "heading": {
+      "x": 32,
+      "y": 235.71875,
+      "width": 393.109375,
+      "height": 104.15625,
+      "right": 425.109375,
+      "bottom": 339.875
+    },
+    "copy": {
+      "x": 32,
+      "y": 352.875,
+      "width": 393.109375,
+      "height": 76.78125,
+      "right": 425.109375,
+      "bottom": 429.65625
+    },
+    "actions": {
+      "x": 32,
+      "y": 447.65625,
+      "width": 393.109375,
+      "height": 48.390625,
+      "right": 425.109375,
+      "bottom": 496.046875
+    },
+    "image": null,
+    "apply": [],
+    "sectors": [
+      {
+        "text": "Aerospace",
+        "width": 756,
+        "scroll": 754,
+        "img": {
+          "x": 524,
+          "y": 337.9375,
+          "width": 238,
+          "height": 148,
+          "top": 337.9375,
+          "right": 762,
+          "bottom": 485.9375,
+          "left": 524
+        }
+      },
+      {
+        "text": "Defense",
+        "width": 756,
+        "scroll": 754,
+        "img": {
+          "x": 574,
+          "y": 565.9375,
+          "width": 188,
+          "height": 173,
+          "top": 565.9375,
+          "right": 762,
+          "bottom": 738.9375,
+          "left": 574
+        }
+      },
+      {
+        "text": "Automotive",
+        "width": 756,
+        "scroll": 754,
+        "img": {
+          "x": 574,
+          "y": 818.9375,
+          "width": 188,
+          "height": 173,
+          "top": 818.9375,
+          "right": 762,
+          "bottom": 991.9375,
+          "left": 574
+        }
+      },
+      {
+        "text": "Railways",
+        "width": 756,
+        "scroll": 754,
+        "img": {
+          "x": 524,
+          "y": 1071.9375,
+          "width": 238,
+          "height": 148,
+          "top": 1071.9375,
+          "right": 762,
+          "bottom": 1219.9375,
+          "left": 524
+        }
+      }
+    ]
+  },
+  {
+    "device": "air",
+    "route": "/",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1180,
+      820
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 1180,
+      "height": 580,
+      "right": 1180,
+      "bottom": 676
+    },
+    "heading": {
+      "x": 32,
+      "y": 261.1875,
+      "width": 580.3125,
+      "height": 130.828125,
+      "right": 612.3125,
+      "bottom": 392.015625
+    },
+    "copy": {
+      "x": 32,
+      "y": 405.015625,
+      "width": 450,
+      "height": 76.78125,
+      "right": 482,
+      "bottom": 481.796875
+    },
+    "actions": {
+      "x": 32,
+      "y": 499.796875,
+      "width": 580.3125,
+      "height": 48.390625,
+      "right": 612.3125,
+      "bottom": 548.1875
+    },
+    "image": null,
+    "apply": [],
+    "sectors": [
+      {
+        "text": "Aerospace",
+        "width": 590.5,
+        "scroll": 589,
+        "img": {
+          "x": 62,
+          "y": 582.9375,
+          "width": 514.5,
+          "height": 298,
+          "top": 582.9375,
+          "right": 576.5,
+          "bottom": 880.9375,
+          "left": 62
+        }
+      },
+      {
+        "text": "Defense",
+        "width": 513.484375,
+        "scroll": 511,
+        "img": {
+          "x": 949.484375,
+          "y": 416.96875,
+          "width": 175,
+          "height": 161.015625,
+          "top": 416.96875,
+          "right": 1124.484375,
+          "bottom": 577.984375,
+          "left": 949.484375
+        }
+      },
+      {
+        "text": "Automotive",
+        "width": 513.484375,
+        "scroll": 511,
+        "img": {
+          "x": 949.484375,
+          "y": 707.265625,
+          "width": 175,
+          "height": 161.015625,
+          "top": 707.265625,
+          "right": 1124.484375,
+          "bottom": 868.28125,
+          "left": 949.484375
+        }
+      },
+      {
+        "text": "Railways",
+        "width": 1131.984375,
+        "scroll": 1130,
+        "img": {
+          "x": 799.984375,
+          "y": 984.9375,
+          "width": 318,
+          "height": 178,
+          "top": 984.9375,
+          "right": 1117.984375,
+          "bottom": 1162.9375,
+          "left": 799.984375
+        }
+      }
+    ]
+  },
+  {
+    "device": "air",
+    "route": "/",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      820,
+      1180
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 820,
+      "height": 480,
+      "right": 820,
+      "bottom": 576
+    },
+    "heading": {
+      "x": 32,
+      "y": 235.71875,
+      "width": 393.109375,
+      "height": 104.15625,
+      "right": 425.109375,
+      "bottom": 339.875
+    },
+    "copy": {
+      "x": 32,
+      "y": 352.875,
+      "width": 393.109375,
+      "height": 76.78125,
+      "right": 425.109375,
+      "bottom": 429.65625
+    },
+    "actions": {
+      "x": 32,
+      "y": 447.65625,
+      "width": 393.109375,
+      "height": 48.390625,
+      "right": 425.109375,
+      "bottom": 496.046875
+    },
+    "image": null,
+    "apply": [],
+    "sectors": [
+      {
+        "text": "Aerospace",
+        "width": 756,
+        "scroll": 754,
+        "img": {
+          "x": 524,
+          "y": 337.9375,
+          "width": 238,
+          "height": 148,
+          "top": 337.9375,
+          "right": 762,
+          "bottom": 485.9375,
+          "left": 524
+        }
+      },
+      {
+        "text": "Defense",
+        "width": 756,
+        "scroll": 754,
+        "img": {
+          "x": 574,
+          "y": 565.9375,
+          "width": 188,
+          "height": 173,
+          "top": 565.9375,
+          "right": 762,
+          "bottom": 738.9375,
+          "left": 574
+        }
+      },
+      {
+        "text": "Automotive",
+        "width": 756,
+        "scroll": 754,
+        "img": {
+          "x": 574,
+          "y": 818.9375,
+          "width": 188,
+          "height": 173,
+          "top": 818.9375,
+          "right": 762,
+          "bottom": 991.9375,
+          "left": 574
+        }
+      },
+      {
+        "text": "Railways",
+        "width": 756,
+        "scroll": 754,
+        "img": {
+          "x": 524,
+          "y": 1071.9375,
+          "width": 238,
+          "height": 148,
+          "top": 1071.9375,
+          "right": 762,
+          "bottom": 1219.9375,
+          "left": 524
+        }
+      }
+    ]
+  },
+  {
+    "device": "air",
+    "route": "/expertise",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      820,
+      1180
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 32,
+      "y": 149,
+      "width": 670,
+      "height": 89.53125,
+      "right": 702,
+      "bottom": 238.53125
+    },
+    "copy": null,
+    "actions": null,
+    "image": {
+      "x": 0,
+      "y": 354.53125,
+      "width": 820,
+      "height": 416.046875,
+      "right": 820,
+      "bottom": 770.578125
+    },
+    "apply": []
+  },
+  {
+    "device": "air",
+    "route": "/expertise",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1180,
+      820
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 59,
+      "y": 174.390625,
+      "width": 520.375,
+      "height": 136.28125,
+      "right": 579.375,
+      "bottom": 310.671875
+    },
+    "copy": null,
+    "actions": null,
+    "image": {
+      "x": 236,
+      "y": 313.203125,
+      "width": 912,
+      "height": 474.796875,
+      "right": 1148,
+      "bottom": 788
+    },
+    "apply": []
+  },
+  {
+    "device": "air",
+    "route": "/expertise",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      820,
+      1180
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 32,
+      "y": 149,
+      "width": 670,
+      "height": 89.53125,
+      "right": 702,
+      "bottom": 238.53125
+    },
+    "copy": null,
+    "actions": null,
+    "image": {
+      "x": 0,
+      "y": 354.53125,
+      "width": 820,
+      "height": 416.046875,
+      "right": 820,
+      "bottom": 770.578125
+    },
+    "apply": []
+  },
+  {
+    "device": "air",
+    "route": "/apply",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      820,
+      1180
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 298,
+      "y": 165.1875,
+      "width": 224,
+      "height": 31.890625,
+      "right": 522,
+      "bottom": 197.078125
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": [
+      {
+        "x": 48,
+        "y": 1029.796875,
+        "width": 724,
+        "height": 483.8125,
+        "right": 772,
+        "bottom": 1513.609375
+      },
+      {
+        "x": 48,
+        "y": 279.671875,
+        "width": 724,
+        "height": 686.125,
+        "right": 772,
+        "bottom": 965.796875
+      }
+    ]
+  },
+  {
+    "device": "air",
+    "route": "/apply",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1180,
+      820
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 478,
+      "y": 144,
+      "width": 224,
+      "height": 31.890625,
+      "right": 702,
+      "bottom": 175.890625
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": [
+      {
+        "x": 48,
+        "y": 233.28125,
+        "width": 466.1875,
+        "height": 686.125,
+        "right": 514.1875,
+        "bottom": 919.40625
+      },
+      {
+        "x": 562.1875,
+        "y": 233.28125,
+        "width": 569.8125,
+        "height": 686.125,
+        "right": 1132,
+        "bottom": 919.40625
+      }
+    ]
+  },
+  {
+    "device": "air",
+    "route": "/apply",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      820,
+      1180
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 298,
+      "y": 165.1875,
+      "width": 224,
+      "height": 31.890625,
+      "right": 522,
+      "bottom": 197.078125
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": [
+      {
+        "x": 48,
+        "y": 1029.796875,
+        "width": 724,
+        "height": 483.8125,
+        "right": 772,
+        "bottom": 1513.609375
+      },
+      {
+        "x": 48,
+        "y": 279.671875,
+        "width": 724,
+        "height": 686.125,
+        "right": 772,
+        "bottom": 965.796875
+      }
+    ]
+  },
+  {
+    "device": "air",
+    "route": "/leadership",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      820,
+      1180
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 24,
+      "y": 521.578125,
+      "width": 399.265625,
+      "height": 63.78125,
+      "right": 423.265625,
+      "bottom": 585.359375
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": []
+  },
+  {
+    "device": "air",
+    "route": "/leadership",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1180,
+      820
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 24,
+      "y": 689.078125,
+      "width": 633.90625,
+      "height": 63.78125,
+      "right": 657.90625,
+      "bottom": 752.859375
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": []
+  },
+  {
+    "device": "air",
+    "route": "/leadership",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      820,
+      1180
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 24,
+      "y": 521.578125,
+      "width": 399.265625,
+      "height": 63.78125,
+      "right": 423.265625,
+      "bottom": 585.359375
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": []
+  },
+  {
+    "device": "pro",
+    "route": "/",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      1366
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 1024,
+      "height": 563.1875,
+      "right": 1024,
+      "bottom": 659.1875
+    },
+    "heading": {
+      "x": 32,
+      "y": 261.4375,
+      "width": 499.1875,
+      "height": 113.53125,
+      "right": 531.1875,
+      "bottom": 374.96875
+    },
+    "copy": {
+      "x": 32,
+      "y": 387.96875,
+      "width": 450,
+      "height": 76.78125,
+      "right": 482,
+      "bottom": 464.75
+    },
+    "actions": {
+      "x": 32,
+      "y": 482.75,
+      "width": 499.1875,
+      "height": 48.390625,
+      "right": 531.1875,
+      "bottom": 531.140625
+    },
+    "image": null,
+    "apply": [],
+    "sectors": [
+      {
+        "text": "Aerospace",
+        "width": 498.5,
+        "scroll": 497,
+        "img": {
+          "x": 70,
+          "y": 683,
+          "width": 422.5,
+          "height": 298,
+          "top": 683,
+          "right": 492.5,
+          "bottom": 981,
+          "left": 70
+        }
+      },
+      {
+        "text": "Defense",
+        "width": 433.484375,
+        "scroll": 431,
+        "img": {
+          "x": 812.796875,
+          "y": 515.609375,
+          "width": 151.59375,
+          "height": 139.453125,
+          "top": 515.609375,
+          "right": 964.390625,
+          "bottom": 655.0625,
+          "left": 812.796875
+        }
+      },
+      {
+        "text": "Automotive",
+        "width": 433.484375,
+        "scroll": 431,
+        "img": {
+          "x": 812.796875,
+          "y": 814.046875,
+          "width": 151.59375,
+          "height": 139.453125,
+          "top": 814.046875,
+          "right": 964.390625,
+          "bottom": 953.5,
+          "left": 812.796875
+        }
+      },
+      {
+        "text": "Railways",
+        "width": 959.984375,
+        "scroll": 958,
+        "img": {
+          "x": 635.984375,
+          "y": 1085,
+          "width": 318,
+          "height": 178,
+          "top": 1085,
+          "right": 953.984375,
+          "bottom": 1263,
+          "left": 635.984375
+        }
+      }
+    ]
+  },
+  {
+    "device": "pro",
+    "route": "/",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1366,
+      1024
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 1366,
+      "height": 580,
+      "right": 1366,
+      "bottom": 676
+    },
+    "heading": {
+      "x": 93,
+      "y": 254.375,
+      "width": 613.59375,
+      "height": 144.46875,
+      "right": 706.59375,
+      "bottom": 398.84375
+    },
+    "copy": {
+      "x": 93,
+      "y": 411.84375,
+      "width": 450,
+      "height": 76.78125,
+      "right": 543,
+      "bottom": 488.625
+    },
+    "actions": {
+      "x": 93,
+      "y": 506.625,
+      "width": 613.59375,
+      "height": 48.390625,
+      "right": 706.59375,
+      "bottom": 555.015625
+    },
+    "image": null,
+    "apply": [],
+    "sectors": [
+      {
+        "text": "Aerospace",
+        "width": 648.265625,
+        "scroll": 646,
+        "img": {
+          "x": 101,
+          "y": 597.8125,
+          "width": 572.265625,
+          "height": 298,
+          "top": 597.8125,
+          "right": 673.265625,
+          "bottom": 895.8125,
+          "left": 101
+        }
+      },
+      {
+        "text": "Defense",
+        "width": 563.71875,
+        "scroll": 562,
+        "img": {
+          "x": 1076.984375,
+          "y": 419.203125,
+          "width": 188,
+          "height": 173,
+          "top": 419.203125,
+          "right": 1264.984375,
+          "bottom": 592.203125,
+          "left": 1076.984375
+        }
+      },
+      {
+        "text": "Automotive",
+        "width": 563.71875,
+        "scroll": 562,
+        "img": {
+          "x": 1076.984375,
+          "y": 709.5,
+          "width": 188,
+          "height": 173,
+          "top": 709.5,
+          "right": 1264.984375,
+          "bottom": 882.5,
+          "left": 1076.984375
+        }
+      },
+      {
+        "text": "Railways",
+        "width": 1239.984375,
+        "scroll": 1238,
+        "img": {
+          "x": 946.984375,
+          "y": 999.8125,
+          "width": 318,
+          "height": 178,
+          "top": 999.8125,
+          "right": 1264.984375,
+          "bottom": 1177.8125,
+          "left": 946.984375
+        }
+      }
+    ]
+  },
+  {
+    "device": "pro",
+    "route": "/",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      1366
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": {
+      "x": 0,
+      "y": 96,
+      "width": 1024,
+      "height": 563.1875,
+      "right": 1024,
+      "bottom": 659.1875
+    },
+    "heading": {
+      "x": 32,
+      "y": 261.4375,
+      "width": 499.1875,
+      "height": 113.53125,
+      "right": 531.1875,
+      "bottom": 374.96875
+    },
+    "copy": {
+      "x": 32,
+      "y": 387.96875,
+      "width": 450,
+      "height": 76.78125,
+      "right": 482,
+      "bottom": 464.75
+    },
+    "actions": {
+      "x": 32,
+      "y": 482.75,
+      "width": 499.1875,
+      "height": 48.390625,
+      "right": 531.1875,
+      "bottom": 531.140625
+    },
+    "image": null,
+    "apply": [],
+    "sectors": [
+      {
+        "text": "Aerospace",
+        "width": 498.5,
+        "scroll": 497,
+        "img": {
+          "x": 70,
+          "y": 683,
+          "width": 422.5,
+          "height": 298,
+          "top": 683,
+          "right": 492.5,
+          "bottom": 981,
+          "left": 70
+        }
+      },
+      {
+        "text": "Defense",
+        "width": 433.484375,
+        "scroll": 431,
+        "img": {
+          "x": 812.796875,
+          "y": 515.609375,
+          "width": 151.59375,
+          "height": 139.453125,
+          "top": 515.609375,
+          "right": 964.390625,
+          "bottom": 655.0625,
+          "left": 812.796875
+        }
+      },
+      {
+        "text": "Automotive",
+        "width": 433.484375,
+        "scroll": 431,
+        "img": {
+          "x": 812.796875,
+          "y": 814.046875,
+          "width": 151.59375,
+          "height": 139.453125,
+          "top": 814.046875,
+          "right": 964.390625,
+          "bottom": 953.5,
+          "left": 812.796875
+        }
+      },
+      {
+        "text": "Railways",
+        "width": 959.984375,
+        "scroll": 958,
+        "img": {
+          "x": 635.984375,
+          "y": 1085,
+          "width": 318,
+          "height": 178,
+          "top": 1085,
+          "right": 953.984375,
+          "bottom": 1263,
+          "left": 635.984375
+        }
+      }
+    ]
+  },
+  {
+    "device": "pro",
+    "route": "/expertise",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      1366
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 32,
+      "y": 149,
+      "width": 670,
+      "height": 111.8125,
+      "right": 702,
+      "bottom": 260.8125
+    },
+    "copy": null,
+    "actions": null,
+    "image": {
+      "x": 0,
+      "y": 376.8125,
+      "width": 1024,
+      "height": 519.5625,
+      "right": 1024,
+      "bottom": 896.375
+    },
+    "apply": []
+  },
+  {
+    "device": "pro",
+    "route": "/expertise",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1366,
+      1024
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 64,
+      "y": 188.65625,
+      "width": 606.609375,
+      "height": 155.375,
+      "right": 670.609375,
+      "bottom": 344.03125
+    },
+    "copy": null,
+    "actions": null,
+    "image": {
+      "x": 273.203125,
+      "y": 374.40625,
+      "width": 1060.796875,
+      "height": 617.59375,
+      "right": 1334,
+      "bottom": 992
+    },
+    "apply": []
+  },
+  {
+    "device": "pro",
+    "route": "/expertise",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      1366
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 32,
+      "y": 149,
+      "width": 670,
+      "height": 111.8125,
+      "right": 702,
+      "bottom": 260.8125
+    },
+    "copy": null,
+    "actions": null,
+    "image": {
+      "x": 0,
+      "y": 376.8125,
+      "width": 1024,
+      "height": 519.5625,
+      "right": 1024,
+      "bottom": 896.375
+    },
+    "apply": []
+  },
+  {
+    "device": "pro",
+    "route": "/apply",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      1366
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 400,
+      "y": 176,
+      "width": 224,
+      "height": 31.890625,
+      "right": 624,
+      "bottom": 207.890625
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": [
+      {
+        "x": 48,
+        "y": 1053.625,
+        "width": 928,
+        "height": 483.8125,
+        "right": 976,
+        "bottom": 1537.4375
+      },
+      {
+        "x": 48,
+        "y": 303.5,
+        "width": 928,
+        "height": 686.125,
+        "right": 976,
+        "bottom": 989.625
+      }
+    ]
+  },
+  {
+    "device": "pro",
+    "route": "/apply",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1366,
+      1024
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 571,
+      "y": 144,
+      "width": 224,
+      "height": 31.890625,
+      "right": 795,
+      "bottom": 175.890625
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": [
+      {
+        "x": 48,
+        "y": 247.5625,
+        "width": 549.890625,
+        "height": 686.125,
+        "right": 597.890625,
+        "bottom": 933.6875
+      },
+      {
+        "x": 645.890625,
+        "y": 247.5625,
+        "width": 672.109375,
+        "height": 686.125,
+        "right": 1318,
+        "bottom": 933.6875
+      }
+    ]
+  },
+  {
+    "device": "pro",
+    "route": "/apply",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      1366
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 400,
+      "y": 176,
+      "width": 224,
+      "height": 31.890625,
+      "right": 624,
+      "bottom": 207.890625
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": [
+      {
+        "x": 48,
+        "y": 1053.625,
+        "width": 928,
+        "height": 483.8125,
+        "right": 976,
+        "bottom": 1537.4375
+      },
+      {
+        "x": 48,
+        "y": 303.5,
+        "width": 928,
+        "height": 686.125,
+        "right": 976,
+        "bottom": 989.625
+      }
+    ]
+  },
+  {
+    "device": "pro",
+    "route": "/leadership",
+    "state": "portrait",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      1366
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 24,
+      "y": 573.515625,
+      "width": 510.53125,
+      "height": 63.78125,
+      "right": 534.53125,
+      "bottom": 637.296875
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": []
+  },
+  {
+    "device": "pro",
+    "route": "/leadership",
+    "state": "landscape",
+    "sameDocument": true,
+    "viewport": [
+      1366,
+      1024
+    ],
+    "orientation": "landscape-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 24,
+      "y": 817.796875,
+      "width": 741.390625,
+      "height": 63.78125,
+      "right": 765.390625,
+      "bottom": 881.578125
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": []
+  },
+  {
+    "device": "pro",
+    "route": "/leadership",
+    "state": "returned",
+    "sameDocument": true,
+    "viewport": [
+      1024,
+      1366
+    ],
+    "orientation": "portrait-primary",
+    "overflow": false,
+    "hero": null,
+    "heading": {
+      "x": 24,
+      "y": 573.515625,
+      "width": 510.53125,
+      "height": 63.78125,
+      "right": 534.53125,
+      "bottom": 637.296875
+    },
+    "copy": null,
+    "actions": null,
+    "image": null,
+    "apply": []
+  }
+]

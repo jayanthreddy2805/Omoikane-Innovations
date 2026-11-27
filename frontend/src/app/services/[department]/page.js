@@ -5,17 +5,17 @@ import styles from './page.module.css';
 
 const SERVICES = {
   software: {
-    title: 'Software',
+    title: 'Software Development',
     summary: 'Embedded software and control logic developed around the timing, interface and operating requirements of the target platform.',
     capabilities: ['Bare-metal and RTOS firmware', 'Real-time control and sensor processing', 'Hardware and software integration', 'Prototype evaluation and validation planning'],
   },
   electronics: {
-    title: 'Electronics',
-    summary: 'Electronic hardware development for embedded, autonomous and mission-critical systems, from architecture through board bring-up.',
+    title: 'Electrical Engineering',
+    summary: 'Electrical engineering and hardware development for embedded, autonomous and mission-critical systems, from architecture through board bring-up.',
     capabilities: ['System architecture and schematic capture', 'Multi-layer PCB design', 'RF, GNSS and power electronics integration', 'Board bring-up and design validation'],
   },
   mechanical: {
-    title: 'Mechanical',
+    title: 'Mechanical Engineering',
     summary: 'Mechanical design and integration for electronic products and autonomous platforms, aligned with enclosure, thermal and structural requirements.',
     capabilities: ['Enclosure and product design', 'Electromechanical integration', 'Structural and thermal analysis', 'Prototype and assembly support'],
   },

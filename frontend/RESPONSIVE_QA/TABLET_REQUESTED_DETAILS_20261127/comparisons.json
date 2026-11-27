@@ -1,0 +1,50 @@
+[
+  {
+    "route": "/",
+    "width": 768,
+    "kind": "hero",
+    "file": "comparisons/home/768-hero.jpg"
+  },
+  {
+    "route": "/about",
+    "width": 768,
+    "kind": "cta",
+    "file": "comparisons/about/768-cta.jpg"
+  },
+  {
+    "route": "/about",
+    "width": 820,
+    "kind": "cta",
+    "file": "comparisons/about/820-cta.jpg"
+  },
+  {
+    "route": "/leadership",
+    "width": 768,
+    "kind": "hero",
+    "file": "comparisons/leadership/768-hero.jpg"
+  },
+  {
+    "route": "/careers/software",
+    "width": 820,
+    "kind": "roles",
+    "file": "comparisons/careers-software/820-roles.jpg"
+  },
+  {
+    "route": "/careers/mechanical",
+    "width": 820,
+    "kind": "roles",
+    "file": "comparisons/careers-mechanical/820-roles.jpg"
+  },
+  {
+    "route": "/careers/electronics",
+    "width": 820,
+    "kind": "roles",
+    "file": "comparisons/careers-electronics/820-roles.jpg"
+  },
+  {
+    "route": "/about",
+    "width": 820,
+    "kind": "faq",
+    "file": "comparisons/about/820-faq.jpg"
+  }
+]

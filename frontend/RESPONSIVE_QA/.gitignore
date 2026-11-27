@@ -1,0 +1,36 @@
+# Complete captures are packaged by phase/route; restore with the Python helper.
+before/**/*.jpg
+after/**/*.jpg
+live-baseline/**/*.jpg
+live-tablets/**/*.jpg
+review-sheets/
+!before/home/ipad-mini-768x1024/section-03-0.jpg
+!before/home/ipad-pro-1024x1366/section-01-0.jpg
+!before/about/ipad-pro-1024x1366/section-05-0.jpg
+!before/home/iphone-se-375x667/hero.jpg
+!after/home/ipad-mini-768x1024/section-03-0.jpg
+!after/home/ipad-pro-1024x1366/section-01-0.jpg
+!after/about/ipad-pro-1024x1366/section-05-0.jpg
+!after/home/iphone-se-375x667/hero.jpg
+
+# Reassembled locally from checksummed upload-sized parts.
+capture-archives/before-about.zip
+capture-archives/before-careers-electronics.zip
+capture-archives/before-careers-mechanical.zip
+capture-archives/before-careers-software.zip
+capture-archives/before-expertise.zip
+capture-archives/before-home.zip
+capture-archives/before-leadership.zip
+capture-archives/before-privacy.zip
+capture-archives/before-terms.zip
+capture-archives/before-work.zip
+capture-archives/after-about.zip
+capture-archives/after-careers-electronics.zip
+capture-archives/after-careers-mechanical.zip
+capture-archives/after-careers-software.zip
+capture-archives/after-expertise.zip
+capture-archives/after-home.zip
+capture-archives/after-leadership.zip
+capture-archives/after-privacy.zip
+capture-archives/after-terms.zip
+capture-archives/after-work.zip

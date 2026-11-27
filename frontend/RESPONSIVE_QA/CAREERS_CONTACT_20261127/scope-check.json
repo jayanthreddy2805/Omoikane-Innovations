@@ -1,0 +1,30 @@
+{
+  "implementationSha": "0e35076c248e2e7c52a1dc4479a4c596e2bf8edf",
+  "aboutMiniBanner": {
+    "tag": "SECTION",
+    "selector": "UIJ3iG_pageHero",
+    "text": "About Omoikane Innovations",
+    "x": 0,
+    "y": 109,
+    "width": 768,
+    "height": 53.27,
+    "padding": [
+      "16px",
+      "16px",
+      "16px",
+      "16px"
+    ],
+    "margin": [
+      "0px",
+      "0px"
+    ],
+    "gap": "normal",
+    "font": "16px",
+    "lineHeight": "25.6px",
+    "weight": "400",
+    "display": "flex",
+    "fit": "fill",
+    "position": "50% 50%"
+  },
+  "failures": []
+}

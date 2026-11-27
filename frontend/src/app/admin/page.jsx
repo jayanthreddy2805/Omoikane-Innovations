@@ -8,6 +8,17 @@ import AccessibleDialog from '@/components/shared/AccessibleDialog';
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, '') ||
   (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://omoikane-api.onrender.com');
 
+const DEPARTMENT_LABELS = {
+  software: 'Software Development',
+  electronics: 'Electrical Engineering',
+  mechanical: 'Mechanical Engineering',
+};
+
+const formatDepartmentLabel = (dept) => {
+  if (!dept) return 'GENERAL';
+  return DEPARTMENT_LABELS[dept.toLowerCase()] || dept.toUpperCase();
+};
+
 export default function AdminDashboardPage() {
   const [adminKey, setAdminKey] = useState('');
   const [keyInput, setKeyInput] = useState('');
@@ -450,7 +461,7 @@ export default function AdminDashboardPage() {
               >
                 <option value="all">All Departments</option>
                 <option value="software">Software Development</option>
-                <option value="electronics">Electronics & Hardware</option>
+                <option value="electronics">Electrical Engineering</option>
                 <option value="mechanical">Mechanical Engineering</option>
               </select>
             )}
@@ -533,17 +544,16 @@ export default function AdminDashboardPage() {
                         </td>
                         <td>
                           <span
-                            className={`${styles.chip} ${
-                              app.department === 'software'
+                            className={`${styles.chip} ${app.department === 'software'
                                 ? styles.chipBlue
                                 : app.department === 'electronics'
-                                ? styles.chipPurple
-                                : app.department === 'mechanical'
-                                ? styles.chipOrange
-                                : styles.chipGrey
-                            }`}
+                                  ? styles.chipPurple
+                                  : app.department === 'mechanical'
+                                    ? styles.chipOrange
+                                    : styles.chipGrey
+                              }`}
                           >
-                            {app.department ? app.department.toUpperCase() : 'GENERAL'}
+                            {formatDepartmentLabel(app.department)}
                           </span>
                         </td>
                         <td>
@@ -829,7 +839,7 @@ export default function AdminDashboardPage() {
                     <div className={styles.detailFieldLabel}>Applied Position</div>
                     <div className={styles.detailFieldValue}>
                       {selectedDetail.data.roleTitle || selectedDetail.data.roleId} (
-                      {selectedDetail.data.department?.toUpperCase()})
+                      {formatDepartmentLabel(selectedDetail.data.department)})
                     </div>
                   </div>
                   <div className={styles.detailFieldBox}>
