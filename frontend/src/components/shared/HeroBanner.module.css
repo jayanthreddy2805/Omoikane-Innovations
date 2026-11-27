@@ -463,12 +463,48 @@
 
 /* On compact landscape/tablet widths the hero's media remains visible
    without pushing the copy beyond its available width. */
-@media (min-width: 681px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1100px) {
+  .homeHero {
+    min-height: clamp(440px, 52vw, 560px);
+  }
+
+  .homeBackdrop {
+    left: 18%;
+  }
+
   .homeBackdropImage {
-    object-position: 62% center;
+    object-position: center;
   }
 
   .heroContent {
-    max-width: min(54%, 565px);
+    max-width: min(52%, 565px);
+  }
+}
+
+/* Mini follows the phone composition, with comfortable tablet copy width. */
+@media (min-width: 681px) and (max-width: 768px) {
+  .heroContent {
+    max-width: 100%;
+  }
+
+  .homeBackdropImage {
+    object-fit: cover;
+    object-position: 58% bottom;
+  }
+
+  .homeBackdrop {
+    top: 48%;
+  }
+
+  .homeHero::before {
+    display: none;
+  }
+
+  .homeHero::after {
+    background: none;
+  }
+
+  .homeBackdrop::after {
+    background: linear-gradient(180deg, #eaf5ff, rgba(234, 245, 255, .8) 12%, transparent 45%);
   }
 }

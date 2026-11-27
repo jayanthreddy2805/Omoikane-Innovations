@@ -26,11 +26,11 @@ function useReducedMotion() {
 }
 
 const subscribeViewport = (notify: () => void) => {
-  const media = window.matchMedia('(max-width: 1000px)');
+  const media = window.matchMedia('(max-width: 768px)');
   media.addEventListener('change', notify);
   return () => media.removeEventListener('change', notify);
 };
-const mobileSnapshot = () => window.matchMedia('(max-width: 1000px)').matches;
+const mobileSnapshot = () => window.matchMedia('(max-width: 768px)').matches;
 const serverSnapshot = () => false;
 
 export function ExpertiseSection() {
@@ -285,7 +285,7 @@ export function ExpertiseSection() {
 
   const jumpTo = (index: number) => {
     changeActive(index);
-    if (typeof window !== "undefined" && window.innerWidth > 1000) {
+    if (typeof window !== "undefined" && window.innerWidth > 768) {
       sceneRefs.current[index]?.scrollIntoView({
         behavior: reducedMotion ? "auto" : "smooth",
         block: "center",

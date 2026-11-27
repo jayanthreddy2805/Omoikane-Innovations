@@ -1,0 +1,35 @@
+{
+  "rows": [
+    {
+      "width": 768,
+      "route": "/",
+      "axe": []
+    },
+    {
+      "width": 768,
+      "route": "/work",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/",
+      "axe": []
+    },
+    {
+      "width": 820,
+      "route": "/work",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/",
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "route": "/work",
+      "axe": []
+    }
+  ],
+  "failures": []
+}

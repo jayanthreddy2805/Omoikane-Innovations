@@ -398,7 +398,7 @@
 /* ─────────────────────────────────────────────────────────
    RESPONSIVE: TABLET & MOBILE (<= 860px)
 ───────────────────────────────────────────────────────── */
-@media (max-width: 860px) {
+@media (max-width: 768px) {
   .section {
     padding: 4.5rem 0 0 0;
   }
@@ -446,6 +446,32 @@
 
   .ctaLink {
     align-self: flex-start;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .imageWrapper {
+    max-width: 480px;
+    min-height: 0;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .introContainer {
+    margin-bottom: 32px;
+  }
+
+  .detailsContent {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    padding: 0 32px 32px;
+  }
+
+  .imageWrapper {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
   }
 }
 

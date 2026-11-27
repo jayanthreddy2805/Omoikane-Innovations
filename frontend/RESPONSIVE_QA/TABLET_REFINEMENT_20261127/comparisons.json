@@ -1,0 +1,142 @@
+[
+  {
+    "route": "/",
+    "device": "ipad-mini",
+    "viewport": [
+      768,
+      1024
+    ],
+    "capture": "hero",
+    "file": "comparisons/home/ipad-mini-hero.jpg"
+  },
+  {
+    "route": "/",
+    "device": "ipad-air",
+    "viewport": [
+      820,
+      1180
+    ],
+    "capture": "hero",
+    "file": "comparisons/home/ipad-air-hero.jpg"
+  },
+  {
+    "route": "/",
+    "device": "ipad-air",
+    "viewport": [
+      820,
+      1180
+    ],
+    "capture": "section-02-0",
+    "file": "comparisons/home/ipad-air-section-02-0.jpg"
+  },
+  {
+    "route": "/",
+    "device": "ipad-mini",
+    "viewport": [
+      768,
+      1024
+    ],
+    "capture": "section-01-0",
+    "file": "comparisons/home/ipad-mini-section-01-0.jpg"
+  },
+  {
+    "route": "/expertise",
+    "device": "ipad-air",
+    "viewport": [
+      820,
+      1180
+    ],
+    "capture": "hero",
+    "file": "comparisons/expertise/ipad-air-hero.jpg"
+  },
+  {
+    "route": "/expertise",
+    "device": "ipad-pro",
+    "viewport": [
+      1024,
+      1366
+    ],
+    "capture": "hero",
+    "file": "comparisons/expertise/ipad-pro-hero.jpg"
+  },
+  {
+    "route": "/expertise",
+    "device": "desktop-1440",
+    "viewport": [
+      1440,
+      900
+    ],
+    "capture": "hero",
+    "file": "comparisons/expertise/desktop-1440-hero.jpg"
+  },
+  {
+    "route": "/leadership",
+    "device": "ipad-mini",
+    "viewport": [
+      768,
+      1024
+    ],
+    "capture": "hero",
+    "file": "comparisons/leadership/ipad-mini-hero.jpg"
+  },
+  {
+    "route": "/work",
+    "device": "ipad-pro",
+    "viewport": [
+      1024,
+      1366
+    ],
+    "capture": "hero",
+    "file": "comparisons/work/ipad-pro-hero.jpg"
+  },
+  {
+    "route": "/work",
+    "device": "ipad-mini",
+    "viewport": [
+      768,
+      1024
+    ],
+    "capture": "section-02-0",
+    "file": "comparisons/work/ipad-mini-section-02-0.jpg"
+  },
+  {
+    "route": "/work",
+    "device": "ipad-air",
+    "viewport": [
+      820,
+      1180
+    ],
+    "capture": "section-02-0",
+    "file": "comparisons/work/ipad-air-section-02-0.jpg"
+  },
+  {
+    "route": "/about",
+    "device": "ipad-pro",
+    "viewport": [
+      1024,
+      1366
+    ],
+    "capture": "hero",
+    "file": "comparisons/about/ipad-pro-hero.jpg"
+  },
+  {
+    "route": "/about",
+    "device": "ipad-air",
+    "viewport": [
+      820,
+      1180
+    ],
+    "capture": "section-04-0",
+    "file": "comparisons/about/ipad-air-section-04-0.jpg"
+  },
+  {
+    "route": "/contact",
+    "device": "ipad-air",
+    "viewport": [
+      820,
+      1180
+    ],
+    "capture": "hero",
+    "file": "comparisons/contact/ipad-air-hero.jpg"
+  }
+]

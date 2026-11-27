@@ -182,7 +182,7 @@
   display: block;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .hero {
     min-height: auto;
     display: block;
@@ -213,6 +213,29 @@
     aspect-ratio: 16 / 9;
     margin: 0;
     border-radius: 14px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1100px) {
+  .hero {
+    min-height: 0;
+    padding-block: 64px;
+  }
+
+  .copy {
+    transform: none;
+  }
+
+  .split {
+    gap: 32px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .film {
+    max-width: 520px;
+    margin-inline: auto;
   }
 }
 
