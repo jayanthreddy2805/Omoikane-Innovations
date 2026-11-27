@@ -1,0 +1,717 @@
+{
+  "baseline": false,
+  "rows": [
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/",
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 768,
+          "height": 480,
+          "bottom": 576
+        },
+        "copy": {
+          "x": 32,
+          "y": 156.125,
+          "width": 366,
+          "height": 359.734375,
+          "bottom": 515.859375
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 768,
+          "height": 480,
+          "bottom": 576
+        },
+        "actions": {
+          "x": 32,
+          "y": 437.859375,
+          "width": 366,
+          "height": 48,
+          "bottom": 485.859375
+        },
+        "heading": {
+          "x": 32,
+          "y": 213.921875,
+          "width": 366,
+          "height": 120.9375,
+          "bottom": 334.859375
+        },
+        "image": {
+          "paddingLeft": 184.312,
+          "source": "http://127.0.0.1:3157/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1600&q=75"
+        }
+      },
+      "axe": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/contact",
+      "contact": {
+        "section": {
+          "y": 111,
+          "width": 768,
+          "height": 996.859375,
+          "bottom": 1107.859375
+        },
+        "form": {
+          "y": 282.6875,
+          "width": 664,
+          "height": 761.171875,
+          "bottom": 1043.859375
+        },
+        "text": {
+          "y": 207.5,
+          "width": 650,
+          "height": 51.1875,
+          "bottom": 258.6875
+        },
+        "columns": 1,
+        "illustration": "none",
+        "footerGap": 64,
+        "introToForm": 24,
+        "fields": [
+          {
+            "id": "cf-name",
+            "height": 54,
+            "font": 16
+          },
+          {
+            "id": "cf-email",
+            "height": 54,
+            "font": 16
+          },
+          {
+            "id": "cf-company",
+            "height": 54,
+            "font": 16
+          },
+          {
+            "id": "cf-phone",
+            "height": 46,
+            "font": 16
+          },
+          {
+            "id": "cf-message",
+            "height": 140,
+            "font": 16
+          }
+        ]
+      },
+      "axe": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/careers/software",
+      "navigation": {
+        "first": {
+          "x": 38.390625,
+          "y": 176.078125,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "scrolled": {
+          "x": 38.390625,
+          "y": -173.921875,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "layout": "row"
+      },
+      "roles": [
+        {
+          "title": "WEB DEVELOPER",
+          "href": "/apply?dept=software&role=web-dev"
+        },
+        {
+          "title": "PYTHON DEVELOPER",
+          "href": "/apply?dept=software&role=python-dev"
+        },
+        {
+          "title": "AI DEVELOPER",
+          "href": "/apply?dept=software&role=ai-dev"
+        },
+        {
+          "title": "EMBEDDED FIRMWARE",
+          "href": "/apply?dept=software&role=firmware-eng"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/careers/mechanical",
+      "navigation": {
+        "first": {
+          "x": 38.390625,
+          "y": 176.078125,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "scrolled": {
+          "x": 38.390625,
+          "y": -173.921875,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "layout": "row"
+      },
+      "roles": [
+        {
+          "title": "3D & 2D MECHANICAL DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-design"
+        },
+        {
+          "title": "ENCLOSURE & PRODUCT DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=prod-eng"
+        },
+        {
+          "title": "MECHANICAL ASSEMBLY & INTEGRATION ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-assembly"
+        },
+        {
+          "title": "STRUCTURAL & THERMAL ANALYSIS ENGINEER",
+          "href": "/apply?dept=mechanical&role=struct-therm"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/careers/electronics",
+      "navigation": {
+        "first": {
+          "x": 38.390625,
+          "y": 176.484375,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "scrolled": {
+          "x": 38.390625,
+          "y": -173.515625,
+          "width": 691.21875,
+          "height": 51.1875
+        },
+        "layout": "row"
+      },
+      "roles": [
+        {
+          "title": "HARDWARE DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=hardware-eng"
+        },
+        {
+          "title": "PCB DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=pcb-eng"
+        },
+        {
+          "title": "RF SYSTEM DESIGNER",
+          "href": "/apply?dept=electronics&role=rf-eng"
+        },
+        {
+          "title": "TEST ENGINEER",
+          "href": "/apply?dept=electronics&role=test-eng"
+        },
+        {
+          "title": "PRODUCT ENGINEER",
+          "href": "/apply?dept=electronics&role=prod-eng-elec"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "interaction": "Header menu and Careers departments",
+      "result": "passed"
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/",
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 820,
+          "height": 480,
+          "bottom": 576
+        },
+        "copy": {
+          "x": 32,
+          "y": 137.9375,
+          "width": 393.109375,
+          "height": 396.109375,
+          "bottom": 534.046875
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 820,
+          "height": 480,
+          "bottom": 576
+        },
+        "actions": {
+          "x": 32,
+          "y": 447.65625,
+          "width": 393.109375,
+          "height": 48.390625,
+          "bottom": 496.046875
+        },
+        "heading": {
+          "x": 32,
+          "y": 235.71875,
+          "width": 393.109375,
+          "height": 104.15625,
+          "bottom": 339.875
+        },
+        "image": {
+          "paddingLeft": 147.594,
+          "source": "http://127.0.0.1:3157/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1920&q=75"
+        }
+      },
+      "axe": []
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/contact",
+      "contact": {
+        "section": {
+          "y": 165.1875,
+          "width": 820,
+          "height": 1009.203125,
+          "bottom": 1174.390625
+        },
+        "form": {
+          "y": 341.25,
+          "width": 640,
+          "height": 769.140625,
+          "bottom": 1110.390625
+        },
+        "text": {
+          "y": 266.0625,
+          "width": 640,
+          "height": 51.1875,
+          "bottom": 317.25
+        },
+        "columns": 1,
+        "illustration": "none",
+        "footerGap": 64,
+        "introToForm": 24,
+        "fields": [
+          {
+            "id": "cf-name",
+            "height": 54,
+            "font": 16
+          },
+          {
+            "id": "cf-email",
+            "height": 54,
+            "font": 16
+          },
+          {
+            "id": "cf-company",
+            "height": 54,
+            "font": 16
+          },
+          {
+            "id": "cf-phone",
+            "height": 46,
+            "font": 16
+          },
+          {
+            "id": "cf-message",
+            "height": 140,
+            "font": 16
+          }
+        ]
+      },
+      "axe": []
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/software",
+      "navigation": {
+        "first": {
+          "x": 41,
+          "y": 207.96875,
+          "width": 738,
+          "height": 51.1875
+        },
+        "scrolled": {
+          "x": 41,
+          "y": -142.03125,
+          "width": 738,
+          "height": 51.1875
+        },
+        "layout": "row"
+      },
+      "roles": [
+        {
+          "title": "WEB DEVELOPER",
+          "href": "/apply?dept=software&role=web-dev"
+        },
+        {
+          "title": "PYTHON DEVELOPER",
+          "href": "/apply?dept=software&role=python-dev"
+        },
+        {
+          "title": "AI DEVELOPER",
+          "href": "/apply?dept=software&role=ai-dev"
+        },
+        {
+          "title": "EMBEDDED FIRMWARE",
+          "href": "/apply?dept=software&role=firmware-eng"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/mechanical",
+      "navigation": {
+        "first": {
+          "x": 41,
+          "y": 207.96875,
+          "width": 738,
+          "height": 51.1875
+        },
+        "scrolled": {
+          "x": 41,
+          "y": -142.03125,
+          "width": 738,
+          "height": 51.1875
+        },
+        "layout": "row"
+      },
+      "roles": [
+        {
+          "title": "3D & 2D MECHANICAL DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-design"
+        },
+        {
+          "title": "ENCLOSURE & PRODUCT DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=prod-eng"
+        },
+        {
+          "title": "MECHANICAL ASSEMBLY & INTEGRATION ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-assembly"
+        },
+        {
+          "title": "STRUCTURAL & THERMAL ANALYSIS ENGINEER",
+          "href": "/apply?dept=mechanical&role=struct-therm"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "route": "/careers/electronics",
+      "navigation": {
+        "first": {
+          "x": 41,
+          "y": 207.96875,
+          "width": 738,
+          "height": 51.1875
+        },
+        "scrolled": {
+          "x": 41,
+          "y": -142.03125,
+          "width": 738,
+          "height": 51.1875
+        },
+        "layout": "row"
+      },
+      "roles": [
+        {
+          "title": "HARDWARE DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=hardware-eng"
+        },
+        {
+          "title": "PCB DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=pcb-eng"
+        },
+        {
+          "title": "RF SYSTEM DESIGNER",
+          "href": "/apply?dept=electronics&role=rf-eng"
+        },
+        {
+          "title": "TEST ENGINEER",
+          "href": "/apply?dept=electronics&role=test-eng"
+        },
+        {
+          "title": "PRODUCT ENGINEER",
+          "href": "/apply?dept=electronics&role=prod-eng-elec"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "interaction": "Header menu and Careers departments",
+      "result": "passed"
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/",
+      "hero": {
+        "section": {
+          "x": 0,
+          "y": 96,
+          "width": 1024,
+          "height": 563.1875,
+          "bottom": 659.1875
+        },
+        "copy": {
+          "x": 32,
+          "y": 186.046875,
+          "width": 499.1875,
+          "height": 383.09375,
+          "bottom": 569.140625
+        },
+        "media": {
+          "x": 0,
+          "y": 96,
+          "width": 1024,
+          "height": 563.1875,
+          "bottom": 659.1875
+        },
+        "actions": {
+          "x": 32,
+          "y": 482.75,
+          "width": 499.1875,
+          "height": 48.390625,
+          "bottom": 531.140625
+        },
+        "heading": {
+          "x": 32,
+          "y": 261.4375,
+          "width": 499.1875,
+          "height": 113.53125,
+          "bottom": 374.96875
+        },
+        "image": {
+          "paddingLeft": 184.312,
+          "source": "http://127.0.0.1:3157/_next/image?url=%2Fimages%2Freference%2Fhome-drone-desktop.jpg&w=1920&q=75"
+        }
+      },
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/contact",
+      "contact": {
+        "section": {
+          "y": 128,
+          "width": 1024,
+          "height": 951.15625,
+          "bottom": 1079.15625
+        },
+        "form": {
+          "y": 246.015625,
+          "width": 510.40625,
+          "height": 769.140625,
+          "bottom": 1015.15625
+        },
+        "text": {
+          "y": 246.015625,
+          "width": 417.59375,
+          "height": 76.78125,
+          "bottom": 322.796875
+        },
+        "columns": 2,
+        "illustration": "block",
+        "footerGap": 64,
+        "introToForm": -76.78125,
+        "fields": [
+          {
+            "id": "cf-name",
+            "height": 54,
+            "font": 16
+          },
+          {
+            "id": "cf-email",
+            "height": 54,
+            "font": 16
+          },
+          {
+            "id": "cf-company",
+            "height": 54,
+            "font": 16
+          },
+          {
+            "id": "cf-phone",
+            "height": 46,
+            "font": 16
+          },
+          {
+            "id": "cf-message",
+            "height": 140,
+            "font": 16
+          }
+        ]
+      },
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/careers/software",
+      "navigation": {
+        "first": {
+          "x": 51.1875,
+          "y": 207.609375,
+          "width": 320,
+          "height": 180
+        },
+        "scrolled": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 180
+        },
+        "layout": "column",
+        "further": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 180
+        }
+      },
+      "roles": [
+        {
+          "title": "WEB DEVELOPER",
+          "href": "/apply?dept=software&role=web-dev"
+        },
+        {
+          "title": "PYTHON DEVELOPER",
+          "href": "/apply?dept=software&role=python-dev"
+        },
+        {
+          "title": "AI DEVELOPER",
+          "href": "/apply?dept=software&role=ai-dev"
+        },
+        {
+          "title": "EMBEDDED FIRMWARE",
+          "href": "/apply?dept=software&role=firmware-eng"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/careers/mechanical",
+      "navigation": {
+        "first": {
+          "x": 51.1875,
+          "y": 207.609375,
+          "width": 320,
+          "height": 264
+        },
+        "scrolled": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 264
+        },
+        "layout": "column",
+        "further": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 264
+        }
+      },
+      "roles": [
+        {
+          "title": "3D & 2D MECHANICAL DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-design"
+        },
+        {
+          "title": "ENCLOSURE & PRODUCT DESIGN ENGINEER",
+          "href": "/apply?dept=mechanical&role=prod-eng"
+        },
+        {
+          "title": "MECHANICAL ASSEMBLY & INTEGRATION ENGINEER",
+          "href": "/apply?dept=mechanical&role=mech-assembly"
+        },
+        {
+          "title": "STRUCTURAL & THERMAL ANALYSIS ENGINEER",
+          "href": "/apply?dept=mechanical&role=struct-therm"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "route": "/careers/electronics",
+      "navigation": {
+        "first": {
+          "x": 51.1875,
+          "y": 207.609375,
+          "width": 320,
+          "height": 233
+        },
+        "scrolled": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 233
+        },
+        "layout": "column",
+        "further": {
+          "x": 51.1875,
+          "y": 128,
+          "width": 320,
+          "height": 233
+        }
+      },
+      "roles": [
+        {
+          "title": "HARDWARE DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=hardware-eng"
+        },
+        {
+          "title": "PCB DESIGN ENGINEER",
+          "href": "/apply?dept=electronics&role=pcb-eng"
+        },
+        {
+          "title": "RF SYSTEM DESIGNER",
+          "href": "/apply?dept=electronics&role=rf-eng"
+        },
+        {
+          "title": "TEST ENGINEER",
+          "href": "/apply?dept=electronics&role=test-eng"
+        },
+        {
+          "title": "PRODUCT ENGINEER",
+          "href": "/apply?dept=electronics&role=prod-eng-elec"
+        }
+      ],
+      "axe": []
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "interaction": "Header menu and Careers departments",
+      "result": "passed"
+    }
+  ],
+  "failures": []
+}
