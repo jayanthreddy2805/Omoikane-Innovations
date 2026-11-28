@@ -1,20 +1,40 @@
-# Task 9 — verified release status (28 November 2026 IST)
+# Task 9 — approved prelaunch rollout blocked (28 November 2026 IST)
 
-**Production release is not complete.** The signed-in Render dashboard is now inspected. No production configuration, deployment, migration, real submission or provider email was executed. The owner approved the production recovery drill and later the named prelaunch recovery drill; neither authorization permits migration, deployment, configuration changes or emails.
+**The full release list is not complete.** The owner approved the controlled prelaunch rollout and accepted the verified branch checkpoint alternative. Automatic deployment was paused and the exact approved TLS/worker configuration was saved. Two pinned-commit builds then failed **before application startup** because Maven Central returned HTTP **429 Too Many Requests**. No new application became live and no V5 migration ran.
+
+## Executed rollout and current blocker
+
+| Item | Verified outcome |
+|---|---|
+| Authorization | Owner's “ok proceed” followed the concrete exact-commit/configuration/V5 proposal. It accepts prelaunch checkpoint `br-polished-band-aorkbxle`; it does not authorize a production DB switch, form submissions or emails. |
+| Blueprint controls | `exs-dbpive8u01pc738ufdm0`: `autoSync=false`, status paused; no sync/plan/apply issued. |
+| Service controls | `srv-dbpjehei0phs73ac8s0g`: autoDeploy no / trigger off; existing Free plan retained. |
+| TLS setting saved | Same prelaunch host/`neondb`, `sslmode=verify-full&sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory`; no inline credentials. Read back successfully. |
+| Worker settings saved | Added `SPRING_APPLICATION_JSON={"app":{"email":{"worker-enabled":false},"retention":{"enabled":false}}}`. Existing ten keys preserved. |
+| Save semantics | Used **Save only**, then manually selected the exact approved commit. Saved values await a successful deploy; **they are not active in the old live release**. |
+| Build 1 | `dep-dc5adsmi0phs73d1b4pg`, exact `93aa7cc3148cfb6781b4e738774ee298af2884ff`; 15:33:30–15:34:38 IST; build_failed. |
+| Cooldown retry | `dep-dc5agqh7lnhs73b96vs0`, same exact SHA, cache preserved; 15:39:46–15:40:50 IST; build_failed. One retry after approximately 308 seconds from the first failure. No further deploy triggered. |
+| Failure | Both failed resolving `org.springframework.boot:spring-boot-starter-parent:pom:3.5.16` from `https://repo.maven.apache.org/maven2`: HTTP 429. Neither reached startup/Flyway. |
+| Previous live service | Remains `dep-dbq8ks0m7kps738npu7g` / `a87d448aae052a7b40502e8d9a5529a5177bdcd3`; health HTTP **200 / UP** at **15:40:21 IST**. This health check validates the previous release, not the failed candidate. |
+| Data / schemas | Prelaunch remains V1–V4; outbox absent. Default production remains V1–V3. Business counts, résumé byte total and aggregate checksum matched the pre-rollout fingerprint. No migration, submission, test email, data deletion or production DB connection change. |
+
+[Safe rollout receipt](release-evidence/TASK9_20261128/prelaunch-rollout-attempt.json) · [Failed pinned retry](https://dashboard.render.com/web/srv-dbpjehei0phs73ac8s0g/deploys/dep-dc5agqh7lnhs73b96vs0)
+
+Maven Central's [rate-limit guidance](https://central.sonatype.org/faq/429-error/) recommends reducing repeated dependency traffic/caching instead of aggressive retries. This attempt did not change dependency versions, repository endpoints, network paths or approved source, and did not clear build cache.
 
 ## Current deployment and database mapping
 
 | Resource | Verified state |
 |---|---|
 | GitHub main | `93aa7cc3148cfb6781b4e738774ee298af2884ff`, merged frontend PR #76 |
-| Tested application / CI | PR #65 application/test commit `961e0a665716bd60e0dabba59ef7c91a4044e628`; frontend and backend CI both successful |
+| Tested application / CI | CI passed on `6e2cfec2bf1e4e463ee6567f3db2660b83a6c61b`; its backend application/POM/Dockerfile match approved main candidate `93aa7cc3148cfb6781b4e738774ee298af2884ff`. Later evidence commits do not change the tested application. |
 | Render service | `srv-dbpjehei0phs73ac8s0g`, `omoikane-api`, Docker Free/Singapore |
 | Render live deployment | `dep-dbq8ks0m7kps738npu7g`, commit `a87d448aae052a7b40502e8d9a5529a5177bdcd3` |
 | **Render-connected database** | Endpoint `ep-lingering-dew-aoqs32ya` maps to **`prelaunch-api-test-20261110`**, branch `br-falling-poetry-aoabyynd`; **not the default production branch** |
 | Default production database | `production`, branch `br-plain-brook-aolmdy63` |
 | Restored recovery copy | `release-restore-20261128`, branch `br-square-recipe-aolpoi1z`, restored from **production**, not the Render-connected branch |
 
-**Owner target decision:** keep Render connected to `prelaunch-api-test-20261110` and prepare the remaining testing work (confirmed in chat after the target recommendation). No production cutover is selected. The successful production recovery drill does **not** prove recovery of this prelaunch database. The later prelaunch recovery authorization allowed a named snapshot/isolated copy. Neon rejected the snapshot for this child branch; the approved private-copy scope produced a verified branch checkpoint, **not a snapshot restore**. Acceptance of this recovery alternative is still required before rollout. Migrations, deployment and email tests remain unapproved. See [the concrete prelaunch plan](TASK_9_PRELAUNCH_EXECUTION_PLAN.md).
+**Owner target decision:** keep Render connected to `prelaunch-api-test-20261110` and prepare the remaining testing work (confirmed in chat after the target recommendation). No production cutover is selected. The successful production recovery drill does **not** prove recovery of this prelaunch database. The later prelaunch recovery authorization allowed a named snapshot/isolated copy. Neon rejected the snapshot for this child branch; the approved private-copy scope produced a verified branch checkpoint, **not a snapshot restore**. The owner accepted this recovery alternative and separately approved the exact prelaunch settings/deploy/V5 proposal. Email/form tests and a production database switch remain unapproved. The approved deploy attempts are blocked before startup as recorded above. See [the concrete prelaunch plan](TASK_9_PRELAUNCH_EXECUTION_PLAN.md).
 
 SELECT-only verification of the Render-connected branch found V1–V4 successful (checksums `1837152950`, `-2140903011`, `813506622`, `119225282`), no V5/outbox table, and zero duplicate normalized-contact groups. Default production and its restored copy remain at V1–V3. No migration was applied during this work.
 
@@ -23,9 +43,9 @@ SELECT-only verification of the Render-connected branch found V1–V4 successful
 | Check | Observed result | Consequence / proposed next action |
 |---|---|---|
 | Source/build | Expected GitHub repository, branch main, blank root directory, Dockerfile `./backend/Dockerfile`, context `./backend`; Git credentials assigned; no included/ignored path filters | Settings verified. Assignment of credentials does not establish GitHub App/check-event delivery. |
-| Deploy controls | **After CI Checks Pass**, health path `/actuator/health`; no newer build/deploy attempt observed after Nov 11 | Do not trigger deployment to diagnose the integration. Exact cause remains unproven. |
-| Blueprint | `exs-dbpive8u01pc738ufdm0`, autoSync true, main / render.yaml, API status **error**, lastSync `2026-11-10T15:24:56.906624Z` | Dashboard shows failed sync `exe-dbpj95nf3r2c738ahmr0` at commit `05c4d2b8967533bf42b5f16d5e116054f27d9dd6`, failed “Create web service omoikane-api”. No detailed cause is displayed. This historical failure is not proof of the later auto-deploy gap's cause. No sync/apply was issued. |
-| Database TLS | Live URL still uses `sslmode=require`. Built runtime-image preflight passed with Java default CA trust, actual/wrong hostname checks, TLSv1.3 and pgJDBC 42.7.15. | Proposed `sslmode=verify-full&sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory` is verified in CI but **not applied to Render**. Runtime setting change still needs approval. |
+| Deploy controls | **Off** after approved pause; health `/actuator/health` retained. Two manual pinned builds failed on upstream Maven 429. | Previous deploy remains live. No repeated retry loop or cache clearing. |
+| Blueprint | `exs-dbpive8u01pc738ufdm0`, main / render.yaml, **autoSync false / paused**. Historical Nov 10 create-service sync error remains documented. | No Blueprint apply issued. The historical auto-deploy gap's cause remains unproven; current release uses approved manual controls. |
+| Database TLS | Strict URL verified in runtime-image CI and saved/read back on Render with `verify-full` / `DefaultJavaSSLFactory`. | Saved-only setting is **not active** on the previous running release; both new builds failed before startup. |
 | CORS | Current Vercel alias present; additional existing Vercel preview origins present | Runtime preflight passed for approved alias; untrusted origin rejected. No origin changed. |
 | Admin URL | HTTPS approved Vercel alias, path `/admin`, no query | Destination verified; production authenticated Admin journey still pending approved testing. |
 | Email | Sender configured on **resend.dev** sandbox; one notification recipient configured; API-key variable present | Sandbox is limited to the Resend account's own email. General client-recipient delivery cannot be signed off. No secret credential value was read and no message was sent. |
@@ -62,20 +82,17 @@ Snapshot creation for selected prelaunch was rejected (HTTP 400 / `INVALID_ARGUM
 
 Both CI workflows passed on `6e2cfec2bf1e4e463ee6567f3db2660b83a6c61b`. Backend runtime-image TLS preflight verified trusted chain, correct hostname and rejection of wrong hostname (TLSv1.3 / pgJDBC 42.7.15), without authenticating or sending SQL. The 95 backend/SQL tests, PG18 restore, isolated browser/API/database journeys and container build also passed. Compare to main `93aa7cc3148cfb6781b4e738774ee298af2884ff` confirms identical backend application source, POM and Dockerfile.
 
-[Safe checkpoint/TLS evidence](release-evidence/TASK9_20261128/prelaunch-checkpoint-and-tls.json) · [Controlled prelaunch proposal](TASK_9_PRELAUNCH_EXECUTION_PLAN.md). Owner acceptance of the branch-checkpoint recovery alternative and separate exact-commit/configuration/V5 testing rollout approval are still needed. Render remains on the old live deploy and no worker/email/data flow has been activated.
+[Safe checkpoint/TLS evidence](release-evidence/TASK9_20261128/prelaunch-checkpoint-and-tls.json) · [Controlled prelaunch proposal](TASK_9_PRELAUNCH_EXECUTION_PLAN.md). The owner accepted the checkpoint alternative and approved the exact prelaunch settings/deploy/V5 proposal. Those builds failed before startup; the saved settings await a successful deploy. Render remains on the old live deploy and no new worker/email/data flow was activated.
 
-## Remaining decisions and controlled sequence
+## Remaining controlled steps
 
-1. **Target chosen: retain current prelaunch branch for testing.** Do not switch to production, overwrite either branch or merge its submission data.
-2. Obtain owner acceptance of the verified prelaunch branch checkpoint as the recovery alternative for testing; the attempted prelaunch snapshot is unsupported. The completed production snapshot drill still covers production only. No migration/deploy authorization is inferred.
-3. Validate certificate/hostname verification with appropriate CA trust; prepare exact minimal TLS and deployment-control changes. Review the Blueprint/Git check-event integration without issuing a deployment or manual sync.
-4. Confirm an approved sender/recipient plan. General delivery needs a verified sender domain; no DNS/domain changes are authorized. Sandbox-only tests require the matching account's own address and explicit test-message approval.
-5. Once gates pass, obtain separate exact-commit, configuration and release-window approval. Startup Flyway applies only the target's missing migrations (prelaunch: V5; production: V4/V5); do not run a second migration sequence.
-6. Verify live SHA, Flyway success, health/CORS, approved synthetic Contact/Apply/résumé/Newsletter/Admin flows, outbox/provider acceptance and delivery, then owner sign-off. Code rollback does not undo schema changes or sent email.
+1. Resolve the dependency-download block before another build. Do not repeatedly redeploy into the same 429, bypass limits or clear usable caches. The original exact-commit/configuration approval remains recorded; no additional automatic retry is scheduled.
+2. Before resuming the same approved candidate, recheck main, target, recovery coverage and Flyway history. Stop if main/history drifted. A different commit, build-source method, repository setting or broader configuration change needs a concrete reviewed proposal and updated execution approval.
+3. A successful deployment must apply V5 **once at startup**, then verify live SHA, migration checksum `-1392285325`, health/CORS and disabled delivery/retention workers. Do not run a manual duplicate migration.
+4. Deployed-service Contact/Apply/Newsletter/Admin/résumé journeys need approved synthetic identities and write scope; real provider delivery needs approved recipients/sender plan. Current sender remains `resend.dev` sandbox.
+5. Production database migration/cutover and final production sign-off remain separate. No full-list completion is claimed.
 
-**NO-GO for production rollout.** The testing target is chosen; target-specific recovery, TLS, integration and email gates remain. Read-only preparation is complete to the extent currently verifiable; no deployment authorization is inferred from dashboard login.
-
-No merge, production configuration change, migration, deployment, production form submission/email, DNS/WordPress/custom-domain, chatbot/RAG/Ollama, photographs/claims/leadership/legal-policy changes.
+No merge, DNS/WordPress/custom-domain, chatbot/RAG/Ollama, photographs/claims/leadership/legal-policy changes. The original production recovery and isolated prelaunch checkpoint remain retained.
 
 ---
 
