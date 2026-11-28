@@ -1,0 +1,92 @@
+{
+  "checked_date_ist": "2026-11-28",
+  "authorization": "Owner approved named prelaunch snapshot/isolated-copy recovery drill, including same-private-project data copy and possible storage charges; excluded migration/deployment/settings/submission/email.",
+  "project_id": "curly-darkness-86465014",
+  "source": {
+    "branch_id": "br-falling-poetry-aoabyynd",
+    "name": "prelaunch-api-test-20261110",
+    "default": false,
+    "flyway_versions": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  "snapshot_attempt": {
+    "name": "omoikane-prelaunch-pre-v5-20261128",
+    "requested_expires_at": "2026-12-05T00:00:00Z",
+    "created": false,
+    "http_status": 400,
+    "error_code": "INVALID_ARGUMENT",
+    "reason": "not allowed to snapshot non-root branch"
+  },
+  "isolated_copy": {
+    "id": "br-polished-band-aorkbxle",
+    "name": "prelaunch-restore-20261128",
+    "parent_id": "br-falling-poetry-aoabyynd",
+    "created_at": "2026-11-28T09:45:08Z",
+    "mechanism": "parent-data branch copy; not a snapshot restore",
+    "default": false,
+    "primary": false,
+    "state": "ready",
+    "automatic_expiry": null,
+    "retained_until_separate_cleanup_approval": true,
+    "compute_max_cu": 0.25
+  },
+  "comparison": {
+    "sourceStable": true,
+    "countsMatch": true,
+    "resumeBytesMatch": true,
+    "resumeChecksumsMatch": true,
+    "flywayMatch": true,
+    "allMigrationsSuccessful": true
+  },
+  "copy_checkpoint_verified": true,
+  "durable_snapshot_restore_drill_completed": false,
+  "acceptance_as_prelaunch_release_recovery_gate": "requires owner acceptance of branch checkpoint alternative",
+  "runtime_tls": {
+    "certificateChainTrusted": true,
+    "hostnameVerified": true,
+    "wrongHostnameRejected": true,
+    "protocol": "TLSv1.3",
+    "driverVersion": "42.7.15",
+    "authenticated": false,
+    "sqlExecuted": false,
+    "tested_commit": "6e2cfec2bf1e4e463ee6567f3db2660b83a6c61b",
+    "backend_workflow_run": 46131480284,
+    "job_id": 140937393699,
+    "verified_at_utc": "2026-11-28T09:42:13Z",
+    "image": "omoikane-api:ci built from backend/Dockerfile",
+    "factory": "org.postgresql.ssl.DefaultJavaSSLFactory",
+    "proposed_mode": "verify-full",
+    "production_url_changed": false
+  },
+  "local_probe_fixture": {
+    "trusted_chain_accepted": true,
+    "wrong_hostname_rejected": true,
+    "untrusted_chain_rejected": true,
+    "real_database_used": false
+  },
+  "application_verification": {
+    "frontend_ci": "success",
+    "backend_ci": "success",
+    "maven_tests": 88,
+    "postgresql_integration_tests": 7,
+    "postgresql18_dump_restore": "passed",
+    "isolated_browser_api_database": "passed",
+    "container_build": "passed",
+    "main_candidate": "93aa7cc3148cfb6781b4e738774ee298af2884ff",
+    "backend_application_source_same_as_tested_commit": true
+  },
+  "live_state": {
+    "render_deployment": "dep-dbq8ks0m7kps738npu7g",
+    "render_commit": "a87d448aae052a7b40502e8d9a5529a5177bdcd3",
+    "live_connection_changed": false,
+    "production_default_branch_unchanged": true,
+    "migrations_applied": false,
+    "emails_sent": false,
+    "submissions_created": false
+  },
+  "privacy": "Only resource metadata, migration versions and comparison booleans retained. No record bodies, CV bytes/raw checksums, passwords, API/admin keys or recipient addresses exported."
+}

@@ -1,6 +1,6 @@
 # Task 9 — verified release status (28 November 2026 IST)
 
-**Production release is not complete.** The signed-in Render dashboard is now inspected. No production configuration, deployment, migration, real submission or provider email was executed. The owner separately approved only the named Neon recovery drill.
+**Production release is not complete.** The signed-in Render dashboard is now inspected. No production configuration, deployment, migration, real submission or provider email was executed. The owner approved the production recovery drill and later the named prelaunch recovery drill; neither authorization permits migration, deployment, configuration changes or emails.
 
 ## Current deployment and database mapping
 
@@ -14,7 +14,7 @@
 | Default production database | `production`, branch `br-plain-brook-aolmdy63` |
 | Restored recovery copy | `release-restore-20261128`, branch `br-square-recipe-aolpoi1z`, restored from **production**, not the Render-connected branch |
 
-**Owner target decision:** keep Render connected to `prelaunch-api-test-20261110` and prepare the remaining testing work (confirmed in chat after the target recommendation). No production cutover is selected. The successful production recovery drill does **not** prove recovery of this prelaunch database. This decision does not authorize snapshot/branch creation, migrations, deployment or email tests. See [the concrete prelaunch plan](TASK_9_PRELAUNCH_EXECUTION_PLAN.md).
+**Owner target decision:** keep Render connected to `prelaunch-api-test-20261110` and prepare the remaining testing work (confirmed in chat after the target recommendation). No production cutover is selected. The successful production recovery drill does **not** prove recovery of this prelaunch database. The later prelaunch recovery authorization allowed a named snapshot/isolated copy. Neon rejected the snapshot for this child branch; the approved private-copy scope produced a verified branch checkpoint, **not a snapshot restore**. Acceptance of this recovery alternative is still required before rollout. Migrations, deployment and email tests remain unapproved. See [the concrete prelaunch plan](TASK_9_PRELAUNCH_EXECUTION_PLAN.md).
 
 SELECT-only verification of the Render-connected branch found V1–V4 successful (checksums `1837152950`, `-2140903011`, `813506622`, `119225282`), no V5/outbox table, and zero duplicate normalized-contact groups. Default production and its restored copy remain at V1–V3. No migration was applied during this work.
 
@@ -25,7 +25,7 @@ SELECT-only verification of the Render-connected branch found V1–V4 successful
 | Source/build | Expected GitHub repository, branch main, blank root directory, Dockerfile `./backend/Dockerfile`, context `./backend`; Git credentials assigned; no included/ignored path filters | Settings verified. Assignment of credentials does not establish GitHub App/check-event delivery. |
 | Deploy controls | **After CI Checks Pass**, health path `/actuator/health`; no newer build/deploy attempt observed after Nov 11 | Do not trigger deployment to diagnose the integration. Exact cause remains unproven. |
 | Blueprint | `exs-dbpive8u01pc738ufdm0`, autoSync true, main / render.yaml, API status **error**, lastSync `2026-11-10T15:24:56.906624Z` | Dashboard shows failed sync `exe-dbpj95nf3r2c738ahmr0` at commit `05c4d2b8967533bf42b5f16d5e116054f27d9dd6`, failed “Create web service omoikane-api”. No detailed cause is displayed. This historical failure is not proof of the later auto-deploy gap's cause. No sync/apply was issued. |
-| Database TLS | JDBC/direct Neon endpoint, `neondb`, credentials supplied separately; `sslmode=require` | Encryption required, but pgJDBC certificate/hostname validation gate is **not met**. Propose `sslmode=verify-full` with validated CA trust in the deployed Java image; verify before any configuration approval. Do not blindly change the URL. |
+| Database TLS | Live URL still uses `sslmode=require`. Built runtime-image preflight passed with Java default CA trust, actual/wrong hostname checks, TLSv1.3 and pgJDBC 42.7.15. | Proposed `sslmode=verify-full&sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory` is verified in CI but **not applied to Render**. Runtime setting change still needs approval. |
 | CORS | Current Vercel alias present; additional existing Vercel preview origins present | Runtime preflight passed for approved alias; untrusted origin rejected. No origin changed. |
 | Admin URL | HTTPS approved Vercel alias, path `/admin`, no query | Destination verified; production authenticated Admin journey still pending approved testing. |
 | Email | Sender configured on **resend.dev** sandbox; one notification recipient configured; API-key variable present | Sandbox is limited to the Resend account's own email. General client-recipient delivery cannot be signed off. No secret credential value was read and no message was sent. |
@@ -56,10 +56,18 @@ Read-only checks completed **28 November 2026, 14:42–14:43 IST** against `http
 - [Backend CI](https://github.com/jayanthreddy2805/Omoikane-Innovations/actions/runs/46084144646) and [Frontend CI](https://github.com/jayanthreddy2805/Omoikane-Innovations/actions/runs/46084144619) both confirmed successful on `961e0a665716bd60e0dabba59ef7c91a4044e628`. Later documentation-only commits do not change the tested application.
 - CI is loopback-only with synthetic records/credentials; provider/worker and retention disabled. Playwright 1.65.1 is pinned outside app dependencies. Vercel automatic deployment is disabled on this review branch.
 
+## Verified prelaunch checkpoint and TLS update
+
+Snapshot creation for selected prelaunch was rejected (HTTP 400 / `INVALID_ARGUMENT`: “not allowed to snapshot non-root branch”). **No prelaunch snapshot exists and the snapshot/restore drill is not completed.** The approved same-project isolated-copy scope was used to create branch checkpoint `prelaunch-restore-20261128` / `br-polished-band-aorkbxle`, parent prelaunch, ready/non-default/non-primary, capped at 0.25 CU. Source stayed stable; Flyway V1–V4/checksums/success, record counts, résumé byte totals and aggregate checksums all matched the copy. It remains retained; no snapshot-expiry claim applies to it.
+
+Both CI workflows passed on `6e2cfec2bf1e4e463ee6567f3db2660b83a6c61b`. Backend runtime-image TLS preflight verified trusted chain, correct hostname and rejection of wrong hostname (TLSv1.3 / pgJDBC 42.7.15), without authenticating or sending SQL. The 95 backend/SQL tests, PG18 restore, isolated browser/API/database journeys and container build also passed. Compare to main `93aa7cc3148cfb6781b4e738774ee298af2884ff` confirms identical backend application source, POM and Dockerfile.
+
+[Safe checkpoint/TLS evidence](release-evidence/TASK9_20261128/prelaunch-checkpoint-and-tls.json) · [Controlled prelaunch proposal](TASK_9_PRELAUNCH_EXECUTION_PLAN.md). Owner acceptance of the branch-checkpoint recovery alternative and separate exact-commit/configuration/V5 testing rollout approval are still needed. Render remains on the old live deploy and no worker/email/data flow has been activated.
+
 ## Remaining decisions and controlled sequence
 
 1. **Target chosen: retain current prelaunch branch for testing.** Do not switch to production, overwrite either branch or merge its submission data.
-2. Ensure a verified recovery point for that exact target. The existing drill covers production only. Snapshot/branch creation, restoration or migrations require their own explicit authorization.
+2. Obtain owner acceptance of the verified prelaunch branch checkpoint as the recovery alternative for testing; the attempted prelaunch snapshot is unsupported. The completed production snapshot drill still covers production only. No migration/deploy authorization is inferred.
 3. Validate certificate/hostname verification with appropriate CA trust; prepare exact minimal TLS and deployment-control changes. Review the Blueprint/Git check-event integration without issuing a deployment or manual sync.
 4. Confirm an approved sender/recipient plan. General delivery needs a verified sender domain; no DNS/domain changes are authorized. Sandbox-only tests require the matching account's own address and explicit test-message approval.
 5. Once gates pass, obtain separate exact-commit, configuration and release-window approval. Startup Flyway applies only the target's missing migrations (prelaunch: V5; production: V4/V5); do not run a second migration sequence.
