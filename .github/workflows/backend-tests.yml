@@ -123,3 +123,20 @@ jobs:
 
       - name: Build deployable container
         run: docker build --file Dockerfile --tag omoikane-api:ci .
+
+      # Dated release audit only: SSLRequest/handshake, no login or SQL.
+      # Skip after merge and on unrelated branches.
+      - name: Verify prelaunch TLS with the built runtime image
+        if: github.head_ref == 'docs/task9-production-readiness-20261126' || github.ref_name == 'docs/task9-production-readiness-20261126'
+        env:
+          PREFLIGHT_NEON_HOST: ep-lingering-dew-aoqs32ya.c-2.ap-southeast-1.aws.neon.tech
+        run: |
+          set -euo pipefail
+          tls_fixture=$(mktemp -d)
+          trap 'rm -rf "$tls_fixture"' EXIT
+          unzip -p target/api-0.0.1-SNAPSHOT.jar BOOT-INF/lib/postgresql-42.7.15.jar > "$tls_fixture/postgresql.jar"
+          javac --release 21 --class-path "$tls_fixture/postgresql.jar" -d "$tls_fixture" scripts/VerifyPostgresTls.java
+          chmod 755 "$tls_fixture"
+          chmod 644 "$tls_fixture"/*
+          docker run --rm --volume "$tls_fixture:/preflight:ro" --entrypoint java omoikane-api:ci \
+            --class-path /preflight:/preflight/postgresql.jar VerifyPostgresTls "$PREFLIGHT_NEON_HOST"

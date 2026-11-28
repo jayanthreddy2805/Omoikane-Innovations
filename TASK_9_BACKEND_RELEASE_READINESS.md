@@ -14,7 +14,7 @@
 | Default production database | `production`, branch `br-plain-brook-aolmdy63` |
 | Restored recovery copy | `release-restore-20261128`, branch `br-square-recipe-aolpoi1z`, restored from **production**, not the Render-connected branch |
 
-**Release blocker:** do not silently change the database target. The successful production recovery drill does **not** prove recovery of the currently connected prelaunch database. Owner must choose the intended target before any target-specific recovery, migration or deployment approval.
+**Owner target decision:** keep Render connected to `prelaunch-api-test-20261110` and prepare the remaining testing work (confirmed in chat after the target recommendation). No production cutover is selected. The successful production recovery drill does **not** prove recovery of this prelaunch database. This decision does not authorize snapshot/branch creation, migrations, deployment or email tests. See [the concrete prelaunch plan](TASK_9_PRELAUNCH_EXECUTION_PLAN.md).
 
 SELECT-only verification of the Render-connected branch found V1–V4 successful (checksums `1837152950`, `-2140903011`, `813506622`, `119225282`), no V5/outbox table, and zero duplicate normalized-contact groups. Default production and its restored copy remain at V1–V3. No migration was applied during this work.
 
@@ -58,14 +58,14 @@ Read-only checks completed **28 November 2026, 14:42–14:43 IST** against `http
 
 ## Remaining decisions and controlled sequence
 
-1. **Owner chooses intended database target:** keep current prelaunch branch for testing, or prepare a separately approved production cutover. Do not overwrite either branch or merge its submission data.
+1. **Target chosen: retain current prelaunch branch for testing.** Do not switch to production, overwrite either branch or merge its submission data.
 2. Ensure a verified recovery point for that exact target. The existing drill covers production only. Snapshot/branch creation, restoration or migrations require their own explicit authorization.
 3. Validate certificate/hostname verification with appropriate CA trust; prepare exact minimal TLS and deployment-control changes. Review the Blueprint/Git check-event integration without issuing a deployment or manual sync.
 4. Confirm an approved sender/recipient plan. General delivery needs a verified sender domain; no DNS/domain changes are authorized. Sandbox-only tests require the matching account's own address and explicit test-message approval.
 5. Once gates pass, obtain separate exact-commit, configuration and release-window approval. Startup Flyway applies only the target's missing migrations (prelaunch: V5; production: V4/V5); do not run a second migration sequence.
 6. Verify live SHA, Flyway success, health/CORS, approved synthetic Contact/Apply/résumé/Newsletter/Admin flows, outbox/provider acceptance and delivery, then owner sign-off. Code rollback does not undo schema changes or sent email.
 
-**NO-GO for production rollout.** The remaining target, TLS, integration and email gates are explicit. Read-only preparation is complete to the extent currently verifiable; no deployment authorization is inferred from dashboard login.
+**NO-GO for production rollout.** The testing target is chosen; target-specific recovery, TLS, integration and email gates remain. Read-only preparation is complete to the extent currently verifiable; no deployment authorization is inferred from dashboard login.
 
 No merge, production configuration change, migration, deployment, production form submission/email, DNS/WordPress/custom-domain, chatbot/RAG/Ollama, photographs/claims/leadership/legal-policy changes.
 
