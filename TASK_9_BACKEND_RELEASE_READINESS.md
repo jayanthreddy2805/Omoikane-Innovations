@@ -1,45 +1,73 @@
-# Task 9 — current verified status (28 November 2026 IST)
+# Task 9 — verified release status (28 November 2026 IST)
 
-This update supersedes the older read-only assessments below. Production release is **not complete**. The owner explicitly approved the named recovery drill only; no production configuration change, deployment, migration, real submission or provider email was executed.
+**Production release is not complete.** The signed-in Render dashboard is now inspected. No production configuration, deployment, migration, real submission or provider email was executed. The owner separately approved only the named Neon recovery drill.
 
-| Workstream | Verified | Still pending |
+## Current deployment and database mapping
+
+| Resource | Verified state |
+|---|---|
+| GitHub main | `93aa7cc3148cfb6781b4e738774ee298af2884ff`, merged frontend PR #76 |
+| Tested application / CI | PR #65 application/test commit `961e0a665716bd60e0dabba59ef7c91a4044e628`; frontend and backend CI both successful |
+| Render service | `srv-dbpjehei0phs73ac8s0g`, `omoikane-api`, Docker Free/Singapore |
+| Render live deployment | `dep-dbq8ks0m7kps738npu7g`, commit `a87d448aae052a7b40502e8d9a5529a5177bdcd3` |
+| **Render-connected database** | Endpoint `ep-lingering-dew-aoqs32ya` maps to **`prelaunch-api-test-20261110`**, branch `br-falling-poetry-aoabyynd`; **not the default production branch** |
+| Default production database | `production`, branch `br-plain-brook-aolmdy63` |
+| Restored recovery copy | `release-restore-20261128`, branch `br-square-recipe-aolpoi1z`, restored from **production**, not the Render-connected branch |
+
+**Release blocker:** do not silently change the database target. The successful production recovery drill does **not** prove recovery of the currently connected prelaunch database. Owner must choose the intended target before any target-specific recovery, migration or deployment approval.
+
+SELECT-only verification of the Render-connected branch found V1–V4 successful (checksums `1837152950`, `-2140903011`, `813506622`, `119225282`), no V5/outbox table, and zero duplicate normalized-contact groups. Default production and its restored copy remain at V1–V3. No migration was applied during this work.
+
+## Signed-in Render configuration findings
+
+| Check | Observed result | Consequence / proposed next action |
 |---|---|---|
-| Render | Confirmed workspace; service `srv-dbpjehei0phs73ac8s0g` still on deployment `dep-dbq8ks0m7kps738npu7g`, commit `a87d448aae052a7b40502e8d9a5529a5177bdcd3`. Main/checksPass auto-deploy configured; no later deploy/build attempt observed since Nov 11. | Git/check-event connection and actual TLS/CORS/admin/email settings. Dashboard sign-in was interrupted; the cause is not proven and no setting was toggled. |
-| Neon backup/restore | **Completed with explicit approval.** Snapshot `snap-plain-credit-ao61q7xz` / `omoikane-pre-v4v5-20261128` restored into isolated branch `br-square-recipe-aolpoi1z` / `release-restore-20261128`. | Retain the recovery point through the release window; the restored copy remains in Neon and needs a separate cleanup decision. |
-| V4/V5 | Production V1–V3 successful; zero normalized-contact duplicate groups. Local V3→V5/persistence suite passed 7 tests. | V4/V5 remain unapplied to production **and the restored copy**. Recovery approval expressly excluded migrations. |
-| Contact / Apply / Newsletter | Maven verify passed 88 tests. Seven real PostgreSQL checks cover Contact persistence/duplicates, Career/private résumé bytes, transactions/outbox locking and Newsletter consent/unsubscribe/reactivation. | Production flows are unexecuted. The final local browser run's output could not be retrieved after environment startup failed; the updated CI reruns browser → isolated Spring Boot → PostgreSQL. |
-| Email | Existing tests cover outbox enqueue/rollback, retries, leases, idempotency and provider error paths. Production outbox table is absent because V5 is pending. Connected Resend account listed no verified domains; aggregate totals were 17 sent, 17 delivered, zero failed/bounced. | Those account totals do not identify this backend or verify its credentials/sender/recipients. Actual approved test-recipient delivery is still required. No email or DNS change was made. |
-| Production sign-off | Frontend main is merged #76, `93aa7cc3148cfb6781b4e738774ee298af2884ff`. Backend application source tree `a12a77a1b6bd3bd8370041f184c433022698ff74` is unchanged by this PR. | Separate exact-commit/configuration/window approval after gates pass, then rollout/migrations, health/CORS, production journeys, provider delivery and owner acceptance. |
+| Source/build | Expected GitHub repository, branch main, blank root directory, Dockerfile `./backend/Dockerfile`, context `./backend`; Git credentials assigned; no included/ignored path filters | Settings verified. Assignment of credentials does not establish GitHub App/check-event delivery. |
+| Deploy controls | **After CI Checks Pass**, health path `/actuator/health`; no newer build/deploy attempt observed after Nov 11 | Do not trigger deployment to diagnose the integration. Exact cause remains unproven. |
+| Blueprint | `exs-dbpive8u01pc738ufdm0`, autoSync true, main / render.yaml, API status **error**, lastSync `2026-11-10T15:24:56.906624Z` | Dashboard shows failed sync `exe-dbpj95nf3r2c738ahmr0` at commit `05c4d2b8967533bf42b5f16d5e116054f27d9dd6`, failed “Create web service omoikane-api”. No detailed cause is displayed. This historical failure is not proof of the later auto-deploy gap's cause. No sync/apply was issued. |
+| Database TLS | JDBC/direct Neon endpoint, `neondb`, credentials supplied separately; `sslmode=require` | Encryption required, but pgJDBC certificate/hostname validation gate is **not met**. Propose `sslmode=verify-full` with validated CA trust in the deployed Java image; verify before any configuration approval. Do not blindly change the URL. |
+| CORS | Current Vercel alias present; additional existing Vercel preview origins present | Runtime preflight passed for approved alias; untrusted origin rejected. No origin changed. |
+| Admin URL | HTTPS approved Vercel alias, path `/admin`, no query | Destination verified; production authenticated Admin journey still pending approved testing. |
+| Email | Sender configured on **resend.dev** sandbox; one notification recipient configured; API-key variable present | Sandbox is limited to the Resend account's own email. General client-recipient delivery cannot be signed off. No secret credential value was read and no message was sent. |
+| Additional env sources | No linked environment groups; Secret Files section showed no files | Ten service variable keys observed. No Edit/Export/Copy control used. |
 
-## Executed Neon recovery drill
+Environment values were revealed only as needed for derived configuration facts and then remasked. No passwords, admin secret, API key, raw recipient address or record bodies are included in this report/evidence. The dashboard was reloaded to clear revealed values.
 
-Source project `curly-darkness-86465014`, production branch `br-plain-brook-aolmdy63`. Snapshot created **2026-11-27 23:10:43 UTC / 28 Nov 04:40:43 IST**, expires **2026-12-05 00:00 UTC / 5 Dec 05:30 IST**.
+[Failed Blueprint sync](https://dashboard.render.com/blueprint/exs-dbpive8u01pc738ufdm0/sync/exe-dbpj95nf3r2c738ahmr0) · [Safe runtime evidence](release-evidence/TASK9_20261128/render-runtime-audit.json)
 
-Restore used `finalize=false`. Production stayed default; the new branch is non-primary/non-default and reached ready. Read-only migration versions/checksums/success, contact/application/subscriber counts, résumé byte total and aggregate résumé SHA-256 all matched. Source aggregates were stable before/after the snapshot interval.
+## Live API verification
 
-No record bodies or résumé bytes were exported to the workspace, repository or logs. [Recovery receipt](release-evidence/TASK9_20261128/neon-recovery.json) records resource metadata and comparison booleans. This is an actual Neon recovery drill, distinct from the local synthetic dump/restore test.
+Read-only checks completed **28 November 2026, 14:42–14:43 IST** against `https://omoikane-api.onrender.com`:
 
-## Reviewable verification changes
+- `GET /actuator/health`: HTTP **200**, status **UP**, liveness/readiness groups returned.
+- `OPTIONS /api/contact`, origin `https://omoikane-innovations-3h7t.vercel.app`, requested POST/content-type: HTTP **200**, exact `Access-Control-Allow-Origin` matched.
+- Identical OPTIONS using `https://untrusted.example`: HTTP **403**, “Invalid CORS request”, no allow-origin.
+- These checks create no submission or email. They do not validate production Contact/Apply/Newsletter persistence, authentication or recipient delivery.
 
-- `backend/scripts/verify-postgres.sh`: optional `READINESS_RESTORE_REHEARSAL=1` custom-format dump/restore in its newly created loopback-only synthetic cluster. Compare Flyway checksums, counts, résumé SHA-256, index structure and partial-index behavior via `recovery-fingerprint.sql`; clean up the disposable fixture. Equivalent array-cast deparsing is checked semantically.
-- `PostgresReadinessIT`: add real PostgreSQL Newsletter consent, duplicate, unsubscribe, token rotation and reactivation persistence. Higher fixture request limit keeps this database suite independent of dedicated rate-limit tests.
-- Backend CI: rehearse restore on PostgreSQL **18**, then browser business flows against a loopback Spring Boot API and synthetic PostgreSQL. Temporary Playwright tooling is pinned to 1.65.1 outside app dependencies. Fixture admin key is synthetic; email worker/provider and retention are disabled. Keep test diagnostics seven days.
-- Browser verifier blocks all external requests except the explicit business paths redirected to loopback. Fixture API binds to 127.0.0.1. No Neon credentials or real production data enter CI.
-- Vercel deployment is disabled for this review branch. No application/UI/backend production source behavior is changed.
+## Completed recovery and isolated verification
 
-Locally verified before interruption: Maven verify **88 passing**, PostgreSQL **7 passing on PostgreSQL 17**, synthetic custom-format restore comparison, frontend npm ci, lint, TypeScript, site/film-only/protected-UI checks and production build. PostgreSQL 18, container build and final integrated browser output must be confirmed by the updated CI; they are not claimed successful in advance.
+- **Owner-approved Neon drill completed:** snapshot `snap-plain-credit-ao61q7xz` / `omoikane-pre-v4v5-20261128`, source default production `br-plain-brook-aolmdy63`. Created **28 Nov 04:40:43 IST**, expires **5 Dec 05:30 IST**.
+- Restored using `finalize=false` into non-default/non-primary `release-restore-20261128`; production stayed unchanged. Read-only Flyway versions/checksums/success, counts, résumé byte total and aggregate SHA-256 matched. The restored branch remains retained; cleanup needs its own decision.
+- No record bodies or résumé bytes were exported to the workspace/repository/logs. [Recovery receipt](release-evidence/TASK9_20261128/neon-recovery.json).
+- **95 backend/SQL tests passed:** 88 Maven tests plus seven real PostgreSQL integration tests, including Newsletter consent, duplicates, unsubscribe, token rotation and reactivation.
+- **PostgreSQL 18 custom-format dump/restore rehearsal passed** on synthetic data, checking migrations/checksums, counts, résumé bytes/SHA-256, indexes and partial-index behavior.
+- **Browser → real isolated Spring Boot → PostgreSQL passed:** Contact/duplicates, Apply multipart résumé, Newsletter consent/duplicates, authenticated Admin listings and exact résumé download bytes.
+- **Container build passed.** Frontend npm ci, lint, TypeScript, indexing/site/About-film/protected UI checks and production build passed.
+- [Backend CI](https://github.com/jayanthreddy2805/Omoikane-Innovations/actions/runs/46084144646) and [Frontend CI](https://github.com/jayanthreddy2805/Omoikane-Innovations/actions/runs/46084144619) both confirmed successful on `961e0a665716bd60e0dabba59ef7c91a4044e628`. Later documentation-only commits do not change the tested application.
+- CI is loopback-only with synthetic records/credentials; provider/worker and retention disabled. Playwright 1.65.1 is pinned outside app dependencies. Vercel automatic deployment is disabled on this review branch.
 
-Live health/CORS requests timed out from the execution environment; web fetch could not access health either. This is neither a positive check nor proof of an application outage. The execution environment later failed to reconnect, so unfinished browser verification was moved to isolated CI.
+## Remaining decisions and controlled sequence
 
-## Remaining controlled steps
+1. **Owner chooses intended database target:** keep current prelaunch branch for testing, or prepare a separately approved production cutover. Do not overwrite either branch or merge its submission data.
+2. Ensure a verified recovery point for that exact target. The existing drill covers production only. Snapshot/branch creation, restoration or migrations require their own explicit authorization.
+3. Validate certificate/hostname verification with appropriate CA trust; prepare exact minimal TLS and deployment-control changes. Review the Blueprint/Git check-event integration without issuing a deployment or manual sync.
+4. Confirm an approved sender/recipient plan. General delivery needs a verified sender domain; no DNS/domain changes are authorized. Sandbox-only tests require the matching account's own address and explicit test-message approval.
+5. Once gates pass, obtain separate exact-commit, configuration and release-window approval. Startup Flyway applies only the target's missing migrations (prelaunch: V5; production: V4/V5); do not run a second migration sequence.
+6. Verify live SHA, Flyway success, health/CORS, approved synthetic Contact/Apply/résumé/Newsletter/Admin flows, outbox/provider acceptance and delivery, then owner sign-off. Code rollback does not undo schema changes or sent email.
 
-1. Finish read-only Render Git/check-event and secret-safe runtime verification. Do not issue a deploy or change environment/auto-deploy settings to diagnose it.
-2. Separately approve V4/V5 rehearsal on the restored branch if required. Its recovery authorization included no migrations.
-3. After gates pass, separately approve exact release commit, required configuration changes and window; startup Flyway applies production V4/V5 once.
-4. Approve synthetic identities/recipients for production Contact, Apply/résumé, consent/opt-out, Admin and actual outbox/provider acceptance **and delivery** tests.
-5. Record deployment/live commit, Flyway success, health/CORS and owner sign-off before marking production complete.
+**NO-GO for production rollout.** The remaining target, TLS, integration and email gates are explicit. Read-only preparation is complete to the extent currently verifiable; no deployment authorization is inferred from dashboard login.
 
-No WordPress, DNS/custom domain, chatbot/RAG/Ollama, photographs, claims, leadership or legal-policy changes.
+No merge, production configuration change, migration, deployment, production form submission/email, DNS/WordPress/custom-domain, chatbot/RAG/Ollama, photographs/claims/leadership/legal-policy changes.
 
 ---
 
