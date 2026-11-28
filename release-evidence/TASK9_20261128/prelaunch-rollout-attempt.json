@@ -1,0 +1,99 @@
+{
+  "date_ist": "2026-11-28",
+  "authorized_exact_commit": "93aa7cc3148cfb6781b4e738774ee298af2884ff",
+  "target": "prelaunch-api-test-20261110",
+  "branch_id": "br-falling-poetry-aoabyynd",
+  "accepted_recovery_alternative": "br-polished-band-aorkbxle",
+  "blueprint_auto_sync": false,
+  "service_auto_deploy": false,
+  "configuration_save_only": true,
+  "strict_jdbc_url_saved": true,
+  "workers_suppressed_via_spring_application_json": true,
+  "first_attempt": {
+    "id": "dep-dc5adsmi0phs73d1b4pg",
+    "status": "build_failed",
+    "failure": "Maven Central HTTP 429 resolving spring-boot-starter-parent 3.5.16",
+    "failed_before_startup": true,
+    "created_at": "2026-11-28T10:03:30.57945Z",
+    "failed_at": "2026-11-28T10:04:38.316045Z"
+  },
+  "migration_expected": {
+    "version": "5",
+    "checksum": -1392285325
+  },
+  "migration_executed": false,
+  "production_database_changed": false,
+  "submissions_created": false,
+  "test_emails_sent": false,
+  "retry": {
+    "id": "dep-dc5agqh7lnhs73b96vs0",
+    "created_at": "2026-11-28T10:09:46Z",
+    "same_commit": true,
+    "cache_cleared": false,
+    "cooldown_seconds": 308,
+    "status": "build_failed",
+    "failed_at": "2026-11-28T10:10:50.636465Z",
+    "failure": "Same Maven Central HTTP 429 resolving spring-boot-starter-parent 3.5.16",
+    "failed_before_startup": true
+  },
+  "status": "blocked_before_startup",
+  "updated_date_ist": "2026-11-28",
+  "user_authorized": true,
+  "authorization_scope": "Accepted verified prelaunch branch checkpoint; pause service auto-deploy and Blueprint auto-sync; save strict JDBC TLS and email/retention suppression; deploy exact main 93aa7cc once, applying V5 only at startup; no production DB switch, submissions, emails or merge. Same-commit retry followed cooldown.",
+  "no_further_retries_triggered": true,
+  "configuration": {
+    "save_method": "Render Dashboard Save only",
+    "existing_keys_preserved": true,
+    "updated_keys": [
+      "DATABASE_URL"
+    ],
+    "added_keys": [
+      "SPRING_APPLICATION_JSON"
+    ],
+    "strict_tls_saved_and_read_back": true,
+    "sslmode": "verify-full",
+    "factory": "org.postgresql.ssl.DefaultJavaSSLFactory",
+    "same_prelaunch_host_and_neondb": true,
+    "inline_credentials": false,
+    "email_worker_enabled": false,
+    "retention_enabled": false,
+    "active_in_previous_live_release": false,
+    "activation_requires_successful_standard_deploy": true,
+    "secrets_revealed_or_exported": false
+  },
+  "live": {
+    "id": "dep-dbq8ks0m7kps738npu7g",
+    "commit": "a87d448aae052a7b40502e8d9a5529a5177bdcd3",
+    "health_http": 200,
+    "health_status": "UP",
+    "health_checked_at_utc": "2026-11-28T10:10:21Z",
+    "health_is_previous_release": true
+  },
+  "schema": {
+    "prelaunch_flyway_versions": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "prelaunch_history_checksums_unchanged": true,
+    "outbox_exists": false,
+    "production_flyway_versions": [
+      "1",
+      "2",
+      "3"
+    ],
+    "production_history_unchanged": true
+  },
+  "data": {
+    "business_counts_resume_bytes_and_aggregate_checksum_unchanged": true,
+    "raw_data_or_resume_checksums_exported": false
+  },
+  "remaining": [
+    "Dependency downloads from Render must work before this exact commit can build",
+    "V5 has not run and the new settings are not active on the old live deployment",
+    "Deployed-service write journeys and actual approved recipient delivery remain unexecuted",
+    "Final production sign-off remains pending"
+  ],
+  "reference": "https://central.sonatype.org/faq/429-error/"
+}

@@ -1,0 +1,33 @@
+{
+  "verifiedOn": "28 November 2026 (IST)",
+  "authorization": "User explicitly approved the named isolated recovery drill; no migrations, deployment or emails",
+  "projectId": "curly-darkness-86465014",
+  "sourceBranchId": "br-plain-brook-aolmdy63",
+  "snapshot": {
+    "id": "snap-plain-credit-ao61q7xz",
+    "name": "omoikane-pre-v4v5-20261128",
+    "createdAt": "2026-11-27T23:10:43Z",
+    "expiresAt": "2026-12-05T00:00:00Z"
+  },
+  "restoredBranch": {
+    "id": "br-square-recipe-aolpoi1z",
+    "name": "release-restore-20261128",
+    "default": false,
+    "primary": false,
+    "restoredFrom": "snap-plain-credit-ao61q7xz",
+    "verifiedReady": true
+  },
+  "sourceStable": true,
+  "restoredMatches": true,
+  "compared": [
+    "Flyway versions/checksums/success",
+    "contact count",
+    "application count",
+    "subscriber count",
+    "total resume bytes",
+    "aggregate resume SHA-256"
+  ],
+  "recordBodiesOrResumeBytesExported": false,
+  "productionSchemaChanged": false,
+  "finalize": false
+}

@@ -1,0 +1,96 @@
+{
+  "checked_date_ist": "2026-11-28",
+  "scope": "read-only; derived configuration facts only",
+  "render": {
+    "service_id": "srv-dbpjehei0phs73ac8s0g",
+    "live_deploy_id": "dep-dbq8ks0m7kps738npu7g",
+    "live_commit": "a87d448aae052a7b40502e8d9a5529a5177bdcd3",
+    "branch": "main",
+    "auto_deploy_trigger": "checksPass",
+    "git_credentials_assigned": true,
+    "dockerfile": "./backend/Dockerfile",
+    "docker_context": "./backend",
+    "root_directory": "",
+    "path_filters": false,
+    "blueprint": {
+      "id": "exs-dbpive8u01pc738ufdm0",
+      "status": "error",
+      "auto_sync": true,
+      "last_sync": "2026-11-10T15:24:56.906624Z",
+      "failed_sync": "exe-dbpj95nf3r2c738ahmr0",
+      "commit": "05c4d2b8967533bf42b5f16d5e116054f27d9dd6",
+      "step": "Create web service omoikane-api",
+      "detailed_error_available": false,
+      "auto_deploy_gap_root_cause_proven": false
+    }
+  },
+  "database": {
+    "jdbc": true,
+    "direct": true,
+    "inline_credentials": false,
+    "name": "neondb",
+    "endpoint_id": "ep-lingering-dew-aoqs32ya",
+    "connected_branch_id": "br-falling-poetry-aoabyynd",
+    "connected_branch_name": "prelaunch-api-test-20261110",
+    "connected_branch_default": false,
+    "sslmode": "require",
+    "hostname_validation_gate_met": false,
+    "flyway_versions": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "flyway_success": true,
+    "outbox_exists": false,
+    "duplicate_contact_groups": 0,
+    "production_branch_id": "br-plain-brook-aolmdy63",
+    "recovery_drill_covers_connected_branch": false,
+    "target_selection_required": true
+  },
+  "runtime": {
+    "approved_vercel_origin_in_allowlist": true,
+    "admin_url_approved_vercel_https_admin_path": true,
+    "sender_domain": "resend.dev",
+    "sender_is_sandbox": true,
+    "notification_recipient_configured": true,
+    "notification_recipient_count": 1,
+    "linked_environment_groups": false,
+    "secret_files_observed": false,
+    "values_remasked": true
+  },
+  "live_checks": {
+    "time_utc": "2026-11-28T09:12:29Z/2026-11-28T09:13:04Z",
+    "health": {
+      "http": 200,
+      "status": "UP"
+    },
+    "allowed_origin_preflight": {
+      "path": "/api/contact",
+      "method": "POST",
+      "origin": "https://omoikane-innovations-3h7t.vercel.app",
+      "http": 200,
+      "exact_allow_origin": true
+    },
+    "untrusted_origin_preflight": {
+      "origin": "https://untrusted.example",
+      "http": 403,
+      "allow_origin_present": false
+    },
+    "production_writes": false,
+    "emails_sent": false
+  },
+  "references": {
+    "jdbc_tls": "https://jdbc.postgresql.org/documentation/ssl/",
+    "resend_sandbox": "https://resend.com/docs/knowledge-base/403-error-resend-dev-domain"
+  },
+  "no_operations_executed": [
+    "production config change",
+    "deploy",
+    "Blueprint sync/apply",
+    "migration",
+    "submission",
+    "provider email",
+    "DNS/domain change"
+  ]
+}

@@ -2,6 +2,7 @@ package com.omoikane.api.email;
 
 import com.omoikane.api.contact.*;
 import com.omoikane.api.careers.*;
+import com.omoikane.api.subscription.*;
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.options;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -52,6 +54,8 @@ class PostgresReadinessIT {
         properties.add("spring.jpa.hibernate.ddl-auto",()->"validate");
         properties.add("spring.flyway.enabled",()->true);
         properties.add("app.admin.secret-key",()->"readiness-test-only");
+        // This suite exercises persistence; dedicated tests cover request limiting.
+        properties.add("app.rate-limit.requests-per-minute",()->1000);
         properties.add("app.cors.allowed-origins",()->"https://www.omoikaneinnovations.com,https://omoikaneinnovations.com,https://omoikane-innovations-3h7t.vercel.app,https://omoikane-innovations-3h7t-git-main-j-f4ac.vercel.app");
     }
     @Autowired JdbcTemplate jdbc;
@@ -60,6 +64,7 @@ class PostgresReadinessIT {
     @Autowired CareerApplicationService careers;
     @Autowired CareerApplicationRepository applications;
     @Autowired EmailDeliveryJobRepository jobs;
+    @Autowired EmailSubscriberRepository subscribers;
     @Autowired EmailOutbox outbox;
     @Autowired PlatformTransactionManager transactions;
     @Autowired MockMvc mvc;
@@ -127,6 +132,24 @@ class PostgresReadinessIT {
         mvc.perform(post("/api/contact").contentType("application/json").content(body.replace("Synthetic API enquiry"," "))).andExpect(status().isBadRequest());
         mvc.perform(post("/api/contact").contentType("application/json").content(body.replace("{","{\"website\":\"spam\","))).andExpect(status().isBadRequest());
         assertEquals(before+2,jobs.count());
+    }
+    @Test void newsletterConsentUnsubscribeAndReactivationPersistOnPostgres() throws Exception {
+        String body="{\"email\":\"readiness-newsletter@example.com\",\"consent\":true}";
+        mvc.perform(post("/api/subscriptions").contentType("application/json").content(body.replace("true","false")))
+            .andExpect(status().isBadRequest());
+        assertTrue(subscribers.findByEmailIgnoreCase("readiness-newsletter@example.com").isEmpty());
+        mvc.perform(post("/api/subscriptions").contentType("application/json").content(body)).andExpect(status().isCreated());
+        var saved=subscribers.findByEmailIgnoreCase("readiness-newsletter@example.com").orElseThrow();
+        String token=saved.getUnsubscribeToken();
+        assertNotNull(saved.getConsentGivenAt());
+        mvc.perform(post("/api/subscriptions").contentType("application/json").content(body)).andExpect(status().isOk());
+        mvc.perform(delete("/api/subscriptions/"+token)).andExpect(status().isOk());
+        assertEquals(EmailSubscriber.Status.UNSUBSCRIBED,subscribers.findById(saved.getId()).orElseThrow().getStatus());
+        mvc.perform(post("/api/subscriptions").contentType("application/json").content(body)).andExpect(status().isOk());
+        var reactivated=subscribers.findById(saved.getId()).orElseThrow();
+        assertEquals(EmailSubscriber.Status.ACTIVE,reactivated.getStatus());
+        assertNotEquals(token,reactivated.getUnsubscribeToken());
+        mvc.perform(delete("/api/subscriptions/"+token)).andExpect(status().isNotFound());
     }
     private CareerApplicationRequest application(String address) {
         var request=new CareerApplicationRequest();request.setName("Readiness fixture");request.setEmail(address);
